@@ -1,17 +1,16 @@
 # GDash #
 
-**GDash** is a Boulder Dash clone. The main goal of the project is to implement a clone which is as close to the original as possible.
+Forked **GDash** to add a command line option to export caves in `.CrLi` (Crazy Light engine) format. Previously you had to do that with the GUI for each cave, which is not very comfortable for a bulk export.
 
-The game runs under Windows, Linux and other Unix clones, and also on Mac. For compiling, you need the GTK+ dev files, SDL, SDL_Image and SDL_Mixer (with dev files). Read more about GDash in the [Boulder Dash Forum](http://www.boulder-dash.nl/forum/viewtopic.php?t=121).
+### Usage
+``
+$ ./gdash BoulderDash02.bd --export
+``
+will generate a `.CrLi file` for each cave in the current directory.
 
-GDash has a cave editor, supports sound, joystick and keyboard controls. It can use GTK+, SDL and OpenGL for drawing. The OpenGL engine can use shaders, which provide fullscreen graphical effects like TV screen emulation.
+### Notes
 
-![http://gdash.googlecode.com/files/gdashgame.png](https://bitbucket.org/repo/ejzABR/images/4034423466-gdashgame.png)
+This project was only compiled on Windows and requires cygwin.
 
-## License ##
 
-The game is licensed under MIT license terms. See the COPYING file in the source tree.
-
-## Ports ##
-
-GDash has an unofficial [Pandora port](http://repo.openpandora.org/?page=detail&app=gdash).
+It does not require an X server, indeed this is untested.
