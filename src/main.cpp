@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -33,9 +33,9 @@
 
 #ifdef HAVE_SDL
 /* on windows, sdl does some hack on the main function.
- * therefore we need to include this file, even if it seems
- * to do nothing. */
-#include <SDL/SDL.h>
+ * therefore we need to include this file,
+ * even if it seems to do nothing. */
+#include <SDL2/SDL.h>
 #endif
 
 #include "cave/caveset.hpp"
@@ -45,6 +45,7 @@
 #include "misc/about.hpp"
 #include "settings.hpp"
 #include "framework/commands.hpp"
+#include "fileops/bdcffload.hpp"
 #include "fileops/loadfile.hpp"
 #include "fileops/highscore.hpp"
 #include "fileops/binaryimport.hpp"
@@ -54,6 +55,7 @@
 #include "editor/editor.hpp"
 #include "editor/editorcellrenderer.hpp"
 #include "editor/exporthtml.hpp"
+#include "editor/exportcrli.hpp"
 #include "gtk/gtkpixbuffactory.hpp"
 #include "gtk/gtkscreen.hpp"
 #include "gtk/gtkui.hpp"
@@ -69,6 +71,7 @@
 
 int main(int argc, char *argv[]) {
     CaveSet caveset;
+    int exportcrli = 0;
     int quit = 0;
 #ifdef HAVE_GTK
     gboolean editor = FALSE;
@@ -95,6 +98,7 @@ int main(int argc, char *argv[]) {
 #ifdef HAVE_GTK
         {"save-docs", 0, 0, G_OPTION_ARG_INT, &save_doc_lang, N_("Save documentation in HTML, in the given language identified by an integer.")},
 #endif
+        {"export", 'x', 0, G_OPTION_ARG_NONE, &exportcrli, N_("Export caveset in CriLi format")},
         {"quit", 'q', 0, G_OPTION_ARG_NONE, &quit, N_("Batch mode: quit after specified tasks")},
         {NULL}
     };
@@ -242,11 +246,25 @@ int main(int argc, char *argv[]) {
     }
 #endif
 
+    /* export all caves into Crazy Light engine file format */
+    if (exportcrli) {
+        gd_message(CPrintf("--- Exporting caves into CrLi format..."));
+        gd_message(CPrintf("--- cave set name: %s") % caveset.name);
+        gd_message(CPrintf("--- number of caves: %d") % caveset.caves.size());
+        for (unsigned n = 0; n < caveset.caves.size(); n++) {
+                CaveStored *cave = caveset.caves.at(n);
+                std::string filename = SPrintf("%02d-%s.CrLi") % (n + 1) % cave -> name;
+                gd_message(CPrintf("--- Writing cave: %s") % filename);
+                gd_export_cave_to_crli_cavefile(cave, 0, filename.c_str());
+        }
+    }
+
     /* if batch mode, quit now */
     if (quit) {
         global_logger.clear();
         return 0;
     }
+
 #ifdef HAVE_GTK
     if (force_quit_no_gtk) {
         gd_critical("Cannot initialize GTK+");
