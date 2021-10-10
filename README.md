@@ -3,9 +3,9 @@
 Forked **GDash** to add a command line option to export caves in `.CrLi` (Crazy Light engine) format. Previously you had to do that with the GUI for each cave, which is not very comfortable for a bulk export.
 
 ### Usage
-``
-$ ./gdash BoulderDash02.bd --export
-``
+
+    $ ./gdash BoulderDash02.bd --export
+
 will generate a `.CrLi file` for each cave in the current directory.
 
 ### Notes
