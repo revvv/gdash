@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -54,6 +54,7 @@ bool Joystick::have_joystick() {
 
 bool Joystick::up() {
 #ifdef HAVE_SDL
+    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 1) < -JoystickThreshold;
 #else
     return false;
@@ -62,6 +63,7 @@ bool Joystick::up() {
 
 bool Joystick::down() {
 #ifdef HAVE_SDL
+    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 1) > JoystickThreshold;
 #else
     return false;
@@ -70,6 +72,7 @@ bool Joystick::down() {
 
 bool Joystick::left() {
 #ifdef HAVE_SDL
+    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 0) < -JoystickThreshold;
 #else
     return false;
@@ -78,6 +81,7 @@ bool Joystick::left() {
 
 bool Joystick::right() {
 #ifdef HAVE_SDL
+    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 0) > JoystickThreshold;
 #else
     return false;
@@ -86,6 +90,7 @@ bool Joystick::right() {
 
 bool Joystick::fire1() {
 #ifdef HAVE_SDL
+    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && (SDL_JoystickGetButton(joystick_1, 0));
 #else
     return false;
@@ -94,6 +99,7 @@ bool Joystick::fire1() {
 
 bool Joystick::fire2() {
 #ifdef HAVE_SDL
+    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && (SDL_JoystickGetButton(joystick_1, 1));
 #else
     return false;
