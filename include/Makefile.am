@@ -91,7 +91,7 @@ EXTRA_DIST = $(ICONS) $(TITLE) $(GAMEBACKGROUND) $(FOR_HTML) \
 # for included ICONS
 icons.list: $(ICONS)
 	( rm -f $@; \
-		for image in $<; do \
+		for image in $(ICONS); do \
 			echo $$image | sed s/\.png$$// >> $@; \
 			echo $$image >> $@; \
 		done )

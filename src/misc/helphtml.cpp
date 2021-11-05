@@ -74,8 +74,8 @@ static std::string help_to_html_string(helpdata const help_text[], GtkWidget *wi
             result += first ? "<h2>" : "<h3>";
         if (pixbuf) {
             std::string filename = Printf("image_%d.png", image++);
-            g_object_unref(pixbuf);
             gdk_pixbuf_save(pixbuf, filename.c_str(), "png", NULL, "compression", "9", NULL);
+            g_object_unref(pixbuf);
             result += Printf("<img src=\"%s\"> ", filename);
         }
         if (heading != "") {
