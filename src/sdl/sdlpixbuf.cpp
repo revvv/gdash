@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
 
 #include "config.h"
 
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 #include <stdexcept>
 
 #include "cave/colors.hpp"
@@ -41,8 +41,7 @@ int SDLPixbuf::get_height() const {
 
 
 SDLPixbuf::SDLPixbuf(int w, int h) {
-    surface = SDL_CreateRGBSurface(0, w, h, 32, rmask, gmask, bmask, amask);
-    SDL_SetAlpha(surface, SDL_SRCALPHA, SDL_ALPHA_OPAQUE);
+    surface.reset(SDL_CreateRGBSurface(0, w, h, 32, rmask, gmask, bmask, amask));
     if (!surface)
         throw std::runtime_error(std::string("could not create surface: ") + SDL_GetError());
 }
@@ -53,17 +52,10 @@ SDLPixbuf::SDLPixbuf(SDL_Surface *surface_)
     /* if the r/g/b/masks do not match our preset values, the image is not stored in R,G,B,[A] byte order
      * in memory. so convert it. */
     if (surface->format->BytesPerPixel != 4 || surface->format->Rmask != rmask || surface->format->Gmask != gmask || surface->format->Bmask != bmask) {
-        SDL_Surface *newsurface = SDL_CreateRGBSurface(SDL_SRCALPHA, surface->w, surface->h, 32, rmask, gmask, bmask, amask);
-        SDL_SetAlpha(surface, 0, SDL_ALPHA_OPAQUE);
-        SDL_BlitSurface(surface, NULL, newsurface, NULL);
-        SDL_FreeSurface(surface);
-        surface = newsurface;
+        std::unique_ptr<SDL_Surface, Deleter<SDL_Surface, SDL_FreeSurface>> newsurface(SDL_CreateRGBSurface(0, surface->w, surface->h, 32, rmask, gmask, bmask, amask));
+        SDL_BlitSurface(surface.get(), NULL, newsurface.get(), NULL);
+        surface = std::move(newsurface);
     }
-}
-
-
-SDLPixbuf::~SDLPixbuf() {
-    SDL_FreeSurface(surface);
 }
 
 
@@ -75,7 +67,7 @@ void SDLPixbuf::fill_rect(int x, int y, int w, int h, const GdColor &c) {
     dst.h = h;
     unsigned char r, g, b;
     c.get_rgb(r, g, b);
-    SDL_FillRect(surface, &dst, SDL_MapRGB(surface->format, r, g, b));
+    SDL_FillRect(surface.get(), &dst, SDL_MapRGB(surface->format, r, g, b));
 }
 
 
@@ -87,8 +79,7 @@ void SDLPixbuf::blit_full(int x, int y, int w, int h, Pixbuf &dest, int dx, int 
     src.h = h;
     dst.x = dx;
     dst.y = dy;
-    SDL_SetAlpha(surface, SDL_SRCALPHA, SDL_ALPHA_OPAQUE);
-    SDL_BlitSurface(surface, &src, static_cast<SDLPixbuf &>(dest).surface, &dst);
+    SDL_BlitSurface(surface.get(), &src, static_cast<SDLPixbuf &>(dest).surface.get(), &dst);
 }
 
 
@@ -100,8 +91,7 @@ void SDLPixbuf::copy_full(int x, int y, int w, int h, Pixbuf &dest, int dx, int 
     src.h = h;
     dst.x = dx;
     dst.y = dy;
-    SDL_SetAlpha(surface, 0, SDL_ALPHA_OPAQUE);
-    SDL_BlitSurface(surface, &src, static_cast<SDLPixbuf &>(dest).surface, &dst);
+    SDL_BlitSurface(surface.get(), &src, static_cast<SDLPixbuf &>(dest).surface.get(), &dst);
 }
 
 

@@ -79,7 +79,6 @@ pkgdata_DATA = boulder_rush.png c64_gfx.png c64_gfx_bd2.png
 
 EXTRA_DIST = $(ICONS) $(TITLE) $(GAMEBACKGROUND) $(FOR_HTML) \
 	icons.list \
-	files2c.sh \
 	c64_font.png \
 	palettetoact.c palette2c.c \
 	$(GDASH_ICON_32) \
@@ -89,11 +88,10 @@ EXTRA_DIST = $(ICONS) $(TITLE) $(GAMEBACKGROUND) $(FOR_HTML) \
 	$(ATARIPALETTES) \
 	$(DTVPALETTES)
 
-
 # for included ICONS
-icons.list: $(ICONS) Makefile.am
+icons.list: $(ICONS)
 	( rm -f $@; \
-		for image in $(ICONS); do \
+		for image in $<; do \
 			echo $$image | sed s/\.png$$// >> $@; \
 			echo $$image >> $@; \
 		done )
@@ -104,45 +102,48 @@ icons.cpp: $(ICONS) icons.list
 
 # own programs which generate include files
 noinst_PROGRAMS = \
-	file2c
+	files2c
 
 # this utility creates an include file for any datafile
-file2c_SOURCES = \
-	file2c.cpp
+files2c_CPPFLAGS = -g -Wall -std=c++14
+files2c_LDFLAGS = -g -Wall
+files2c_SOURCES = \
+	files2c.cpp
 
-levels.cpp: $(CAVES) file2c Makefile.am
-	sh ./files2c.sh $@ level $(CAVES)
+levels.cpp: $(CAVES)
+	make files2c$(EXEEXT)
+	./files2c level $^ > $@
 
-ataripal.cpp: $(ATARIPALETTES) file2c Makefile.am
-	sh ./files2c.sh $@ atari_palettes $(ATARIPALETTES)
+ataripal.cpp: $(ATARIPALETTES)
+	make files2c$(EXEEXT)
+	./files2c atari_palettes $^ > $@
 
-dtvpal.cpp: $(DTVPALETTES) file2c Makefile.am
-	sh ./files2c.sh $@ c64dtv_palettes $(DTVPALETTES)
+dtvpal.cpp: $(DTVPALETTES)
+	make files2c$(EXEEXT)
+	./files2c c64dtv_palettes $^ > $@
 
-# the empty string causes files2c.sh not to write the pointer arrays
-title.cpp: $(TITLE) file2c Makefile.am
-	sh ./files2c.sh $@ "" $(TITLE)
+title.cpp: $(TITLE)
+	make files2c$(EXEEXT)
+	./files2c "" $^ > $@
 
-# the empty string causes files2c.sh not to write the pointer arrays
-gamebackground.cpp: $(GAMEBACKGROUND) file2c Makefile.am
-	sh ./files2c.sh $@ "" $(GAMEBACKGROUND)
+gamebackground.cpp: $(GAMEBACKGROUND)
+	makefiles2c$(EXEEXT)
+	./files2c "" $^ > $@
 
-# the empty string causes files2c.sh not to write the pointer arrays
-gdash_icon_32.cpp: $(GDASH_ICON_32) file2c Makefile.am
-	sh ./files2c.sh $@ "" $(GDASH_ICON_32)
+gdash_icon_32.cpp: $(GDASH_ICON_32)
+	make files2c$(EXEEXT)
+	./files2c "" $^ > $@
 
-# the empty string causes files2c.sh not to write the pointer arrays
-gdash_icon_48.cpp: $(GDASH_ICON_48) file2c Makefile.am
-	sh ./files2c.sh $@ "" $(GDASH_ICON_48)
+gdash_icon_48.cpp: $(GDASH_ICON_48)
+	make files2c$(EXEEXT)
+	./files2c "" $^ > $@
 
-# the empty string causes files2c.sh not to write the pointer arrays
-c64_gfx.cpp: c64_gfx.png file2c Makefile.am
-	sh ./files2c.sh $@ "" c64_gfx.png
+c64_gfx.cpp: c64_gfx.png files2c$(EXEEXT)
+	./files2c "" $< > $@
 
-# the empty string causes files2c.sh not to write the pointer arrays
-c64_font.cpp: c64_font.png file2c Makefile.am
-	sh ./files2c.sh $@ "" c64_font.png
+c64_font.cpp: c64_font.png files2c$(EXEEXT)
+	./files2c "" $< > $@
 
-# the empty string causes files2c.sh not to write the pointer arrays
-for_html.cpp: $(FOR_HTML) file2c Makefile.am
-	sh ./files2c.sh $@ "" $(FOR_HTML)
+for_html.cpp: $(FOR_HTML)
+	make files2c$(EXEEXT)
+	./files2c "" $(FOR_HTML) > $@

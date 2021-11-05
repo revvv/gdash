@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -27,6 +27,7 @@
 #include "config.h"
 
 #include <vector>
+#include <memory>
 
 class Pixbuf;
 class Pixmap;
@@ -38,7 +39,7 @@ class PixbufFactory;
  * Create and return an array of pixbufs, which contain the title animation, or the first frame only.
  * Up to the caller to delete the pixbufs!
  */
-std::vector<Pixbuf *> get_title_animation_pixbuf(const GdString &title_screen, const GdString &title_screen_scroll, bool one_frame_only, PixbufFactory &pixbuf_factory);
-std::vector<Pixmap *> get_title_animation_pixmap(const GdString &title_screen, const GdString &title_screen_scroll, bool one_frame_only, Screen &screen, PixbufFactory &pixbuf_factory);
+std::vector<std::unique_ptr<Pixbuf>> get_title_animation_pixbuf(const GdString &title_screen, const GdString &title_screen_scroll, bool one_frame_only, PixbufFactory &pixbuf_factory);
+std::vector<std::unique_ptr<Pixmap>> get_title_animation_pixmap(const GdString &title_screen, const GdString &title_screen_scroll, bool one_frame_only, Screen &screen, PixbufFactory &pixbuf_factory);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -30,8 +30,8 @@
 #include <stack>
 #include <queue>
 #include <string>
+#include <memory>
 
-#include "misc/smartptr.hpp"
 #include "framework/activity.hpp"
 #include "gfx/pixmapstorage.hpp"
 
@@ -143,26 +143,32 @@ public:
      * of the app object. The app object might also be assigned a caveset, in case
      * the activities in it use it. */
     App(Screen &screenref);
+    
     /** Destructor.
      * Deletes the screen, the gameinputhandler, the fontmanager and the pixbuffactory. */
     virtual ~App();
+    
     /** Set a Command to be executed when the app sees that it finished its work.
      * This happens when there are no activities in it and also there are no commands
      * in its queue to execute. */
-    void set_no_activity_command(SmartPtr<Command> command);
+    void set_no_activity_command(std::unique_ptr<Command> command);
+    
     /** Set the Command which is executed when the App is sent a quit event by calling
      * its App::quit_event() method. The task of the command object which is to be set
      * here is to decide what to do when the user closes the application. It might pop
      * all activities (therefore forcing the App to quit) or it might ask the user if
      * he wants to save his work. */
-    void set_quit_event_command(SmartPtr<Command> command);
+    void set_quit_event_command(std::unique_ptr<Command> command);
+    
     /** Set the command to be executed when the App::request_restart() method is called.
      * Activities can call this method to request their running enviroment to restart,
      * for example because the sound card settings are changed or because a new
      * PixbufFactory is to be created. */
-    void set_request_restart_command(SmartPtr<Command> command);
+    void set_request_restart_command(std::unique_ptr<Command> command);
+    
     /** Set the command to be executed on an App::start_editor() call. */
-    void set_start_editor_command(SmartPtr<Command> command);
+    void set_start_editor_command(std::unique_ptr<Command> command);
+    
     /** The app stores a Pixmap (the background), so it is a PixmapStorage. */
     virtual void release_pixmaps();
 
@@ -171,9 +177,6 @@ public:
     void clear_screen();
     /** Set the color of the next text drawn. */
     void set_color(const GdColor &color);
-    /** Draw some text with narrow characters on the screen.
-     * The text may contain color setting characters. */
-    int blittext_n(int x, int y, const char *text);
     /** Set the title line, which is the topmost line on the screen. */
     void title_line(const char *text);
     /** Set the status line, which is the bottom line on the screen. */
@@ -182,7 +185,7 @@ public:
     void draw_window(int rx, int ry, int rw, int rh);
     /** Draw scrollbar. */
     void draw_scrollbar(int min, int current, int max);
-
+    
     /* customizable ui features */
     /** Create a file selection dialog, and when the user accepts
      * the selection, parametrize the command with the name of the file and execute it.
@@ -192,7 +195,8 @@ public:
      * @param glob A semicolon-separated list of file name globs to select the files to show, eg. *.bd;*.gds.
      * @param for_save If the purpose of the file selection is saving a file.
      * @param command_when_successful The Command to be executed when the file selection is successful. */
-    virtual void select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, SmartPtr<Command1Param<std::string> > command_when_successful);
+    virtual void select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, std::unique_ptr<Command1Param<std::string> > command_when_successful);
+    
     /** Ask the user a simple yes or no question, and then execute the corresponding Command.
      * By default, this creates an AskYesNoActivity, but derived classes can override it.
      * @param question The text of the question.
@@ -200,7 +204,8 @@ public:
      * @param no_answer The text of the no-answer.
      * @param command_when_yes The command to be executed if the user said yes. May be NULL.
      * @param command_when_no The command to be executed if the user said no. May be NULL. */
-    virtual void ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, SmartPtr<Command> command_when_yes, SmartPtr<Command> command_when_no);
+    virtual void ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, std::unique_ptr<Command> command_when_yes, std::unique_ptr<Command> command_when_no = nullptr);
+    
     /** Show a long text to the user. The text may contain line breaks and color setting
      * codes interpreted by the FontManager::blittext() routine. It is also wrapped to
      * fit the width of the screen.
@@ -208,27 +213,33 @@ public:
      * @param title_line The title of the window.
      * @param text The text to be shown.
      * @param command_after_exit The Command to be executed after the activity is closed. May be omitted. */
-    virtual void show_text_and_do_command(char const *title_line, std::string const &text, SmartPtr<Command> command_after_exit = SmartPtr<Command>());
+    virtual void show_text_and_do_command(char const *title_line, std::string const &text, std::unique_ptr<Command> command_after_exit = nullptr);
+    
     /** Show an about dialog with data form the About class.
      * By default, this creates a ShowTextActivity with the text, but derived classes can override it. */
     virtual void show_about_info();
+    
     /** Ask the user to type one line of text, and when successful, call the Command parametrized with the text.
      * @param title_line The title of the window.
      * @param default_text The default value of the text box.
      * @param command_when_successful The command of one string parameter to be parametrized with the line
      *        typed and executed, if the user accepts the input. */
-    virtual void input_text_and_do_command(char const *title_line, char const *default_text, SmartPtr<Command1Param<std::string> > command_when_successful);
+    virtual void input_text_and_do_command(char const *title_line, char const *default_text, std::unique_ptr<Command1Param<std::string> > command_when_successful);
+    
     /** This method is to be called by Activity object to tell the App if a game is running.
      * By default, it does nothing, however derived classes may override it. */
     virtual void game_active(bool active) {}
+    
     /** Show the settings screen for the array of settable parameters.
      * @param settings Array of settable parameters, delimited with an item with a NULL name. */
     virtual void show_settings(Setting *settings);
+    
     /** Show a short message in a small window.
      * @param primary The message to show - first part.
      * @param secondary The message to show - second part, additional info.
      * @param command_after_exit A command to execute when the user acknowledged the text. May be omitted. */
-    virtual void show_message(std::string const &primary, std::string const &secondary = "", SmartPtr<Command> command_after_exit = SmartPtr<Command>());
+    virtual void show_message(std::string const &primary, std::string const &secondary = "", std::unique_ptr<Command> command_after_exit = nullptr);
+    
     /** Show help text.
      * @param help_text The strings of the help text. See the helpdata struct. */
     virtual void show_help(helpdata const help_text[]);
@@ -252,6 +263,22 @@ public:
     /** To be called when the user closes the window of the game. The quit_event_command
      * set via the set_quit_event_command() will be executed. */
     void quit_event();
+    
+    /**
+     * Pass the event to the topmost activity.
+     */
+    void textinput_event(char *appendtext) {
+        if (have_activity())
+            topmost_activity().textinput_event(appendtext);
+    }
+    
+    /**
+     * Pass the event to the topmost activity.
+     */
+    void textediting_event(char *overwritetext) {
+        if (have_activity())
+            topmost_activity().textediting_event(overwritetext);
+    }
 
     /* handling activities and commands */
     /** Push a newly allocated activity on the top of the activity stack.
@@ -259,23 +286,29 @@ public:
      * and the new activity will be sent an Activity::push_event and an Activity::shown_event(),
      * and finally an Activity::redraw_event(). When popped, the activity will be automatically deleted.
      * @param the_activity The Activity to push. */
-    void push_activity(Activity *the_activity);
+    void push_activity(std::unique_ptr<Activity>);
+    
     /** Pop the topmost activity. Before popping, a hidden_event() is sent. */
     void pop_activity();
+    
     /** Pop all activities. Can be used when restarting the application from the
      * title screen. The no activities command is not necessarily executed, because
      * there may be some commands left in the queue. */
     void pop_all_activities();
+    
     /** Put a command to be executed after processing the event in the queue.
      * The commands will be executed in the order of queueing. Command objects
      * are handled via smart pointers; if a pointer to a newly allocated Command
      * is given as the parameter, it will be automatically deleted.
      * @param the_command The command to be executed later. */
-    void enqueue_command(SmartPtr<Command> the_command);
+    void enqueue_command(std::unique_ptr<Command> the_command);
+    
     /** An Activity may call this to trigger executing the restart Command. */
     void request_restart();
+    
     /** An Activity may call this to trigger executing the editor Command. */
     void start_editor();
+    
     /** Return true if the topmost activity queued a redraw. */
     bool redraw_queued() const;
 
@@ -283,36 +316,53 @@ public:
     /** The FontManager to be used for drawing texts. Will be deleted by ~App.
      * Should use the pixbuf_factory assigned to the App. */
     FontManager *font_manager;
+    
     /** The Screen to draw on. Will be deleted by ~App. */
     Screen *screen;
+    
     /** The CaveSet. For Activity objects. */
     CaveSet *caveset;
+    
     /** Joystick & keyboard input, for the Activity objects. Will be deleted by ~App. */
     GameInputHandler *gameinput;
 
 private:
     /** The image used by App::clear_screen(). */
-    Pixmap *background_image;
+    std::unique_ptr<Pixmap> background_image;
+    
     /** The stack of the Activity objects handled. */
-    std::stack<Activity *> running_activities;
-    /** Returns the topmost activity, or NULL. */
-    Activity *topmost_activity() const;
+    std::stack<std::unique_ptr<Activity>> running_activities;
+    
+    /** Check if we have an activity. */
+    bool have_activity() const {
+        return !running_activities.empty();
+    }
+    
     /** The commands to be executed after the processing of the events. */
-    std::queue<SmartPtr<Command> > command_queue;
+    std::queue<std::unique_ptr<Command>> command_queue;
+    
     /** The command to be executed when all activities have quit. */
-    SmartPtr<Command> no_activity_command;
+    std::unique_ptr<Command> no_activity_command;
+    
     /** The command triggered by App::quit_event(). */
-    SmartPtr<Command> quit_event_command;
+    std::unique_ptr<Command> quit_event_command;
+    
     /** The command triggered by App::request_restart(). */
-    SmartPtr<Command> request_restart_command;
+    std::unique_ptr<Command> request_restart_command;
+    
     /** The command triggered by App::start_editor(). */
-    SmartPtr<Command> start_editor_command;
+    std::unique_ptr<Command> start_editor_command;
 
 protected:
     /** Process the commands in the queue. After all commands, check if
      * there are no activities left; if so, call the no_activity_command.
      * To be used by the App and descendants. */
     void process_commands();
+    
+    /** Returns the topmost activity. This is the one processing events. */
+    Activity & topmost_activity() const {
+        return *running_activities.top();
+    }
 };
 
 #endif

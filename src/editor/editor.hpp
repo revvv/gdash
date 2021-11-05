@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,12 +25,13 @@
 
 #include "config.h"
 
+#include <memory>
 #include <gtk/gtk.h>
 
 class EditorCellRenderer;
 class CaveSet;
 
-extern EditorCellRenderer *editor_cell_renderer;
+extern std::unique_ptr<EditorCellRenderer> editor_cell_renderer;
 void gd_cave_editor_run(CaveSet *caveset);
 
 #endif

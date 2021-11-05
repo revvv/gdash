@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,17 +25,16 @@
 
 #include "config.h"
 
+#include <vector>
+
 #include "cave/cavetypes.hpp"
 #include "cave/helper/cavehighscore.hpp"
 #include "cave/helper/reflective.hpp"
-#include "cave/helper/adoptingcontainer.hpp"
 #include "cave/cavestored.hpp"
 
 /// @ingroup Cave
 class CaveSet : public Reflective {
 public:
-    CaveSet();
-
     /* variables */
     GdString name;                  ///< Name of caveset
     GdString description;           ///< Some words about the caveset
@@ -53,9 +52,9 @@ public:
     GdString charset;
     GdString fontset;
 
-    GdInt initial_lives;            ///< initial lives at game start
-    GdInt maximum_lives;            ///< maximum lives
-    GdInt bonus_life_score;         ///< bonus life / number of points
+    GdInt initial_lives = 3;        ///< initial lives at game start; 3 is BDCFF default
+    GdInt maximum_lives = 9;        ///< maximum lives; 9 is BDCFF default
+    GdInt bonus_life_score = 500;   ///< bonus life / number of points; 500 is BDCFF default
     HighScoreTable highscore;       ///< highscore table for caveset
 
     GdBool edited;                  ///< changed since last save
@@ -63,20 +62,16 @@ public:
     GdInt last_selected_cave;       ///< If running a game, the index of the selected gave is stored here
     GdInt last_selected_level;      ///< If running a game, the level of the selected gave is stored here
 
-    AdoptingContainer<CaveStored> caves;
+    std::vector<CaveStored> caves;
 
     void save_to_file(const char *filename);
     void set_name_from_filename(const char *filename);
 
-    bool has_replays() const;
     bool has_caves() const {
         return !caves.empty();
     }
     bool has_levels() const;
-    CaveStored &cave(unsigned i) const {
-        return *(caves.at(i));
-    }
-    int cave_index(CaveStored const *cave) const;
+    bool has_replays() const;
     int first_selectable_cave_index() const;
     unsigned checksum() const;
 

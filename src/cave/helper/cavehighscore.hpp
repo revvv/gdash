@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -27,14 +27,15 @@
 
 #include <string>
 #include <vector>
+#include <utility>
 
 /// A structure which holds a player name and a high score.
 /// The HighScoreTable will store these sorted.
 struct HighScore {
     std::string name;
-    int score;
-    HighScore(const std::string &name_, int score_) : name(name_), score(score_) {}
-    HighScore() : name(), score(0) {}
+    int score = 0;
+    HighScore() = default;
+    HighScore(std::string name_, int score_) : name(std::move(name_)), score(score_) {}
 };
 
 
@@ -46,25 +47,24 @@ private:
 
 public:
     /// Return nth entry
-    HighScore &operator[](unsigned n) {
+    HighScore & operator[](unsigned n) {
         return table.at(n);
     }
-    const HighScore &operator[](unsigned n) const {
+    HighScore const & operator[](unsigned n) const {
         return table.at(n);
     }
     /// Check if the table has at least one entry. @return True, if there is an entry.
     bool has_highscore() {
         return !table.empty();
     }
-    bool is_highscore(int score) const;
-
-    int add(const std::string &name, int score);
     void clear() {
         table.clear();
     }
     unsigned size() const {
         return table.size();
     }
+    bool is_highscore(int score) const;
+    int add(std::string const & name, int score);
 };
 
 #endif

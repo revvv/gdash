@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,8 +25,8 @@
 #define COMMANDS_HPP_INCLUDED
 
 #include <string>
+#include <memory>
 
-#include "misc/smartptr.hpp"
 
 extern std::string gd_last_folder; // TO DELETE
 
@@ -45,24 +45,26 @@ class Activity;
  * to be overloaded by all descendants, as it is the method which should
  * perform the action.
  *
- * The memory management of Command objects is handler via the SmartPtr
+ * The memory management of Command objects is handler via the std::unique_ptr
  * class by the App.
  */
 class Command {
 public:
     /** Destructor. */
-    virtual ~Command();
+    virtual ~Command() = default;
 
 protected:
     /** Constructor. Command objects always know the App in which they work.
      * @param app The parent App. */
     Command(App *app): app(app) {}
+
     /** The parent App. */
     App *const app;
 
 private:
     /** This method should perform the action which is the role of the Command. */
     virtual void execute() = 0;
+
     /** The App class if a friend of this class, as commands are supposed to be executed only their parent App. */
     friend class App;
 };
@@ -141,15 +143,15 @@ public:
     /** Ctor.
      * @param app The parent app.
      * @param activity_to_push The Activity to be pushed onto the stack. Will be deleted by the App. */
-    PushActivityCommand(App *app, Activity *activity_to_push);
+    PushActivityCommand(App *app, std::unique_ptr<Activity> activity_to_push);
     /** Dtor.
      * If the Command is destructed before pushing the App, it will delete the Activity that did not
      * get pushed. */
-    ~PushActivityCommand();
+    ~PushActivityCommand() = default;
 
 private:
     /** The activity to be pushed. */
-    Activity *activity_to_push;
+    std::unique_ptr<Activity> activity_to_push;
     virtual void execute();
 };
 
@@ -231,10 +233,10 @@ public:
     /** Ctor.
      * @param app The parent app.
      * @param command_if_ok The Command to be executed if the caveset is not edited or the edits can be discarded. */
-    AskIfChangesDiscardedCommand(App *app, SmartPtr<Command> command_if_ok): Command(app), command_if_ok(command_if_ok) {}
+    AskIfChangesDiscardedCommand(App *app, std::unique_ptr<Command> command_if_ok): Command(app), command_if_ok(std::move(command_if_ok)) {}
 private:
     /** Remember the command to be executed. */
-    SmartPtr<Command> command_if_ok;
+    std::unique_ptr<Command> command_if_ok;
     virtual void execute();
 };
 

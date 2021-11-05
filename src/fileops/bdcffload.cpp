@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -59,7 +59,7 @@ bool struct_set_property(Reflective &str, const std::string &attrib, const std::
         if (gd_str_ascii_caseequal(prop_desc[i].identifier, attrib)) {
             /* found the identifier */
             identifier_found = true;
-            std::auto_ptr<GetterBase> const &prop = prop_desc[i].prop;
+            std::unique_ptr<GetterBase> const &prop = prop_desc[i].prop;
             if (prop_desc[i].type == GD_TYPE_STRING) {
                 /* strings are treated different, as occupy the whole length of the line */
                 str.get<GdString>(prop) = param;
@@ -134,13 +134,13 @@ bool struct_set_property(Reflective &str, const std::string &attrib, const std::
                 if (success)
                     paramindex++;   /* go to next parameter to process */
                 else
-                    gd_warning(CPrintf("invalid parameter '%s' for attribute %s") % params[paramindex] % attrib);
+                    gd_warning("invalid parameter '%s' for attribute %s", params[paramindex], attrib);
             }
         }
     /* if we found the identifier, but still could not process all parameters... */
     /* of course, not for strings, as the whole line is the string */
     if (identifier_found && !was_string && paramindex < paramcount)
-        gd_message(CPrintf("excess parameters for attribute '%s': '%s'") % attrib % params[paramindex]);
+        gd_message("excess parameters for attribute '%s': '%s'", attrib, params[paramindex]);
     g_strfreev(params);
 
     return identifier_found;
@@ -189,7 +189,7 @@ static bool cave_process_tags_func(CaveStored &cave, const std::string &attrib, 
             else    // was "false" -> normal space snapping
                 cave.snap_element = O_SPACE;
         } else
-            gd_warning(CPrintf("invalid param for '%s': '%s'") % attrib % param);
+            gd_warning("invalid param for '%s': '%s'", attrib, param);
         return true;
     }
     
@@ -201,7 +201,7 @@ static bool cave_process_tags_func(CaveStored &cave, const std::string &attrib, 
                 if (cave.scheduling == GD_SCHEDULING_PLCK)
                     cave.scheduling = GD_SCHEDULING_BD1;
         } else
-            gd_warning(CPrintf("invalid param for '%s': '%s'") % attrib % param);
+            gd_warning("invalid param for '%s': '%s'", attrib, param);
         return true;
     }
     
@@ -211,7 +211,7 @@ static bool cave_process_tags_func(CaveStored &cave, const std::string &attrib, 
         if (read_from_string(param, e))
             C64Import::cave_set_engine_defaults(cave, e);
         else
-            gd_warning(CPrintf("invalid param for '%s': '%s'") % attrib % param);
+            gd_warning("invalid param for '%s': '%s'", attrib, param);
         return true;
     }
     
@@ -223,7 +223,7 @@ static bool cave_process_tags_func(CaveStored &cave, const std::string &attrib, 
             cave.amoeba_too_big_effect = elem1;
             cave.amoeba_enclosed_effect = elem2;
         } else
-            gd_warning(CPrintf("invalid param for '%s': '%s'") % attrib % param);
+            gd_warning("invalid param for '%s': '%s'", attrib, param);
         return true;
     }
     
@@ -273,7 +273,7 @@ static bool cave_process_tags_func(CaveStored &cave, const std::string &attrib, 
             cave.color4 = c4;
             cave.color5 = c5;
         } else {
-            gd_message(CPrintf("invalid param for '%s': '%s'") % attrib % param);
+            gd_message("invalid param for '%s': '%s'", attrib, param);
         }
         
         return true;
@@ -322,15 +322,15 @@ static bool cave_process_tags_func(CaveStored &cave, const std::string &attrib, 
                     success = read_from_string(params[1], cave.expanding_wall_looks_like);
                 } else {
                     /* didn't find at all */
-                    gd_warning(CPrintf("invalid effect name '%s'") % params[0]);
+                    gd_warning("invalid effect name '%s'", params[0]);
                     success = true;     // to ignore
                 }
 
                 if (!success)
-                    gd_warning(CPrintf("cannot read element name '%s'") % params[1]);
+                    gd_warning("cannot read element name '%s'", params[1]);
             }
         } else
-            gd_warning(CPrintf("invalid effect specification '%s'") % param);
+            gd_warning("invalid effect specification '%s'", param);
         return true;
     }
     
@@ -344,15 +344,15 @@ static bool cave_process_tags_func(CaveStored &cave, const std::string &attrib, 
 /// @param lines The list of lines to find the attrib in.
 /// @param name The name of the attribute to find.
 /// @return true, if the property is found. If found, it is also processed and removed.
-static bool cave_process_specific_tag(CaveStored &cave, BdcffSection &lines, const std::string &name) {
-    BdcffSectionIterator it = find_if(lines.begin(), lines.end(), HasAttrib(name));
+static bool cave_process_specific_tag(CaveStored &cave, BdcffFile::BdcffSection &lines, const std::string &name) {
+    auto it = find_if(lines.begin(), lines.end(), HasAttrib(name));
     bool found = it != lines.end();
     if (found) {
         try {
             AttribParam ap(*it);        // split into attrib and param
             cave_process_tags_func(cave, ap.attrib, ap.param);
         } catch (std::exception &e) {
-            gd_warning(CPrintf("Cannot parse: %s") % *it);
+            gd_warning("Cannot parse: %s", *it);
         }
         lines.erase(it);            // erase after processing
     }
@@ -364,12 +364,10 @@ static bool cave_process_specific_tag(CaveStored &cave, BdcffSection &lines, con
 /// For example, the name is processed first, to be able to show all error messages with the cave name context.
 /// Then the engine tag is processed - well, because bdcff sucks.
 /// Then the size - to make sure ratios are read correctly - bdcff sucks.
-static void cave_process_all_tags(CaveStored &cave, BdcffSection &lines) {
-    BdcffSectionIterator it;
-
+static void cave_process_all_tags(CaveStored &cave, BdcffFile::BdcffSection &lines) {
     // first check cave name, so we can report errors correctly (saying that CaveStored xy: error foobar)
     cave_process_specific_tag(cave, lines, "Name");
-    SetLoggerContextForFunction scf((cave.name == "") ? SPrintf("<unnamed cave>") : (SPrintf("Cave '%s'") % cave.name));
+    SetLoggerContextForFunction scf((cave.name == "") ? Printf("<unnamed cave>") : (Printf("Cave '%s'", cave.name)));
 
     // process lame engine tag first so its settings may be overwritten later. fail.
     cave_process_specific_tag(cave, lines, "Engine");
@@ -400,16 +398,16 @@ static void cave_process_all_tags(CaveStored &cave, BdcffSection &lines) {
     }
 
     // process remaining tags - most of them do not require special care.
-    for (BdcffSectionConstIterator it = lines.begin(); it != lines.end(); ++it) {
+    for (auto it = lines.begin(); it != lines.end(); ++it) {
         try {
             AttribParam ap(*it);
             if (!cave_process_tags_func(cave, ap.attrib, ap.param)) {
-                gd_message(CPrintf("unknown tag '%s'") % ap.attrib);
+                gd_message("unknown tag '%s'", ap.attrib);
                 cave.unknown_tags += *it;
                 cave.unknown_tags += '\n';
             }
         } catch (std::exception &e) {
-            gd_warning(CPrintf("Cannot parse line: %s") % *it);
+            gd_warning("Cannot parse line: %s", *it);
         }
     }
 }
@@ -450,7 +448,7 @@ static BdcffFile parse_bdcff_sections(const char *file_contents) {
     state = Start;
     bool bailout = false;
     for (int lineno = 1; !bailout && getline(is, line); lineno++) {
-        SetLoggerContextForFunction scf(SPrintf("Line %d") % lineno);
+        SetLoggerContextForFunction scf(Printf("Line %d", lineno));
 
         size_t found_r;
         while ((found_r = line.find('\r')) != std::string::npos)
@@ -573,7 +571,7 @@ static BdcffFile parse_bdcff_sections(const char *file_contents) {
                     file.caves.push_back(BdcffFile::CaveInfo());
                 }
                 state = CaveSReplay;
-                file.caves.back().replays.push_back(BdcffSection());
+                file.caves.back().replays.push_back(BdcffFile::BdcffSection());
             } else if (gd_str_ascii_caseequal(line, "[/replay]")) {
                 if (state != CaveSReplay)
                     gd_warning("[/replay] tag without starting [replay] tag");
@@ -593,7 +591,7 @@ static BdcffFile parse_bdcff_sections(const char *file_contents) {
                 else
                     file.caves.back().objects.push_back(line);
             } else
-                gd_warning(CPrintf("unknown section: \"%s\"") % line);
+                gd_warning("unknown section: \"%s\"", line);
 
             continue;
         }
@@ -612,7 +610,7 @@ static BdcffFile parse_bdcff_sections(const char *file_contents) {
 
         switch (state) {
             case Start: /* should be nothing here. */
-                gd_critical(CPrintf("nothing allowed outside [BDCFF]: %s") % line);
+                gd_critical("nothing allowed outside [BDCFF]: %s", line);
                 bailout = true;
                 break;
 
@@ -679,7 +677,7 @@ CaveSet load_from_bdcff(const char *contents) {
     std::string version_read = "0.32";  /* assume version to be 0.32, also when the file does not specify it explicitly */
 
     /* PROCESS BDCFF PROPERTIES */
-    for (BdcffSectionConstIterator it = file.bdcff.begin(); it != file.bdcff.end(); ++it) {
+    for (auto it = file.bdcff.begin(); it != file.bdcff.end(); ++it) {
         AttribParam ap(*it);
 
         if (gd_str_ascii_caseequal(ap.attrib, "Version"))
@@ -689,13 +687,13 @@ CaveSet load_from_bdcff(const char *contents) {
             cave_process_tags_func(default_cave, ap.attrib, ap.param);
             gd_message("Invalid BDCFF: Engine= belongs in the [game] section!");
         } else
-            gd_warning(CPrintf("Invalid attribute: %s") % ap.attrib);
+            gd_warning("Invalid attribute: %s", ap.attrib);
     }
 
     CaveSet cs;
 
     /* PROCESS CAVESET PROPERTIES */
-    for (BdcffSectionConstIterator it = file.caveset_properties.begin(); it != file.caveset_properties.end(); ++it) {
+    for (auto it = file.caveset_properties.begin(); it != file.caveset_properties.end(); ++it) {
         AttribParam ap(*it);
 
         if (gd_str_ascii_caseequal(ap.attrib, "Caves"))
@@ -708,12 +706,12 @@ CaveSet load_from_bdcff(const char *contents) {
             /* if not applicable, use it for the default cave */
             if (!cave_process_tags_func(default_cave, ap.attrib, ap.param))
                 /* if not applicable for that, it is invalid. */
-                gd_warning(CPrintf("Invalid attribute: %s") % ap.attrib);
+                gd_warning("Invalid attribute: %s", ap.attrib);
     }
 
 
     /* PROCESS CAVESET PROPERTIES */
-    for (BdcffSectionConstIterator it = file.caveset_properties.begin(); it != file.caveset_properties.end(); ++it) {
+    for (auto it = file.caveset_properties.begin(); it != file.caveset_properties.end(); ++it) {
         AttribParam ap(*it);
 
         if (gd_str_ascii_caseequal(ap.attrib, "Caves"))
@@ -726,26 +724,26 @@ CaveSet load_from_bdcff(const char *contents) {
             /* if not applicable, use it for the default cave */
             if (!struct_set_own_property(default_cave, ap.attrib, ap.param, default_cave.w * default_cave.h))
                 /* if not applicable for that, it is invalid. */
-                gd_warning(CPrintf("Invalid attribute: %s") % ap.attrib);
+                gd_warning("Invalid attribute: %s", ap.attrib);
     }
 
     /* PROCESS CAVESET HIGHSCORE */
     /* if not using bdcff highscore, simply ignore it. */
     if (gd_use_bdcff_highscore) {
-        for (BdcffSectionConstIterator it = file.highscore.begin(); it != file.highscore.end(); ++it) {
+        for (auto it = file.highscore.begin(); it != file.highscore.end(); ++it) {
             /* stored as <score> <space> <name> */
             try {
                 AttribParam ap(*it, ' ');
                 if (!add_highscore(cs.highscore, ap.param, ap.attrib))
-                    gd_message(CPrintf("Invalid highscore: '%s'") % *it);
+                    gd_message("Invalid highscore: '%s'", *it);
             } catch (std::exception &e) {
-                gd_message(CPrintf("Invalid highscore line: '%s'") % *it);
+                gd_message("Invalid highscore line: '%s'", *it);
             }
         }
     }
 
     /* PROCESS CAVESET MAPCODES */
-    for (BdcffSectionConstIterator it = file.mapcodes.begin(); it != file.mapcodes.end(); ++it) {
+    for (auto it = file.mapcodes.begin(); it != file.mapcodes.end(); ++it) {
         AttribParam ap(*it);
 
         if (gd_str_ascii_caseequal(ap.attrib, "Length")) {
@@ -756,30 +754,27 @@ CaveSet load_from_bdcff(const char *contents) {
             if (read_from_string(ap.param, elem))
                 ctet.set(ap.attrib[0], elem);
             else
-                gd_warning(CPrintf("Unknown element name for map char: '%s'") % ap.attrib[0]);
+                gd_warning("Unknown element name for map char: '%s'", ap.attrib[0]);
         }
     }
 
     /* PROCESS CAVES */
     /* xxx const iterator cannot be used */
     for (std::list<BdcffFile::CaveInfo>::iterator it = file.caves.begin(); it != file.caves.end(); ++it) {
-        CaveStored *pcave = new CaveStored(default_cave);
-        CaveStored &cave = *pcave;          /* use it as a reference, too */
-
-        cs.caves.push_back_adopt(pcave);   /* add new cave */
+        CaveStored cave = default_cave;
 
         cave_process_all_tags(cave, it->properties);
 
         /* process cave highscore. if not using bdcff highscore, simply ignore. */
         if (gd_use_bdcff_highscore) {
-            for (BdcffSectionConstIterator hit = it->highscore.begin(); hit != it->highscore.end(); ++hit) {
+            for (auto hit = it->highscore.begin(); hit != it->highscore.end(); ++hit) {
                 /* stored as <score> <space> <name> */
                 try {
                     AttribParam ap(*hit, ' ');
                     if (!add_highscore(cave.highscore, ap.param, ap.attrib))
-                        gd_message(CPrintf("Invalid highscore: '%s'") % *hit);
+                        gd_message("Invalid highscore: '%s'", *hit);
                 } catch (std::exception &e) {
-                    gd_message(CPrintf("Invalid highscore line: '%s'") % *hit);
+                    gd_message("Invalid highscore line: '%s'", *hit);
                 }
             }
         }
@@ -794,15 +789,17 @@ CaveSet load_from_bdcff(const char *contents) {
             cave.map.set_size(cave.w, cave.h, cave.initial_border);
 
             if (int(it->map.size()) != cave.height())
-                gd_warning(CPrintf("map error: cave height=%d (%d visible), map height=%u") % cave.height() % (cave.y2 - cave.y1 + 1) % it->map.size());
+                gd_warning("map error: cave height=%d (%d visible), map height=%u", cave.height(), cave.y2 - cave.y1 + 1, it->map.size());
 
-            BdcffSectionConstIterator mit;  /* to iterate through map lines */
-            int y;
-            for (y = 0, mit = it->map.begin(); y < cave.h && mit != it->map.end(); ++mit, ++y) {
+            int y = 0;
+            for (auto mit = it->map.begin(); mit != it->map.end(); ++mit) {
                 int linelen = mit->size();
 
                 for (int x = 0; x < std::min(linelen, signed(cave.w)); x++)
                     cave.map(x, y) = ctet.get((*mit)[x]);
+                ++y;
+                if (y >= cave.h)
+                    break;
             }
         }
 
@@ -810,7 +807,7 @@ CaveSet load_from_bdcff(const char *contents) {
         GdBoolLevels levels;
         for (unsigned n = 0; n < 5; ++n)
             levels[n] = true;
-        for (BdcffSectionConstIterator oit = it->objects.begin(); oit != it->objects.end(); ++oit) {
+        for (auto oit = it->objects.begin(); oit != it->objects.end(); ++oit) {
             // process [levels] tags for objects, or process objects.
             // [level] tags are badly designed in bdcff, as they are
             // not really "sections", but properties of objects.
@@ -827,7 +824,7 @@ CaveSet load_from_bdcff(const char *contents) {
                     if (i - 1 >= 0 && i - 1 < 5)
                         levels[i - 1] = true;
                     else {
-                        gd_warning(CPrintf("Invalid [Levels=xxx] specification"));
+                        gd_warning("Invalid [Levels=xxx] specification");
                         for (unsigned n = 0; n < 5; ++n)
                             levels[n] = true;
                         break;
@@ -836,24 +833,24 @@ CaveSet load_from_bdcff(const char *contents) {
                     is >> c; // read comma
                 }
             } else {
-                CaveObject *newobj = CaveObject::create_from_bdcff(*oit);
+                auto newobj = CaveObject::create_from_bdcff(*oit);
                 if (newobj) {
                     for (unsigned n = 0; n < 5; ++n)
                         newobj->seen_on[n] = levels[n];
-                    cave.objects.push_back_adopt(newobj);
+                    cave.objects.push_back(std::move(newobj));
                 } else
-                    gd_warning(CPrintf("invalid object specification: %s") % *oit);
+                    gd_warning("invalid object specification: %s", *oit);
             }
         }
 
         /* process replays */
-        for (std::list<BdcffSection>::const_iterator rit = it->replays.begin(); rit != it->replays.end(); ++rit) {
+        for (auto rit = it->replays.begin(); rit != it->replays.end(); ++rit) {
             cave.replays.push_back(CaveReplay());       /* push an empty replay */
             CaveReplay &replay = cave.replays.back(); /* and work on that object */
 
             replay.saved = true; /* set "saved" flag, so this replay will be written when the caveset is saved again */
             /* and process its contents */
-            for (BdcffSectionConstIterator lines_it = rit->begin(); lines_it != rit->end(); ++lines_it) {
+            for (auto lines_it = rit->begin(); lines_it != rit->end(); ++lines_it) {
                 if (lines_it->find('=') != std::string::npos) {
                     AttribParam ap(*lines_it);
                     replay_process_tag(replay, ap.attrib, ap.param);
@@ -863,7 +860,7 @@ CaveSet load_from_bdcff(const char *contents) {
         }
 
         /* process demos */
-        for (BdcffSectionConstIterator dit = it->demo.begin(); dit != it->demo.end(); ++dit) {
+        for (auto dit = it->demo.begin(); dit != it->demo.end(); ++dit) {
             cave.replays.push_back(CaveReplay());       /* push an empty replay */
             CaveReplay &replay = cave.replays.back(); /* and work on that object */
 
@@ -871,6 +868,8 @@ CaveSet load_from_bdcff(const char *contents) {
             replay.player_name = "???";
             replay_process_tag(replay, "Movements", *dit);  /* try to interpret it as a bdcff replay */
         }
+        
+        cs.caves.push_back(std::move(cave));   /* add new cave */
     }
 
     /* old bdcff files hack. explanation follows. */
@@ -885,7 +884,7 @@ CaveSet load_from_bdcff(const char *contents) {
         gd_message("No BDCFF version, or 0.32. Using unspecified-intermission-size hack.");
 
         for (unsigned int i = 0; i < cs.caves.size(); ++i) {
-            CaveStored &cav = cs.cave(i);
+            CaveStored &cav = cs.caves[i];
 
             /* only applies to intermissions */
             /* not applied to mapped caves, as maps are filled with initial border, if the map read is smaller */
@@ -899,18 +898,18 @@ CaveSet load_from_bdcff(const char *contents) {
                 cav.y2 = 11;
 
                 /* and cover the invisible area */
-                cav.objects.push_back_adopt(new CaveFillRect(Coordinate(0, 11), Coordinate(39, 21), cav.initial_border, cav.initial_border));
-                cav.objects.push_back_adopt(new CaveFillRect(Coordinate(19, 0), Coordinate(39, 21), cav.initial_border, cav.initial_border));
+                cav.objects.push_back(CaveFillRect(Coordinate(0, 11), Coordinate(39, 21), cav.initial_border, cav.initial_border));
+                cav.objects.push_back(CaveFillRect(Coordinate(19, 0), Coordinate(39, 21), cav.initial_border, cav.initial_border));
             }
         }
     }
 
     if (version_read != BDCFF_VERSION)
-        gd_warning(CPrintf("BDCFF version %s, loaded caveset may have errors.") % version_read);
+        gd_warning("BDCFF version %s, loaded caveset may have errors.", version_read);
 
     // check for replays which are problematic
     for (unsigned int i = 0; i < cs.caves.size(); ++i)
-        gd_cave_check_replays(cs.cave(i), true, false, false);
+        gd_cave_check_replays(cs.caves[i], true, false, false);
 
     // return the created caveset.
     return cs;

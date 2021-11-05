@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,7 +25,7 @@
 
 #include <stdexcept>
 #include <memory>
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 #include "sdl/sdlscreen.hpp"
 #include "sdl/sdlpixbuf.hpp"
@@ -35,68 +35,78 @@
 #include "settings.hpp"
 
 
-SDLScreen::SDLScreen(PixbufFactory &pixbuf_factory)
-    : SDLAbstractScreen(pixbuf_factory) {
-    surface = NULL;
-}
-
-
-SDLScreen::~SDLScreen() {
-    if (SDL_WasInit(SDL_INIT_VIDEO))
-        SDL_QuitSubSystem(SDL_INIT_VIDEO);
-}
-
-
 void SDLScreen::configure_size() {
     /* close window, if already exists, to create a new one */
-    if (SDL_WasInit(SDL_INIT_VIDEO))
-        SDL_QuitSubSystem(SDL_INIT_VIDEO);
+    window.reset();
+    renderer.reset();
+    texture.reset();
+
     /* init screen */
-    SDL_InitSubSystem(SDL_INIT_VIDEO);
-    /* for some reason, keyboard settings must be done here */
-    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-    SDL_EnableUNICODE(1);
-    /* icon */
-    SDL_RWops *rwop = SDL_RWFromConstMem(Screen::gdash_icon_32_png, Screen::gdash_icon_32_size);
-    SDL_Surface *icon = IMG_Load_RW(rwop, 1);  // 1 = automatically closes rwop
-    SDL_WM_SetIcon(icon, NULL);
-    SDL_FreeSurface(icon);
-    set_title("GDash");
+    if (!SDL_WasInit(SDL_INIT_VIDEO)) {
+        SDL_Init(SDL_INIT_VIDEO);
+
+        /* when the text input is started for the first time, SDL seems to process the last keydown event.
+         * this is a problem, because the inputtextactivity will see the initiating keypress as text.
+         * the problem disappears on the next invocations of text input mode.
+         * so when creating the sdl window, we enable text input for a moment. */
+        start_text_input();
+        stop_text_input();
+    }
 
     /* create screen */
-    Uint32 flags = SDL_ANYFORMAT;
-    surface = SDL_SetVideoMode(w, h, 0, flags | (gd_fullscreen ? SDL_FULLSCREEN : 0));
-    if (gd_fullscreen && !surface)
-        surface = SDL_SetVideoMode(w, h, 0, flags);        // try the same, without fullscreen
-    if (!surface)
+    surface.reset(SDL_CreateRGBSurface(0, w, h, 32, Pixbuf::rmask, Pixbuf::gmask, Pixbuf::bmask, Pixbuf::amask));
+    if (gd_fullscreen)
+        window.reset(SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP));
+    else
+        window.reset(SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w, h, 0));
+    if (!window)
         throw ScreenConfigureException("cannot initialize sdl video");
+    renderer.reset(SDL_CreateRenderer(window.get(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC));
+    SDL_RenderSetLogicalSize(renderer.get(), w, h);
+    texture.reset(SDL_CreateTexture(renderer.get(), SDL_PIXELFORMAT_ABGR8888, SDL_TEXTUREACCESS_STREAMING, w, h));
+    
     /* do not show mouse cursor */
     SDL_ShowCursor(SDL_DISABLE);
     /* warp mouse pointer so cursor cannot be seen, if the above call did nothing for some reason */
-    SDL_WarpMouse(w - 1, h - 1);
+    SDL_WarpMouseInWindow(window.get(), w - 1, h - 1);
+
+    /* title & icon */
+    set_title("GDash");
+    SDL_RWops *rwop = SDL_RWFromConstMem(Screen::gdash_icon_32_png, Screen::gdash_icon_32_size);
+    std::unique_ptr<SDL_Surface, Deleter<SDL_Surface, SDL_FreeSurface>> icon(IMG_Load_RW(rwop, 1));  // 1 = automatically closes rwop
+    SDL_SetWindowIcon(window.get(), icon.get());
 }
 
 
 void SDLScreen::set_title(char const *title) {
-    SDL_WM_SetCaption(title, NULL);
+    SDL_SetWindowTitle(window.get(), title);
 }
 
 
 bool SDLScreen::must_redraw_all_before_flip() const {
-    if (surface == NULL)
-        return false;
-    /* if we have double buffering, all stuff must be redrawn before flips. */
-    /* unused currently, but could be used for directx */
-    return (surface->flags & SDL_DOUBLEBUF) != 0;
+    return false;
 }
 
 
 void SDLScreen::flip() {
-    SDL_Flip(surface);
+    SDL_UpdateTexture(texture.get(), NULL, surface->pixels, surface->w * sizeof(Uint32));
+    SDL_RenderClear(renderer.get());
+    SDL_RenderCopy(renderer.get(), texture.get(), NULL, NULL);
+    SDL_RenderPresent(renderer.get());
 }
 
 
-Pixmap *SDLScreen::create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const {
-    SDLPixbuf const &sdlpb = static_cast<SDLPixbuf const &>(pb);
-    return new SDLPixmap(keep_alpha ? SDL_DisplayFormatAlpha(sdlpb.get_surface()) : SDL_DisplayFormat(sdlpb.get_surface()));
+std::unique_ptr<Pixmap> SDLScreen::create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const {
+    SDL_Surface *to_copy = static_cast<SDLPixbuf const &>(pb).get_surface();
+    SDL_Surface *newsurface = SDL_ConvertSurface(to_copy, surface->format, 0);
+    return std::make_unique<SDLPixmap>(newsurface);
 }
+
+void SDLScreen::start_text_input() {
+    SDL_StartTextInput();
+}
+
+void SDLScreen::stop_text_input() {
+    SDL_StopTextInput();
+}
+

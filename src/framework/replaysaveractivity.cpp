@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,13 +26,13 @@
 /* the replay saver thing only works in the sdl version */
 #ifdef HAVE_SDL
 
-#include <SDL/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #include <glib/gi18n.h>
 
 #include "framework/replaysaveractivity.hpp"
 #include "framework/app.hpp"
 #include "framework/commands.hpp"
-#include "sdl/IMG_savepng.h"
+#include "sdl/IMG_savepng.hpp"
 #include "sound/sound.hpp"
 #include "cave/gamerender.hpp"
 #include "cave/gamecontrol.hpp"
@@ -44,33 +44,26 @@
 
 class SDLInmemoryPixmap: public Pixmap {
 protected:
-    SDL_Surface *surface;
-
-    SDLInmemoryPixmap(const SDLInmemoryPixmap &);               // copy ctor not implemented
-    SDLInmemoryPixmap &operator=(const SDLInmemoryPixmap &);    // operator= not implemented
+    std::unique_ptr<SDL_Surface, Deleter<SDL_Surface, SDL_FreeSurface>> surface;
 
 public:
     SDLInmemoryPixmap(SDL_Surface *surface_) : surface(surface_) {}
-    ~SDLInmemoryPixmap() {
-        SDL_FreeSurface(surface);
-    }
 
-    virtual int get_width() const {
+    virtual int get_width() const override {
         return surface->w;
     }
-    virtual int get_height() const {
+    virtual int get_height() const override {
         return surface->h;
     }
 };
 
 
-Pixmap *SDLInmemoryScreen::create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const {
+std::unique_ptr<Pixmap> SDLInmemoryScreen::create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const {
     SDL_Surface *to_copy = static_cast<SDLPixbuf const &>(pb).get_surface();
-    SDL_Surface *newsurface = SDL_CreateRGBSurface(keep_alpha ? SDL_SRCALPHA : 0, to_copy->w, to_copy->h, 32,
+    SDL_Surface *newsurface = SDL_CreateRGBSurface(0, to_copy->w, to_copy->h, 32,
                               surface->format->Rmask, surface->format->Gmask, surface->format->Bmask, surface->format->Amask);
-    SDL_SetAlpha(to_copy, 0, SDL_ALPHA_OPAQUE);
     SDL_BlitSurface(to_copy, NULL, newsurface, NULL);
-    return new SDLInmemoryPixmap(newsurface);
+    return std::make_unique<SDLInmemoryPixmap>(newsurface);
 }
 
 
@@ -80,21 +73,12 @@ void SDLInmemoryScreen::set_title(char const *) {
 
 
 void SDLInmemoryScreen::configure_size() {
-    if (surface)
-        SDL_FreeSurface(surface);
-    surface = SDL_CreateRGBSurface(SDL_SRCALPHA, w, h, 32, Pixbuf::rmask, Pixbuf::gmask, Pixbuf::bmask, Pixbuf::amask);
-    Uint32 col = SDL_MapRGBA(surface->format, 0, 0, 0, SDL_ALPHA_OPAQUE);
-    SDL_FillRect(surface, NULL, col);
-}
-
-
-SDLInmemoryScreen::~SDLInmemoryScreen() {
-    SDL_FreeSurface(surface);
+    surface.reset(SDL_CreateRGBSurface(0, w, h, 32, Pixbuf::rmask, Pixbuf::gmask, Pixbuf::bmask, Pixbuf::amask));
 }
 
 
 void SDLInmemoryScreen::save(char const *filename) {
-    IMG_SavePNG(filename, surface, 2);        // 2 = not too much compression, but a bit faster than the default
+    IMG_SavePNG(filename, surface.get(), 2);        // 2 = not too much compression, but a bit faster than the default
 }
 
 
@@ -122,8 +106,8 @@ ReplaySaverActivity::ReplaySaverActivity(App *app, CaveStored *cave, CaveReplay 
     std::string wav_filename = filename_prefix + ".wav";
     wavfile = fopen(wav_filename.c_str(), "wb");
     if (!wavfile) {
-        gd_critical(CPrintf("Cannot open %s for sound output") % wav_filename);
-        app->enqueue_command(new PopActivityCommand(app));
+        gd_critical("Cannot open %s for sound output", wav_filename);
+        app->enqueue_command(std::make_unique<PopActivityCommand>(app));
         return;
     }
     fseek(wavfile, 44, SEEK_SET);    /* 44bytes offset: start of data in a wav file */
@@ -136,9 +120,8 @@ ReplaySaverActivity::ReplaySaverActivity(App *app, CaveStored *cave, CaveReplay 
 
 
 void ReplaySaverActivity::shown_event() {
-    std::vector<Pixmap *> animation = get_title_animation_pixmap(app->caveset->title_screen, app->caveset->title_screen_scroll, true, pm, pf);
+    std::vector<std::unique_ptr<Pixmap>> animation = get_title_animation_pixmap(app->caveset->title_screen, app->caveset->title_screen_scroll, true, pm, pf);
     pm.blit(*animation[0], 0, 0);
-    delete animation[0];
     gd_music_stop();
 
     /* enable own timer and sound saver */
@@ -186,7 +169,7 @@ ReplaySaverActivity::~ReplaySaverActivity() {
     if (i != 44)
         gd_critical("Could not write wav header to file!");
 
-    std::string message = SPrintf(_("Saved %d video frames and %dMiB of audio data to %s_*.png and %s.wav.")) % (frame + 1) % (wavlen / 1048576) % filename_prefix % filename_prefix;
+    std::string message = Printf(_("Saved %d video frames and %dMiB of audio data to %s_*.png and %s.wav."), frame + 1, wavlen / 1048576, filename_prefix, filename_prefix);
     app->show_message(_("Replay Saved"), message);
 
     // restore settings
@@ -194,7 +177,6 @@ ReplaySaverActivity::~ReplaySaverActivity() {
     gd_sound_set_music_volume();
     gd_sound_set_chunk_volumes();
     gd_music_play_random();
-    delete game;
 }
 
 
@@ -312,12 +294,12 @@ void ReplaySaverActivity::timer2_event() {
 
         case GameRenderer::Stop:        /* game stopped, this could be a replay or a snapshot */
         case GameRenderer::GameOver:    /* game over should not happen for a replay, but no problem */
-            app->enqueue_command(new PopActivityCommand(app));
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
             break;
     }
 
     /* before incrementing frame number, check if to save the frame to disk. */
-    pm.save(CPrintf("%s_%08d.png") % filename_prefix.c_str() % frame);
+    pm.save(Printf("%s_%08d.png", filename_prefix, frame).c_str());
 
     queue_redraw();
     frame++;

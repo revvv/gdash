@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -38,12 +38,8 @@
 
 CellRenderer::CellRenderer(Screen &screen, const std::string &theme_file)
     :   PixmapStorage(screen),
-        loaded(0),
-        cells_all(0),
         is_c64_colored(false),
         cell_size(0),
-        cells_pixbufs(),
-        cells(),
         color0(GD_GDASH_BLACK),
         color1(GD_GDASH_MIDDLEBLUE),
         color2(GD_GDASH_LIGHTRED),
@@ -55,30 +51,21 @@ CellRenderer::CellRenderer(Screen &screen, const std::string &theme_file)
 }
 
 
-CellRenderer::~CellRenderer() {
-    remove_cached();
-    delete loaded;
-    delete cells_all;
-}
-
 /** Remove colored Pixbufs and Pixmaps created. */
 void CellRenderer::remove_cached() {
     for (unsigned i = 0; i < G_N_ELEMENTS(cells_pixbufs); ++i) {
-        delete cells_pixbufs[i];
-        cells_pixbufs[i] = NULL;
+        cells_pixbufs[i].reset();
     }
     CellRenderer::release_pixmaps();
     if (is_c64_colored) {
-        delete cells_all;
-        cells_all = NULL;
+        cells_all.reset();
     }
 }
 
 
 void CellRenderer::release_pixmaps() {
     for (unsigned i = 0; i < G_N_ELEMENTS(cells); ++i) {
-        delete cells[i];
-        cells[i] = 0;
+        cells[i].reset();
     }
 }
 
@@ -106,12 +93,12 @@ Pixmap &CellRenderer::cell(unsigned i) {
                 cells[i] = screen.create_scaled_pixmap_from_pixbuf(pb, false);
                 break;
             case 1: {
-                std::auto_ptr<Pixbuf> colored(screen.pixbuf_factory.create_composite_color(pb, gd_flash_color));
+                std::unique_ptr<Pixbuf> colored(screen.pixbuf_factory.create_composite_color(pb, gd_flash_color));
                 cells[i] = screen.create_scaled_pixmap_from_pixbuf(*colored, false);
             }
             break;
             case 2: {
-                std::auto_ptr<Pixbuf> colored(screen.pixbuf_factory.create_composite_color(pb, gd_select_color));
+                std::unique_ptr<Pixbuf> colored(screen.pixbuf_factory.create_composite_color(pb, gd_select_color));
                 cells[i] = screen.create_scaled_pixmap_from_pixbuf(*colored, false);
             }
             break;
@@ -128,7 +115,7 @@ bool CellRenderer::is_pixbuf_ok_for_theme(const Pixbuf &surface) {
     if ((surface.get_width() % NUM_OF_CELLS_X != 0)
             || (surface.get_height() % NUM_OF_CELLS_Y != 0)
             || (surface.get_width() / NUM_OF_CELLS_X != surface.get_height() / NUM_OF_CELLS_Y)) {
-        gd_critical(CPrintf("Image should contain %d cells in a row and %d in a column!") % int(NUM_OF_CELLS_X) % int(NUM_OF_CELLS_Y));
+        gd_critical("Image should contain %d cells in a row and %d in a column!", int(NUM_OF_CELLS_X), int(NUM_OF_CELLS_Y));
         return false;
     }
     if (surface.get_width() / NUM_OF_CELLS_X < 16) {
@@ -141,7 +128,7 @@ bool CellRenderer::is_pixbuf_ok_for_theme(const Pixbuf &surface) {
 bool CellRenderer::is_image_ok_for_theme(PixbufFactory &pixbuf_factory, const char *filename) {
     try {
         SetLoggerContextForFunction scf(filename);
-        std::auto_ptr<Pixbuf> image(pixbuf_factory.create_from_file(filename));
+        std::unique_ptr<Pixbuf> image(pixbuf_factory.create_from_file(filename));
         return is_pixbuf_ok_for_theme(*image);
     } catch (...) {
         return false;
@@ -150,30 +137,26 @@ bool CellRenderer::is_image_ok_for_theme(PixbufFactory &pixbuf_factory, const ch
 
 /* load theme from image file. */
 /* return true if successful. */
-bool CellRenderer::loadcells_image(Pixbuf *image) {
+bool CellRenderer::loadcells_image(std::unique_ptr<Pixbuf> image) {
     /* do some checks. if those fail, the error is already reported by the function */
-    if (!is_pixbuf_ok_for_theme(*image)) {
-        delete image;
+    if (!is_pixbuf_ok_for_theme(*image))
         return false;
-    }
 
     /* remove old stuff */
     remove_cached();
-    delete loaded;
-    loaded = NULL;
+    loaded.reset();
 
     /* load new stuff */
     cell_size = image->get_width() / NUM_OF_CELLS_X;
-    loaded = image;
-
-    if (check_if_pixbuf_c64_png(*loaded)) {
+    if (check_if_pixbuf_c64_png(*image)) {
         /* c64 pixbuf with a small number of colors which can be changed */
+        loaded = std::move(image);
         cells_all = NULL;
         is_c64_colored = true;
     } else {
         /* normal, "truecolor" pixbuf */
-        cells_all = loaded;
         loaded = NULL;
+        cells_all = std::move(image);
         is_c64_colored = false;
     }
     return true;
@@ -186,10 +169,10 @@ bool CellRenderer::loadcells_file(const std::string &filename) {
     /* load cell graphics */
     /* load from file */
     try {
-        Pixbuf *image = screen.pixbuf_factory.create_from_file(filename.c_str());
-        return loadcells_image(image);
+        std::unique_ptr<Pixbuf> image = screen.pixbuf_factory.create_from_file(filename.c_str());
+        return loadcells_image(std::move(image));
     } catch (std::exception &e) {
-        gd_critical(CPrintf("%s: unable to load image (%s)") % filename % e.what());
+        gd_critical("%s: unable to load image (%s)", filename, e.what());
         return false;
     }
 }
@@ -201,8 +184,8 @@ void CellRenderer::load_theme_file(const std::string &theme_file) {
     if (theme_file != "" && loadcells_file(theme_file)) {
         /* loaded from png file */
     } else {
-        Pixbuf *image = screen.pixbuf_factory.create_from_inline(sizeof(c64_gfx), c64_gfx);
-        loadcells_image(image);
+        std::unique_ptr<Pixbuf> image = screen.pixbuf_factory.create_from_inline(sizeof(c64_gfx), c64_gfx);
+        loadcells_image(std::move(image));
     }
 }
 
@@ -292,9 +275,6 @@ bool CellRenderer::check_if_pixbuf_c64_png(Pixbuf const &image) {
 void CellRenderer::create_colorized_cells() {
     g_assert(is_c64_colored);
     g_assert(loaded != NULL);
-
-    if (cells_all)
-        delete cells_all;
 
     GdColor colshsv[9], colsrgb[9];
 

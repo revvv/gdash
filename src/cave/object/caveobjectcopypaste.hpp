@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -40,18 +40,21 @@ private:
 
 public:
     CaveCopyPaste(Coordinate _p1, Coordinate _p2, Coordinate _dest);
-    CaveCopyPaste(): CaveObject(GD_COPY_PASTE) {}
-    virtual void draw(CaveRendered &cave) const;
-    virtual CaveCopyPaste *clone() const;
+    CaveCopyPaste() = default;
+    Type get_type() const { return GD_COPY_PASTE; }
+    virtual void draw(CaveRendered &cave, int order_idx) const;
+    virtual std::unique_ptr<CaveObject> clone() const;
     void set_mirror_flip(bool _mirror, bool _flip);
     virtual std::string get_bdcff() const;
-    virtual CaveCopyPaste *clone_from_bdcff(const std::string &name, std::istream &is) const;
+    virtual std::unique_ptr<CaveObject> clone_from_bdcff(const std::string &name, std::istream &is) const;
 
 private:
     static PropertyDescription const descriptor[];
 
 public:
-    virtual PropertyDescription const *get_description_array() const;
+    virtual PropertyDescription const *get_description_array() const {
+        return descriptor;
+    }
 
     virtual void create_drag(Coordinate current, Coordinate displacement);
     virtual void move(Coordinate current, Coordinate displacement);

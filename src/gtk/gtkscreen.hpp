@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,8 +26,10 @@
 #include "config.h"
 
 #include <gtk/gtk.h>
+#include <memory>
 
 #include "gfx/screen.hpp"
+#include "misc/deleter.hpp"
 
 class PixbufFactory;
 class ParticleSet;
@@ -35,13 +37,10 @@ class ParticleSet;
 /** Implementation of the Pixmap interface, using GTK+ cairo functions. */
 class GTKPixmap: public Pixmap {
 private:
-    GdkPixbuf *pixbuf;
-    cairo_surface_t *surface;
+    std::unique_ptr<GdkPixbuf, Deleter<void, g_object_unref>> pixbuf;
+    std::unique_ptr<cairo_surface_t, Deleter<cairo_surface_t, cairo_surface_destroy>> surface;
 
 public:
-    friend class GTKScreen;
-    friend class GTKPixbufFactory;
-
     GTKPixmap(GdkPixbuf *pixbuf, cairo_surface_t *surface): pixbuf(pixbuf), surface(surface) {
         g_object_ref(pixbuf);
     }
@@ -51,14 +50,12 @@ public:
 
     /** Return the GdkPixbuf* associated with the object. */
     cairo_surface_t *get_cairo_surface() {
-        return surface;
+        return surface.get();
     }
     /** Return the GdkPixbuf* associated with the object. */
     cairo_surface_t const *get_cairo_surface() const {
-        return surface;
+        return surface.get();
     }
-
-    virtual ~GTKPixmap();
 };
 
 
@@ -70,11 +67,9 @@ public:
 class GTKScreen: public Screen {
 private:
     GtkWidget *drawing_area;
-    cairo_t *cr;
-    cairo_surface_t *back;
+    std::unique_ptr<cairo_t, Deleter<cairo_t, cairo_destroy>> cr;
+    std::unique_ptr<cairo_surface_t, Deleter<cairo_surface_t, cairo_surface_destroy>> back;
 
-    GTKScreen(const GTKScreen &);           // not impl
-    GTKScreen &operator=(const GTKScreen &); // not impl
     void free_buffer();
     virtual void configure_size();
     virtual void flip();
@@ -85,13 +80,13 @@ public:
      * a software buffer.
      */
     GTKScreen(PixbufFactory &pixbuf_factory, GtkWidget *drawing_area);
-    ~GTKScreen();
     virtual void set_title(char const *title);
 
+    static gboolean draw_event(GtkWidget *drawing_area, cairo_t *cairo_context, gpointer data);
     void set_drawing_area(GtkWidget *drawing_area);
-    cairo_t *get_cairo_t() { return cr; }
+    cairo_t *get_cairo_t() { return cr.get(); }
 
-    virtual Pixmap *create_pixmap_from_pixbuf(const Pixbuf &pb, bool keep_alpha) const;
+    virtual std::unique_ptr<Pixmap> create_pixmap_from_pixbuf(const Pixbuf &pb, bool keep_alpha) const;
 
     virtual void fill_rect(int x, int y, int w, int h, const GdColor &c);
     virtual void blit(Pixmap const &src, int dx, int dy) const;

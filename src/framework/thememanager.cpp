@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,6 +24,7 @@
 #include "config.h"
 
 #include <glib.h>
+#include <algorithm>
 
 #include "framework/thememanager.hpp"
 #include "misc/logger.hpp"
@@ -75,8 +76,7 @@ void load_themes_list(PixbufFactory &pf, std::vector<std::string> &themes, int &
         add_dir_to_themes(pf, themes, gd_themes_dirs[i].c_str());
     
     /* find the current theme */
-    std::vector<std::string>::iterator it =
-        find(themes.begin(), themes.end(), gd_theme);
+    std::vector<std::string>::iterator it = find(themes.begin(), themes.end(), gd_theme);
     /* if its not in the list, add. also set the index */
     if (it == themes.end()) {
         add_file_to_themes(pf, themes, gd_theme.c_str());

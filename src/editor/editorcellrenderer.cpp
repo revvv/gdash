@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -63,9 +63,8 @@ void EditorCellRenderer::add_arrow_to_cell(GdElementEnum dest, GdElementEnum src
 
     /* editor image <- game image */
     copy_cell(gd_element_properties[dest].image, abs(gd_element_properties[src].image_game));
-    Pixbuf *arrow_pb = screen.pixbuf_factory.create_rotated(cell_pixbuf(gd_element_properties[arrow].image), r);    /* arrow */
+    std::unique_ptr<Pixbuf> arrow_pb = screen.pixbuf_factory.create_rotated(cell_pixbuf(gd_element_properties[arrow].image), r);    /* arrow */
     arrow_pb->blit(*cells_pixbufs[gd_element_properties[dest].image], 0, 0);
-    delete arrow_pb;
 }
 
 void EditorCellRenderer::copy_cell(int dest, int src) {
@@ -77,9 +76,9 @@ void EditorCellRenderer::copy_cell(int dest, int src) {
         return;
 
     int pcs = cell_pixbuf(src).get_width();
-    Pixbuf *d = screen.pixbuf_factory.create(pcs, pcs);
-    cells_pixbufs[dest] = d;
+    std::unique_ptr<Pixbuf> d = screen.pixbuf_factory.create(pcs, pcs);
     cell_pixbuf(src).copy(0, 0, pcs, pcs, *d, 0, 0);
+    cells_pixbufs[dest] = std::move(d);
 }
 
 /*
@@ -97,7 +96,7 @@ void EditorCellRenderer::create_composite_cell_pixbuf(GdElementEnum dest, GdElem
     // composite source2 to destination
     // using gtk directly (this is not implemented in gdash pixbuf)
     GdkPixbuf *srcpb = static_cast<GTKPixbuf &>(cell_pixbuf(abs(gd_element_properties[src2].image_game))).get_gdk_pixbuf();
-    GdkPixbuf *dstpb = static_cast<GTKPixbuf *>(cells_pixbufs[dimg])->get_gdk_pixbuf();
+    GdkPixbuf *dstpb = static_cast<GTKPixbuf &>(*cells_pixbufs[dimg]).get_gdk_pixbuf();
     gdk_pixbuf_composite(srcpb, dstpb, 0, 0, gdk_pixbuf_get_width(srcpb), gdk_pixbuf_get_height(srcpb), 0, 0, 1, 1, GDK_INTERP_NEAREST, 85);
 }
 
@@ -260,27 +259,27 @@ GdkPixbuf *EditorCellRenderer::combo_pixbuf_simple(GdElementEnum element) {
  * @param game_view If true, a more simplistic view is generated (no arrows on creatures)
  * @param border If true, a 2pixel black border is added
  */
-GdkPixbuf *gd_drawcave_to_pixbuf(const CaveRendered *cave, EditorCellRenderer &cr, int width, int height, bool game_view, bool border) {
+GdkPixbuf *gd_drawcave_to_pixbuf(const CaveRendered &cave, EditorCellRenderer &cr, int width, int height, bool game_view, bool border) {
 
     int x1, y1, x2, y2;
     int borderadd = border ? 4 : 0, borderpos = border ? 2 : 0;
 
-    g_assert(!cave->map.empty());
+    g_assert(!cave.map.empty());
     if (game_view) {
         /* if showing the visible part only */
-        x1 = cave->x1;
-        y1 = cave->y1;
-        x2 = cave->x2;
-        y2 = cave->y2;
+        x1 = cave.x1;
+        y1 = cave.y1;
+        x2 = cave.x2;
+        y2 = cave.y2;
     } else {
         /* showing entire cave - for example, overview in editor */
         x1 = 0;
         y1 = 0;
-        x2 = cave->w - 1;
-        y2 = cave->h - 1;
+        x2 = cave.w - 1;
+        y2 = cave.h - 1;
     }
 
-    cr.select_pixbuf_colors(cave->color0, cave->color1, cave->color2, cave->color3, cave->color4, cave->color5);
+    cr.select_pixbuf_colors(cave.color0, cave.color1, cave.color2, cave.color3, cave.color4, cave.color5);
 
     /* get size of one cell in the original pixbuf */
     int cell_size = cr.get_cell_pixbuf_size();
@@ -293,14 +292,14 @@ GdkPixbuf *gd_drawcave_to_pixbuf(const CaveRendered *cave, EditorCellRenderer &c
     /* take visible part into consideration */
     for (int y = y1; y <= y2; y++)
         for (int x = x1; x <= x2; x++) {
-            GdElementEnum element = cave->map(x, y);
+            GdElementEnum element = cave.map(x, y);
             int draw;
 
             if (game_view) {
                 /* visual effects */
                 switch (element) {
                     case O_DIRT:
-                        element = cave->dirt_looks_like;
+                        element = cave.dirt_looks_like;
                         break;
                     case O_EXPANDING_WALL:
                     case O_H_EXPANDING_WALL:
@@ -308,11 +307,11 @@ GdkPixbuf *gd_drawcave_to_pixbuf(const CaveRendered *cave, EditorCellRenderer &c
                         /* only change the view, if it is not brick wall (the default value). */
                         /* so arrows remain - as well as they always remaing for the steel expanding wall,
                            which has no visual effect. */
-                        if (cave->expanding_wall_looks_like != O_BRICK)
-                            element = cave->expanding_wall_looks_like;
+                        if (cave.expanding_wall_looks_like != O_BRICK)
+                            element = cave.expanding_wall_looks_like;
                         break;
                     case O_AMOEBA_2:
-                        element = cave->amoeba_2_looks_like;
+                        element = cave.amoeba_2_looks_like;
                         break;
                     default:
                         /* we check that this element has no visual effect. */

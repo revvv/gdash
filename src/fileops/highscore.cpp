@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -54,20 +54,20 @@ void save_highscore(CaveSet const & caveset) {
     CaveStored defaultcave;     /* for the reflective comparison */
 
     /* caveset: only highscore */
-    out.push_back(SPrintf("; Caveset: %s") % caveset.name);
-    out.push_back(SPrintf("Index=%d") % -1);
+    out.push_back(Printf("; Caveset: %s", caveset.name));
+    out.push_back(Printf("Index=%d", -1));
     for (unsigned int i = 0; i < caveset.highscore.size(); i++)
         out.push_back(BdcffFormat("Highscore") << caveset.highscore[i].score << caveset.highscore[i].name);
     out.push_back("");
     
     /* for all caves: stat & highscore */
     for (unsigned int i = 0; i < caveset.caves.size(); ++i) {
-        CaveStored *cave = caveset.caves.at(i);
-        out.push_back(SPrintf("; Cave: %s") % cave->name);
-        out.push_back(SPrintf("Index=%d") % i);
-        for (unsigned int i = 0; i < cave->highscore.size(); i++)
-            out.push_back(BdcffFormat("Highscore") << cave->highscore[i].score << cave->highscore[i].name);
-        save_properties(out, *cave, defaultcave, 0, CaveStored::cave_statistics_data);
+        CaveStored const &cave = caveset.caves[i];
+        out.push_back(Printf("; Cave: %s", cave.name));
+        out.push_back(Printf("Index=%d", i));
+        for (unsigned int i = 0; i < cave.highscore.size(); i++)
+            out.push_back(BdcffFormat("Highscore") << cave.highscore[i].score << cave.highscore[i].name);
+        save_properties(out, cave, defaultcave, 0, CaveStored::cave_statistics_data);
         out.push_back("");
     }
 
@@ -110,11 +110,11 @@ bool load_highscore(CaveSet & caveset) {
             if (caveindex == -1)
                 caveset.highscore.add(scorename.param, score);
             else
-                caveset.caves.at(caveindex)->highscore.add(scorename.param, score);
+                caveset.caves[caveindex].highscore.add(scorename.param, score);
         }
         else {
-            if (!struct_set_property(*caveset.caves.at(caveindex), ap.attrib, ap.param, 0, CaveStored::cave_statistics_data)) {
-                gd_debug(CPrintf("No such property: %s") % ap.attrib);
+            if (!struct_set_property(caveset.caves[caveindex], ap.attrib, ap.param, 0, CaveStored::cave_statistics_data)) {
+                gd_debug("No such property: %s", ap.attrib);
             }
         }
     }

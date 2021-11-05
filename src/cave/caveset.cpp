@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -66,20 +66,12 @@ PropertyDescription const CaveSet::descriptor[] = {
 };
 
 
-CaveSet::CaveSet() {
-    /* some bdcff defaults */
-    initial_lives = 3;
-    maximum_lives = 9;
-    bonus_life_score = 500;
-}
-
-
 /* calculates an adler checksum, for which it uses all
    elements of all cave-rendereds. */
 unsigned CaveSet::checksum() const {
     unsigned a = 1, b = 0;
     for (unsigned int i = 0; i < caves.size(); ++i) {
-        CaveRendered rendered(*caves.at(i), 0, 0);  /* level=1, seed=0 */
+        CaveRendered rendered(caves[i], 0, 0);  /* level=1, seed=0 */
         gd_cave_adler_checksum_more(rendered, a, b);
     }
     return (b << 16) + a;
@@ -96,7 +88,7 @@ unsigned CaveSet::checksum() const {
 /* return index of first selectable cave */
 int CaveSet::first_selectable_cave_index() const {
     for (unsigned int i = 0; i < caves.size(); ++i) {
-        if (caves.at(i)->selectable)
+        if (caves[i].selectable)
             return i;
     }
 
@@ -145,7 +137,7 @@ void CaveSet::save_to_file(const char *filename) {
 bool CaveSet::has_replays() const {
     /* for all caves */
     for (unsigned int i = 0; i < caves.size(); ++i) {
-        if (!caves.at(i)->replays.empty())
+        if (!caves[i].replays.empty())
             return true;
     }
 
@@ -159,22 +151,9 @@ bool CaveSet::has_replays() const {
 bool CaveSet::has_levels() const {
     /* for all caves */
     for (unsigned int i = 0; i < caves.size(); ++i) {
-        if (caves.at(i)->has_levels())
+        if (caves[i].has_levels())
             return true;
     }
     /* no levels at all */
     return false;
-}
-
-
-/// Return the index of a cave.
-/// 0 is the first.
-/// @param cave The cave to look for
-/// @return The index in the container, or -1 if not found
-int CaveSet::cave_index(CaveStored const *cave) const {
-    for (unsigned int i = 0; i < caves.size(); ++i)
-        if (caves.at(i) == cave)
-            return i;
-
-    return -1;  /* if not found */
 }

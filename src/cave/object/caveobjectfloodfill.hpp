@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -31,21 +31,24 @@
 class CaveFloodFill : public CaveFill {
 private:
     GdElement search_element;       ///< Replace this element when filling.
-    void draw_proc(CaveRendered &cave, int x, int y) const;
+    void draw_proc(CaveRendered &cave, int x, int y, int order_idx) const;
 
 public:
     CaveFloodFill(Coordinate _start, GdElementEnum _fill_element, GdElementEnum _search_element);
-    CaveFloodFill(): CaveFill(GD_FLOODFILL_REPLACE) {}
-    virtual void draw(CaveRendered &cave) const;
-    virtual CaveFloodFill *clone() const;
+    CaveFloodFill() = default;
+    Type get_type() const { return GD_FLOODFILL_REPLACE; }
+    virtual void draw(CaveRendered &cave, int order_idx) const;
+    virtual std::unique_ptr<CaveObject> clone() const;
     virtual std::string get_bdcff() const;
-    virtual CaveFloodFill *clone_from_bdcff(const std::string &name, std::istream &is) const;
+    virtual std::unique_ptr<CaveObject> clone_from_bdcff(const std::string &name, std::istream &is) const;
 
 private:
     static PropertyDescription const descriptor[];
 
 public:
-    virtual PropertyDescription const *get_description_array() const;
+    virtual PropertyDescription const *get_description_array() const {
+        return descriptor;
+    }
     virtual std::string get_description_markup() const;
 };
 

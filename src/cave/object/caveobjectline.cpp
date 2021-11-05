@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -38,8 +38,7 @@
 /// @param _p2 Ending point of the line.
 /// @param _element Element to draw.
 CaveLine::CaveLine(Coordinate _p1, Coordinate _p2, GdElementEnum _element)
-    :   CaveObject(GD_LINE),
-        p1(_p1),
+    :   p1(_p1),
         p2(_p2),
         element(_element) {
 }
@@ -48,21 +47,21 @@ std::string CaveLine::get_bdcff() const {
     return BdcffFormat("Line") << p1 << p2 << element;
 }
 
-CaveLine *CaveLine::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveLine::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p1, p2;
     GdElementEnum element;
     if (!(is >> p1 >> p2 >> element))
         return NULL;
-    return new CaveLine(p1, p2, element);
+    return std::make_unique<CaveLine>(p1, p2, element);
 }
 
-CaveLine *CaveLine::clone() const {
-    return new CaveLine(*this);
+std::unique_ptr<CaveObject> CaveLine::clone() const {
+    return std::make_unique<CaveLine>(*this);
 }
 
 /// Draws the line.
 /// Uses Bresenham's algorithm, as descriped in Wikipedia.
-void CaveLine::draw(CaveRendered &cave) const {
+void CaveLine::draw(CaveRendered &cave, int order_idx) const {
     int x1 = p1.x;
     int y1 = p1.y;
     int x2 = p2.x;
@@ -84,9 +83,9 @@ void CaveLine::draw(CaveRendered &cave) const {
     int y = y1;
     for (int x = x1; x <= x2; x++) {
         if (steep)
-            cave.store_rc(y, x, element, this); /* and here we change them back, if needed */
+            cave.store_rc(y, x, element, order_idx); /* and here we change them back, if needed */
         else
-            cave.store_rc(x, y, element, this);
+            cave.store_rc(x, y, element, order_idx);
         error += dy;
         if (error * 2 >= dx) {
             y += ystep;
@@ -104,12 +103,8 @@ PropertyDescription const CaveLine::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveLine::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveLine::get_coordinates_text() const {
-    return SPrintf("%d,%d-%d,%d") % p1.x % p1.y % p2.x % p2.y;
+    return Printf("%d,%d-%d,%d", p1.x, p1.y, p2.x, p2.y);
 }
 
 void CaveLine::create_drag(Coordinate current, Coordinate displacement) {
@@ -133,8 +128,7 @@ void CaveLine::move(Coordinate displacement) {
 }
 
 std::string CaveLine::get_description_markup() const {
-    return SPrintf(_("Line from %d,%d to %d,%d of <b>%ms</b>"))
-           % p1.x % p1.y % p2.x % p2.y % visible_name_lowercase(element);
+    return Printf(_("Line from %d,%d to %d,%d of <b>%ms</b>"), p1.x, p1.y, p2.x, p2.y, visible_name_lowercase(element));
 }
 
 GdElementEnum CaveLine::get_characteristic_element() const {

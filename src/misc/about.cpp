@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -77,6 +77,6 @@ const char *About::comments =
 
 const char *About::translator_credits = N_("translator-credits");
 
-const char *About::copyright = "Copyright 2007-2013, GDash Project";
+const char *About::copyright = "Copyright 2007-2018, GDash Project";
 
-const char *About::website = "http://code.google.com/p/gdash/";
+const char *About::website = "https://bitbucket.org/czirkoszoltan/gdash";

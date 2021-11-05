@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -31,6 +31,7 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <algorithm>
+
 #include "gfx/screen.hpp"
 #include "misc/util.hpp"
 #include "misc/autogfreeptr.hpp"
@@ -103,10 +104,10 @@ static bool filename_sort(std::string const &s1, std::string const &s2) {
 }
 
 
-SelectFileActivity::SelectFileActivity(App *app, const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, SmartPtr<Command1Param<std::string> > command_when_successful)
+SelectFileActivity::SelectFileActivity(App *app, const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, std::unique_ptr<Command1Param<std::string>> command_when_successful)
     :
     Activity(app),
-    command_when_successful(command_when_successful),
+    command_when_successful(std::move(command_when_successful)),
     title(title),
     for_save(for_save),
     defaultname(defaultname),
@@ -146,12 +147,12 @@ void SelectFileActivity::jump_to_directory(char const *jump_to) {
             /* problem: cannot change to requested directory, and cannot change to the process
              * original directory as well. cannot read any of them. this is critical, the
              * selectfileactivity cannot continue, so it deletes itself. */
-            app->enqueue_command(new PopActivityCommand(app));
-            app->show_message(SPrintf(_("Cannot change to directory: %s.")) % jump_to, SPrintf("Jumped back to directory: %s.") % directory_of_process);
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
+            app->show_message(Printf(_("Cannot change to directory: %s."), jump_to), Printf("Jumped back to directory: %s.", directory_of_process));
         } else {
             /* cannot read the new directory, but managed to jump back to the original. issue
              * an error then continue in the original dir. */
-            app->show_message(SPrintf(_("Cannot change to directory: %s.")) % jump_to, SPrintf("Jumped back to directory: %s.") % directory_of_process);
+            app->show_message(Printf(_("Cannot change to directory: %s."), jump_to), Printf("Jumped back to directory: %s.", directory_of_process));
         }
     }
     /* now get the directory we have stepped into, and it is readable as well. remember! */
@@ -201,8 +202,8 @@ void SelectFileActivity::jump_to_directory(char const *jump_to) {
 
 
 void SelectFileActivity::file_selected_do_command() {
-    app->enqueue_command(command_when_successful);
-    app->enqueue_command(new PopActivityCommand(app));
+    app->enqueue_command(std::move(command_when_successful));
+    app->enqueue_command(std::make_unique<PopActivityCommand>(app));
 }
 
 
@@ -235,7 +236,7 @@ void SelectFileActivity::file_selected(char const *filename) {
      * accepts the overwrite. */
     if (for_save && g_file_test(filename, G_FILE_TEST_EXISTS)) {
         /* ask the overwrite. */
-        app->ask_yesorno_and_do_command(_("File exists. Overwrite?"), "Yes", "No", new SelectFileForceSaveCommand(app, this), SmartPtr<Command>());
+        app->ask_yesorno_and_do_command(_("File exists. Overwrite?"), "Yes", "No", std::make_unique<SelectFileForceSaveCommand>(app, this));
     } else {
         /* not a "save file" activity, so no problem if an existing file is
          * selected. */
@@ -290,19 +291,19 @@ void SelectFileActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
         case 'j':
         case 'J':
             // TRANSLATORS: 35 chars max
-            app->input_text_and_do_command(_("Jump to directory"), directory, new JumpToDirectoryCommand(app, this));
+            app->input_text_and_do_command(_("Jump to directory"), directory, std::make_unique<JumpToDirectoryCommand>(app, this));
             break;
             /* enter new filename - only if saving allowed */
         case 'n':
         case 'N':
             if (for_save) {
                 // TRANSLATORS: 35 chars max
-                app->input_text_and_do_command(_("Enter new file name"), defaultname.c_str(), new FileNameEnteredCommand(app, this));
+                app->input_text_and_do_command(_("Enter new file name"), defaultname.c_str(), std::make_unique<FileNameEnteredCommand>(app, this));
             }
             break;
 
         case App::Escape:
-            app->enqueue_command(new PopActivityCommand(app));
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
             break;
 
         default:
@@ -318,7 +319,7 @@ void SelectFileActivity::redraw_event(bool full) const {
     /* show current directory */
     app->title_line(title.c_str());
     app->set_color(GD_GDASH_YELLOW);
-    app->blittext_n(-1, 1 * yd, filename_to_utf8(directory).c_str());
+    app->font_manager->blittext_n(-1, 1 * yd, filename_to_utf8(directory).c_str());
     if (for_save) {
         // TRANSLATORS: 40 chars max
         app->status_line(_("Crsr:select  N:new  J:jump  Esc:cancel"));   /* for saving, we allow the user to select a new filename. */
@@ -330,7 +331,7 @@ void SelectFileActivity::redraw_event(bool full) const {
     for (i = 0, cur = page * names_per_page; i < names_per_page; i++, cur++) {
         if (cur < files.size()) {  /* may not be as much filenames as it would fit on the screen */
             app->set_color((cur == unsigned(sel)) ? GD_GDASH_YELLOW : GD_GDASH_LIGHTBLUE);
-            app->blittext_n(app->font_manager->get_font_width_narrow(), (i + 3)*yd, files[cur].c_str());
+            app->font_manager->blittext_n(app->font_manager->get_font_width_narrow(), (i + 3)*yd, files[cur].c_str());
         }
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,29 +25,19 @@
 #define AUTOGFREEPTR_HPP_INCLUDED
 
 #include <glib.h>
-#include <algorithm>
+#include <memory>
+#include "misc/deleter.hpp"
 
-/// An auto_ptr-like class which uses g_free on the objects to be deleted.
+/// An unique_ptr-like class which uses g_free on the objects to be deleted.
 template <typename T>
 class AutoGFreePtr {
-private:
-    T *ptr;
+  private:
+    std::unique_ptr<T, Deleter<void, g_free>> ptr;
 
-public:
+  public:
     explicit AutoGFreePtr(T *ptr = NULL): ptr(ptr) {}
-    AutoGFreePtr(AutoGFreePtr &the_other) {
-        this->ptr = the_other.ptr;
-        the_other.ptr = NULL;
-    }
-    /* copy and swap */
-    AutoGFreePtr &operator=(AutoGFreePtr the_other) {
-        std::swap(this->ptr, the_other.ptr);
-    }
-    ~AutoGFreePtr() {
-        g_free(ptr);
-    }
-    operator T *() const {
-        return ptr;
+    operator T * () const {
+        return ptr.get();
     }
 };
 

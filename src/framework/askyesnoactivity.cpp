@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,6 +22,7 @@
  */
 
 #include <glib/gi18n.h>
+#include <memory>
 
 #include "framework/askyesnoactivity.hpp"
 #include "framework/app.hpp"
@@ -44,12 +45,12 @@ gunichar yeschar = 0;
 static char const *noletter = N_("N");
 gunichar nochar = 0;
 
-AskYesNoActivity::AskYesNoActivity(App *app, char const *question, const char *yes_answer, char const *no_answer, SmartPtr<Command> command_when_yes, SmartPtr<Command> command_when_no)
+AskYesNoActivity::AskYesNoActivity(App *app, char const *question, const char *yes_answer, char const *no_answer, std::unique_ptr<Command> command_when_yes, std::unique_ptr<Command> command_when_no)
     :
     Activity(app),
     question(question),
     yes_answer(yes_answer), no_answer(no_answer),
-    command_when_yes(command_when_yes), command_when_no(command_when_no) {
+    command_when_yes(std::move(command_when_yes)), command_when_no(std::move(command_when_no)) {
     // These are global, but no problem if updated every time
     yeschar = g_utf8_get_char(_(yesletter));
     nochar = g_utf8_get_char(_(noletter));
@@ -64,8 +65,8 @@ void AskYesNoActivity::redraw_event(bool full) const {
     app->draw_window(cx, cy, cw, ch);
     app->screen->set_clip_rect(cx, cy, cw, ch);
     app->set_color(GD_GDASH_WHITE);
-    app->blittext_n(-1, y1 + app->font_manager->get_line_height(), question.c_str());
-    app->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), CPrintf("%s: %s, %s: %s") % _(noletter) % no_answer.c_str() % _(yesletter) % yes_answer.c_str());
+    app->font_manager->blittext_n(-1, y1 + app->font_manager->get_line_height(), question.c_str());
+    app->font_manager->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), "%s: %s, %s: %s", _(noletter), no_answer, _(yesletter), yes_answer);
     app->screen->remove_clip_rect();
 
     app->screen->drawing_finished();
@@ -74,11 +75,11 @@ void AskYesNoActivity::redraw_event(bool full) const {
 
 void AskYesNoActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
     if (g_unichar_toupper(keycode) == g_unichar_toupper(yeschar)) {
-        app->enqueue_command(new PopActivityCommand(app));
-        app->enqueue_command(command_when_yes);
+        app->enqueue_command(std::make_unique<PopActivityCommand>(app));
+        app->enqueue_command(std::move(command_when_yes));
     }
     if (g_unichar_toupper(keycode) == g_unichar_toupper(nochar)) {
-        app->enqueue_command(new PopActivityCommand(app));
-        app->enqueue_command(command_when_no);
+        app->enqueue_command(std::make_unique<PopActivityCommand>(app));
+        app->enqueue_command(std::move(command_when_no));
     }
 }

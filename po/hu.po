@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/gdash/\n"
-"POT-Creation-Date: 2013-06-23 10:13+0200\n"
+"Report-Msgid-Bugs-To: https://bitbucket.org/czirkoszoltan/gdash\n"
+"POT-Creation-Date: 2018-01-29 08:38+0100\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -42,8 +42,8 @@ msgid "Select Key"
 msgstr "Billentyű kiválasztása"
 
 #: src/gtk/gtkuisettings.cpp:180
-msgid "Press key for action:"
-msgstr "Nyomd meg a billentyűt a következőhöz:"
+msgid "Press key for action: <b>%s</b>"
+msgstr "Nyomd meg a billentyűt a következőhöz: <b>%s</b>"
 
 #: src/gtk/gtkuisettings.cpp:205
 #, c-format
@@ -64,67 +64,67 @@ msgstr "A GDash beállításai"
 msgid "_Add theme"
 msgstr "_Téma hozzáadása"
 
-#: src/gtk/gtkmainwindow.cpp:110
+#: src/gtk/gtkmainwindow.cpp:112
 msgid "Play"
 msgstr "Játék"
 
-#: src/gtk/gtkmainwindow.cpp:111
+#: src/gtk/gtkmainwindow.cpp:113
 msgid "File"
 msgstr "Fájl"
 
-#: src/gtk/gtkmainwindow.cpp:112 src/misc/helptext.cpp:208
+#: src/gtk/gtkmainwindow.cpp:114 src/misc/helptext.cpp:208
 msgid "Help"
 msgstr "Súgó"
 
-#: src/gtk/gtkmainwindow.cpp:114
+#: src/gtk/gtkmainwindow.cpp:116
 msgid "_Error console"
 msgstr "_Hibakonzol"
 
-#: src/gtk/gtkmainwindow.cpp:117
+#: src/gtk/gtkmainwindow.cpp:119
 msgid "Game help"
 msgstr "A játék súgója"
 
-#: src/gtk/gtkmainwindow.cpp:118
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Caveset _information"
 msgstr "Játék _információ"
 
-#: src/gtk/gtkmainwindow.cpp:118
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Show information about the game and its caves"
 msgstr "Információ a játékról és a pályákról"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:122
 msgid "Keyboard settings"
 msgstr "Billentyűzet beállításai"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:122
 msgid "Set keyboard settings"
 msgstr "Az irányításhoz használt billentyűk megadása"
 
-#: src/gtk/gtkmainwindow.cpp:122
+#: src/gtk/gtkmainwindow.cpp:124
 msgid "_Sound volume"
 msgstr "_Hangerő"
 
-#: src/gtk/gtkmainwindow.cpp:124
+#: src/gtk/gtkmainwindow.cpp:126
 msgid "Cave _editor"
 msgstr "Pálya_szerkesztő"
 
-#: src/gtk/gtkmainwindow.cpp:126
+#: src/gtk/gtkmainwindow.cpp:128
 msgid "Open _recent"
 msgstr "_Legutóbbi megnyitása"
 
-#: src/gtk/gtkmainwindow.cpp:127 src/editor/editor.cpp:3502
+#: src/gtk/gtkmainwindow.cpp:129 src/editor/editor.cpp:3502
 msgid "O_pen shipped"
 msgstr "_Telepített játék megnyitása"
 
-#: src/gtk/gtkmainwindow.cpp:130
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "Hi_ghscores"
 msgstr "P_ontok"
 
-#: src/gtk/gtkmainwindow.cpp:131
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "Game play statistics"
 msgstr "Játszott pályák statisztikája"
 
-#: src/gtk/gtkmainwindow.cpp:131
+#: src/gtk/gtkmainwindow.cpp:133
 msgid ""
 "Shows statistics of playing caves: times played, times played successfully "
 "etc."
@@ -132,51 +132,51 @@ msgstr ""
 "A végigjátszott pályák statisztikáját mutatja: próbálkozások száma, sikeres "
 "próbálkozások stb."
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:134
 msgid "Show _replays"
 msgstr "Visszajá_tszások"
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:134
 msgid "List replays which are recorded for caves in this caveset"
 msgstr "A játékhoz tartozó visszajátszások listázása"
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:135
 msgid "Fullscreen mode"
 msgstr "Teljes képernyős mód"
 
-#: src/gtk/gtkmainwindow.cpp:137
+#: src/gtk/gtkmainwindow.cpp:139
 msgid "_Take snapshot"
 msgstr "_Pillanatfelvétel"
 
-#: src/gtk/gtkmainwindow.cpp:138
+#: src/gtk/gtkmainwindow.cpp:140
 msgid "_Revert to snapshot"
 msgstr "_Pillanatfelvétel visszatöltése"
 
-#: src/gtk/gtkmainwindow.cpp:139
+#: src/gtk/gtkmainwindow.cpp:141
 msgid "Random _colors"
 msgstr "Véletlen _színek"
 
-#: src/gtk/gtkmainwindow.cpp:140
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "Re_start level"
 msgstr "Pálya új_rakezdése"
 
-#: src/gtk/gtkmainwindow.cpp:140 src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:142 src/gtk/gtkmainwindow.cpp:143
 msgid "Restart current level"
 msgstr "Pálya újrakezdése"
 
-#: src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:143
 msgid "_Pause game"
 msgstr "Játék _szünet"
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:144
 msgid "_End game"
 msgstr "Játék vég_e"
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:144
 msgid "End current game"
 msgstr "Aktuális játék befejezése"
 
-#: src/gtk/gtkmainwindow.cpp:362
+#: src/gtk/gtkmainwindow.cpp:364
 msgid "GDash cannot load file from a network link."
 msgstr "A GDash nem tudja a hálózatról letölteni a fájlokat."
 
@@ -291,8 +291,7 @@ msgstr ""
 "elmentett memóriaképekből is lehet importálni."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:207
-#: src/misc/helptext.cpp:315
+#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:207 src/misc/helptext.cpp:315
 msgid "Control Keys"
 msgstr "Irányító gombok"
 
@@ -348,8 +347,7 @@ msgstr "Játék statisztika"
 msgid "Replays"
 msgstr "Visszajátszások"
 
-#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:414
-#: src/misc/helptext.cpp:417
+#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:414 src/misc/helptext.cpp:417
 msgid "Cave editor"
 msgstr "Pályaszerkesztő"
 
@@ -2314,7 +2312,7 @@ msgid "Name of cave"
 msgstr "A pálya neve"
 
 #: src/cave/cavestored.cpp:42 src/cave/caveset.cpp:44
-#: src/framework/commands.cpp:187 src/editor/exporthtml.cpp:117
+#: src/framework/commands.cpp:179 src/editor/exporthtml.cpp:117
 #: src/editor/exporthtml.cpp:184
 msgid "Description"
 msgstr "Leírás"
@@ -2324,7 +2322,7 @@ msgid "Some words about the cave"
 msgstr "Néhány szó a pályáról"
 
 #: src/cave/cavestored.cpp:43 src/cave/caveset.cpp:45
-#: src/framework/commands.cpp:183 src/framework/commands.cpp:203
+#: src/framework/commands.cpp:175 src/framework/commands.cpp:195
 #: src/editor/exporthtml.cpp:115 src/editor/exporthtml.cpp:182
 msgid "Author"
 msgstr "Szerző"
@@ -2334,7 +2332,7 @@ msgid "Name of author"
 msgstr "Szerző neve"
 
 #: src/cave/cavestored.cpp:44 src/cave/caveset.cpp:46
-#: src/framework/commands.cpp:185 src/framework/commands.cpp:205
+#: src/framework/commands.cpp:177 src/framework/commands.cpp:197
 #: src/framework/replaymenuactivity.cpp:203
 msgid "Date"
 msgstr "Dátum"
@@ -2468,7 +2466,7 @@ msgid "Font used during the game. Informative, not used by GDash."
 msgstr "A játék közben használt betűkészlet. Nem használja a GDash."
 
 #: src/cave/cavestored.cpp:63 src/cave/caveset.cpp:57
-#: src/framework/commands.cpp:189 src/editor/exporthtml.cpp:123
+#: src/framework/commands.cpp:181 src/editor/exporthtml.cpp:123
 #: src/editor/exporthtml.cpp:188
 msgid "Story"
 msgstr "Történet"
@@ -2480,7 +2478,7 @@ msgstr ""
 "pályához ér a felhasználó."
 
 #: src/cave/cavestored.cpp:67 src/cave/caveset.cpp:59
-#: src/framework/commands.cpp:191 src/editor/exporthtml.cpp:121
+#: src/framework/commands.cpp:183 src/editor/exporthtml.cpp:121
 #: src/editor/exporthtml.cpp:186
 msgid "Remark"
 msgstr "Megjegyzés"
@@ -4076,48 +4074,48 @@ msgid "Score"
 msgstr "Pont"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:388
+#: src/cave/gamerender.cpp:384
 msgid "PLAYING REPLAY"
 msgstr "VISSZAJÁTSZÁS"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:403
+#: src/cave/gamerender.cpp:399
 msgid "CONTINUING REPLAY"
 msgstr "VISSZAJÁTSZÁS FOLYT."
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:410
+#: src/cave/gamerender.cpp:406
 msgid "PLAYING SNAPSHOT"
 msgstr "PILLANATFELV. FOLYT."
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:417
+#: src/cave/gamerender.cpp:413
 msgid "TESTING CAVE"
 msgstr "PÁLYA TESZTJE"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:427
+#: src/cave/gamerender.cpp:423
 msgid "ONE LIFE EXTRA"
 msgstr "JUTALOM ÉLET"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:489
+#: src/cave/gamerender.cpp:485
 msgid "OUT OF TIME"
 msgstr "LEJÁRT AZ IDŐ"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:568
+#: src/cave/gamerender.cpp:564
 msgid "SPACEBAR TO RESUME"
 msgstr "FOLYTATÁS: SZÓKÖZ"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long.
 #. the c64 original had these spaces - you are allowed to do so.
-#: src/cave/gamerender.cpp:585
+#: src/cave/gamerender.cpp:581
 msgid "G A M E   O V E R"
 msgstr "J Á T É K   V É G E"
 
 #. TRANSLATORS: the translated string must be at most 40 characters long
-#: src/cave/gamerender.cpp:696
+#: src/cave/gamerender.cpp:692
 msgid "UP, DOWN: MOVE    FIRE: CONTINUE"
 msgstr "FEL, LE: MOZGÁS    TŰZ: TOVÁBB"
 
@@ -4138,8 +4136,7 @@ msgstr "Rajz"
 #: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrectangle.cpp:82
 #: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368
-#: src/cave/object/caveobjectjoin.cpp:87
+#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
 #: src/cave/object/caveobjectfillrect.cpp:88
 msgid "Levels"
 msgstr "Szintek"
@@ -4152,8 +4149,7 @@ msgstr "Szintek"
 #: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrectangle.cpp:82
 #: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368
-#: src/cave/object/caveobjectjoin.cpp:87
+#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
 #: src/cave/object/caveobjectfillrect.cpp:88
 msgid "Levels on which this object is visible."
 msgstr "A szintek, ahol az objektum látható"
@@ -4224,8 +4220,7 @@ msgstr "Elem"
 #: src/cave/object/caveobjectpoint.cpp:67
 #: src/cave/object/caveobjectraster.cpp:89
 #: src/cave/object/caveobjectrectangle.cpp:85
-#: src/cave/object/caveobjectline.cpp:103
-#: src/cave/object/caveobjectjoin.cpp:89
+#: src/cave/object/caveobjectline.cpp:103 src/cave/object/caveobjectjoin.cpp:89
 msgid "The element to draw."
 msgstr "A rajzolandó elem."
 
@@ -5760,12 +5755,12 @@ msgstr "Fel+balra"
 msgid "Milliseconds"
 msgstr "Milliszekundum"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:230
+#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
 #: src/editor/exporthtml.cpp:190
 msgid "Yes"
 msgstr "Igen"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:230
+#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
 #: src/editor/exporthtml.cpp:190
 msgid "No"
 msgstr "Nem"
@@ -5833,66 +5828,66 @@ msgid "Unable to read file."
 msgstr "A fájl nem olvasható."
 
 #. TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-#: src/framework/titlescreenactivity.cpp:138 src/settings.cpp:223
+#: src/framework/titlescreenactivity.cpp:137 src/settings.cpp:223
 msgid "Game"
 msgstr "Játék"
 
 #. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:154
+#: src/framework/titlescreenactivity.cpp:153
 msgid "Crsr: select   Space: play   H: help"
 msgstr "Kurzor: választ  Szóköz: játék  H: súgó"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:160
+#: src/framework/titlescreenactivity.cpp:159
 msgid "F: hall of fame  E: editor  R: replays"
 msgstr "F: dicsőségl.  E: szerk.  R: visszaj."
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:164
+#: src/framework/titlescreenactivity.cpp:163
 msgid "F: hall of fame    R: replays"
 msgstr "F: dicsőséglista    R: visszajátszás"
 
 #. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:169
+#: src/framework/titlescreenactivity.cpp:168
 msgid "Joy: select   Fire: play"
 msgstr "Joy: kiválszt   Tűz: játék"
 
-#: src/framework/titlescreenactivity.cpp:173
+#: src/framework/titlescreenactivity.cpp:172
 msgid "Crsr: select   Space: play   X: errors"
 msgstr "Kurzor: választ  Szóköz: játék  X: hibák"
 
-#: src/framework/titlescreenactivity.cpp:178
+#: src/framework/titlescreenactivity.cpp:177
 #, c-format
 msgid "%cNo caves."
 msgstr "%cNincsenek pályák."
 
-#: src/framework/titlescreenactivity.cpp:182
+#: src/framework/titlescreenactivity.cpp:181
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr "%cPálya: %c%s%c/%c%d"
 
-#: src/framework/titlescreenactivity.cpp:184
+#: src/framework/titlescreenactivity.cpp:183
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr "%cPálya: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:332
+#: src/framework/titlescreenactivity.cpp:331
 msgid "Enter your name"
 msgstr "Írd be a neved"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:343
+#: src/framework/titlescreenactivity.cpp:342
 msgid "Quit game?"
 msgstr "Kilépés a játékból?"
 
-#: src/framework/titlescreenactivity.cpp:343 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
 #: src/framework/replaymenuactivity.cpp:193
 #: src/framework/settingsactivity.cpp:315
 msgid "yes"
 msgstr "igen"
 
-#: src/framework/titlescreenactivity.cpp:343 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
 #: src/framework/replaymenuactivity.cpp:193
 #: src/framework/settingsactivity.cpp:315
@@ -5903,7 +5898,7 @@ msgstr "nem"
 #. language, uppercase. For example, the English "yes" -> the strings is "Y".
 #. It should rather not contain an accented character, as the user might not be able
 #. to type it if he does not have the correct keyboard layout.
-#: src/framework/askyesnoactivity.cpp:37
+#: src/framework/askyesnoactivity.cpp:38
 msgid "Y"
 msgstr "I"
 
@@ -5912,7 +5907,7 @@ msgstr "I"
 #. It might contain an accented character, but make sure the user can easily type it!
 #. It should rather not contain an accented character, as the user might not be able
 #. to type it if he does not have the correct keyboard layout.
-#: src/framework/askyesnoactivity.cpp:44
+#: src/framework/askyesnoactivity.cpp:45
 msgid "N"
 msgstr "N"
 
@@ -6004,7 +5999,7 @@ msgid "No snapshot saved."
 msgstr "Nincs mentett pillanatfelvétel."
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. Title capitalization (I) in English.
-#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:220
+#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:212
 msgid "Cave Information"
 msgstr "Pálya információk"
 
@@ -6024,85 +6019,85 @@ msgid "Music volume"
 msgstr "Zene hangerő "
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/showtextactivity.cpp:56
+#: src/framework/showtextactivity.cpp:57
 msgid "Crsr: move     Space: exit"
 msgstr "Kurzor: mozgás     Szóköz: kilép"
 
-#: src/framework/replaysaveractivity.cpp:189
+#: src/framework/replaysaveractivity.cpp:192
 #, c-format
 msgid "Saved %d video frames and %dMiB of audio data to %s_*.png and %s.wav."
 msgstr ""
 "%d képkocka és %d MiB hanganyag elmentve a(z) %s_*.png és %s.wav fájlokba."
 
-#: src/framework/replaysaveractivity.cpp:190
+#: src/framework/replaysaveractivity.cpp:193
 msgid "Replay Saved"
 msgstr "Visszajátszás elmentve"
 
 #. TRANSLATORS: Title line capitalization in English
-#: src/framework/replaysaveractivity.cpp:287
+#: src/framework/replaysaveractivity.cpp:289
 msgid "Saving Replay"
 msgstr "Visszajátszás mentése"
 
-#: src/framework/replaysaveractivity.cpp:288
+#: src/framework/replaysaveractivity.cpp:290
 msgid "Please wait"
 msgstr "Kérlek várj"
 
 #. TRANSLATORS: showing highscore, categories
-#: src/framework/commands.cpp:105 src/framework/commands.cpp:201
+#: src/framework/commands.cpp:97 src/framework/commands.cpp:193
 msgid "Caveset"
 msgstr "Pályák"
 
-#: src/framework/commands.cpp:117 src/framework/commands.cpp:157
-#: src/framework/commands.cpp:181 src/framework/replaymenuactivity.cpp:188
+#: src/framework/commands.cpp:109 src/framework/commands.cpp:149
+#: src/framework/commands.cpp:173 src/framework/replaymenuactivity.cpp:188
 msgid "Cave"
 msgstr "Pálya"
 
 #. TRANSLATORS: should be 40 chars max. Title of the highscore window/activity. (That's why F is capitalized in English)
-#: src/framework/commands.cpp:126
+#: src/framework/commands.cpp:118
 msgid "Hall of Fame"
 msgstr "Dicsőséglista"
 
 #. TRANSLATORS: Stands for level. Should be exactly 5 chars, pad with spaces at the end if necessary
-#: src/framework/commands.cpp:137
+#: src/framework/commands.cpp:129
 msgid "Lev. "
 msgstr "Sz.  "
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. This is a window title, so it is capitalized in English.
-#: src/framework/commands.cpp:174
+#: src/framework/commands.cpp:166
 msgid "Caveset Playing Statistics"
 msgstr "Játék statisztika"
 
-#: src/framework/commands.cpp:220
+#: src/framework/commands.cpp:212
 msgid "Caveset Information"
 msgstr "Pálya információk"
 
 #. TRANSLATORS: 35 characters max.
-#: src/framework/commands.cpp:230
+#: src/framework/commands.cpp:222
 msgid "Caveset changed. Discard changes?"
 msgstr "Eldobod a pályák változásait?"
 
 #. TRANSLATORS: title of the "file open fail" error message window.
-#: src/framework/commands.cpp:246
+#: src/framework/commands.cpp:238
 msgid "Caveset Load Error"
 msgstr "Pályák: betöltési hiba"
 
 #. TRANSLATORS: title of the "file save fail" error window.
-#: src/framework/commands.cpp:258
+#: src/framework/commands.cpp:250
 msgid "Cave Save Error"
 msgstr "Pályák: mentési hiba"
 
 #. TRANSLATORS: 40 characters max. Title of the "save caveset as new file" window.
-#: src/framework/commands.cpp:278
+#: src/framework/commands.cpp:270
 msgid "Save Caveset As New File"
 msgstr "Játék pályáinak mentése új néven"
 
 #. TRANSLATORS: 40 characters max. Title of the "open file" window.
-#: src/framework/commands.cpp:291
+#: src/framework/commands.cpp:283
 msgid "Select Caveset to Load"
 msgstr "Betöltendő pálya kiválasztása"
 
 #. TRANSLATORS: 40 characters max. Title of the window which shows the error messages. Title capitalization (C) in English.
-#: src/framework/commands.cpp:316
+#: src/framework/commands.cpp:308
 msgid "Error Console"
 msgstr "Hibakonzol"
 
@@ -6183,33 +6178,33 @@ msgstr "Szóköz:vált   H: súgó   Esc:kilép"
 msgid "Press T to install a new theme."
 msgstr "Új téma telepítése a T-vel."
 
-#: src/framework/selectfileactivity.cpp:150
-#: src/framework/selectfileactivity.cpp:154
+#: src/framework/selectfileactivity.cpp:151
+#: src/framework/selectfileactivity.cpp:155
 #, c-format
 msgid "Cannot change to directory: %s."
 msgstr "Nem lehet a(z) %s mappába váltani."
 
-#: src/framework/selectfileactivity.cpp:238
+#: src/framework/selectfileactivity.cpp:239
 msgid "File exists. Overwrite?"
 msgstr "A fájl létezik. Felülírjam?"
 
 #. TRANSLATORS: 35 chars max
-#: src/framework/selectfileactivity.cpp:293
+#: src/framework/selectfileactivity.cpp:294
 msgid "Jump to directory"
 msgstr "Ugrás könyvtárba"
 
 #. TRANSLATORS: 35 chars max
-#: src/framework/selectfileactivity.cpp:300
+#: src/framework/selectfileactivity.cpp:301
 msgid "Enter new file name"
 msgstr "Új fájlnév megadása"
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/selectfileactivity.cpp:324
+#: src/framework/selectfileactivity.cpp:325
 msgid "Crsr:select  N:new  J:jump  Esc:cancel"
 msgstr "Kurzor:választ  N:új  J:ugrás  Esc:mégse"
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/selectfileactivity.cpp:327
+#: src/framework/selectfileactivity.cpp:328
 msgid "Crsr: select   J: jump   Esc: cancel"
 msgstr "Kurzor: választ   J: ugrás   Esc: mégse"
 

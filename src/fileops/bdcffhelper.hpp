@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -29,6 +29,7 @@
 #include <string>
 #include <list>
 #include <sstream>
+#include "misc/util.hpp"
 
 #define BDCFF_VERSION "0.5"
 
@@ -40,8 +41,14 @@
 class HasAttrib {
     std::string attrib;
 public:
-    explicit HasAttrib(const std::string &attrib_);
-    bool operator()(const std::string &str) const;
+    /// Create the functor which checks if the string has an attrib= prefix.
+    explicit HasAttrib(const std::string &attrib_) : attrib(attrib_ + '=') {
+    }
+
+    /// Check if the given string has the prefix.
+    bool operator()(const std::string &str) const {
+        return gd_str_ascii_prefix(str, attrib);
+    }
 };
 
 
@@ -56,10 +63,6 @@ public:
     explicit AttribParam(const std::string &str, char separator = '=');
 };
 
-typedef std::list<std::string> BdcffSection;
-typedef BdcffSection::iterator BdcffSectionIterator;
-typedef BdcffSection::const_iterator BdcffSectionConstIterator;
-
 /**
  * A structure, which stores the lines of text in a bdcff file; and has a list
  * of these strings for each section.
@@ -69,6 +72,7 @@ typedef BdcffSection::const_iterator BdcffSectionConstIterator;
  * Caves data contains: highscore for cave, cave properties, maybe map, maybe objects, maybe replays, maybe demo (=legacy replay).
  */
 struct BdcffFile {
+    typedef std::list<std::string> BdcffSection;
     struct CaveInfo {
         BdcffSection highscore;
         BdcffSection properties;

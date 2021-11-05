@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013 Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -82,7 +82,7 @@ static bool try_bd1(std::vector<unsigned char> const &memory, bool atari) {
     int cavestart = atari ? 0x3528 : 0x582e;
     int positions[20];
     const char *type = atari ? "atari" : "c64";
-    SetLoggerContextForFunction context(SPrintf("BD1 import %s") % type);
+    SetLoggerContextForFunction context(Printf("BD1 import %s", type));
 
     startwith(atari ? C64Import::GD_FORMAT_BD1_ATARI : C64Import::GD_FORMAT_BD1);
 
@@ -105,7 +105,7 @@ static bool try_bd1(std::vector<unsigned char> const &memory, bool atari) {
         /* check if position is not the same as any previous cave */
         for (int j = 0; j < i; ++j)
             if (positions[j] == positions[i]) {
-                gd_debug(CPrintf("Invalid cave position %x at index %d - same as for cave at index %d") % pos % i % j);
+                gd_debug("Invalid cave position %x at index %d - same as for cave at index %d", pos, i, j);
                 return false;
             }
 
@@ -114,9 +114,9 @@ static bool try_bd1(std::vector<unsigned char> const &memory, bool atari) {
             return false;
         }
         if (i < 16)
-            gd_debug(CPrintf("Cave %c, addr: %04x") % char(i + 'A') % pos);
+            gd_debug("Cave %c, addr: %04x", char(i + 'A'), pos);
         else
-            gd_debug(CPrintf("Intermission %d, addr: %04x") % int(i - 15) % pos);
+            gd_debug("Intermission %d, addr: %04x", int(i - 15), pos);
 
         /* copy */
         /* first 32 bytes - cave options */
@@ -243,7 +243,7 @@ static bool try_plck(std::vector<unsigned char> const &memory) {
 
         if (memory[pos + 0x1e5] == 0x20 && memory[pos + 0x1e6] == 0x90 && memory[pos + 0x1e7] == 0x46)
             has_diego = 1;
-        gd_debug(CPrintf("Cave %d, addr: %04x%s") % int(i + 1) % pos % (has_diego ? " - has diego effects." : ""));
+        gd_debug("Cave %d, addr: %04x%s", int(i + 1), pos, (has_diego ? " - has diego effects." : ""));
 
         /* copy 1f0 bytes for cave */
         for (j = 0; j < 0x1f0; ++j)
@@ -278,7 +278,7 @@ static bool try_plck(std::vector<unsigned char> const &memory) {
 
         i++;
     }
-    gd_debug(CPrintf("Found %d PLCK caves in %d bytes!") % i % outpos);
+    gd_debug("Found %d PLCK caves in %d bytes!", i, outpos);
 
     /* now try to do something about diego effects. */
     /* if we found at least one cave with diego effects, this check can be skipped. */
@@ -346,7 +346,7 @@ static bool try_plck(std::vector<unsigned char> const &memory) {
         /* and check if there are others we cannot fit into a "standard" cawe */
         for (j = 0; j < numbers; j++)
             if (diffs[j]) {
-                gd_debug(CPrintf("Don't know how to handle effect for element number %x, default %x, this one %x") % j % default_effect[j] % memory[0x3b00 + j]);
+                gd_debug("Don't know how to handle effect for element number %x, default %x, this one %x", j, default_effect[j], memory[0x3b00 + j]);
             }
     }
     return true;
@@ -424,7 +424,7 @@ static bool try_atari_plck(std::vector<unsigned char> const &memory) {
         bool has_diego = false;
         if (memory[pos + 0x1e5] == 0x20 && memory[pos + 0x1e6] == 0x90 && memory[pos + 0x1e7] == 0x46)
             has_diego = true;
-        gd_debug(CPrintf("Cave %d, addr: %04x, sel: %d%s") % (i + 1) % pos % selectable % (has_diego ? " - has diego effects." : ""));
+        gd_debug("Cave %d, addr: %04x, sel: %d%s", i + 1, pos, selectable, has_diego ? " - has diego effects." : "");
 
         /* copy 1f0 bytes for cave */
         for (j = 0; j < 0x1f0; ++j)
@@ -457,7 +457,7 @@ static bool try_atari_plck(std::vector<unsigned char> const &memory) {
 
         i++;
     }
-    gd_debug(CPrintf("Found %d PLCK caves in %d bytes!") % i % outpos);
+    gd_debug("Found %d PLCK caves in %d bytes!", i, outpos);
 
     return true;
 }
@@ -505,14 +505,14 @@ static bool try_crli(std::vector<unsigned char> const &memory) {
             pos += 14;  /* add 14 bytes for name */
             int n = pos - startpos; /* bytes to copy */
             startpos -= 14; /* name is BEFORE the cave data */
-            gd_debug(CPrintf("Cave %d, addr: %04x (%d), length %d bytes") % caves % pos % pos % n);
+            gd_debug("Cave %d, addr: %04x (%d), length %d bytes", caves, pos, pos % n);
 
             out[outpos++] = memory[0x7060 + i]; /* is_selectable */
             for (int j = 0; j < n; j++)
                 out[outpos++] = memory[startpos++];
         }
     }
-    gd_debug(CPrintf("Found %d crazy light caves in %d bytes!") % caves % outpos);
+    gd_debug("Found %d crazy light caves in %d bytes!", caves, outpos);
     return true;
 }
 
@@ -578,16 +578,16 @@ static bool try_crdr(std::vector<unsigned char> const &memory) {
                         out[outpos++] = memory[pos++];
                     break;
                 default:
-                    gd_debug(CPrintf("Unknown crdr object code %x at %d. Aborting.") % memory[pos] % pos);
+                    gd_debug("Unknown crdr object code %x at %d. Aborting.", memory[pos], pos);
                     return false;
                     break;
             }
         }
         out[outpos++] = memory[pos++];  /* copy $ff */
         int n = pos - startpos; /* bytes to copied */
-        gd_debug(CPrintf("Cave %d, addr: %04x (%d), length %d bytes") % caves % pos % pos % n);
+        gd_debug("Cave %d, addr: %04x (%d), length %d bytes", caves, pos, pos, n);
     }
-    gd_debug(CPrintf("Found %d crazy dream caves in %d bytes!") % caves % outpos);
+    gd_debug("Found %d crazy dream caves in %d bytes!", caves, outpos);
     return true;
 }
 
@@ -600,7 +600,7 @@ static bool try_bd2(std::vector<unsigned char> const &memory, bool atari) {
     int i;
     int unsupported = 0, uns[256];
     const char *type = atari ? "atari" : "c64";
-    SetLoggerContextForFunction context(SPrintf("BD2 import %s") % type);
+    SetLoggerContextForFunction context(Printf("BD2 import %s", type));
 
     /* 256 counters for the 256 possible bytes (8bit). mark each unsupported extension found. */
     /* if more than 5 types found, bail out with error */
@@ -622,9 +622,9 @@ static bool try_bd2(std::vector<unsigned char> const &memory, bool atari) {
             return false;
         }
         if (i < 16)
-            gd_debug(CPrintf("Cave %c, addr: %04x") % char(i + 'A') % pos);
+            gd_debug("Cave %c, addr: %04x", char(i + 'A'), pos);
         else
-            gd_debug(CPrintf("Intermission %d, addr: %04x") % int(i - 15) % pos);
+            gd_debug("Intermission %d, addr: %04x", int(i - 15), pos);
 
         /* copy */
         /* first bytes: cave options */
@@ -705,7 +705,7 @@ static bool try_bd2(std::vector<unsigned char> const &memory, bool atari) {
                 default:
                     if (uns[j] == 0) {
                         /* not seen this extension previously */
-                        gd_debug(CPrintf("Found unsupported bd2 extension n.%d") % j);
+                        gd_debug("Found unsupported bd2 extension n.%d", j);
                         unsupported++;
                         uns[j] = 1; /* mark the newly found unknown extension */
                     }
@@ -751,12 +751,12 @@ static bool try_1stb(std::vector<unsigned char> const &memory) {
                 gd_debug("Data corrupt or detection failed for 1stb caves.");
                 return false;
             }
-        gd_debug(CPrintf("Cave %d, addr: %04x") % (i + 1) % pos);
+        gd_debug("Cave %d, addr: %04x", i + 1, pos);
 
         for (int j = 0; j < 0x400; ++j)
             out[outpos++] = memory[pos++];
     }
-    gd_debug(CPrintf("Found %d 1stb caves!") % i);
+    gd_debug("Found %d 1stb caves!", i);
     return true;
 }
 

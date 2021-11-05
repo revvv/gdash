@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -33,141 +33,40 @@
 #include "cave/colors.hpp"
 #include "gfx/cellrenderer.hpp"
 #include "gfx/fontmanager.hpp"
-#include "misc/printf.hpp"
 #include "misc/logger.hpp"
 #include "misc/autogfreeptr.hpp"
 
 #include "c64_font.cpp"
 
 
-/**
- * @brief A RenderedFont stores glyphs rendered for a given font and a given color.
- * This is an abstract base class, the narrow and wide font are derived from this.
- */
-class RenderedFont {
-public:
-    /// Number of characters on the font map.
-    enum {
-        CHARS_X = 32,
-        CHARS_Y = 4,
-        NUM_OF_CHARS = CHARS_X * CHARS_Y
-    };
-
-    /// Constructor.
-    /// @param bitmap_ Raw font data.
-    /// @param color_ The color of drawing.
-    /// @param pixbuf_factory The pixbuf factory used to create glyphs.
-    RenderedFont(std::vector<unsigned char> const &bitmap_,  unsigned font_size_, GdColor const &color_, Screen &screen);
-
-    /// Destructor.
-    virtual ~RenderedFont();
-
-    /// Return the pixmap for a given character; maybe after creating it.
-    /// @param j The ASCII (or GDash) code of the character
-    Pixmap const &get_character(int j) const;
-
-    /// GdColor::get_uint_0rgb() code of color, for easy searching in a font manager.
-    guint32 uint;
-
-protected:
-    /// Raw font data.
-    std::vector<unsigned char> const &bitmap;
-
-    /// Font size (pixbufs)
-    unsigned int font_size;
-
-    /// The Screen for which this font is rendered.
-    Screen &screen;
-
-    /// RGBA format of color in pixbufs.
-    guint32 col;
-
-    /// RGBA format of transparent pixel in pixbufs.
-    guint32 transparent;
-
-    /// The rendered glyphs are stored in this array as pixmaps.
-    mutable Pixmap *_character[NUM_OF_CHARS];
-
-    RenderedFont(const RenderedFont &);     // not implemented
-    RenderedFont &operator=(const RenderedFont &);  // not implemented
-
-private:
-    /// Render a single character. The narrow and wide fonts implement this.
-    virtual Pixmap *render_character(int j) const = 0;
-};
-
-class RenderedFontNarrow: public RenderedFont {
-private:
-    virtual Pixmap *render_character(int j) const;
-
-public:
-    RenderedFontNarrow(std::vector<unsigned char> const &bitmap_,  unsigned font_size_, GdColor const &color, Screen &screen)
-        : RenderedFont(bitmap_, font_size_, color, screen) {}
-};
-
-class RenderedFontWide: public RenderedFont {
-private:
-    virtual Pixmap *render_character(int j) const;
-
-public:
-    RenderedFontWide(std::vector<unsigned char> const &bitmap_,  unsigned font_size_, GdColor const &color, Screen &screen)
-        : RenderedFont(bitmap_, font_size_, color, screen) {}
-};
-
-
-RenderedFont::~RenderedFont() {
-    for (unsigned i = 0; i < NUM_OF_CHARS; ++i)
-        delete _character[i];
-}
-
-
-RenderedFont::RenderedFont(std::vector<unsigned char> const &bitmap_, unsigned font_size_, GdColor const &color, Screen &screen)
+RenderedFont::RenderedFont(std::vector<unsigned char> const & bitmap_, unsigned font_size_, bool wide_, GdColor const &color, Screen &screen)
     :   uint(color.get_uint_0rgb()),
-        bitmap(bitmap_),
+        bitmap(&bitmap_),
         font_size(font_size_),
-        screen(screen),
-        _character() {
-    g_assert(font_size_*font_size_*NUM_OF_CHARS == bitmap_.size());
+        wide(wide_),
+        screen(screen) {
+    g_assert(font_size_ * font_size_ * NUM_OF_CHARS == bitmap_.size());
     col = Pixbuf::rgba_pixel_from_color(color, 0xff); /* opaque */
     transparent = Pixbuf::rgba_pixel_from_color(GdColor::from_rgb(0, 0, 0), 0x00);  /* transparent black */
 }
 
-Pixmap *RenderedFontNarrow::render_character(int j) const {
+std::unique_ptr<Pixmap> RenderedFont::render_character(int j) const {
     int y1 = (j / CHARS_X) * font_size;
     int x1 = (j % CHARS_X) * font_size;
 
-    std::auto_ptr<Pixbuf> image(screen.pixbuf_factory.create(font_size, font_size));
+    std::unique_ptr<Pixbuf> image = screen.pixbuf_factory.create(wide ? font_size * 2 : font_size, font_size);
+
     for (unsigned y = 0; y < font_size; y++) {
         guint32 *p = image->get_row(y);
         for (unsigned x = 0; x < font_size; x++) {
-            /* the font array is encoded the same way as a c64-colored pixbuf. see c64_gfx_data...() */
-            if (bitmap[(y1 + y) * (CHARS_X * font_size) + x1 + x] != 1) /* 1 is black there!! */
-                p[x] = col;  /* normal */
+            guint32 c = (*bitmap)[(y1 + y) * (CHARS_X * font_size) + x1 + x] != 1 ? col: transparent;  /* 1 is black there!! */
+            if (wide)
+                p[2 * x + 0] = p[2 * x + 1] = c;
             else
-                p[x] = transparent;  /* normal */
+                p[x] = c;
         }
     }
-    return screen.create_scaled_pixmap_from_pixbuf(*image, true);
-}
-
-Pixmap *RenderedFontWide::render_character(int j) const {
-    int y1 = (j / CHARS_X) * font_size;
-    int x1 = (j % CHARS_X) * font_size;
-
-    std::auto_ptr<Pixbuf> image(screen.pixbuf_factory.create(font_size * 2, font_size));
-    for (unsigned y = 0; y < font_size; y++) {
-        guint32 *p = image->get_row(y);
-        for (unsigned x = 0; x < font_size; x++) {
-            /* the font array is encoded the same way as a c64-colored pixbuf. see c64_gfx_data...() */
-            if (bitmap[(y1 + y) * (CHARS_X * font_size) + x1 + x] != 1) { /* 1 is black there!! */
-                p[2 * x + 0] = col; /* normal */
-                p[2 * x + 1] = col;
-            } else {
-                p[2 * x + 0] = transparent; /* normal */
-                p[2 * x + 1] = transparent; /* normal */
-            }
-        }
-    }
+    
     return screen.create_scaled_pixmap_from_pixbuf(*image, true);
 }
 
@@ -184,7 +83,7 @@ bool FontManager::is_pixbuf_ok_for_theme(const Pixbuf &surface) {
     if ((surface.get_width() % RenderedFont::CHARS_X != 0)
             || (surface.get_height() % RenderedFont::CHARS_Y != 0)
             || (surface.get_width() / RenderedFont::CHARS_X != surface.get_height() / RenderedFont::CHARS_Y)) {
-        gd_critical(CPrintf("image should contain %d chars in a row and %d in a column!") % int(RenderedFont::CHARS_X) % int(RenderedFont::CHARS_Y));
+        gd_critical("image should contain %d chars in a row and %d in a column!", int(RenderedFont::CHARS_X), int(RenderedFont::CHARS_Y));
         return false;
     }
 
@@ -193,11 +92,9 @@ bool FontManager::is_pixbuf_ok_for_theme(const Pixbuf &surface) {
 
 bool FontManager::is_image_ok_for_theme(PixbufFactory &pixbuf_factory, const char *filename) {
     try {
-        Pixbuf *image = pixbuf_factory.create_from_file(filename);
-        /* if the image is loaded */
+        std::unique_ptr<Pixbuf> image = pixbuf_factory.create_from_file(filename);
         SetLoggerContextForFunction scf(filename);
         bool result = is_pixbuf_ok_for_theme(*image);
-        delete image;
         return result;
     } catch (...) {
         return false;
@@ -208,7 +105,7 @@ bool FontManager::loadfont_image(Pixbuf const &image) {
     if (!is_pixbuf_ok_for_theme(image))
         return false;
 
-    clear();
+    release_pixmaps();
     font = Pixbuf::c64_gfx_data_from_pixbuf(image);
     font_size = image.get_width() / RenderedFont::CHARS_X;
     return true;
@@ -220,14 +117,13 @@ bool FontManager::loadfont_file(const std::string &filename) {
     /* load cell graphics */
     /* load from file */
     try {
-        Pixbuf *image = screen.pixbuf_factory.create_from_file(filename.c_str());
+        std::unique_ptr<Pixbuf> image = screen.pixbuf_factory.create_from_file(filename.c_str());
         bool result = loadfont_image(*image);
-        delete image;
         if (!result)
-            gd_critical(CPrintf("%s: invalid font bitmap") % filename);
+            gd_critical("%s: invalid font bitmap", filename);
         return result;
     } catch (std::exception &e) {
-        gd_critical(CPrintf("%s: unable to load image (%s)") % filename % e.what());
+        gd_critical("%s: unable to load image (%s)", filename, e.what());
         return false;
     }
 }
@@ -239,10 +135,9 @@ void FontManager::load_theme(const std::string &theme_file) {
     if (theme_file != "" && loadfont_file(theme_file)) {
         /* loaded from png file */
     } else {
-        Pixbuf *image = screen.pixbuf_factory.create_from_inline(sizeof(c64_font), c64_font);
+        std::unique_ptr<Pixbuf> image = screen.pixbuf_factory.create_from_inline(sizeof(c64_font), c64_font);
         bool result = loadfont_image(*image);
-        g_assert(result == true);     // to check the builting font
-        delete image;
+        g_assert(result == true);     // to check the builtin font
     }
 }
 
@@ -254,54 +149,24 @@ FontManager::FontManager(Screen &screen, const std::string &theme_file)
     load_theme(theme_file);
 }
 
-FontManager::~FontManager() {
-    clear();
-}
-
-struct FindRenderedFont {
-    guint32 uint;
-    FindRenderedFont(guint32 uint_): uint(uint_) {}
-    bool operator()(const RenderedFont *font) const {
-        return font->uint == uint;
-    }
-};
-
-RenderedFont *FontManager::narrow(const GdColor &c) {
+FontManager::container::const_iterator FontManager::find(const GdColor &c, bool widefont) {
+    container &cnt = widefont ? wide : narrow;
+    
     // find font in list
-    container::iterator it = find_if(_narrow.begin(), _narrow.end(), FindRenderedFont(c.get_uint_0rgb()));
-    if (it == _narrow.end()) {
+    container::iterator it = find_if(cnt.begin(), cnt.end(), [uint = c.get_uint_0rgb()] (RenderedFont const &f) {
+        return f.uint == uint;
+    });
+    if (it == cnt.end()) {
         // if not found, create it
-        RenderedFont *newfont = new RenderedFontNarrow(font, font_size, c, screen);
-        _narrow.push_front(newfont);
+        cnt.push_front(RenderedFont(font, font_size, widefont, c, screen));
         // if list became too long, remove one from the end
-        if (_narrow.size() > 8) {
-            delete _narrow.back();
-            _narrow.pop_back();
-        }
+        if (cnt.size() > 8)
+            cnt.pop_back();
     } else {
         // put the font found to the beginning of the list
-        std::swap(*_narrow.begin(), *it);
+        cnt.splice(cnt.begin(), cnt, it);
     }
-    return *_narrow.begin();
-}
-
-RenderedFont *FontManager::wide(const GdColor &c) {
-    // find font in list
-    container::iterator it = find_if(_wide.begin(), _wide.end(), FindRenderedFont(c.get_uint_0rgb()));
-    if (it == _wide.end()) {
-        // if not found, create it
-        RenderedFont *newfont = new RenderedFontWide(font, font_size, c, screen);
-        _wide.push_front(newfont);
-        // if list became too long, remove one from the end
-        if (_wide.size() > 8) {
-            delete _wide.back();
-            _wide.pop_back();
-        }
-    } else {
-        // put the font found to the beginning of the list
-        std::swap(*_wide.begin(), *it);
-    }
-    return *_wide.begin();
+    return cnt.begin();
 }
 
 /* function which draws characters on the screen. used internally. */
@@ -310,7 +175,7 @@ int FontManager::blittext_internal(int x, int y, char const *text, bool widefont
     AutoGFreePtr<char> normalized(g_utf8_normalize(text, -1, G_NORMALIZE_ALL));
     AutoGFreePtr<gunichar> ucs(g_utf8_to_ucs4(normalized, -1, NULL, NULL, NULL));
 
-    RenderedFont const *font = widefont ? wide(current_color) : narrow(current_color);
+    container::const_iterator font = find(current_color, widefont);
     int w = font->get_character(' ').get_width();
     int h = get_line_height();
 
@@ -353,7 +218,7 @@ int FontManager::blittext_internal(int x, int y, char const *text, bool widefont
             /* 64 was added in colors.hpp, now subtract it */
             c -= 64;
             current_color = GdColor::from_gdash_index(c);
-            font = widefont ? wide(current_color) : narrow(current_color);
+            font = find(current_color, widefont);
 
             continue;
         }
@@ -458,17 +323,9 @@ int FontManager::blittext_internal(int x, int y, char const *text, bool widefont
     return xc;
 }
 
-void FontManager::clear() {
-    for (container::iterator it = _narrow.begin(); it != _narrow.end(); ++it)
-        delete *it;
-    _narrow.clear();
-    for (container::iterator it = _wide.begin(); it != _wide.end(); ++it)
-        delete *it;
-    _wide.clear();
-}
-
 void FontManager::release_pixmaps() {
-    clear();
+    narrow.clear();
+    wide.clear();
 }
 
 int FontManager::get_font_height() const {

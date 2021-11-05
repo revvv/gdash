@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -32,20 +32,25 @@
 #include "cave/cavetypes.hpp"
 #include "cave/helper/namevaluepair.hpp"
 #include "cave/elementproperties.hpp"
-#include "misc/printf.hpp"
 #include "misc/logger.hpp"
 
 
 /* TRANSLATORS: None here means "no direction to move"; when there is no gravity while stirring the pot. */
 static const char *direction_name[] = { N_("None"), N_("Up"), N_("Up+right"), N_("Right"), N_("Down+right"), N_("Down"), N_("Down+left"), N_("Left"), N_("Up+left") };
 static const char *direction_filename[] = { "none", "up", "upright", "right", "downright", "down", "downleft", "left", "upleft" };
+static_assert(MV_MAX == G_N_ELEMENTS(direction_filename));
+static_assert(MV_MAX == G_N_ELEMENTS(direction_name));
 
 static const char *scheduling_name[] = { N_("Milliseconds"), "BD1", "BD2", "Construction Kit", "Crazy Dream 7", "Atari BD1", "Atari BD2/Construction Kit" };
 static const char *scheduling_filename[] = { "ms", "bd1", "bd2", "plck", "crdr7", "bd1atari", "bd2ckatari" };
+static_assert(GD_SCHEDULING_MAX == G_N_ELEMENTS(scheduling_filename));
+static_assert(GD_SCHEDULING_MAX == G_N_ELEMENTS(scheduling_name));
 
 /* used for bdcff engine flag. */
 static const char *engines_name[] = {"BD1", "BD2", "PLCK", "1stB", "Crazy Dream", "Crazy Light"};
 static const char *engines_filename[] = {"BD1", "BD2", "PLCK", "1stB", "CrDr", "CrLi"};
+static_assert(GD_ENGINE_MAX == G_N_ELEMENTS(engines_filename));
+static_assert(GD_ENGINE_MAX == G_N_ELEMENTS(engines_name));
 
 /// Write a coordinate to an output stream.
 /// Delimits the x and y components with space.
@@ -83,7 +88,7 @@ std::string visible_name(Coordinate const &p) {
 /// @param p2 The other corner of the rectangle.
 /// @param current The coordinate clicked.
 /// @param displacement The movement vector.
-void Coordinate::drag_rectangle(Coordinate &p1, Coordinate &p2, Coordinate const &current, Coordinate const &displacement) {
+void Coordinate::drag_rectangle(Coordinate &p1, Coordinate &p2, Coordinate current, Coordinate displacement) {
     /* dragging objects which are box-shaped */
     if (current.x == p1.x && current.y == p1.y) {       /* try to drag (x1;y1) corner. */
         p1.x += displacement.x;
@@ -153,7 +158,7 @@ const char *visible_name(GdElementEnum elem) {
 
 /// Get on-screen visible name of an element, but made lowercased, so it can be put in a sentence.
 const char *visible_name_lowercase(GdElementEnum elem) {
-    /* TRANSLATORS: in some languages (for example, german) nouns must be written capitalized.
+    /* TRANSLATORS: in some languages (for example, German) nouns must be written capitalized.
      * In other languages, nouns can be written uncapitalized.
      * When the name of an element is put in a sentence, this has to be taken into account.
      *
@@ -217,7 +222,7 @@ CharToElementTable::CharToElementTable() {
  */
 GdElementEnum CharToElementTable::get(unsigned i) const {
     if (i >= ArraySize || table[i] == O_UNKNOWN) {
-        gd_warning(CPrintf("Invalid character representing element: %c") % char(i));
+        gd_warning("Invalid character representing element: %c", char(i));
         return O_UNKNOWN;
     }
     return table[i];
@@ -257,16 +262,15 @@ unsigned CharToElementTable::find_place_for(GdElementEnum e) {
  */
 void CharToElementTable::set(unsigned i, GdElementEnum e) {
     if (i >= ArraySize) {
-        gd_warning(CPrintf("Invalid character representing element: %c") % char(i));
+        gd_warning("Invalid character representing element: %c", char(i));
         return;
     }
 
     if (table[i] != O_UNKNOWN)
-        gd_warning(CPrintf("Character %c already used by elements %s") % char(i) % visible_name(table[i]));
+        gd_warning("Character %c already used by elements %s", char(i), visible_name(table[i]));
 
     table[i] = e;
 }
-
 
 static NameValuePair<GdElementEnum> name_to_element;
 
@@ -332,13 +336,6 @@ void gd_cave_types_init() {
             }
         }
     }
-
-    g_assert(GD_SCHEDULING_MAX == G_N_ELEMENTS(scheduling_filename));
-    g_assert(GD_SCHEDULING_MAX == G_N_ELEMENTS(scheduling_name));
-    g_assert(MV_MAX == G_N_ELEMENTS(direction_filename));
-    g_assert(MV_MAX == G_N_ELEMENTS(direction_name));
-    g_assert(GD_ENGINE_MAX == G_N_ELEMENTS(engines_filename));
-    g_assert(GD_ENGINE_MAX == G_N_ELEMENTS(engines_name));
 }
 
 /// Load an element from a stream, where it is stored in its name.
@@ -402,11 +399,10 @@ bool read_from_string(const std::string &s, GdInt &i) {
     std::istringstream is(s);
     /* was saved as a normal int */
     int read;
-    if (is >> read) {
+    bool success = (bool)(is >> read);
+    if (success)
         i = read;
-        return true;
-    }
-    return false;
+    return success;
 }
 
 

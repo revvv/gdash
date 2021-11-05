@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -27,23 +27,27 @@
 #include "config.h"
 
 #include "sdl/sdlabstractscreen.hpp"
+#include "misc/deleter.hpp"
 
 class PixbufFactory;
 
 
 class SDLScreen: public SDLAbstractScreen {
 private:
-    SDLScreen(const SDLScreen &);       // not impl
-    SDLScreen &operator=(const SDLScreen &);    // not impl
+    std::unique_ptr<SDL_Window, Deleter<SDL_Window, SDL_DestroyWindow>> window;
+    std::unique_ptr<SDL_Renderer, Deleter<SDL_Renderer, SDL_DestroyRenderer>> renderer;
+    std::unique_ptr<SDL_Texture, Deleter<SDL_Texture, SDL_DestroyTexture>> texture;
 
 public:
-    SDLScreen(PixbufFactory &pixbuf_factory);
-    ~SDLScreen();
-    virtual void configure_size();
-    virtual void set_title(char const *title);
-    virtual bool must_redraw_all_before_flip() const;
-    virtual void flip();
-    virtual Pixmap *create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const;
+    SDLScreen(PixbufFactory &pixbuf_factory): SDLAbstractScreen(pixbuf_factory) {}
+    virtual void configure_size() override;
+    virtual void set_title(char const *title) override;
+    virtual bool must_redraw_all_before_flip() const override;
+    virtual void flip() override;
+    virtual std::unique_ptr<Pixmap> create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const override;
+
+    virtual void start_text_input() override;
+    virtual void stop_text_input() override;
 };
 
 

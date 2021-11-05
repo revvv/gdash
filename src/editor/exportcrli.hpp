@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -29,7 +29,7 @@
 
 class CaveStored;
 
-void gd_export_cave_to_crli_cavefile(CaveStored *cave, int level, const char *filename);
-void gd_export_caves_to_crli_cavepack(const std::vector<CaveStored *> &caves, int level, const char *filename);
+void gd_export_cave_to_crli_cavefile(CaveStored const &cave, int level, const char *filename);
+void gd_export_caves_to_crli_cavepack(std::vector<CaveStored> const &caves, int level, const char *filename);
 
 #endif

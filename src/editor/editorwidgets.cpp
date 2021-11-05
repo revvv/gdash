@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -68,15 +68,12 @@ typedef enum {
 static GdkPixbuf *
 color_combo_pixbuf_for_gd_color(const GdColor &col) {
     int x, y;
-    guint32 pixel;
-    GdkPixbuf *pixbuf;
-
     gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &x, &y);
 
-    pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, x, y);
+    GdkPixbuf *pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, x, y);
     unsigned char r, g, b;
     col.get_rgb(r, g, b);
-    pixel = (guint32(r) << 24) + (guint32(g) << 16) + (guint32(b) << 8);
+    guint32 pixel = (guint32(r) << 24) + (guint32(g) << 16) + (guint32(b) << 8);
     gdk_pixbuf_fill(pixbuf, pixel);
 
     return pixbuf;
@@ -92,22 +89,18 @@ gd_color_combo_set(GtkComboBox *combo, const GdColor &color) {
     *pcolor = color;  /* set its own object to be a copy of the requested color */
 
     if (color.is_c64()) {
-        GtkTreeIter iter;
-
         char *path = g_strdup_printf("0:%d", color.get_c64_index());
+        GtkTreeIter iter;
         gtk_tree_model_get_iter_from_string(gtk_combo_box_get_model(combo), &iter, path);
         g_free(path);
         gtk_combo_box_set_active_iter(combo, &iter);
     } else {
         GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo));
         GtkTreeIter iter;
-
         gtk_tree_model_get_iter(model, &iter, selected_color_path);
-
         GdkPixbuf *pixbuf = color_combo_pixbuf_for_gd_color(color);
         gtk_tree_store_set(GTK_TREE_STORE(model), &iter, COL_COLOR_PIXBUF, pixbuf, COL_COLOR_NAME, visible_name(color).c_str(), -1);
         g_object_unref(pixbuf);    /* now the tree store owns its own reference */
-
         gtk_combo_box_set_active_iter(GTK_COMBO_BOX(combo), &iter);
     }
 }
@@ -122,6 +115,18 @@ color_combo_drawing_area_button_press_event(GtkWidget *widget, GdkEventButton *e
 }
 
 
+static gboolean
+color_combo_drawing_area_draw_event(GtkWidget *widget, cairo_t *cr, gpointer data) {
+    guint width = gtk_widget_get_allocated_width (widget);
+    guint height = gtk_widget_get_allocated_height (widget);
+    guint32 col = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(widget), GDASH_COLOR));
+    unsigned char r = col / 65536 % 256, g = col / 256 % 256, b = col % 256;
+    cairo_set_source_rgb(cr, r / 255.0, g / 255.0, b / 255.0);
+    cairo_rectangle(cr, 0, 0, width, height);
+    cairo_fill(cr);
+}
+
+
 static void
 color_combo_changed(GtkWidget *combo, gpointer data) {
     GdColor *pcolor = static_cast<GdColor *>(g_object_get_data(G_OBJECT(combo), GDASH_COLOR));
@@ -133,34 +138,25 @@ color_combo_changed(GtkWidget *combo, gpointer data) {
     gtk_tree_model_get(model, &iter, COL_COLOR_ACTION, &action, -1);
     switch (action) {
         case COLOR_ACTION_SELECT_RGB: {
-            GtkWidget *dialog;
-            GtkColorSelection *colorsel;
-            gint response;
-            GdkColor gc;
-            GdColor prevcol;
+            GdColor prevcol = *pcolor;  /* remember previous setting */
 
-            prevcol = *pcolor;  /* remember previous setting */
-
-            dialog = gtk_color_selection_dialog_new(_("Select Color"));
-            gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(gtk_widget_get_toplevel(combo)));
-            colorsel = GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
+            GtkWidget *dialog = gtk_color_chooser_dialog_new(_("Select Color"), GTK_WINDOW(gtk_widget_get_toplevel(combo)));
             unsigned char r, g, b;
             prevcol.get_rgb(r, g, b);
-            gc.red = r * 257;     // yes, 257: 255*257=65535
-            gc.green = g * 257;
-            gc.blue = b * 257;
-            gtk_color_selection_set_previous_color(colorsel, &gc);
-            gtk_color_selection_set_current_color(colorsel, &gc);
-            gtk_color_selection_set_has_palette(colorsel, TRUE);
+            GdkRGBA rgba;
+            rgba.red = r / 255.0;
+            rgba.green = g / 255.0;
+            rgba.blue = b / 255.0;
+            rgba.alpha = 1.0;
+            gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(dialog), &rgba);
+            gtk_color_chooser_set_use_alpha(GTK_COLOR_CHOOSER(dialog), FALSE);
 
             gtk_window_present_with_time(GTK_WINDOW(dialog), gtk_get_current_event_time());
-            response = gtk_dialog_run(GTK_DIALOG(dialog));
+            gint response = gtk_dialog_run(GTK_DIALOG(dialog));
 
             if (response == GTK_RESPONSE_OK) {
-                GdkColor gc;
-
-                gtk_color_selection_get_current_color(colorsel, &gc);
-                gd_color_combo_set(GTK_COMBO_BOX(combo), GdColor::from_rgb(gc.red >> 8, gc.green >> 8, gc.blue >> 8));
+                gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(dialog), &rgba);
+                gd_color_combo_set(GTK_COMBO_BOX(combo), GdColor::from_rgb(rgba.red * 255.0, rgba.green * 255.0, rgba.blue * 255.0));
             } else {
                 /* if not accepted, return button to original state */
                 gd_color_combo_set(GTK_COMBO_BOX(combo), prevcol);
@@ -172,10 +168,6 @@ color_combo_changed(GtkWidget *combo, gpointer data) {
 
         case COLOR_ACTION_SELECT_ATARI:
         case COLOR_ACTION_SELECT_DTV: {
-            GtkWidget *dialog, *table, *frame;
-            GdColor prevcol;
-            int i;
-            int result;
             GdColor(*colorfunc)(unsigned int i);
             const char *title;
 
@@ -194,35 +186,33 @@ color_combo_changed(GtkWidget *combo, gpointer data) {
                     g_assert_not_reached();
             }
 
-            dialog = gtk_dialog_new_with_buttons(title, GTK_WINDOW(gtk_widget_get_toplevel(combo)), GTK_DIALOG_NO_SEPARATOR, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL);
-            table = gtk_table_new(16, 16, TRUE);
-            for (i = 0; i < 256; i++) {
-                GdkColor color;
-
+            GtkWidget *dialog = gtk_dialog_new_with_buttons(title, GTK_WINDOW(gtk_widget_get_toplevel(combo)), GtkDialogFlags(0), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL);
+            gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
+            GtkWidget *grid = gtk_grid_new();
+            for (int i = 0; i < 256; i++) {
                 GtkWidget *da = gtk_drawing_area_new();
                 GdColor c = colorfunc(i);
-                g_object_set_data(G_OBJECT(da), GDASH_COLOR_INDEX, GUINT_TO_POINTER(i));    /* attach the color index as data */
-                gtk_widget_add_events(da, GDK_BUTTON_PRESS_MASK);
-                gtk_widget_set_tooltip_text(da, visible_name(c).c_str());
-                g_signal_connect(G_OBJECT(da), "button_press_event", G_CALLBACK(color_combo_drawing_area_button_press_event), dialog);    /* mouse click */
                 unsigned char r, g, b;
                 c.get_rgb(r, g, b);
-                color.red = r * 256; /* 256 as gdk expect 16-bit/component */
-                color.green = g * 256;
-                color.blue = b * 256;
-                gtk_widget_modify_bg(da, GTK_STATE_NORMAL, &color);
+                g_object_set_data(G_OBJECT(da), GDASH_COLOR_INDEX, GUINT_TO_POINTER(i));
+                g_object_set_data(G_OBJECT(da), GDASH_COLOR, GUINT_TO_POINTER(256*256*r + 256*g + b));
+                gtk_widget_add_events(da, GDK_BUTTON_PRESS_MASK);
+                gtk_widget_set_tooltip_text(da, visible_name(c).c_str());
                 gtk_widget_set_size_request(da, 16, 16);
-                gtk_table_attach_defaults(GTK_TABLE(table), da, i % 16, i % 16 + 1, i / 16, i / 16 + 1);
+                g_signal_connect(G_OBJECT(da), "button_press_event", G_CALLBACK(color_combo_drawing_area_button_press_event), dialog);
+                g_signal_connect(G_OBJECT(da), "draw", G_CALLBACK(color_combo_drawing_area_draw_event), da);
+                gtk_grid_attach(GTK_GRID(grid), da, i % 16, i / 16, 1, 1);
             }
-            frame = gtk_frame_new(NULL);
+            GtkWidget *frame = gtk_frame_new(NULL);
             gtk_container_set_border_width(GTK_CONTAINER(frame), 6);
             gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
-            gtk_container_add(GTK_CONTAINER(frame), table);
-            gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(dialog)->vbox), frame);
-            gtk_widget_show_all(GTK_DIALOG(dialog)->vbox);
+            gtk_container_add(GTK_CONTAINER(frame), grid);
+            GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+            gtk_container_add(GTK_CONTAINER(content_area), frame);
+            gtk_widget_show_all(content_area);
 
-            prevcol = *pcolor;
-            result = gtk_dialog_run(GTK_DIALOG(dialog));
+            GdColor prevcol = *pcolor;
+            int result = gtk_dialog_run(GTK_DIALOG(dialog));
             if (result >= 0)
                 gd_color_combo_set(GTK_COMBO_BOX(combo), colorfunc(result));
             else
@@ -235,7 +225,6 @@ color_combo_changed(GtkWidget *combo, gpointer data) {
 
         case COLOR_ACTION_SELECT_C64: {
             int i;
-
             gtk_tree_model_get(model, &iter, COL_COLOR_C64_INDEX, &i, -1);
             *pcolor = GdColor::from_c64(i);  /* set the stored color to the c64 color[i] */
         }
@@ -251,11 +240,8 @@ color_combo_changed(GtkWidget *combo, gpointer data) {
 /* we use a non-visible, non-selectable row for the currently selected color (unless it is a c64 color). */
 static gboolean
 color_combo_is_separator(GtkTreeModel *model, GtkTreeIter  *iter, gpointer data) {
-    GtkTreePath *path;
-    gboolean result;
-
-    path = gtk_tree_model_get_path(model, iter);
-    result = !gtk_tree_path_compare(path, selected_color_path);
+    GtkTreePath *path = gtk_tree_model_get_path(model, iter);
+    gboolean result = !gtk_tree_path_compare(path, selected_color_path);
     gtk_tree_path_free(path);
 
     return result;
@@ -267,7 +253,6 @@ static void color_combo_set_sensitive(GtkCellLayout *cell_layout, GtkCellRendere
 
 static void color_combo_destroyed(GtkWidget *combo, gpointer data) {
     GdColor *pcolor = static_cast<GdColor *>(g_object_get_data(G_OBJECT(combo), GDASH_COLOR));
-
     delete pcolor;
 }
 
@@ -275,21 +260,16 @@ static void color_combo_destroyed(GtkWidget *combo, gpointer data) {
 GtkWidget *gd_color_combo_new(const GdColor &initial) {
     /* this is the base of the cave editor element combo box.
         categories are autodetected by their integer values being >O_MAX */
-    GtkTreeStore *store;
-    GtkWidget *combo;
-    GtkCellRenderer *renderer;
     GtkTreeIter iter, parent;
 
     /* tree store for colors. every combo has its own, as the custom color can be different. */
-    store = gtk_tree_store_new(COL_COLOR_MAX, G_TYPE_INT, G_TYPE_STRING, GDK_TYPE_PIXBUF, G_TYPE_INT);
+    GtkTreeStore *store = gtk_tree_store_new(COL_COLOR_MAX, G_TYPE_INT, G_TYPE_STRING, GDK_TYPE_PIXBUF, G_TYPE_INT);
 
     /* add 16 c64 colors */
     gtk_tree_store_append(store, &parent, NULL);
     gtk_tree_store_set(store, &parent, COL_COLOR_NAME, _("C64 Colors"), COL_COLOR_PIXBUF, NULL, -1);
     for (int i = 0; i < 16; i++) {
-        GdkPixbuf *pixbuf;
-
-        pixbuf = color_combo_pixbuf_for_gd_color(GdColor::from_c64(i));
+        GdkPixbuf *pixbuf = color_combo_pixbuf_for_gd_color(GdColor::from_c64(i));
         gtk_tree_store_append(store, &iter, &parent);
         gtk_tree_store_set(store, &iter, COL_COLOR_ACTION, COLOR_ACTION_SELECT_C64, COL_COLOR_NAME, visible_name(GdColor::from_c64(i)).c_str(), COL_COLOR_PIXBUF, pixbuf, COL_COLOR_C64_INDEX, i, -1);
         g_object_unref(pixbuf);
@@ -304,9 +284,9 @@ GtkWidget *gd_color_combo_new(const GdColor &initial) {
     gtk_tree_store_append(store, &iter, NULL);
     gtk_tree_store_set(store, &iter, COL_COLOR_ACTION, COLOR_ACTION_SELECT_RGB, COL_COLOR_NAME, _("RGB color..."), COL_COLOR_PIXBUF, NULL, -1);
 
-    combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(store));
+    GtkWidget *combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(store));
     /* first column, object image */
-    renderer = gtk_cell_renderer_pixbuf_new();
+    GtkCellRenderer *renderer = gtk_cell_renderer_pixbuf_new();
     gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), renderer, FALSE);
     gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), renderer, "pixbuf", COL_COLOR_PIXBUF, NULL);
     gtk_cell_layout_set_cell_data_func(GTK_CELL_LAYOUT(combo), renderer, color_combo_set_sensitive, NULL, NULL);
@@ -342,10 +322,9 @@ const GdColor &gd_color_combo_get_color(GtkWidget *widget) {
 #define GDASH_ELEMENT "gdash-element"
 #define GDASH_HOVER "gdash-hover"
 #define GDASH_BUTTON "gdash-button"
+#define GDASH_COLOR "gdash-color"
 
-#define GDASH_DIALOG "gdash-dialog"
 #define GDASH_WINDOW_TITLE "gdash-window-title"
-#define GDASH_DIALOG_VBOX "gdash-dialog-vbox"
 
 #define GDASH_IMAGE "gdash-image"
 #define GDASH_LABEL "gdash-label"
@@ -353,16 +332,18 @@ const GdColor &gd_color_combo_get_color(GtkWidget *widget) {
 static int element_button_animcycle = 0;
 
 /* this draws one element in the element selector box. */
-static gboolean element_button_drawing_area_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data) {
-    if (!widget->window)
-        return FALSE;
-
+static gboolean element_button_drawing_area_expose_event(GtkWidget *widget, cairo_t *cr, gpointer data) {
+    guint width = gtk_widget_get_allocated_width(widget);
+    guint height = gtk_widget_get_allocated_height(widget);
+    guint32 col = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(widget), GDASH_COLOR));
+    unsigned char r = col / 65536 % 256, g = col / 256 % 256, b = col % 256;
+    cairo_set_source_rgb(cr, r / 255.0, g / 255.0, b / 255.0);
+    cairo_rectangle(cr, 0, 0, width, height);
+    cairo_fill(cr);
     cairo_surface_t *cell = (cairo_surface_t *) g_object_get_data(G_OBJECT(widget), GDASH_CELL);
     if (cell != NULL) {
-        cairo_t *cr = gdk_cairo_create(widget->window);
-        /* "The x and y parameters give the user-space coordinate at which the surface origin should appear." */
         cairo_set_source_surface(cr, cell, 2, 2);
-        cairo_rectangle(cr, 2, 2, gdk_window_get_width(widget->window) - 4, gdk_window_get_height(widget->window));
+        cairo_rectangle(cr, 2, 2, width - 4, height - 4);
         cairo_fill(cr);
     }
     return TRUE;
@@ -382,15 +363,12 @@ static gboolean element_button_redraw_timeout(gpointer data) {
 
     for (GList *iter = areas; iter != NULL; iter = iter->next) {
         GtkWidget *da = (GtkWidget *)iter->data;
-        GdElementEnum element;
-        int draw;
-        gboolean hover;
 
         /* which element is drawn? */
-        element = (GdElementEnum)GPOINTER_TO_INT(g_object_get_data(G_OBJECT(da), GDASH_ELEMENT));
-        hover = (gboolean)GPOINTER_TO_INT(g_object_get_data(G_OBJECT(da), GDASH_HOVER));
+        GdElementEnum element = (GdElementEnum)GPOINTER_TO_INT(g_object_get_data(G_OBJECT(da), GDASH_ELEMENT));
+        gboolean hover = (gboolean)GPOINTER_TO_INT(g_object_get_data(G_OBJECT(da), GDASH_HOVER));
         /* get pixbuf index */
-        draw = gd_element_properties[element].image;
+        int draw = gd_element_properties[element].image;
         if (draw < 0)
             draw = -draw + element_button_animcycle;
         if (hover)
@@ -426,13 +404,8 @@ static void element_button_da_clicked(GtkWidget *da, GdkEventButton *event, gpoi
 
     /* if this is a modal window, then it is a does-not-stay-open element box. */
     /* so we issue a dialog response. */
-    if (gtk_window_get_modal(GTK_WINDOW(dialog)))
+    if (gtk_window_get_modal(GTK_WINDOW(dialog))) {
         gtk_dialog_response(dialog, element);
-    else {
-        /* if not modal, it is a stay-open element box. */
-        /* close if left mouse button; stay open for others. */
-        if (event->button == 1)
-            gtk_widget_destroy(GTK_WIDGET(dialog));
     }
 }
 
@@ -443,17 +416,7 @@ static void element_button_dialog_destroyed_free_list(GtkWidget *dialog, gpointe
     g_list_free(areas);
 }
 
-static void element_button_dialog_destroyed_null_pointer(GtkWidget *dialog, gpointer data) {
-    g_object_set_data(G_OBJECT(data), GDASH_DIALOG, NULL);
-    g_object_set_data(G_OBJECT(data), GDASH_DIALOG_VBOX, NULL);
-}
-
-static void element_button_dialog_close_button_clicked(GtkWidget *button, gpointer data) {
-    /* data is the dialog */
-    gtk_widget_destroy(GTK_WIDGET(data));
-}
-
-static void element_button_clicked_func(GtkWidget *button, gboolean stay_open) {
+static void element_button_clicked_func(GtkWidget *button) {
     static GdElementEnum const elements[] = {
         /* normal */
         O_SPACE, O_DIRT, O_DIAMOND, O_STONE, O_MEGA_STONE, O_FLYING_DIAMOND, O_FLYING_STONE, O_NUT,
@@ -502,75 +465,57 @@ static void element_button_clicked_func(GtkWidget *button, gboolean stay_open) {
     int cols = 16;
     GList *areas = NULL;
 
-    /* if the dialog is already open, only show it. */
-    GtkWidget *dialog = (GtkWidget *)(g_object_get_data(G_OBJECT(button), GDASH_DIALOG));
-    if (dialog) {
-        gtk_window_present(GTK_WINDOW(dialog));
-
-        return;
-    }
-
     /* elements dialog with no buttons; clicking on an element will do the trick. */
-    dialog = gtk_dialog_new();
+    GtkWidget *dialog = gtk_dialog_new();
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
     gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(gtk_widget_get_toplevel(button)));
     gtk_window_set_title(GTK_WINDOW(dialog), (char *) g_object_get_data(G_OBJECT(button), GDASH_WINDOW_TITLE));
-    gtk_dialog_set_has_separator(GTK_DIALOG(dialog), FALSE);
     gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
     gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
-    /* associate the dialog with the button, so we know that it is open */
-    g_object_set_data(G_OBJECT(button), GDASH_DIALOG, dialog);
 
-    GtkWidget *vbox = gtk_vbox_new(FALSE, 0);
-    gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(dialog)->vbox), vbox);
-    g_object_set_data(G_OBJECT(button), GDASH_DIALOG_VBOX, vbox);
+    GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_container_add(GTK_CONTAINER(content_area), vbox);
 
-    GtkWidget *align = gtk_alignment_new(0, 0.5, 0, 0);
-    gtk_container_add(GTK_CONTAINER(align), gtk_label_new(_("Normal elements")));
-    gtk_box_pack_start_defaults(GTK_BOX(vbox), align);
+    GtkWidget *label = gtk_label_new(_("Normal elements"));
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
+    gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
 
-    GtkWidget *table = gtk_table_new(0, 0, TRUE);
-    gtk_container_set_border_width(GTK_CONTAINER(table), 6);
-    gtk_box_pack_start_defaults(GTK_BOX(vbox), table);
+    GtkWidget *grid = gtk_grid_new();
+    gtk_container_set_border_width(GTK_CONTAINER(grid), 6);
+    gtk_box_pack_start(GTK_BOX(vbox), grid, TRUE, TRUE, 0);
 
     GtkWidget *expander = gtk_expander_new(_("For effects"));
-    GtkWidget *table2 = gtk_table_new(0, 0, TRUE);
-    gtk_container_set_border_width(GTK_CONTAINER(table2), 6);
-    gtk_container_add(GTK_CONTAINER(expander), table2);
-    gtk_box_pack_start_defaults(GTK_BOX(vbox), expander);
+    GtkWidget *grid2 = gtk_grid_new();
+    gtk_container_set_border_width(GTK_CONTAINER(grid2), 6);
+    gtk_container_add(GTK_CONTAINER(expander), grid2);
+    gtk_box_pack_start(GTK_BOX(vbox), expander, TRUE, TRUE, 0);
 
-    /* color for background around elements. */
-    /* gdkcolors are 16bit, we should *256, but instead *200 so a bit darker. */
     GdkColor c;
     unsigned char r, g, b;
     editor_cell_renderer->background_color().get_rgb(r, g, b);
-    c.red = r * 200;
-    c.green = g * 200;
-    c.blue = b * 200;
     /* create drawing areas */
     int pcs = editor_cell_renderer->get_cell_size();
     int into_second = 0;
     for (unsigned i = 0; i < G_N_ELEMENTS(elements); i++) {
         GtkWidget *da = gtk_drawing_area_new();
-        gtk_widget_modify_bg(da, GTK_STATE_NORMAL, &c);
         areas = g_list_prepend(areas, da);  /* put in list for animation timeout, that one will request redraw on them */
         gtk_widget_add_events(da, GDK_BUTTON_PRESS_MASK | GDK_LEAVE_NOTIFY_MASK | GDK_ENTER_NOTIFY_MASK);
         g_object_set_data(G_OBJECT(da), GDASH_ELEMENT, GINT_TO_POINTER(elements[i]));
         g_object_set_data(G_OBJECT(da), GDASH_BUTTON, button);    /* button to update on click */
+        g_object_set_data(G_OBJECT(da), GDASH_COLOR, GUINT_TO_POINTER(r*65536 + g*256 + b));
         gtk_widget_set_size_request(da, pcs + 4, pcs + 4); /* 2px border around them */
         gtk_widget_set_tooltip_text(da, visible_name(elements[i]));
-        g_signal_connect(G_OBJECT(da), "expose-event", G_CALLBACK(element_button_drawing_area_expose_event), GINT_TO_POINTER(elements[i]));
+        g_signal_connect(G_OBJECT(da), "draw", G_CALLBACK(element_button_drawing_area_expose_event), GINT_TO_POINTER(elements[i]));
         g_signal_connect(G_OBJECT(da), "leave-notify-event", G_CALLBACK(element_button_drawing_area_crossing_event), NULL);
         g_signal_connect(G_OBJECT(da), "enter-notify-event", G_CALLBACK(element_button_drawing_area_crossing_event), NULL);
         g_signal_connect(G_OBJECT(da), "button-press-event", G_CALLBACK(element_button_da_clicked), dialog);
-        if (elements[i] == O_DIAMOND_F)
-            /* the dirt2 the first element to be put in the effect list; from that one, always use table2 */
+        if (elements[i] == O_DIAMOND_F) /* this is the first element to be put in the effect list; from that one, always use grid2 */
             into_second = i;
-        if (!into_second)
-            gtk_table_attach_defaults(GTK_TABLE(table), GTK_WIDGET(da), i % cols, i % cols + 1, i / cols, i / cols + 1);
-        else {
+        if (!into_second) {
+            gtk_grid_attach(GTK_GRID(grid), GTK_WIDGET(da), i % cols, i / cols, 1, 1);
+        } else {
             int j = i - into_second;
-
-            gtk_table_attach_defaults(GTK_TABLE(table2), GTK_WIDGET(da), j % cols, j % cols + 1, j / cols, j / cols + 1);
+            gtk_grid_attach(GTK_GRID(grid2), GTK_WIDGET(da), j % cols, j / cols, 1, 1);
         }
 
     }
@@ -579,24 +524,10 @@ static void element_button_clicked_func(GtkWidget *button, gboolean stay_open) {
     g_timeout_add(40, element_button_redraw_timeout, areas);
     /* if the dialog is destroyed, we must free the list which contains the drawing areas */
     g_signal_connect(G_OBJECT(dialog), "destroy", G_CALLBACK(element_button_dialog_destroyed_free_list), areas);
-    /* also remember that the button no longer has its own dialog open */
-    g_signal_connect(G_OBJECT(dialog), "destroy", G_CALLBACK(element_button_dialog_destroyed_null_pointer), button);
 
-    if (!stay_open) {
-        gtk_widget_show_all(dialog);
-        gtk_dialog_run(GTK_DIALOG(dialog));
-        gtk_widget_destroy(dialog);
-    } else {
-        /* if it is a stay-open element box, add a button which (also) closes it */
-        GtkWidget *close_button;
-
-        close_button = gtk_button_new_from_stock(GTK_STOCK_CLOSE);
-        gtk_box_pack_end(GTK_BOX(GTK_DIALOG(dialog)->action_area), close_button, FALSE, FALSE, 0);
-        g_signal_connect(G_OBJECT(close_button), "clicked", (GCallback) element_button_dialog_close_button_clicked, dialog);
-
-        gtk_widget_show_all(dialog);
-        gtk_window_present_with_time(GTK_WINDOW(dialog), gtk_get_current_event_time());
-    }
+    gtk_widget_show_all(dialog);
+    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
 }
 
 GdElementEnum gd_element_button_get(GtkWidget *button) {
@@ -612,14 +543,6 @@ void gd_element_button_update_pixbuf(GtkWidget *button) {
     gd_element_button_set(button, gd_element_button_get(button));
 }
 
-static void element_button_clicked_stay_open(GtkWidget *button, gpointer data) {
-    element_button_clicked_func(button, TRUE);
-}
-
-static void element_button_clicked_modal(GtkWidget *button, gpointer data) {
-    element_button_clicked_func(button, FALSE);
-}
-
 /* set the title of the window associated with this element button. */
 /* if the window is already open, also set the title there. */
 void gd_element_button_set_dialog_title(GtkWidget *button, const char *title) {
@@ -629,40 +552,23 @@ void gd_element_button_set_dialog_title(GtkWidget *button, const char *title) {
     /* remember new title */
     g_object_set_data(G_OBJECT(button), GDASH_WINDOW_TITLE, title ? g_strdup(title) : g_strdup(_("Elements")));
 
-    /* if it has its own window open at the moment, also set it */
-    GtkWidget *dialog = (GtkWidget *) g_object_get_data(G_OBJECT(button), GDASH_DIALOG);
-    if (dialog)
-        gtk_window_set_title(GTK_WINDOW(dialog), title);
-
-}
-
-void gd_element_button_set_dialog_sensitive(GtkWidget *button, gboolean sens) {
-    GtkWidget *vbox = (GtkWidget *) g_object_get_data(G_OBJECT(button), GDASH_DIALOG_VBOX);
-    if (vbox)
-        gtk_widget_set_sensitive(vbox, sens);
 }
 
 /* frees the special title text, and optionally destroys the dialog, if exists. */
 static void element_button_destroyed(GtkWidget *button, gpointer data) {
     char *title = (char *) g_object_get_data(G_OBJECT(button), GDASH_WINDOW_TITLE);
     g_free(title);
-    /* if it has a dialog open for any reason, close that also */
-    GtkWidget *dialog = (GtkWidget *) g_object_get_data(G_OBJECT(button), GDASH_DIALOG);
-    if (dialog)
-        gtk_widget_destroy(dialog);
 }
 
 /**
- * creates a new element button. optionally the dialog created by
- * the particular button can stay open, and accept many clicks.
- * also, it can have some title line, like "draw element"
+ * creates a new element button. it can have some title line, like "draw element".
  */
-GtkWidget *gd_element_button_new(GdElementEnum initial_element, gboolean stays_open, const char *special_title) {
+GtkWidget *gd_element_button_new(GdElementEnum initial_element, const char *special_title) {
     // the button
     GtkWidget *button = gtk_button_new();
 
-    // the contents - icon of elemen + name
-    GtkWidget *hbox = gtk_hbox_new(FALSE, 3);
+    // the contents - icon of element + name
+    GtkWidget *hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
     gtk_container_add(GTK_CONTAINER(button), hbox);
     GtkWidget *image = gtk_image_new();
     gtk_box_pack_start(GTK_BOX(hbox), image, FALSE, FALSE, 0);
@@ -671,18 +577,13 @@ GtkWidget *gd_element_button_new(GdElementEnum initial_element, gboolean stays_o
     gtk_box_pack_start(GTK_BOX(hbox), label, TRUE, TRUE, 0);
     g_object_set_data(G_OBJECT(button), GDASH_IMAGE, image);
     g_object_set_data(G_OBJECT(button), GDASH_LABEL, label);
-
-    g_signal_connect(G_OBJECT(button), "destroy", (GCallback) element_button_destroyed, NULL);
-    /* minimum width 96px */
     gtk_widget_set_size_request(button, 96, -1);
-    if (stays_open)
-        g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(element_button_clicked_stay_open), NULL);
-    else
-        g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(element_button_clicked_modal), NULL);
+
+    g_signal_connect(G_OBJECT(button), "destroy", G_CALLBACK(element_button_destroyed), NULL);
+    g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(element_button_clicked_func), NULL);
 
     /* set the associated string which will be the title of the element box window opened */
     gd_element_button_set_dialog_title(button, special_title);
-
     gd_element_button_set(button, initial_element);
     return button;
 }
@@ -690,12 +591,11 @@ GtkWidget *gd_element_button_new(GdElementEnum initial_element, gboolean stays_o
 #undef GDASH_IMAGE
 #undef GDASH_LABEL
 #undef GDASH_WINDOW_TITLE
-#undef GDASH_DIALOG_VBOX
-#undef GDASH_DIALOG
 #undef GDASH_CELL
 #undef GDASH_ELEMENT
 #undef GDASH_HOVER
 #undef GDASH_BUTTON
+#undef GDASH_COLOR
 
 
 /* directions to be shown, and corresponding icons. */
@@ -719,7 +619,7 @@ GtkWidget *gd_direction_combo_new(GdDirectionEnum initial) {
         for (unsigned i = 0; i < G_N_ELEMENTS(direction_combo_shown_directions); i++) {
             GtkTreeIter iter;
             gtk_list_store_append(store, &iter);
-            GdkPixbuf *pixbuf = gtk_widget_render_icon(cellview, direction_combo_shown_icons[i], GTK_ICON_SIZE_MENU, NULL);
+            GdkPixbuf *pixbuf = gtk_widget_render_icon_pixbuf(cellview, direction_combo_shown_icons[i], GTK_ICON_SIZE_MENU);
             gtk_list_store_set(store, &iter, DIR_PIXBUF_COL, pixbuf, DIR_TEXT_COL, visible_name(direction_combo_shown_directions[i]), -1);
         }
 
@@ -754,20 +654,15 @@ GdDirectionEnum gd_direction_combo_get_direction(GtkWidget *combo) {
 
 
 GtkWidget *gd_scheduling_combo_new(GdSchedulingEnum initial) {
-    GtkWidget *combo;
-
     /* no icons, so a simple text combo box will suffice. */
-    combo = gtk_combo_box_new_text();
-
+    GtkWidget *combo = gtk_combo_box_text_new();
     for (int i = 0; i < GD_SCHEDULING_MAX; i++)
-        gtk_combo_box_append_text(GTK_COMBO_BOX(combo), visible_name((GdSchedulingEnum) i));
-
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo), visible_name((GdSchedulingEnum) i));
     gtk_combo_box_set_active(GTK_COMBO_BOX(combo), initial);
-
     return combo;
 }
 
 GdSchedulingEnum gd_scheduling_combo_get_scheduling(GtkWidget *combo) {
-    return (GdSchedulingEnum)(gtk_combo_box_get_active(GTK_COMBO_BOX(combo)));
+    return (GdSchedulingEnum) gtk_combo_box_get_active(GTK_COMBO_BOX(combo));
 }
 

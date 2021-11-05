@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -28,6 +28,7 @@
 
 #include <vector>
 #include <stdexcept>
+#include <memory>
 #include "gfx/pixbuffactory.hpp"
 
 class GdColor;
@@ -44,7 +45,7 @@ class Pixmap {
 public:
     virtual int get_width() const = 0;
     virtual int get_height() const = 0;
-    virtual ~Pixmap();
+    virtual ~Pixmap() = default;
 };
 
 
@@ -71,7 +72,7 @@ private:
     friend class PixmapStorage;
 
     virtual void configure_size() = 0;
-    virtual void flip();
+    virtual void flip() {}
 
 protected:
     int w, h;
@@ -89,7 +90,7 @@ public:
           fullscreen(false), did_some_drawing(false),
           scaling_factor(1), scaling_type(GD_SCALING_NEAREST), pal_emulation(false),
           pixbuf_factory(pixbuf_factory) {}
-    virtual ~Screen();
+    virtual ~Screen() = default;
 
     virtual void set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_);
 
@@ -117,8 +118,8 @@ public:
     /// @brief Create a newly allocated, scaled pixmap.
     /// @param pb The pixbuf to set the contents from.
     /// @return A newly allocated pixmap object. Free with delete.
-    virtual Pixmap *create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const = 0;
-    Pixmap *create_scaled_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const;
+    virtual std::unique_ptr<Pixmap> create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const = 0;
+    std::unique_ptr<Pixmap> create_scaled_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const;
 
     virtual void fill_rect(int x, int y, int w, int h, const GdColor &c) = 0;
     void fill(const GdColor &c) {
@@ -130,17 +131,32 @@ public:
     virtual void set_clip_rect(int x1, int y1, int w, int h) = 0;
     virtual void remove_clip_rect() = 0;
 
-    virtual void draw_particle_set(int dx, int dy, ParticleSet const &ps);
+    virtual void draw_particle_set(int dx, int dy, ParticleSet const &ps) {}
+
+    /** 
+     * Tell the graphics system to accept text input;
+     * mainly used for SDL. See https://wiki.libsdl.org/SDL_StartTextInput
+     */
+    virtual void start_text_input() {}
+    
+    /**
+     * See start_text_input.
+     */
+    virtual void stop_text_input() {}
 
     /**
      * Returns if the screen is double buffered, which means that everything must be redrawn
      * before flipping. */
-    virtual bool must_redraw_all_before_flip() const;
+    virtual bool must_redraw_all_before_flip() const {
+        return false;
+    }
 
     /**
-     * Returns true, if the do_the_flip()-s wait for vertical retrace,
+     * Returns if the do_the_flip()-s wait for vertical retrace,
      * and therefore can be used for timing. */
-    virtual bool has_timed_flips() const;
+    virtual bool has_timed_flips() const {
+        return false;
+    }
 
     /**
      * When the application has finished its drawing, it must call this function.

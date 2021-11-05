@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -61,7 +61,7 @@ private:
 
 void SelectKeyActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
     *pkeycode = gfxlib_keycode;
-    app->enqueue_command(new PopActivityCommand(app));
+    app->enqueue_command(std::make_unique<PopActivityCommand>(app));
 }
 
 
@@ -73,8 +73,8 @@ void SelectKeyActivity::redraw_event(bool full) const {
     app->draw_window(cx, cy, cw, ch);
     app->screen->set_clip_rect(cx, cy, cw, ch);
     app->set_color(GD_GDASH_WHITE);
-    app->blittext_n(-1, y1 + app->font_manager->get_line_height(), title.c_str());
-    app->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), action.c_str());
+    app->font_manager->blittext_n(-1, y1 + app->font_manager->get_line_height(), title.c_str());
+    app->font_manager->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), action.c_str());
     app->screen->remove_clip_rect();
 
     app->screen->drawing_finished();
@@ -260,7 +260,7 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                     break;
                 case TypeKey:
                     // TRANSLATORS: 35 chars max
-                    app->enqueue_command(new PushActivityCommand(app, new SelectKeyActivity(app, _("Select key for action"), settings[current].name, (int *) settings[current].var)));
+                    app->enqueue_command(std::make_unique<PushActivityCommand>(app, std::make_unique<SelectKeyActivity>(app, _("Select key for action"), settings[current].name, (int *) settings[current].var)));
                     break;
             }
             if (settings[current].restart)
@@ -270,7 +270,7 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
         case 't':
         case 'T':
             // TRANSLATORS: 40 chars max
-            app->select_file_and_do_command(_("Select Image for Theme"), g_get_home_dir(), "*.bmp;*.png", false, "", new ThemeSelectedCommand(app, this));
+            app->select_file_and_do_command(_("Select Image for Theme"), g_get_home_dir(), "*.bmp;*.png", false, "", std::make_unique<ThemeSelectedCommand>(app, this));
             break;
 
         case 'h':
@@ -281,7 +281,7 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             break;
 
         case App::Escape:    /* finished options menu */
-            app->enqueue_command(new PopActivityCommand(app));
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
             break;
     }
 
@@ -294,13 +294,13 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
 void SettingsActivity::redraw_event(bool full) const {
     app->clear_screen();
     // TRANSLATORS: 40 chars max (and it has title line capitalization in English)
-    app->title_line(CPrintf(_("GDash Options")));
+    app->title_line(_("GDash Options"));
     // TRANSLATORS: 40 chars max. 'Change' means to change the setting in the options window
     app->status_line(_("Space: change   H: help   Esc: exit"));
     app->set_color(GD_GDASH_GRAY1);
     // TRANSLATORS: 40 chars max
     if (have_theme)
-        app->blittext_n(-1, app->screen->get_height() - 2 * app->font_manager->get_line_height(), _("Press T to install a new theme."));
+        app->font_manager->blittext_n(-1, app->screen->get_height() - 2 * app->font_manager->get_line_height(), _("Press T to install a new theme."));
 
     /* show settings */
     unsigned page = settings[current].page;
@@ -315,10 +315,10 @@ void SettingsActivity::redraw_event(bool full) const {
                     value = *(bool *)settings[n].var ? _("yes") : _("no");
                     break;
                 case TypeInteger:
-                    value = SPrintf("%d") % *(int *)settings[n].var;
+                    value = Printf("%d", *(int *)settings[n].var);
                     break;
                 case TypePercent:
-                    value = SPrintf("%d%%") % *(int *)settings[n].var;
+                    value = Printf("%d%%", *(int *)settings[n].var);
                     break;
                 case TypeTheme:
                 case TypeShader:
@@ -333,10 +333,10 @@ void SettingsActivity::redraw_event(bool full) const {
             int y = y1[page] + linenum * yd;
             if (settings[n].type != TypePage) {
                 int x = 4 * app->font_manager->get_font_width_narrow();
-                app->blittext_n(x, y, CPrintf("%c%s  %c%s") % (current == n ? GD_COLOR_INDEX_YELLOW : GD_COLOR_INDEX_LIGHTBLUE) % _(settings[n].name) % GD_COLOR_INDEX_GREEN % value);
+                app->font_manager->blittext_n(x, y, "%c%s  %c%s", current == n ? GD_COLOR_INDEX_YELLOW : GD_COLOR_INDEX_LIGHTBLUE, _(settings[n].name), GD_COLOR_INDEX_GREEN, value);
             } else {
                 int x = 2 * app->font_manager->get_font_width_narrow();
-                app->blittext_n(x, y, CPrintf("%c%s") % GD_COLOR_INDEX_WHITE % _(settings[n].name));
+                app->font_manager->blittext_n(x, y, "%c%s", GD_COLOR_INDEX_WHITE, _(settings[n].name));
             }
             linenum++;
         }

@@ -155,9 +155,9 @@ void hq2x(Pixbuf const &src, Pixbuf &dst) {
 
                 if (w[k] != w[5]) {
                     guint32 YUV2 = RGBtoYUV(w[k]);
-                    if ((abs((YUV1 & Ymask) - (YUV2 & Ymask)) > trY) ||
-                            (abs((YUV1 & Umask) - (YUV2 & Umask)) > trU) ||
-                            (abs((YUV1 & Vmask) - (YUV2 & Vmask)) > trV))
+                    if ((abs(gint32(YUV1 & Ymask) - gint32(YUV2 & Ymask)) > trY) ||
+                            (abs(gint32(YUV1 & Umask) - gint32(YUV2 & Umask)) > trU) ||
+                            (abs(gint32(YUV1 & Vmask) - gint32(YUV2 & Vmask)) > trV))
                         pattern |= flag;
                 }
                 flag <<= 1;

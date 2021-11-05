@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -39,14 +39,13 @@ private:
 public:
     GTKApp(GTKScreen &screenref, GtkWidget *toplevel, GtkActionGroup *actions_game);
 
-    virtual void select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, SmartPtr<Command1Param<std::string> > command_when_successful);
-    virtual void ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, SmartPtr<Command> command_when_yes, SmartPtr<Command> command_when_no);
-    //~ virtual void show_text_and_do_command(char const *title_line, std::string const &text, SmartPtr<Command> command_after_exit = SmartPtr<Command>());
+    virtual void select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, std::unique_ptr<Command1Param<std::string> > command_when_successful);
+    virtual void ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, std::unique_ptr<Command> command_when_yes, std::unique_ptr<Command> command_when_no);
     virtual void show_about_info();
-    virtual void input_text_and_do_command(char const *title_line, char const *default_text, SmartPtr<Command1Param<std::string> > command_when_successful);
+    virtual void input_text_and_do_command(char const *title_line, char const *default_text, std::unique_ptr<Command1Param<std::string> > command_when_successful);
     virtual void game_active(bool active);
     virtual void show_settings(Setting *settings);
-    virtual void show_message(std::string const &primary, std::string const &secondary, SmartPtr<Command> command_after_exit);
+    virtual void show_message(std::string const &primary, std::string const &secondary, std::unique_ptr<Command> command_after_exit);
     virtual void show_help(helpdata const help_text[]);
 };
 

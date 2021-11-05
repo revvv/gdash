@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -49,7 +49,7 @@ void VolumeActivity::redraw_event(bool full) const {
     app->screen->set_clip_rect(cx, cy, cw, ch);
     app->set_color(GD_GDASH_WHITE);
     // TRANSLATORS: sound volume
-    app->blittext_n(-1, y1 + app->font_manager->get_line_height(), _("Volume"));
+    app->font_manager->blittext_n(-1, y1 + app->font_manager->get_line_height(), _("Volume"));
 
     std::string name, value;
 
@@ -58,14 +58,14 @@ void VolumeActivity::redraw_event(bool full) const {
     value = "";
     for (int i = 0; i < 100; i += 10) /* each char is 10% */
         value += (i < gd_sound_chunks_volume_percent) ? GD_FULL_BOX_CHAR : GD_UNCHECKED_BOX_CHAR;
-    app->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), CPrintf("%c%s  %c %c%d %c%c") % GD_COLOR_INDEX_LIGHTBLUE % name % GD_LEFT_CHAR % GD_COLOR_INDEX_GREEN % value % GD_COLOR_INDEX_LIGHTBLUE % GD_RIGHT_CHAR);
+    app->font_manager->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), "%c%s  %c %c%d %c%c", GD_COLOR_INDEX_LIGHTBLUE, name, GD_LEFT_CHAR, GD_COLOR_INDEX_GREEN, value, GD_COLOR_INDEX_LIGHTBLUE, GD_RIGHT_CHAR);
 
     // TRANSLATORS: title screen music volume. the space at the end makes the text of the same length with the other string.
     name = _("Music volume");
     value = "";
     for (int i = 0; i < 100; i += 10) /* each char is 10% */
         value += (i < gd_sound_music_volume_percent) ? GD_FULL_BOX_CHAR : GD_UNCHECKED_BOX_CHAR;
-    app->blittext_n(-1, y1 + 4 * app->font_manager->get_line_height(), CPrintf("%c%s  %c %c%d %c%c") % GD_COLOR_INDEX_LIGHTBLUE % name % GD_DOWN_CHAR % GD_COLOR_INDEX_GREEN % value % GD_COLOR_INDEX_LIGHTBLUE % GD_UP_CHAR);
+    app->font_manager->blittext_n(-1, y1 + 4 * app->font_manager->get_line_height(), "%c%s  %c %c%d %c%c", GD_COLOR_INDEX_LIGHTBLUE, name, GD_DOWN_CHAR, GD_COLOR_INDEX_GREEN, value, GD_COLOR_INDEX_LIGHTBLUE, GD_UP_CHAR);
 
     app->screen->remove_clip_rect();
 
@@ -110,6 +110,6 @@ void VolumeActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
 void VolumeActivity::timer_event(int ms_elapsed) {
     wait_ms -= ms_elapsed;
     if (wait_ms <= 0) {
-        app->enqueue_command(new PopActivityCommand(app));
+        app->enqueue_command(std::make_unique<PopActivityCommand>(app));
     }
 }

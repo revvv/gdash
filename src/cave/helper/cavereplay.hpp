@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -58,7 +58,7 @@ public:
     void store_movement(GdDirectionEnum player_move, bool player_fire, bool suicide);
     bool get_next_movement(GdDirectionEnum &player_move, bool &player_fire, bool &suicide);
     void rewind();
-    unsigned int length() {
+    unsigned int length() const {
         return movements.size();
     }
 

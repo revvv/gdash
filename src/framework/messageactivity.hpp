@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,7 +25,6 @@
 #define MESSAGEACTIVITY_HPP_INCLUDED
 
 #include "framework/activity.hpp"
-#include "misc/smartptr.hpp"
 
 #include <vector>
 #include <string>
@@ -44,14 +43,14 @@ public:
      * @param primary The text to show.
      * @param secondary Supplementary text to show (extra information). May be omitted.
      * @param command_after_exit Execute the command after showing the text and keypress from the user. May be omitted. */
-    MessageActivity(App *app, std::string const &primary, std::string const &secondary = "", SmartPtr<Command> command_after_exit = SmartPtr<Command>());
+    MessageActivity(App *app, std::string const &primary, std::string const &secondary = "", std::unique_ptr<Command> command_after_exit = nullptr);
     ~MessageActivity();
 
     virtual void redraw_event(bool full) const;
     virtual void keypress_event(KeyCode keycode, int gfxlib_keycode);
 
 private:
-    SmartPtr<Command> command_after_exit;
+    std::unique_ptr<Command> command_after_exit;
     std::vector<std::string> wrapped_text;
 };
 

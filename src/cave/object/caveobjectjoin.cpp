@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -37,29 +37,28 @@ std::string CaveJoin::get_bdcff() const {
     return BdcffFormat(backwards ? "AddBackward" : "Add") << dist << search_element << put_element;
 }
 
-CaveJoin *CaveJoin::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveJoin::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate dist;
     GdElementEnum search, replace;
     if (!(is >> dist >> search >> replace))
         return NULL;
 
     bool backwards = gd_str_ascii_caseequal(name, "AddBackward");
-    return new CaveJoin(dist, search, replace, backwards);
+    return std::make_unique<CaveJoin>(dist, search, replace, backwards);
 }
 
-CaveJoin *CaveJoin::clone() const {
-    return new CaveJoin(*this);
+std::unique_ptr<CaveObject> CaveJoin::clone() const {
+    return std::make_unique<CaveJoin>(*this);
 };
 
 CaveJoin::CaveJoin(Coordinate _dist, GdElementEnum _search_element, GdElementEnum _put_element, bool _backward)
-    :   CaveObject(GD_JOIN),
-        dist(_dist),
+    :   dist(_dist),
         search_element(_search_element),
         put_element(_put_element),
         backwards(_backward) {
 }
 
-void CaveJoin::draw(CaveRendered &cave) const {
+void CaveJoin::draw(CaveRendered &cave, int order_idx) const {
     /* find every object, and put fill_element next to it. relative coordinates dx,dy */
     if (!backwards) {
         /* from top to bottom */
@@ -68,7 +67,7 @@ void CaveJoin::draw(CaveRendered &cave) const {
                 if (cave.map(x, y) == search_element) {
                     /* these new coordinates should wrap around, too. that is needed by profi boulder caves. */
                     /* but they will be wrapped around by store_rc */
-                    cave.store_rc(x + dist.x, y + dist.y, put_element, this);
+                    cave.store_rc(x + dist.x, y + dist.y, put_element, order_idx);
                 }
     } else {
         /* from bottom to top */
@@ -77,7 +76,7 @@ void CaveJoin::draw(CaveRendered &cave) const {
                 if (cave.map(x, y) == search_element) {
                     /* these new coordinates should wrap around, too. that is needed by profi boulder caves. */
                     /* but they will be wrapped around by store_rc */
-                    cave.store_rc(x + dist.x, y + dist.y, put_element, this);
+                    cave.store_rc(x + dist.x, y + dist.y, put_element, order_idx);
                 }
     }
 }
@@ -96,12 +95,8 @@ PropertyDescription const CaveJoin::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveJoin::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveJoin::get_coordinates_text() const {
-    return SPrintf("%+d,%+d") % dist.x % dist.y;
+    return Printf("%+d,%+d", dist.x, dist.y);
 }
 
 /// Drag a join object in the editor.
@@ -111,10 +106,7 @@ std::string CaveJoin::get_coordinates_text() const {
 void CaveJoin::create_drag(Coordinate current, Coordinate displacement) {
     dist += displacement;
     /* when just created, guess backwards flag. */
-    if (dist.y > 0 || (dist.y == 0 && dist.x > 0))
-        backwards = true;
-    else
-        backwards = false;
+    backwards = dist.y > 0 || (dist.y == 0 && dist.x > 0);
 }
 
 void CaveJoin::move(Coordinate current, Coordinate displacement) {
@@ -126,9 +118,7 @@ void CaveJoin::move(Coordinate displacement) {
 }
 
 std::string CaveJoin::get_description_markup() const {
-    return SPrintf(_("Join <b>%ms</b> to every <b>%ms</b>, distance %+d,%+d"))
-           % visible_name_lowercase(put_element)
-           % visible_name_lowercase(search_element) % dist.x % dist.y;
+    return Printf(_("Join <b>%ms</b> to every <b>%ms</b>, distance %+d,%+d"), visible_name_lowercase(put_element), visible_name_lowercase(search_element), dist.x, dist.y);
 }
 
 GdElementEnum CaveJoin::get_characteristic_element() const {

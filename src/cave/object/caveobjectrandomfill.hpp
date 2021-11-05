@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -46,9 +46,10 @@ private:
     GdInt random_fill_probability_4;        ///< 0..255 "probability" of random fill element 4
 public:
     CaveRandomFill(Coordinate _p1, Coordinate _p2);
-    CaveRandomFill(): CaveRectangular(GD_RANDOM_FILL) {}
-    virtual void draw(CaveRendered &cave) const;
-    virtual CaveRandomFill *clone() const;
+    CaveRandomFill() = default;
+    Type get_type() const { return GD_RANDOM_FILL; }
+    virtual void draw(CaveRendered &cave, int order_idx) const;
+    virtual std::unique_ptr<CaveObject> clone() const;
     void set_random_fill(GdElementEnum initial, GdElementEnum e1, GdElementEnum e2, GdElementEnum e3, GdElementEnum e4);
     void set_random_prob(int i1, int i2, int i3, int i4);
     void set_seed(int s1, int s2, int s3, int s4, int s5);
@@ -59,13 +60,15 @@ public:
         replace_only = repl;
     }
     virtual std::string get_bdcff() const;
-    virtual CaveRandomFill *clone_from_bdcff(const std::string &name, std::istream &is) const;
+    virtual std::unique_ptr<CaveObject> clone_from_bdcff(const std::string &name, std::istream &is) const;
 
 private:
     static PropertyDescription const descriptor[];
 
 public:
-    virtual PropertyDescription const *get_description_array() const;
+    virtual PropertyDescription const *get_description_array() const {
+        return descriptor;
+    }
     virtual std::string get_description_markup() const;
     virtual GdElementEnum get_characteristic_element() const;
 };

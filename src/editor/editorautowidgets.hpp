@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -31,23 +31,35 @@ class Reflective;
 struct PropertyDescription;
 
 class EditorAutoUpdate {
-private:
-    EditorAutoUpdate(EditorAutoUpdate const &);     // deliberately not implemented
-    void operator=(EditorAutoUpdate const &);       // deliberately not implemented
-public:
+  public:
     Reflective *r;                      ///< A reflective object to work on
     Reflective *def;                    ///< A reflective object, if any, which stores default value
     PropertyDescription const *descr;   ///< A pointer to the description of the property this is working on
     GtkWidget *widget;                  ///< A widget to show on the screen. May not be the widget which stores data!
     bool expand_vertically;             ///< For longstrings - fill window with widget.
 
-    void update_cave() const;
-    void reload() const;
-    EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescription const *descr, void (*cave_update_cb)());
+    void update() const {
+        if (update_cb)
+            update_cb();
+    }
+    void reload() const {
+        if (reload_cb)
+            reload_cb(widget);
+    }
+    EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescription const *descr, void (*update_cb)());
+    
+    void maximize_widget(EditorAutoUpdate &maximized);
+    
+    /* EditorAutoUpdate objects cannot be moved or copied,
+     * as Gtk signals registered use their "this" pointers. */
+    EditorAutoUpdate(EditorAutoUpdate &&) = delete;
+    EditorAutoUpdate(EditorAutoUpdate const &) = delete;
+    EditorAutoUpdate & operator=(EditorAutoUpdate const &) = delete;
+    EditorAutoUpdate & operator=(EditorAutoUpdate &) = delete;
 
 private:
-    void (*cave_update_cb)();           ///< A function to call when update happens
-    void (*reload_cb)(GtkWidget *);        ///< A function to call for the widget when values have to be reloaded from the Reflective object
+    void (*update_cb)();                ///< A function to call when update happens
+    void (*reload_cb)(GtkWidget *);     ///< A function to call for the widget when values have to be reloaded from the Reflective object
 };
 
 #endif

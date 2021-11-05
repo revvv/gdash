@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -28,11 +28,11 @@
 #include <memory>
 #include "cave/helper/cavemap.hpp"
 #include "cave/cavetypes.hpp"
+#include "cave/caverendered.hpp"
+#include "cave/helper/cavereplay.hpp"
 
 // forward declarations
 class CaveSet;
-class CaveRendered;
-class CaveReplay;
 class CaveStored;
 class GameInputHandler;
 
@@ -121,14 +121,16 @@ public:
     };
 
     /// Named constructor.
-    static GameControl *new_normal(CaveSet *caveset, std::string _player_name, int _cave, int _level);
+    static std::unique_ptr<GameControl> new_normal(CaveSet *caveset, std::string _player_name, int _cave, int _level);
     /// Named constructor.
-    static GameControl *new_snapshot();
+    static std::unique_ptr<GameControl> new_snapshot();
     /// Named constructor.
-    static GameControl *new_test(CaveStored *cave, int level);
+    static std::unique_ptr<GameControl> new_test(CaveStored *cave, int level);
     /// Named constructor.
-    static GameControl *new_replay(CaveSet *caveset, CaveStored *cave, CaveReplay *replay);
-    ~GameControl();
+    static std::unique_ptr<GameControl> new_replay(CaveSet *caveset, CaveStored *cave, CaveReplay *replay);
+    
+    /// Default constructor - only used internally by the named constructors.
+    GameControl(Type type);
 
     /* functions to work on */
     bool save_snapshot() const;
@@ -144,22 +146,22 @@ public:
     int player_lives;           ///< Remaining lives of player
 
     CaveSet *caveset;           ///< Caveset used to load next cave in normal games.
-    std::auto_ptr<CaveRendered> played_cave;  ///< Rendered version of the cave. This is the iterated one
+    std::unique_ptr<CaveRendered> played_cave;  ///< Rendered version of the cave. This is the iterated one
     CaveStored *original_cave;  ///< original cave from caveset. Used to record highscore, as it is associated with the original cave in the caveset.
 
     int bonus_life_flash;       ///< flashing for bonus life
     StatusBarState statusbartype;
     int statusbarsince;               ///< The number of milliseconds since the last status bar change. If zero, just changed.
 
-    CaveMapFast<int> gfx_buffer;      ///< contains the indexes to the cells; created by *start_level, deleted by *stop_game
-    CaveMapFast<bool> covered;        ///< a map which stores which cells of the cave are still covered
+    CaveMap<int> gfx_buffer;      ///< contains the indexes to the cells; created by *start_level, deleted by *stop_game
+    CaveMap<bool> covered;        ///< a map which stores which cells of the cave are still covered
 
     int replay_no_more_movements;
     bool story_shown;           ///< variable to remember if the story for a particular cave is to be shown.
     bool caveset_has_levels;    ///< set to true in the constructor if the caveset has difficulty levels
 
 private:
-    std::auto_ptr<CaveReplay> replay_record;
+    std::unique_ptr<CaveReplay> replay_record;
     CaveReplay *replay_from;
     unsigned int cave_num;      ///< actual playing cave number
     unsigned int level_num;     ///< actual playing level
@@ -167,7 +169,7 @@ private:
     int milliseconds_game;      ///< here we remember, how many milliseconds have passed since we last iterated the cave
     int state_counter;          ///< counter used to control the game flow, rendering of caves
     
-    static std::auto_ptr<CaveRendered> snapshot_cave;   ///< Saved snapshot
+    static std::unique_ptr<CaveRendered> snapshot_cave;   ///< Saved snapshot
 
     void add_bonus_life(bool inform_user);
     void increment_score(int increment);
@@ -187,9 +189,6 @@ private:
     void check_bonus_score();
     void cover_animation();
     State finished_covering();
-
-    /// Default constructor - only used internally by the named constructors.
-    GameControl();
 };
 
 #endif

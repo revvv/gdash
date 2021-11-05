@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -50,7 +50,7 @@ GTKApp::GTKApp(GTKScreen &screenref, GtkWidget *toplevel, GtkActionGroup *action
 }
 
 
-void GTKApp::select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, SmartPtr<Command1Param<std::string> > command_when_successful) {
+void GTKApp::select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, std::unique_ptr<Command1Param<std::string> > command_when_successful) {
     GtkWidget *dialog = gtk_file_chooser_dialog_new(title, GTK_WINDOW(toplevel),
                         for_save ? GTK_FILE_CHOOSER_ACTION_SAVE : GTK_FILE_CHOOSER_ACTION_OPEN,
                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL);
@@ -78,13 +78,13 @@ void GTKApp::select_file_and_do_command(const char *title, const char *start_dir
         /* give the filename to the command */
         AutoGFreePtr<char> filename(gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog)));
         command_when_successful->set_param1(std::string(filename));
-        enqueue_command(command_when_successful);
+        enqueue_command(std::move(command_when_successful));
     }
     gtk_widget_destroy(dialog);
 }
 
 
-void GTKApp::ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, SmartPtr<Command> command_when_yes, SmartPtr<Command> command_when_no) {
+void GTKApp::ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, std::unique_ptr<Command> command_when_yes, std::unique_ptr<Command> command_when_no) {
     GtkWidget *dialog = gtk_message_dialog_new(GTK_WINDOW(toplevel), GtkDialogFlags(0),
                         GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "%s", question);
 
@@ -101,9 +101,9 @@ void GTKApp::ask_yesorno_and_do_command(char const *question, const char *yes_an
     gtk_widget_destroy(dialog);
 
     if (yes)
-        enqueue_command(command_when_yes);
+        enqueue_command(std::move(command_when_yes));
     else
-        enqueue_command(command_when_no);
+        enqueue_command(std::move(command_when_no));
 }
 
 
@@ -112,28 +112,29 @@ void GTKApp::show_about_info() {
 }
 
 
-void GTKApp::input_text_and_do_command(char const *title_line, char const *default_text, SmartPtr<Command1Param<std::string> > command_when_successful) {
+void GTKApp::input_text_and_do_command(char const *title_line, char const *default_text, std::unique_ptr<Command1Param<std::string> > command_when_successful) {
     GtkWidget *dialog = gtk_dialog_new_with_buttons(title_line, GTK_WINDOW(toplevel),
-                        GtkDialogFlags(GTK_DIALOG_NO_SEPARATOR | GTK_DIALOG_DESTROY_WITH_PARENT),
+                        GTK_DIALOG_DESTROY_WITH_PARENT,
                         GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
     GtkWidget *entry = gtk_entry_new();
     gtk_entry_set_activates_default(GTK_ENTRY(entry), TRUE);
     gtk_entry_set_text(GTK_ENTRY(entry), default_text);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), entry, FALSE, FALSE, 6);
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    gtk_box_pack_start(GTK_BOX(content_area), entry, FALSE, FALSE, 6);
 
     gtk_widget_show_all(dialog);
     int result = gtk_dialog_run(GTK_DIALOG(dialog));
     if (result == GTK_RESPONSE_ACCEPT) {
         command_when_successful->set_param1(gtk_entry_get_text(GTK_ENTRY(entry)));
-        enqueue_command(command_when_successful);
+        enqueue_command(std::move(command_when_successful));
     }
     gtk_widget_destroy(dialog);
 }
 
 
 void GTKApp::game_active(bool active) {
-    if (actions_game)
+    if (actions_game != NULL)
         gtk_action_group_set_sensitive(actions_game, active);
 }
 
@@ -158,9 +159,9 @@ static std::string remove_gdash_markup(std::string const & text) {
 }
 
 
-void GTKApp::show_message(std::string const &primary, std::string const &secondary, SmartPtr<Command> command_after_exit) {
+void GTKApp::show_message(std::string const &primary, std::string const &secondary, std::unique_ptr<Command> command_after_exit) {
     gd_infomessage(remove_gdash_markup(primary).c_str(), remove_gdash_markup(secondary).c_str());
-    enqueue_command(command_after_exit);
+    enqueue_command(std::move(command_after_exit));
 }
 
 void GTKApp::show_help(helpdata const help_text[]) {

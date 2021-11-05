@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,64 +24,8 @@
 #include "config.h"
 
 #include <glib.h>
+#include <algorithm>
 #include "cave/helper/caverandom.hpp"
-
-/// Create object; initialize randomly
-RandomGenerator::RandomGenerator() {
-    rand = g_rand_new();
-}
-
-/// Create object.
-/// @param seed Random number seed to be used.
-RandomGenerator::RandomGenerator(unsigned int seed) {
-    rand = g_rand_new_with_seed(seed);
-}
-
-/// Standard assignment operator.
-RandomGenerator &RandomGenerator::operator=(const RandomGenerator &rhs) {
-    /* handle self-assignment */
-    if (this == &rhs)
-        return *this;
-
-    g_rand_free(rand);
-    rand = g_rand_copy(rhs.rand);
-
-    return *this;
-}
-
-/// Copy constructor.
-RandomGenerator::RandomGenerator(const RandomGenerator &other) {
-    rand = g_rand_copy(other.rand);
-}
-
-/// Destructor.
-RandomGenerator::~RandomGenerator() {
-    g_rand_free(rand);
-}
-
-/// Set seed to given number, to generate a series of random numbers.
-/// @param seed The seed value.
-void RandomGenerator::set_seed(unsigned int seed) {
-    g_rand_set_seed(rand, seed);
-}
-
-/// Generater a random boolean. 50% false, 50% true.
-bool RandomGenerator::rand_boolean() {
-    return g_rand_boolean(rand) != FALSE;
-}
-
-/// Generate a random integer, [begin, end).
-/// @param begin Start of interval, inclusive.
-/// @param end End of interval, non-inclusive.
-int RandomGenerator::rand_int_range(int begin, int end) {
-    return g_rand_int_range(rand, begin, end);
-}
-
-/// Generate a random 32-bit unsigned integer.
-unsigned int RandomGenerator::rand_int() {
-    return g_rand_int(rand);
-}
-
 
 /// Constructor. Initializes generator to a random series.
 C64RandomGenerator::C64RandomGenerator() {
@@ -110,20 +54,3 @@ unsigned int C64RandomGenerator::random() {
 
     return rand_seed_1;
 }
-
-/// Set seed. The same as set_seed(int), but 2*8 bits must be given.
-/// @param seed1 First 8 bits of seed value.
-/// @param seed2 Second 8 bits of seed value.
-void C64RandomGenerator::set_seed(int seed1, int seed2) {
-    rand_seed_1 = seed1 % 256;
-    rand_seed_2 = seed2 % 256;
-}
-
-/// Set seed.
-/// @param seed Seed value. Only lower 16 bits will be used.
-void C64RandomGenerator::set_seed(int seed) {
-    rand_seed_1 = seed / 256 % 256;
-    rand_seed_2 = seed % 256;
-}
-
-

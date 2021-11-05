@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -58,15 +58,16 @@
 #define GAME_INT_COVER_ALL 108
 
 
-std::auto_ptr<CaveRendered> GameControl::snapshot_cave;   ///< Saved snapshot
+std::unique_ptr<CaveRendered> GameControl::snapshot_cave;   ///< Saved snapshot
 
 
 /// The default constructor which fills members with some initial values.
-GameControl::GameControl() :
+GameControl::GameControl(Type type) :
+    type(type),
     player_score(0),
     player_lives(0),
     caveset(NULL),
-    played_cave(NULL),
+    played_cave(),
     original_cave(NULL),
     bonus_life_flash(0),
     statusbartype(status_bar_none),
@@ -79,19 +80,10 @@ GameControl::GameControl() :
     state_counter(GAME_INT_LOAD_CAVE) {
 }
 
-GameControl::~GameControl() {
-    /* stop sounds */
-    gd_sound_off();
-}
-
-
 /// Create a full game from the caveset.
-/// @returns A newly allocated GameControl. Free with delete.
-GameControl *GameControl::new_normal(CaveSet *caveset, std::string player_name, int cave, int level) {
-    GameControl *g = new GameControl;
-
-    g->type = TYPE_NORMAL;
-
+/// @returns A newly allocated GameControl.
+std::unique_ptr<GameControl> GameControl::new_normal(CaveSet *caveset, std::string player_name, int cave, int level) {
+    auto g = std::make_unique<GameControl>(TYPE_NORMAL);
     g->caveset = caveset;
     g->player_name = player_name;
     g->cave_num = cave;
@@ -104,40 +96,34 @@ GameControl *GameControl::new_normal(CaveSet *caveset, std::string player_name, 
 }
 
 /// Create a new game of a single snapshot.
-/// @returns A newly allocated GameControl. Free with delete.
-GameControl *GameControl::new_snapshot() {
-    GameControl *g = new GameControl;
-
+/// @returns A newly allocated GameControl.
+std::unique_ptr<GameControl> GameControl::new_snapshot() {
     if (snapshot_cave.get() == NULL)
         throw std::logic_error("no snapshot");
-
-    g->type = TYPE_SNAPSHOT;
-    g->played_cave = std::auto_ptr<CaveRendered> (new CaveRendered(*snapshot_cave));
+    
+    auto g = std::make_unique<GameControl>(TYPE_SNAPSHOT);
+    g->played_cave = std::make_unique<CaveRendered>(*snapshot_cave);
 
     return g;
 }
 
 /// Create a new game to test in the editor.
-/// @returns A newly allocated GameControl. Free with delete.
-GameControl *GameControl::new_test(CaveStored *cave, int level) {
-    GameControl *g = new GameControl;
-
+/// @returns A newly allocated GameControl.
+std::unique_ptr<GameControl> GameControl::new_test(CaveStored *cave, int level) {
+    auto g = std::make_unique<GameControl>(TYPE_TEST);
     g->original_cave = cave;
     g->level_num = level;
-    g->type = TYPE_TEST;
 
     return g;
 }
 
 /// Create a cave replay.
-/// @returns A newly allocated GameControl. Free with delete.
-GameControl *GameControl::new_replay(CaveSet *caveset, CaveStored *cave, CaveReplay *replay) {
-    GameControl *g = new GameControl;
-
+/// @returns A newly allocated GameControl.
+std::unique_ptr<GameControl> GameControl::new_replay(CaveSet *caveset, CaveStored *cave, CaveReplay *replay) {
+    auto g = std::make_unique<GameControl>(TYPE_REPLAY);
     g->caveset = caveset;
     g->original_cave = cave;
     g->replay_from = replay;
-    g->type = TYPE_REPLAY;
 
     return g;
 }
@@ -196,16 +182,16 @@ void GameControl::load_cave() {
     switch (type) {
         case TYPE_NORMAL:
             /* specified cave from memory; render the cave with a randomly selected seed */
-            original_cave = &caveset->cave(cave_num);
+            original_cave = &caveset->caves[cave_num];
             /* for playing: seed=random */
             seed = g_random_int_range(0, GD_CAVE_SEED_MAX);
-            played_cave = std::auto_ptr<CaveRendered>(new CaveRendered(*original_cave, level_num, seed));
+            played_cave = std::make_unique<CaveRendered>(*original_cave, level_num, seed);
             played_cave->setup_for_game();
             if (played_cave->intermission && played_cave->intermission_instantlife)
                 add_bonus_life(false);
 
             /* create replay */
-            replay_record = std::auto_ptr<CaveReplay>(new CaveReplay);
+            replay_record = std::make_unique<CaveReplay>();
             replay_record->level = played_cave->rendered_on + 1; /* compatibility with bdcff - level=1 is written in file */
             replay_record->seed = played_cave->render_seed;
             replay_record->checksum = gd_cave_adler_checksum(*played_cave); /* calculate a checksum for this cave */
@@ -216,7 +202,7 @@ void GameControl::load_cave() {
 
         case TYPE_TEST:
             seed = g_random_int_range(0, GD_CAVE_SEED_MAX);
-            played_cave = std::auto_ptr<CaveRendered>(new CaveRendered(*original_cave, level_num, seed));
+            played_cave = std::make_unique<CaveRendered>(*original_cave, level_num, seed);
             played_cave->setup_for_game();
             break;
 
@@ -236,7 +222,7 @@ void GameControl::load_cave() {
             replay_no_more_movements = 0;
 
             /* -1 is because level=1 is in bdcff for level 1, and internally we number levels from 0 */
-            played_cave = std::auto_ptr<CaveRendered>(new CaveRendered(*original_cave, replay_from->level - 1, replay_from->seed));
+            played_cave = std::make_unique<CaveRendered>(*original_cave, replay_from->level - 1, replay_from->seed);
             played_cave->setup_for_game();
             break;
 
@@ -256,7 +242,7 @@ bool GameControl::save_snapshot() const {
     if (played_cave.get() == NULL)
         return false;
 
-    snapshot_cave = std::auto_ptr<CaveRendered>(new CaveRendered(*played_cave));
+    snapshot_cave = std::make_unique<CaveRendered>(*played_cave);
     return true;
 }
 
@@ -267,12 +253,9 @@ bool GameControl::load_snapshot() {
     if (snapshot_cave.get() == NULL)
         return false;
 
-    /* overwrite this object with a default one */
-    GameControl def;
-    *this = def;
-    /* and make it a snapshot */
-    type = TYPE_SNAPSHOT;
-    played_cave = std::auto_ptr<CaveRendered>(new CaveRendered(*snapshot_cave));
+    /* overwrite this object with a snapshot game */
+    *this = GameControl(TYPE_SNAPSHOT);
+    played_cave = std::make_unique<CaveRendered>(*snapshot_cave);
 
     /* success */
     return true;
@@ -317,24 +300,19 @@ void GameControl::set_status_bar_state(StatusBarState s) {
 
 /// Show story for a cave, if it has not been already shown.
 GameControl::State GameControl::show_story() {
-    State return_state;
-
-    /* if we have a story... */
-    /* and user settings permit showing that... etc */
+    /* if we have a story, and user settings permit showing that etc */
     if (gd_show_story && !story_shown && type == TYPE_NORMAL && original_cave->story != "") {
         played_cave->clear_sounds();            /* to stop cover sound from previous cave; there should be no cover sound when the user reads the story */
         gd_sound_play_sounds(played_cave->sound1, played_cave->sound2, played_cave->sound3);
         state_counter = GAME_INT_SHOW_STORY_WAIT;
-        return_state = STATE_SHOW_STORY;
         set_status_bar_state(status_bar_none);
         story_shown = true;   /* so the story will not be shown again, for example when the cave is not solved and played again. */
+        return STATE_SHOW_STORY;
     } else {
         /* if no story */
         state_counter = GAME_INT_START_UNCOVER;
-        return_state = STATE_NOTHING;
+        return STATE_NOTHING;
     }
-
-    return return_state;
 }
 
 

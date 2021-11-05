@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -496,7 +496,7 @@ GdElementEnum C64Import::bd1_import_byte(unsigned char const c, unsigned i) {
     if (c < G_N_ELEMENTS(import_table_bd1))
         e = import_table_bd1[c];
     if (e == O_UNKNOWN)
-        gd_warning(CPrintf("Invalid BD1 element in imported file at cave data[%d]: %02x") % i % unsigned(c));
+        gd_warning("Invalid BD1 element in imported file at cave data[%d]: %02x", i, unsigned(c));
     return nonscanned_pair(e);
 }
 
@@ -551,7 +551,7 @@ GdElementEnum C64Import::firstboulder_import_byte(unsigned char const c, unsigne
     if (c < G_N_ELEMENTS(import_table_1stb))
         e = import_table_1stb[c];
     if (e == O_UNKNOWN)
-        gd_warning(CPrintf("Invalid 1stB element in imported file at cave data[%d]: %02x") % i % unsigned(c));
+        gd_warning("Invalid 1stB element in imported file at cave data[%d]: %02x", i, unsigned(c));
     return nonscanned_pair(e);
 }
 
@@ -568,7 +568,7 @@ GdElementEnum C64Import::crazylight_import_byte(unsigned char const c, unsigned 
     if (c < G_N_ELEMENTS(import_table_crli))
         return import_table_crli[c];
     if (e == O_UNKNOWN)
-        gd_warning(CPrintf("Invalid CrLi element in imported file at cave data[%d]: %02x") % i % unsigned(c));
+        gd_warning("Invalid CrLi element in imported file at cave data[%d]: %02x", i, unsigned(c));
     return nonscanned_pair(e);
 }
 
@@ -625,7 +625,7 @@ int C64Import::cave_copy_from_bd1(CaveStored &cave, const guint8 *data, int rema
     g_assert(format == GD_FORMAT_BD1 || format == GD_FORMAT_BD1_ATARI);
     /* cant be shorted than this: header + no objects + delimiter */
     if (remaining_bytes < 33) {
-        gd_critical(CPrintf("truncated BD1 cave data, %d bytes") % remaining_bytes);
+        gd_critical("truncated BD1 cave data, %d bytes", remaining_bytes);
         return -1;
     }
 
@@ -749,7 +749,7 @@ int C64Import::cave_copy_from_bd1(CaveStored &cave, const guint8 *data, int rema
             for (int y = 0; y < ny; y++)
                 for (int x = 0; x < nx; x++) {
                     int pos = x1 + y1 * 40 + y * dy * 40 + x * dx;
-                    cave.push_back_adopt(new CavePoint(Coordinate(pos % 40, pos / 40), element));
+                    cave.objects.push_back(CavePoint(Coordinate(pos % 40, pos / 40), element));
                 }
             index += 8;
         } else {
@@ -761,7 +761,7 @@ int C64Import::cave_copy_from_bd1(CaveStored &cave, const guint8 *data, int rema
                 case 0: {
                     /* 00: POINT */
                     Coordinate p(data[index + 1], data[index + 2] - 2);
-                    cave.push_back_adopt(new CavePoint(p, element));
+                    cave.objects.push_back(CavePoint(p, element));
                     // if (object.x1>=cave.w || object.y1>=cave.h)
                     // gd_warning("invalid point coordinates %d,%d at byte %d", object.x1, object.y1, index);
                     index += 3;
@@ -774,15 +774,15 @@ int C64Import::cave_copy_from_bd1(CaveStored &cave, const guint8 *data, int rema
                     int direction = data[index + 4];
                     if (length >= 0) {
                         if (direction > MV_UP_LEFT) {
-                            gd_warning(CPrintf("invalid line direction %d at byte %d") % direction % index);
+                            gd_warning("invalid line direction %d at byte %d", direction, index);
                             direction = MV_STILL;
                         }
                         Coordinate p2(p1.x + length * gd_dx[direction + 1], p1.y + length * gd_dy[direction + 1]);
-                        cave.push_back_adopt(new CaveLine(p1, p2, element));
+                        cave.objects.push_back(CaveLine(p1, p2, element));
                         // if (object.x1>=cave.w || object.y1>=cave.h || object.x2>=cave.w || object.y2>=cave.h)
                         //  gd_warning("invalid line coordinates %d,%d %d,%d at byte %d", object.x1, object.y1, object.x2, object.y2, index);
                     } else {
-                        gd_warning(CPrintf("line length negative, not displaying line at all, at byte %d") % index);
+                        gd_warning("line length negative, not displaying line at all, at byte %d", index);
                     }
                     index += 5;
                 }
@@ -792,7 +792,7 @@ int C64Import::cave_copy_from_bd1(CaveStored &cave, const guint8 *data, int rema
                     Coordinate p1(data[index + 1], data[index + 2] - 2);
                     Coordinate p2(p1.x + data[index + 3] - 1, p1.y + data[index + 4] - 1); /* stored width and height, not coordinates */
 
-                    cave.push_back_adopt(new CaveFillRect(p1, p2, element, import_func(data, index + 5)));
+                    cave.objects.push_back(CaveFillRect(p1, p2, element, import_func(data, index + 5)));
                     // if (object.x1>=cave.w || object.y1>=cave.h || object.x2>=cave.w || object.y2>=cave.h)
                     //  gd_warning("invalid filled rectangle coordinates %d,%d %d,%d at byte %d", object.x1, object.y1, object.x2, object.y2, index);
 
@@ -804,7 +804,7 @@ int C64Import::cave_copy_from_bd1(CaveStored &cave, const guint8 *data, int rema
                     Coordinate p1(data[index + 1], data[index + 2] - 2);
                     Coordinate p2(p1.x + data[index + 3] - 1, p1.y + data[index + 4] - 1); /* stored width and height, not coordinates */
 
-                    cave.push_back_adopt(new CaveRectangle(p1, p2, element));
+                    cave.objects.push_back(CaveRectangle(p1, p2, element));
                     // if (object.x1>=cave.w || object.y1>=cave.h || object.x2>=cave.w || object.y2>=cave.h)
                     //  gd_warning("invalid rectangle coordinates %d,%d %d,%d at byte %d", object.x1, object.y1, object.x2, object.y2, index);
                     index += 5;
@@ -829,7 +829,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
 
     SetLoggerContextForFunction scf(cave.name);
     if (remaining_bytes < 0x1A + 5) {
-        gd_critical(CPrintf("truncated BD2 cave data, %d bytes") % remaining_bytes);
+        gd_critical("truncated BD2 cave data, %d bytes", remaining_bytes);
         return -1;
     }
     cave_set_engine_defaults(cave, GD_ENGINE_BD2);
@@ -879,11 +879,11 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 int direction = data[index + 4] / 2; /* they are multiplied by two - 0 is up, 2 is upright, 4 is right... */
                 int length = data[index + 5] - 1;
                 if (direction > MV_UP_LEFT) {
-                    gd_warning(CPrintf("invalid line direction %d at byte %d") % direction % index);
+                    gd_warning("invalid line direction %d at byte %d", direction, index);
                     direction = MV_STILL;
                 }
                 Coordinate p2(p1.x + length * gd_dx[direction + 1], p1.y + length * gd_dy[direction + 1]);
-                cave.push_back_adopt(new CaveLine(p1, p2, element));
+                cave.objects.push_back(CaveLine(p1, p2, element));
                 // if (x1>=cave.w || y1>=cave.h || x2>=cave.w || y2 >=cave.h)
                 //  gd_warning("invalid line coordinates %d,%d %d,%d at byte %d", x1, y1, x2, y2, index);
                 index += 6;
@@ -894,7 +894,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 GdElementEnum element = bd1_import(data, index + 1);
                 Coordinate p1(data[index + 3], data[index + 2]);
                 Coordinate p2(p1.x + data[index + 5] - 1, p1.y + data[index + 4] - 1); /* were stored as width&height */
-                cave.push_back_adopt(new CaveRectangle(p1, p2, element));
+                cave.objects.push_back(CaveRectangle(p1, p2, element));
                 // if (x1>=cave.w || y1>=cave.h || x2>=cave.w || y2 >=cave.h)
                 //  gd_warning("invalid rectangle coordinates %d,%d %d,%d at byte %d", x1, y1, x2, y2, index);
                 index += 6;
@@ -906,7 +906,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 Coordinate p1(data[index + 3], data[index + 2]);
                 Coordinate p2(p1.x + data[index + 5] - 1, p1.y + data[index + 4] - 1); /* were stored as width&height */
                 GdElementEnum fill_element = bd1_import(data, index + 6);
-                cave.push_back_adopt(new CaveFillRect(p1, p2, element, fill_element));
+                cave.objects.push_back(CaveFillRect(p1, p2, element, fill_element));
                 // if (x1>=cave.w || y1>=cave.h || x2>=cave.w || y2 >=cave.h)
                 //  gd_warning("invalid filled rectangle coordinates %d,%d %d,%d at byte %d", x1, y1, x2, y2, index);
                 index += 7;
@@ -916,7 +916,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 /* POINT */
                 GdElementEnum element = bd1_import(data, index + 1);
                 Coordinate p(data[index + 3], data[index + 2]);
-                cave.push_back_adopt(new CavePoint(p, element));
+                cave.objects.push_back(CavePoint(p, element));
                 // if (x1>=cave.w || y1>=cave.h)
                 //  gd_warning("invalid point coordinates %d,%d at byte %d", x1, y1, index);
                 index += 4;
@@ -930,7 +930,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 int nx = data[index + 5] - 1;
                 Coordinate dist(data[index + 7], data[index + 6]);
                 Coordinate p2(p1.x + dist.x * nx, p1.y + dist.y * ny); /* calculate p2, we use that */
-                cave.push_back_adopt(new CaveRaster(p1, p2, dist, element));
+                cave.objects.push_back(CaveRaster(p1, p2, dist, element));
                 // if (x1>=cave.w || y1>=cave.h || x2>=cave.w || y2 >=cave.h)
                 //  gd_warning("invalid raster coordinates %d,%d %d,%d at byte %d", x1, y1, x2, y2, index);
                 index += 8;
@@ -941,13 +941,13 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 GdElementEnum element = bd1_import(data, index + 1);
                 int bytes = data[index + 2]; /* number of bytes in bitmap */
                 if (bytes >= cave.w * cave.h / 8)
-                    gd_warning(CPrintf("invalid bitmap length at byte %d") % (index - 4));
+                    gd_warning("invalid bitmap length at byte %d", index - 4);
                 int addr = 0;
                 addr += data[index + 3]; /*msb */
                 addr += data[index + 4] << 8; /*lsb */
                 addr -= 0x0850; /* this was a pointer to the cave work memory (used during game). */
                 if (addr >= cave.w * cave.h)
-                    gd_warning(CPrintf("invalid bitmap start address at byte %d") % (index - 4));
+                    gd_warning("invalid bitmap start address at byte %d", index - 4);
                 int x1 = addr % 40;
                 int y1 = addr / 40;
                 for (int i = 0; i < bytes; i++) { /* for ("bytes" number of bytes) */
@@ -955,7 +955,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                     for (int n = 0; n < 8; n++) { /* for (8 bits in a byte) */
                         if (val & 1)
                             /* convert to single points... */
-                            cave.push_back_adopt(new CavePoint(Coordinate(x1, y1), element));
+                            cave.objects.push_back(CavePoint(Coordinate(x1, y1), element));
                         val = val >> 1;
                         x1++;
                         if (x1 >= cave.w) {
@@ -972,7 +972,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 GdElementEnum search_element = bd1_import(data, index + 1);
                 GdElementEnum put_element = bd1_import(data, index + 2);
                 Coordinate dist(data[index + 3] % 40, data[index + 3] / 40); /* they are stored in the same byte! */
-                cave.push_back_adopt(new CaveJoin(dist, search_element, put_element));
+                cave.objects.push_back(CaveJoin(dist, search_element, put_element));
                 index += 4;
             }
             break;
@@ -1003,12 +1003,12 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
                 /* at the start of the cave, bd scrolled to the last player placed during the drawing (setup) of the cave.
                    i think this is why a map also stored the coordinates of the player - we can use this to check its integrity */
                 if (rx >= cave.w || ry < 0 || ry >= cave.h || cave.map(rx, ry) != O_INBOX)
-                    gd_warning(CPrintf("embedded PLCK map may be corrupted, player coordinates %d,%d") % rx % rx);
+                    gd_warning("embedded PLCK map may be corrupted, player coordinates %d,%d", rx, rx);
                 index += 3 + n;
             }
             break;
             default:
-                gd_warning(CPrintf("unknown bd2 extension no. %02x at byte %d") % unsigned(data[index]) % index);
+                gd_warning("unknown bd2 extension no. %02x at byte %d", unsigned(data[index]), index);
                 index += 1; /* skip that byte */
         }
     }
@@ -1050,7 +1050,7 @@ int C64Import::cave_copy_from_bd2(CaveStored &cave, const guint8 *data, int rema
 int C64Import::slime_plck(unsigned c64_data) {
     const int values[] = {0x00, 0x10, 0x18, 0x38, 0x3c, 0x7c, 0x7e, 0xfe, 0xff};
     if (c64_data > G_N_ELEMENTS(values)) {
-        gd_warning(CPrintf("Invalid PLCK slime permeability value %x") % c64_data);
+        gd_warning("Invalid PLCK slime permeability value %x", c64_data);
         return 0xff;
     }
 
@@ -1294,7 +1294,7 @@ int C64Import::cave_copy_from_dlb(CaveStored &cave, const guint8 *data, int rema
         pos++;
     }
     if (cavepos != 400) {
-        gd_critical(CPrintf("DLB import error: RLE processing, cave length %d, should be 400") % cavepos);
+        gd_critical("DLB import error: RLE processing, cave length %d, should be 400", cavepos);
         return -1;
     }
 
@@ -1480,7 +1480,7 @@ int C64Import::cave_copy_from_crdr_7(CaveStored &cave, const guint8 *data, int r
     /* jump 15 bytes, 14 was the name and 15 selectability */
     data += 15;
     if (memcmp((char *)data + 0x30, "V4\0020", 4) != 0)
-        gd_warning(CPrintf("unknown crdr version %c%c%c%c") % data[0x30] % data[0x31] % data[0x32] % data[0x33]);
+        gd_warning("unknown crdr version %c%c%c%c", data[0x30], data[0x31], data[0x32], data[0x33]);
 
     cave_set_engine_defaults(cave, GD_ENGINE_CRDR7);
 
@@ -1599,7 +1599,7 @@ int C64Import::cave_copy_from_crdr_7(CaveStored &cave, const guint8 *data, int r
             case 1: { /* point */
                 GdElementEnum element = import_table_crdr[data[index + 1]];
                 Coordinate p(data[index + 2], data[index + 3]);
-                cave.push_back_adopt(new CavePoint(p, element));
+                cave.objects.push_back(CavePoint(p, element));
                 // if (object.x1>=cave.w || object.y1>=cave.h)
                 //  gd_warning("invalid point coordinates %d,%d at byte %d", object.x1, object.y1, index);
                 index += 4;
@@ -1609,7 +1609,7 @@ int C64Import::cave_copy_from_crdr_7(CaveStored &cave, const guint8 *data, int r
                 GdElementEnum element = import_table_crdr[data[index + 1]];
                 Coordinate p1(data[index + 2], data[index + 3]);
                 Coordinate p2(p1.x + data[index + 4] - 1, p1.y + data[index + 5] - 1); /* stored as width and height, so calculate p2 */
-                cave.push_back_adopt(new CaveRectangle(p1, p2, element));
+                cave.objects.push_back(CaveRectangle(p1, p2, element));
                 // if (object.x1>=cave.w || object.y1>=cave.h || object.x2>=cave.w || object.y2 >=cave.h)
                 //  gd_warning("invalid rectangle coordinates %d,%d %d,%d at byte %d", object.x1, object.y1, object.x2, object.y2, index);
                 index += 6;
@@ -1619,7 +1619,7 @@ int C64Import::cave_copy_from_crdr_7(CaveStored &cave, const guint8 *data, int r
                 GdElementEnum element = import_table_crdr[data[index + 1]];
                 Coordinate p1(data[index + 2], data[index + 3]);
                 Coordinate p2(p1.x + data[index + 4] - 1, p1.y + data[index + 5] - 1); /* stored as width and height, so calculate p2 */
-                cave.push_back_adopt(new CaveFillRect(p1, p2, element, element));
+                cave.objects.push_back(CaveFillRect(p1, p2, element, element));
                 // if (object.x1>=cave.w || object.y1>=cave.h || object.x2>=cave.w || object.y2 >=cave.h)
                 //  gd_warning("invalid filled rectangle coordinates %d,%d %d,%d at byte %d", object.x1, object.y1, object.x2, object.y2, index);
                 index += 6;
@@ -1635,16 +1635,16 @@ int C64Import::cave_copy_from_crdr_7(CaveStored &cave, const guint8 *data, int r
                 int ny = (direction - 128) / 40;
 
                 /* if either is bigger than one, we cannot treat this as a line. create points instead */
-                if (abs(nx) > 1 || abs(ny > 1)) {
+                if (abs(nx) > 1 || abs(ny) > 1) {
                     for (int i = 0; i < length; i++) {
-                        cave.push_back_adopt(new CavePoint(Coordinate(p1), element));
+                        cave.objects.push_back(CavePoint(Coordinate(p1), element));
                         p1.x += nx;
                         p1.y += ny;
                     }
                 } else {
                     Coordinate p2(p1.x + (length - 1)*nx, p1.y + (length - 1)*ny);
 
-                    cave.push_back_adopt(new CaveLine(p1, p2, element));
+                    cave.objects.push_back(CaveLine(p1, p2, element));
                     /* this is a normal line, and will be appended. only do the checking here */
                     // if (object.x1>=cave.w || object.y1>=cave.h || object.x2>=cave.w || object.y2>=cave.h)
                     //  gd_warning("invalid line coordinates %d,%d %d,%d at byte %d", object.x1, object.y1, object.x2, object.y2, index-5);
@@ -1660,7 +1660,7 @@ int C64Import::cave_copy_from_crdr_7(CaveStored &cave, const guint8 *data, int r
                 index += 5;
                 break;
             case 7: /* paste */
-                cave.push_back_adopt(new CaveCopyPaste(copy_p1, copy_p2, Coordinate(data[index + 1], data[index + 2])));
+                cave.objects.push_back(CaveCopyPaste(copy_p1, copy_p2, Coordinate(data[index + 1], data[index + 2])));
                 // if (data[index+1]>=cave.w || data[index+2]>=cave.h || data[index+1]+cw>cave.w || data[index+2]+ch>cave.h)
                 //  gd_warning("invalid paste coordinates %d,%d at byte %d", data[index+1], data[index+2], index);
                 index += 3;
@@ -1672,14 +1672,14 @@ int C64Import::cave_copy_from_crdr_7(CaveStored &cave, const guint8 *data, int r
                 int nx = data[index + 6] - 1;
                 int ny = data[index + 7] - 1;
                 Coordinate p2(p1.x + dist.x * nx, p1.y + dist.y * ny); /* we use endpoints rather than count */
-                cave.push_back_adopt(new CaveRaster(p1, p2, dist, element));
+                cave.objects.push_back(CaveRaster(p1, p2, dist, element));
                 // if (object.x1>=cave.w || object.y1>=cave.h || object.x2>=cave.w || object.y2 >=cave.h)
                 //  gd_warning("invalid raster coordinates %d,%d %d,%d at byte %d", object.x1, object.y1, object.x2, object.y2, index);
                 index += 8;
             }
             break;
             default:
-                gd_warning(CPrintf("unknown crdr extension no. %02x at byte %d") % data[index] % index);
+                gd_warning("unknown crdr extension no. %02x at byte %d", data[index], index);
                 index += 1; /* skip that byte */
                 break;
         }
@@ -1756,7 +1756,7 @@ int C64Import::cave_copy_from_crli(CaveStored &cave, const guint8 *data, int rem
     import_byte = (version >= V3_0) ? crazylight_import_byte : firstboulder_import_byte;
 
     if (version == none) {
-        gd_warning(CPrintf("unknown crli version %c%c%c%c") % uncompressed[0x3a0] % uncompressed[0x3a1] % uncompressed[0x3a2] % uncompressed[0x3a3]);
+        gd_warning("unknown crli version %c%c%c%c", uncompressed[0x3a0], uncompressed[0x3a1], uncompressed[0x3a2], uncompressed[0x3a3]);
         import = crazylight_import;
     }
 
@@ -1876,9 +1876,9 @@ int C64Import::cave_copy_from_crli(CaveStored &cave, const guint8 *data, int rem
 
 
 /** deluxe caves 3 effect */
-static void deluxe_caves_3_add_specials(std::vector<CaveStored *> & caveset) {
+static void deluxe_caves_3_add_specials(std::vector<CaveStored> & caveset) {
     for (size_t i = 0; i < caveset.size(); ++i) {
-        CaveStored &cave = *caveset[i];
+        CaveStored &cave = caveset[i];
         SetLoggerContextForFunction scf(cave.name);
 
         cave.snap_element = O_EXPLODE_1;
@@ -1904,9 +1904,9 @@ static void deluxe_caves_3_add_specials(std::vector<CaveStored *> & caveset) {
 }
 
 /// Crazy Dream 7 hacks
-static void crazy_dream_7_add_specials(std::vector<CaveStored *> & caveset) {
+static void crazy_dream_7_add_specials(std::vector<CaveStored> & caveset) {
     for (size_t i = 0; i < caveset.size(); ++i) {
-        CaveStored &cave = *caveset[i];
+        CaveStored &cave = caveset[i];
 
         if (cave.name == "Crazy maze")
             cave.skeletons_needed_for_pot = 0;
@@ -1917,62 +1917,56 @@ static void crazy_dream_7_add_specials(std::vector<CaveStored *> & caveset) {
 /// This function adds some hardcoded elements to a Crazy Dream 9 cave.
 /// Crazy Dream 9 had some caves and random fills, which were not encoded in the
 /// cave data.
-static void crazy_dream_9_add_specials(std::vector<CaveStored *> & caveset) {
+static void crazy_dream_9_add_specials(std::vector<CaveStored> & caveset) {
     for (size_t i = 0; i < caveset.size(); ++i) {
-        CaveStored &cave = *caveset[i];
+        CaveStored &cave = caveset[i];
 
         /* check cave name and the checksum. both are hardcoded here */
         if (cave.name == "Rockfall") {
-            CaveRandomFill *o;
-            o = new CaveRandomFill(Coordinate(0, 0), Coordinate(39, 21));
-            o->set_replace_only(O_BLADDER_SPENDER);  /* replace spenders drawn */
-            o->set_random_fill(O_DIRT, O_DIAMOND, O_STONE, O_ACID, O_DIRT);
-            o->set_random_prob(37, 32, 2, 0);
-            cave.push_back_adopt(o);
+            CaveRandomFill o(Coordinate(0, 0), Coordinate(39, 21));
+            o.set_replace_only(O_BLADDER_SPENDER);  /* replace spenders drawn */
+            o.set_random_fill(O_DIRT, O_DIAMOND, O_STONE, O_ACID, O_DIRT);
+            o.set_random_prob(37, 32, 2, 0);
+            cave.objects.push_back(std::move(o));
         }
 
         if (cave.name == "Roll dice now!") {
-            CaveRandomFill *o;
-            o = new CaveRandomFill(Coordinate(0, 0), Coordinate(39, 21));
-            o->set_replace_only(O_BLADDER_SPENDER);  /* replace spenders drawn */
-            o->set_random_fill(O_DIRT, O_STONE, O_BUTTER_3, O_DIRT, O_DIRT);
-            o->set_random_prob(0x18, 0x08, 0, 0);
-
-            cave.objects.push_back_adopt(o);
+            CaveRandomFill o(Coordinate(0, 0), Coordinate(39, 21));
+            o.set_replace_only(O_BLADDER_SPENDER);  /* replace spenders drawn */
+            o.set_random_fill(O_DIRT, O_STONE, O_BUTTER_3, O_DIRT, O_DIRT);
+            o.set_random_prob(0x18, 0x08, 0, 0);
+            cave.objects.push_back(std::move(o));
         }
 
         if (cave.name == "Random maze") {
-            cave.push_back_adopt(new CaveMaze(Coordinate(1, 4), Coordinate(35, 20), O_NONE, O_DIRT, CaveMaze::Perfect));
+            cave.objects.push_back(CaveMaze(Coordinate(1, 4), Coordinate(35, 20), O_NONE, O_DIRT, CaveMaze::Perfect));
         }
 
         if (cave.name == "Metamorphosis") {
-            CaveMaze *m;
-            m = new CaveMaze(Coordinate(4, 1), Coordinate(38, 19), O_NONE, O_BLADDER_SPENDER, CaveMaze::Perfect);  /* paths=spender */
-            m->set_widths(1, 3);
-            cave.push_back_adopt(m);
+            CaveMaze m(Coordinate(4, 1), Coordinate(38, 19), O_NONE, O_BLADDER_SPENDER, CaveMaze::Perfect);  /* paths=spender */
+            m.set_widths(1, 3);
+            cave.objects.push_back(std::move(m));
 
-            CaveRandomFill *r;
-            r = new CaveRandomFill(Coordinate(4, 1), Coordinate(38, 19));
-            r->set_replace_only(O_BLADDER_SPENDER);  /* replace spenders drawn */
-            r->set_random_fill(O_DIRT, O_STONE, O_DIRT, O_DIRT, O_DIRT);
-            r->set_random_prob(0x18, 0, 0, 0);
-            cave.push_back_adopt(r);
-
+            CaveRandomFill r(Coordinate(4, 1), Coordinate(38, 19));
+            r.set_replace_only(O_BLADDER_SPENDER);  /* replace spenders drawn */
+            r.set_random_fill(O_DIRT, O_STONE, O_DIRT, O_DIRT, O_DIRT);
+            r.set_random_prob(0x18, 0, 0, 0);
+            cave.objects.push_back(std::move(r));
             cave.creatures_backwards = true; /* XXX why? where is it stored? */
         }
 
         if (cave.name == "All the way") {
-            cave.push_back_adopt(new CaveMaze(Coordinate(1, 1), Coordinate(35, 19), O_BRICK, O_PRE_DIA_1, CaveMaze::Unicursal));
+            cave.objects.push_back(CaveMaze(Coordinate(1, 1), Coordinate(35, 19), O_BRICK, O_PRE_DIA_1, CaveMaze::Unicursal));
             /* a point which "breaks" the unicursal maze */
-            cave.push_back_adopt(new CavePoint(Coordinate(35, 18), O_BRICK));
+            cave.objects.push_back(CavePoint(Coordinate(35, 18), O_BRICK));
         }
     }
 }
 
 
-static void masters_boulder_add_hack(std::vector<CaveStored *> & caveset) {
+static void masters_boulder_add_hack(std::vector<CaveStored> & caveset) {
     for (size_t i = 0; i < caveset.size(); ++i) {
-        CaveStored &cave = *caveset[i];
+        CaveStored &cave = caveset[i];
         SetLoggerContextForFunction scf(cave.name);
 
         switch (i) {
@@ -1999,11 +1993,11 @@ C64Import::GdCavefileFormat C64Import::imported_get_format(const guint8 *buf) {
 /// Load caveset from memory buffer.
 /// Loads the caveset from a memory buffer.
 /// @return a vector of newly created caves.
-std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf, int length) {
+std::vector<CaveStored> C64Import::caves_import_from_buffer(const guint8 *buf, int length) {
     gboolean numbering;
     int intermissionnum, num;
     int cavelength;
-    std::vector<CaveStored *> caveset;
+    std::vector<CaveStored> caveset;
 
     if (length != -1 && length < 12) {
         gd_critical("buffer too short to be a GDash datafile");
@@ -2045,8 +2039,7 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
     while (bufp < length) {
         int insertpos = -1; /* default is to append cave to caveset */
 
-        CaveStored *new_cave_p = new CaveStored;
-        CaveStored &newcave = *new_cave_p;
+        CaveStored newcave;
 
         cavelength = 0; /* to avoid compiler warning */
 
@@ -2060,9 +2053,9 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
                 newcave.intermission = cavenum > 15;
                 /* no name, so we make up one */
                 if (newcave.intermission)
-                    newcave.name = SPrintf(_("Intermission %d")) % (cavenum - 15);
+                    newcave.name = Printf(_("Intermission %d"), cavenum - 15);
                 else
-                    newcave.name = SPrintf(_("Cave %c")) % char('A' + cavenum);
+                    newcave.name = Printf(_("Cave %c"), char('A' + cavenum));
 
                 switch (format) {
                     case GD_FORMAT_BD1:
@@ -2091,7 +2084,7 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
 
             case GD_FORMAT_PLC:             /* peter liepa construction kit */
             case GD_FORMAT_PLC_ATARI: {             /* peter liepa construction kit, atari version */
-                SetLoggerContextForFunction scf(SPrintf("Cave %02d") % cavenum);
+                SetLoggerContextForFunction scf(Printf("Cave %02d", cavenum));
                 cavelength = cave_copy_from_plck(newcave, buf + bufp, length - bufp, format);
             }
             if (cavelength != -1 && hack == Crazy_Dream_1)
@@ -2108,9 +2101,9 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
                 }
                 newcave.selectable = cavenum % 5 == 0;  /* original selection scheme */
                 if (newcave.intermission)
-                    newcave.name = SPrintf(_("Intermission %d")) % (cavenum / 5 + 1);
+                    newcave.name = Printf(_("Intermission %d"), cavenum / 5 + 1);
                 else
-                    newcave.name = SPrintf(_("Cave %c")) % char('A' + (cavenum % 5 + cavenum / 5 * 4));
+                    newcave.name = Printf(_("Cave %c"), char('A' + (cavenum % 5 + cavenum / 5 * 4)));
 
                 cavelength = cave_copy_from_dlb(newcave, buf + bufp, length - bufp);
                 break;
@@ -2129,21 +2122,20 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
         }
 
         if (cavelength == -1) {
-            delete new_cave_p;
             gd_critical("Aborting cave import.");
             break;
         }
         if (insertpos < 0)
-            caveset.push_back(new_cave_p);
+            caveset.push_back(std::move(newcave));
         else
-            caveset.insert(caveset.begin() + insertpos, new_cave_p);
+            caveset.insert(caveset.begin() + insertpos, std::move(newcave));
         cavenum++;
         bufp += cavelength;
 
         /* hack: some dlb files contain junk data after 20 caves. */
         if (format == GD_FORMAT_DLB && cavenum == 20) {
             if (bufp < length)
-                gd_warning(CPrintf("excess data in dlb file, %d bytes") % int(length - bufp));
+                gd_warning("excess data in dlb file, %d bytes", int(length - bufp));
             break;
         }
     }
@@ -2155,13 +2147,13 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
         if ((buf[2 + 0x1f0] != buf[2 + 0x1f1] - 1) || (buf[2 + 0x1f0] != 0x19 && buf[2 + 0x1f0] != 0x0e)) {
             bool standard = (caveset.size() % 5) == 0; /* cave count % 5 != 0 -> nonstandard */
             for (unsigned n = 0; standard && n < caveset.size(); ++n)
-                if ((n % 5 == 4 && !caveset[n]->intermission) || (n % 5 != 4 && caveset[n]->intermission))
+                if ((n % 5 == 4 && !caveset[n].intermission) || (n % 5 != 4 && caveset[n].intermission))
                     standard = false; /* 4 cave, 1 intermission */
 
             /* if test passed, update selectability */
             if (standard)
                 for (unsigned n = 0; n < caveset.size(); ++n)
-                    caveset[n]->selectable = (n % 5) == 0;
+                    caveset[n].selectable = (n % 5) == 0;
         }
 
     /* try to give some names for the caves */
@@ -2171,25 +2163,24 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
     /* use numbering instead of letters, if following formats or too many caves (as we would run out of letters) */
     numbering = format == GD_FORMAT_PLC || format == GD_FORMAT_CRLI || caveset.size() > 26;
     for (unsigned n = 0; n < caveset.size(); ++n) {
-        if (caveset[n]->name != "") /* if it already has a name, skip */
+        CaveStored &cave = caveset[n];
+        if (cave.name != "") /* if it already has a name, skip */
             continue;
 
-        if (caveset[n]->intermission) {
-            /* intermission */
+        if (cave.intermission) {
             if (numbering)
-                caveset[n]->name = SPrintf(_("Intermission %02d")) % num;
+                cave.name = Printf(_("Intermission %02d"), num);
             else
-                caveset[n]->name = SPrintf(_("Intermission %d")) % intermissionnum;
+                cave.name = Printf(_("Intermission %d"), intermissionnum);
         } else {
-            /* normal cave */
             if (numbering)
-                caveset[n]->name = SPrintf(_("Cave %02d")) % num;
+                cave.name = Printf(_("Cave %02d"), num);
             else
-                caveset[n]->name = SPrintf(_("Cave %c")) % char('A' - 1 + cavenum);
+                cave.name = Printf(_("Cave %c"), char('A' - 1 + cavenum));
         }
 
         num++;
-        if (caveset[n]->intermission)
+        if (cave.intermission)
             intermissionnum++;
         else
             cavenum++;
@@ -2200,7 +2191,7 @@ std::vector<CaveStored *> C64Import::caves_import_from_buffer(const guint8 *buf,
         for (unsigned n = 0; n < caveset.size(); ++n)
             /* make selectable if not an intermission. */
             /* also selectable, if it was selectable originally, for some reason. */
-            caveset[n]->selectable = caveset[n]->selectable || !caveset[n]->intermission;
+            caveset[n].selectable = caveset[n].selectable || !caveset[n].intermission;
 
     /* add hacks */
     if (hack == Deluxe_Caves_3)

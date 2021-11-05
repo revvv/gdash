@@ -6,7 +6,7 @@ AUTOMAKE_OPTIONS = subdir-objects
 
 DEFS = -DLOCALEDIR=\"$(localedir)\" -DPKGDATADIR=\"$(pkgdatadir)\" @DEFS@
 
-INCLUDES = -I$(top_srcdir)/include
+AM_CXXFLAGS = -I$(top_srcdir)/include
 
 bin_PROGRAMS = gdash
 
@@ -17,13 +17,13 @@ strip: $(bin_PROGRAMS)
 #   the gdash engine.
 baseheaders = \
 	misc/printf.hpp \
-	misc/smartptr.hpp \
+	misc/deleter.hpp \
 	misc/autogfreeptr.hpp \
 	cave/cavetypes.hpp \
 	cave/elementproperties.hpp \
 	cave/helper/namevaluepair.hpp \
 	cave/helper/reflective.hpp \
-	cave/helper/adoptingcontainer.hpp \
+	cave/helper/polymorphic.hpp \
 	cave/helper/cavemap.hpp \
 	cave/helper/cavehighscore.hpp \
 	cave/colors.hpp \
@@ -146,7 +146,6 @@ basesources = \
 	cave/gamerender.cpp \
 	cave/titleanimation.cpp \
 	framework/app.cpp \
-	framework/activity.cpp \
 	framework/titlescreenactivity.cpp \
 	framework/showtextactivity.cpp \
 	framework/messageactivity.cpp \
@@ -179,6 +178,7 @@ gtksources = \
 	editor/editorautowidgets.cpp \
 	editor/editorcellrenderer.cpp \
 	editor/exporthtml.cpp \
+	editor/exporttext.cpp \
 	editor/exportcrli.cpp \
 	editor/editor.cpp \
 	gtk/gtkapp.cpp \
@@ -196,6 +196,7 @@ gtkheaders = \
 	editor/editorautowidgets.hpp \
 	editor/editorcellrenderer.hpp \
 	editor/exporthtml.hpp \
+	editor/exporttext.hpp \
 	editor/exportcrli.hpp \
 	editor/editor.hpp \
 	gtk/gtkapp.hpp \
@@ -211,10 +212,10 @@ sdlsources = \
 	sdl/sdlabstractscreen.cpp \
 	sdl/sdlscreen.cpp \
 	sdl/sdlpixbuffactory.cpp \
-	sdl/ogl.cpp \
 	sdl/sdlgameinputhandler.cpp \
 	sdl/sdlmainwindow.cpp \
-	sdl/IMG_savepng.c
+	sdl/ogl.cpp \
+	sdl/IMG_savepng.cpp
 
 sdlheaders = \
 	framework/shadermanager.hpp \
@@ -223,10 +224,10 @@ sdlheaders = \
 	sdl/sdlabstractscreen.hpp \
 	sdl/sdlscreen.hpp \
 	sdl/sdlpixbuffactory.hpp \
-	sdl/ogl.hpp \
 	sdl/sdlgameinputhandler.hpp \
 	sdl/sdlmainwindow.hpp \
-	sdl/IMG_savepng.h
+	sdl/ogl.hpp \
+	sdl/IMG_savepng.hpp
 
 
 
@@ -251,7 +252,7 @@ endif
 
 
 
-gdash_CPPFLAGS = -g -Wall @GTK_CFLAGS@ @GLIB_CFLAGS@ @SDL_CFLAGS@ @GL_CFLAGS@ @LIBPNG_CFLAGS@
+gdash_CPPFLAGS = -g -Wall -std=c++14 @GTK_CFLAGS@ @GLIB_CFLAGS@ @SDL_CFLAGS@ @GL_CFLAGS@ @LIBPNG_CFLAGS@
 gdash_LDFLAGS = -g -Wall
 gdash_LDADD = @GTK_LIBS@ @GLIB_LIBS@ @LIBINTL@ @SDL_LIBS@ @GL_LIBS@ @LIBPNG_LIBS@
 gdash_SOURCES = $(programsources)

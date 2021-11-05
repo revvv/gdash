@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -51,13 +51,9 @@ inline guint32 RGBtoYUV(guint32 c) {
     r = (c & Pixbuf::rmask) >> Pixbuf::rshift;
     g = (c & Pixbuf::gmask) >> Pixbuf::gshift;
     b = (c & Pixbuf::bmask) >> Pixbuf::bshift;
-    // y = (guint32)(0.299*r + 0.587*g + 0.114*b);
-    // u = (guint32)(-0.169*r - 0.331*g + 0.5*b) + 128;
-    // v = (guint32)(0.5*r - 0.419*g - 0.081*b) + 128;
-    // changed to fixed point math
-    y = (77 * r + 150 * g + 29 * b) >> 8;
-    u = (32768 + -43 * r - 85 * g + 128 * b) >> 8;
-    v = (32768 + 128 * r - 107 * g - 21 * b) >> 8;
+    y = (77 * r + 150 * g + 29 * b) >> 8;           // y = (0.299*r + 0.587*g + 0.114*b);
+    u = (32768 + -43 * r - 85 * g + 128 * b) >> 8;  // u = (-0.169*r - 0.331*g + 0.5*b) + 128;
+    v = (32768 + 128 * r - 107 * g - 21 * b) >> 8;  // v = (0.5*r - 0.419*g - 0.081*b) + 128;
     return (y << 16) + (u << 8) + v;
 }
 
@@ -65,9 +61,9 @@ inline guint32 RGBtoYUV(guint32 c) {
 inline int Diff(guint32 w1, guint32 w2) {
     guint32 YUV1 = RGBtoYUV(w1);
     guint32 YUV2 = RGBtoYUV(w2);
-    return (abs((YUV1 & Ymask) - (YUV2 & Ymask)) > trY)
-           || (abs((YUV1 & Umask) - (YUV2 & Umask)) > trU)
-           || (abs((YUV1 & Vmask) - (YUV2 & Vmask)) > trV);
+    return (abs(gint32(YUV1 & Ymask) - gint32(YUV2 & Ymask)) > trY)
+           || (abs(gint32(YUV1 & Umask) - gint32(YUV2 & Umask)) > trU)
+           || (abs(gint32(YUV1 & Vmask) - gint32(YUV2 & Vmask)) > trV);
 }
 
 /* Interpolate functions */

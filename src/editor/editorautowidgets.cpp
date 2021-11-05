@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -62,7 +62,7 @@ static void gdint_editwidget_changed_cb(GtkWidget *widget, gpointer data) {
     int value = gtk_spin_button_get_value(GTK_SPIN_BUTTON(widget));
     if (*pi != value) {
         *pi = value;
-        eau->update_cave();
+        eau->update();
     }
 }
 
@@ -84,7 +84,7 @@ static GtkWidget *gdint_editwidget_new(EditorAutoUpdate *eau, GdInt *value) {
     return gdint_editwidget_new(eau, value, eau->descr->min, eau->descr->max);
 }
 
-void gdint_editwidget_reload(GtkWidget *widget) {
+static void gdint_editwidget_reload(GtkWidget *widget) {
     EditorAutoUpdate *eau = get_eau(widget);
     GdInt &i = eau->r->get<GdInt>(eau->descr->prop);
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), i);
@@ -103,7 +103,7 @@ static void gdprobability_editwidget_changed_cb(GtkWidget *widget, gpointer data
     int value = gtk_spin_button_get_value(GTK_SPIN_BUTTON(widget)) / 100.0 * 1000000.0; /* *100%, /1million (as it is stored that way) */
     if (*pi != value) {
         *pi = value;
-        eau->update_cave();
+        eau->update();
     }
 }
 
@@ -129,12 +129,12 @@ static void gdelement_editwidget_changed_cb(GtkWidget *widget, gpointer data) {
     GdElementEnum new_elem = gd_element_button_get(widget);
     if (*pe != new_elem) {
         *pe = new_elem;
-        eau->update_cave();
+        eau->update();
     }
 }
 
 static GtkWidget *gdelement_editwidget_new(EditorAutoUpdate *eau, GdElement *value) {
-    GtkWidget *button = gd_element_button_new(*value, FALSE, NULL);
+    GtkWidget *button = gd_element_button_new(*value, NULL);
     set_eau(button, eau);
     /* this "clicked" will be called after the button's own, internal clicked signal */
     g_signal_connect(button, "clicked", G_CALLBACK(gdelement_editwidget_changed_cb), value);
@@ -155,7 +155,7 @@ static void gdbool_editwidget_changed_cb(GtkWidget *widget, gpointer data) {
     bool new_value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
     if (*pb != new_value) {
         *pb = new_value;
-        eau->update_cave();
+        eau->update();
     }
 }
 
@@ -295,7 +295,7 @@ static void gdcolor_editwidget_changed_cb(GtkWidget *widget, gpointer data) {
     GdColor value = gd_color_combo_get_color(widget);
     if (*pc != value) {
         *pc = value;
-        eau->update_cave();
+        eau->update();
     }
 }
 
@@ -313,26 +313,16 @@ static void gdcolor_editwidget_reload(GtkWidget *widget) {
     gd_color_combo_set(GTK_COMBO_BOX(widget), color);
 }
 
-
-void EditorAutoUpdate::update_cave() const {
-    if (cave_update_cb)
-        cave_update_cb();
-}
-
-void EditorAutoUpdate::reload() const {
-    if (reload_cb)
-        reload_cb(widget);
-}
-
-EditorAutoUpdate::EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescription const *descr, void (*cave_update_cb)())
+EditorAutoUpdate::EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescription const *descr, void (*update_cb)())
     :   r(r),
         def(def),
         descr(descr),
-        widget(0),
+        widget(NULL),
         expand_vertically(false),
-        cave_update_cb(cave_update_cb),
-        reload_cb(0) {
-    std::auto_ptr<GetterBase> const &prop = descr->prop;
+        update_cb(update_cb),
+        reload_cb(NULL)
+{
+    std::unique_ptr<GetterBase> const &prop = descr->prop;
     std::string defval;
 
     switch (descr->type) {
@@ -341,11 +331,12 @@ EditorAutoUpdate::EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescr
             g_assert_not_reached();
             break;
         case GD_LABEL:
-            // abuse :)
-            widget = gtk_hbox_new(TRUE, 3);
+            // abuse
+            widget = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
+            gtk_box_set_homogeneous(GTK_BOX(widget), TRUE);
             if (descr->flags & GD_SHOW_LEVEL_LABEL)
                 for (unsigned i = 0; i < 5; ++i)
-                    gtk_container_add(GTK_CONTAINER(widget), gd_label_new_centered(CPrintf(_("Level %d")) % (i + 1)));
+                    gtk_container_add(GTK_CONTAINER(widget), gd_label_new_centered(Printf(_("Level %d"), i + 1).c_str()));
             break;
         case GD_TYPE_LONGSTRING:
             expand_vertically = true;
@@ -359,9 +350,10 @@ EditorAutoUpdate::EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescr
             defval = visible_name(def->get<GdBool>(prop));
             break;
         case GD_TYPE_BOOLEAN_LEVELS:
-            widget = gtk_hbox_new(TRUE, 3);
+            widget = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
+            gtk_box_set_homogeneous(GTK_BOX(widget), TRUE);
             for (unsigned i = 0; i < prop->count; ++i) {
-                gtk_container_add(GTK_CONTAINER(widget), gdbool_editwidget_new(this, &r->get<GdBoolLevels>(prop)[i], SPrintf("%d") % (i + 1)));
+                gtk_container_add(GTK_CONTAINER(widget), gdbool_editwidget_new(this, &r->get<GdBoolLevels>(prop)[i], Printf("%d", i + 1)));
                 if (i != 0)
                     defval += ", ";
                 defval += visible_name(def->get<GdBoolLevels>(prop)[i]);
@@ -373,7 +365,8 @@ EditorAutoUpdate::EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescr
             reload_cb = gdint_editwidget_reload;
             break;
         case GD_TYPE_INT_LEVELS:
-            widget = gtk_hbox_new(TRUE, 3);
+            widget = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
+            gtk_box_set_homogeneous(GTK_BOX(widget), TRUE);
             for (unsigned i = 0; i < prop->count; ++i) {
                 gtk_container_add(GTK_CONTAINER(widget), gdint_editwidget_new(this, &r->get<GdIntLevels>(prop)[i]));
                 if (i != 0)
@@ -386,7 +379,8 @@ EditorAutoUpdate::EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescr
             defval = visible_name(def->get<GdProbability>(prop));
             break;
         case GD_TYPE_PROBABILITY_LEVELS:
-            widget = gtk_hbox_new(TRUE, 3);
+            widget = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
+            gtk_box_set_homogeneous(GTK_BOX(widget), TRUE);
             for (unsigned i = 0; i < prop->count; ++i) {
                 gtk_container_add(GTK_CONTAINER(widget), gdprobability_editwidget_new(this, &r->get<GdProbabilityLevels>(prop)[i]));
                 if (i != 0)
@@ -413,19 +407,35 @@ EditorAutoUpdate::EditorAutoUpdate(Reflective *r, Reflective *def, PropertyDescr
             defval = visible_name(def->get<GdScheduling>(prop));
             break;
         case GD_TYPE_COORDINATE:
-            widget = gtk_hbox_new(TRUE, 3);
-            gtk_container_add(GTK_CONTAINER(widget), gdint_editwidget_new(this, &(r->get<Coordinate>(prop).x)));
-            gtk_container_add(GTK_CONTAINER(widget), gdint_editwidget_new(this, &(r->get<Coordinate>(prop).y)));
+            widget = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
+            gtk_box_set_homogeneous(GTK_BOX(widget), TRUE);
+            gtk_container_add(GTK_CONTAINER(widget), gdint_editwidget_new(this, &r->get<Coordinate>(prop).x));
+            gtk_container_add(GTK_CONTAINER(widget), gdint_editwidget_new(this, &r->get<Coordinate>(prop).y));
             defval = visible_name(def->get<Coordinate>(prop));
             break;
-    };
-
-    std::string tip;
+    }
 
     if (descr->tooltip) {
-        tip = _(descr->tooltip);
+        std::string tip = _(descr->tooltip);
         if (defval != "")
-            tip += SPrintf(_("\nDefault value: %s")) % _(defval.c_str());
+            tip += Printf(_("\nDefault value: %s"), _(defval.c_str()));
         gtk_widget_set_tooltip_text(widget, tip.c_str());
     }
+}
+
+
+static void edit_properties_set_random_max(GtkWidget *widget, gpointer data) {
+    GtkWidget *next_widget = GTK_WIDGET(data);
+    int max = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(widget));
+    gtk_spin_button_set_range(GTK_SPIN_BUTTON(next_widget), 0, max);
+}
+
+
+/**
+ * A spin button's value can maximize another spin button.
+ * It will only work if both elements are spin buttons.
+ */
+void EditorAutoUpdate::maximize_widget(EditorAutoUpdate &maximized) {
+    g_signal_connect(widget, "value-changed", G_CALLBACK(edit_properties_set_random_max), maximized.widget);
+    edit_properties_set_random_max(widget, maximized.widget);
 }

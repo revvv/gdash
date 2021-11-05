@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -170,7 +170,7 @@ void CaveRendered::count_diamonds() {
 /// @param bonus_life_flash Set to true, if the player got a bonus life. The space element will change accordingly.
 /// @param animcycle Animation cycle - an integer between 0 and 7 to select animated frames.
 /// @param hate_invisible_outbox Show invisible outboxes as visible (blinking) ones.
-void CaveRendered::draw_indexes(CaveMapFast<int> &gfx_buffer, CaveMapFast<bool> const &covered, bool bonus_life_flash, int animcycle, bool hate_invisible_outbox) {
+void CaveRendered::draw_indexes(CaveMap<int> &gfx_buffer, CaveMap<bool> const &covered, bool bonus_life_flash, int animcycle, bool hate_invisible_outbox) {
     int elemdrawing[O_MAX_INDEX];
 
     g_assert(!map.empty());
@@ -347,7 +347,7 @@ int gd_cave_check_replays(CaveStored &cave, bool report, bool remove, bool repai
                 replay.wrong_checksum = true;
 
                 if (report)
-                    gd_warning(CPrintf("%s: replay played by %s at %s is invalid") % cave.name % replay.player_name % replay.date);
+                    gd_warning("%s: replay played by %s at %s is invalid", cave.name, replay.player_name, replay.date);
 
                 if (remove)
                     cave.replays.erase(it);
@@ -368,8 +368,8 @@ int gd_cave_check_replays(CaveStored &cave, bool report, bool remove, bool repai
 /// @param x The x coordinate to draw at.
 /// @param y The y coordinate to draw at.
 /// @param element The element to draw.
-/// @param order Pointer to the object which draws this element, or 0 if none.
-void CaveRendered::store_rc(int x, int y, GdElementEnum element, CaveObject const *order) {
+/// @param order_idx Index the object which draws this element, or -1 if none.
+void CaveRendered::store_rc(int x, int y, GdElementEnum element, int order_idx) {
     /* if we do not need to draw, exit now */
     if (element == O_NONE)
         return;
@@ -377,16 +377,16 @@ void CaveRendered::store_rc(int x, int y, GdElementEnum element, CaveObject cons
     /* if objects wrap around (mainly in imported caves), correct the coordinates */
     if (wraparound_objects) {
         if (lineshift)
-            CaveMapFuncs::lineshift_wrap_coords_only_x(w, x, y);
+            CaveMapFuncs::lineshift_wrap_coords_only_x(w, h, x, y);
         else
             CaveMapFuncs::perfect_wrap_coords(w, h, x, y);
     }
 
     /* if the above wraparound code fixed the coordinates, this will always be true. */
-    /* but see the above comment for lineshifting y coordinate */
+    /* if lineshift drawing is enabled, y might be negative or overflow. */
     if (x >= 0 && x < w && y >= 0 && y < h) {
         map(x, y) = element;
-        objects_order(x, y) = const_cast<CaveObject *>(order);
+        objects_order(x, y) = order_idx;
     }
 }
 
@@ -448,7 +448,7 @@ void CaveRendered::create_map(CaveStored const &data, int level) {
             map(x, h - 1) = data.initial_border;
         }
     } else {
-        /* IF CAVE HAS A MAP, SIMPLY USE IT... no need to fill with random elements */
+        /* if the cave has a map, simply use it, no need to fill with random elements */
         map = data.map;
         /* initialize c64 predictable random for slime. the values were taken from afl bd, see docs/internals.txt */
         c64_rand.set_seed(0, 0x1e);
@@ -461,10 +461,11 @@ void CaveRendered::create_map(CaveStored const &data, int level) {
     else
         map.set_wrap_type(CaveMapFuncs::Perfect);
     /* then draw objects */
-    objects_order.fill(0);
-    for (CaveObjectStore::const_iterator it = data.objects.begin(); it != data.objects.end(); ++it) {
-        if ((*it)->seen_on[rendered_on])
-            (*it)->draw(*this);
+    objects_order.fill(-1);
+    for (int order_idx = 0; order_idx < (int)data.objects.size(); ++order_idx) {
+        CaveObject const & object = data.objects[order_idx];
+        if (object.seen_on[rendered_on])
+            object.draw(*this, order_idx);
     }
 }
 
@@ -475,7 +476,6 @@ void CaveRendered::create_map(CaveStored const &data, int level) {
 CaveRendered::CaveRendered(CaveStored const &data, int level, int seed)
     :
     CaveBase(data),
-    objects_order(),
     amoeba_state(GD_AM_SLEEPING),
     amoeba_2_state(GD_AM_SLEEPING),
     magic_wall_state(GD_MW_DORMANT),

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,16 +24,16 @@
 #include "config.h"
 
 #include <glib.h>
+#include <algorithm>
 
 #include "misc/logger.hpp"
-#include "misc/printf.hpp"
 #include "misc/autogfreeptr.hpp"
 #include "framework/shadermanager.hpp"
 #include "settings.hpp"
 
 
 static void add_dir_to_shaders(std::vector<std::string> &shaders, const char *directory_name) {
-    gd_debug(CPrintf("checking dir %s for shaders") % directory_name);
+    gd_debug("checking dir %s for shaders", directory_name);
 
     GDir *dir = g_dir_open(directory_name, 0, NULL);
     /* silently ignore unable-to-open directories */
@@ -44,7 +44,7 @@ static void add_dir_to_shaders(std::vector<std::string> &shaders, const char *di
         AutoGFreePtr<char> filename(g_build_filename(directory_name, name, NULL));
         AutoGFreePtr<char> lower(g_ascii_strdown(filename, -1));
         if ((g_str_has_suffix(lower, ".shader") && g_file_test(filename, G_FILE_TEST_IS_REGULAR))) {
-            gd_debug(CPrintf("found shader %s") % filename);
+            gd_debug("found shader %s", filename);
             shaders.push_back((char*) filename);
         }
     }

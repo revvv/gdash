@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -52,14 +52,14 @@ static void write_highscore_func(std::list<std::string> &out, HighScoreTable con
 ///                 i.e. if a property in str has the same value as in str_def, it is not saved.
 /// @param ratio The cave size, for ratio types. Set to cave->w*cave->h when calling.
 /// @todo rename
-void save_properties(std::list<std::string> &out, Reflective &str, Reflective &str_def, int ratio, PropertyDescription const *prop_desc) {
+void save_properties(std::list<std::string> &out, Reflective const &str, Reflective const &str_def, int ratio, PropertyDescription const *prop_desc) {
     bool should_write = false;
     const char *identifier = NULL;
     BdcffFormat line;
 
     /* for all properties */
     for (unsigned i = 0; prop_desc[i].identifier != NULL; i++) {
-        std::auto_ptr<GetterBase> const &prop = prop_desc[i].prop;
+        std::unique_ptr<GetterBase> const &prop = prop_desc[i].prop;
 
         // used only by the gui, nothing to do
         if (prop_desc[i].type == GD_TAB || prop_desc[i].type == GD_LABEL)
@@ -96,7 +96,7 @@ void save_properties(std::list<std::string> &out, Reflective &str, Reflective &s
             if (should_write)
                 out.push_back(line);
 
-            line.start_new(prop_desc[i].identifier);
+            line = BdcffFormat(prop_desc[i].identifier);
             should_write = false;
 
             // remember identifier
@@ -179,7 +179,7 @@ void save_properties(std::list<std::string> &out, Reflective &str, Reflective &s
 }
 
 
-static void save_own_properties(std::list<std::string> &out, Reflective &str, Reflective &str_def, int ratio) {
+static void save_own_properties(std::list<std::string> &out, Reflective const &str, Reflective const &str_def, int ratio) {
     save_properties(out, str, str_def, ratio, str.get_description_array());
 }
 
@@ -192,8 +192,8 @@ static void cave_properties_remove(std::list<std::string> &out, const char *attr
 }
 
 
-static BdcffSection save_replay_func(CaveReplay &replay) {
-    BdcffSection out;
+static BdcffFile::BdcffSection save_replay_func(CaveReplay const &replay) {
+    BdcffFile::BdcffSection out;
     CaveReplay default_values;                          // an empty replay to store default values
     save_own_properties(out, replay, default_values, 0);    // 0 is for ratio, here it is not used
     out.push_back(BdcffFormat("Movements") << replay.movements_to_bdcff());
@@ -233,29 +233,30 @@ static BdcffFile::CaveInfo caveset_save_cave_func(CaveStored &cave) {
 
     // is cave has a map
     if (!cave.map.empty()) {
-        std::string line(cave.w, ' ');      // creates a string of length w filled with ' '
         // save map
         for (int y = 0; y < cave.h; ++y) {
+            std::string line;
+            line.reserve(cave.w);
             for (int x = 0; x < cave.w; ++x) {
                 // check if character is non-zero; the ...save() should have assigned a character to every element
                 // the gd_element_properties[...].character_new is created by the caller.
                 g_assert(gd_element_properties[cave.map(x, y)].character_new != 0);
-                line[x] = gd_element_properties[cave.map(x, y)].character_new;
+                line.push_back(gd_element_properties[cave.map(x, y)].character_new);
             }
-            out.map.push_back(line);
+            out.map.push_back(std::move(line));
         }
     }
 
     // save drawing objects
-    for (CaveObjectStore::const_iterator it = cave.objects.begin(); it != cave.objects.end(); ++it) {
-        CaveObject const *object = *it;  /* eh */
+    for (auto it = cave.objects.cbegin(); it != cave.objects.cend(); ++it) {
+        CaveObject const & obj = *it;
 
         // not for all levels?
-        if (!object->is_seen_on_all()) {
+        if (!obj.is_seen_on_all()) {
             std::string line = "[Level=";
             bool once = false;  // will be true if already written one number
             for (int i = 0; i < 5; i++) {
-                if (object->seen_on[i]) {
+                if (obj.seen_on[i]) {
                     if (once)   // if written at least one number so far, we need a comma
                         line += ',';
                     line += char('1' + i); // level number, ascii character 1, 2, 3, 4 or 5
@@ -265,15 +266,14 @@ static BdcffFile::CaveInfo caveset_save_cave_func(CaveStored &cave) {
             line += ']';
             out.objects.push_back(line);
         }
-        out.objects.push_back(object->get_bdcff());
+        out.objects.push_back(obj.get_bdcff());
         // again, not for all? then save closing tag, too
-        if (!object->is_seen_on_all())
+        if (!obj.is_seen_on_all())
             out.objects.push_back("[/Level]");
-
     }
 
     // save replays
-    for (std::list<CaveReplay>::iterator r_it = cave.replays.begin(); r_it != cave.replays.end(); ++r_it)
+    for (auto r_it = cave.replays.cbegin(); r_it != cave.replays.cend(); ++r_it)
         if (r_it->saved)
             out.replays.push_back(save_replay_func(*r_it));
 
@@ -313,7 +313,7 @@ void save_to_bdcff(CaveSet &caveset, std::list<std::string> &out) {
     for (unsigned int i = 0; i < O_MAX; i++)
         gd_element_properties[i].character_new = gd_element_properties[i].character;
     for (unsigned int i = 0; i < caveset.caves.size(); i++) {
-        CaveStored &cave = caveset.cave(i);
+        CaveStored &cave = caveset.caves[i];
 
         // if they have a map (random elements+object based maps do not need characters)
         if (!cave.map.empty()) {
@@ -347,7 +347,7 @@ void save_to_bdcff(CaveSet &caveset, std::list<std::string> &out) {
 
     // caves data
     for (unsigned int i = 0; i < caveset.caves.size(); ++i)
-        outfile.caves.push_back(caveset_save_cave_func(caveset.cave(i)));
+        outfile.caves.push_back(caveset_save_cave_func(caveset.caves[i]));
 
     // now convert it to an output file.
     // move all strings created to the output list of strings in sections.
@@ -361,7 +361,7 @@ void save_to_bdcff(CaveSet &caveset, std::list<std::string> &out) {
     add_group("highscore", outfile.highscore, out);         // game highscores
 
     // data of caves
-    for (std::list<BdcffFile::CaveInfo>::iterator it = outfile.caves.begin(); it != outfile.caves.end(); ++it) {
+    for (auto it = outfile.caves.begin(); it != outfile.caves.end(); ++it) {
         out.push_back("");
         out.push_back("[cave]");
         out.splice(out.end(), it->properties);  // cave properties
@@ -369,7 +369,7 @@ void save_to_bdcff(CaveSet &caveset, std::list<std::string> &out) {
         add_group("objects", it->objects, out);
         add_group("highscore", it->highscore, out);
         // each replay has its own group
-        for (std::list<BdcffSection>::iterator rit = it->replays.begin(); rit != it->replays.end(); ++rit)
+        for (auto rit = it->replays.begin(); rit != it->replays.end(); ++rit)
             add_group("replay", *rit, out);
         out.push_back("[/cave]");
     }

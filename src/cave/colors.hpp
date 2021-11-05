@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -202,11 +202,11 @@ enum GdColorIndexHelper {
 
 // specialized for color codes for font manager
 template <>
-inline Printf const &Printf::operator%(GdColorIndex const &colorindex) const {
+inline void Printf::feed_one(GdColorIndex const &colorindex) {
     /* +64 is needed so it is a normal ascii char in the encoding, not a string limiter \0
      * or a \n or whatever */
     char s[3] = { GD_COLOR_SETCOLOR, char(colorindex + 64), 0 };
-    return (*this) % s;
+    feed_one(s);
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -40,18 +40,10 @@ unsigned char const *Screen::gdash_icon_48_png = gdash_icon_48;
 unsigned const Screen::gdash_icon_48_size = sizeof(gdash_icon_48);
 
 
-Pixmap::~Pixmap() {
-}
-
-
 void Screen::set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) {
     scaling_factor = scaling_factor_;
     scaling_type = scaling_type_;
     pal_emulation = pal_emulation_;
-}
-
-
-Screen::~Screen() {
 }
 
 
@@ -82,31 +74,13 @@ void Screen::unregister_pixmap_storage(PixmapStorage *ps) {
 }
 
 
-Pixmap *Screen::create_scaled_pixmap_from_pixbuf(const Pixbuf &pb, bool keep_alpha) const {
-    std::auto_ptr<Pixbuf> scaled(pixbuf_factory.create_scaled(pb, scaling_factor, scaling_type, pal_emulation));
+std::unique_ptr<Pixmap> Screen::create_scaled_pixmap_from_pixbuf(const Pixbuf &pb, bool keep_alpha) const {
+    std::unique_ptr<Pixbuf> scaled(pixbuf_factory.create_scaled(pb, scaling_factor, scaling_type, pal_emulation));
     return create_pixmap_from_pixbuf(*scaled, keep_alpha);
 }
 
 
 void Screen::blit_pixbuf(const Pixbuf &pb, int dx, int dy, bool keep_alpha) {
-    std::auto_ptr<Pixmap> pm(create_pixmap_from_pixbuf(pb, keep_alpha));
+    std::unique_ptr<Pixmap> pm(create_pixmap_from_pixbuf(pb, keep_alpha));
     blit(*pm, dx, dy);
-}
-
-
-bool Screen::has_timed_flips() const {
-    return false;
-}
-
-bool Screen::must_redraw_all_before_flip() const {
-    return false;
-}
-
-
-void Screen::flip() {
-}
-
-
-
-void Screen::draw_particle_set(int dx, int dy, ParticleSet const &ps) {
 }

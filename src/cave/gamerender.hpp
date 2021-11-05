@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -113,7 +113,7 @@ class GameRenderer : public PixmapStorage {
         std::vector<std::string> wrapped_text;
         int scroll_y, max_y;
         unsigned linesavailable;
-        std::auto_ptr<Pixmap> background;
+        std::unique_ptr<Pixmap> background;
     } mutable story;
 
     bool cave_scroll(int logical_size, int physical_size, int center, bool exact, double &current, int &desired, double & currspeed);
@@ -142,7 +142,6 @@ class GameRenderer : public PixmapStorage {
 
 public:
     GameRenderer(Screen &screen_, CellRenderer &cells_, FontManager &font_manager_, GameControl &game_);
-    ~GameRenderer();
 
     /// This enum shows how the game ended.
     enum State {

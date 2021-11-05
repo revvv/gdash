@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,21 +26,7 @@
 #include <iomanip>
 #include <stdexcept>
 #include "fileops/bdcffhelper.hpp"
-#include "misc/util.hpp"
 #include "misc/printf.hpp"
-
-/// Create the functor which checks if the string
-/// has an attrib= prefix.
-HasAttrib::HasAttrib(const std::string &attrib_)
-    : attrib(attrib_) {
-    attrib += '=';
-}
-
-/// Check if the given string has the prefix.
-bool HasAttrib::operator()(const std::string &str) const {
-    return gd_str_ascii_prefix(str, attrib);
-}
-
 
 /// Constructor: split string given by the separator given to attrib and param.
 /// @param str The string to split.
@@ -48,7 +34,7 @@ bool HasAttrib::operator()(const std::string &str) const {
 AttribParam::AttribParam(const std::string &str, char separator) {
     size_t equal = str.find(separator);
     if (equal == std::string::npos)
-        throw std::runtime_error(SPrintf("No separator in line: '%s'") % str);
+        throw std::runtime_error(Printf("No separator in line: '%s'", str));
     attrib = str.substr(0, equal);
     param = str.substr(equal + 1);
 }
@@ -70,12 +56,4 @@ std::string BdcffFormat::str() const {
         return os.str();
     else
         return name + '=' + os.str();
-}
-
-/// Start a new conversion with a new name.
-/// @param f The new name.
-void BdcffFormat::start_new(const std::string &f) {
-    name = f;
-    firstparam = true;
-    os.str("");     /* clear output */
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,26 +25,30 @@
 
 #include "config.h"
 
+#include "cave/helper/cavemap.hpp"
 #include "cave/object/caveobjectfill.hpp"
 
 /// A cave objects which fills the inside of an area set by a border.
 class CaveBoundaryFill : public CaveFill {
     GdElement border_element;       ///< The border of the area is this element.
-    void draw_proc(CaveRendered &cave, int x, int y) const;
+    void draw_proc(CaveRendered &cave, CaveMap<bool> &filled, int x, int y) const;
 
 public:
+    CaveBoundaryFill() = default;
     CaveBoundaryFill(Coordinate _start, GdElementEnum _border_element, GdElementEnum _fill_element);
-    CaveBoundaryFill(): CaveFill(GD_FLOODFILL_BORDER) {}
-    virtual CaveBoundaryFill *clone() const;
-    virtual void draw(CaveRendered &cave) const;
+    Type get_type() const { return GD_FLOODFILL_BORDER; }
+    virtual std::unique_ptr<CaveObject> clone() const;
+    virtual void draw(CaveRendered &cave, int order_idx) const;
     virtual std::string get_bdcff() const;
-    virtual CaveBoundaryFill *clone_from_bdcff(const std::string &name, std::istream &is) const;
+    virtual std::unique_ptr<CaveObject> clone_from_bdcff(const std::string &name, std::istream &is) const;
 
 private:
     static PropertyDescription const descriptor[];
 
 public:
-    virtual PropertyDescription const *get_description_array() const;
+    virtual PropertyDescription const *get_description_array() const {
+        return descriptor;
+    }
 
     virtual std::string get_description_markup() const;
 };

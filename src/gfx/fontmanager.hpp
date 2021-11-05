@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -30,6 +30,7 @@
 #include <glib.h>
 #include <string>
 #include <vector>
+#include <array>
 
 #include "cave/colors.hpp"
 #include "gfx/pixmapstorage.hpp"
@@ -57,7 +58,6 @@ class Screen;
 #define GD_FULL_BOX_CHAR char(13)
 #define GD_DIAMOND_CHAR char(14)
 
-
 #define GD_ACUTE_CHAR char(16)
 #define GD_UMLAUT_CHAR char(17)
 #define GD_DOUBLE_ACUTE_CHAR char(18)
@@ -65,7 +65,63 @@ class Screen;
 #define GD_UNKNOWN_CHAR char(127)
 
 
-class RenderedFont;
+
+
+
+/**
+ * @brief A RenderedFont stores glyphs rendered for a given font and a given color.
+ * This is an abstract base class, the narrow and wide font are derived from this.
+ */
+class RenderedFont {
+public:
+    /// Number of characters on the font map.
+    enum {
+        CHARS_X = 32,
+        CHARS_Y = 4,
+        NUM_OF_CHARS = CHARS_X * CHARS_Y
+    };
+
+    /// Constructor.
+    /// @param bitmap_ Raw font data. It is encoded the same way as a c64-colored pixbuf. see c64_gfx_data...()
+    /// @param font_size_ Size of characters
+    /// @param wide_ Render wide: 2x width
+    /// @param color_ The color of drawing.
+    /// @param pixbuf_factory The pixbuf factory used to create glyphs.
+    RenderedFont(std::vector<unsigned char> const & bitmap_,  unsigned font_size_, bool wide_, GdColor const &color_, Screen &screen);
+
+    /// Return the pixmap for a given character; maybe after creating it.
+    /// @param j The ASCII (or GDash) code of the character
+    Pixmap const & get_character(int j) const;
+
+    /// GdColor::get_uint_0rgb() code of color, for easy searching in a font manager.
+    guint32 uint;
+
+private:
+    /// Raw font data.
+    std::vector<unsigned char> const * bitmap;
+
+    /// Font size (pixbufs)
+    unsigned int font_size;
+
+    /// Is the font wide (2x width)
+    bool wide;
+
+    /// The Screen for which this font is rendered.
+    Screen &screen;
+
+    /// RGBA format of color in pixbufs.
+    guint32 col;
+
+    /// RGBA format of transparent pixel in pixbufs.
+    guint32 transparent;
+
+    /// The rendered glyphs are stored in this vector as pixmaps.
+    mutable std::unique_ptr<Pixmap> _character[NUM_OF_CHARS];
+
+    /// Render a single character. The narrow and wide fonts implement this.
+    std::unique_ptr<Pixmap> render_character(int j) const;
+};
+
 
 /// @ingroup Graphics
 /**
@@ -96,25 +152,19 @@ private:
     Screen &screen;
 
     /// Rendered fonts are stored in a list for caching.
-    typedef std::list<RenderedFont *> container;
+    typedef std::list<RenderedFont> container;
+    
     /// Cached fonts for narrow and wide letters.
-    container _narrow, _wide;
+    container narrow, wide;
 
-    /// @brief Return with the narrow rendered font.
+    /// @brief Return with the narrow/wide rendered font.
     /// If it does not exist yet, create. If too many
     /// rendered characters are in the cache, delete the
     /// oldest (least recently used) one.
     /// @param c The color to draw the font.
+    /// @param widefont Whether to use 2x width.
     /// @return The font created for the color.
-    RenderedFont *narrow(const GdColor &c);
-
-    /// @brief Return with the wide rendered font.
-    /// If it does not exist yet, create. If too many
-    /// rendered characters are in the cache, delete the
-    /// oldest (least recently used) one.
-    /// @param c The color to draw the font.
-    /// @return The font created for the color.
-    RenderedFont *wide(const GdColor &c);
+    container::const_iterator find(const GdColor &c, bool widefont);
 
     /// @brief Draw a piece of text with wide or narrow font.
     /// @param x The x coordinate to start drawing at. If -1 is given,
@@ -128,9 +178,6 @@ private:
     ///     By this, more text can be written with successive blittext calls.
     int blittext_internal(int x, int y, char const *text, bool widefont);
 
-    FontManager(const FontManager &);   // not implemented
-    FontManager &operator=(const FontManager &); // not implemented
-
     bool loadfont_image(Pixbuf const &loadcells_image);
     bool loadfont_file(const std::string &filename);
 
@@ -138,46 +185,54 @@ public:
     /// @brief Creates a font manager.
     FontManager(Screen &screen, const std::string &theme_file);
 
-    /// @brief Destructor.
-    virtual ~FontManager();
-
     /// @brief Set the color for the next piece of text drawn.
     void set_color(GdColor const &color) {
         current_color = color;
     }
 
     /// @brief Write text on the screen with the wide font.
-    /// For more info, look at blittext_internal.
-    int blittext(int x, int y, char const *text) {
-        return blittext_internal(x, y, text, true);
+    /// @param text Text to write. If there are more arguments, it is treated as a Printf format string.
+    /// For more info, see blittext_internal.
+    template <typename ... ARGS>
+    int blittext(int x, int y, char const *text, ARGS const & ... args) {
+        if (sizeof...(args) == 0)
+            return blittext_internal(x, y, text, true);
+        else
+            return blittext_internal(x, y, Printf(text, args...).c_str(), true);
     }
 
     /// @brief Write text on the screen with the wide font.
-    /// For more info, look at blittext_internal.
-    int blittext(int x, int y, const GdColor &color, char const *text) {
+    /// @param text Text to write. If there are more arguments, it is treated as a Printf format string.
+    /// For more info, see blittext_internal.
+    template <typename ... ARGS>
+    int blittext(int x, int y, const GdColor &color, char const *text, ARGS const & ... args) {
         set_color(color);
-        return blittext_internal(x, y, text, true);
+        return blittext(x, y, text, args...);
     }
 
     /// @brief Write text on the screen with the narrow font.
-    /// For more info, look at blittext_internal.
-    int blittext_n(int x, int y, char const *text) {
-        return blittext_internal(x, y, text, false);
+    /// @param text Text to write. If there are more arguments, it is treated as a Printf format string.
+    /// For more info, see blittext_internal.
+    template <typename ... ARGS>
+    int blittext_n(int x, int y, char const *text, ARGS const & ... args) {
+        if (sizeof...(args) == 0)
+            return blittext_internal(x, y, text, false);
+        else
+            return blittext_internal(x, y, Printf(text, args...).c_str(), false);
     }
 
     /// @brief Write text on the screen with the narrow font.
-    /// For more info, look at blittext_internal.
-    int blittext_n(int x, int y, const GdColor &color, char const *text) {
+    /// @param text Text to write. If there are more arguments, it is treated as a Printf format string.
+    /// For more info, see blittext_internal.
+    template <typename ... ARGS>
+    int blittext_n(int x, int y, const GdColor &color, char const *text, ARGS const & ... args) {
         set_color(color);
-        return blittext_internal(x, y, text, false);
+        return blittext_n(x, y, text, args...);
     }
 
     /// @brief Set font of the manager.
     /// Destroys cache and starts drawing with a different font.
     void load_theme(const std::string &theme_file);
-
-    /// @brief Destroy cache.
-    void clear();
 
     /// @brief Implement PixmapStorage.
     virtual void release_pixmaps();

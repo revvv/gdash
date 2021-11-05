@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,12 +26,14 @@
 
 #include "config.h"
 
+#include <memory>
+
 #include "framework/titlescreenactivity.hpp"
 
 class CaveSet;
-void gd_main_window_sdl_run(CaveSet *caveset, NextAction &na, bool opengl);
-
 class GameControl;
-void gd_main_window_sdl_run_a_game(GameControl *game, bool opengl);
+
+void gd_main_window_sdl_run(CaveSet *caveset, NextAction &na, bool opengl);
+void gd_main_window_sdl_run_a_game(std::unique_ptr<GameControl> game);
 
 #endif

@@ -38,7 +38,7 @@ static SDL_Joystick *joystick_1 = NULL;
 void Joystick::init() {
 #ifdef HAVE_SDL
     if (!SDL_WasInit(SDL_INIT_JOYSTICK))
-        SDL_InitSubSystem(SDL_INIT_JOYSTICK);
+        SDL_Init(SDL_INIT_JOYSTICK);
     if (SDL_NumJoysticks() > 0)
         joystick_1 = SDL_JoystickOpen(0);
 #endif
@@ -54,7 +54,6 @@ bool Joystick::have_joystick() {
 
 bool Joystick::up() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 1) < -JoystickThreshold;
 #else
     return false;
@@ -63,7 +62,6 @@ bool Joystick::up() {
 
 bool Joystick::down() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 1) > JoystickThreshold;
 #else
     return false;
@@ -72,7 +70,6 @@ bool Joystick::down() {
 
 bool Joystick::left() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 0) < -JoystickThreshold;
 #else
     return false;
@@ -81,7 +78,6 @@ bool Joystick::left() {
 
 bool Joystick::right() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 0) > JoystickThreshold;
 #else
     return false;
@@ -90,7 +86,6 @@ bool Joystick::right() {
 
 bool Joystick::fire1() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && (SDL_JoystickGetButton(joystick_1, 0));
 #else
     return false;
@@ -99,7 +94,6 @@ bool Joystick::fire1() {
 
 bool Joystick::fire2() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate(); // FIX joystick support
     return joystick_1 != NULL && (SDL_JoystickGetButton(joystick_1, 1));
 #else
     return false;

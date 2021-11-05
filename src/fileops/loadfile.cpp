@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -44,14 +44,13 @@ CaveSet create_from_buffer(const unsigned char *buffer, int length, char const *
 
     /* try to load as a .GDS file */
     if ((length >= 12 || length == -1) && C64Import::imported_get_format(buffer) != C64Import::GD_FORMAT_UNKNOWN) {
-        std::vector<CaveStored *> new_caveset = C64Import::caves_import_from_buffer(buffer, length);
+        std::vector<CaveStored> cavelist = C64Import::caves_import_from_buffer(buffer, length);
         /* if unable to load, exit here. error was reported by import_from_buffer() */
-        if (new_caveset.empty())
+        if (cavelist.empty())
             throw std::runtime_error(_("Error loading GDS file."));
         /* no serious error :) */
         CaveSet newcaves;
-        for (std::vector<CaveStored *>::iterator it = new_caveset.begin(); it != new_caveset.end(); ++it)
-            newcaves.caves.push_back_adopt(*it);
+        newcaves.caves = std::move(cavelist);
         newcaves.last_selected_cave = newcaves.first_selectable_cave_index();
         newcaves.set_name_from_filename(filename);
         return newcaves;

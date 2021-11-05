@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -53,7 +53,7 @@ static std::string help_to_html_string(helpdata const help_text[], GtkWidget *wi
         
         /* stock icon? */
         if (help_text[i].stock_id) {
-            pixbuf = gtk_widget_render_icon(widget, help_text[i].stock_id, GTK_ICON_SIZE_LARGE_TOOLBAR, NULL);
+            pixbuf = gtk_widget_render_icon_pixbuf(widget, help_text[i].stock_id, GTK_ICON_SIZE_LARGE_TOOLBAR);
         }
 
         /* element? */
@@ -73,13 +73,13 @@ static std::string help_to_html_string(helpdata const help_text[], GtkWidget *wi
         if (heading != "")
             result += first ? "<h2>" : "<h3>";
         if (pixbuf) {
-            std::string filename = SPrintf("image_%d.png") % image++;
+            std::string filename = Printf("image_%d.png", image++);
             g_object_unref(pixbuf);
             gdk_pixbuf_save(pixbuf, filename.c_str(), "png", NULL, "compression", "9", NULL);
-            result += SPrintf("<img src=\"%s\"> ") % filename;
+            result += Printf("<img src=\"%s\"> ", filename);
         }
         if (heading != "") {
-            result += SPrintf("%ms") % heading;
+            result += Printf("%ms", heading);
             result += first ? "</h2>\n" : "</h3>\n";
         }
 
@@ -93,15 +93,15 @@ static std::string help_to_html_string(helpdata const help_text[], GtkWidget *wi
                 for (unsigned i = 0; keys[i] != NULL; ++i) {
                     g_strstrip(keys[i]);
                     if (!g_str_equal(keys[i], ""))
-                        kbd += SPrintf("<kbd>%ms</kbd> ") % keys[i];
+                        kbd += Printf("<kbd>%ms</kbd> ", keys[i]);
                 }
                 g_strfreev(keys);
             }
             /* the long text. may be a part of a list? if so, write a list item, and skip the "- " by +2. */
             if (help_text[i].description[0]=='-' && help_text[i].description[1]==' ')
-                result += SPrintf("<ul><li>%s%ms</li></ul>\n") % kbd % (_(help_text[i].description)+2);
+                result += Printf("<ul><li>%s%ms</li></ul>\n", kbd, _(help_text[i].description) + 2);
             else
-                result += SPrintf("<p>%s%ms</p>\n") % kbd % _(help_text[i].description);
+                result += Printf("<p>%s%ms</p>\n", kbd, _(help_text[i].description));
         }
 
         first = false;
@@ -136,14 +136,14 @@ static std::string about_to_html() {
 
     for (String *s = strings; s->title != NULL; ++s) {
         if (s == strings)
-            text += SPrintf("<h2>%ms</h2>\n<p>%ms</p>\n") % s->title % _(s->text);
+            text += Printf("<h2>%ms</h2>\n<p>%ms</p>\n", s->title, _(s->text));
         else
-            text += SPrintf("<h3>%ms</h3>\n<p>%ms</p>\n") % s->title % _(s->text);
+            text += Printf("<h3>%ms</h3>\n<p>%ms</p>\n", s->title, _(s->text));
     }
     for (StringArray *s = stringarrays; s->title != NULL; ++s)  {
-        text += SPrintf("<h3>%ms</h3>\n<ul>\n") % s->title;
+        text += Printf("<h3>%ms</h3>\n<ul>\n", s->title);
         for (char const **t = s->texts; *t != NULL; ++t) {
-            text += SPrintf("<li>%ms</li>\n") % *t;
+            text += Printf("<li>%ms</li>\n", *t);
         }
         text += "</ul>\n";
     }
@@ -152,30 +152,31 @@ static std::string about_to_html() {
 }
 
 /**
- * A widget is needed to be able to gtk-render icons. */
+ * A widget is needed to be able to gtk-render icons.
+ */
 void save_help_to_html(char const *filename, GtkWidget *widget) {
     std::string htmltext;
     helpdata const *helps[] = { titlehelp, gamehelp, replayhelp, editorhelp };
 
     htmltext += "<div class=\"section\">\n";
-    htmltext += SPrintf("<h2>%ms</h2>") % _("Table of contents");
+    htmltext += Printf("<h2>%ms</h2>", _("Table of contents"));
     htmltext += "<ol>\n";
-    htmltext += SPrintf("<li><a href=\"#%d\">%ms</a></li>\n") % 0 % _("About GDash");
+    htmltext += Printf("<li><a href=\"#%d\">%ms</a></li>\n", 0, _("About GDash"));
     for (unsigned i = 0; i < G_N_ELEMENTS(helps); ++i) {
         /* the first line should be (should have) a heading */
         g_assert(helps[i][0].heading != NULL);
-        htmltext += SPrintf("<li><a href=\"#%d\">%ms</a></li>\n") % (i + 1) % _(helps[i][0].heading);
+        htmltext += Printf("<li><a href=\"#%d\">%ms</a></li>\n", i + 1, _(helps[i][0].heading));
     }
     htmltext += "</ol>\n";
     htmltext += "</div>\n";
 
     htmltext += "<div class=\"section\">\n";
-    htmltext += SPrintf("<a name=\"%d\"></a>\n") % 0;
+    htmltext += Printf("<a name=\"%d\"></a>\n", 0);
     htmltext += about_to_html();
     htmltext += "</div>\n";
     for (unsigned i = 0; i < G_N_ELEMENTS(helps); ++i) {
         htmltext += "<div class=\"section\">\n";
-        htmltext += SPrintf("<a name=\"%d\"></a>\n") % (i + 1);
+        htmltext += Printf("<a name=\"%d\"></a>\n", i + 1);
         htmltext += help_to_html_string(helps[i], widget);
         htmltext += "</div>\n";
     }

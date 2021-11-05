@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,9 +26,7 @@
 #include <vector>
 #include <glib.h>
 #include <iostream>
-#include <cassert>
 
-#include "settings.hpp"
 #include "misc/logger.hpp"
 
 std::vector<Logger *> Logger::loggers;
@@ -79,9 +77,7 @@ static void log_func(const gchar *log_domain, GLogLevelFlags log_level, const gc
 /// Adds it to the static list of loggers.
 Logger::Logger(bool ignore_)
     :
-    ignore(ignore_),
-    read(true),
-    context() {
+    ignore(ignore_) {
     /* if this is the first logger created */
     if (loggers.empty())
         g_log_set_default_handler(log_func, NULL);
@@ -92,7 +88,7 @@ Logger::Logger(bool ignore_)
 /// Destruct a misc/logger.
 /// Removes it from the static list of loggers.
 Logger::~Logger() {
-    if (!read) {
+    if (!empty()) {
         std::cerr << "Messages left in logger!" << std::endl;
         for (Container::const_iterator it = messages.begin(); it != messages.end(); ++it)
             std::cerr << "  " << *it << std::endl;
@@ -106,7 +102,6 @@ Logger::~Logger() {
 /// Clears the logger to empty. (No messages.)
 void Logger::clear() {
     messages.clear();
-    read = true;
 }
 
 /// Returns if there are no error messages stored in the misc/logger.
@@ -115,8 +110,8 @@ bool Logger::empty() const {
     return messages.empty();
 }
 
-void Logger::set_context(std::string const &new_context) {
-    context = new_context;
+void Logger::set_context(std::string new_context) {
+    context = std::move(new_context);
 }
 
 std::string const &Logger::get_context() const {
@@ -141,7 +136,6 @@ std::string Logger::get_messages_in_one_string() const {
         }
         s += it->message;
     }
-
     return s;
 }
 
@@ -157,50 +151,4 @@ void Logger::log(ErrorMessage::Severity sev, std::string const &message) {
     else
         messages.push_back(ErrorMessage(sev, context + ": " + message));
     std::cerr << messages.back() << std::endl;
-    read = false;
 }
-
-void log(ErrorMessage::Severity sev, std::string const &message) {
-    /* check if at least one logger exists */
-    if (!Logger::loggers.empty()) {
-        Logger::loggers.back()->log(sev, message);
-    } else {
-        g_warning("%s", message.c_str());
-    }
-}
-
-Logger &get_active_logger() {
-    /* check if at least one logger exists */
-    assert(!Logger::loggers.empty());
-    return *Logger::loggers.back();
-}
-
-/**
- * @brief Convenience function to log a critical message.
- */
-void gd_critical(const char *message) {
-    log(ErrorMessage::Critical, message);
-}
-
-/**
- * @brief Convenience function to log a warning message.
- */
-void gd_warning(const char *message) {
-    log(ErrorMessage::Warning, message);
-}
-
-/**
- * @brief Convenience function to log a normal message.
- */
-void gd_message(const char *message) {
-    log(ErrorMessage::Message, message);
-}
-
-/**
- * @brief Convenience function to log a debug message.
- */
-void gd_debug(const char *message) {
-    if (gd_param_debug)
-        log(ErrorMessage::Debug, message);
-}
-

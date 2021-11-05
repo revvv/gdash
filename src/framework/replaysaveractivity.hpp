@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -45,10 +45,9 @@ class GameControl;
 class SDLInmemoryScreen: public SDLAbstractScreen {
 public:
     SDLInmemoryScreen(PixbufFactory &pixbuf_factory) : SDLAbstractScreen(pixbuf_factory) {}
-    virtual void set_title(char const *);
-    virtual void configure_size();
-    ~SDLInmemoryScreen();
-    virtual Pixmap *create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const;
+    virtual void set_title(char const *) override;
+    virtual void configure_size() override;
+    virtual std::unique_ptr<Pixmap> create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const override;
 
     Pixbuf const *create_pixbuf_screenshot() const;
     void save(char const *filename);
@@ -139,7 +138,7 @@ private:
     std::string saved_driver;
 
     /** GameControl object which plays the replay. */
-    GameControl *game;
+    std::unique_ptr<GameControl> game;
     /** A PixbufFactory set to no scaling, no pal emulation. */
     SDLPixbufFactory pf;
     /** A Screen, which is much like an image in memory, so it can be saved to PNG */

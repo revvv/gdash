@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -126,13 +126,13 @@ public:
     void set_ckdelay_extra_for_animation();
 
     /* game playing helpers */
-    void draw_indexes(CaveMapFast<int> &gfx_buffer, CaveMapFast<bool> const &covered, bool bonus_life_flash, int animcycle, bool hate_invisible_outbox);
+    void draw_indexes(CaveMap<int> &gfx_buffer, CaveMap<bool> const &covered, bool bonus_life_flash, int animcycle, bool hate_invisible_outbox);
     int time_visible(int internal_time) const;
     void set_seconds_sound();
     void sound_play(GdSound sound, int x, int y);
     void clear_sounds();
     GdDirectionEnum iterate(GdDirectionEnum player_move, bool player_fire, bool suicide);
-    void store_rc(int x, int y, GdElementEnum element, CaveObject const *order);
+    void store_rc(int x, int y, GdElementEnum element, int order_idx);
 
     bool do_teleporter(int px, int py, GdDirectionEnum player_move);
     bool do_push(int x, int y, GdDirectionEnum player_move, bool player_fire);
@@ -146,12 +146,12 @@ public:
     void do_fall_roll_or_stop(int x, int y, GdDirectionEnum fall_dir, GdElementEnum bouncing);
 
     // Cave maps
-    CaveMapFast<CaveObject *> objects_order;    ///< two-dimensional map of cave; each cell is a pointer to the drawing object, which created this element. NULL if map or random.
-    CaveMapClever<int> hammered_reappear;         ///< integer map of cave; if non-zero, a brick wall will appear there
-    CaveMapClever<GdElementEnum> map;             ///< cave map
+    CaveMap<int> objects_order;         ///< two-dimensional map of cave; each cell is an index to the drawing object, which created this element. -1 if map or random
+    CaveMap<int> hammered_reappear;     ///< integer map of cave; if non-zero, a brick wall will appear there
+    CaveMap<GdElementEnum> map;         ///< cave map
 
     // Variables for random number generation
-    GdInt render_seed;                ///< the seed value, which was used to render the cave, is saved here. will be used by record&playback
+    GdInt render_seed;                  ///< the seed value, which was used to render the cave, is saved here. will be used by record&playback
     RandomGenerator random;             ///< random number generator of rendered cave
     C64RandomGenerator c64_rand;        ///< used for predictable random generator during the game.
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,6 +23,7 @@
 
 #include "config.h"
 
+#include <memory>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gdk/gdkkeysyms.h>
@@ -38,6 +39,7 @@
 #include "gtk/gtkui.hpp"
 #include "settings.hpp"
 #include "cave/caveset.hpp"
+#include "cave/gamecontrol.hpp"
 #include "misc/logger.hpp"
 #include "misc/helptext.hpp"
 #include "misc/autogfreeptr.hpp"
@@ -45,11 +47,10 @@
 
 class GdMainWindow {
 private:
-    gulong focus_handler, keypress_handler, keyrelease_handler, expose_handler;
+    gulong focus_handler, keypress_handler, keyrelease_handler;
 public:
     /* gtk ui part */
     GtkWidget *window, *drawing_area;
-    GtkActionGroup *actions_normal, *actions_game;
 
     /* gdash part */
     GTKApp *app;
@@ -311,43 +312,43 @@ void GdMainWindow::about_cb(GtkWidget *widget, gpointer data) {
 
 void GdMainWindow::open_caveset_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new SelectFileToLoadIfDiscardableCommand(main_window->app, gd_last_folder));
+    main_window->app->enqueue_command(std::make_unique<SelectFileToLoadIfDiscardableCommand>(main_window->app, gd_last_folder));
 }
 
 
 void GdMainWindow::open_caveset_dir_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new SelectFileToLoadIfDiscardableCommand(main_window->app, gd_system_caves_dir));
+    main_window->app->enqueue_command(std::make_unique<SelectFileToLoadIfDiscardableCommand>(main_window->app, gd_system_caves_dir));
 }
 
 
 void GdMainWindow::save_caveset_as_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new SaveFileAsCommand(main_window->app));
+    main_window->app->enqueue_command(std::make_unique<SaveFileAsCommand>(main_window->app));
 }
 
 
 void GdMainWindow::save_caveset_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new SaveFileCommand(main_window->app));
+    main_window->app->enqueue_command(std::make_unique<SaveFileCommand>(main_window->app));
 }
 
 
 void GdMainWindow::highscore_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new ShowHighScoreCommand(main_window->app, NULL, -1));
+    main_window->app->enqueue_command(std::make_unique<ShowHighScoreCommand>(main_window->app, nullptr, -1));
 }
 
 
 void GdMainWindow::statistics_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new ShowStatisticsCommand(main_window->app));
+    main_window->app->enqueue_command(std::make_unique<ShowStatisticsCommand>(main_window->app));
 }
 
 
 void GdMainWindow::show_errors_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new ShowErrorsCommand(main_window->app, get_active_logger()));
+    main_window->app->enqueue_command(std::make_unique<ShowErrorsCommand>(main_window->app, Logger::get_active_logger()));
 }
 
 
@@ -363,7 +364,7 @@ void GdMainWindow::recent_chooser_activated_cb(GtkRecentChooser *chooser, gpoint
     } else {
         AutoGFreePtr<char> filename_utf8(gtk_recent_info_get_uri_display(current));
         AutoGFreePtr<char> filename(g_filename_from_utf8(filename_utf8, -1, NULL, NULL, NULL));
-        main_window->app->enqueue_command(new AskIfChangesDiscardedCommand(main_window->app, new OpenFileCommand(main_window->app, (char*) filename)));
+        main_window->app->enqueue_command(std::make_unique<AskIfChangesDiscardedCommand>(main_window->app, std::make_unique<OpenFileCommand>(main_window->app, (char*) filename)));
     }
     gtk_recent_info_unref(current);
 }
@@ -386,60 +387,60 @@ void GdMainWindow::pause_game_cb(GtkWidget *widget, gpointer data) {
 void GdMainWindow::show_replays_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
     App *app = main_window->app;
-    app->enqueue_command(new RestartWithTitleScreenCommand(app));
-    app->enqueue_command(new PushActivityCommand(app, new ReplayMenuActivity(app)));
+    app->enqueue_command(std::make_unique<RestartWithTitleScreenCommand>(app));
+    app->enqueue_command(std::make_unique<PushActivityCommand>(app, std::make_unique<ReplayMenuActivity>(app)));
 }
 
 
 void GdMainWindow::cave_info_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->app->enqueue_command(new ShowCaveInfoCommand(main_window->app));
+    main_window->app->enqueue_command(std::make_unique<ShowCaveInfoCommand>(main_window->app));
 }
 
 
 static Activity::KeyCode activity_keycode_from_gdk_keyval(guint keyval) {
     switch (keyval) {
-        case GDK_Up:
+        case GDK_KEY_Up:
             return App::Up;
-        case GDK_Down:
+        case GDK_KEY_Down:
             return App::Down;
-        case GDK_Left:
+        case GDK_KEY_Left:
             return App::Left;
-        case GDK_Right:
+        case GDK_KEY_Right:
             return App::Right;
-        case GDK_Page_Up:
+        case GDK_KEY_Page_Up:
             return App::PageUp;
-        case GDK_Page_Down:
+        case GDK_KEY_Page_Down:
             return App::PageDown;
-        case GDK_Home:
+        case GDK_KEY_Home:
             return App::Home;
-        case GDK_End:
+        case GDK_KEY_End:
             return App::End;
-        case GDK_F1:
+        case GDK_KEY_F1:
             return App::F1;
-        case GDK_F2:
+        case GDK_KEY_F2:
             return App::F2;
-        case GDK_F3:
+        case GDK_KEY_F3:
             return App::F3;
-        case GDK_F4:
+        case GDK_KEY_F4:
             return App::F4;
-        case GDK_F5:
+        case GDK_KEY_F5:
             return App::F5;
-        case GDK_F6:
+        case GDK_KEY_F6:
             return App::F6;
-        case GDK_F7:
+        case GDK_KEY_F7:
             return App::F7;
-        case GDK_F8:
+        case GDK_KEY_F8:
             return App::F8;
-        case GDK_F9:
+        case GDK_KEY_F9:
             return App::F9;
-        case GDK_BackSpace:
+        case GDK_KEY_BackSpace:
             return App::BackSpace;
-        case GDK_Return:
+        case GDK_KEY_Return:
             return App::Enter;
-        case GDK_Tab:
+        case GDK_KEY_Tab:
             return App::Tab;
-        case GDK_Escape:
+        case GDK_KEY_Escape:
             return App::Escape;
 
         default:
@@ -527,13 +528,6 @@ gpointer GdMainWindow::timing_thread(gpointer data) {
 }
 
 
-gboolean drawing_area_expose(GtkWidget *drawing_area, GdkEventExpose *event, gpointer data) {
-    GTKApp *the_app = static_cast<GTKApp *>(data);
-    the_app->redraw_event(true);
-    return TRUE;
-}
-
-
 GdMainWindow::GdMainWindow(bool add_menu, NextAction &na)
     : na(na) {
     this->fullscreen = false;
@@ -542,12 +536,13 @@ GdMainWindow::GdMainWindow(bool add_menu, NextAction &na)
     g_signal_connect(G_OBJECT(window), "delete_event", G_CALLBACK(GdMainWindow::delete_event), this);
 
     /* vertical box */
-    GtkWidget *vbox = gtk_vbox_new(FALSE, 0);
+    GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
     gtk_container_add(GTK_CONTAINER(window), vbox);
 
     /* menu */
+    GtkActionGroup *actions_game;
     if (add_menu) {
-        actions_normal = gtk_action_group_new("actions_normal");
+        GtkActionGroup *actions_normal = gtk_action_group_new("actions_normal");
         gtk_action_group_set_translation_domain(actions_normal, PACKAGE);
         gtk_action_group_add_actions(actions_normal, action_entries_normal, G_N_ELEMENTS(action_entries_normal), this);
 
@@ -582,14 +577,11 @@ GdMainWindow::GdMainWindow(bool add_menu, NextAction &na)
         actions_game = NULL;
     }
 
-    /* scroll window which contains the cave or the title image, so this is the main content of the window */
-    GtkWidget *align = gtk_alignment_new(0.5, 0.5, 0, 0);
-    gtk_box_pack_start(GTK_BOX(vbox), align, TRUE, TRUE, 0);
-
     /* drawing area for game */
     drawing_area = gtk_drawing_area_new();
-    gtk_widget_set_double_buffered(drawing_area, FALSE);
-    gtk_container_add(GTK_CONTAINER(align), drawing_area);
+    gtk_widget_set_halign(drawing_area, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(drawing_area, GTK_ALIGN_CENTER);
+    gtk_box_pack_start(GTK_BOX(vbox), drawing_area, TRUE, TRUE, 0);
 
     gtk_widget_show_all(window);
     gtk_window_present(GTK_WINDOW(window));
@@ -602,21 +594,15 @@ GdMainWindow::GdMainWindow(bool add_menu, NextAction &na)
     focus_handler = g_signal_connect(G_OBJECT(window), "focus_out_event", G_CALLBACK(main_window_focus_out_event), app);
     keypress_handler = g_signal_connect(G_OBJECT(window), "key_press_event", G_CALLBACK(main_window_keypress_event), app);
     keyrelease_handler = g_signal_connect(G_OBJECT(window), "key_release_event", G_CALLBACK(main_window_keypress_event), app);
-    expose_handler = g_signal_connect(G_OBJECT(drawing_area), "expose_event", G_CALLBACK(drawing_area_expose), app);
 
     /* install timer. create a thread which will install idle funcs. */
     quit_thread = false;
     timer_events = 0;
     interval_msec = gd_fine_scroll ? 20 : 40; /* no fine scrolling supported. */
 #ifndef G_THREADS_ENABLED
-#error Thread support in Glib must be enabled
+    #error Thread support in Glib must be enabled
 #endif
-#if GLIB_MAJOR_VERSION>2 || (GLIB_MAJOR_VERSION==2 && GLIB_MINOR_VERSION>=32)
     timer_thread = g_thread_new("timerfunc", timing_thread, this);
-#else
-    timer_thread = g_thread_create(timing_thread, this, TRUE, NULL);
-#endif
-    g_assert(timer_thread != NULL);
 }
 
 
@@ -629,51 +615,48 @@ GdMainWindow::~GdMainWindow() {
     g_signal_handler_disconnect(G_OBJECT(window), focus_handler);
     g_signal_handler_disconnect(G_OBJECT(window), keypress_handler);
     g_signal_handler_disconnect(G_OBJECT(window), keyrelease_handler);
-    g_signal_handler_disconnect(G_OBJECT(drawing_area), expose_handler);
     while (g_idle_remove_by_data(app))
         ; /* remove all */
-    delete app;
 
-    /* process all pending events before deleting the window. */
-    while (gtk_events_pending()) {
+    /* process all pending events before and after deleting the window. (there might be some generated by the destroying) */
+    /* if the app is destroyed, there is noone to draw on the screen.
+     * so destroy the window, and then the supporting screen/pixbuffactory objects. */
+    while (gtk_events_pending())
         gtk_main_iteration();
-    }
-    /* if the app is destroyed, there is noone to draw on the screen. so
-     * destroy the window, and then the supporting screen/pixbuffactory objects. */
     gtk_widget_destroy(window);
-    /* process all pending events after deleting the window (there might be some generated by the destroying) */
-    while (gtk_events_pending()) {
+    while (gtk_events_pending())
         gtk_main_iteration();
-    }
+
+    delete app;
     delete screen;
     delete pbf;
 }
 
 
 void gd_main_window_gtk_run(CaveSet *caveset, NextAction &na) {
-    std::auto_ptr<GdMainWindow> main_window(new GdMainWindow(true, na));
+    GdMainWindow main_window(true, na);
 
     /* configure the app */
-    main_window->app->caveset = caveset;
-    main_window->app->push_activity(new TitleScreenActivity(main_window->app));
-    main_window->app->set_no_activity_command(new SetNextActionAndGtkQuitCommand(main_window->app, na, Quit));
-    main_window->app->set_quit_event_command(new AskIfChangesDiscardedCommand(main_window->app, new PopAllActivitiesCommand(main_window->app)));
-    main_window->app->set_request_restart_command(new SetNextActionAndGtkQuitCommand(main_window->app, na, Restart));
-    main_window->app->set_start_editor_command(new SetNextActionAndGtkQuitCommand(main_window->app, na, StartEditor));
+    main_window.app->caveset = caveset;
+    main_window.app->push_activity(std::make_unique<TitleScreenActivity>(main_window.app));
+    main_window.app->set_no_activity_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, Quit));
+    main_window.app->set_quit_event_command(std::make_unique<AskIfChangesDiscardedCommand>(main_window.app, std::make_unique<PopAllActivitiesCommand>(main_window.app)));
+    main_window.app->set_request_restart_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, Restart));
+    main_window.app->set_start_editor_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, StartEditor));
 
     /* and run */
     gtk_main();
 }
 
 
-void gd_main_window_gtk_run_a_game(GameControl *game) {
+void gd_main_window_gtk_run_a_game(std::unique_ptr<GameControl> game) {
     NextAction na = StartTitle;      // because the funcs below need one to work with
-    std::auto_ptr<GdMainWindow> main_window(new GdMainWindow(false, na));
+    GdMainWindow main_window(false, na);
 
     /* configure */
-    main_window->app->set_quit_event_command(new SetNextActionAndGtkQuitCommand(main_window->app, na, Quit));
-    main_window->app->set_no_activity_command(new SetNextActionAndGtkQuitCommand(main_window->app, na, Quit));
-    main_window->app->push_activity(new GameActivity(main_window->app, game));
+    main_window.app->set_quit_event_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, Quit));
+    main_window.app->set_no_activity_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, Quit));
+    main_window.app->push_activity(std::make_unique<GameActivity>(main_window.app, std::move(game)));
 
     /* and run */
     gtk_main();

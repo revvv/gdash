@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,6 +24,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <cstring>
+#include <memory>
 
 #include "framework/showtextactivity.hpp"
 #include "framework/commands.hpp"
@@ -33,10 +34,10 @@
 #include "misc/util.hpp"
 
 
-ShowTextActivity::ShowTextActivity(App *app, char const *title_line, std::string const &text, SmartPtr<Command> command_after_exit)
+ShowTextActivity::ShowTextActivity(App *app, char const *title_line, std::string const &text, std::unique_ptr<Command> command_after_exit)
     :
     Activity(app),
-    command_after_exit(command_after_exit),
+    command_after_exit(std::move(command_after_exit)),
     title_line(title_line) {
     wrapped_text = gd_wrap_text(text.c_str(), app->screen->get_width() / app->font_manager->get_font_width_narrow() - 4);
     linesavailable = app->screen->get_height() / app->font_manager->get_line_height() - 4;
@@ -58,7 +59,7 @@ void ShowTextActivity::redraw_event(bool full) const {
     // text & scrollbar
     app->set_color(GD_GDASH_LIGHTBLUE);
     for (int l = 0; l < linesavailable && scroll_y + l < (int)wrapped_text.size(); ++l)
-        app->blittext_n(app->font_manager->get_font_width_narrow() * 2,
+        app->font_manager->blittext_n(app->font_manager->get_font_width_narrow() * 2,
                         l * app->font_manager->get_line_height() + app->font_manager->get_line_height() * 2, wrapped_text[scroll_y + l].c_str());
 
     app->draw_scrollbar(0, scroll_y, scroll_max_y);
@@ -68,7 +69,7 @@ void ShowTextActivity::redraw_event(bool full) const {
 
 
 ShowTextActivity::~ShowTextActivity() {
-    app->enqueue_command(command_after_exit);
+    app->enqueue_command(std::move(command_after_exit));
 }
 
 
@@ -111,7 +112,7 @@ void ShowTextActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             }
             break;
         default:
-            app->enqueue_command(new PopActivityCommand(app));
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
             break;
         case 0:
             /* unknown key or modifier - do nothing */

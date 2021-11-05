@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -27,7 +27,6 @@
 
 #include "framework/titlescreenactivity.hpp"
 #include "framework/app.hpp"
-#include "misc/smartptr.hpp"
 
 #include "misc/logger.hpp"
 #include "misc/helptext.hpp"
@@ -57,11 +56,6 @@ TitleScreenActivity::TitleScreenActivity(App *app)
 }
 
 
-TitleScreenActivity::~TitleScreenActivity() {
-    clear_animation();
-}
-
-
 void TitleScreenActivity::release_pixmaps() {
     clear_animation();
 }
@@ -79,8 +73,6 @@ void TitleScreenActivity::render_animation() const {
 
 
 void TitleScreenActivity::clear_animation() {
-    for (unsigned x = 0; x < animation.size(); x++)
-        delete animation[x];
     animation.clear();
 }
 
@@ -117,7 +109,7 @@ void TitleScreenActivity::shown_event() {
         show_status = true;
     }
 
-    app->screen->set_title(CPrintf("GDash - %s") % app->caveset->name);
+    app->screen->set_title(Printf("GDash - %s", app->caveset->name).c_str());
     gd_music_play_random();
 }
 
@@ -135,7 +127,7 @@ void TitleScreenActivity::redraw_event(bool full) const {
 
     if (y_gameline != -1) {
         // TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-        app->blittext_n(0, y_gameline, CPrintf("%c%s: %c%s %c%s") % GD_COLOR_INDEX_WHITE % _("Game") % GD_COLOR_INDEX_YELLOW % app->caveset->name % GD_COLOR_INDEX_RED % (app->caveset->edited ? "*" : ""));
+        app->font_manager->blittext_n(0, y_gameline, "%c%s: %c%s %c%s", GD_COLOR_INDEX_WHITE, _("Game"), GD_COLOR_INDEX_YELLOW, app->caveset->name, GD_COLOR_INDEX_RED, app->caveset->edited ? "*" : "");
     }
 
     int dx = (app->screen->get_width() - animation[animcycle]->get_width()) / 2; /* centered horizontally */
@@ -147,7 +139,7 @@ void TitleScreenActivity::redraw_event(bool full) const {
     app->screen->blit(*animation[animcycle], dx, dy);
 
     if (show_status) {
-        if (get_active_logger().empty()) {
+        if (Logger::get_active_logger().empty()) {
             switch (which_status) {
                 case 0:
                     // TRANSLATORS: 40 chars max. Select the game to play.
@@ -175,13 +167,13 @@ void TitleScreenActivity::redraw_event(bool full) const {
     }
     /* selected cave */
     if (app->caveset->caves.size() == 0) {
-        app->blittext_n(0, y_caveline, CPrintf(_("%cNo caves.")) % GD_COLOR_INDEX_WHITE);
+        app->font_manager->blittext_n(0, y_caveline, _("%cNo caves."), GD_COLOR_INDEX_WHITE);
     } else {
         // TRANSLATORS: Cave is the name of the cave to play
         if (caveset_has_levels) {
-            app->blittext_n(0, y_caveline, CPrintf(_("%cCave: %c%s%c/%c%d")) % GD_COLOR_INDEX_WHITE % GD_COLOR_INDEX_YELLOW % app->caveset->cave(cavenum).name % GD_COLOR_INDEX_WHITE % GD_COLOR_INDEX_YELLOW % (levelnum + 1));
+            app->font_manager->blittext_n(0, y_caveline, _("%cCave: %c%s%c/%c%d"), GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, app->caveset->caves[cavenum].name, GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, levelnum + 1);
         } else {
-            app->blittext_n(0, y_caveline, CPrintf(_("%cCave: %c%s%c")) % GD_COLOR_INDEX_WHITE % GD_COLOR_INDEX_YELLOW % app->caveset->cave(cavenum).name);
+            app->font_manager->blittext_n(0, y_caveline, _("%cCave: %c%s%c"), GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, app->caveset->caves[cavenum].name);
         }
     }
 
@@ -193,7 +185,7 @@ static int previous_selectable_cave(CaveSet &caveset, unsigned cavenum) {
     unsigned cn = cavenum;
     while (cn > 0) {
         cn--;
-        if (gd_all_caves_selectable || caveset.cave(cn).selectable)
+        if (gd_all_caves_selectable || caveset.caves[cn].selectable)
             return cn;
     }
 
@@ -206,7 +198,7 @@ static int next_selectable_cave(CaveSet &caveset, unsigned cavenum) {
     unsigned cn = cavenum;
     while (cn + 1 < caveset.caves.size()) {
         cn++;
-        if (gd_all_caves_selectable || caveset.cave(cn).selectable)
+        if (gd_all_caves_selectable || caveset.caves[cn].selectable)
             return cn;
     }
 
@@ -253,9 +245,9 @@ void TitleScreenActivity::timer_event(int ms_elapsed) {
              * when from the keyboard, we would ask the user name,
              * but how would the user press the enter key? :) */
             if (app->gameinput->fire1()) {
-                NewGameCommand *command = new NewGameCommand(app, cavenum, levelnum);
+                auto command = std::make_unique<NewGameCommand>(app, cavenum, levelnum);
                 command->set_param1(gd_username);
-                app->enqueue_command(command);
+                app->enqueue_command(std::move(command));
             }
         }
 
@@ -276,24 +268,24 @@ void TitleScreenActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             break;
         case 'i':
         case 'I':
-            app->enqueue_command(new ShowCaveInfoCommand(app));
+            app->enqueue_command(std::make_unique<ShowCaveInfoCommand>(app));
             break;
         case 's':
         case 'S':
-            app->enqueue_command(new SaveFileCommand(app));
+            app->enqueue_command(std::make_unique<SaveFileCommand>(app));
             break;
         case 'n':
         case 'N':
-            app->enqueue_command(new SaveFileAsCommand(app));
+            app->enqueue_command(std::make_unique<SaveFileAsCommand>(app));
             break;
         case 'l':
         case 'L':
         case App::Tab:
-            app->enqueue_command(new SelectFileToLoadIfDiscardableCommand(app, gd_last_folder));
+            app->enqueue_command(std::make_unique<SelectFileToLoadIfDiscardableCommand>(app, gd_last_folder));
             break;
         case 'c':
         case 'C':
-            app->enqueue_command(new SelectFileToLoadIfDiscardableCommand(app, gd_system_caves_dir));
+            app->enqueue_command(std::make_unique<SelectFileToLoadIfDiscardableCommand>(app, gd_system_caves_dir));
             break;
         case 'e':
         case 'E':
@@ -311,25 +303,25 @@ void TitleScreenActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             break;
         case 'f':
         case 'F':
-            app->enqueue_command(new ShowHighScoreCommand(app, NULL, -1));
+            app->enqueue_command(std::make_unique<ShowHighScoreCommand>(app, nullptr, -1));
             break;
         case 't':
         case 'T':
-            app->enqueue_command(new ShowStatisticsCommand(app));
+            app->enqueue_command(std::make_unique<ShowStatisticsCommand>(app));
             break;
         case 'x':
         case 'X':
-            app->enqueue_command(new ShowErrorsCommand(app, get_active_logger()));
+            app->enqueue_command(std::make_unique<ShowErrorsCommand>(app, Logger::get_active_logger()));
             break;
         case 'r':
         case 'R':
-            app->enqueue_command(new PushActivityCommand(app, new ReplayMenuActivity(app)));
+            app->enqueue_command(std::make_unique<PushActivityCommand>(app, std::make_unique<ReplayMenuActivity>(app)));
             break;
         case App::Enter:
         case ' ':
             app->caveset->last_selected_cave = cavenum;
             app->caveset->last_selected_level = levelnum;
-            app->input_text_and_do_command(_("Enter your name"), gd_username.c_str(), new NewGameCommand(app, cavenum, levelnum));
+            app->input_text_and_do_command(_("Enter your name"), gd_username.c_str(), std::make_unique<NewGameCommand>(app, cavenum, levelnum));
             break;
         case App::Escape:
         case 'q':
@@ -340,8 +332,7 @@ void TitleScreenActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                 app->quit_event();
             else
                 // TRANSLATORS: Game means the application here.
-                app->ask_yesorno_and_do_command(_("Quit game?"), _("yes"), _("no"), new PopAllActivitiesCommand(app),
-                                                SmartPtr<Command>());
+                app->ask_yesorno_and_do_command(_("Quit game?"), _("yes"), _("no"), std::make_unique<PopAllActivitiesCommand>(app));
             break;
     }
 }

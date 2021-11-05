@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -29,17 +29,62 @@
 #include <glib.h>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "sdl/sdlabstractscreen.hpp"
+#include "misc/deleter.hpp"
 
-class SDLNewOGLScreen: public SDLAbstractScreen {
+class SDLOGLScreen: public SDLAbstractScreen {
 private:
+    template <void (*DELETER)(GLuint)>
+    class GlResource {
+      private:
+        GLuint resource;
+        
+      public:
+        explicit GlResource(GLuint resource = 0) : resource(resource) {}
+        GlResource(GlResource const &) = delete;
+        GlResource(GlResource && other) {
+            resource = other.resource;
+            other.resource = 0;
+        }
+        GlResource& operator=(GlResource other) {
+            std::swap(resource, other.resource);
+            return *this;
+        }
+        ~GlResource() {
+            if (resource)
+                DELETER(resource);
+        }
+        
+        GLuint get() const {
+            return resource;
+        }
+        explicit operator bool() const {
+            return resource != 0;
+        }
+        void reset(GLuint resource = 0) {
+            *this = GlResource(resource);
+        }
+    };
+
     bool shader_support;
     bool timed_flips;
     double oglscaling;
-
-    GLuint glprogram;
-    std::vector<GLuint> shaders;
-    GLuint texture;
+    
+    static void glDeleteProgram_wrapper(GLuint texture);
+    GlResource<glDeleteProgram_wrapper> glprogram;
+    
+    static void glDeleteShader_wrapper(GLuint texture);
+    std::vector<GlResource<glDeleteShader_wrapper>> shaders;
+    
+    static void glDeleteTexture_wrapper(GLuint texture) {
+        if (texture != 0)
+            glDeleteTextures(1, &texture);
+    }
+    GlResource<glDeleteTexture_wrapper> texture;
+    
+    std::unique_ptr<SDL_Window, Deleter<SDL_Window, SDL_DestroyWindow>> window;
+    std::unique_ptr<void, Deleter<void, SDL_GL_DeleteContext>> context;
 
     /// used when loading the xml
     std::string shadertext;
@@ -52,15 +97,13 @@ private:
     void set_texture_bilinear(bool bilinear);
 
 public:
-    SDLNewOGLScreen(PixbufFactory &pixbuf_factory);
-    virtual void set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_);
-    virtual void set_title(char const *);
-    virtual void configure_size();
-    virtual void flip();
-    virtual bool has_timed_flips() const;
-    void uninit();
-    ~SDLNewOGLScreen();
-    virtual Pixmap *create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const;
+    SDLOGLScreen(PixbufFactory &pixbuf_factory);
+    virtual void set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) override;
+    virtual void set_title(char const *) override;
+    virtual void configure_size() override;
+    virtual void flip() override;
+    virtual bool has_timed_flips() const override;
+    virtual std::unique_ptr<Pixmap> create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const override;
 };
 
 #endif

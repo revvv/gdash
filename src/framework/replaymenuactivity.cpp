@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,14 +26,15 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <vector>
+#include <memory>
 
 #include "framework/replaymenuactivity.hpp"
 #include "framework/commands.hpp"
 #include "cave/colors.hpp"
 #include "framework/app.hpp"
-#include "misc/smartptr.hpp"
 #include "cave/cavestored.hpp"
 #include "misc/util.hpp"
+#include "misc/printf.hpp"
 #include "framework/gameactivity.hpp"
 #include "framework/replaysaveractivity.hpp"
 #include "gfx/screen.hpp"
@@ -48,7 +49,7 @@ ReplayMenuActivity::ReplayMenuActivity(App *app)
 
     /* for all caves */
     for (unsigned n = 0; n < app->caveset->caves.size(); ++n) {
-        CaveStored &cave = app->caveset->cave(n);
+        CaveStored &cave = app->caveset->caves[n];
 
         /* if cave has replays... */
         if (!cave.replays.empty()) {
@@ -79,7 +80,7 @@ ReplayMenuActivity::ReplayMenuActivity(App *app)
 
 void ReplayMenuActivity::pushed_event() {
     if (items.empty()) {
-        app->show_message(_("No replays for caveset."), "", new PopActivityCommand(app));
+        app->show_message(_("No replays for caveset."), "", std::make_unique<PopActivityCommand>(app));
     }
 }
 
@@ -88,7 +89,7 @@ void ReplayMenuActivity::redraw_event(bool full) const {
 
     int page = current / lines_per_page;
     // TRANSLATORS: 40 chars max
-    app->title_line(CPrintf(_("Replays")));
+    app->title_line(_("Replays"));
     // TRANSLATORS: 40 chars max
     app->status_line(_("Space: play   H: help   Esc: exit"));
 
@@ -100,15 +101,15 @@ void ReplayMenuActivity::redraw_event(bool full) const {
         if (items[pos].cave && !items[pos].replay) {
             /* no replay pointer: this is a cave, so write its name. */
             app->set_color(GD_GDASH_WHITE);
-            app->blittext_n(0, y, CPrintf(" %s") % items[pos].cave->name);
+            app->font_manager->blittext_n(0, y, " %s", items[pos].cave->name);
         }
         if (items[pos].replay) {
             /* level, successful/not, saved/not, player name  */
-            app->blittext_n(0, y, CPrintf("  %c%c %c%c %cL%d, %s")
-                            % GD_COLOR_INDEX_LIGHTBLUE % (items[pos].replay->saved ? GD_CHECKED_BOX_CHAR : GD_UNCHECKED_BOX_CHAR)
-                            % (items[pos].replay->success ? GD_COLOR_INDEX_GREEN : GD_COLOR_INDEX_RED) % GD_BALL_CHAR
-                            % (current == pos ? GD_COLOR_INDEX_YELLOW : GD_COLOR_INDEX_GRAY3)
-                            % items[pos].replay->level % items[pos].replay->player_name);
+            app->font_manager->blittext_n(0, y, "  %c%c %c%c %cL%d, %s",
+                                                GD_COLOR_INDEX_LIGHTBLUE, (items[pos].replay->saved ? GD_CHECKED_BOX_CHAR : GD_UNCHECKED_BOX_CHAR),
+                                                (items[pos].replay->success ? GD_COLOR_INDEX_GREEN : GD_COLOR_INDEX_RED), GD_BALL_CHAR,
+                                                (current == pos ? GD_COLOR_INDEX_YELLOW : GD_COLOR_INDEX_GRAY3),
+                                                items[pos].replay->level, items[pos].replay->player_name);
         }
     }
     
@@ -136,7 +137,7 @@ private:
     CaveStored *cave;
     CaveReplay *replay;
     void execute() {
-        app->enqueue_command(new PushActivityCommand(app, new ReplaySaverActivity(app, cave, replay, filename_prefix)));
+        app->enqueue_command(std::make_unique<PushActivityCommand>(app, std::make_unique<ReplaySaverActivity>(app, cave, replay, filename_prefix)));
     }
 };
 
@@ -151,7 +152,7 @@ void ReplayMenuActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             app->show_help(replayhelp);
             break;
         case App::Escape:
-            app->enqueue_command(new PopActivityCommand(app));
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
             break;
     }
 
@@ -185,25 +186,25 @@ void ReplayMenuActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
         case 'I': {
             std::string s;
             CaveReplay *r = items[current].replay;
-            s += SPrintf("%c%s: %c%s\n") % GD_COLOR_INDEX_WHITE % _("Cave") % GD_COLOR_INDEX_YELLOW % items[current].cave->name;
+            s += Printf("%c%s: %c%s\n", GD_COLOR_INDEX_WHITE, _("Cave"), GD_COLOR_INDEX_YELLOW, items[current].cave->name);
             // TRANSLATORS: Cave level (1-5)
-            s += SPrintf("%c%s: %c%d\n") % GD_COLOR_INDEX_WHITE % _("Level") % GD_COLOR_INDEX_YELLOW % r->level;
+            s += Printf("%c%s: %c%d\n", GD_COLOR_INDEX_WHITE, _("Level"), GD_COLOR_INDEX_YELLOW, r->level);
             // TRANSLATORS: "player" here means the name of the human player who played the replay
-            s += SPrintf("%c%s: %c%s\n") % GD_COLOR_INDEX_WHITE % _("Player") % GD_COLOR_INDEX_YELLOW % r->player_name;
-            s += SPrintf("%c%s: %c%s\n") % GD_COLOR_INDEX_WHITE % _("Successful") % GD_COLOR_INDEX_LIGHTBLUE % (r->success ? _("yes") : _("no"));
-            s += SPrintf("%c%s: %c%d %s\n") % GD_COLOR_INDEX_WHITE % _("Score") % GD_COLOR_INDEX_LIGHTBLUE % r->score % _("points");
+            s += Printf("%c%s: %c%s\n", GD_COLOR_INDEX_WHITE, _("Player"), GD_COLOR_INDEX_YELLOW, r->player_name);
+            s += Printf("%c%s: %c%s\n", GD_COLOR_INDEX_WHITE, _("Successful"), GD_COLOR_INDEX_LIGHTBLUE, r->success ? _("yes") : _("no"));
+            s += Printf("%c%s: %c%d %s\n", GD_COLOR_INDEX_WHITE, _("Score"), GD_COLOR_INDEX_LIGHTBLUE, r->score, _("points"));
             s += "\n";
             if (r->comment != "")
-                s += SPrintf("%c%s: %c%s\n") % GD_COLOR_INDEX_WHITE % _("Comment") % GD_COLOR_INDEX_LIGHTBLUE % r->comment;
+                s += Printf("%c%s: %c%s\n", GD_COLOR_INDEX_WHITE, _("Comment"), GD_COLOR_INDEX_LIGHTBLUE, r->comment);
             if (r->duration > 0) {
                 // TRANSLATORS: duration of replay in seconds
-                s += SPrintf("%c%s: %c%ds\n") % GD_COLOR_INDEX_WHITE % _("Duration") % GD_COLOR_INDEX_LIGHTBLUE % r->duration;
+                s += Printf("%c%s: %c%ds\n", GD_COLOR_INDEX_WHITE, _("Duration"), GD_COLOR_INDEX_LIGHTBLUE, r->duration);
             }
             if (r->date != "")
-                s += SPrintf("%c%s: %c%s\n") % GD_COLOR_INDEX_WHITE % _("Date") % GD_COLOR_INDEX_LIGHTBLUE % r->date;
+                s += Printf("%c%s: %c%s\n", GD_COLOR_INDEX_WHITE, _("Date"), GD_COLOR_INDEX_LIGHTBLUE, r->date);
             if (r->recorded_with != "")
                 // TRANSLATORS: ie. software by which the replay was recorded.
-                s += SPrintf("%c%s: %c%s\n") % GD_COLOR_INDEX_WHITE % _("Recorded with") % GD_COLOR_INDEX_LIGHTBLUE % r->recorded_with;
+                s += Printf("%c%s: %c%s\n", GD_COLOR_INDEX_WHITE, _("Recorded with"), GD_COLOR_INDEX_LIGHTBLUE, r->recorded_with);
 
             // TRANSLATORS: title of the window showing data about a particular replay
             app->show_message(_("Replay Info"), s);
@@ -221,17 +222,17 @@ void ReplayMenuActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
 #ifdef HAVE_SDL
         case 'w':
         case 'W': {
-            std::string prefix = SPrintf("%s%sout") % gd_last_folder % G_DIR_SEPARATOR;
+            std::string prefix = Printf("%s%sout", gd_last_folder, G_DIR_SEPARATOR);
             // TRANSLATE: the prefix of the name of the output files when saving the replay.
-            app->input_text_and_do_command(_("Output filename prefix"), prefix.c_str(), new SaveReplayCommand(app, items[current].cave, items[current].replay));
+            app->input_text_and_do_command(_("Output filename prefix"), prefix.c_str(), std::make_unique<SaveReplayCommand>(app, items[current].cave, items[current].replay));
         }
         break;
 #endif /* IFDEF HAVE_SDL */
         case ' ':
         case App::Enter:
             if (items[current].replay) {
-                GameControl *game = GameControl::new_replay(app->caveset, items[current].cave, items[current].replay);
-                app->enqueue_command(new PushActivityCommand(app, new GameActivity(app, game)));
+                auto game = GameControl::new_replay(app->caveset, items[current].cave, items[current].replay);
+                app->enqueue_command(std::make_unique<PushActivityCommand>(app, std::make_unique<GameActivity>(app, std::move(game))));
             }
             break;
     }

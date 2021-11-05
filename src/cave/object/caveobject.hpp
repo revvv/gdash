@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,10 +25,11 @@
 
 #include "config.h"
 
+#include <memory>
+
 #include "cave/cavetypes.hpp"
 #include "cave/helper/reflective.hpp"
 
-/* forward declarations */
 class CaveRendered;
 
 /// Cave object abstract base class, from which all cave objects inherit.
@@ -37,24 +38,21 @@ public:
     /// The type of the object.
     /// This is an enumeration of all possible object types.
     enum Type {
-        GD_POINT,                ///< single point of object1
+        GD_POINT,               ///< single point of object1
         GD_LINE,                ///< line from (1) to (2) of object1
-        GD_RECTANGLE,            ///< rectangle with corners (1) and (2) of object1
+        GD_RECTANGLE,           ///< rectangle with corners (1) and (2) of object1
         GD_FILLED_RECTANGLE,    ///< rectangle with corners (1) and (2) of object1, filled with object2
-        GD_RASTER,                ///< aligned plots
+        GD_RASTER,              ///< aligned plots
         GD_JOIN,                ///< every object1 has an object2 next to it, relative (dx,dy)
-        GD_FLOODFILL_REPLACE,    ///< fill by replacing
+        GD_FLOODFILL_REPLACE,   ///< fill by replacing
         GD_FLOODFILL_BORDER,    ///< fill to another element, a border
         GD_MAZE,                ///< maze
-        GD_MAZE_UNICURSAL,        ///< unicursal maze
-        GD_MAZE_BRAID,            ///< braid maze
-        GD_RANDOM_FILL,            ///< random fill
-        GD_COPY_PASTE,            ///< copy & paste with optional mirror and flip
+        GD_MAZE_UNICURSAL,      ///< unicursal maze
+        GD_MAZE_BRAID,          ///< braid maze
+        GD_RANDOM_FILL,         ///< random fill
+        GD_COPY_PASTE,          ///< copy & paste with optional mirror and flip
     };
 
-    ///< The type of the object. Set by the constructor, and cannot be changed.
-    ///< Maybe a virtual function should be made, but not worth.
-    Type const type;
     /// Levels on which this object is visible on.
     GdBoolLevels seen_on;
 
@@ -63,16 +61,24 @@ public:
     void enable_on_all();
     void disable_on_all();
 
-    /// Virtual destructor.
-    virtual ~CaveObject() {}
+    /// By default, the object is seen on all levels.
+    CaveObject() {
+        enable_on_all();
+    }
 
-    /// Clone object - create a newly allocated, exact copy.
-    /// This will be the virtual constructor. All derived objects must implement this.
-    virtual CaveObject *clone() const = 0;
+    /// Virtual destructor.
+    virtual ~CaveObject() = default;
+    
+    /// Get type enum of object.
+    virtual Type get_type() const = 0;
+
+    /// Clone object - create an exact copy.
+    /// This will be the virtual constructor.
+    virtual std::unique_ptr<CaveObject> clone() const = 0;
 
     /// Draw the object on a specified level, in the specified cave. All derived objects implement this.
     /// @param cave The mapped (for game) cave to draw on
-    virtual void draw(CaveRendered &cave) const = 0;
+    virtual void draw(CaveRendered &cave, int order_idx) const = 0;
 
     /// Get BDCFF description of object. All derived objects must implement.
     virtual std::string get_bdcff() const = 0;
@@ -81,10 +87,10 @@ public:
     /// As sometimes the object name in the bdcff file also stores information about
     /// an object (for example, AddBackwards, we must also pass the name.
     /// Implementations should return NULL, if a read error occurs.
-    virtual CaveObject *clone_from_bdcff(const std::string &name, std::istream &is) const = 0;
+    virtual std::unique_ptr<CaveObject> clone_from_bdcff(const std::string &name, std::istream &is) const = 0;
 
     /// Object factory.
-    static CaveObject *create_from_bdcff(const std::string &str);
+    static std::unique_ptr<CaveObject> create_from_bdcff(const std::string &str);
 
     /* for the editor */
     /// Move an object after creating it in the editor; dragging the mouse at the moment when the
@@ -111,16 +117,11 @@ public:
 
     /// Get a string which describes the object in one sentence. It is translated to the current language.
     virtual std::string get_description_markup() const = 0;
-
-protected:
-    /// Protected constructor for all derived classes.
-    /// This class has no default constructor, to make sure the type variable is always set.
-    explicit CaveObject(Type t): type(t) {
-        enable_on_all();
+    
+    /// If this coordinate is to be marked with an x in the editor.
+    virtual bool mark_coordinate(Coordinate c) const {
+        return false;
     }
 };
-
-/// Initializes cave object factory. Must be called at program start.
-void gd_cave_objects_init();
 
 #endif

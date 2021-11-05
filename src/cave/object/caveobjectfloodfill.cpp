@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -37,7 +37,7 @@
 /// @param _search_element Overwrite this element.
 /// @param _fill_element Draw this element.
 CaveFloodFill::CaveFloodFill(Coordinate _start, GdElementEnum _fill_element, GdElementEnum _search_element)
-    :   CaveFill(GD_FLOODFILL_REPLACE, _start, _fill_element),
+    :   CaveFill(_start, _fill_element),
         search_element(_search_element) {
 }
 
@@ -45,37 +45,37 @@ std::string CaveFloodFill::get_bdcff() const {
     return BdcffFormat("FloodFill") << start << fill_element << search_element;
 }
 
-CaveFloodFill *CaveFloodFill::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveFloodFill::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate start;
     GdElementEnum fill, search;
     if (!(is >> start >> fill >> search))
         return NULL;
 
-    return new CaveFloodFill(start, fill, search);
+    return std::make_unique<CaveFloodFill>(start, fill, search);
 }
 
-CaveFloodFill *CaveFloodFill::clone() const {
-    return new CaveFloodFill(*this);
+std::unique_ptr<CaveObject> CaveFloodFill::clone() const {
+    return std::make_unique<CaveFloodFill>(*this);
 };
 
 /// Standard recursive floodfill algorithm.
-void CaveFloodFill::draw_proc(CaveRendered &cave, int x, int y) const {
-    cave.store_rc(x, y, fill_element, this);
+void CaveFloodFill::draw_proc(CaveRendered &cave, int x, int y, int order_idx) const {
+    if (x < 0 || y < 0 || x >= cave.w || y >= cave.h)
+        return;
+    if (cave.map(x, y) != search_element)
+        return;
+    cave.store_rc(x, y, fill_element, order_idx);
 
-    if (x > 0 && cave.map(x - 1, y) == search_element) draw_proc(cave, x - 1, y);
-    if (y > 0 && cave.map(x, y - 1) == search_element) draw_proc(cave, x, y - 1);
-    if (x < cave.w - 1 && cave.map(x + 1, y) == search_element) draw_proc(cave, x + 1, y);
-    if (y < cave.h - 1 && cave.map(x, y + 1) == search_element) draw_proc(cave, x, y + 1);
+    draw_proc(cave, x - 1, y, order_idx);
+    draw_proc(cave, x, y - 1, order_idx);
+    draw_proc(cave, x + 1, y, order_idx);
+    draw_proc(cave, x, y + 1, order_idx);
 }
 
-void CaveFloodFill::draw(CaveRendered &cave) const {
-    /* check bounds */
-    if (start.x < 0 || start.y < 0 || start.x >= cave.w || start.y >= cave.h)
-        return;
+void CaveFloodFill::draw(CaveRendered &cave, int order_idx) const {
     if (search_element == fill_element)
         return;
-    /* this procedure fills the area with the object->element. */
-    draw_proc(cave, start.x, start.y);
+    draw_proc(cave, start.x, start.y, order_idx);
 }
 
 PropertyDescription const CaveFloodFill::descriptor[] = {
@@ -87,11 +87,6 @@ PropertyDescription const CaveFloodFill::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveFloodFill::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveFloodFill::get_description_markup() const {
-    return SPrintf(_("Flood fill from %d,%d of <b>%ms</b>, replacing <b>%ms</b>"))
-           % start.x % start.y % visible_name_lowercase(fill_element) % visible_name_lowercase(search_element);
+    return Printf(_("Flood fill from %d,%d of <b>%ms</b>, replacing <b>%ms</b>"), start.x, start.y, visible_name_lowercase(fill_element), visible_name_lowercase(search_element));
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -144,30 +144,30 @@
 std::string help_strings_to_string(char const **strings) {
     std::string s;
     for (int n = 0; strings[n] != NULL; n += 2)
-        s += SPrintf("%c%s  %c%s\n") % GD_COLOR_INDEX_YELLOW % strings[n] % GD_COLOR_INDEX_LIGHTBLUE % strings[n + 1];
+        s += Printf("%c%s  %c%s\n", GD_COLOR_INDEX_YELLOW, strings[n], GD_COLOR_INDEX_LIGHTBLUE, strings[n + 1]);
     return s;
 }
 
 
 static std::string help_text_to_string(helpdata const help_text[]) {
-    std::string s = SPrintf("%c") % GD_COLOR_INDEX_LIGHTBLUE;
+    std::string s = Printf("%c", GD_COLOR_INDEX_LIGHTBLUE);
     for (int i = 0; g_strcmp0(help_text[i].stock_id, HELP_LAST_LINE) != 0; ++i) {
         GdElementEnum element = help_text[i].element;
         if (element != O_NONE) {
             // pixbuf missing here
             if (help_text[i].heading == NULL) {
                 /* add element name only if no other text given */
-                s += SPrintf("%c%s%c\n") % GD_COLOR_INDEX_YELLOW % visible_name_no_attribute(element);
+                s += Printf("%c%s%c\n", GD_COLOR_INDEX_YELLOW, visible_name_no_attribute(element));
             }
         }
         if (help_text[i].heading) {
             /* some words in big letters */
-            s += SPrintf("%c%s%c\n") % GD_COLOR_INDEX_YELLOW % _(help_text[i].heading);
+            s += Printf("%c%s%c\n", GD_COLOR_INDEX_YELLOW, _(help_text[i].heading));
         }
         if (help_text[i].keyname)
-            s += SPrintf(" %c%s\t") % GD_COLOR_INDEX_YELLOW % _(help_text[i].keyname);
+            s += Printf(" %c%s\t", GD_COLOR_INDEX_YELLOW, _(help_text[i].keyname));
         if (help_text[i].description)
-            s += SPrintf("%c%s\n") % GD_COLOR_INDEX_LIGHTBLUE % _(help_text[i].description);
+            s += Printf("%c%s\n", GD_COLOR_INDEX_LIGHTBLUE, _(help_text[i].description));
         s += "\n";
     }
     return s;
@@ -180,7 +180,6 @@ App::App(Screen &screenref)
     font_manager = NULL;
     gameinput = NULL;
     caveset = NULL;
-    background_image = NULL;
 }
 
 
@@ -194,37 +193,35 @@ App::~App() {
 
 
 void App::release_pixmaps() {
-    delete background_image;
-    background_image = NULL;
+    background_image.reset();
 }
 
 
-void App::set_no_activity_command(SmartPtr<Command> command) {
-    no_activity_command = command;
+void App::set_no_activity_command(std::unique_ptr<Command> command) {
+    no_activity_command = std::move(command);
 }
 
 
-void App::set_quit_event_command(SmartPtr<Command> command) {
-    quit_event_command = command;
+void App::set_quit_event_command(std::unique_ptr<Command> command) {
+    quit_event_command = std::move(command);
 }
 
 
-void App::set_request_restart_command(SmartPtr<Command> command) {
-    request_restart_command = command;
+void App::set_request_restart_command(std::unique_ptr<Command> command) {
+    request_restart_command = std::move(command);
 }
 
 
-void App::set_start_editor_command(SmartPtr<Command> command) {
-    start_editor_command = command;
+void App::set_start_editor_command(std::unique_ptr<Command> command) {
+    start_editor_command = std::move(command);
 }
 
 
 void App::clear_screen() {
     /* create if needed */
     if (!background_image) {
-        Pixbuf *pixbuf = screen->pixbuf_factory.create_from_inline(sizeof(gamebackground), gamebackground);
+        std::unique_ptr<Pixbuf> pixbuf = screen->pixbuf_factory.create_from_inline(sizeof(gamebackground), gamebackground);
         background_image = screen->create_scaled_pixmap_from_pixbuf(*pixbuf, false);
-        delete pixbuf;
     }
     /* tile */
     for (int y = 0; y < screen->get_height(); y += background_image->get_height())
@@ -260,39 +257,39 @@ void App::draw_scrollbar(int min, int current, int max) {
         screen->get_height() - (upper+lower) * font_manager->get_font_height(),
         GdColor::from_rgb(0, 0, 0));
     /* up & down arrow */
-    blittext_n(screen->get_width() - font_manager->get_font_width_narrow(),
-                screen->get_height() - (lower+1) * font_manager->get_font_height(), CPrintf("%c") % GD_DOWN_CHAR);
-    blittext_n(screen->get_width() - font_manager->get_font_width_narrow(),
-                upper * font_manager->get_font_height(), CPrintf("%c") % GD_UP_CHAR);
+    font_manager->blittext_n(screen->get_width() - font_manager->get_font_width_narrow(),
+                screen->get_height() - (lower+1) * font_manager->get_font_height(), Printf("%c", GD_DOWN_CHAR).c_str());
+    font_manager->blittext_n(screen->get_width() - font_manager->get_font_width_narrow(),
+                upper * font_manager->get_font_height(), Printf("%c", GD_UP_CHAR).c_str());
     /* slider */
     double pos = current / double(max-min);
     pos = pos * (screen->get_height() - font_manager->get_font_height() * (upper+lower+2) - font_manager->get_font_height());
     pos = pos + font_manager->get_font_height() * (upper+1);
-    blittext_n(screen->get_width() - font_manager->get_font_width_narrow(),
-                pos, CPrintf("%c") % GD_FULL_BOX_CHAR);
+    font_manager->blittext_n(screen->get_width() - font_manager->get_font_width_narrow(),
+                pos, Printf("%c", GD_FULL_BOX_CHAR).c_str());
 }
 
 
-void App::select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, SmartPtr<Command1Param<std::string> > command_when_successful) {
-    enqueue_command(new PushActivityCommand(this, new SelectFileActivity(this, title, start_dir, glob, for_save, defaultname, command_when_successful)));
+void App::select_file_and_do_command(const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, std::unique_ptr<Command1Param<std::string>> command_when_successful) {
+    enqueue_command(std::make_unique<PushActivityCommand>(this, std::make_unique<SelectFileActivity>(this, title, start_dir, glob, for_save, defaultname, std::move(command_when_successful))));
 }
 
 
-void App::ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, SmartPtr<Command> command_when_yes, SmartPtr<Command> command_when_no) {
-    enqueue_command(new PushActivityCommand(this, new AskYesNoActivity(this, question, yes_answer, no_answer, command_when_yes, command_when_no)));
+void App::ask_yesorno_and_do_command(char const *question, const char *yes_answer, char const *no_answer, std::unique_ptr<Command> command_when_yes, std::unique_ptr<Command> command_when_no) {
+    enqueue_command(std::make_unique<PushActivityCommand>(this, std::make_unique<AskYesNoActivity>(this, question, yes_answer, no_answer, std::move(command_when_yes), std::move(command_when_no))));
 }
 
-void App::show_text_and_do_command(char const *title_line, std::string const &text, SmartPtr<Command> command_after_exit) {
-    enqueue_command(new PushActivityCommand(this, new ShowTextActivity(this, title_line, text, command_after_exit)));
+void App::show_text_and_do_command(char const *title_line, std::string const &text, std::unique_ptr<Command> command_after_exit) {
+    enqueue_command(std::make_unique<PushActivityCommand>(this, std::make_unique<ShowTextActivity>(this, title_line, text, std::move(command_after_exit))));
 }
 
 
 void App::show_settings(Setting *settings) {
-    enqueue_command(new PushActivityCommand(this, new SettingsActivity(this, settings)));
+    enqueue_command(std::make_unique<PushActivityCommand>(this, std::make_unique<SettingsActivity>(this, settings)));
 }
 
-void App::show_message(std::string const &primary, std::string const &secondary, SmartPtr<Command> command_after_exit) {
-    enqueue_command(new PushActivityCommand(this, new MessageActivity(this, primary, secondary, command_after_exit)));
+void App::show_message(std::string const &primary, std::string const &secondary, std::unique_ptr<Command> command_after_exit) {
+    enqueue_command(std::make_unique<PushActivityCommand>(this, std::make_unique<MessageActivity>(this, primary, secondary, std::move(command_after_exit))));
 }
 
 void App::show_help(helpdata const help_text[]) {
@@ -325,12 +322,12 @@ void App::show_about_info() {
     std::string text;
 
     for (String *s = strings; s->title != NULL; ++s) {
-        text += SPrintf("%c%s\n%c%s\n\n") % GD_COLOR_INDEX_YELLOW % s->title % GD_COLOR_INDEX_LIGHTBLUE % s->text;
+        text += Printf("%c%s\n%c%s\n\n", GD_COLOR_INDEX_YELLOW, s->title, GD_COLOR_INDEX_LIGHTBLUE, s->text);
     }
     for (StringArray *s = stringarrays; s->title != NULL; ++s)  {
-        text += SPrintf("%c%s%c\n") % GD_COLOR_INDEX_YELLOW % s->title % GD_COLOR_INDEX_LIGHTBLUE;
+        text += Printf("%c%s%c\n", GD_COLOR_INDEX_YELLOW, s->title, GD_COLOR_INDEX_LIGHTBLUE);
         for (char const **t = s->texts; *t != NULL; ++t) {
-            text += SPrintf("%c%c %c%s\n") % GD_COLOR_INDEX_YELLOW % GD_PLAYER_CHAR % GD_COLOR_INDEX_LIGHTBLUE % *t;
+            text += Printf("%c%c %c%s\n", GD_COLOR_INDEX_YELLOW, GD_PLAYER_CHAR, GD_COLOR_INDEX_LIGHTBLUE, *t);
         }
         text += '\n';
     }
@@ -339,21 +336,14 @@ void App::show_about_info() {
 }
 
 
-void App::input_text_and_do_command(char const *title_line, char const *default_text, SmartPtr<Command1Param<std::string> > command_when_successful) {
-    enqueue_command(new PushActivityCommand(this, new InputTextActivity(this, title_line, default_text, command_when_successful)));
+void App::input_text_and_do_command(char const *title_line, char const *default_text, std::unique_ptr<Command1Param<std::string> > command_when_successful) {
+    enqueue_command(std::make_unique<PushActivityCommand>(this, std::make_unique<InputTextActivity>(this, title_line, default_text, std::move(command_when_successful))));
 }
 
 
 /** select color for the next text drawing */
 void App::set_color(const GdColor &color) {
     font_manager->set_color(color);
-}
-
-
-/** write something to the screen, with normal characters.
- * x=-1 -> center horizontally */
-int App::blittext_n(int x, int y, const char *text) {
-    return font_manager->blittext_n(x, y, text);
 }
 
 
@@ -370,16 +360,16 @@ void App::title_line(const char *text) {
 
 
 void App::timer_event(int ms_elapsed) {
-    if (topmost_activity()) {
-        topmost_activity()->timer_event(ms_elapsed);
+    if (have_activity()) {
+        topmost_activity().timer_event(ms_elapsed);
     }
     process_commands();
 }
 
 
 void App::timer2_event() {
-    if (topmost_activity()) {
-        topmost_activity()->timer2_event();
+    if (have_activity()) {
+        topmost_activity().timer2_event();
         process_commands();
     }
 }
@@ -393,24 +383,29 @@ void App::keypress_event(Activity::KeyCode keycode, int gfxlib_keycode) {
     switch (keycode) {
         case F9:
             /* if we have sound, key f9 will push a volume activity.
-             * that activity will receive the keypresses. */
+             * that activity will receive the keypresses.
+             * but only if not the volumeactivity app is active. */
 #ifdef HAVE_SDL
-            if (gd_sound_enabled && dynamic_cast<VolumeActivity *>(topmost_activity()) == NULL) {
-                enqueue_command(new PushActivityCommand(this, new VolumeActivity(this)));
+            if (gd_sound_enabled && have_activity()) {
+                try {
+                    dynamic_cast<VolumeActivity&>(topmost_activity());
+                } catch (std::bad_cast &) {
+                    enqueue_command(std::make_unique<PushActivityCommand>(this, std::make_unique<VolumeActivity>(this)));
+                }
             }
 #endif // ifdef HAVE_SDL
             break;
         case F10:
             /* f10 is reserved for the menu in the gtk version. do not pass to the activity,
-             * if we may get this somehow. */
+             * if we get this somehow. */
             break;
         case F11:
             /* fullscreen switch. do not pass to the app. */
             break;
         default:
             /* other key. pass to the activity. */
-            if (topmost_activity()) {
-                topmost_activity()->keypress_event(keycode, gfxlib_keycode);
+            if (have_activity()) {
+                topmost_activity().keypress_event(keycode, gfxlib_keycode);
                 process_commands();
             }
             break;
@@ -419,16 +414,16 @@ void App::keypress_event(Activity::KeyCode keycode, int gfxlib_keycode) {
 
 
 void App::redraw_event(bool full) {
-    Activity *topmost = topmost_activity();
-    if (topmost != NULL) {
-        topmost->redraw_event(full);
-        topmost->redraw_queued = false;
+    if (have_activity()) {
+        auto & activity = topmost_activity();
+        activity.redraw_event(full);
+        activity.redraw_queued = false;
     }
 }
 
 
 void App::quit_event() {
-    if (quit_event_command != NULL)
+    if (quit_event_command)
         quit_event_command->execute();
 }
 
@@ -436,14 +431,14 @@ void App::quit_event() {
 /* process pending commands */
 void App::process_commands() {
     while (!command_queue.empty()) {
-        SmartPtr<Command> command = command_queue.front();
+        std::unique_ptr<Command> command = std::move(command_queue.front());
         command_queue.pop();
         command->execute();
     }
 
-    if (running_activities.empty() && no_activity_command != NULL) {
+    if (running_activities.empty() && no_activity_command) {
         no_activity_command->execute();
-        no_activity_command.release();  /* process this one only once! so forget the object. */
+        no_activity_command.reset();  /* process this one only once! */
     }
 }
 
@@ -460,35 +455,34 @@ void App::start_editor() {
 
 /* enqueue a command for executing after the event.
  * and empty command is allowed to be pushed, and has no effect. */
-void App::enqueue_command(SmartPtr<Command> the_command) {
-    if (the_command != NULL)
-        command_queue.push(the_command);
+void App::enqueue_command(std::unique_ptr<Command> the_command) {
+    if (the_command)
+        command_queue.push(std::move(the_command));
 }
 
 
-void App::push_activity(Activity *the_activity) {
+void App::push_activity(std::unique_ptr<Activity> the_activity) {
     /* the currently topmost activity will be hidden by the new one */
-    if (topmost_activity()) {
-        topmost_activity()->hidden_event();
+    if (have_activity()) {
+        topmost_activity().hidden_event();
     }
     /* push the new one to the top */
-    running_activities.push(the_activity);
-    the_activity->pushed_event();
-    the_activity->shown_event();
+    auto & act = *the_activity;
+    running_activities.push(std::move(the_activity));
+    act.pushed_event();
+    act.shown_event();
     redraw_event(true);
 }
 
 
 void App::pop_activity() {
     if (!running_activities.empty()) {
-        Activity *popped_activity = running_activities.top();
+        auto popped_activity = std::move(running_activities.top());
         popped_activity->hidden_event();
-        delete running_activities.top();
         running_activities.pop();
         /* send a redraw to the topmost one */
-        Activity *topmost = topmost_activity();
-        if (topmost != NULL) {
-            topmost->shown_event();
+        if (have_activity()) {
+            topmost_activity().shown_event();
             redraw_event(true);
         }
     }
@@ -496,21 +490,13 @@ void App::pop_activity() {
 
 
 void App::pop_all_activities() {
-    while (topmost_activity())
+    while (have_activity())
         pop_activity();
 }
 
 
-Activity *App::topmost_activity() const {
-    if (running_activities.empty())
-        return NULL;
-    return running_activities.top();
-}
-
-
 bool App::redraw_queued() const {
-    Activity *topmost = topmost_activity();
-    if (topmost == NULL)
-        return false;
-    return topmost->redraw_queued;
+    if (have_activity())
+        topmost_activity().redraw_queued;
+    return have_activity();
 }

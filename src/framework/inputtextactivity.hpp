@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -41,15 +41,19 @@ public:
      * @param default_text The default value of the text box.
      * @param command_when_successful The command of one string parameter to be parametrized with the line
      *        typed and executed, if the user accepts the input. */
-    InputTextActivity(App *app, char const *title_line, const char *default_text, SmartPtr<Command1Param<std::string> > command_when_successful);
+    InputTextActivity(App *app, char const *title_line, const char *default_text, std::unique_ptr<Command1Param<std::string>> command_when_successful);
     ~InputTextActivity();
     virtual void keypress_event(KeyCode keycode, int gfxlib_keycode);
+    virtual void textinput_event(char *appendtext);
+    virtual void textediting_event(char *overwritetext);
     virtual void redraw_event(bool full) const;
     virtual void timer_event(int ms_elapsed);
+    virtual void shown_event();
+    virtual void hidden_event();
 
 private:
     std::string title;
-    SmartPtr<Command1Param<std::string> > command_when_successful;
+    std::unique_ptr<Command1Param<std::string>> command_when_successful;
     GString *text;
     int ms;
     bool blink;

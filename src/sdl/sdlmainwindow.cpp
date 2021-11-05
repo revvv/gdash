@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,6 +26,7 @@
 #include <numeric>
 
 #include "settings.hpp"
+#include "cave/gamecontrol.hpp"
 #include "framework/app.hpp"
 #include "framework/commands.hpp"
 #include "framework/gameactivity.hpp"
@@ -60,10 +61,8 @@ SDLApp::SDLApp(Screen &screenref)
 /* generate a user event */
 static Uint32 timer_callback(Uint32 interval, void *param) {
     SDL_Event ev;
-
     ev.type = SDL_USEREVENT;
     SDL_PushEvent(&ev);
-
     return interval;
 }
 
@@ -114,7 +113,7 @@ static Activity::KeyCode activity_keycode_from_sdl_key_event(SDL_KeyboardEvent c
             return App::Escape;
 
         default:
-            return ev.keysym.unicode;
+            return ev.keysym.sym;
     }
 }
 
@@ -131,11 +130,10 @@ private:
 };
 
 
-static void run_the_app(App &the_app, NextAction &na) {
+static void run_the_app(SDLApp &the_app, NextAction &na) {
     /* for the sdltimer based timing */
     int const timer_ms = gd_fine_scroll ? 20 : 40;
-    SDL_TimerID timer_id;
-    bool timer_installed = false;
+    SDL_TimerID timer_id = 0;
     /* for the screen based timing */
     Uint32 ticks_now = SDL_GetTicks(), ticks_last = SDL_GetTicks();
     enum { average_time_frame = 25 };
@@ -143,7 +141,7 @@ static void run_the_app(App &the_app, NextAction &na) {
     unsigned move_index = 0;
 
     if (!SDL_WasInit(SDL_INIT_TIMER))
-        SDL_InitSubSystem(SDL_INIT_TIMER);
+        SDL_Init(SDL_INIT_TIMER);
 
     /* if screen reports we can use it for timing, measure the number of
      * milliseconds each refresh takes */
@@ -155,11 +153,9 @@ static void run_the_app(App &the_app, NextAction &na) {
 
     if (!use_screen_timing) {
         timer_id = SDL_AddTimer(timer_ms, timer_callback, NULL);
-        timer_installed = true;
     }
 
-
-    the_app.set_no_activity_command(new SetNextActionCommandSDL(&the_app, na, Quit));
+    the_app.set_no_activity_command(std::make_unique<SetNextActionCommandSDL>(&the_app, na, Quit));
 
     /* sdl_waitevent will wait until at least one event appears. */
     na = StartTitle;
@@ -167,7 +163,6 @@ static void run_the_app(App &the_app, NextAction &na) {
         /* and now we poll all the events, as there might be more than one. */
         bool had_timer_event1 = false;
         SDL_Event ev;
-
         while (SDL_PollEvent(&ev)) {
             switch (ev.type) {
                 case SDL_QUIT:
@@ -189,8 +184,15 @@ static void run_the_app(App &the_app, NextAction &na) {
                 case SDL_KEYUP:
                     the_app.gameinput->keyrelease(ev.key.keysym.sym);
                     break;
-                case SDL_VIDEOEXPOSE:
-                    the_app.redraw_event(true);
+                case SDL_TEXTINPUT:
+                    the_app.textinput_event(ev.text.text);
+                    break;
+                case SDL_TEXTEDITING:
+                    the_app.textediting_event(ev.edit.text);
+                    break;
+                case SDL_WINDOWEVENT:
+                    if (ev.window.event == SDL_WINDOWEVENT_EXPOSED)
+                        the_app.redraw_event(true);
                     break;
                 case SDL_USEREVENT:
                     had_timer_event1 = true;
@@ -207,7 +209,6 @@ static void run_the_app(App &the_app, NextAction &na) {
                 use_screen_timing = false;
                 gd_debug("screen timing too fast, switching to built-in timer");
                 timer_id = SDL_AddTimer(timer_ms, timer_callback, NULL);
-                timer_installed = true;
             }
             /* feed the timer with the average value. */
             the_app.timer_event(average_ms);
@@ -218,7 +219,7 @@ static void run_the_app(App &the_app, NextAction &na) {
             // writing the ms delays to the screen
             std::string s;
             for (int i = 0; i < average_time_frame; ++i) {
-                s += SPrintf("%d ") % moved[i];
+                s += Printf("%d ", moved[i]);
             }
             the_app.set_color(GD_GDASH_WHITE);
             the_app.blittext_n(0, the_app.screen->get_height()-20, s.c_str());
@@ -251,61 +252,48 @@ static void run_the_app(App &the_app, NextAction &na) {
 
 #ifdef HAVE_GTK
         // check if the g_main_loop has something to do. if it has,
-        // it is usually gtk stuff - so let gtk do its job :D
+        // it is usually gtk stuff - so let gtk do its job
         while (g_main_context_pending(NULL))
             g_main_context_iteration(NULL, FALSE);
 #endif
     }
 
-    if (timer_installed)
+    if (timer_id != 0)
         SDL_RemoveTimer(timer_id);
 }
 
-
 void gd_main_window_sdl_run(CaveSet *caveset, NextAction &na, bool opengl) {
     SDLPixbufFactory pf;
-    Screen *screen;
+    std::unique_ptr<Screen> screen;
     if (opengl)
-        screen = new SDLNewOGLScreen(pf);
+        screen = std::make_unique<SDLOGLScreen>(pf);
     else
-        screen = new SDLScreen(pf);
+        screen = std::make_unique<SDLScreen>(pf);
 
-    {
-        SDLApp the_app(*screen);
+    SDLApp the_app(*screen);
 
-        /* normal application: title screen, menu etc */
-        the_app.caveset = caveset;
-        the_app.set_quit_event_command(new AskIfChangesDiscardedCommand(&the_app, new PopAllActivitiesCommand(&the_app)));
-        the_app.set_request_restart_command(new SetNextActionCommandSDL(&the_app, na, Restart));
+    /* normal application: title screen, menu etc */
+    the_app.caveset = caveset;
+    the_app.set_quit_event_command(std::make_unique<AskIfChangesDiscardedCommand>(&the_app, std::make_unique<PopAllActivitiesCommand>(&the_app)));
+    the_app.set_request_restart_command(std::make_unique<SetNextActionCommandSDL>(&the_app, na, Restart));
 #ifdef HAVE_GTK
-        the_app.set_start_editor_command(new SetNextActionCommandSDL(&the_app, na, StartEditor));
+    the_app.set_start_editor_command(std::make_unique<SetNextActionCommandSDL>(&the_app, na, StartEditor));
 #endif
-        the_app.push_activity(new TitleScreenActivity(&the_app));
+    the_app.push_activity(std::make_unique<TitleScreenActivity>(&the_app));
 
-        run_the_app(the_app, na);
-    }
-    /* the app must die before the screen, the block above controls its lifetime */
-    delete screen;
+    run_the_app(the_app, na);
 }
 
 
-void gd_main_window_sdl_run_a_game(GameControl *game, bool opengl) {
+void gd_main_window_sdl_run_a_game(std::unique_ptr<GameControl> game) {
     SDLPixbufFactory pf;
-    Screen *screen;
-    if (opengl)
-        screen = new SDLNewOGLScreen(pf);
-    else
-        screen = new SDLScreen(pf);
+    SDLScreen screen(pf);
 
-    {
-        SDLApp the_app(*screen);
+    SDLApp the_app(screen);
 
-        NextAction na = StartTitle;      // because the func below needs one to work with
-        the_app.set_quit_event_command(new SetNextActionCommandSDL(&the_app, na, Quit));
-        the_app.push_activity(new GameActivity(&the_app, game));
+    NextAction na = StartTitle;      // because the func below needs one to work with
+    the_app.set_quit_event_command(std::make_unique<SetNextActionCommandSDL>(&the_app, na, Quit));
+    the_app.push_activity(std::make_unique<GameActivity>(&the_app, std::move(game)));
 
-        run_the_app(the_app, na);
-    }
-    /* the app must die before the screen, the block above controls its lifetime */
-    delete screen;
+    run_the_app(the_app, na);
 }

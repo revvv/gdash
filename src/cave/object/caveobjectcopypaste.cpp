@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -37,7 +37,7 @@ std::string CaveCopyPaste::get_bdcff() const {
     return BdcffFormat("CopyPaste") << p1 << p2 << dest << (mirror ? "mirror" : "nomirror") << (flip ? "flip" : "noflip");
 }
 
-CaveCopyPaste *CaveCopyPaste::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveCopyPaste::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p1, p2, dest;
     std::string mirror = "nomirror", flip = "noflip";
     bool bmirror, bflip;
@@ -51,7 +51,7 @@ CaveCopyPaste *CaveCopyPaste::clone_from_bdcff(const std::string &name, std::ist
         bmirror = false;
     else {
         bmirror = false;
-        gd_warning(CPrintf("invalid setting for copypaste mirror property: %s") % mirror);
+        gd_warning("invalid setting for copypaste mirror property: %s", mirror);
     }
     if (gd_str_ascii_caseequal(flip, "flip"))
         bflip = true;
@@ -59,17 +59,17 @@ CaveCopyPaste *CaveCopyPaste::clone_from_bdcff(const std::string &name, std::ist
         bflip = false;
     else {
         bflip = false;
-        gd_warning(CPrintf("invalid setting for copypaste mirror property: %s") % flip);
+        gd_warning("invalid setting for copypaste mirror property: %s", flip);
     }
 
-    CaveCopyPaste *cp = new CaveCopyPaste(p1, p2, dest);
-    cp->set_mirror_flip(bmirror, bflip);
+    CaveCopyPaste cp(p1, p2, dest);
+    cp.set_mirror_flip(bmirror, bflip);
 
-    return cp;
+    return std::make_unique<CaveCopyPaste>(std::move(cp));
 }
 
-CaveCopyPaste *CaveCopyPaste::clone() const {
-    return new CaveCopyPaste(*this);
+std::unique_ptr<CaveObject> CaveCopyPaste::clone() const {
+    return std::make_unique<CaveCopyPaste>(*this);
 };
 
 /// Create a copy and paste object.
@@ -78,8 +78,7 @@ CaveCopyPaste *CaveCopyPaste::clone() const {
 /// @param _p2 Other corner of source area
 /// @param _dest Upper left corner of destination area.
 CaveCopyPaste::CaveCopyPaste(Coordinate _p1, Coordinate _p2, Coordinate _dest)
-    :   CaveObject(GD_COPY_PASTE),
-        p1(_p1),
+    :   p1(_p1),
         p2(_p2),
         dest(_dest),
         mirror(false),
@@ -93,7 +92,7 @@ void CaveCopyPaste::set_mirror_flip(bool _mirror, bool _flip) {
     flip = _flip;
 }
 
-void CaveCopyPaste::draw(CaveRendered &cave) const {
+void CaveCopyPaste::draw(CaveRendered &cave, int order_idx) const {
     int x1 = p1.x, y1 = p1.y, x2 = p2.x, y2 = p2.y;
     int w, h;
 
@@ -104,7 +103,7 @@ void CaveCopyPaste::draw(CaveRendered &cave) const {
         std::swap(y1, y2);
     w = x2 - x1 + 1;
     h = y2 - y1 + 1;
-    CaveMapFast<GdElementEnum> clipboard(w, h);
+    CaveMap<GdElementEnum> clipboard(w, h);
 
     /* copy to "clipboard" */
     for (int y = 0; y < h; y++)
@@ -116,7 +115,7 @@ void CaveCopyPaste::draw(CaveRendered &cave) const {
         for (int x = 0; x < w; x++) {
             int xdisp = mirror ? w - 1 - x : x;
             /* dx and dy are used here are "paste to" coordinates */
-            cave.store_rc(dest.x + xdisp, dest.y + ydisp, clipboard(x, y), this);
+            cave.store_rc(dest.x + xdisp, dest.y + ydisp, clipboard(x, y), order_idx);
         }
     }
 }
@@ -132,12 +131,8 @@ PropertyDescription const CaveCopyPaste::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveCopyPaste::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveCopyPaste::get_coordinates_text() const {
-    return SPrintf("%d,%d-%d,%d (%d,%d)") % p1.x % p1.y % p2.x % p2.y % dest.x % dest.y;
+    return Printf("%d,%d-%d,%d (%d,%d)", p1.x, p1.y, p2.x, p2.y, dest.x, dest.y);
 }
 
 void CaveCopyPaste::create_drag(Coordinate current, Coordinate displacement) {
@@ -159,8 +154,7 @@ void CaveCopyPaste::move(Coordinate displacement) {
 }
 
 std::string CaveCopyPaste::get_description_markup() const {
-    return SPrintf(_("Copy from %d,%d-%d,%d, paste to %d,%d"))
-           % p1.x % p1.y % p2.x % p2.y % dest.x % dest.y;
+    return Printf(_("Copy from %d,%d-%d,%d, paste to %d,%d"), p1.x, p1.y, p2.x, p2.y, dest.x, dest.y);
 }
 
 GdElementEnum CaveCopyPaste::get_characteristic_element() const {

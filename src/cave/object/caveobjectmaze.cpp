@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -55,7 +55,7 @@ std::string CaveMaze::get_bdcff() const {
     return f;
 }
 
-CaveMaze *CaveMaze::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveMaze::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p1, p2;
     int ww, pw, horiz;
     int seed[5];
@@ -72,24 +72,24 @@ CaveMaze *CaveMaze::clone_from_bdcff(const std::string &name, std::istream &is) 
     else if (gd_str_ascii_caseequal(mazetype, "braid"))
         mazet = CaveMaze::Braid;
     else {
-        gd_warning(CPrintf("unknown maze type: %s, defaulting to perfect") % mazetype);
+        gd_warning("unknown maze type: %s, defaulting to perfect", mazetype);
         mazet = CaveMaze::Perfect;
     }
-    CaveMaze *m = new CaveMaze(p1, p2, wall, path, mazet);
-    m->set_horiz(horiz);
-    m->set_widths(ww, pw);
-    m->set_seed(seed[0], seed[1], seed[2], seed[3], seed[4]);
+    CaveMaze m(p1, p2, wall, path, mazet);
+    m.set_horiz(horiz);
+    m.set_widths(ww, pw);
+    m.set_seed(seed[0], seed[1], seed[2], seed[3], seed[4]);
 
-    return m;
+    return std::make_unique<CaveMaze>(std::move(m));
 }
 
-CaveMaze *CaveMaze::clone() const {
-    return new CaveMaze(*this);
+std::unique_ptr<CaveObject>CaveMaze::clone() const {
+    return std::make_unique<CaveMaze>(*this);
 };
 
 /* create a maze in a bool map. */
 /* recursive algorithm. */
-void CaveMaze::mazegen(CaveMapFast<bool> &maze, RandomGenerator &rand, int x, int y, int horiz) {
+void CaveMaze::mazegen(CaveMap<bool> &maze, RandomGenerator &rand, int x, int y, int horiz) {
     int dirmask = 15;
 
     maze(x, y) = true;
@@ -141,7 +141,7 @@ void CaveMaze::mazegen(CaveMapFast<bool> &maze, RandomGenerator &rand, int x, in
 
 
 void
-CaveMaze::braidmaze(CaveMapFast<bool> &maze, RandomGenerator &rand) {
+CaveMaze::braidmaze(CaveMap<bool> &maze, RandomGenerator &rand) {
     int w = maze.width();
     int h = maze.height();
 
@@ -197,7 +197,7 @@ CaveMaze::braidmaze(CaveMapFast<bool> &maze, RandomGenerator &rand) {
 }
 
 
-void CaveMaze::unicursalmaze(CaveMapFast<bool> &maze, int &w, int &h) {
+void CaveMaze::unicursalmaze(CaveMap<bool> &maze, int &w, int &h) {
     /* convert to unicursal maze */
     /* original:
         xxx x
@@ -213,7 +213,7 @@ void CaveMaze::unicursalmaze(CaveMapFast<bool> &maze, int &w, int &h) {
         x         x
         xxxxxxxxxxx
     */
-    CaveMapFast<bool> unicursal(w * 2 + 1, h * 2 + 1, false);
+    CaveMap<bool> unicursal(w * 2 + 1, h * 2 + 1, false);
 
     for (int y = 0; y < h; y++)
         for (int x = 0; x < w; x++) {
@@ -239,7 +239,7 @@ void CaveMaze::unicursalmaze(CaveMapFast<bool> &maze, int &w, int &h) {
 
 
 CaveMaze::CaveMaze(Coordinate _p1, Coordinate _p2, GdElementEnum _wall, GdElementEnum _path, MazeType _type)
-    :   CaveRectangular(_type == Perfect ? GD_MAZE : (_type == Braid ? GD_MAZE_BRAID : GD_MAZE_UNICURSAL), _p1, _p2),
+    :   CaveRectangular(_p1, _p2),
         maze_type(_type),
         wall_width(1),
         path_width(1),
@@ -273,7 +273,7 @@ void CaveMaze::set_seed(int s1, int s2, int s3, int s4, int s5) {
  * - if needed, convert it to braid maze or unicursal maze.
  * - resize the maze to the given path and wall width.
  */
-void CaveMaze::draw(CaveRendered &cave) const {
+void CaveMaze::draw(CaveRendered &cave, int order_idx) const {
     /* change coordinates if not in correct order */
     int x1 = p1.x;
     int y1 = p1.y;
@@ -323,7 +323,7 @@ void CaveMaze::draw(CaveRendered &cave) const {
      * places maze objects during mouse click&drag with no size! */
 
     /* draw maze. */
-    CaveMapFast<bool> map(w, h, false);
+    CaveMap<bool> map(w, h, false);
     if (w >= 1 && h >= 1)
         mazegen(map, rand, 0, 0, horiz);
     /* if braid maze, turn the above to a braid one. */
@@ -348,11 +348,11 @@ void CaveMaze::draw(CaveRendered &cave) const {
             int xk = x1;
             for (int x = 0; x < w; x++)
                 for (int j = 0; j < (x % 2 == 0 ? path : wall); j++)
-                    cave.store_rc(xk++, yk, map(x, y) ? path_element : wall_element, this);
+                    cave.store_rc(xk++, yk, map(x, y) ? path_element : wall_element, order_idx);
 
             /* if width is smaller than requested, fill with wall */
             for (int x = xk; x <= x2; x++)
-                cave.store_rc(x, yk, wall_element, this);
+                cave.store_rc(x, yk, wall_element, order_idx);
 
             yk++;
         }
@@ -360,7 +360,7 @@ void CaveMaze::draw(CaveRendered &cave) const {
     /* if height is smaller than requested, fill with wall */
     for (int y = yk; y <= y2; y++)
         for (int x = x1; x <= x2; x++)
-            cave.store_rc(x, y, wall_element, this);
+            cave.store_rc(x, y, wall_element, order_idx);
 }
 
 PropertyDescription const CaveMaze::descriptor[] = {
@@ -377,13 +377,8 @@ PropertyDescription const CaveMaze::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveMaze::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveMaze::get_description_markup() const {
-    return SPrintf(_("Maze from %d,%d to %d,%d, wall <b>%ms</b>, path <b>%ms</b>"))
-           % p1.x % p1.y % p2.x % p2.y % visible_name_lowercase(wall_element) % visible_name_lowercase(path_element);
+    return Printf(_("Maze from %d,%d to %d,%d, wall <b>%ms</b>, path <b>%ms</b>"), p1.x, p1.y, p2.x, p2.y, visible_name_lowercase(wall_element), visible_name_lowercase(path_element));
 }
 
 GdElementEnum CaveMaze::get_characteristic_element() const {

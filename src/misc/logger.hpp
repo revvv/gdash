@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,13 +26,17 @@
 
 #include "config.h"
 
+#include "settings.hpp"
+#include "misc/printf.hpp"
 #include <string>
 #include <vector>
+#include <utility>
+#include <cassert>
+#include <iostream>
 
 /// A simple class to store an error message.
 /// Each message has a string and a severity level.
-class ErrorMessage {
-public:
+struct ErrorMessage {
     enum Severity {
         Debug,
         Info,
@@ -44,10 +48,9 @@ public:
 
     Severity sev;
     std::string message;
+
     ErrorMessage(Severity sev_, std::string msg_)
-        :
-        sev(sev_),
-        message(msg_) {
+        : sev(sev_), message(std::move(msg_)) {
     }
 };
 
@@ -114,41 +117,81 @@ public:
 
 private:
     bool ignore;            ///< if true, all errors reported are ignored
-    bool read;              ///< if false, not all messages are seen by the user.
     Container messages;     ///< list of messages
     std::string context;    ///< context which is added to all messages
 
-    Logger(Logger const &);             // deliberately not implemented
-    Logger &operator=(Logger const &);  // deliberately not implemented
 
-    void set_context(std::string const &new_context = std::string());
+    void set_context(std::string new_context = std::string());
     std::string const &get_context() const;
 
 public:
     Logger(bool ignore_ = false);
+    Logger(Logger const &) = delete;
+    Logger& operator=(Logger const &) = delete;
     ~Logger();
     void clear();
     bool empty() const;
     Container const &get_messages() const;
     std::string get_messages_in_one_string() const;
     void log(ErrorMessage::Severity sev, std::string const &message);
+    
+    static Logger &get_active_logger() {
+        assert(!Logger::loggers.empty());
+        return *Logger::loggers.back();
+    }
 
-    friend void log(ErrorMessage::Severity sev, std::string const &message);
-    friend Logger &get_active_logger();
+    template <typename ... ARGS>
+    friend void log(ErrorMessage::Severity sev, std::string const &message, ARGS const & ... args);
+
     friend class SetLoggerContextForFunction;
 };
 
 
-/* error handling */
-void log(ErrorMessage::Severity sev, std::string const &message);
-Logger &get_active_logger();
+template <typename ... ARGS>
+void log(ErrorMessage::Severity sev, std::string const &message, ARGS const & ... args) {
+    /* check if at least one logger exists */
+    if (Logger::loggers.empty()) {
+        std::cerr << message;
+        return;
+    }
+    
+    if (sizeof...(args) == 0) {
+        Logger::get_active_logger().log(sev, message);
+    } else {
+        Logger::get_active_logger().log(sev, Printf(message, args...));
+    }
+}
 
-void gd_critical(const char *message);
-void gd_warning(const char *message);
-void gd_message(const char *message);
 
-void gd_debug(const char *message);
+/**
+ * @brief Convenience function to log a critical message.
+ */
+template <typename ... ARGS>
+void gd_critical(const char *message, ARGS const & ... args) {
+    log(ErrorMessage::Critical, message, args...);
+}
 
+/**
+ * @brief Convenience function to log a warning message.
+ */
+template <typename ... ARGS>
+void gd_warning(const char *message, ARGS const & ... args) {
+    log(ErrorMessage::Warning, message, args...);
+}
+
+/**
+ * @brief Convenience function to log a normal message.
+ */
+template <typename ... ARGS>
+void gd_message(const char *message, ARGS const & ... args) {
+    log(ErrorMessage::Message, message, args...);
+}
+
+template <typename ... ARGS>
+void gd_debug(const char *message, ARGS const & ... args) {
+    if (gd_param_debug)
+        log(ErrorMessage::Debug, message, args...);
+}
 
 /** Set the logger context for the lifetime of the object.
  * To be used to set the context while inside a function or a statement block:
@@ -159,15 +202,16 @@ void gd_debug(const char *message);
  *
  *    // Log messages generated here will have the context
  *
- * } // slc object goes out of scope here, context is set back to original value
+ * } // slc object goes out of scope here, context is reset to original value
  * @endcode
 */
 class SetLoggerContextForFunction {
     Logger &l;
     std::string orig_context;
 public:
-    SetLoggerContextForFunction(std::string const &context, Logger &l = get_active_logger())
-        : l(l), orig_context(l.get_context()) {
+    SetLoggerContextForFunction(std::string const &context, Logger &l = Logger::get_active_logger())
+        : l(l) {
+        orig_context = l.get_context();
         l.set_context(orig_context.empty() ? context : (orig_context + ", " + context));
     }
     ~SetLoggerContextForFunction() {

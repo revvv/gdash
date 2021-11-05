@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -33,8 +33,8 @@ protected:
     Coordinate p1, p2;
 
 public:
-    CaveRectangular(CaveObject::Type type, Coordinate _p1, Coordinate _p2);
-    CaveRectangular(CaveObject::Type type): CaveObject(type) {}
+    CaveRectangular(Coordinate _p1, Coordinate _p2) : p1(_p1), p2(_p2) {}
+    CaveRectangular() = default;
 
 public:
     virtual void create_drag(Coordinate current, Coordinate displacement);

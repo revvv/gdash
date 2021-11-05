@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -110,16 +110,13 @@ GdkPixbuf *gd_icon() {
 /* they have floating reference. */
 /* the list is to be freed by the caller. */
 static GList *image_load_filters() {
-    GSList *formats = gdk_pixbuf_get_formats();
-    GSList *iter;
-    GtkFileFilter *all_filter;
-    GList *filters = NULL;  /* new list of filters */
-
-    all_filter = gtk_file_filter_new();
+    GtkFileFilter *all_filter = gtk_file_filter_new();
     gtk_file_filter_set_name(all_filter, _("All image files"));
 
     /* iterate the list of formats given by gdk. create file filters for each. */
-    for (iter = formats; iter != NULL; iter = iter->next) {
+    GSList *formats = gdk_pixbuf_get_formats();
+    GList *filters = NULL;  /* new list of filters */
+    for (GSList *iter = formats; iter != NULL; iter = iter->next) {
         GdkPixbufFormat *frm = (GdkPixbufFormat *)iter->data;
 
         if (!gdk_pixbuf_format_is_disabled(frm)) {
@@ -127,7 +124,7 @@ static GList *image_load_filters() {
             gtk_file_filter_set_name(filter, gdk_pixbuf_format_get_description(frm));
             char **extensions = gdk_pixbuf_format_get_extensions(frm);
             for (int i = 0; extensions[i] != NULL; i++) {
-                std::string pattern = SPrintf("*.%s") % extensions[i];
+                std::string pattern = Printf("*.%s", extensions[i]);
                 gtk_file_filter_add_pattern(filter, pattern.c_str());
                 gtk_file_filter_add_pattern(all_filter, pattern.c_str());
             }
@@ -147,26 +144,19 @@ static GList *image_load_filters() {
 
 /* file open dialog, with filters for image types gdk-pixbuf recognizes. */
 char *gd_select_image_file(const char *title) {
-    GtkWidget *dialog;
-    GList *filters;
-    GList *iter;
-    int result;
-    char *filename;
-
-    dialog = gtk_file_chooser_dialog_new(title, guess_active_toplevel(), GTK_FILE_CHOOSER_ACTION_OPEN, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL);
+    GtkWidget *dialog = gtk_file_chooser_dialog_new(title, guess_active_toplevel(), GTK_FILE_CHOOSER_ACTION_OPEN, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 
     /* obtain list of image filters, and add all to the window */
-    filters = image_load_filters();
-    for (iter = filters; iter != NULL; iter = iter->next)
+    GList *filters = image_load_filters();
+    for (GList *iter = filters; iter != NULL; iter = iter->next)
         gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), GTK_FILE_FILTER(iter->data));
     g_list_free(filters);
 
-    result = gtk_dialog_run(GTK_DIALOG(dialog));
+    int result = gtk_dialog_run(GTK_DIALOG(dialog));
+    char *filename = NULL;
     if (result == GTK_RESPONSE_ACCEPT)
         filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
-    else
-        filename = NULL;
     gtk_widget_destroy(dialog);
 
     return filename;
@@ -178,9 +168,6 @@ char *gd_select_image_file(const char *title) {
  */
 GtkWindow *guess_active_toplevel() {
     GtkWidget *parent = NULL;
-
-    /* before doing anything, process updates, as windows may have been opened or closed right at the previous moment */
-    gdk_window_process_all_updates();
 
     /* if we find a modal window, it is active. */
     GList *toplevels = gtk_window_list_toplevels();
@@ -314,7 +301,7 @@ void gd_save_caveset_as(CaveSet &caveset) {
     gtk_file_filter_add_pattern(filter, "*");
     gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
 
-    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), CPrintf("%s.bd") % caveset.name);
+    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), Printf("%s.bd", caveset.name).c_str());
 
     std::string filename;
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT)
@@ -325,7 +312,7 @@ void gd_save_caveset_as(CaveSet &caveset) {
     if (filename != "") {
         /* if it has no .bd extension, add one */
         if (!g_str_has_suffix(filename.c_str(), ".bd"))
-            filename = SPrintf("%s.bd") % filename;
+            filename = Printf("%s.bd", filename);
         caveset_save(filename.c_str(), caveset);
     }
 }
@@ -442,15 +429,13 @@ GtkWidget *gd_label_new_rightaligned(const char *markup) {
 void gd_show_errors(Logger &l, const char *title, bool always_show) {
     if (l.get_messages().empty() && !always_show)
         return;
-    /* create text buffer */
-    GtkTextIter iter;
-    GdkPixbuf *pixbuf_error, *pixbuf_warning, *pixbuf_info;
 
-    GtkWidget *dialog = gtk_dialog_new_with_buttons(title, guess_active_toplevel(), GTK_DIALOG_NO_SEPARATOR, GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(title, guess_active_toplevel(), GTK_DIALOG_MODAL, GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
     gtk_window_set_default_size(GTK_WINDOW(dialog), 512, 384);
     GtkWidget *sw = gtk_scrolled_window_new(NULL, NULL);
-    gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(dialog)->vbox), sw);
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    gtk_container_add(GTK_CONTAINER(content_area), sw);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(sw), GTK_SHADOW_IN);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(sw), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
@@ -460,11 +445,12 @@ void gd_show_errors(Logger &l, const char *title, bool always_show) {
     gtk_container_add(GTK_CONTAINER(sw), view);
     g_object_unref(buffer);
 
-    pixbuf_error = gtk_widget_render_icon(view, GTK_STOCK_DIALOG_ERROR, GTK_ICON_SIZE_MENU, NULL);
-    pixbuf_warning = gtk_widget_render_icon(view, GTK_STOCK_DIALOG_WARNING, GTK_ICON_SIZE_MENU, NULL);
-    pixbuf_info = gtk_widget_render_icon(view, GTK_STOCK_DIALOG_INFO, GTK_ICON_SIZE_MENU, NULL);
+    GdkPixbuf *pixbuf_error = gtk_widget_render_icon_pixbuf(view, GTK_STOCK_DIALOG_ERROR, GTK_ICON_SIZE_MENU);
+    GdkPixbuf *pixbuf_warning = gtk_widget_render_icon_pixbuf(view, GTK_STOCK_DIALOG_WARNING, GTK_ICON_SIZE_MENU);
+    GdkPixbuf *pixbuf_info = gtk_widget_render_icon_pixbuf(view, GTK_STOCK_DIALOG_INFO, GTK_ICON_SIZE_MENU);
     Logger::Container const &messages = l.get_messages();
     for (Logger::ConstIterator error = messages.begin(); error != messages.end(); ++error) {
+        GtkTextIter iter;
         gtk_text_buffer_get_iter_at_offset(buffer, &iter, -1);
         if (error->sev <= ErrorMessage::Message)
             gtk_text_buffer_insert_pixbuf(buffer, &iter, pixbuf_info);
@@ -517,15 +503,12 @@ bool gd_question_yesno(const char *primary, const char *secondary) {
  * Turns off the separator of the dialog, as it looks nicer without.
  */
 void gd_dialog_add_hint(GtkDialog *dialog, const char *hint) {
-    /* turn off separator, as it does not look nice with the hint */
-    gtk_dialog_set_has_separator(dialog, FALSE);
-
-    GtkWidget *align = gtk_alignment_new(0.5, 0.5, 0, 0);
-    gtk_box_pack_end(GTK_BOX(GTK_DIALOG(dialog)->vbox), align, FALSE, TRUE, 0);
-    GtkWidget *hbox = gtk_hbox_new(FALSE, 6);
-    gtk_container_add(GTK_CONTAINER(align), hbox);
+    GtkWidget *hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
+    gtk_container_set_border_width(GTK_CONTAINER(hbox), 6);
+    gtk_box_pack_end(GTK_BOX(gtk_dialog_get_content_area(dialog)), hbox, FALSE, FALSE, 0);
     GtkWidget *label = gd_label_new_centered(hint);
     gtk_label_set_line_wrap(GTK_LABEL(label), TRUE);
+    gtk_label_set_max_width_chars(GTK_LABEL(label), 55);    // to avoid one label setting the window too wide
     gtk_box_pack_start(GTK_BOX(hbox), gtk_image_new_from_stock(GTK_STOCK_DIALOG_INFO, GTK_ICON_SIZE_DIALOG), FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(hbox), label, TRUE, TRUE, 0);
 }
@@ -560,7 +543,7 @@ void show_help_window(const helpdata help_text[], GtkWidget *parent) {
     gtk_text_buffer_create_tag(buffer, "bold", "weight", PANGO_WEIGHT_BOLD, "scale", PANGO_SCALE_MEDIUM, NULL);
     for (unsigned int i = 0; g_strcmp0(help_text[i].stock_id, HELP_LAST_LINE) != 0; ++i) {
         if (help_text[i].stock_id) {
-            GdkPixbuf *pixbuf = gtk_widget_render_icon(parent, help_text[i].stock_id, GTK_ICON_SIZE_LARGE_TOOLBAR, NULL);
+            GdkPixbuf *pixbuf = gtk_widget_render_icon_pixbuf(parent, help_text[i].stock_id, GTK_ICON_SIZE_LARGE_TOOLBAR);
             gtk_text_buffer_insert_pixbuf(buffer, &iter, pixbuf);
             gtk_text_buffer_insert(buffer, &iter, " ", -1);
             g_object_unref(pixbuf);
@@ -597,11 +580,12 @@ void show_help_window(const helpdata help_text[], GtkWidget *parent) {
     }
 
     // TRANSLATORS: Title text capitalization in English
-    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("GDash Help"), GTK_WINDOW(parent), GTK_DIALOG_NO_SEPARATOR, GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("GDash Help"), GTK_WINDOW(parent), GTK_DIALOG_MODAL, GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
     gtk_window_set_default_size(GTK_WINDOW(dialog), 512, 384);
     GtkWidget *sw = gtk_scrolled_window_new(NULL, NULL);
-    gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(dialog)->vbox), sw);
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    gtk_box_pack_start(GTK_BOX(content_area), sw, TRUE, TRUE, 0);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(sw), GTK_SHADOW_IN);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(sw), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 

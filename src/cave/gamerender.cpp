@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -72,10 +72,6 @@ GameRenderer::GameRenderer(Screen &screen, CellRenderer &cells, FontManager &fon
         status_bar_fast(false),
         status_bar_alternate(false),
         status_bar_paused(false) {
-}
-
-
-GameRenderer::~GameRenderer() {
 }
 
 
@@ -185,7 +181,7 @@ bool GameRenderer::cave_scroll(int logical_size, int physical_size, int center, 
 
 * scrolling is a bit complicated. different caves have different speeds, and
 * also the game rendering can be run at different speeds (depending on the
-* refresh rate of the user's display, if the opengl driver is selected). so
+* refresh rate of the user's display). so
 * first a pixel/frame scrolling speed is calculated using the measured delay
 * and the cave speed.
 * 
@@ -358,7 +354,7 @@ void GameRenderer::drawcave() const {
 
     /* writing the scrolling parameters to the screen */
     /*
-    std::string s = SPrintf("ms=%2d fps=%2d sm=%4.2f sx=%4.2f sy=%4.2f") % scroll_ms % (1000/scroll_ms) % scroll_speed_normal % scroll_speed_x % scroll_speed_y;
+    std::string s = Printf("ms=%2d fps=%2d sm=%4.2f sx=%4.2f sy=%4.2f", scroll_ms, 1000/scroll_ms, scroll_speed_normal, scroll_speed_x, scroll_speed_y);
     font_manager.blittext_n(1, screen.get_height()-font_manager.get_line_height()+1, GD_GDASH_BLACK, s.c_str());
     font_manager.blittext_n(0, screen.get_height()-font_manager.get_line_height(), GD_GDASH_WHITE, s.c_str());
     */
@@ -452,12 +448,12 @@ void GameRenderer::drawstatus_uncover() const {
     std::string str;
     if (game.type == GameControl::TYPE_NORMAL) {
         if (game.caveset_has_levels)
-            str = SPrintf("%d%c, %s/%d") % game.player_lives % GD_PLAYER_CHAR % game.played_cave->name % int(game.played_cave->rendered_on + 1);
+            str = Printf("%d%c, %s/%d", game.player_lives, GD_PLAYER_CHAR, game.played_cave->name, int(game.played_cave->rendered_on + 1));
         else
-            str = SPrintf("%d%c, %s") % game.player_lives % GD_PLAYER_CHAR % game.played_cave->name;
+            str = Printf("%d%c, %s", game.player_lives, GD_PLAYER_CHAR, game.played_cave->name);
     } else
         /* if not a normal game, do not show number of remaining lives */
-        str = SPrintf("%s/%d") % game.played_cave->name % int(game.played_cave->rendered_on + 1);
+        str = Printf("%s/%d", game.played_cave->name, int(game.played_cave->rendered_on + 1));
     int len = g_utf8_strlen(str.c_str(), -1);
     if (screen.get_width() / font_manager.get_font_width_wide() >= len) /* if have place for double-width font */
         font_manager.blittext(-1, cavename_y, cols.default_color, str.c_str());
@@ -500,18 +496,18 @@ void GameRenderer::drawstatus_game() const {
         /* this will output a total of 20 chars */
         int x = (screen.get_width() - 20 * font_manager.get_font_width_wide()) / 2;
 
-        x = font_manager.blittext(x, y, cols.default_color, CPrintf("%c%02d ") % GD_PLAYER_CHAR % gd_clamp(game.player_lives, 0, 99)); /* max 99 in %2d */
+        x = font_manager.blittext(x, y, cols.default_color, "%c%02d ", GD_PLAYER_CHAR, gd_clamp(game.player_lives, 0, 99)); /* max 99 in %2d */
         /* color numbers are not the same as key numbers! c3->k1, c2->k2, c1->k3 */
         /* this is how it was implemented in crdr7. */
-        x = font_manager.blittext(x, y, game.played_cave->color3, CPrintf("%c%1d ") % GD_KEY_CHAR % gd_clamp(int(game.played_cave->key1), 0, 9)); /* max 9 in %1d */
-        x = font_manager.blittext(x, y, game.played_cave->color2, CPrintf("%c%1d ") % GD_KEY_CHAR % gd_clamp(int(game.played_cave->key2), 0, 9));
-        x = font_manager.blittext(x, y, game.played_cave->color1, CPrintf("%c%1d ") % GD_KEY_CHAR % gd_clamp(int(game.played_cave->key3), 0, 9));
+        x = font_manager.blittext(x, y, game.played_cave->color3, "%c%1d ", GD_KEY_CHAR, gd_clamp(int(game.played_cave->key1), 0, 9)); /* max 9 in %1d */
+        x = font_manager.blittext(x, y, game.played_cave->color2, "%c%1d ", GD_KEY_CHAR, gd_clamp(int(game.played_cave->key2), 0, 9));
+        x = font_manager.blittext(x, y, game.played_cave->color1, "%c%1d ", GD_KEY_CHAR, gd_clamp(int(game.played_cave->key3), 0, 9));
         if (game.played_cave->gravity_will_change > 0) {
-            x = font_manager.blittext(x, y, cols.default_color, CPrintf("%c%02d ") % gravity_char(game.played_cave->gravity_next_direction) % gd_clamp(game.played_cave->time_visible(game.played_cave->gravity_will_change), 0, 99));
+            x = font_manager.blittext(x, y, cols.default_color, "%c%02d ", gravity_char(game.played_cave->gravity_next_direction), gd_clamp(game.played_cave->time_visible(game.played_cave->gravity_will_change), 0, 99));
         } else {
-            x = font_manager.blittext(x, y, cols.default_color, CPrintf("%c%02d ") % gravity_char(game.played_cave->gravity) % 0);
+            x = font_manager.blittext(x, y, cols.default_color, "%c%02d ", gravity_char(game.played_cave->gravity), 0);
         }
-        x = font_manager.blittext(x, y, cols.diamond_collected, CPrintf("%c%02d") % GD_SKELETON_CHAR % gd_clamp(int(game.played_cave->skeletons_collected), 0, 99));
+        x = font_manager.blittext(x, y, cols.diamond_collected, "%c%02d", GD_SKELETON_CHAR, gd_clamp(int(game.played_cave->skeletons_collected), 0, 99));
     } else {
         int scale = screen.get_pixmap_scale();
         /* NORMAL STATUS BAR */
@@ -529,27 +525,27 @@ void GameRenderer::drawstatus_game() const {
         x += 1 * scale;
         if (status_bar_fast) {
             /* fast forward mode - show "FAST" */
-            x = font_manager.blittext(x, y, cols.default_color, CPrintf("%cFAST%c") % GD_DIAMOND_CHAR % GD_DIAMOND_CHAR);
+            x = font_manager.blittext(x, y, cols.default_color, "%cFAST%c", GD_DIAMOND_CHAR, GD_DIAMOND_CHAR);
         } else {
             /* normal speed mode - show diamonds NEEDED <> VALUE */
             /* or if collected enough diamonds,   <><><> VALUE */
             if (game.played_cave->diamonds_needed > game.played_cave->diamonds_collected) {
                 if (game.played_cave->diamonds_needed > 0)
-                    x = font_manager.blittext(x, y, cols.diamond_needed, CPrintf("%03d") % game.played_cave->diamonds_needed);
+                    x = font_manager.blittext(x, y, cols.diamond_needed, "%03d", game.played_cave->diamonds_needed);
                 else
                     /* did not already count diamonds needed */
-                    x = font_manager.blittext(x, y, cols.diamond_needed, CPrintf("%c%c%c") % GD_DIAMOND_CHAR % GD_DIAMOND_CHAR % GD_DIAMOND_CHAR);
+                    x = font_manager.blittext(x, y, cols.diamond_needed, "%c%c%c", GD_DIAMOND_CHAR, GD_DIAMOND_CHAR, GD_DIAMOND_CHAR);
             } else
-                x = font_manager.blittext(x, y, cols.default_color, CPrintf(" %c%c") % GD_DIAMOND_CHAR % GD_DIAMOND_CHAR);
-            x = font_manager.blittext(x, y, cols.default_color, CPrintf("%c") % GD_DIAMOND_CHAR);
-            x = font_manager.blittext(x, y, cols.diamond_value, CPrintf("%02d") % game.played_cave->diamond_value);
+                x = font_manager.blittext(x, y, cols.default_color, " %c%c", GD_DIAMOND_CHAR, GD_DIAMOND_CHAR);
+            x = font_manager.blittext(x, y, cols.default_color, "%c", GD_DIAMOND_CHAR);
+            x = font_manager.blittext(x, y, cols.diamond_value, "%02d", game.played_cave->diamond_value);
         }
         x += 10 * scale;
-        x = font_manager.blittext(x, y, cols.diamond_collected, CPrintf("%03d") % game.played_cave->diamonds_collected);
+        x = font_manager.blittext(x, y, cols.diamond_collected, "%03d", game.played_cave->diamonds_collected);
         x += 11 * scale;
-        x = font_manager.blittext(x, y, cols.default_color, CPrintf("%03d") % time_secs);
+        x = font_manager.blittext(x, y, cols.default_color, "%03d", time_secs);
         x += 10 * scale;
-        x = font_manager.blittext(x, y, cols.score, CPrintf("%06d") % game.player_score);
+        x = font_manager.blittext(x, y, cols.score, "%06d", game.player_score);
     }
 }
 
@@ -678,15 +674,15 @@ void GameRenderer::drawstory() const {
         // create the pixbuf for it
         int w = screen.get_width() / screen.get_pixmap_scale(),
             h = screen.get_height() / screen.get_pixmap_scale();
-        std::auto_ptr<Pixbuf> background_pixbuf(screen.pixbuf_factory.create(w, h));
+        std::unique_ptr<Pixbuf> background_pixbuf(screen.pixbuf_factory.create(w, h));
         GdElementEnum bgcells[8] = { O_STONE, O_DIAMOND, O_BRICK, O_DIRT, O_SPACE, O_SPACE, O_DIRT, O_SPACE };
         int cs = cells.get_cell_pixbuf_size();
         for (int y = 0; y < h; y += cs)
             for (int x = 0; x < w; x += cs)
                 cells.cell_pixbuf(abs(gd_element_properties[bgcells[g_random_int_range(0, 7)]].image_game)).copy(*background_pixbuf, x, y);
-        std::auto_ptr<Pixbuf> dark_background_pixbuf(screen.pixbuf_factory.create_composite_color(*background_pixbuf, GdColor::from_rgb(0, 0, 0), 256 * 4 / 5));
+        std::unique_ptr<Pixbuf> dark_background_pixbuf(screen.pixbuf_factory.create_composite_color(*background_pixbuf, GdColor::from_rgb(0, 0, 0), 256 * 4 / 5));
         // this one should be the size of the screen again
-        story.background.reset(screen.create_scaled_pixmap_from_pixbuf(*dark_background_pixbuf, false));
+        story.background = screen.create_scaled_pixmap_from_pixbuf(*dark_background_pixbuf, false);
     }
     screen.blit(*story.background, 0, 0);
 
@@ -703,10 +699,10 @@ void GameRenderer::drawstory() const {
     // up & down arrow
     if (story.scroll_y < story.max_y)
         font_manager.blittext_n(screen.get_width() - font_manager.get_font_width_narrow(),
-                                screen.get_height() - 3 * font_manager.get_line_height(), GD_GDASH_GRAY2, CPrintf("%c") % GD_DOWN_CHAR);
+                                screen.get_height() - 3 * font_manager.get_line_height(), GD_GDASH_GRAY2, Printf("%c", GD_DOWN_CHAR).c_str());
     if (story.scroll_y > 0)
         font_manager.blittext_n(screen.get_width() - font_manager.get_font_width_narrow(),
-                                font_manager.get_line_height() * 2, GD_GDASH_GRAY2, CPrintf("%c") % GD_UP_CHAR);
+                                font_manager.get_line_height() * 2, GD_GDASH_GRAY2, Printf("%c",GD_UP_CHAR).c_str());
 }
 
 

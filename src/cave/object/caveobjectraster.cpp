@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -40,7 +40,7 @@ std::string CaveRaster::get_bdcff() const {
     return BdcffFormat("Raster") << p1 << number << dist << element;
 }
 
-CaveRaster *CaveRaster::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveRaster::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p1, n, d, p2;
     GdElementEnum element;
 
@@ -49,20 +49,20 @@ CaveRaster *CaveRaster::clone_from_bdcff(const std::string &name, std::istream &
     p2.x = p1.x + (n.x - 1) * d.x;
     p2.y = p1.y + (n.y - 1) * d.y;
 
-    return new CaveRaster(p1, p2, d, element);
+    return std::make_unique<CaveRaster>(p1, p2, d, element);
 }
 
-CaveRaster *CaveRaster::clone() const {
-    return new CaveRaster(*this);
+std::unique_ptr<CaveObject> CaveRaster::clone() const {
+    return std::make_unique<CaveRaster>(*this);
 };
 
 CaveRaster::CaveRaster(Coordinate _p1, Coordinate _p2, Coordinate _dist, GdElementEnum _element)
-    :   CaveRectangular(GD_RASTER, _p1, _p2),
+    :   CaveRectangular(_p1, _p2),
         dist(_dist),
         element(_element) {
 }
 
-void CaveRaster::draw(CaveRendered &cave) const {
+void CaveRaster::draw(CaveRendered &cave, int order_idx) const {
     /* reorder coordinates if not drawing from northwest to southeast */
     int x1 = p1.x, y1 = p1.y;
     int x2 = p2.x, y2 = p2.y;
@@ -77,7 +77,7 @@ void CaveRaster::draw(CaveRendered &cave) const {
 
     for (int y = y1; y <= y2; y += dy)
         for (int x = x1; x <= x2; x += dx)
-            cave.store_rc(x, y, element, this);
+            cave.store_rc(x, y, element, order_idx);
 }
 
 PropertyDescription const CaveRaster::descriptor[] = {
@@ -90,17 +90,12 @@ PropertyDescription const CaveRaster::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveRaster::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveRaster::get_coordinates_text() const {
-    return SPrintf("%d,%d-%d,%d (%d,%d)") % p1.x % p1.y % p2.x % p2.y % dist.x % dist.y;
+    return Printf("%d,%d-%d,%d (%d,%d)", p1.x, p1.y, p2.x, p2.y, dist.x, dist.y);
 }
 
 std::string CaveRaster::get_description_markup() const {
-    return SPrintf(_("Raster from %d,%d to %d,%d of <b>%ms</b>, distance %+d,%+d"))
-           % p1.x % p1.y % p2.x % p2.y % visible_name_lowercase(element) % dist.x % dist.y;
+    return Printf(_("Raster from %d,%d to %d,%d of <b>%ms</b>, distance %+d,%+d"), p1.x, p1.y, p2.x, p2.y, visible_name_lowercase(element), dist.x, dist.y);
 }
 
 GdElementEnum CaveRaster::get_characteristic_element() const {

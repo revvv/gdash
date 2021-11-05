@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -34,8 +34,7 @@
 
 /* POINT */
 CavePoint::CavePoint(Coordinate _p, GdElementEnum _element)
-    :   CaveObject(GD_POINT),
-        p(_p),
+    :   p(_p),
         element(_element) {
 }
 
@@ -43,21 +42,21 @@ std::string CavePoint::get_bdcff() const {
     return BdcffFormat("Point") << p << element;
 }
 
-CavePoint *CavePoint::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CavePoint::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p;
     GdElementEnum element;
 
     if (!(is >> p >> element))
         return NULL;
-    return new CavePoint(p, element);
+    return std::make_unique<CavePoint>(p, element);
 }
 
-CavePoint *CavePoint::clone() const {
-    return new CavePoint(*this);
+std::unique_ptr<CaveObject> CavePoint::clone() const {
+    return std::make_unique<CavePoint>(*this);
 };
 
-void CavePoint::draw(CaveRendered &cave) const {
-    cave.store_rc(p.x, p.y, element, this);
+void CavePoint::draw(CaveRendered &cave, int order_idx) const {
+    cave.store_rc(p.x, p.y, element, order_idx);
 }
 
 PropertyDescription const CavePoint::descriptor[] = {
@@ -68,12 +67,8 @@ PropertyDescription const CavePoint::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CavePoint::get_description_array() const {
-    return descriptor;
-}
-
 std::string CavePoint::get_coordinates_text() const {
-    return SPrintf("%d,%d") % p.x % p.y;
+    return Printf("%d,%d", p.x, p.y);
 }
 
 void CavePoint::create_drag(Coordinate current, Coordinate displacement) {
@@ -89,8 +84,7 @@ void CavePoint::move(Coordinate displacement) {
 }
 
 std::string CavePoint::get_description_markup() const {
-    return SPrintf(_("Point of <b>%ms</b> at %d,%d"))
-           % visible_name_lowercase(element) % p.x % p.y;
+    return Printf(_("Point of <b>%ms</b> at %d,%d"), visible_name_lowercase(element), p.x, p.y);
 }
 
 GdElementEnum CavePoint::get_characteristic_element() const {

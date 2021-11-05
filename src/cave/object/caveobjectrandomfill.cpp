@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -54,18 +54,17 @@ std::string CaveRandomFill::get_bdcff() const {
     return f;
 }
 
-CaveRandomFill *CaveRandomFill::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveRandomFill::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p1, p2;
     int seed[5];
     GdElementEnum initial_fill, replace_only;
     GdElementEnum random_fill[4] = {O_DIRT, O_DIRT, O_DIRT, O_DIRT};
     int random_prob[4] = {0, 0, 0, 0};
-    int j;
     std::string s1, s2;
 
     if (!(is >> p1 >> p2 >> seed[0] >> seed[1] >> seed[2] >> seed[3] >> seed[4] >> initial_fill))
         return NULL;
-    j = 0;
+    int j = 0;
     /* now come fill element&probability pairs. read as we find two words */
     while (j < 4 && (is >> s1 >> s2)) {
         std::istringstream is1(s1), is2(s2);
@@ -93,23 +92,23 @@ CaveRandomFill *CaveRandomFill::clone_from_bdcff(const std::string &name, std::i
     } else
         replace_only = O_NONE;
 
-    CaveRandomFill *r = new CaveRandomFill(p1, p2);
-    r->set_replace_only(replace_only);
-    r->set_seed(seed[0], seed[1], seed[2], seed[3], seed[4]);
-    r->set_random_fill(initial_fill, random_fill[0], random_fill[1], random_fill[2], random_fill[3]);
-    r->set_random_prob(random_prob[0], random_prob[1], random_prob[2], random_prob[3]);
-    r->set_c64_random(gd_str_ascii_caseequal(name, "RandomFillC64"));
-    return r;
+    CaveRandomFill r(p1, p2);
+    r.set_replace_only(replace_only);
+    r.set_seed(seed[0], seed[1], seed[2], seed[3], seed[4]);
+    r.set_random_fill(initial_fill, random_fill[0], random_fill[1], random_fill[2], random_fill[3]);
+    r.set_random_prob(random_prob[0], random_prob[1], random_prob[2], random_prob[3]);
+    r.set_c64_random(gd_str_ascii_caseequal(name, "RandomFillC64"));
+    return std::make_unique<CaveRandomFill>(std::move(r));
 }
 
 
-CaveRandomFill *CaveRandomFill::clone() const {
-    return new CaveRandomFill(*this);
+std::unique_ptr<CaveObject> CaveRandomFill::clone() const {
+    return std::make_unique<CaveRandomFill>(*this);
 }
 
 
 CaveRandomFill::CaveRandomFill(Coordinate _p1, Coordinate _p2)
-    :   CaveRectangular(GD_RANDOM_FILL, _p1, _p2),
+    :   CaveRectangular(_p1, _p2),
         replace_only(O_NONE),
         c64_random(false) {
     initial_fill = O_SPACE;
@@ -148,7 +147,7 @@ void CaveRandomFill::set_seed(int s1, int s2, int s3, int s4, int s5) {
     seed[4] = s5;
 }
 
-void CaveRandomFill::draw(CaveRendered &cave) const {
+void CaveRandomFill::draw(CaveRendered &cave, int order_idx) const {
     /* -1 means that it should be different every time played. */
     guint32 s;
     if (seed[cave.rendered_on] == -1)
@@ -191,7 +190,7 @@ void CaveRandomFill::draw(CaveRendered &cave) const {
             if (randm < random_fill_probability_4)
                 element = random_fill_4;
             if (replace_only == O_NONE || cave.map(x, y) == replace_only)
-                cave.store_rc(x, y, element, this);
+                cave.store_rc(x, y, element, order_idx);
         }
 }
 
@@ -205,28 +204,22 @@ PropertyDescription const CaveRandomFill::descriptor[] = {
     {"", GD_TYPE_BOOLEAN, 0, N_("C64 random"), GetterBase::create_new(&CaveRandomFill::c64_random), N_("Controls if the C64 random generator is used for the fill, or a more advanced one. By using the C64 generator, you can recreate the patterns of the original game.")},
     {"", GD_TYPE_INT_LEVELS, 0, N_("Random seed"), GetterBase::create_new(&CaveRandomFill::seed), N_("Random seed value controls the predictable random number generator, which fills the cave initially. If set to -1, cave is totally random every time it is played."), -1, GD_CAVE_SEED_MAX},
     {"", GD_TYPE_ELEMENT, 0, N_("Initial fill"), GetterBase::create_new(&CaveRandomFill::initial_fill), 0},
-    {"", GD_TYPE_INT, 0, N_("Probability 1"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_1), 0, 0, 255},
+    {"", GD_TYPE_INT, GD_BD_PROBABILITY, N_("Probability 1"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_1), 0, 0, 255},
     {"", GD_TYPE_ELEMENT, 0, N_("Random fill 1"), GetterBase::create_new(&CaveRandomFill::random_fill_1), 0},
-    {"", GD_TYPE_INT, 0, N_("Probability 2"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_2), 0, 0, 255},
+    {"", GD_TYPE_INT, GD_BD_PROBABILITY, N_("Probability 2"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_2), 0, 0, 255},
     {"", GD_TYPE_ELEMENT, 0, N_("Random fill 2"), GetterBase::create_new(&CaveRandomFill::random_fill_2), 0},
-    {"", GD_TYPE_INT, 0, N_("Probability 3"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_3), 0, 0, 255},
+    {"", GD_TYPE_INT, GD_BD_PROBABILITY, N_("Probability 3"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_3), 0, 0, 255},
     {"", GD_TYPE_ELEMENT, 0, N_("Random fill 3"), GetterBase::create_new(&CaveRandomFill::random_fill_3), 0},
-    {"", GD_TYPE_INT, 0, N_("Probability 4"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_4), 0, 0, 255},
+    {"", GD_TYPE_INT, GD_BD_PROBABILITY, N_("Probability 4"), GetterBase::create_new(&CaveRandomFill::random_fill_probability_4), 0, 0, 255},
     {"", GD_TYPE_ELEMENT, 0, N_("Random fill 4"), GetterBase::create_new(&CaveRandomFill::random_fill_4), 0},
     {NULL},
 };
 
-PropertyDescription const *CaveRandomFill::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveRandomFill::get_description_markup() const {
     if (replace_only == O_NONE)
-        return SPrintf(_("Random fill from %d,%d to %d,%d"))
-               % p1.x % p1.y % p2.x % p2.y;
+        return Printf(_("Random fill from %d,%d to %d,%d"), p1.x, p1.y, p2.x, p2.y);
     else
-        return SPrintf(_("Random fill from %d,%d to %d,%d, replacing %ms"))
-               % p1.x % p1.y % p2.x % p2.y % visible_name_lowercase(replace_only);
+        return Printf(_("Random fill from %d,%d to %d,%d, replacing %ms"), p1.x, p1.y, p2.x, p2.y, visible_name_lowercase(replace_only));
 }
 
 GdElementEnum CaveRandomFill::get_characteristic_element() const {

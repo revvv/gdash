@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,10 +26,9 @@
 #include <sstream>
 #include "cave/object/caveobject.hpp"
 #include "cave/helper/namevaluepair.hpp"
-#include "misc/logger.hpp"
+#include "cave/helper/polymorphic.hpp"
 
 /* for factory */
-#include "misc/smartptr.hpp"
 #include "cave/object/caveobjectboundaryfill.hpp"
 #include "cave/object/caveobjectcopypaste.hpp"
 #include "cave/object/caveobjectfillrect.hpp"
@@ -73,34 +72,33 @@ void CaveObject::disable_on_all() {
         seen_on[i] = false;
 }
 
-static NameValuePair<SmartPtr<CaveObject> > object_prototypes;
-
-void gd_cave_objects_init() {
-    object_prototypes.add("Point", new CavePoint);
-    object_prototypes.add("Line", new CaveLine);
-    object_prototypes.add("Rectangle", new CaveRectangle);
-    object_prototypes.add("FillRect", new CaveFillRect);
-    object_prototypes.add("Raster", new CaveRaster);
-    object_prototypes.add("Join", new CaveJoin);
-    object_prototypes.add("Add", new CaveJoin);
-    object_prototypes.add("AddBackward", new CaveJoin);
-    object_prototypes.add("BoundaryFill", new CaveBoundaryFill);
-    object_prototypes.add("FloodFill", new CaveFloodFill);
-    object_prototypes.add("Maze", new CaveMaze);
-    object_prototypes.add("CopyPaste", new CaveCopyPaste);
-    object_prototypes.add("RandomFill", new CaveRandomFill);
-    object_prototypes.add("RandomFillC64", new CaveRandomFill);
+namespace {
+    NameValuePair<Polymorphic<CaveObject>> object_prototypes = {
+        {"Point", CavePoint()},
+        {"Line", CaveLine()},
+        {"Rectangle", CaveRectangle()},
+        {"FillRect", CaveFillRect()},
+        {"Raster", CaveRaster()},
+        {"Join", CaveJoin()},
+        {"Add", CaveJoin()},
+        {"AddBackward", CaveJoin()},
+        {"BoundaryFill", CaveBoundaryFill()},
+        {"FloodFill", CaveFloodFill()},
+        {"Maze", CaveMaze()},
+        {"CopyPaste", CaveCopyPaste()},
+        {"RandomFill", CaveRandomFill()},
+        {"RandomFillC64", CaveRandomFill()},
+    };
 }
 
-
-CaveObject *CaveObject::create_from_bdcff(const std::string &str) {
+std::unique_ptr<CaveObject> CaveObject::create_from_bdcff(const std::string &str) {
     std::string::size_type f = str.find('=');
     if (f == std::string::npos)
         return NULL;
     try {
         std::string type = str.substr(0, f);
         std::istringstream is(str.substr(f + 1));
-        return object_prototypes.lookup_name(type)->clone_from_bdcff(type, is);
+        return object_prototypes.lookup_name(type).get().clone_from_bdcff(type, is);
     } catch (std::exception &e) {
         return NULL;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -28,7 +28,6 @@
 #include <map>
 
 #include "misc/logger.hpp"
-#include "misc/printf.hpp"
 #include "misc/autogfreeptr.hpp"
 #include "cave/colors.hpp"
 #include "misc/util.hpp"
@@ -142,16 +141,16 @@ char *gd_html_favicon_filename = NULL;
 
 /* GTK keyboard settings */
 #ifdef HAVE_GTK    /* only if having gtk */
-int gd_gtk_key_left = GDK_Left;
-int gd_gtk_key_right = GDK_Right;
-int gd_gtk_key_up = GDK_Up;
-int gd_gtk_key_down = GDK_Down;
-int gd_gtk_key_fire_1 = GDK_Control_L;
-int gd_gtk_key_fire_2 = GDK_Control_R;
-int gd_gtk_key_suicide = GDK_s;
-int gd_gtk_key_fast_forward = GDK_f;
-int gd_gtk_key_status_bar = GDK_Shift_L;
-int gd_gtk_key_restart_level = GDK_Escape;
+int gd_gtk_key_left = GDK_KEY_Left;
+int gd_gtk_key_right = GDK_KEY_Right;
+int gd_gtk_key_up = GDK_KEY_Up;
+int gd_gtk_key_down = GDK_KEY_Down;
+int gd_gtk_key_fire_1 = GDK_KEY_Control_L;
+int gd_gtk_key_fire_2 = GDK_KEY_Control_R;
+int gd_gtk_key_suicide = GDK_KEY_s;
+int gd_gtk_key_fast_forward = GDK_KEY_f;
+int gd_gtk_key_status_bar = GDK_KEY_Shift_L;
+int gd_gtk_key_restart_level = GDK_KEY_Escape;
 #endif    /* only if having gtk */
 
 /* SDL settings */
@@ -169,15 +168,15 @@ int gd_sdl_key_restart_level = SDLK_ESCAPE;
 std::string gd_shader;
 int shader_pal_radial_distortion = 10;
 int shader_pal_random_scanline_displace = 50;
-int shader_pal_luma_x_blur = 50;
-int shader_pal_chroma_x_blur = 75;
-int shader_pal_chroma_y_blur = 75;
-int shader_pal_chroma_to_luma_strength = 25;
+int shader_pal_luma_x_blur = 40;
+int shader_pal_chroma_x_blur = 50;
+int shader_pal_chroma_y_blur = 50;
+int shader_pal_chroma_to_luma_strength = 15;
 int shader_pal_luma_to_chroma_strength = 15;
 int shader_pal_random_y = 5;
 int shader_pal_random_uv = 10;
 int shader_pal_scanline_shade_luma = 90;
-int shader_pal_phosphor_shade = 85;
+int shader_pal_phosphor_shade = 90;
 #endif    /* use_sdl */
 
 /* sound settings */
@@ -441,16 +440,16 @@ void gd_settings_init() {
 #endif
 
 #ifdef HAVE_SDL    /* only if having sdl */
-    settings_integers["sdl_key_left"] = &gd_sdl_key_left;
-    settings_integers["sdl_key_right"] = &gd_sdl_key_right;
-    settings_integers["sdl_key_up"] = &gd_sdl_key_up;
-    settings_integers["sdl_key_down"] = &gd_sdl_key_down;
-    settings_integers["sdl_key_fire_1"] = &gd_sdl_key_fire_1;
-    settings_integers["sdl_key_fire_2"] = &gd_sdl_key_fire_2;
-    settings_integers["sdl_key_suicide"] = &gd_sdl_key_suicide;
-    settings_integers["sdl_key_fast_forward"] = &gd_sdl_key_fast_forward;
-    settings_integers["sdl_key_status_bar"] = &gd_sdl_key_status_bar;
-    settings_integers["sdl_key_restart_level"] = &gd_sdl_key_restart_level;
+    settings_integers["sdl2_key_left"] = &gd_sdl_key_left;
+    settings_integers["sdl2_key_right"] = &gd_sdl_key_right;
+    settings_integers["sdl2_key_up"] = &gd_sdl_key_up;
+    settings_integers["sdl2_key_down"] = &gd_sdl_key_down;
+    settings_integers["sdl2_key_fire_1"] = &gd_sdl_key_fire_1;
+    settings_integers["sdl2_key_fire_2"] = &gd_sdl_key_fire_2;
+    settings_integers["sdl2_key_suicide"] = &gd_sdl_key_suicide;
+    settings_integers["sdl2_key_fast_forward"] = &gd_sdl_key_fast_forward;
+    settings_integers["sdl2_key_status_bar"] = &gd_sdl_key_status_bar;
+    settings_integers["sdl2_key_restart_level"] = &gd_sdl_key_restart_level;
     settings_strings["shader"] = &gd_shader;
 
     settings_integers["shader_pal_radial_distortion"] = &shader_pal_radial_distortion;
@@ -534,7 +533,7 @@ void gd_settings_set_locale() {
     if (result == NULL) {
         /* failed to set. switch to system default */
         if (gd_language != 0)
-            gd_message(CPrintf("Failed to set language to '%s'. Switching to system default locale.") % gd_languages_names[gd_language]);
+            gd_message("Failed to set language to '%s'. Switching to system default locale.", gd_languages_names[gd_language]);
         setlocale(LC_ALL, "");
     }
 }
@@ -582,7 +581,7 @@ void gd_load_settings() {
     gboolean success = g_key_file_load_from_data(ini, data, length, G_KEY_FILE_NONE, &error);
     g_free(data);
     if (!success) {
-        gd_message(CPrintf("INI file contents error: %s") % error->message);
+        gd_message("INI file contents error: %s", error->message);
         g_error_free(error);
         return;
     }
@@ -641,21 +640,21 @@ void gd_save_settings() {
 
     GError *error = NULL;
     /* convert to string and free */
-    AutoGFreePtr<gchar> data(g_key_file_to_data(ini, NULL, &error));
+    AutoGFreePtr<char> data(g_key_file_to_data(ini, NULL, &error));
     g_key_file_free(ini);
     if (error) {
         /* this is highly unlikely - why would g_key_file_to_data report error? docs do not mention. */
-        gd_warning(CPrintf("Unable to save settings: %s") % error->message);
+        gd_warning("Unable to save settings: %s", error->message);
         g_error_free(error);
         return;
     }
 
-    AutoGFreePtr<gchar> filename(g_build_path(G_DIR_SEPARATOR_S, gd_user_config_dir.c_str(), SETTINGS_INI_FILE, NULL));
+    AutoGFreePtr<char> filename(g_build_path(G_DIR_SEPARATOR_S, gd_user_config_dir.c_str(), SETTINGS_INI_FILE, NULL));
     g_mkdir_with_parents(gd_user_config_dir.c_str(), 0700);
     g_file_set_contents(filename, data, -1, &error);
     if (error) {
         /* error saving the file */
-        gd_warning(CPrintf("Unable to save settings: %s") % error->message);
+        gd_warning("Unable to save settings: %s", error->message);
         g_error_free(error);
         return;
     }

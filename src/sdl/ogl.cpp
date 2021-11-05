@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -67,59 +67,61 @@ static MY_PFNGLUNIFORM2FPROC my_glUniform2f = 0;
 static MY_PFNGETSHADERINFOLOGPROC my_glGetShaderInfoLog = 0;
 
 
+void SDLOGLScreen::glDeleteProgram_wrapper(GLuint program) {
+    if (program)
+        my_glDeleteProgram(program);
+}
+
+void SDLOGLScreen::glDeleteShader_wrapper(GLuint shader) {
+    if (shader)
+        my_glDeleteShader(shader);
+}
+
+
 void * my_glGetProcAddress(char const *name) {
     void *ptr = SDL_GL_GetProcAddress(name);
     if (ptr)
         return ptr;
     /* try with ARB */
-    ptr = SDL_GL_GetProcAddress(CPrintf("%sARB") % name);    
+    ptr = SDL_GL_GetProcAddress(Printf("%sARB", name).c_str());
     return ptr;
 }
 
 
-SDLNewOGLScreen::SDLNewOGLScreen(PixbufFactory &pixbuf_factory)
+SDLOGLScreen::SDLOGLScreen(PixbufFactory &pixbuf_factory)
  : SDLAbstractScreen(pixbuf_factory) {
     shader_support = false;
     timed_flips = false;
     oglscaling = 1;
-
-    glprogram = 0;
-    texture = 0;
 }
 
 
-SDLNewOGLScreen::~SDLNewOGLScreen() {
-    uninit();
-}
-
-
-void SDLNewOGLScreen::set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) {
+void SDLOGLScreen::set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) {
     oglscaling = scaling_factor_;
     /* the other two are not used by this screen implementation */
 }
 
 
-Pixmap *SDLNewOGLScreen::create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const {
+std::unique_ptr<Pixmap> SDLOGLScreen::create_pixmap_from_pixbuf(Pixbuf const &pb, bool keep_alpha) const {
     SDL_Surface *to_copy = static_cast<SDLPixbuf const &>(pb).get_surface();
-    SDL_Surface *newsurface = SDL_CreateRGBSurface(keep_alpha ? SDL_SRCALPHA : 0, to_copy->w, to_copy->h, 32,
+    SDL_Surface *newsurface = SDL_CreateRGBSurface(0, to_copy->w, to_copy->h, 32,
                               surface->format->Rmask, surface->format->Gmask, surface->format->Bmask, surface->format->Amask);
-    SDL_SetAlpha(to_copy, 0, SDL_ALPHA_OPAQUE);
     SDL_BlitSurface(to_copy, NULL, newsurface, NULL);
-    return new SDLPixmap(newsurface);
+    return std::make_unique<SDLPixmap>(newsurface);
 }
 
 
-void SDLNewOGLScreen::set_title(char const *title) {
-    SDL_WM_SetCaption(title, NULL);
+void SDLOGLScreen::set_title(char const *title) {
+    SDL_SetWindowTitle(window.get(), title);
 }
 
 
-bool SDLNewOGLScreen::has_timed_flips() const {
+bool SDLOGLScreen::has_timed_flips() const {
     return timed_flips;
 }
- 
- 
-void SDLNewOGLScreen::set_texture_bilinear(bool bilinear) {
+
+
+void SDLOGLScreen::set_texture_bilinear(bool bilinear) {
     if (bilinear) {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -129,11 +131,11 @@ void SDLNewOGLScreen::set_texture_bilinear(bool bilinear) {
     }
 }
 
- 
-void SDLNewOGLScreen::start_element(GMarkupParseContext *context, const gchar *element_name, const gchar **attribute_names, const gchar **attribute_values, gpointer user_data, GError **error) {
-    SDLNewOGLScreen *dis = static_cast<SDLNewOGLScreen *>(user_data);
+
+void SDLOGLScreen::start_element(GMarkupParseContext *context, const gchar *element_name, const gchar **attribute_names, const gchar **attribute_values, gpointer user_data, GError **error) {
+    SDLOGLScreen *dis = static_cast<SDLOGLScreen *>(user_data);
     dis->shadertext = "";
-    
+
     for (unsigned i = 0; attribute_names[i] != NULL; ++i) {
         if (g_str_equal(attribute_names[i], "filter")) {
             if (g_str_equal(attribute_values[i], "nearest"))
@@ -164,9 +166,9 @@ static void log_shader_log(GLuint shd) {
 }
 
 
-void SDLNewOGLScreen::end_element(GMarkupParseContext *context, const gchar *element_name, gpointer user_data, GError **error) {
-    SDLNewOGLScreen *dis = static_cast<SDLNewOGLScreen *>(user_data);
-    
+void SDLOGLScreen::end_element(GMarkupParseContext *context, const gchar *element_name, gpointer user_data, GError **error) {
+    SDLOGLScreen *dis = static_cast<SDLOGLScreen *>(user_data);
+
     if (g_str_equal(element_name, "vertex")) {
         GLuint shd = my_glCreateShader(GL_VERTEX_SHADER);
         char const *source = dis->shadertext.c_str();
@@ -175,11 +177,9 @@ void SDLNewOGLScreen::end_element(GMarkupParseContext *context, const gchar *ele
         log_shader_log(shd);
         if (glGetError() != 0)
             throw std::runtime_error("vertex shader cannot be compiled");
-        my_glAttachShader(dis->glprogram, shd);
-        dis->shaders.push_back(shd);
-    }
-
-    if (g_str_equal(element_name, "fragment")) {
+        my_glAttachShader(dis->glprogram.get(), shd);
+        dis->shaders.emplace_back(shd);
+    } else if (g_str_equal(element_name, "fragment")) {
         GLuint shd = my_glCreateShader(GL_FRAGMENT_SHADER);
         char const *source = dis->shadertext.c_str();
         my_glShaderSource(shd, 1, &source, 0);
@@ -188,37 +188,33 @@ void SDLNewOGLScreen::end_element(GMarkupParseContext *context, const gchar *ele
         log_shader_log(shd);
         if (glGetError() != 0)
             throw std::runtime_error("fragment shader cannot be compiled");
-        my_glAttachShader(dis->glprogram, shd);
-        dis->shaders.push_back(shd);
+        my_glAttachShader(dis->glprogram.get(), shd);
+        dis->shaders.emplace_back(shd);
     }
 
 }
 
 
-void SDLNewOGLScreen::text(GMarkupParseContext *context, const gchar *text, gsize text_len, gpointer user_data, GError **error) {
-    SDLNewOGLScreen *dis = static_cast<SDLNewOGLScreen *>(user_data);
+void SDLOGLScreen::text(GMarkupParseContext *context, const gchar *text, gsize text_len, gpointer user_data, GError **error) {
+    SDLOGLScreen *dis = static_cast<SDLOGLScreen *>(user_data);
     dis->shadertext += std::string(text, text+text_len);
 }
 
 
-void SDLNewOGLScreen::configure_size() {
-    uninit();
+void SDLOGLScreen::configure_size() {
+    texture.reset();
+    shaders.clear();
+    glprogram.reset();
+    surface.reset();
+    context.reset();
+    window.reset();
 
     /* init screen */
-    SDL_InitSubSystem(SDL_INIT_VIDEO);
-    /* for some reason, keyboard settings must be done here */
-    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-    SDL_EnableUNICODE(1);
-    /* icon */
-    SDL_RWops *rwop = SDL_RWFromConstMem(Screen::gdash_icon_32_png, Screen::gdash_icon_32_size);
-    SDL_Surface *icon = IMG_Load_RW(rwop, 1);  // 1 = automatically closes rwop
-    SDL_WM_SetIcon(icon, NULL);
-    SDL_FreeSurface(icon);
+    if (!SDL_WasInit(SDL_INIT_VIDEO))
+        SDL_Init(SDL_INIT_VIDEO);
 
     /* create buffer */
-    surface = SDL_CreateRGBSurface(SDL_SRCALPHA, w, h, 32, Pixbuf::rmask, Pixbuf::gmask, Pixbuf::bmask, Pixbuf::amask);
-    Uint32 col = SDL_MapRGBA(surface->format, 0, 0, 0, SDL_ALPHA_OPAQUE);
-    SDL_FillRect(surface, NULL, col);
+    surface.reset(SDL_CreateRGBSurface(0, w, h, 32, Pixbuf::rmask, Pixbuf::gmask, Pixbuf::bmask, Pixbuf::amask));
 
     /* create screen */
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE,   5);
@@ -228,18 +224,27 @@ void SDLNewOGLScreen::configure_size() {
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);    // no need to have one
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     /* if doing fine scrolling, try to swap every frame. otherwise, every second frame. */
-    SDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, gd_fine_scroll ? 1 : 2);
+    SDL_GL_SetSwapInterval(-1);
 
-    Uint32 flags = SDL_OPENGL;
-    SDL_Surface *surface = SDL_SetVideoMode(w*oglscaling, h*oglscaling, 0, flags | (gd_fullscreen ? SDL_FULLSCREEN : 0));
-    if (gd_fullscreen && !surface)
-        surface = SDL_SetVideoMode(w*oglscaling, h*oglscaling, 0, flags);      // try the same, without fullscreen
-    if (!surface)
-        throw std::runtime_error("cannot initialize sdl video");
+    if (gd_fullscreen)
+        window.reset(SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w * oglscaling, h * oglscaling, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN));
+    else
+        window.reset(SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w * oglscaling, h * oglscaling, SDL_WINDOW_OPENGL));
+    if (!window)
+        throw ScreenConfigureException("cannot initialize sdl video");
+    context.reset(SDL_GL_CreateContext(window.get()));
+
     /* do not show mouse cursor */
     SDL_ShowCursor(SDL_DISABLE);
     /* warp mouse pointer so cursor cannot be seen, if the above call did nothing for some reason */
-    SDL_WarpMouse(w - 1, h - 1);
+    SDL_WarpMouseInWindow(window.get(), w - 1, h - 1);
+
+    /* icon & title */
+    SDL_RWops *rwop = SDL_RWFromConstMem(Screen::gdash_icon_32_png, Screen::gdash_icon_32_size);
+    SDL_Surface *icon = IMG_Load_RW(rwop, 1);  // 1 = automatically closes rwop
+    SDL_SetWindowIcon(window.get(), icon);
+    SDL_FreeSurface(icon);
+    set_title("GDash");
 
     {
         /* report parameters got. */
@@ -248,9 +253,8 @@ void SDLNewOGLScreen::configure_size() {
         SDL_GL_GetAttribute(SDL_GL_GREEN_SIZE,   &green);
         SDL_GL_GetAttribute(SDL_GL_BLUE_SIZE,    &blue);
         SDL_GL_GetAttribute(SDL_GL_DOUBLEBUFFER, &double_buffer);
-        SDL_GL_GetAttribute(SDL_GL_SWAP_CONTROL, &swap_control);
-        gd_debug(CPrintf("red:%d green:%d blue:%d double_buffer:%d swap_control:%d")
-                 % red % green % blue % double_buffer % swap_control);
+        swap_control = SDL_GL_GetSwapInterval();
+        gd_debug("red:%d green:%d blue:%d double_buffer:%d swap_control:%d", red, green, blue, double_buffer, swap_control);
 
         timed_flips = double_buffer != 0 && swap_control != 0;
     }
@@ -273,8 +277,12 @@ void SDLNewOGLScreen::configure_size() {
      * we are using the fixed pipeline, not a shader */
     glEnable(GL_TEXTURE_2D);
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    {
+        GLuint newtexture;
+        glGenTextures(1, &newtexture);
+        texture.reset(newtexture);
+    }
+    glBindTexture(GL_TEXTURE_2D, texture.get());
     set_texture_bilinear(false);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
@@ -301,18 +309,18 @@ void SDLNewOGLScreen::configure_size() {
         && my_glDetachShader && my_glLinkProgram && my_glGetUniformLocation
         && my_glUniform1f && my_glUniform2f;
 
-    glprogram = 0;
+    glprogram.reset();
     if (shader_support) {
         gd_debug("have shader support");
         const GLubyte *glsl_version = glGetString(MY_GL_SHADING_LANGUAGE_VERSION);
         if (glsl_version) {
-            gd_debug(CPrintf("shader language version %s") % (char*) glsl_version);
+            gd_debug("shader language version %s", (char*) glsl_version);
         }
     }
     if (shader_support && gd_shader != "") {
         try {
-            gd_debug(CPrintf("loading shader %s") % gd_shader);
-            glprogram = my_glCreateProgram();
+            gd_debug("loading shader %s", gd_shader);
+            glprogram.reset(my_glCreateProgram());
 
             /* load file */
             gchar *programtext = NULL;
@@ -333,21 +341,21 @@ void SDLNewOGLScreen::configure_size() {
             bool success = g_markup_parse_context_parse(parsecontext, programtext, length, NULL);
             g_markup_parse_context_free(parsecontext);
             g_free(programtext);
-            
+
             if (!success)
                 throw std::runtime_error("cannot parse shader file markup");
 
-            my_glLinkProgram(glprogram);
+            my_glLinkProgram(glprogram.get());
             if (glGetError() != 0) {
                 throw std::runtime_error("shader program cannot be linked");
             }
-            my_glUseProgram(glprogram);
+            my_glUseProgram(glprogram.get());
             if (glGetError() != 0)
                 throw std::runtime_error("shader program cannot be used");
             /* configure the program with sizes */
             set_uniform_2float("rubyInputSize", w, h);
             set_uniform_2float("rubyTextureSize", w, h);
-            set_uniform_2float("rubyOutputSize", w*oglscaling, h*oglscaling);
+            set_uniform_2float("rubyOutputSize", w * oglscaling, h * oglscaling);
         } catch (std::exception const & e) {
             set_texture_bilinear(false);
             gd_warning(e.what());
@@ -361,10 +369,8 @@ void SDLNewOGLScreen::configure_size() {
  * @param name The name of the variable.
  * @param value The new value of the variable.
  */
-void SDLNewOGLScreen::set_uniform_float(char const *name, GLfloat value) {
-    if (glprogram == 0)
-        return;
-    GLint location = my_glGetUniformLocation(glprogram, name);
+void SDLOGLScreen::set_uniform_float(char const *name, GLfloat value) {
+    GLint location = my_glGetUniformLocation(glprogram.get(), name);
     if (location != -1)  /* if such variable exists */
         my_glUniform1f(location, value);
 }
@@ -375,37 +381,14 @@ void SDLNewOGLScreen::set_uniform_float(char const *name, GLfloat value) {
  * @param name The name of the variable.
  * @param value The new value of the variable.
  */
-void SDLNewOGLScreen::set_uniform_2float(char const *name, GLfloat value1, GLfloat value2) {
-    if (glprogram == 0)
-        return;
-    GLint location = my_glGetUniformLocation(glprogram, name);
+void SDLOGLScreen::set_uniform_2float(char const *name, GLfloat value1, GLfloat value2) {
+    GLint location = my_glGetUniformLocation(glprogram.get(), name);
     if (location != -1)  /* if such variable exists */
         my_glUniform2f(location, value1, value2);
 }
 
 
-void SDLNewOGLScreen::uninit() {
-    if (texture != 0)
-        glDeleteTextures(1, &texture);
-    texture = 0;
-    /* delete shaders and program */
-    while (!shaders.empty()) {
-        my_glDeleteShader(shaders.back());
-        shaders.pop_back();
-    }
-    if (glprogram != 0)
-        my_glDeleteProgram(glprogram);
-    glprogram = 0;
-    /* delete sdl stuff */
-    if (surface != NULL)
-        SDL_FreeSurface(surface);
-    surface = NULL;
-    if (SDL_WasInit(SDL_INIT_VIDEO))
-        SDL_QuitSubSystem(SDL_INIT_VIDEO);
-}
-
-
-void SDLNewOGLScreen::flip() {
+void SDLOGLScreen::flip() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     /* copy the surface to the video card as the texture (one and only texture we use) */
@@ -417,10 +400,10 @@ void SDLNewOGLScreen::flip() {
      * so better make everything rgba. */
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
     /* seed the rng */
-    if (glprogram != 0) {
+    if (glprogram) {
         /* now configure the shader with some sizes and coordinates */
         set_uniform_float("randomSeed", g_random_double());
-        
+
         set_uniform_float("RADIAL_DISTORTION", shader_pal_radial_distortion / 100.0);
         set_uniform_float("CHROMA_TO_LUMA_STRENGTH", shader_pal_chroma_to_luma_strength / 100.0);
         set_uniform_float("LUMA_TO_CHROMA_STRENGTH", shader_pal_luma_to_chroma_strength / 100.0);
@@ -437,12 +420,10 @@ void SDLNewOGLScreen::flip() {
     /* and now draw a retangle */
     glBegin(GL_TRIANGLE_STRIP);
     glTexCoord2f(0, 0); glVertex2f(0, 0);
-    glTexCoord2f(1, 0); glVertex2f(w*oglscaling, 0);
-    glTexCoord2f(0, 1); glVertex2f(0, h*oglscaling);
-    glTexCoord2f(1, 1); glVertex2f(w*oglscaling, h*oglscaling);
+    glTexCoord2f(1, 0); glVertex2f(w * oglscaling, 0);
+    glTexCoord2f(0, 1); glVertex2f(0, h * oglscaling);
+    glTexCoord2f(1, 1); glVertex2f(w * oglscaling, h * oglscaling);
     glEnd();
 
-    SDL_GL_SwapBuffers();
+    SDL_GL_SwapWindow(window.get());
 }
-
-

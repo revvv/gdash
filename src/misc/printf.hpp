@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -28,16 +28,14 @@
 
 #include <string>
 #include <sstream>
-#include <deque>
-#include <glib.h>
+#include <vector>
 
 /**
  * A class which is able to process format strings like misc/printf.
  *
  * Usage:
- * std::string s = Printf("Hello, %s! %-5d") % "world" % 9;
- * The format string is passed in the constructor, and parameters
- * are fed using the % operator.
+ * std::string s = Printf("Hello, %s! %-5d", "world", 9);
+ * The format string is passed in the constructor. Also data to be processed.
  *
  * The conversion specifiers work the same way as they did in misc/printf.
  * The % character introduces a conversion, after which manipulators
@@ -46,106 +44,82 @@
  *
  * The % operator is a template, so any variable can be fed, which has
  * a standard << operator outputting it to an ostream. Giving the correct
- * type of the variable is therefore not important; Printf("%d") % "hello"
+ * type of the variable is therefore not important; Printf("%d", "hello")
  * will work. The main purpose of the format characters is to terminate the conversion
  * specifier, and to make the format strings compatible with those of printf. Sometimes they slightly
  * modify the conversion, eg. %x will print hexadecimal. %ms will print
- * a html-markup string, i.e. Printf("%ms") % "i<5" will have "i&lt;5".
+ * a html-markup string, i.e. Printf("%ms", "i<5") will have "i&lt;5".
  *
  * Conversions can be modified by giving a width or a width.precision.
  * The modifiers 0 (to print zero padded, %03d), + (to always show sign, %+5d)
  * and - (to print left aligned, %-9s) are supported. Width calculation is
  * UTF-8-aware.
- *
- * To use a Printf as a temporary object conveniently, all member functions are
- * const. Therefore non-const member variables are mutable.
  */
 class Printf {
-protected:
+  private:
     /// The format string, which may already have the results of some conversions.
-    mutable std::string format;
-
-private:
+    std::string format;
     /// Characters inserted so far - during the conversion. To know where to insert the next string.
-    mutable size_t inserted_chars;
+    size_t inserted_chars = 0;
 
     struct Conversion {
         size_t pos;         ///< Position to insert the converted string at (+inserted_chars)
         char conv;          ///< conversion type
         int width;          ///< width. zero if no padding, positive is left padding, negative if right padding
+        int precision;      ///< decimal places
+        bool left;          ///< left pad
         char pad;           ///< padding char
-        std::string manip;  ///< Manipulator
+        bool showpos;       ///< show positive sign, eg. +5
         bool html_markup;   ///< Must do HTML conversion (> to &gt; etc.) for this one
     };
-    mutable std::deque<Conversion> conversions;
+    std::vector<Conversion> conversions;
+    size_t next_conversion = 0;
 
-    static const char *conv_specifiers;
-    static std::string flag_characters;
-    static std::string html_markup_text(const std::string &of_what);
-    static std::string pad_text(std::string, int width, char pad);
+    void parse_format_string(std::string format);
+    std::ostringstream create_ostream(Conversion const & conversion) const;
+    void insert_converted(std::string os, Conversion const & conversion);
 
-    void configure_ostream(std::ostringstream &os, Conversion &conversion) const;
-    void insert_converted(std::string const &os, Conversion &conversion) const;
-
-public:
-    Printf(const std::string &format, char percent = '%');
-
-    template <class TIP> Printf const &operator%(const TIP &x) const;
-};
-
-/// The % operator feeds the next data item into the string.
-/// The function replaces the next specified conversion.
-/// @param x The parameter to convert to string in the specified format.
-/// @return The Printf object itself, so successive calls can be linked.
-template <class TIP>
-Printf const &Printf::operator%(TIP const &x) const {
-    g_assert(!conversions.empty());
-    Conversion conversion = conversions.front();
-    conversions.pop_front();
-
-    std::ostringstream os;
-    configure_ostream(os, conversion);
-    os << x;
-    insert_converted(os.str(), conversion);
-
-    return *this;
-}
-
-
-/// A specialized version of the Printf class which can be automatically
-/// cast to a char const *.
-class CPrintf : public Printf {
-public:
-    CPrintf(const std::string &format, char percent = '%') : Printf(format, percent) {}
-
-    /// Convert result to const char *.
-    operator char const *() const {
-        return format.c_str();
-    }
-
+    /// The % operator feeds the next data item into the string.
+    /// The function replaces the next specified conversion.
+    /// @param data The parameter to convert to string in the specified format.
     template <class TIP>
-    CPrintf const &operator%(TIP const &x) const {
-        Printf::operator%(x);
-        return *this;
+    void feed_one(TIP const & data) {
+        Conversion &conversion = conversions.at(next_conversion);
+        std::ostringstream os = create_ostream(conversion);
+        os << data;
+        insert_converted(std::move(os.str()), conversion);
+        ++next_conversion;
     }
-};
+    
+    template <typename HEAD, typename ... TAIL>
+    void feed_args(HEAD const & head, TAIL const & ... tail) {
+        feed_one(head);
+        feed_args(tail...);
+    }
 
+    /// Base case for feed_args
+    void feed_args() {
+    }
 
-/// A specialized version of the Printf class which can be automatically
-/// cast to an std::string.
-class SPrintf : public Printf {
-public:
-    SPrintf(const std::string &format, char percent = '%') : Printf(format, percent) {}
-
+  public:
+    /// Printf object constructor.
+    /// @param format The format string.
+    template <typename ... ARGS>
+    Printf(std::string const & format_, ARGS const & ... args) {
+        parse_format_string(format_);
+        feed_args(args...);
+    }
+    
     /// Convert result to std::string.
     operator std::string const &() const {
         return format;
     }
-
-    template <class TIP>
-    SPrintf const &operator%(TIP const &x) const {
-        Printf::operator%(x);
-        return *this;
+    
+    /// std::string-like c_str().
+    char const *c_str() const {
+        return format.c_str();
     }
 };
+
 #endif
+

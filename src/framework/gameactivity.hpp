@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,6 +24,8 @@
 #ifndef GAMEACTIVITY_HPP_INCLUDED
 #define GAMEACTIVITY_HPP_INCLUDED
 
+#include <memory>
+
 #include "framework/app.hpp"
 #include "gfx/cellrenderer.hpp"
 #include "cave/gamerender.hpp"
@@ -38,11 +40,10 @@ class Command;
  */
 class GameActivity: public Activity {
 public:
-    /** Constructor of the GameActiviyt.
+    /** Constructor of the GameActivity.
      * @param app The parent App.
-     * @param game A newly allocated GameControl object, which will be passed the keypresses. Will be
-     * automatically deleted on exit. */
-    GameActivity(App *app, GameControl *game);
+     * @param game A GameControl object, which will be passed the keypresses. */
+    GameActivity(App *app, std::unique_ptr<GameControl> game);
     ~GameActivity();
     virtual void shown_event();
     virtual void hidden_event();
@@ -64,7 +65,7 @@ public:
     };
 
 private:
-    GameControl *game;
+    std::unique_ptr<GameControl> game;
     CellRenderer cellrenderer;
     GameRenderer gamerenderer;
     bool exit_game, show_highscore, paused;

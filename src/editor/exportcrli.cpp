@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -56,7 +56,7 @@ static int element_to_crli(GdElementEnum e, std::set<GdElementEnum>& unknown) {
 
     if (code == -1) {
         if (unknown.count(e) == 0) {
-            gd_warning(CPrintf("the element '%s' can not be saved in crli, saving steel wall instead") % visible_name(e));
+            gd_warning("the element '%s' can not be saved in crli, saving steel wall instead", visible_name(e));
             unknown.insert(e);
         }
 
@@ -100,7 +100,7 @@ static unsigned char amoeba_probability(GdProbability input) {
             return 0xff;
     }
     // otherwise, report and convert non-exactly
-    gd_warning(CPrintf("Cannot convert amoeba probability %g%% exactly") % visible_name(input));
+    gd_warning("Cannot convert amoeba probability %g%% exactly", visible_name(input));
     /*
      Give an approximation. The scale could be logarithmic, but who cares.
         1000000: 0x03;
@@ -164,7 +164,7 @@ static int crli_export(CaveStored const &to_convert, const int level, guint8 *co
 
     /* check cave sizes */
     if (to_convert.w != 40 || to_convert.h != 22)
-        gd_critical(CPrintf("cave sizes out of range, should be 40x22 instead of %dx%d") % to_convert.w % to_convert.h);
+        gd_critical("cave sizes out of range, should be 40x22 instead of %dx%d", to_convert.w, to_convert.h);
     gd_cave_correct_visible_size(cave);
     if (to_convert.intermission) { /* visible size for intermissions */
         if (to_convert.x1 != 0 || to_convert.y1 != 0 || to_convert.x2 != 19 || to_convert.y2 != 11)
@@ -223,7 +223,7 @@ static int crli_export(CaveStored const &to_convert, const int level, guint8 *co
     output[0x387] = to_convert.color2.get_c64_index();
     int x = to_convert.color3.get_c64_index();
     if (x > 7)
-        gd_message(CPrintf("allowed colors for color3 are Black..Yellow, but it is %d") % x);
+        gd_message("allowed colors for color3 are Black..Yellow, but it is %d", x);
     output[0x388] = x | 8;
 
     output[0x389] = to_convert.intermission ? 1 : 0;
@@ -268,12 +268,10 @@ static int crli_export(CaveStored const &to_convert, const int level, guint8 *co
     output[0x39d] = element_to_crli(to_convert.biter_eat, unknown);
     output[0x39e] = element_to_crli(to_convert.slime_eats_1, unknown);
     if (element_to_crli(to_convert.slime_eats_1, unknown) + 3 != element_to_crli(scanned_pair(to_convert.slime_converts_1), unknown))
-        gd_warning(CPrintf("cannot convert slime setting: %s to %s")
-                   % visible_name(to_convert.slime_eats_1) % visible_name(to_convert.slime_converts_1));
+        gd_warning("cannot convert slime setting: %s to %s", visible_name(to_convert.slime_eats_1), visible_name(to_convert.slime_converts_1));
     output[0x39f] = element_to_crli(to_convert.slime_eats_2, unknown);
     if (element_to_crli(to_convert.slime_eats_2, unknown) + 3 != element_to_crli(scanned_pair(to_convert.slime_converts_2), unknown))
-        gd_warning(CPrintf("cannot convert slime setting: %s to %s")
-                   % visible_name(to_convert.slime_eats_2) % visible_name(to_convert.slime_converts_2));
+        gd_warning("cannot convert slime setting: %s to %s", visible_name(to_convert.slime_eats_2), visible_name(to_convert.slime_converts_2));
 
     output[0x3a0] = 'V'; /* version number */
     output[0x3a1] = '3';
@@ -347,7 +345,7 @@ static int crli_export(CaveStored const &to_convert, const int level, guint8 *co
 }
 
 void
-gd_export_cave_to_crli_cavefile(CaveStored *cave, int level, const char *filename) {
+gd_export_cave_to_crli_cavefile(CaveStored const &cave, int level, const char *filename) {
     guint8 data[1024];
     int size;
     GError *error = NULL;
@@ -357,16 +355,16 @@ gd_export_cave_to_crli_cavefile(CaveStored *cave, int level, const char *filenam
     data[0x2] = 'D';
     data[0x3] = 'L';
     data[0x4] = 'P';
-    size = crli_export(*cave, level, data + 5);
+    size = crli_export(cave, level, data + 5);
     if (!g_file_set_contents(filename, (gchar *)data, size + 5, &error)) {
         /* could not save properly */
-        gd_warning(CPrintf("%s: %s") % filename % error->message);
+        gd_warning("%s: %s", filename, error->message);
         g_error_free(error);
     }
 }
 
 
-void gd_export_caves_to_crli_cavepack(const std::vector<CaveStored *> &caves, int level, const char *filename) {
+void gd_export_caves_to_crli_cavepack(const std::vector<CaveStored> &caves, int level, const char *filename) {
     GError *error = NULL;
     const int start = 0x6ffa;
     guint8 out[0xcc00 - start + 1024]; /* max number of cavepack + 1024 so dont worry about buffer overrun :P */
@@ -394,18 +392,13 @@ void gd_export_caves_to_crli_cavepack(const std::vector<CaveStored *> &caves, in
     pos = 0x70a2; /* first available byte; before that we have space for the name */
 
     for (unsigned n = 0; n < caves.size(); ++n) {
-        CaveStored *cave = caves[n];
-        int bytes;
-        gunichar ch;
-        const char *namepos;
-        gboolean exportname;
-
-        if (i >= 48) {
+        if (n >= 48) {
             gd_critical("maximum of 48 caves in a crli cavepack");
             break;
         }
 
-        bytes = crli_export(*cave, level, out + pos - start);
+        CaveStored const &cave = caves[n];
+        int bytes = crli_export(cave, level, out + pos - start);
 
         if (pos + bytes > 0xcbff) {
             gd_critical("run out of data space, not writing this cave");
@@ -414,16 +407,16 @@ void gd_export_caves_to_crli_cavepack(const std::vector<CaveStored *> &caves, in
 
         out[0x7000 - start + i] = pos % 256; /* lsb */
         out[0x7030 - start + i] = pos / 256; /* msb */
-        out[0x7060 - start + i] = cave->selectable ? 0 : 1; /* selection table (inverted!) */
+        out[0x7060 - start + i] = cave.selectable ? 0 : 1; /* selection table (inverted!) */
 
         /* write name */
         for (int c = 0; c < 14; c++) /* fill with space */
             out[pos - start - 14 + c] = 0x20;
 
-        exportname = TRUE;
-        namepos = cave->name.c_str();
+        gboolean exportname = TRUE;
+        const char *namepos = cave.name.c_str();
         int c = 0;
-        ch = g_utf8_get_char(namepos);
+        gunichar ch = g_utf8_get_char(namepos);
         while (c < 14 && ch != 0) {
             bool succ = false;
 
@@ -454,7 +447,7 @@ void gd_export_caves_to_crli_cavepack(const std::vector<CaveStored *> &caves, in
 
     if (!g_file_set_contents(filename, (gchar *)out, pos - start, &error)) {
         /* could not save properly */
-        gd_critical(CPrintf("%s: %s") % filename % error->message);
+        gd_critical("%s: %s", filename, error->message);
         g_error_free(error);
     }
 }

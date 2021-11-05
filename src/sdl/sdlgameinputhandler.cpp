@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
 
 #include "config.h"
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include "sdl/sdlgameinputhandler.hpp"
 #include "settings.hpp"
@@ -45,7 +45,7 @@ GameInputHandler::KeyAssignment SDLGameInputHandler::keys_array[] = {
 
 
 char const *SDLGameInputHandler::get_key_name_from_keycode(int gfxlib_keycode) {
-    return SDL_GetKeyName(SDLKey(gfxlib_keycode));
+    return SDL_GetKeyName(SDL_Keycode(gfxlib_keycode));
 }
 
 

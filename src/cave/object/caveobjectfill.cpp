@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -31,14 +31,13 @@
 /// Create a new fill object.
 /// @param _start The starting coordinates of the fill.
 /// @param _fill_element The inside of the area will be filled with this element.
-CaveFill::CaveFill(CaveObject::Type _type, Coordinate _start, GdElementEnum _fill_element)
-    :   CaveObject(_type),
-        start(_start),
+CaveFill::CaveFill(Coordinate _start, GdElementEnum _fill_element)
+    :   start(_start),
         fill_element(_fill_element) {
 }
 
 std::string CaveFill::get_coordinates_text() const {
-    return SPrintf("%d,%d") % start.x % start.y;
+    return Printf("%d,%d", start.x, start.y);
 }
 
 GdElementEnum CaveFill::get_characteristic_element() const {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,30 +26,25 @@
 
 #include "config.h"
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
+#include <memory>
 
+#include "misc/deleter.hpp"
 #include "gfx/pixbuf.hpp"
 
 
 /// A class which represents a 32-bit RGBA image in memory.
 class SDLPixbuf: public Pixbuf {
 private:
-    SDL_Surface *surface;                       ///< SDL pixbuf data
-
-    SDLPixbuf(const SDLPixbuf &);               // copy ctor not implemented
-    SDLPixbuf &operator=(const SDLPixbuf &);    // operator= not implemented
-
-    explicit SDLPixbuf(SDL_Surface *surface_);
-    SDLPixbuf(int w, int h);
-
-    friend class SDLPixbufFactory;
-    friend class SDLInmemoryScreen;
+    std::unique_ptr<SDL_Surface, Deleter<SDL_Surface, SDL_FreeSurface>> surface;                       ///< SDL pixbuf data
 
 public:
-    ~SDLPixbuf();
+    explicit SDLPixbuf(SDL_Surface *surface_);
+    explicit SDLPixbuf(int w, int h);
 
+    /* not const-correct, but sdl does not use const */
     SDL_Surface *get_surface() const {
-        return surface;
+        return surface.get();
     }
 
     virtual int get_width() const;

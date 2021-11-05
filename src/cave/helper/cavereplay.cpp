@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,11 +23,12 @@
 
 #include "config.h"
 
-#include <glib.h>
 #include <vector>
 #include <sstream>
 #include <cstdio>
 #include <cstring>
+#include <cctype>
+#include <cassert>
 
 #include "cave/helper/cavereplay.hpp"
 #include "cave/cavebase.hpp"
@@ -65,7 +66,7 @@ CaveReplay::CaveReplay() :
 
 /* store movement in a replay */
 void CaveReplay::store_movement(GdDirectionEnum player_move, bool player_fire, bool suicide) {
-    g_assert(player_move == (player_move & REPLAY_MOVE_MASK));
+    assert(player_move == (player_move & REPLAY_MOVE_MASK));
     movements.push_back((player_move) | (player_fire ? REPLAY_FIRE_MASK : 0) | (suicide ? REPLAY_SUICIDE_MASK : 0));
 }
 
@@ -89,30 +90,13 @@ void CaveReplay::rewind() {
     current_playing_pos = 0;
 }
 
-
-#define REPLAY_BDCFF_UP "u"
-#define REPLAY_BDCFF_UP_RIGHT "ur"
-#define REPLAY_BDCFF_RIGHT "r"
-#define REPLAY_BDCFF_DOWN_RIGHT "dr"
-#define REPLAY_BDCFF_DOWN "d"
-#define REPLAY_BDCFF_DOWN_LEFT "dl"
-#define REPLAY_BDCFF_LEFT "l"
-#define REPLAY_BDCFF_UP_LEFT "ul"
-/* when not moving */
-#define REPLAY_BDCFF_STILL "."
-/* when the fire is pressed */
-#define REPLAY_BDCFF_FIRE "F"
-#define REPLAY_BDCFF_SUICIDE "k"
-
 bool CaveReplay::load_one_from_bdcff(const std::string &str) {
-    GdDirectionEnum dir;
     bool up, down, left, right;
     bool fire, suicide;
     int num = -1;
-    unsigned int count, i;
 
     fire = suicide = up = down = left = right = false;
-    for (i = 0; i < str.length(); i++)
+    for (size_t i = 0; i < str.length(); i++)
         switch (str[i]) {
             case 'U':
                 fire = true;
@@ -156,17 +140,17 @@ bool CaveReplay::load_one_from_bdcff(const std::string &str) {
                 break;
 
             default:
-                if (g_ascii_isdigit(str[i])) {
+                if (isdigit(str[i])) {
                     if (num == -1)
                         sscanf(str.c_str() + i, "%d", &num);
                 }
                 break;
         }
-    dir = gd_direction_from_keypress(up, down, left, right);
-    count = 1;
+    GdDirectionEnum dir = gd_direction_from_keypress(up, down, left, right);
+    size_t count = 1;
     if (num != -1)
         count = num;
-    for (i = 0; i < count; i++)
+    for (size_t i = 0; i < count; i++)
         store_movement(dir, fire, suicide);
 
     return true;
@@ -178,36 +162,34 @@ bool CaveReplay::load_from_bdcff(std::string const &str) {
     bool result = true;
     while (is >> one)
         result = result && load_one_from_bdcff(one);
-
     return result;
 }
 
 
 const char *CaveReplay::direction_to_bdcff(GdDirectionEnum mov) {
     switch (mov) {
-            /* not moving */
+        /* not moving */
         case MV_STILL:
-            return REPLAY_BDCFF_STILL;
-            /* directions */
+            return ".";
+        /* directions */
         case MV_UP:
-            return REPLAY_BDCFF_UP;
+            return "u";
         case MV_UP_RIGHT:
-            return REPLAY_BDCFF_UP_RIGHT;
+            return "ur";
         case MV_RIGHT:
-            return REPLAY_BDCFF_RIGHT;
+            return "r";
         case MV_DOWN_RIGHT:
-            return REPLAY_BDCFF_DOWN_RIGHT;
+            return "dr";
         case MV_DOWN:
-            return REPLAY_BDCFF_DOWN;
+            return "d";
         case MV_DOWN_LEFT:
-            return REPLAY_BDCFF_DOWN_LEFT;
+            return "dl";
         case MV_LEFT:
-            return REPLAY_BDCFF_LEFT;
+            return "l";
         case MV_UP_LEFT:
-            return REPLAY_BDCFF_UP_LEFT;
+            return "ul";
         default:
-            g_assert_not_reached();    /* programmer error */
-            return REPLAY_BDCFF_STILL;
+            assert(false);
     }
 }
 
@@ -218,8 +200,8 @@ const char *CaveReplay::direction_fire_to_bdcff(GdDirectionEnum dir, bool fire) 
     strcpy(mov, direction_to_bdcff(dir));
     if (fire) {
         /* uppercase all letters */
-        for (int i = 0; mov[i] != 0; i++)
-            mov[i] = g_ascii_toupper(mov[i]);
+        for (int i = 0; mov[i] != '\0'; i++)
+            mov[i] = toupper(mov[i]);
     }
 
     return mov;
@@ -230,7 +212,6 @@ std::string CaveReplay::movements_to_bdcff() const {
 
     for (unsigned pos = 0; pos < movements.size(); pos++) {
         int num = 1;
-        movement data;
 
         /* if this is not the first movement, append a space. */
         if (!str.empty())
@@ -242,9 +223,9 @@ std::string CaveReplay::movements_to_bdcff() const {
             pos++;
             num++;
         }
-        data = movements[pos];
+        movement data = movements[pos];
         if (data & REPLAY_SUICIDE_MASK)
-            str += REPLAY_BDCFF_SUICIDE;
+            str += "k";
         str += direction_fire_to_bdcff(GdDirectionEnum(data & REPLAY_MOVE_MASK), (data & REPLAY_FIRE_MASK) != 0);
         if (num != 1) {
             std::ostringstream s;

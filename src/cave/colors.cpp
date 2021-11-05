@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -30,7 +30,6 @@
 
 #include "settings.hpp"
 #include "cave/colors.hpp"
-#include "misc/printf.hpp"
 #include "misc/logger.hpp"
 #include "misc/util.hpp"
 
@@ -462,7 +461,7 @@ bool GdColor::is_c64() const {
 int GdColor::get_c64_index() const {
     if (type == TypeC64)
         return index;
-    gd_message(CPrintf("Non-C64 color: %s") % visible_name(*this));
+    gd_message("Non-C64 color: %s", visible_name(*this));
     return g_random_int_range(0, 16);
 }
 

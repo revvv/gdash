@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -55,13 +55,12 @@ public:
     /** The keycode given to an activity is either one of the
      * App::KeyCodeSpecialKey codes, or a Unicode encoded character. */
     typedef unsigned KeyCode;
+
     /** Construct an activity.
      * @param app The App, in which the activity will run. */
     Activity(App *app) : app(app), redraw_queued(false) {}
-    /** Virtual destructor.
-     * Pure virtual, but implemented in the cpp file: a trick to make
-     * this an abstract base class. */
-    virtual ~Activity() = 0;
+
+    virtual ~Activity() = default;
 
 private:
     /**
@@ -69,14 +68,16 @@ private:
      * @param ms_elapsed The number of milliseconds elapsed. These are
      * usually not real milliseconds, but the interval of the timer used
      * by the App. */
-    virtual void timer_event(int ms_elapsed);
+    virtual void timer_event(int ms_elapsed) {}
+    
     /**
      * This is another timer, which is seldom used. It is called only in
      * replay video saving mode, and implemented only by the
      * ReplaySaverActivity class. The timer2 events are generated there
      * by the SDL_Mixer library, to use the audio mixing routine for the
      * cave replay to be totally in sync with the framerate of the game. */
-    virtual void timer2_event();
+    virtual void timer2_event() {}
+    
     /**
      * A key pressed, sent to the Activity.
      * @param keycode a unicode character code, or some special key (see KeyCodeSpecialKey)
@@ -84,7 +85,23 @@ private:
      * here so the Activity can know it and also catch it, to be able to configure the
      * GameInputHandler object.
      */
-    virtual void keypress_event(KeyCode keycode, int gfxlib_keycode);
+    virtual void keypress_event(KeyCode keycode, int gfxlib_keycode) {}
+    
+    
+    /**
+     * Text input, to be appended to the current input.
+     * This is mainly SDL-specific.
+     * @param appendtext UTF-8 text.
+     */
+    virtual void textinput_event(char *appendtext) {}
+    
+    /**
+     * Text input, to overwrite the current input.
+     * This is mainly SDL-specific.
+     * @param overwritetext UTF-8 text.
+     */
+    virtual void textediting_event(char *overwritetext) {}
+    
     /**
      * Called by the App to request the topmost Activity to redraw the screen.
      * The state of the Activity should not change, as it may be called any time.
@@ -92,32 +109,38 @@ private:
      * automatically. Activities should not call their own redraw_event() methods.
      */
     virtual void redraw_event(bool full) const = 0;
+    
     /**
      * Called by the App when the Activity gets pushed into the stack of activities
      * of the App. The Activity can perform some post-initialization, it may even
      * pop itself. The Command
      * objects enqueued in this event will be executed when the Activity is already
-     * in the stack, so new activities they may create will be above it in the stack.
+     * in the stack, so new activities they may create will be above in the stack.
      * An activity will only receive one pushed_event() in its lifetime. */
-    virtual void pushed_event();
+    virtual void pushed_event() {}
+    
     /**
      * Called by the App when the activities occluding the current activities have
      * disappeared. May perform any actions, but it is not necessary to do a redraw,
      * because the redraw_event will also be called. An activity may receive many
      * shown_event()-s in its lifetime. */
-    virtual void shown_event();
+    virtual void shown_event() {}
+    
     /**
      * Called by the App when the Activity is occluded by a new one. May free some
      * resources, for example, to be reacquired later, when the Acitivity becomes
-     * topmost again. An activity may be sent many shown_event()-s in its lifetime. */
-    virtual void hidden_event();
+     * topmost again. An activity may receive many hidden_event()-s in its lifetime. */
+    virtual void hidden_event() {}
 
 protected:
     friend class App;
+    
     /** The owner app. Used for enqueueing Command objects, for example. */
     App *app;
+    
     /** There is something to draw. */
     bool redraw_queued;
+    
     /** Event handlers can call this function to tell the App that a redraw should be done.
      * Redraws are processed after all events and commands. */
     void queue_redraw() {
@@ -125,8 +148,8 @@ protected:
     }
 
 private:
-    Activity(Activity const &);       ///< Not meant to be copied.
-    void operator=(Activity const &); ///< Not meant to be assigned.
+    Activity(Activity const &) = delete;
+    void operator=(Activity const &) = delete;
 
 };
 

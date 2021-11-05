@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,10 +23,12 @@
 
 #include <glib.h>
 
+#include <memory>
+
+#include "cave/gamecontrol.hpp"
 #include "gtk/gtkmainwindow.hpp"
 #include "sdl/sdlmainwindow.hpp"
 #include "misc/logger.hpp"
-#include "misc/printf.hpp"
 #include "mainwindow.hpp"
 #include "settings.hpp"
 
@@ -67,12 +69,12 @@ void main_window_run_title_screen(CaveSet *caveset, NextAction &na) {
                 break;
         }
     } catch (ScreenConfigureException const & ex) {
-        gd_warning(CPrintf("Screen error: %s. Switching to default graphics engine.") % ex.what());
+        gd_warning("Screen error: %s. Switching to default graphics engine.", ex.what());
         gd_graphics_engine = 0;
     }
 }
 
-void main_window_run_a_game(GameControl *game) {
+void main_window_run_a_game(std::unique_ptr<GameControl> game) {
     /* if some unknown engine, switch to default */
     if (gd_graphics_engine >= GRAPHICS_ENGINE_MAX)
         gd_graphics_engine = GraphicsEngine(0);
@@ -81,15 +83,13 @@ void main_window_run_a_game(GameControl *game) {
         switch (GraphicsEngine(gd_graphics_engine)) {
             #ifdef HAVE_GTK
             case GRAPHICS_ENGINE_GTK:
-                gd_main_window_gtk_run_a_game(game);
+                gd_main_window_gtk_run_a_game(std::move(game));
                 break;
             #endif
             #ifdef HAVE_SDL
             case GRAPHICS_ENGINE_SDL:
-                gd_main_window_sdl_run_a_game(game, false);
-                break;
             case GRAPHICS_ENGINE_OPENGL:
-                gd_main_window_sdl_run_a_game(game, true);
+                gd_main_window_sdl_run_a_game(std::move(game));
                 break;
             #endif
             case GRAPHICS_ENGINE_MAX:
@@ -97,7 +97,7 @@ void main_window_run_a_game(GameControl *game) {
                 break;
         }
     } catch (ScreenConfigureException const & ex) {
-        gd_warning(CPrintf("Screen error: %s. Switching to default graphics engine.") % ex.what());
+        gd_warning("Screen error: %s. Switching to default graphics engine.", ex.what());
         gd_graphics_engine = 0;
     }
 }

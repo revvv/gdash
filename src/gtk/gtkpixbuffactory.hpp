@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -29,12 +29,12 @@
 
 class GTKPixbufFactory: public PixbufFactory {
 public:
-    virtual Pixbuf *create(int w, int h) const;
-    virtual Pixbuf *create_from_inline(int length, unsigned char const *data) const;
-    virtual Pixbuf *create_from_file(const char *filename) const;
-    virtual Pixbuf *create_rotated(const Pixbuf &src, Rotation r) const;
-    virtual Pixbuf *create_composite_color(const Pixbuf &src, const GdColor &c, unsigned char alpha) const;
-    virtual Pixbuf *create_subpixbuf(Pixbuf &src, int x, int y, int w, int h) const;
+    virtual std::unique_ptr<Pixbuf> create(int w, int h) const;
+    virtual std::unique_ptr<Pixbuf> create_from_inline(int length, unsigned char const *data) const;
+    virtual std::unique_ptr<Pixbuf> create_from_file(const char *filename) const;
+    virtual std::unique_ptr<Pixbuf> create_rotated(const Pixbuf &src, Rotation r) const;
+    virtual std::unique_ptr<Pixbuf> create_composite_color(const Pixbuf &src, const GdColor &c, unsigned char alpha) const;
+    virtual std::unique_ptr<Pixbuf> create_subpixbuf(Pixbuf &src, int x, int y, int w, int h) const;
 };
 
 #endif

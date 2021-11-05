@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -590,7 +590,7 @@ CaveStored::CaveStored() {
 }
 
 
-bool CaveStored::has_levels() {
+bool CaveStored::has_levels() const {
     PropertyDescription const *prop_desc = get_description_array();
     
     /* if we find any cave variable which has levels AND one of the levels
@@ -600,7 +600,7 @@ bool CaveStored::has_levels() {
         switch (prop.type)  {
             case GD_TYPE_BOOLEAN_LEVELS:
                 {
-                    GdBool *arr = this->get<GdBoolLevels>(prop.prop);
+                    GdBool const *arr = this->get<GdBoolLevels>(prop.prop);
                     for (unsigned j = 1; j < 5; ++j)
                         if (arr[0] != arr[j])
                             return true;
@@ -608,7 +608,7 @@ bool CaveStored::has_levels() {
                 break;
             case GD_TYPE_INT_LEVELS:
                 {
-                    GdInt *arr = this->get<GdIntLevels>(prop.prop);
+                    GdInt const *arr = this->get<GdIntLevels>(prop.prop);
                     for (unsigned j = 1; j < 5; ++j)
                         if (arr[0] != arr[j])
                             return true;
@@ -616,7 +616,7 @@ bool CaveStored::has_levels() {
                 break;
             case GD_TYPE_PROBABILITY_LEVELS:
                 {
-                    GdProbability *arr = this->get<GdProbabilityLevels>(prop.prop);
+                    GdProbability const *arr = this->get<GdProbabilityLevels>(prop.prop);
                     for (unsigned j = 1; j < 5; ++j)
                         if (arr[0] != arr[j])
                             return true;
@@ -629,8 +629,9 @@ bool CaveStored::has_levels() {
     
     /* now we check the objects. if any of them is neither seenonall nor invisible, it
      * is visible on a specific level only, so return true */
-    for (CaveObjectStore::const_iterator it = objects.begin();  it != objects.end(); ++it) {
-        if (!(*it)->is_invisible() && !(*it)->is_seen_on_all())
+    for (auto it = objects.cbegin();  it != objects.cend(); ++it) {
+        CaveObject const & obj = *it;
+        if (!obj.is_invisible() && !obj.is_seen_on_all())
             return true;
     }
     

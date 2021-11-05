@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -526,7 +526,7 @@ typedef PlainOldData<GdElementEnum> GdElement;
 typedef PlainOldData<GdSchedulingEnum> GdScheduling;
 /// A direction stored in a cave.
 typedef PlainOldData<GdDirectionEnum> GdDirection;
-/// A string stored in a cave. Used inheritance, so it is a different class (not a typedef'ed std::string).
+/// A string stored in a cave. Strong alias of std::string.
 class GdString: public std::string {
 public:
     GdString &operator=(const char *x) {
@@ -544,7 +544,7 @@ public:
 /// overloaded for operator<<.
 class GdProbability: private PlainOldData<int> {
 public:
-    GdProbability() {}
+    GdProbability() = default;
     GdProbability(const int &value): PlainOldData<int>(value) {}
     using PlainOldData<int>::operator int &;
     using PlainOldData<int>::operator const int &;
@@ -554,33 +554,40 @@ typedef GdProbability GdProbabilityLevels[5];
 /// Used only for BDCFF reading.
 typedef PlainOldData<GdEngineEnum> GdEngine;
 
+
 /// A primary building block for objects in a cave: this class represents a coordinate.
 class Coordinate {
 public:
     GdInt x;    ///< Horizontal (x) coordinate
     GdInt y;    ///< Vertical (y) coordinate
+
     /// Default constructor: create a coordinate of (0,0).
     Coordinate() : x(0), y(0) {}
+
     /// Create a coordinate of (x,y).
     Coordinate(int x, int y) : x(x), y(y) {}
+
     /// Add a vector to a coordinate.
     /// @param p The vector to add.
-    Coordinate &operator+=(Coordinate const &p) {
-        x += p.x;
-        y += p.y;
+    Coordinate &operator+=(Coordinate rhs) {
+        x += rhs.x;
+        y += rhs.y;
         return *this;
     }
+
     /// Add two coordinates (vectors).
-    Coordinate operator+(Coordinate const &rhs) const {
+    Coordinate operator+(Coordinate rhs) const {
         return Coordinate(x + rhs.x, y + rhs.y);
     }
+
     /// Compare two coordinates for equality.
     /// @return True, if they are the same.
-    bool operator==(Coordinate const &rhs) const {
+    bool operator==(Coordinate rhs) const {
         return x == rhs.x && y == rhs.y;
     }
-    static void drag_rectangle(Coordinate &p1, Coordinate &p2, Coordinate const &current, Coordinate const &displacement);
+    static void drag_rectangle(Coordinate &p1, Coordinate &p2, Coordinate current, Coordinate displacement);
 };
+
 
 /// Class which helps cave map to BDCFF conversions.
 class CharToElementTable {

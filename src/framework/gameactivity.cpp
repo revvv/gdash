@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -76,41 +76,40 @@ static std::string info_and_variables_of_cave(CaveStored const *cavestored, Cave
         s += "\n";
     }
 
-    s += SPrintf("%cCave internals:\n") % GD_COLOR_INDEX_WHITE;
-    s += SPrintf(_("%cSpeed %c%dms\n%cAmoeba 1 %c%ds, %s\n%cAmoeba 2 %c%ds, %s\n%cMagic wall %c%ds, %s\n"
+    s += Printf("%cCave internals:\n", GD_COLOR_INDEX_WHITE);
+    s += Printf(_("%cSpeed %c%dms\n%cAmoeba 1 %c%ds, %s\n%cAmoeba 2 %c%ds, %s\n%cMagic wall %c%ds, %s\n"
                    "%cExpanding wall %c%s\n%cCreatures %c%ds, %s\n%cGravity %c%s\n"
-                   "%cKill player %c%s\n%cSweet eaten %c%s\n%cDiamond key %c%s\n%cDiamonds collected %c%d"))
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % cave->speed
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % cave->time_visible(cave->amoeba_time) % amoeba_state_string(cave->amoeba_state)
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % cave->time_visible(cave->amoeba_2_time) % amoeba_state_string(cave->amoeba_2_state)
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % cave->time_visible(cave->magic_wall_time) % magic_wall_state_string(cave->magic_wall_state)
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % (cave->expanding_wall_changed ? _("vertical") : _("horizontal"))
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % cave->time_visible(cave->creatures_direction_will_change) % (cave->creatures_backwards ? _("backwards") : _("forwards"))
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % visible_name(cave->gravity_disabled ? GdDirection(MV_STILL) : cave->gravity)
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % (cave->kill_player ? _("yes") : _("no"))
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % (cave->sweet_eaten ? _("yes") : _("no"))
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % (cave->diamond_key_collected ? _("yes") : _("no"))
-         % GD_COLOR_INDEX_YELLOW % GD_COLOR_INDEX_LIGHTBLUE % cave->diamonds_collected
-         ;
+                   "%cKill player %c%s\n%cSweet eaten %c%s\n%cDiamond key %c%s\n%cDiamonds collected %c%d"),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, cave->speed,
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, cave->time_visible(cave->amoeba_time), amoeba_state_string(cave->amoeba_state),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, cave->time_visible(cave->amoeba_2_time), amoeba_state_string(cave->amoeba_2_state),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, cave->time_visible(cave->magic_wall_time), magic_wall_state_string(cave->magic_wall_state),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, (cave->expanding_wall_changed ? _("vertical") : _("horizontal")),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, cave->time_visible(cave->creatures_direction_will_change), (cave->creatures_backwards ? _("backwards") : _("forwards")),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, visible_name(cave->gravity_disabled ? GdDirection(MV_STILL) : cave->gravity),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, (cave->kill_player ? _("yes") : _("no")),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, (cave->sweet_eaten ? _("yes") : _("no")),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, (cave->diamond_key_collected ? _("yes") : _("no")),
+                GD_COLOR_INDEX_YELLOW, GD_COLOR_INDEX_LIGHTBLUE, cave->diamonds_collected);
 
     return s;
 }
 
 
-GameActivity::GameActivity(App *app, GameControl *game)
+GameActivity::GameActivity(App *app, std::unique_ptr<GameControl> thegame)
     : Activity(app),
-      game(game),
+      game(std::move(thegame)),
       cellrenderer(*app->screen, gd_theme),
       gamerenderer(*app->screen, cellrenderer, *app->font_manager, *game),
       exit_game(false),
       show_highscore(false),
-      paused(false) {
+      paused(false)
+{
 }
 
 
 GameActivity::~GameActivity() {
-    gd_sound_off(); /* we stop sounds. */
-    delete game;
+    gd_sound_off();
 }
 
 
@@ -124,7 +123,7 @@ void GameActivity::shown_event() {
      * this is required because other activities that might get on top of the
      * gameactivity can use the escape key as an exit key, and after the activity
      * exists, this activity might think that the cave is to be restarted. */
-    (bool) app->gameinput->restart();
+    app->gameinput->restart();
 }
 
 
@@ -146,7 +145,7 @@ void GameActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
         case PauseKey:
             paused = !paused;
             if (paused)
-                gd_sound_off();                       /* if paused, no sound. */
+                gd_sound_off();
             break;
         case RandomColorKey:
             gamerenderer.set_random_colors();
@@ -164,12 +163,11 @@ void GameActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                 app->show_message(_("No snapshot saved."));
             break;
         case CaveVariablesKey:
+            gd_sound_off();
             app->show_text_and_do_command(_("Cave Information"), info_and_variables_of_cave(game->original_cave, game->played_cave.get()));
             break;
         case 'h':
         case 'H':
-            /* switch off sounds when showing help. */
-            /* no need to turn on sounds later; next cave iteration will restore them. */
             gd_sound_off();
             app->show_help(gamehelp);
             break;
@@ -198,7 +196,7 @@ void GameActivity::timer_event(int ms_elapsed) {
 
     if (exit_game) {
         /* pop the game activity. */
-        app->enqueue_command(new PopActivityCommand(app));
+        app->enqueue_command(std::make_unique<PopActivityCommand>(app));
         /* if showing highscore, enqueue a command to show it. */
         /* there might be a command to be run after the game. if there is no highscore,
          * the game object will execute it, when popping. if there is a highscoresactivity
@@ -206,7 +204,7 @@ void GameActivity::timer_event(int ms_elapsed) {
         if (show_highscore && game->caveset->highscore.is_highscore(game->player_score)) {
             /* enter to highscore table */
             int rank = game->caveset->highscore.add(game->player_name, game->player_score);
-            app->enqueue_command(new ShowHighScoreCommand(app, NULL, rank));
+            app->enqueue_command(std::make_unique<ShowHighScoreCommand>(app, nullptr, rank));
         } else {
             /* no high score */
         }

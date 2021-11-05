@@ -45,7 +45,6 @@
 #include "misc/about.hpp"
 #include "settings.hpp"
 #include "framework/commands.hpp"
-#include "fileops/bdcffload.hpp"
 #include "fileops/loadfile.hpp"
 #include "fileops/highscore.hpp"
 #include "fileops/binaryimport.hpp"
@@ -55,7 +54,7 @@
 #include "editor/editor.hpp"
 #include "editor/editorcellrenderer.hpp"
 #include "editor/exporthtml.hpp"
-#include "editor/exportcrli.hpp"
+#include "editor/exporttext.hpp"
 #include "gtk/gtkpixbuffactory.hpp"
 #include "gtk/gtkscreen.hpp"
 #include "gtk/gtkui.hpp"
@@ -71,12 +70,12 @@
 
 int main(int argc, char *argv[]) {
     CaveSet caveset;
-    int exportcrli = 0;
     int quit = 0;
 #ifdef HAVE_GTK
     gboolean editor = FALSE;
 #endif
     char *gallery_filename = NULL;
+    char *text_dump_filename = NULL;
     char *png_filename = NULL, *png_size = NULL;
     char *save_cave_name = NULL, *save_gds_name = NULL;
 #ifdef HAVE_GTK
@@ -88,6 +87,7 @@ int main(int argc, char *argv[]) {
 #ifdef HAVE_GTK
         {"editor", 'e', 0, G_OPTION_ARG_NONE, &editor, N_("Start editor")},
         {"save-gallery", 'g', 0, G_OPTION_ARG_FILENAME, &gallery_filename, N_("Save caveset in a HTML gallery")},
+        {"save-text", 't', 0, G_OPTION_ARG_FILENAME, &text_dump_filename, N_("Save caveset as BDCFF plain text")},
         {"stylesheet", 0, 0, G_OPTION_ARG_STRING  /* not filename! */, &gd_html_stylesheet_filename, N_("Link stylesheet from file to a HTML gallery, eg. \"../style.css\"")},
         {"favicon", 0, 0, G_OPTION_ARG_STRING /* not filename! */, &gd_html_favicon_filename, N_("Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\"")},
         {"save-png", 'p', 0, G_OPTION_ARG_FILENAME, &png_filename, N_("Save image of first cave to PNG")},
@@ -98,7 +98,6 @@ int main(int argc, char *argv[]) {
 #ifdef HAVE_GTK
         {"save-docs", 0, 0, G_OPTION_ARG_INT, &save_doc_lang, N_("Save documentation in HTML, in the given language identified by an integer.")},
 #endif
-        {"export", 'x', 0, G_OPTION_ARG_NONE, &exportcrli, N_("Export caveset in CriLi format")},
         {"quit", 'q', 0, G_OPTION_ARG_NONE, &quit, N_("Batch mode: quit after specified tasks")},
         {NULL}
     };
@@ -145,7 +144,6 @@ int main(int argc, char *argv[]) {
 #endif
 
     gd_cave_types_init();
-    gd_cave_objects_init();
     Joystick::init();
 
     /* if memory snapshot -> gds file conversion requested */
@@ -186,29 +184,34 @@ int main(int argc, char *argv[]) {
     /* see if generating a gallery. */
     /* but only if there are any caves at all. */
     if (caveset.has_caves() && gallery_filename)
-        gd_save_html(gallery_filename, NULL, caveset);
+        gd_save_html(gallery_filename, caveset);
+
+    /* see if generating a BDCFF plain text cave dump. */
+    /* but only if there are any caves at all. */
+    if (caveset.has_caves() && text_dump_filename)
+        gd_save_text(text_dump_filename, caveset);
 
     /* save cave png */
     if (png_filename) {
         unsigned int size_x = 128, size_y = 96; /* default size */
 
         if (png_size && (sscanf(png_size, "%ux%u", &size_x, &size_y) != 2))
-            gd_warning(CPrintf(_("Invalid image size: %s")) % png_size);
+            gd_warning(_("Invalid image size: %s"), png_size);
         if (size_x < 1 || size_y < 1) {
             size_x = 0;
             size_y = 0;
         }
 
         /* rendering cave for png: seed=0 */
-        CaveRendered renderedcave(caveset.cave(0), 0, 0);
+        CaveRendered renderedcave(caveset.caves[0], 0, 0);
         GTKPixbufFactory pf;
         GTKScreen scr(pf, NULL);
         EditorCellRenderer cr(scr, gd_theme);
 
-        GdkPixbuf *pixbuf = gd_drawcave_to_pixbuf(&renderedcave, cr, size_x, size_y, true, false);
+        GdkPixbuf *pixbuf = gd_drawcave_to_pixbuf(renderedcave, cr, size_x, size_y, true, false);
         GError *error = NULL;
         if (!gdk_pixbuf_save(pixbuf, png_filename, "png", &error, "compression", "9", NULL)) {
-            gd_critical(CPrintf("Error saving PNG image %s: %s") % png_filename % error->message);
+            gd_critical("Error saving PNG image %s: %s", png_filename, error->message);
             g_error_free(error);
         }
         g_object_unref(pixbuf);
@@ -236,7 +239,7 @@ int main(int argc, char *argv[]) {
          * realize it, but do not show it */
         GtkWidget *widget = gtk_window_new(GTK_WINDOW_TOPLEVEL);
         gtk_widget_realize(widget);
-        save_help_to_html(CPrintf("Doc-%s.html") % gd_languages_names[save_doc_lang], widget);
+        save_help_to_html(Printf("Doc-%s.html", gd_languages_names[save_doc_lang]).c_str(), widget);
         gtk_widget_destroy(widget);
 
         /* switch back to original language */
@@ -246,25 +249,11 @@ int main(int argc, char *argv[]) {
     }
 #endif
 
-    /* export all caves into Crazy Light engine file format */
-    if (exportcrli) {
-        gd_message(CPrintf("--- Exporting caves into CrLi format..."));
-        gd_message(CPrintf("--- cave set name: %s") % caveset.name);
-        gd_message(CPrintf("--- number of caves: %d") % caveset.caves.size());
-        for (unsigned n = 0; n < caveset.caves.size(); n++) {
-                CaveStored *cave = caveset.caves.at(n);
-                std::string filename = SPrintf("%02d-%s.CrLi") % (n + 1) % cave -> name;
-                gd_message(CPrintf("--- Writing cave: %s") % filename);
-                gd_export_cave_to_crli_cavefile(cave, 0, filename.c_str());
-        }
-    }
-
     /* if batch mode, quit now */
     if (quit) {
         global_logger.clear();
         return 0;
     }
-
 #ifdef HAVE_GTK
     if (force_quit_no_gtk) {
         gd_critical("Cannot initialize GTK+");
@@ -330,6 +319,7 @@ restart_from_here:
     g_free(gallery_filename);
     g_free(gd_html_stylesheet_filename);
     g_free(gd_html_favicon_filename);
+    g_free(text_dump_filename);
     g_free(png_filename);
     g_free(png_size);
     g_free(save_gds_name);

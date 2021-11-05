@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -110,7 +110,7 @@ public:
     static int cave_copy_from_crli(CaveStored &cave, const guint8 *data, int remaining_bytes);
 
     static GdCavefileFormat imported_get_format(const guint8 *buf);
-    static std::vector<CaveStored *> caves_import_from_buffer(const guint8 *buf, int length);
+    static std::vector<CaveStored> caves_import_from_buffer(const guint8 *buf, int length);
 };
 #endif
 

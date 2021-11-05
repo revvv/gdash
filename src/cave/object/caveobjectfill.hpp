@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -34,11 +34,8 @@ protected:
     GdElement fill_element;         ///< Fill with this element.
 
 public:
-    CaveFill(CaveObject::Type type, Coordinate _start, GdElementEnum _fill_element);
-    CaveFill(CaveObject::Type type): CaveObject(type) {}
-    Coordinate get_start_coordinate() const {
-        return start;
-    }
+    CaveFill(Coordinate _start, GdElementEnum _fill_element);
+    CaveFill() = default;
 
 public:
     virtual void create_drag(Coordinate current, Coordinate displacement);
@@ -46,6 +43,9 @@ public:
     virtual void move(Coordinate displacement);
     virtual std::string get_coordinates_text() const;
     virtual GdElementEnum get_characteristic_element() const;
+    virtual bool mark_coordinate(Coordinate c) const {
+        return c == start;
+    }
 };
 
 #endif

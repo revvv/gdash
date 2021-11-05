@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,6 +25,8 @@
 
 #include "config.h"
 
+#include <memory>
+
 class Pixbuf;
 class GdColor;
 
@@ -44,42 +46,42 @@ extern const char *gd_scaling_names[];
 class PixbufFactory {
 public:
     /// @brief Create a new pixbuf factory.
-    PixbufFactory() {}
+    PixbufFactory() = default;
 
     /// @brief Virtual destructor.
-    virtual ~PixbufFactory() {}
+    virtual ~PixbufFactory() = default;
 
     /// @brief Create a new pixbuf, with non-initialized memory.
     /// @param w The width of the pixbuf.
     /// @param h The height of the pixbuf.
     /// @return A newly allocated pixbuf object. Free with delete.
-    virtual Pixbuf *create(int w, int h) const = 0;
+    virtual std::unique_ptr<Pixbuf> create(int w, int h) const = 0;
 
     /// @brief Create a new pixbuf, and load an image from memory.
     /// @param length The number of bytes of the image.
     /// @param data Pointer to the image in memory.
     /// @return A newly allocated pixbuf object. Free with delete.
-    virtual Pixbuf *create_from_inline(int length, unsigned char const *data) const = 0;
+    virtual std::unique_ptr<Pixbuf> create_from_inline(int length, unsigned char const *data) const = 0;
 
     /// @brief Create a new pixbuf, and load an image from a file.
     /// @param filename The name of the file to load.
     /// @return A newly allocated pixbuf object. Free with delete.
-    virtual Pixbuf *create_from_file(const char *filename) const = 0;
+    virtual std::unique_ptr<Pixbuf> create_from_file(const char *filename) const = 0;
 
     /// @brief Create a new pixbuf, and load an image file from memory, which is base64 encoded..
     /// @param base64 Base64 encoded image string, delimited with zero.
     /// @return A newly allocated pixbuf object. Free with delete.
-    Pixbuf *create_from_base64(const char *base64) const;
+    std::unique_ptr<Pixbuf> create_from_base64(const char *base64) const;
 
     /// @brief Composite pixbuf with color c, and return the new (composited) one
     /// @param c Color
     /// @param a Alpha value; 0 will be invisible, 255 will totally cover. Default is 128, which looks nice, and is accelerated by SDL.
     /// @return The new pixbuf.
-    virtual Pixbuf *create_composite_color(const Pixbuf &src, const GdColor &c, unsigned char alpha = 128) const = 0;
+    virtual std::unique_ptr<Pixbuf> create_composite_color(const Pixbuf &src, const GdColor &c, unsigned char alpha = 128) const = 0;
 
     /// @brief Create a pixbuf, which is a part of this one.
     /// Pixels will be shared!
-    virtual Pixbuf *create_subpixbuf(Pixbuf &src, int x, int y, int w, int h) const = 0;
+    virtual std::unique_ptr<Pixbuf> create_subpixbuf(Pixbuf &src, int x, int y, int w, int h) const = 0;
 
     /// @brief Use the selected software scaled to create a new, enlarged pixbuf.
     /// @param src The pixbuf to scale.
@@ -87,7 +89,7 @@ public:
     /// @param scaling_type The scaling algorithm.
     /// @param pal_emulation Whether to add a PAL TV effect.
     /// @return The scaled pixbuf, to be freed by the caller.
-    Pixbuf *create_scaled(const Pixbuf &src, int scaling_factor, GdScalingType scaling_type, bool pal_emulation) const;
+    std::unique_ptr<Pixbuf> create_scaled(const Pixbuf &src, int scaling_factor, GdScalingType scaling_type, bool pal_emulation) const;
 
     /// Names of rotations.
     enum Rotation {
@@ -98,7 +100,7 @@ public:
     };
 
     /// Creates a new, rotated pixbuf.
-    virtual Pixbuf *create_rotated(const Pixbuf &src, Rotation r) const = 0;
+    virtual std::unique_ptr<Pixbuf> create_rotated(const Pixbuf &src, Rotation r) const = 0;
 };
 
 #endif

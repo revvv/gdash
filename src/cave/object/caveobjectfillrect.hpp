@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -36,17 +36,21 @@ class CaveFillRect : public CaveRectangular {
 
 public:
     CaveFillRect(Coordinate _p1, Coordinate _p2, GdElementEnum _element, GdElementEnum _fill_element);
-    CaveFillRect(): CaveRectangular(GD_FILLED_RECTANGLE) {}
-    virtual CaveFillRect *clone() const;
-    virtual void draw(CaveRendered &cave) const;
+    CaveFillRect() = default;
+    Type get_type() const { return GD_FILLED_RECTANGLE; }
+    virtual std::unique_ptr<CaveObject> clone() const;
+    virtual void draw(CaveRendered &cave, int order_idx) const;
     virtual std::string get_bdcff() const;
-    virtual CaveFillRect *clone_from_bdcff(const std::string &name, std::istream &is) const;
+    virtual std::unique_ptr<CaveObject> clone_from_bdcff(const std::string &name, std::istream &is) const;
 
 private:
     static PropertyDescription const descriptor[];
 
 public:
-    virtual PropertyDescription const *get_description_array() const;
+    virtual PropertyDescription const *get_description_array() const {
+        return descriptor;
+    }
+    
     virtual GdElementEnum get_characteristic_element() const;
     virtual std::string get_description_markup() const;
 };

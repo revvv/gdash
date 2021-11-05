@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -41,33 +41,30 @@ std::string CaveFillRect::get_bdcff() const {
     return f;
 }
 
-CaveFillRect *CaveFillRect::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveFillRect::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p1, p2;
     GdElementEnum element, element_fill;
     if (!(is >> p1 >> p2 >> element))
         return NULL;
-    std::string s;
-    if (is >> s) {  /* optional paramter - yuck */
-        std::istringstream is(s);
-        is >> element_fill;
-    } else
+    /* fill element is optional parameter */
+    if (!(is >> element_fill))
         element_fill = element;
 
-    return new CaveFillRect(p1, p2, element, element_fill);
+    return std::make_unique<CaveFillRect>(p1, p2, element, element_fill);
 }
 
-CaveFillRect *CaveFillRect::clone() const {
-    return new CaveFillRect(*this);
-};
+std::unique_ptr<CaveObject> CaveFillRect::clone() const {
+    return std::make_unique<CaveFillRect>(*this);
+}
 
 /// Create filled rectangle cave object.
 CaveFillRect::CaveFillRect(Coordinate _p1, Coordinate _p2, GdElementEnum _element, GdElementEnum _fill_element)
-    :   CaveRectangular(GD_FILLED_RECTANGLE, _p1, _p2),
+    :   CaveRectangular(_p1, _p2),
         border_element(_element),
         fill_element(_fill_element) {
 }
 
-void CaveFillRect::draw(CaveRendered &cave) const {
+void CaveFillRect::draw(CaveRendered &cave, int order_idx) const {
     /* reorder coordinates if not drawing from northwest to southeast */
     int x1 = p1.x;
     int y1 = p1.y;
@@ -80,7 +77,7 @@ void CaveFillRect::draw(CaveRendered &cave) const {
 
     for (int y = y1; y <= y2; y++)
         for (int x = x1; x <= x2; x++)
-            cave.store_rc(x, y, (y == y1 || y == y2 || x == x1 || x == x2) ? border_element : fill_element, this);
+            cave.store_rc(x, y, (y == y1 || y == y2 || x == x1 || x == x2) ? border_element : fill_element, order_idx);
 }
 
 PropertyDescription const CaveFillRect::descriptor[] = {
@@ -93,14 +90,8 @@ PropertyDescription const CaveFillRect::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveFillRect::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveFillRect::get_description_markup() const {
-    return SPrintf(_("Rectangle from %d,%d to %d,%d of <b>%ms</b>, filled with <b>%ms</b>"))
-           % p1.x % p1.y % p2.x % p2.y
-           % visible_name_lowercase(border_element) % visible_name_lowercase(fill_element);
+    return Printf(_("Rectangle from %d,%d to %d,%d of <b>%ms</b>, filled with <b>%ms</b>"), p1.x, p1.y, p2.x, p2.y, visible_name_lowercase(border_element), visible_name_lowercase(fill_element));
 }
 
 GdElementEnum CaveFillRect::get_characteristic_element() const {

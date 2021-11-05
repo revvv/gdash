@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -41,11 +41,11 @@ public:
     unsigned const count;       ///< The size of the array pointed by the prop, or 1
 
     template <class KLASS, class MEMBERTYPE>
-    static std::auto_ptr<GetterBase> create_new(MEMBERTYPE KLASS::*ptr);
+    static std::unique_ptr<GetterBase> create_new(MEMBERTYPE KLASS::*ptr);
     template <class KLASS, class MEMBERTYPE, unsigned COUNT>
-    static std::auto_ptr<GetterBase> create_new(MEMBERTYPE(KLASS::*ptr)[COUNT]);
+    static std::unique_ptr<GetterBase> create_new(MEMBERTYPE(KLASS::*ptr)[COUNT]);
 
-    virtual ~GetterBase() {}
+    virtual ~GetterBase() = default;
 
 protected:
     /** Create a GetterBase, which remembers the size or
@@ -69,18 +69,12 @@ class GetterForType: public GetterBase {
 public:
     /** Return the data member pointed to by the prop.
      * @param o The reflective object.
-     * @return The data member, the pointer for which will be stored in the derived object. */
+     * @return The data member, the pointer for which will be stored in the derived object.
+     */
     virtual MEMBERTYPE &get(Reflective &o) const = 0;
 protected:
-    /// Create a new GetterForType.
-    GetterForType(unsigned count);
+    using GetterBase::GetterBase;
 };
-
-template <class MEMBERTYPE>
-GetterForType<MEMBERTYPE>::GetterForType(unsigned count)
-    :   GetterBase(count) {
-    // Does nothing, just passes the count to the base class.
-}
 
 
 /**
@@ -104,35 +98,31 @@ GetterForType<MEMBERTYPE>::GetterForType(unsigned count)
 template <class KLASS, class MEMBERTYPE>
 class Getter: public GetterForType<MEMBERTYPE> {
 private:
-    MEMBERTYPE KLASS::*const ptr;      ///< The pointer to the member of the given object (class)
+    MEMBERTYPE KLASS::* const ptr;      ///< The pointer to the member of the given object (class)
 public:
-    explicit Getter(MEMBERTYPE KLASS::*ptr, unsigned count);
-    virtual MEMBERTYPE &get(Reflective &o) const;
+    /**
+     * Create a prop, and remember the pointer given.
+     * Also remember the count given - which will be the size of the array (if ptr points to a member array),
+     * or 1 for single members.
+     */
+    explicit Getter(MEMBERTYPE KLASS::*ptr, unsigned count)
+        :   GetterForType<MEMBERTYPE>(count),
+            ptr(ptr) {
+    }
+
+    /**
+     * The get function a returns with a given member of the reflective object o.
+     * The dynamic cast checks that a correct object is given by the caller
+     * (not another type of reflective object). It is cannot be static,
+     * as the KLASS for which this Getter is instantiated may be a base
+     * class of the object, which is not yet reflective (i.e. reflective
+     * is inherited later in the hierarchy.)
+     */
+    MEMBERTYPE & get(Reflective &o) const {
+        return dynamic_cast<KLASS &>(o).*ptr;
+    }
 };
 
-/**
- * Create a prop, and remember the pointer given.
- * Also remember the count given - which will be the size of the array (if ptr points to a member array),
- * or 1 for single members.
- */
-template <class KLASS, class MEMBERTYPE>
-Getter<KLASS, MEMBERTYPE>::Getter(MEMBERTYPE KLASS::*ptr, unsigned count)
-    :   GetterForType<MEMBERTYPE>(count),
-        ptr(ptr) {
-}
-
-/**
- * The get function a returns with a given member of the reflective object o.
- * The dynamic cast checks that a correct object is given by the caller
- * (not another type of reflective object). It is cannot be static,
- * as the KLASS for which this Getter is instantiated may be a base
- * class of the object, which is not yet reflective (i.e. reflective
- * is inherited later in the hierarchy.)
- */
-template <class KLASS, class MEMBERTYPE>
-MEMBERTYPE &Getter<KLASS, MEMBERTYPE>::get(Reflective &o) const {
-    return dynamic_cast<KLASS &>(o).*ptr;
-}
 
 /**
  * Create a new Getter for a class of type KLASS,
@@ -144,8 +134,8 @@ MEMBERTYPE &Getter<KLASS, MEMBERTYPE>::get(Reflective &o) const {
  * @return A pointer to a newly allocated Getter, cast to GetterBase *.
  */
 template <class KLASS, class MEMBERTYPE>
-std::auto_ptr<GetterBase> GetterBase::create_new(MEMBERTYPE KLASS::*ptr) {
-    return std::auto_ptr<GetterBase>(new Getter<KLASS, MEMBERTYPE>(ptr, 1));
+std::unique_ptr<GetterBase> GetterBase::create_new(MEMBERTYPE KLASS::*ptr) {
+    return std::make_unique<Getter<KLASS, MEMBERTYPE>>(ptr, 1);
 }
 
 /**
@@ -158,8 +148,8 @@ std::auto_ptr<GetterBase> GetterBase::create_new(MEMBERTYPE KLASS::*ptr) {
  * @return A pointer to a newly allocated Getter, cast to GetterBase *.
  */
 template <class KLASS, class MEMBERTYPE, unsigned COUNT>
-std::auto_ptr<GetterBase> GetterBase::create_new(MEMBERTYPE(KLASS::*ptr)[COUNT]) {
-    return std::auto_ptr<GetterBase>(new Getter<KLASS, MEMBERTYPE[COUNT]>(ptr, COUNT));
+std::unique_ptr<GetterBase> GetterBase::create_new(MEMBERTYPE(KLASS::*ptr)[COUNT]) {
+    return std::make_unique<Getter<KLASS, MEMBERTYPE[COUNT]>>(ptr, COUNT);
 }
 
 /**
@@ -188,7 +178,7 @@ struct PropertyDescription {
     /// A Getter which can give this data item
     const char *name;
     /// Tooltip for data item, shown in editor.
-    std::auto_ptr<GetterBase> prop;
+    std::unique_ptr<GetterBase> prop;
     /// Name in the editor, shown to the user
     const char *tooltip;
     /// Minimum and maximum, for integers.
@@ -199,29 +189,33 @@ struct PropertyDescription {
  * A base class for reflective classes.
  *
  * A requirement for reflective classes is to be able to
- * provide an array of PropertyDescriptions, which describe
- * their data members.
+ * provide an array of PropertyDescriptions,
+ * which describe their data members.
  */
 class Reflective {
 public:
     virtual PropertyDescription const *get_description_array() const = 0;
-    virtual ~Reflective() {}
-    template <class MEMBERTYPE> MEMBERTYPE &get(std::auto_ptr<GetterBase> const &prop);
+    virtual ~Reflective() = default;
+
+    /**
+     * Read a data member of type MEMBERTYPE from the given reflective object.
+     * The type of the member in question has to be known by the caller,
+     * by explicitly giving the template parameter.
+     * The dynamic_cast checks if the correct type is given by the caller.
+     * @param prop The prop which knows the data member
+     */
+    template <class MEMBERTYPE>
+    MEMBERTYPE &get(std::unique_ptr<GetterBase> const & prop) {
+        return dynamic_cast<GetterForType<MEMBERTYPE> const &>(*prop).get(*this);
+    }
+
+    /**
+     * Const overload for get.
+     */
+    template <class MEMBERTYPE>
+    MEMBERTYPE const & get(std::unique_ptr<GetterBase> const & prop) const {
+        return const_cast<Reflective *>(this)->get<MEMBERTYPE>(prop);
+    }
 };
-
-/**
- * Read a data member of type MEMBERTYPE from the given
- * reflective object. The type of the member in question
- * has to be known by the caller, by explicitly giving the
- * template parameter.
- * The dynamic_cast checks if the correct type is given
- * by the caller.
- * @param prop The prop which knows the data member
- */
-template <class MEMBERTYPE>
-MEMBERTYPE &Reflective::get(std::auto_ptr<GetterBase> const &prop) {
-    return dynamic_cast<const GetterForType<MEMBERTYPE>&>(*prop).get(*this);
-}
-
 
 #endif /* GD_REFLECTIVE_H */

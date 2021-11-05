@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(GDash, 20130623unstable, [http://code.google.com/p/gdash/])
+AC_INIT(GDash, 20180129unstable, [https://bitbucket.org/czirkoszoltan/gdash])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
@@ -52,7 +52,7 @@ dnl this conditional must ALWAYS be run, not inside the if below.
 AM_CONDITIONAL(GTK, test x"$with_gtk" = "xyes")
 if test x"$with_gtk" = "xyes" ; then
   AC_DEFINE(HAVE_GTK,,[Use GTK.])
-  PKG_CHECK_MODULES([GTK], [gtk+-2.0])
+  PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 else
   GTK_CFLAGS=""
   GTK_LIBS=""
@@ -61,8 +61,8 @@ fi
 AM_CONDITIONAL(SDL, test x"$with_sdl" = "xyes")
 if test x"$with_sdl" = "xyes" ; then
   AC_DEFINE(HAVE_SDL,,[Use SDL.])
-  AM_PATH_SDL(1.2.0, :, AC_MSG_ERROR(Test for SDL failed. See the file 'INSTALL' for help.))
-  SDL_LIBS="$SDL_LIBS -lSDL_mixer -lSDL_image"
+  AM_PATH_SDL2(2.0.0, :, AC_MSG_ERROR(Test for SDL failed. See the file 'INSTALL' for help.))
+  SDL_LIBS="$SDL_LIBS -lSDL2_mixer -lSDL2_image"
   AX_CHECK_GL
 else
   GL_CFLAGS=""

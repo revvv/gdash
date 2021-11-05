@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -29,7 +29,7 @@
 
 /* forward declarations for maze object */
 class RandomGenerator;
-template <class T> class CaveMapFast;
+template <class T> class CaveMap;
 
 /// Cave maze objects.
 ///
@@ -60,36 +60,43 @@ public:
     };
 
 private:
-    MazeType const maze_type;     ///< Type of the maze, perfect, braid, unicursal.
-    GdInt wall_width;       ///< Width of the walls in the maze (in cells); >=1
-    GdInt path_width;       ///< Width of the paths in the maze; >=1
-    GdElement wall_element; ///< Walls are made of this element
-    GdElement path_element; ///< Paths are made of this.
-    GdInt horiz;            ///< 0..100, with greater numbers, horizontal paths are preferred
-    GdIntLevels seed;       ///< Seed values for difficulty levels.
+    MazeType const maze_type;   ///< Type of the maze, perfect, braid, unicursal.
+    GdInt wall_width;           ///< Width of the walls in the maze (in cells); >=1
+    GdInt path_width;           ///< Width of the paths in the maze; >=1
+    GdElement wall_element;     ///< Walls are made of this element
+    GdElement path_element;     ///< Paths are made of this.
+    GdInt horiz;                ///< 0..100, with greater numbers, horizontal paths are preferred
+    GdIntLevels seed;           ///< Seed values for difficulty levels.
 
-    static void mazegen(CaveMapFast<bool> &maze, RandomGenerator &rand, int x, int y, int horiz);
-    static void braidmaze(CaveMapFast<bool> &maze, RandomGenerator &rand);
-    static void unicursalmaze(CaveMapFast<bool> &maze, int &w, int &h);
+    static void mazegen(CaveMap<bool> &maze, RandomGenerator &rand, int x, int y, int horiz);
+    static void braidmaze(CaveMap<bool> &maze, RandomGenerator &rand);
+    static void unicursalmaze(CaveMap<bool> &maze, int &w, int &h);
 
 public:
     CaveMaze(Coordinate _p1, Coordinate _p2, GdElementEnum _wall, GdElementEnum _path, MazeType _type);
-    CaveMaze(): CaveRectangular(GD_MAZE), maze_type(Perfect) {}
-    virtual CaveMaze *clone() const;
-    virtual void draw(CaveRendered &cave) const;
+    CaveMaze(): maze_type(Perfect) {}
+    Type get_type() const { 
+        if (maze_type == Braid) return GD_MAZE_BRAID;
+        if (maze_type == Unicursal) return GD_MAZE_UNICURSAL;
+        return GD_MAZE;
+    }
+    virtual std::unique_ptr<CaveObject> clone() const;
+    virtual void draw(CaveRendered &cave, int order_idx) const;
     void set_horiz(int _horiz) {
         horiz = _horiz;
     }
     void set_widths(int wall, int path);
     void set_seed(int s1, int s2, int s3, int s4, int s5);
     virtual std::string get_bdcff() const;
-    virtual CaveMaze *clone_from_bdcff(const std::string &name, std::istream &is) const;
+    virtual std::unique_ptr<CaveObject> clone_from_bdcff(const std::string &name, std::istream &is) const;
 
 private:
     static PropertyDescription const descriptor[];
 
 public:
-    virtual PropertyDescription const *get_description_array() const;
+    virtual PropertyDescription const *get_description_array() const {
+        return descriptor;
+    }
     virtual GdElementEnum get_characteristic_element() const;
     virtual std::string get_description_markup() const;
 };

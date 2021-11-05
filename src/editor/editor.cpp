@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,8 +25,10 @@
 
 #include <gtk/gtk.h>
 #include <list>
+#include <vector>
 #include <set>
 #include <algorithm>
+#include <memory>
 #include <glib/gi18n.h>
 
 #include "cave/caverendered.hpp"
@@ -92,8 +94,8 @@ static GtkActionGroup *actions, *actions_edit_tools, *actions_edit_cave, *action
        *actions_edit_random, *actions_edit_object, *actions_edit_one_object, *actions_cave_selector, *actions_toggle,
        *actions_clipboard_paste, *actions_edit_undo, *actions_edit_redo, *actions_clipboard;
 static GtkWidget *gd_editor_window;
-static GTKPixbufFactory *editor_pixbuf_factory;
-EditorCellRenderer *editor_cell_renderer;
+static std::unique_ptr<GTKPixbufFactory> editor_pixbuf_factory;
+std::unique_ptr<EditorCellRenderer> editor_cell_renderer;
 static guint timeout_id;
 
 static EditTool action;  /* activated edit tool, like move, plot, line... can be a gdobject, or there are other indexes which have meanings. */
@@ -105,30 +107,43 @@ static gboolean button1_clicked;    /* true if we got button1 press event, then 
 static std::list<CaveStored> undo_caves, redo_caves;
 static gboolean undo_move_flag = FALSE; /* this is set to false when the mouse is clicked. on any movement, undo is saved and set to true */
 
-static CaveStored *edited_cave; /* cave data actually edited in the editor */
-static CaveRendered *rendered_cave;   /* a cave with all objects rendered, and to be drawn */
-
-static CaveObjectStore object_clipboard;  /* cave object clipboard. */
-static std::list<CaveStored> cave_clipboard;    /* copied caves */
+static std::vector<Polymorphic<CaveObject>> object_clipboard;  /* cave object clipboard. */
+static std::vector<CaveStored> cave_clipboard;    /* copied caves */
 
 static GtkWidget *scroll_window, *scroll_window_objects;
 static GtkWidget *iconview_cavelist, *drawing_area;
-static GTKScreen *screen;
+static std::unique_ptr<GTKScreen> screen;
 static GtkWidget *toolbars;
 static GtkWidget *element_button, *fillelement_button;
 static GtkWidget *label_coordinate, *label_object, *label_first_element, *label_second_element;
 static GHashTable *cave_pixbufs;    /* currently better choice than std::map as it has a destroy notifier to free the pixbufs */
+static GdkPixbuf *missing_image;
 
-static CaveMapFast<int> gfx_buffer;
-static CaveMapFast<bool> object_highlight_map;
+static CaveMap<int> gfx_buffer;
+static CaveMap<bool> object_highlight_map;
 
-static GtkListStore *object_list;
 static GtkWidget *object_list_tree_view;
-static std::set<CaveObject *> selected_objects;
+static std::set<int> selected_objects;
 
 static bool restart_editor;
 
-static CaveSet *caveset;     ///< The caveset edited.
+static CaveSet *caveset;     ///< The caveset being edited.
+
+static int edited_cave_idx = -1;
+
+static inline CaveStored & edited_cave() {
+    g_assert(edited_cave_idx != -1);
+    return caveset->caves[edited_cave_idx];
+}
+
+static std::unique_ptr<CaveRendered> rendered_cave;   /* a cave with all objects rendered, and to be drawn */
+
+/* forward function declarations */
+static void set_status_label_for_cave(CaveStored &cave);
+static void select_cave_for_edit(int);
+static void select_tool(int tool);
+static void render_cave();
+static void object_properties(CaveObject &object);
 
 /* objects index */
 enum ObjectListColumns {
@@ -137,7 +152,6 @@ enum ObjectListColumns {
     TYPE_PIXBUF_COLUMN,
     ELEMENT_PIXBUF_COLUMN,
     TEXT_COLUMN,
-    POINTER_COLUMN,
     NUM_EDITOR_COLUMNS
 };
 
@@ -199,13 +213,6 @@ static GtkRadioActionEntry action_objects[] = {
 };
 
 
-/* forward function declarations */
-static void set_status_label_for_cave(CaveStored *cave);
-static void select_cave_for_edit(CaveStored *);
-static void select_tool(int tool);
-static void render_cave();
-static void object_properties(CaveObject *object);
-
 static struct NewObjectVisibleOn {
     const char *text;
     int switch_to_level;
@@ -226,23 +233,23 @@ static struct NewObjectVisibleOn {
 
 static gboolean object_list_selection_changed_signal_disabled = FALSE;
 
-static bool object_list_is_selected(CaveObject *o) {
-    return selected_objects.count(o) != 0;
+static bool object_list_is_selected(int order_idx) {
+    return selected_objects.count(order_idx) != 0;
 }
 
-static bool object_list_is_not_selected(CaveObject *o) {
-    return selected_objects.count(o) == 0;
-}
-
-static CaveObjectStore
+static std::vector<Polymorphic<CaveObject>>
 object_list_copy_of_selected() {
-    g_assert(edited_cave != NULL);
-    CaveObjectStore l;
-
-    for (std::set<CaveObject *>::const_iterator it = selected_objects.begin(); it != selected_objects.end(); ++it)
-        l.push_back_adopt((*it)->clone());    /* save copy in list */
-
+    std::vector<Polymorphic<CaveObject>> l;
+    for (auto it = selected_objects.begin(); it != selected_objects.end(); ++it)
+        l.push_back(edited_cave().objects[*it]);
     return l;
+}
+
+static void
+object_list_delete_selected() {
+    // reverse order = decreasing indices
+    for (auto it = selected_objects.rbegin(); it != selected_objects.rend(); ++it)
+        edited_cave().objects.erase(edited_cave().objects.begin() + *it);
 }
 
 static int
@@ -256,66 +263,49 @@ object_list_is_any_selected() {
 }
 
 /* this function is to be used only when there is one object in the set. */
-static CaveObject *
+static CaveObject &
 object_list_first_selected() {
-    if (!object_list_is_any_selected())
-        return NULL;
-
-    return *selected_objects.begin();
+    if (selected_objects.empty())
+        throw std::logic_error("no object is selected");
+    int order_idx = *selected_objects.begin();
+    return edited_cave().objects[order_idx];
 }
 
 static void
 object_list_clear_selection() {
-    if (object_list_is_any_selected()) {
-        selected_objects.clear();
-        object_list_selection_changed_signal_disabled = TRUE;
-        gtk_tree_selection_unselect_all(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)));
-        object_list_selection_changed_signal_disabled = FALSE;
-        render_cave();
-    }
-}
-
-
-/* check if current iter points to the same object as data. if it is, select the iter */
-static gboolean
-object_list_select_object_func(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data) {
-    CaveObject *object;
-    gtk_tree_model_get(model, iter, POINTER_COLUMN, &object, -1);
-    if (object == data) {
-        gtk_tree_selection_select_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)), iter);
-        return TRUE;
-    }
-    return FALSE;
-}
-
-static void
-object_list_add_to_selection(CaveObject *object) {
-    gtk_tree_model_foreach(GTK_TREE_MODEL(object_list), (GtkTreeModelForeachFunc) object_list_select_object_func, object);
-}
-
-/* check if current iter points to the same object as data. if it is, select the iter */
-static gboolean
-object_list_unselect_object_func(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data) {
-    CaveObject *object;
-
-    gtk_tree_model_get(model, iter, POINTER_COLUMN, &object, -1);
-    if (object == data) {
-        gtk_tree_selection_unselect_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)), iter);
-        return TRUE;
-    }
-    return FALSE;
-}
-
-static void
-object_list_remove_from_selection(CaveObject *object) {
-    gtk_tree_model_foreach(GTK_TREE_MODEL(object_list), (GtkTreeModelForeachFunc) object_list_unselect_object_func, object);
+    if (!object_list_is_any_selected())
+        return;
+    selected_objects.clear();
+    object_list_selection_changed_signal_disabled = TRUE;
+    gtk_tree_selection_unselect_all(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)));
+    object_list_selection_changed_signal_disabled = FALSE;
+    render_cave();
 }
 
 
 static void
-object_list_select_one_object(CaveObject *object) {
+object_list_add_to_selection(int order_idx) {
+    // select nth row. this is possible because child idx in the tree view is the same as the order idx.
+    GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(object_list_tree_view));
+    GtkTreeIter iter;
+    if (gtk_tree_model_iter_nth_child(model, &iter, NULL, order_idx))
+        gtk_tree_selection_select_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)), &iter);
+}
+
+static void
+object_list_remove_from_selection(int order_idx) {
+    // unselect nth row. this is possible because child idx in the tree view is the same as the order idx.
+    GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(object_list_tree_view));
+    GtkTreeIter iter;
+    if (gtk_tree_model_iter_nth_child(model, &iter, NULL, order_idx))
+        gtk_tree_selection_unselect_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)), &iter);
+}
+
+
+static void
+object_list_select_one_object(int order_idx) {
     object_list_clear_selection();
-    object_list_add_to_selection(object);
+    object_list_add_to_selection(order_idx);
 }
 
 static void
@@ -331,23 +321,19 @@ object_list_selection_changed_signal(GtkTreeSelection *selection, gpointer data)
         GtkTreePath *path = (GtkTreePath *) siter->data;
         GtkTreeIter iter;
         gtk_tree_model_get_iter(model, &iter, path);
-        CaveObject *object;
-        gtk_tree_model_get(model, &iter, POINTER_COLUMN, &object, -1);
-        selected_objects.insert(object);
+        int order_idx;
+        gtk_tree_model_get(model, &iter, INDEX_COLUMN, &order_idx, -1);
+        selected_objects.insert(order_idx);
     }
     g_list_foreach(selected_rows, (GFunc) gtk_tree_path_free, NULL);
     g_list_free(selected_rows);
 
-    /* object highlight all to false */
-    object_highlight_map.fill(false);
-
     /* check all selected objects, and set all selected objects to highlighted */
-    for (std::set<CaveObject *>::const_iterator it = selected_objects.begin(); it != selected_objects.end(); ++it) {
-        for (int y = 0; y < rendered_cave->h; y++)
-            for (int x = 0; x < rendered_cave->w; x++)
-                if (rendered_cave->objects_order(x, y) == (*it)) /* if element at x,y was created by this object... */
-                    object_highlight_map(x, y) = true;
-    }
+    object_highlight_map.fill(false);
+    for (int y = 0; y < rendered_cave->h; y++)
+        for (int x = 0; x < rendered_cave->w; x++)
+            if (object_list_is_selected(rendered_cave->objects_order(x, y)))
+                object_highlight_map(x, y) = true;
 
     /* how many selected objects? */
     int count = selected_objects.size();
@@ -359,30 +345,29 @@ object_list_selection_changed_signal(GtkTreeSelection *selection, gpointer data)
 
     if (count == 0) {
         /* NO object selected -> show general cave info */
-        set_status_label_for_cave(edited_cave);
+        set_status_label_for_cave(edited_cave());
     } else if (count == 1) {
         /* exactly ONE object is selected */
-        CaveObject *object = object_list_first_selected();
-
-        std::string text = object->get_description_markup();
+        CaveObject &object = object_list_first_selected();
+        std::string text = object.get_description_markup();
         gtk_label_set_markup(GTK_LABEL(label_object), text.c_str());
     } else if (count > 1)
         /* more than one object is selected */
-        gtk_label_set_markup(GTK_LABEL(label_object), CPrintf(ngettext("%d object selected", "%d objects selected", count)) % count);
+        gtk_label_set_markup(GTK_LABEL(label_object), Printf(ngettext("%d object selected", "%d objects selected", count), count).c_str());
 }
 
 
 /* for popup menu, by properties key */
 static void
 object_list_show_popup_menu(GtkWidget *widget, gpointer data) {
-    gtk_menu_popup(GTK_MENU(object_list_popup), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+    gtk_menu_popup_at_pointer(GTK_MENU(object_list_popup), NULL);
 }
 
 /* for popup menu, by right-click */
 static gboolean
 object_list_button_press_event(GtkWidget *widget, GdkEventButton *event, gpointer data) {
     if (event->type == GDK_BUTTON_PRESS && event->button == 3) {
-        gtk_menu_popup(GTK_MENU(object_list_popup), NULL, NULL, NULL, NULL, event->button, event->time);
+        gtk_menu_popup_at_pointer(GTK_MENU(object_list_popup), NULL);
         return TRUE;
     }
     return FALSE;
@@ -391,7 +376,6 @@ object_list_button_press_event(GtkWidget *widget, GdkEventButton *event, gpointe
 /*
  * SIGNALS which are used when the object list is reordered by drag and drop.
  *
- * non-trivial.
  * drag and drop emits the following signals: insert, changed, and delete.
  * so there is a moment when the reordered row has TWO copies in the model.
  * therefore we cannot use the changed signal to see the new order.
@@ -400,7 +384,7 @@ object_list_button_press_event(GtkWidget *widget, GdkEventButton *event, gpointe
  * rendering the cave.
  *
  * instead, we connect to the changed and the delete signal. we have a flag,
- * named "rowchangedbool", which is set to true by the changed signal, and
+ * named object_list_row_changed_bool, which is set to true by the changed signal, and
  * therefore we know that the next delete signal is emitted by a reordering.
  * at that point, we have the new order, and _AFTER_ resetting the flag,
  * we rerender the cave.
@@ -413,32 +397,27 @@ object_list_row_changed(GtkTreeModel *model, GtkTreePath *changed_path, GtkTreeI
     object_list_row_changed_bool = TRUE;
 }
 
-static gboolean
-object_list_new_order_func(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data) {
-    CaveObjectStore *list = static_cast<CaveObjectStore *>(data);
-    CaveObject *object;
-
-    gtk_tree_model_get(model, iter, POINTER_COLUMN, &object, -1);
-    list->push_back_adopt(object->clone());
-
-    return FALSE;   /* continue traversing */
-}
-
-/* XXX this does not reorder, rather creates a brand new list... */
 static void
 object_list_row_delete(GtkTreeModel *model, GtkTreePath *changed_path, gpointer user_data) {
-    if (object_list_row_changed_bool) {
-        CaveObjectStore new_order;
+    auto object_list_new_order_func = [](GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data) -> gboolean {
+        std::vector<Polymorphic<CaveObject>> *list = static_cast<std::vector<Polymorphic<CaveObject>>*>(data);
+        int order_idx;
+        gtk_tree_model_get(model, iter, INDEX_COLUMN, &order_idx, -1);
+        list->push_back(edited_cave().objects[order_idx]);
 
+        return FALSE;   /* continue traversing */
+    };
+
+    if (object_list_row_changed_bool) {
         /* reset the flag, as we handle the reordering here - so its signal handler will not interfere */
         object_list_row_changed_bool = FALSE;
 
         /* this will build the new object order to the list */
+        std::vector<Polymorphic<CaveObject>> new_order;
         gtk_tree_model_foreach(model, object_list_new_order_func, &new_order);
+        edited_cave().objects = std::move(new_order);
 
-        edited_cave->objects = new_order;
-
-        object_list_clear_selection();      /* XXX */
+        object_list_clear_selection();
 
         render_cave();
     }
@@ -449,11 +428,10 @@ static void
 object_list_row_activated(GtkTreeView *tree_view, GtkTreePath *path, GtkTreeViewColumn *column, gpointer user_data) {
     GtkTreeModel *model = gtk_tree_view_get_model(tree_view);
     GtkTreeIter iter;
-    CaveObject *object;
-
     gtk_tree_model_get_iter(model, &iter, path);
-    gtk_tree_model_get(model, &iter, POINTER_COLUMN, &object, -1);
-    object_properties(object);
+    int order_idx;
+    gtk_tree_model_get(model, &iter, INDEX_COLUMN, &order_idx, -1);
+    object_properties(edited_cave().objects[order_idx]);
     /* render cave after changing object properties */
     render_cave();
 }
@@ -488,28 +466,25 @@ undo_free_all() {
 
 /* save a copy of the current state of edited cave. this is to be used
    internally; as it does not delete redo. */
-#define UNDO_STEPS 10
 static void
 undo_save_current_state() {
-    /* if more than four, forget some (should only forget one) */
-    while (undo_caves.size() >= UNDO_STEPS)
+    /* if list too large, forget some (should only forget one) */
+    while (undo_caves.size() >= 10)
         undo_caves.pop_front();
 
-    undo_caves.push_back(*edited_cave);
+    undo_caves.push_back(edited_cave());
 }
 
 /* save a copy of the current state of edited cave, after some operation.
    this destroys the redo list, as from that point that is useless. */
 static void
 undo_save() {
-    g_return_if_fail(edited_cave != NULL);
-
     /* we also use this function to set the edited flag, as it is called for any action */
     caveset->edited = TRUE;
 
     /* remove from pixbuf hash: delete its pixbuf */
     /* as now we know that this cave is really edited. */
-    g_hash_table_remove(cave_pixbufs, edited_cave);
+    g_hash_table_remove(cave_pixbufs, &edited_cave());
 
     undo_save_current_state();
     redo_free_all();
@@ -521,14 +496,14 @@ undo_save() {
 
 static void undo_do_one_step() {
     /* push current to redo list. we do not check the redo list size, as the undo size limits it automatically... */
-    redo_caves.push_front(*edited_cave);
+    redo_caves.push_front(edited_cave());
 
     /* copy to edited one, and free backup */
-    *edited_cave = undo_caves.back();
+    edited_cave() = std::move(undo_caves.back());
     undo_caves.pop_back();
 
     /* call to renew editor window */
-    select_cave_for_edit(edited_cave);
+    select_cave_for_edit(edited_cave_idx);
 }
 
 /* this function is for "internal" use.
@@ -540,19 +515,17 @@ static void undo_do_one_step() {
  */
 static void undo_do_one_step_but_no_redo() {
     /* copy to edited one, and free backup */
-    *edited_cave = undo_caves.back();
+    edited_cave() = std::move(undo_caves.back());
     undo_caves.pop_back();
 
     /* call to renew editor window */
-    select_cave_for_edit(edited_cave);
+    select_cave_for_edit(edited_cave_idx);
 }
 
 /* do the undo - callback */
 static void
 undo_cb(GtkWidget *widget, gpointer data) {
     g_return_if_fail(!undo_caves.empty());
-    g_return_if_fail(edited_cave != NULL);
-
     undo_do_one_step();
 }
 
@@ -560,24 +533,23 @@ undo_cb(GtkWidget *widget, gpointer data) {
 static void
 redo_cb(GtkWidget *widget, gpointer data) {
     g_return_if_fail(!redo_caves.empty());
-    g_return_if_fail(edited_cave != NULL);
 
     /* push back current to undo */
     undo_save_current_state();
 
     /* and select the first from redo */
-    *edited_cave = redo_caves.front();
+    edited_cave() = redo_caves.front();
     redo_caves.pop_front();
 
     /* call to renew editor window */
-    select_cave_for_edit(edited_cave);
+    select_cave_for_edit(edited_cave_idx);
 }
 
 
 static void editor_window_set_title() {
     // TRANSLATORS: title of a window capitalization
     gtk_window_set_title(GTK_WINDOW(gd_editor_window),
-        CPrintf(_("GDash Cave Editor - %s")) % (edited_cave != NULL ? edited_cave->name : caveset->name));
+        Printf(_("GDash Cave Editor - %s"), edited_cave_idx != -1 ? edited_cave().name : caveset->name).c_str());
 }
 
 
@@ -587,33 +559,31 @@ static void editor_window_set_title() {
  * edit properties of a reflective object.
  */
 static void edit_properties_create_window(const char *title, bool show_cancel, GtkWidget *& dialog, GtkWidget *&notebook) {
-    dialog = gtk_dialog_new_with_buttons(title, GTK_WINDOW(gd_editor_window), GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+    dialog = gtk_dialog_new();
+    gtk_window_set_title(GTK_WINDOW(dialog), title);
+    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(gd_editor_window));
     if (show_cancel)
         gtk_dialog_add_button(GTK_DIALOG(dialog), GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
     gtk_dialog_add_button(GTK_DIALOG(dialog), GTK_STOCK_OK, GTK_RESPONSE_ACCEPT);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
-    gtk_dialog_set_has_separator(GTK_DIALOG(dialog), FALSE);
     gtk_window_set_default_size(GTK_WINDOW(dialog), 360, 240);
 
     /* tabbed notebook */
     notebook = gtk_notebook_new();
+    gtk_container_set_border_width(GTK_CONTAINER(notebook), 6);
     gtk_notebook_set_tab_pos(GTK_NOTEBOOK(notebook), GTK_POS_LEFT);
     gtk_notebook_set_scrollable(GTK_NOTEBOOK(notebook), TRUE);
     gtk_notebook_popup_enable(GTK_NOTEBOOK(notebook));
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), notebook, TRUE, TRUE, 6);
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    gtk_box_pack_start(GTK_BOX(content_area), notebook, TRUE, TRUE, 0);
 }
 
-static void edit_properties_set_random_max(GtkWidget *widget, gpointer data) {
-    GtkSpinButton *spin = GTK_SPIN_BUTTON(widget);
-    EditorAutoUpdate *next_eau = static_cast<EditorAutoUpdate *>(data);
-    // the maximum of the next spin button is the current value of this
-    gtk_spin_button_set_range(GTK_SPIN_BUTTON(next_eau->widget), 0, gtk_spin_button_get_value_as_int(spin));
-}
 
-static void edit_properties_add_widgets(GtkWidget *notebook, std::list<EditorAutoUpdate *> &eau_s, PropertyDescription const prop_desc[], Reflective *str, Reflective *def_str, void (*cave_render_cb)()) {
-    GtkWidget *table = NULL;
+static std::vector<std::unique_ptr<EditorAutoUpdate>> edit_properties_add_widgets(GtkWidget *notebook, PropertyDescription const prop_desc[], Reflective *str, Reflective *def_str, void (*cave_render_cb)()) {
+    std::vector<std::unique_ptr<EditorAutoUpdate>> eau_s;
+    GtkWidget *grid = NULL;
     int row = 0;
-    EditorAutoUpdate *previous_random_probability = 0;
+    int previous_random_probability_idx = -1;
 
     /* create the entry widgets */
     for (unsigned i = 0; prop_desc[i].identifier != NULL; i++) {
@@ -621,72 +591,62 @@ static void edit_properties_add_widgets(GtkWidget *notebook, std::list<EditorAut
             continue;
 
         if (prop_desc[i].type == GD_TAB) {
-            /* create a table which will be the widget inside */
-            table = gtk_table_new(1, 1, FALSE);
-            gtk_container_set_border_width(GTK_CONTAINER(table), 12);
-            gtk_table_set_col_spacings(GTK_TABLE(table), 12);
-            gtk_table_set_row_spacings(GTK_TABLE(table), 3);
+            /* create a grid which will be the widget inside */
+            grid = gtk_grid_new();
+            gtk_container_set_border_width(GTK_CONTAINER(grid), 12);
+            gtk_grid_set_column_spacing(GTK_GRID(grid), 6);
+            gtk_grid_set_row_spacing(GTK_GRID(grid), 6);
             /* and to the notebook */
-            gtk_notebook_append_page(GTK_NOTEBOOK(notebook), table, gtk_label_new(_(prop_desc[i].name)));
+            gtk_notebook_append_page(GTK_NOTEBOOK(notebook), grid, gtk_label_new(_(prop_desc[i].name)));
             row = 0;
             continue;
         }
-        g_assert(table != NULL);
+        g_assert(grid != NULL);
 
         // name of the setting
         if (prop_desc[i].name != 0) {
             GtkWidget *label;
             if (prop_desc[i].type == GD_LABEL)  // if this is a label, make it bold
-                label = gd_label_new_leftaligned(CPrintf("<b>%ms</b>") % _(prop_desc[i].name));
+                label = gd_label_new_leftaligned(Printf("<b>%ms</b>", _(prop_desc[i].name)).c_str());
             else
                 label = gd_label_new_leftaligned(_(prop_desc[i].name));
-            gtk_table_attach(GTK_TABLE(table), label, 0, 1, row, row + 1,
-                             GtkAttachOptions(GTK_FILL | GTK_SHRINK),
-                             GtkAttachOptions(GTK_FILL | GTK_SHRINK), 0, 0);
+            gtk_grid_attach(GTK_GRID(grid), label, 0, row, 1, 1);
         }
-        EditorAutoUpdate *eau = new EditorAutoUpdate(str, def_str, &prop_desc[i], cave_render_cb);
-        gtk_table_attach(GTK_TABLE(table), eau->widget, 1, 2, row, row + 1,
-                         GtkAttachOptions(GTK_FILL | GTK_EXPAND),
-                         GtkAttachOptions(GTK_FILL | (eau->expand_vertically ? GTK_EXPAND : GTK_SHRINK)), 0, 0);
-        eau_s.push_back(eau);
+        auto eau = std::make_unique<EditorAutoUpdate>(str, def_str, &prop_desc[i], cave_render_cb);
+        gtk_grid_attach(GTK_GRID(grid), eau->widget, 1, row, 1, 1);
+        gtk_widget_set_hexpand(eau->widget, TRUE);
+        gtk_widget_set_vexpand(eau->widget, eau->expand_vertically);
 
-        // if this is setting is for a c64 random generator fill, add an extra changed
+        // if this is setting is for a c64 random generator fill, add an extra changed signal
         if (prop_desc[i].flags & GD_BD_PROBABILITY) {
-            if (previous_random_probability) {
-                g_signal_connect(previous_random_probability->widget, "changed", G_CALLBACK(edit_properties_set_random_max), eau);
-                // and also update right now
-                gtk_spin_button_set_range(GTK_SPIN_BUTTON(eau->widget), 0, gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(previous_random_probability->widget)));
-            }
-            // and remember this for the next iteration
-            previous_random_probability = eau;
+            if (previous_random_probability_idx != -1)
+                eau_s[previous_random_probability_idx]->maximize_widget(*eau);
+            previous_random_probability_idx = eau_s.size();     // this will be the index of the current item
         }
 
+        eau_s.push_back(std::move(eau));
         row++;
     }
+    
+    return eau_s;
 }
 
 /* returns true if edited. */
 /* str is the struct to be edited. */
 /* def_str is another struct of the same type, which holds default values. */
 /* show_cancel: true, then a cancel button is also shown. */
-
-/* ALWAYS EDITS the object given! It is up to the caller to restore the
+/* ALWAYS EDITS the object! It is up to the caller to restore the
  * state of the object if the response is false. */
 static bool edit_properties(const char *title, Reflective *str, Reflective *def_str, bool show_cancel, void (*cave_render_cb)()) {
-    std::list<EditorAutoUpdate *> eau_s;
-
     GtkWidget *dialog, *notebook;
     edit_properties_create_window(title, show_cancel, dialog, notebook);
 
-    edit_properties_add_widgets(notebook, eau_s, str->get_description_array(), str, def_str, cave_render_cb);
+    std::vector<std::unique_ptr<EditorAutoUpdate>> eau_s = edit_properties_add_widgets(notebook, str->get_description_array(), str, def_str, cave_render_cb);
 
     /* running the dialog */
     gtk_widget_show_all(dialog);
     int result = gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
-
-    for (std::list<EditorAutoUpdate *>::const_iterator it = eau_s.begin(); it != eau_s.end(); ++it)
-        delete *it;
 
     return result == GTK_RESPONSE_ACCEPT;
 }
@@ -695,74 +655,74 @@ static bool edit_properties(const char *title, Reflective *str, Reflective *def_
 /* call edit_properties for a cave, then do some cleanup.
  * for example, if the size changed, the map has to be resized,
  * etc. also the user may be warned about resizing the visible area. */
-static void cave_properties(CaveStored *cave, gboolean show_cancel) {
+static void cave_properties(CaveStored &cave, gboolean show_cancel) {
     // check if full cave visible
-    bool full_visible = (cave->x1 == 0 && cave->y1 == 0 && cave->x2 == cave->w - 1 && cave->y2 == cave->h - 1);
+    bool full_visible = (cave.x1 == 0 && cave.y1 == 0 && cave.x2 == cave.w - 1 && cave.y2 == cave.h - 1);
 
     // Edit a copy only.
     // Then later decide what to do.
-    CaveStored copy(*cave);
+    CaveStored copy = cave;
     CaveStored def_cave;
     bool edited = edit_properties(_("Cave Properties"), &copy, &def_cave, show_cancel, NULL);
 
+    if (!edited)
+        return;
+
     // Yes, the user pressed ok - copy the edited version to the original.
-    if (edited) {
-        bool size_changed = (cave->w != copy.w || cave->h != copy.h); // but first remember this
+    bool size_changed = (cave.w != copy.w || cave.h != copy.h); // but first remember this
+    undo_save();
+    cave = std::move(copy);
+    caveset->edited = true;
 
-        undo_save();
-        *cave = copy;
-        caveset->edited = true;
+    // if the size changes, we have work to do.
+    if (size_changed) {
+        // if cave has a map, resize it also
+        if (!cave.map.empty())
+            cave.map.resize(cave.w, cave.h, cave.initial_border);
 
-        // if the size changes, we have work to do.
-        if (size_changed) {
-            // if cave has a map, resize it also
-            if (!cave->map.empty())
-                cave->map.resize(cave->w, cave->h, cave->initial_border);
+        // if originally the full cave was visible, we set the visible area to the full cave, here again.
+        if (full_visible) {
+            cave.x1 = 0;
+            cave.y1 = 0;
+            cave.x2 = cave.w - 1;
+            cave.y2 = cave.h - 1;
+        }
+        // do some validation
+        gd_cave_correct_visible_size(cave);
 
-            // if originally the full cave was visible, we set the visible area to the full cave, here again.
-            if (full_visible) {
-                cave->x1 = 0;
-                cave->y1 = 0;
-                cave->x2 = cave->w - 1;
-                cave->y2 = cave->h - 1;
-            }
-            // do some validation
-            gd_cave_correct_visible_size(*cave);
-
-            // check ratios, so they are not larger than number of cells in cave (width*height)
-            PropertyDescription const *descriptor = cave->get_description_array();
-            for (unsigned i = 0; descriptor[i].identifier != NULL; i++)
-                if (descriptor[i].flags & GD_BDCFF_RATIO_TO_CAVE_SIZE) {
-                    std::auto_ptr<GetterBase> const &prop = descriptor[i].prop;
-                    switch (descriptor[i].type) {
-                        case GD_TYPE_INT:
-                            if (cave->get<GdInt>(prop) >= cave->w * cave->h)
-                                cave->get<GdInt>(prop) = cave->w * cave->h;
-                            break;
-                        case GD_TYPE_INT_LEVELS:
-                            for (unsigned j = 0; j < prop->count; ++j)
-                                if (cave->get<GdIntLevels>(prop)[j] >= cave->w * cave->h)
-                                    cave->get<GdIntLevels>(prop)[j] = cave->w * cave->h;
-                            break;
-                        default:
-                            break;
-                    }
+        // check ratios, so they are not larger than number of cells in cave (width*height)
+        PropertyDescription const *descriptor = cave.get_description_array();
+        for (unsigned i = 0; descriptor[i].identifier != NULL; i++)
+            if (descriptor[i].flags & GD_BDCFF_RATIO_TO_CAVE_SIZE) {
+                std::unique_ptr<GetterBase> const &prop = descriptor[i].prop;
+                switch (descriptor[i].type) {
+                    case GD_TYPE_INT:
+                        if (cave.get<GdInt>(prop) >= cave.w * cave.h)
+                            cave.get<GdInt>(prop) = cave.w * cave.h;
+                        break;
+                    case GD_TYPE_INT_LEVELS:
+                        for (unsigned j = 0; j < prop->count; ++j)
+                            if (cave.get<GdIntLevels>(prop)[j] >= cave.w * cave.h)
+                                cave.get<GdIntLevels>(prop)[j] = cave.w * cave.h;
+                        break;
+                    default:
+                        break;
                 }
-        }
-        /* redraw, recreate, re-everything */
-        select_cave_for_edit(cave);
+            }
+    }
+    /* redraw, recreate, re-everything */
+    select_cave_for_edit(edited_cave_idx);
 
-        // if the size of the cave changed, inform the user that he should check the visible region.
-        // also, automatically select the tool.
-        if (size_changed && !full_visible) {
-            select_tool(TOOL_VISIBLE_REGION);
-            gd_warningmessage(_("You have changed the size of the cave. Please check the size of the visible region!"),
-                              _("The visible area of the cave during the game can be smaller than the whole cave. If you resize "
-                                "the cave, the area to be shown cannot be guessed automatically. The tool to set this behavior is "
-                                "now selected, and shows the current visible area. Use drag and drop to change the position and "
-                                "size of the rectangle."));
+    // if the size of the cave changed, inform the user that he should check the visible region.
+    // also, automatically select the tool.
+    if (size_changed && !full_visible) {
+        select_tool(TOOL_VISIBLE_REGION);
+        gd_warningmessage(_("You have changed the size of the cave. Please check the size of the visible region!"),
+                          _("The visible area of the cave during the game can be smaller than the whole cave. If you resize "
+                            "the cave, the area to be shown cannot be guessed automatically. The tool to set this behavior is "
+                            "now selected, and shows the current visible area. Use drag and drop to change the position and "
+                            "size of the rectangle."));
 
-        }
     }
 }
 
@@ -795,37 +755,24 @@ static void select_tool(int tool) {
 
 
 static void
-set_status_label_for_cave(CaveStored *cave) {
+set_status_label_for_cave(CaveStored &cave) {
     gtk_label_set_markup(GTK_LABEL(label_object),
-                         CPrintf(_("<b>%ms</b>, %s, %dx%d, time %d:%02d, diamonds %d"))
-                         % cave->name
-                         % (cave->selectable ? _("selectable") : _("not selectable"))
-                         % cave->w
-                         % cave->h
-                         % (cave->level_time[edit_level] / 60)
-                         % (cave->level_time[edit_level] % 60)
-                         % cave->level_diamonds[edit_level]);
+                         Printf(_("<b>%ms</b>, %s, %dx%d, time %d:%02d, diamonds %d"),
+                                cave.name,
+                                (cave.selectable ? _("selectable") : _("not selectable")),
+                                cave.w,
+                                cave.h,
+                                (cave.level_time[edit_level] / 60),
+                                (cave.level_time[edit_level] % 60),
+                                cave.level_diamonds[edit_level]
+                         ).c_str());
 }
 
-
-static gboolean
-set_status_label_for_caveset_count_caves(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data) {
-    int *i = (int *)data;
-
-    (*i)++;
-    return FALSE;   /* to continue counting */
-}
 
 static void
 set_status_label_for_caveset() {
-    int count;
-    if (iconview_cavelist) {
-        count = 0;
-        gtk_tree_model_foreach(gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist)), (GtkTreeModelForeachFunc) set_status_label_for_caveset_count_caves, &count);
-    } else
-        count = caveset->caves.size();
-
-    gtk_label_set_markup(GTK_LABEL(label_object), CPrintf(ngettext("<b>%ms</b>, %d cave", "<b>%ms</b>, %d caves", count)) % caveset->name % count);
+    int count = caveset->caves.size();
+    gtk_label_set_markup(GTK_LABEL(label_object), Printf(ngettext("<b>%ms</b>, %d cave", "<b>%ms</b>, %d caves", count), caveset->name, count).c_str());
 }
 
 
@@ -834,16 +781,13 @@ set_status_label_for_caveset() {
     so it can be presented to the user.
 */
 static void render_cave() {
-    g_return_if_fail(edited_cave != NULL);
-
     /* rendering cave for editor: seed=random, so the user sees which elements are truly random */
     if (!rendered_cave) {
         // if does not exist at all, create now
-        delete rendered_cave;
-        rendered_cave = new CaveRendered(*edited_cave, edit_level, g_random_int_range(0, GD_CAVE_SEED_MAX));
+        rendered_cave.reset(new CaveRendered(edited_cave(), edit_level, g_random_int_range(0, GD_CAVE_SEED_MAX)));
     } else
         // otherwise only recreate the map
-        rendered_cave->create_map(*edited_cave, edit_level);
+        rendered_cave->create_map(edited_cave(), edit_level);
 
     /* set size of map; also clear it, as colors might have changed etc. */
     gfx_buffer.set_size(rendered_cave->w, rendered_cave->h, -1);
@@ -854,38 +798,37 @@ static void render_cave() {
     object_list_selection_changed_signal_disabled = TRUE;
 
     /* fill object list store with the objects. */
-    gtk_list_store_clear(object_list);
+    GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(object_list_tree_view));
+    gtk_list_store_clear(GTK_LIST_STORE(model));
 
-    int i = 0;
-    for (CaveObjectStore::const_iterator it = edited_cave->objects.begin(); it != edited_cave->objects.end(); ++it) {
-        CaveObject *object = *it;
+    for (int order_idx = 0; order_idx < (int)edited_cave().objects.size(); ++order_idx) {
+        CaveObject & object = edited_cave().objects[order_idx];
         GdkPixbuf *element = NULL;
 
-        GdElementEnum characteristic = object->get_characteristic_element();
+        GdElementEnum characteristic = object.get_characteristic_element();
         if (characteristic != O_NONE)
             element = editor_cell_renderer->combo_pixbuf(characteristic);
 
         const char *levels_stock;
-        if (object->is_seen_on_all())            /* if on all levels */
+        if (object.is_seen_on_all())            /* if on all levels */
             levels_stock = GD_ICON_OBJECT_ON_ALL;
         else                                            /* not on all levels... visible on current level? */
-            if (object->seen_on[edit_level])
+            if (object.seen_on[edit_level])
                 levels_stock = GD_ICON_OBJECT_NOT_ON_ALL;
             else
                 levels_stock = GD_ICON_OBJECT_NOT_ON_CURRENT;
 
-        std::string text = object->get_coordinates_text();
+        std::string text = object.get_coordinates_text();
         /* use atomic insert with values */
         GtkTreeIter treeiter;
-        gtk_list_store_insert_with_values(object_list, &treeiter, i, INDEX_COLUMN, i, LEVELS_PIXBUF_COLUMN, levels_stock,
-                                          TYPE_PIXBUF_COLUMN, action_objects[object->type].stock_id,
-                                          ELEMENT_PIXBUF_COLUMN, element, TEXT_COLUMN, text.c_str(), POINTER_COLUMN, object, -1);
+        gtk_list_store_insert_with_values(GTK_LIST_STORE(model), &treeiter, order_idx,
+                                          INDEX_COLUMN, order_idx, LEVELS_PIXBUF_COLUMN, levels_stock,
+                                          TYPE_PIXBUF_COLUMN, action_objects[object.get_type()].stock_id,
+                                          ELEMENT_PIXBUF_COLUMN, element, TEXT_COLUMN, text.c_str(), -1);
 
         /* also do selection as now we have the iter in hand */
-        if (selected_objects.count(object) != 0)
+        if (object_list_is_selected(order_idx))
             gtk_tree_selection_select_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)), &treeiter);
-
-        i++;
     }
     gtk_tree_view_columns_autosize(GTK_TREE_VIEW(object_list_tree_view));
 
@@ -893,111 +836,111 @@ static void render_cave() {
     object_list_selection_changed_signal_disabled = FALSE;
     object_list_selection_changed_signal(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)), NULL);
 
-    gtk_action_group_set_sensitive(actions_edit_map, !edited_cave->map.empty());    /* map actions when we have map */
-    gtk_action_group_set_sensitive(actions_edit_random, edited_cave->map.empty());  /* random fill actions when no map */
+    gtk_action_group_set_sensitive(actions_edit_map, !edited_cave().map.empty());    /* map actions when we have map */
+    gtk_action_group_set_sensitive(actions_edit_random, edited_cave().map.empty());  /* random fill actions when no map */
 
     /* if no object is selected, show normal cave info */
-    if (selected_objects.empty())
-        set_status_label_for_cave(edited_cave);
+    if (!object_list_is_any_selected())
+        set_status_label_for_cave(edited_cave());
 }
 
 
 /// Edit properties of an object.
-static void object_properties(CaveObject *object) {
-    if (object == NULL) {
-        g_return_if_fail(object_list_count_selected() == 1);
-        object = object_list_first_selected();  /* select first from list... should be only one selected */
-    }
-
-    std::list<EditorAutoUpdate *> eau_s;
+static void object_properties(CaveObject &object) {
     undo_save();
 
-    CaveObject *before_edit = object->clone();
+    std::unique_ptr<CaveObject> before_edit = object.clone();
     GtkWidget *dialog, *notebook;
     edit_properties_create_window(_("Object Properties"), true, dialog, notebook);
-    edit_properties_add_widgets(notebook, eau_s, object->get_description_array(), object, before_edit, render_cave);
+    std::vector<std::unique_ptr<EditorAutoUpdate>> eau_s = edit_properties_add_widgets(notebook, object.get_description_array(), &object, before_edit.get(), render_cave);
     gtk_widget_show_all(dialog);
     bool changed = gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT;
     gtk_widget_destroy(dialog);
-    delete before_edit;
 
     if (changed) {
-        if (object->is_invisible()) {
-            object->enable_on_all();
+        if (object.is_invisible()) {
+            object.enable_on_all();
 
             gd_warningmessage(_("The object should be visible on at least one level."), _("Enabled this object on all levels."));
         }
         render_cave();
     } else
         undo_do_one_step_but_no_redo();
-
-    for (std::list<EditorAutoUpdate *>::const_iterator it = eau_s.begin(); it != eau_s.end(); ++it)
-        delete(*it);
 }
 
 
 /* this is the same scroll routine as the one used for the game. only the parameters are changed a bit. */
 static void drawcave_timeout_scroll(int player_x, int player_y) {
     static int scroll_desired_x = 0, scroll_desired_y = 0;
-    GtkAdjustment *adjustment;
     int scroll_center_x, scroll_center_y;
-    int i;
     /* hystheresis size is this, multiplied by two. */
     int cs = editor_cell_renderer->get_cell_size();
-    int scroll_start_x = scroll_window->allocation.width / 2 - 2 * cs;
-    int scroll_start_y = scroll_window->allocation.height / 2 - 2 * cs;
+    GdkRectangle allocation;
+    gtk_widget_get_allocation(scroll_window, &allocation);
+    int scroll_start_x = allocation.width / 2 - 2 * cs;
+    int scroll_start_y = allocation.height / 2 - 2 * cs;
     int scroll_speed = cs / 4;
 
     /* get the size of the window so we know where to place player.
      * first guess is the middle of the screen.
      * drawing_area->parent->parent is the viewport.
      * +cellsize/2 gets the stomach of player :) so the very center */
-    scroll_center_x = player_x * cs + cs / 2 - drawing_area->parent->parent->allocation.width / 2;
-    scroll_center_y = player_y * cs + cs / 2 - drawing_area->parent->parent->allocation.height / 2;
+    gtk_widget_get_allocation(gtk_widget_get_parent(drawing_area), &allocation);
+    scroll_center_x = player_x * cs + cs / 2 - allocation.width / 2;
+    scroll_center_y = player_y * cs + cs / 2 - allocation.height / 2;
+
+    GtkAdjustment *adjustment;
+    gdouble value, upper, step_increment, page_increment;
 
     /* HORIZONTAL */
     /* hystheresis function.
      * when scrolling left, always go a bit less left than player being at the middle.
      * when scrolling right, always go a bit less to the right. */
     adjustment = gtk_scrolled_window_get_hadjustment(GTK_SCROLLED_WINDOW(scroll_window));
-    if (adjustment->value + scroll_start_x < scroll_center_x)
+    value = gtk_adjustment_get_value(adjustment);
+    upper = gtk_adjustment_get_upper(adjustment);
+    step_increment = gtk_adjustment_get_step_increment(adjustment);
+    page_increment = gtk_adjustment_get_page_increment(adjustment);
+    if (value + scroll_start_x < scroll_center_x)
         scroll_desired_x = scroll_center_x - scroll_start_x;
-    if (adjustment->value - scroll_start_x > scroll_center_x)
+    if (value - scroll_start_x > scroll_center_x)
         scroll_desired_x = scroll_center_x + scroll_start_x;
-
-    scroll_desired_x = CLAMP(scroll_desired_x, 0, adjustment->upper - adjustment->step_increment - adjustment->page_increment);
-    if (adjustment->value < scroll_desired_x) {
-        for (i = 0; i < scroll_speed; i++)
-            if (adjustment->value < scroll_desired_x)
-                adjustment->value++;
-        gtk_adjustment_value_changed(adjustment);
+    scroll_desired_x = CLAMP(scroll_desired_x, 0, upper - step_increment - page_increment);
+    if (value < scroll_desired_x) {
+        for (int i = 0; i < scroll_speed; i++)
+            if (value < scroll_desired_x)
+                value++;
+        gtk_adjustment_set_value(adjustment, value);
     }
-    if (adjustment->value > scroll_desired_x) {
-        for (i = 0; i < scroll_speed; i++)
-            if (adjustment->value > scroll_desired_x)
-                adjustment->value--;
-        gtk_adjustment_value_changed(adjustment);
+    else if (value > scroll_desired_x) {
+        for (int i = 0; i < scroll_speed; i++)
+            if (value > scroll_desired_x)
+                value--;
+        gtk_adjustment_set_value(adjustment, value);
     }
 
     /* VERTICAL */
     adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(scroll_window));
-    if (adjustment->value + scroll_start_y < scroll_center_y)
+    value = gtk_adjustment_get_value(adjustment);
+    upper = gtk_adjustment_get_upper(adjustment);
+    step_increment = gtk_adjustment_get_step_increment(adjustment);
+    page_increment = gtk_adjustment_get_page_increment(adjustment);
+    if (value + scroll_start_y < scroll_center_y)
         scroll_desired_y = scroll_center_y - scroll_start_y;
-    if (adjustment->value - scroll_start_y > scroll_center_y)
+    if (value - scroll_start_y > scroll_center_y)
         scroll_desired_y = scroll_center_y + scroll_start_y;
-
-    scroll_desired_y = CLAMP(scroll_desired_y, 0, adjustment->upper - adjustment->step_increment - adjustment->page_increment);
-    if (adjustment->value < scroll_desired_y) {
-        for (i = 0; i < scroll_speed; i++)
-            if (adjustment->value < scroll_desired_y)
-                adjustment->value++;
-        gtk_adjustment_value_changed(adjustment);
+    scroll_desired_y = CLAMP(scroll_desired_y, 0, upper - step_increment - page_increment);
+    if (value < scroll_desired_y) {
+        for (int i = 0; i < scroll_speed; i++)
+            if (value < scroll_desired_y)
+                value++;
+        gtk_adjustment_set_value(adjustment, value);
     }
-    if (adjustment->value > scroll_desired_y) {
-        for (i = 0; i < scroll_speed; i++)
-            if (adjustment->value > scroll_desired_y)
-                adjustment->value--;
-        gtk_adjustment_value_changed(adjustment);
+    else if (value > scroll_desired_y) {
+        for (int i = 0; i < scroll_speed; i++)
+            if (value > scroll_desired_y)
+                value--;
+        gtk_adjustment_set_value(adjustment, value);
     }
 }
 
@@ -1020,11 +963,13 @@ static gboolean drawing_area_draw_timeout(gpointer data) {
 
     /* when mouse over a drawing object, cursor changes */
     if (mouse_x >= 0 && mouse_y >= 0) {
-        bool new_hand_cursor = rendered_cave->objects_order(mouse_x, mouse_y) != NULL;
+        bool new_hand_cursor = rendered_cave->objects_order(mouse_x, mouse_y) != -1;
 
         if (hand_cursor != new_hand_cursor) {
             hand_cursor = new_hand_cursor;
-            gdk_window_set_cursor(drawing_area->window, hand_cursor ? gdk_cursor_new(GDK_HAND1) : NULL);
+            GdkWindow *window = gtk_widget_get_window(drawing_area);
+            GdkDisplay *display = gtk_widget_get_display(drawing_area);
+            gdk_window_set_cursor(window, hand_cursor ? gdk_cursor_new_for_display(display, GDK_HAND1) : NULL);
         }
     }
 
@@ -1042,7 +987,6 @@ static gboolean drawing_area_draw_timeout(gpointer data) {
         for (int x = 0; x < rendered_cave->w; x++) {
             GdElementEnum elem = rendered_cave->map(x, y);
             int draw;
-
             if (gd_game_view)
                 draw = gd_element_properties[elem].image_simple;
             else
@@ -1070,7 +1014,7 @@ static gboolean drawing_area_draw_timeout(gpointer data) {
                 } else {
                     if (object_highlight_map(x, y)) /* if it is a selected object, make it colored */
                         draw += 2 * NUM_OF_CELLS;
-                    else if (gd_colored_objects && rendered_cave->objects_order(x, y) != 0)
+                    else if (gd_colored_objects && rendered_cave->objects_order(x, y) != -1)
                         /* if it belongs to any other element, make it colored a bit */
                         draw += NUM_OF_CELLS;
                 }
@@ -1103,20 +1047,17 @@ static gboolean drawing_area_draw_timeout(gpointer data) {
         /* draw a mark for fill objects */
         for (int y = 0; y < rendered_cave->h; y++) {
             for (int x = 0; x < rendered_cave->w; x++) {
-                /* for fill objects, we show their origin */
-                if (object_highlight_map(x, y)
-                        && (rendered_cave->objects_order(x, y)->type == CaveObject::GD_FLOODFILL_BORDER
-                            || rendered_cave->objects_order(x, y)->type == CaveObject::GD_FLOODFILL_REPLACE)) {
-                    Coordinate c = dynamic_cast<CaveFill &>(*rendered_cave->objects_order(x, y)).get_start_coordinate();
-                    /* if this one is the starting coordinate, mark it */
-                    if (c.x == x && c.y == y) {
-                        cairo_rectangle(cr, x * cs + 0.5, y * cs + 0.5, cs - 1, cs - 1);
-                        cairo_move_to(cr, x * cs + 0.5, y * cs + 0.5);
-                        cairo_line_to(cr, (x + 1)*cs - 0.5, (y + 1)*cs - 0.5);
-                        cairo_move_to(cr, (x + 1)*cs - 0.5, y * cs + 0.5);
-                        cairo_line_to(cr, x * cs + 0.5, (y + 1)*cs - 0.5);
-                        gfx_buffer(x, y) = -1;
-                    }
+                int order_idx = rendered_cave->objects_order(x, y);
+                if (order_idx == -1)
+                    continue;
+                CaveObject &object = edited_cave().objects[order_idx];
+                if (object.mark_coordinate({x, y})) {
+                    cairo_rectangle(cr, x * cs + 0.5, y * cs + 0.5, cs - 1, cs - 1);
+                    cairo_move_to(cr, x * cs + 0.5, y * cs + 0.5);
+                    cairo_line_to(cr, (x + 1)*cs - 0.5, (y + 1)*cs - 0.5);
+                    cairo_move_to(cr, (x + 1)*cs - 0.5, y * cs + 0.5);
+                    cairo_line_to(cr, x * cs + 0.5, (y + 1)*cs - 0.5);
+                    gfx_buffer(x, y) = -1;
                 }
             }
         }
@@ -1141,34 +1082,6 @@ static gboolean drawing_area_draw_timeout(gpointer data) {
 }
 
 
-/*
- * cave drawing area expose event.
- */
-static gboolean
-drawing_area_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data) {
-    if (!widget->window || gfx_buffer.empty() || rendered_cave == NULL)
-        return FALSE;
-    int cs = editor_cell_renderer->get_cell_size();
-
-    /* calculate which area to update */
-    int x1 = event->area.x / cs;
-    int y1 = event->area.y / cs;
-    int x2 = (event->area.x + event->area.width - 1) / cs;
-    int y2 = (event->area.y + event->area.height - 1) / cs;
-    /* when resizing the cave, we may get events which store the old size, if the drawing area is not yet resized. */
-    if (x1 < 0) x1 = 0;
-    if (y1 < 0) x1 = 0;
-    if (x2 >= rendered_cave->w) x2 = rendered_cave->w - 1;
-    if (y2 >= rendered_cave->h) y2 = rendered_cave->h - 1;
-
-    /* tag them as "to be redrawn" */
-    for (int y = y1; y <= y2; y++)
-        for (int x = x1; x <= x2; x++)
-            gfx_buffer(x, y) = -1;
-    return TRUE;
-}
-
-
 static void drawing_area_destroyed(GtkWidget *widget, gpointer data) {
     if (screen != NULL)
         screen->set_drawing_area(NULL);
@@ -1180,33 +1093,33 @@ static void drawing_area_destroyed(GtkWidget *widget, gpointer data) {
  *
  * mouse events
  *
- *
  */
 
+template <typename T>
 static void
-edited_cave_add_object(CaveObject *object) {
+edited_cave_add_object(T object) {
     undo_save();
 
     /* only visible on level... */
     int act = gtk_combo_box_get_active(GTK_COMBO_BOX(new_object_level_combo));
     int lev = new_objects_visible_on[act].switch_to_level;
     for (int i = 0; i < lev; ++i)
-        object->seen_on[i] = false;
+        object.seen_on[i] = false;
 
-    edited_cave->push_back_adopt(object);
+    edited_cave().objects.push_back(std::move(object));
     render_cave();      /* new object created, so re-render cave */
-    object_list_select_one_object(edited_cave->objects.back()); /* also make it selected; so it can be edited further */
+    object_list_select_one_object(edited_cave().objects.size() - 1); /* also make it selected; so it can be edited further */
 }
 
 
 /* mouse button press event */
 static gboolean
 drawing_area_button_press_event(GtkWidget *widget, GdkEventButton *event, gpointer data) {
-    g_return_val_if_fail(edited_cave != NULL, FALSE);
+    g_return_val_if_fail(edited_cave_idx != -1, FALSE);
 
     /* right click opens popup */
     if (event->button == 3) {
-        gtk_menu_popup(GTK_MENU(drawing_area_popup), NULL, NULL, NULL, NULL, event->button, event->time);
+        gtk_menu_popup_at_pointer(GTK_MENU(drawing_area_popup), NULL);
         return TRUE;
     }
 
@@ -1234,10 +1147,10 @@ drawing_area_button_press_event(GtkWidget *widget, GdkEventButton *event, gpoint
      * (if mouse if over an element, the first click selected it.) */
     /* do not allow this doubleclick for visible region mode as that one does not select objects */
     if (event->type == GDK_2BUTTON_PRESS && action != TOOL_VISIBLE_REGION) {
-        if (rendered_cave->objects_order(clicked_x, clicked_y))
-            object_properties(rendered_cave->objects_order(clicked_x, clicked_y));
+        if (rendered_cave->objects_order(clicked_x, clicked_y) != -1)
+            object_properties(edited_cave().objects[rendered_cave->objects_order(clicked_x, clicked_y)]);
         else
-            cave_properties(edited_cave, TRUE);
+            cave_properties(edited_cave(), TRUE);
         return TRUE;
     }
 
@@ -1245,26 +1158,27 @@ drawing_area_button_press_event(GtkWidget *widget, GdkEventButton *event, gpoint
         case TOOL_MOVE:
             /* action=move: now the user is selecting an object by the mouse click */
             if ((event->state & GDK_CONTROL_MASK) || (event->state & GDK_SHIFT_MASK)) {
-                CaveObject *clicked_on_object = rendered_cave->objects_order(clicked_x, clicked_y);
+                int clicked_on_object = rendered_cave->objects_order(clicked_x, clicked_y);
                 /* CONTROL or SHIFT PRESSED: multiple selection */
                 /* check if clicked on an object. */
-                if (clicked_on_object != 0) {
+                if (clicked_on_object != -1) {
                     if (object_list_is_selected(clicked_on_object))
                         object_list_remove_from_selection(clicked_on_object);
                     else
                         object_list_add_to_selection(clicked_on_object);
                 }
             } else {
-                CaveObject *clicked_on_object = rendered_cave->objects_order(clicked_x, clicked_y);
+                int clicked_on_object = rendered_cave->objects_order(clicked_x, clicked_y);
                 /* CONTROL NOT PRESSED: single selection */
                 /* if the object clicked is not currently selected, we select it. if it is, do nothing, so a multiple selection remains. */
-                if (clicked_on_object) {
+                if (clicked_on_object != -1) {
                     /* check if currently selected. if yes, do nothing, as it would make multi-object drag&drops impossible. */
                     if (!object_list_is_selected(clicked_on_object))
                         object_list_select_one_object(clicked_on_object);
-                } else
+                } else {
                     /* if clicking on a non-object, deselect all */
                     object_list_clear_selection();
+                }
             }
 
             /* prepare for undo */
@@ -1274,9 +1188,9 @@ drawing_area_button_press_event(GtkWidget *widget, GdkEventButton *event, gpoint
         case TOOL_FREEHAND:
             /* freehand tool: draw points in each place. */
             /* if already the same element there, which is placed by an object, skip! */
-            if (rendered_cave->map(clicked_x, clicked_y) != gd_element_button_get(element_button) || rendered_cave->objects_order(clicked_x, clicked_y) == NULL)
+            if (rendered_cave->map(clicked_x, clicked_y) != gd_element_button_get(element_button) || rendered_cave->objects_order(clicked_x, clicked_y) == -1)
                 /* it places a point. and later, when dragging the mouse, it may place another points. */
-                edited_cave_add_object(new CavePoint(Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
+                edited_cave_add_object(CavePoint(Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
             break;
 
         case TOOL_VISIBLE_REGION:
@@ -1286,55 +1200,55 @@ drawing_area_button_press_event(GtkWidget *widget, GdkEventButton *event, gpoint
             break;
 
         case TOOL_POINT:
-            edited_cave_add_object(new CavePoint(Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
+            edited_cave_add_object(CavePoint(Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
             break;
 
         case TOOL_LINE:
-            edited_cave_add_object(new CaveLine(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
+            edited_cave_add_object(CaveLine(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
             break;
 
         case TOOL_RECTANGLE:
-            edited_cave_add_object(new CaveRectangle(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
+            edited_cave_add_object(CaveRectangle(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button)));
             break;
 
         case TOOL_FILLED_RECTANGLE:
-            edited_cave_add_object(new CaveFillRect(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button)));
+            edited_cave_add_object(CaveFillRect(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button)));
             break;
 
         case TOOL_RASTER:
-            edited_cave_add_object(new CaveRaster(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), Coordinate(2, 2), gd_element_button_get(element_button)));
+            edited_cave_add_object(CaveRaster(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), Coordinate(2, 2), gd_element_button_get(element_button)));
             break;
 
         case TOOL_JOIN:
-            edited_cave_add_object(new CaveJoin(Coordinate(0, 0), gd_element_button_get(element_button), gd_element_button_get(fillelement_button)));
+            edited_cave_add_object(CaveJoin(Coordinate(0, 0), gd_element_button_get(element_button), gd_element_button_get(fillelement_button)));
             break;
 
         case TOOL_FLOODFILL_REPLACE:
-            edited_cave_add_object(new CaveFloodFill(Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), rendered_cave->map(clicked_x, clicked_y)));
+            edited_cave_add_object(CaveFloodFill(Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), rendered_cave->map(clicked_x, clicked_y)));
             break;
 
         case TOOL_FLOODFILL_BORDER:
-            edited_cave_add_object(new CaveBoundaryFill(Coordinate(clicked_x, clicked_y), gd_element_button_get(fillelement_button), gd_element_button_get(element_button)));
+            edited_cave_add_object(CaveBoundaryFill(Coordinate(clicked_x, clicked_y), gd_element_button_get(fillelement_button), gd_element_button_get(element_button)));
             break;
 
         case TOOL_MAZE:
-            edited_cave_add_object(new CaveMaze(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button), CaveMaze::Perfect));
+            edited_cave_add_object(CaveMaze(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button), CaveMaze::Perfect));
             break;
 
         case TOOL_MAZE_UNICURSAL:
-            edited_cave_add_object(new CaveMaze(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button), CaveMaze::Unicursal));
+            edited_cave_add_object(CaveMaze(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button), CaveMaze::Unicursal));
             break;
 
         case TOOL_MAZE_BRAID:
-            edited_cave_add_object(new CaveMaze(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button), CaveMaze::Braid));
+            edited_cave_add_object(CaveMaze(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), gd_element_button_get(element_button), gd_element_button_get(fillelement_button), CaveMaze::Braid));
             break;
 
         case TOOL_RANDOM_FILL:
-            edited_cave_add_object(new CaveRandomFill(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y)));
+            edited_cave_add_object(CaveRandomFill(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y)));
             break;
 
         case TOOL_COPY_PASTE:
-            edited_cave_add_object(new CaveCopyPaste(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y)));
+            edited_cave_add_object(CaveCopyPaste(Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y), Coordinate(clicked_x, clicked_y)));
             break;
         default:
             g_assert_not_reached();
@@ -1362,16 +1276,14 @@ drawing_area_leave_event(GtkWidget *widget, GdkEventCrossing *event, gpointer da
 /* mouse motion event */
 static gboolean
 drawing_area_motion_event(GtkWidget *widget, GdkEventMotion *event, gpointer data) {
+    g_return_val_if_fail(edited_cave_idx != -1, FALSE);
+    
     int x, y, dx, dy;
     GdkModifierType state;
 
-    /* just to be sure. */
-    if (!edited_cave)
-        return FALSE;
-
-    if (event->is_hint)
-        gdk_window_get_pointer(event->window, &x, &y, &state);
-    else {
+    if (event->is_hint) {
+        gdk_window_get_device_position(event->window, event->device, &x, &y, &state);
+    } else {
         x = event->x;
         y = event->y;
         state = GdkModifierType(event->state);
@@ -1394,7 +1306,7 @@ drawing_area_motion_event(GtkWidget *widget, GdkEventMotion *event, gpointer dat
     if (mouse_x != x || mouse_y != y) {
         mouse_x = x;
         mouse_y = y;
-        gtk_label_set_markup(GTK_LABEL(label_coordinate), CPrintf("[x:%d y:%d]") % x % y);
+        gtk_label_set_markup(GTK_LABEL(label_coordinate), Printf("[x:%d y:%d]", x, y).c_str());
     }
 
     /* if we do not remember button 1 press, then don't do anything. */
@@ -1416,53 +1328,50 @@ drawing_area_motion_event(GtkWidget *widget, GdkEventMotion *event, gpointer dat
             undo_move_flag = TRUE;
         }
 
-        /* try to drag (x1;y1) corner. */
-        if (clicked_x == edited_cave->x1 && clicked_y == edited_cave->y1) {
-            edited_cave->x1 += dx;
-            edited_cave->y1 += dy;
-        } else
+        if (clicked_x == edited_cave().x1 && clicked_y == edited_cave().y1) {
+            /* try to drag (x1;y1) corner. */
+            edited_cave().x1 += dx;
+            edited_cave().y1 += dy;
+        } else if (clicked_x == edited_cave().x2 && clicked_y == edited_cave().y1) {
             /* try to drag (x2;y1) corner. */
-            if (clicked_x == edited_cave->x2 && clicked_y == edited_cave->y1) {
-                edited_cave->x2 += dx;
-                edited_cave->y1 += dy;
-            } else
-                /* try to drag (x1;y2) corner. */
-                if (clicked_x == edited_cave->x1 && clicked_y == edited_cave->y2) {
-                    edited_cave->x1 += dx;
-                    edited_cave->y2 += dy;
-                } else
-                    /* try to drag (x2;y2) corner. */
-                    if (clicked_x == edited_cave->x2 && clicked_y == edited_cave->y2) {
-                        edited_cave->x2 += dx;
-                        edited_cave->y2 += dy;
-                    } else {
-                        /* drag the whole */
-                        edited_cave->x1 += dx;
-                        edited_cave->y1 += dy;
-                        edited_cave->x2 += dx;
-                        edited_cave->y2 += dy;
-                    }
+            edited_cave().x2 += dx;
+            edited_cave().y1 += dy;
+        } else if (clicked_x == edited_cave().x1 && clicked_y == edited_cave().y2) {
+            /* try to drag (x1;y2) corner. */
+            edited_cave().x1 += dx;
+            edited_cave().y2 += dy;
+        } else if (clicked_x == edited_cave().x2 && clicked_y == edited_cave().y2) {
+            /* try to drag (x2;y2) corner. */
+            edited_cave().x2 += dx;
+            edited_cave().y2 += dy;
+        } else {
+            /* drag the whole */
+            edited_cave().x1 += dx;
+            edited_cave().y1 += dy;
+            edited_cave().x2 += dx;
+            edited_cave().y2 += dy;
+        }
         clicked_x = x;
         clicked_y = y;
 
         /* check and adjust ranges if necessary */
-        gd_cave_correct_visible_size(*edited_cave);
+        gd_cave_correct_visible_size(edited_cave());
 
         /* instead of re-rendering the cave, we just copy the changed values. */
-        rendered_cave->x1 = edited_cave->x1;
-        rendered_cave->x2 = edited_cave->x2;
-        rendered_cave->y1 = edited_cave->y1;
-        rendered_cave->y2 = edited_cave->y2;
+        rendered_cave->x1 = edited_cave().x1;
+        rendered_cave->x2 = edited_cave().x2;
+        rendered_cave->y1 = edited_cave().y1;
+        rendered_cave->y2 = edited_cave().y2;
         return TRUE;
     }
 
     if (action == TOOL_FREEHAND) {
         /* the freehand tool is different a bit. it draws single points automatically */
         /* but only to places where there is no such object already. */
-        if (rendered_cave->map(x, y) != gd_element_button_get(element_button) || rendered_cave->objects_order(x, y) == NULL) {
-            edited_cave->push_back_adopt(new CavePoint(Coordinate(x, y), gd_element_button_get(element_button)));
+        if (rendered_cave->map(x, y) != gd_element_button_get(element_button) || rendered_cave->objects_order(x, y) == -1) {
+            edited_cave().objects.push_back(CavePoint(Coordinate(x, y), gd_element_button_get(element_button)));
             render_cave();  /* we do this here by hand; do not use changed flag; otherwise object_list_add_to_selection wouldn't work */
-            object_list_add_to_selection(edited_cave->objects.back());  /* this way all points will be selected together when using freehand */
+            object_list_add_to_selection(edited_cave().objects.size() - 1);  /* this way all points will be selected together when using freehand */
         }
         return TRUE;
     }
@@ -1472,7 +1381,7 @@ drawing_area_motion_event(GtkWidget *widget, GdkEventMotion *event, gpointer dat
 
     if (object_list_count_selected() == 1) {
         /* MOVING, DRAGGING A SINGLE OBJECT **************************/
-        CaveObject *object = object_list_first_selected();
+        CaveObject &object = object_list_first_selected();
 
         switch (action) {
             case TOOL_MOVE:
@@ -1482,7 +1391,7 @@ drawing_area_motion_event(GtkWidget *widget, GdkEventMotion *event, gpointer dat
                     undo_move_flag = TRUE;
                 }
 
-                object->move(Coordinate(clicked_x, clicked_y), Coordinate(dx, dy));
+                object.move(Coordinate(clicked_x, clicked_y), Coordinate(dx, dy));
                 break;
 
                 /* DRAGGING THE MOUSE, WHEN THE OBJECT WAS JUST CREATED */
@@ -1499,7 +1408,7 @@ drawing_area_motion_event(GtkWidget *widget, GdkEventMotion *event, gpointer dat
             case TOOL_RANDOM_FILL:
             case TOOL_COPY_PASTE:
             case TOOL_JOIN:
-                object->create_drag(Coordinate(x, y), Coordinate(dx, dy));
+                object.create_drag(Coordinate(x, y), Coordinate(dx, dy));
                 break;
             default:
                 g_assert_not_reached();
@@ -1511,8 +1420,10 @@ drawing_area_motion_event(GtkWidget *widget, GdkEventMotion *event, gpointer dat
             undo_move_flag = TRUE;
         }
 
-        for (std::set<CaveObject *>::iterator it = selected_objects.begin(); it != selected_objects.end(); ++it)
-            (*it)->move(Coordinate(dx, dy));
+        for (auto it = selected_objects.begin(); it != selected_objects.end(); ++it) {
+            CaveObject & obj = edited_cave().objects[*it];
+            obj.move(Coordinate(dx, dy));
+        }
     }
 
     clicked_x = x;
@@ -1540,21 +1451,18 @@ editor_window_destroy_event(GtkWidget *widget, gpointer data) {
     /* remove drawing interrupt. */
     g_source_remove(timeout_id);
     /* if cave is drawn, free. */
-    delete rendered_cave;
-    rendered_cave = NULL;
+    rendered_cave.reset();
 
-    delete editor_cell_renderer;
-    editor_cell_renderer = NULL;
-    delete editor_pixbuf_factory;
-    editor_pixbuf_factory = NULL;
-    delete screen;
-    screen = NULL;
+    editor_cell_renderer.reset();
+    editor_pixbuf_factory.reset();
+    screen.reset();
 
     /* we destroy the icon view explicitly. so the caveset gets recreated */
     if (iconview_cavelist)
         gtk_widget_destroy(iconview_cavelist);
 
     g_hash_table_destroy(cave_pixbufs);
+    gd_editor_window = NULL;
 }
 
 
@@ -1572,36 +1480,52 @@ editor_window_delete_event(GtkWidget *widget, GdkEventAny *event, gpointer data)
  *
  */
 
+/**
+ * Gets selected cave. If multiple caves are selected, returns first one.
+ * @return The selected cave or null
+ */
+CaveStored *icon_view_get_selected_cave() {
+    GList *list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
+    if (list == NULL)
+        return NULL;
+
+    GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
+    GtkTreeIter iter;
+    gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) list->data);
+    int cave_idx;
+    gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave_idx, -1);
+    g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL);
+    g_list_free(list);
+        
+    return &caveset->caves[cave_idx];
+}
+
+
 static gboolean
 icon_view_update_pixbufs_timeout(gpointer data) {
-    GtkTreePath *path;
-    GtkTreeModel *model;
-    GtkTreeIter iter;
-    int created;
-    gboolean finish;
-
     /* if no icon view found, remove interrupt. */
     if (!iconview_cavelist)
         return FALSE;
 
-    model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-    path = gtk_tree_path_new_first();
+    GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
+    GtkTreePath *path = gtk_tree_path_new_first();
 
-    created = 0;
     /* render a maximum of 5 pixbufs at a time */
+    int created = 0;
+    GtkTreeIter iter;
+    gboolean finish;
     while (created < 5 && (finish = gtk_tree_model_get_iter(model, &iter, path))) {
-        CaveStored *cave;
-        GdkPixbuf *pixbuf, *pixbuf_in_icon_view;
-
-        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, PIXBUF_COLUMN, &pixbuf_in_icon_view, -1);
-        pixbuf = (GdkPixbuf *) g_hash_table_lookup(cave_pixbufs, cave);
+        int cave_idx;
+        GdkPixbuf *pixbuf_in_icon_view;
+        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave_idx, PIXBUF_COLUMN, &pixbuf_in_icon_view, -1);
+        CaveStored *cave = &caveset->caves[cave_idx];
 
         /* if we have no pixbuf, generate one. */
+        GdkPixbuf *pixbuf = (GdkPixbuf *) g_hash_table_lookup(cave_pixbufs, cave);
         if (!pixbuf) {
             pixbuf_in_icon_view = NULL; /* to force update below */
-            CaveRendered *rendered = new CaveRendered(*cave, 0, 0); /* render at level 1, seed=0 */
+            CaveRendered rendered(*cave, 0, 0); /* render at level 1, seed=0 */
             pixbuf = gd_drawcave_to_pixbuf(rendered, *editor_cell_renderer, 128, 128, true, true); /* draw 128x128 icons at max */
-            delete rendered;
             if (!cave->selectable) {
                 GdkPixbuf *colored = gdk_pixbuf_composite_color_simple(pixbuf, gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf), GDK_INTERP_NEAREST, 160, 1, gd_flash_color.get_uint_0rgb(), gd_flash_color.get_uint_0rgb());
                 g_object_unref(pixbuf); /* forget original */
@@ -1633,75 +1557,54 @@ icon_view_update_pixbufs() {
 /* so we do not use its parameters. */
 static void
 icon_view_edit_cave_cb() {
-    GList *list;
-    GtkTreeIter iter;
-    GtkTreeModel *model;
-    CaveStored *cave;
+    CaveStored *cave = icon_view_get_selected_cave();
+    g_return_if_fail(cave != NULL);
 
-    list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
-    g_return_if_fail(list != NULL);
-
-    model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-    gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) list->data);
-    gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-    g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL); /* free the list of paths */
-    g_list_free(list);
-    select_cave_for_edit(cave);
+    select_cave_for_edit(cave - caveset->caves.data());
     gtk_combo_box_set_active(GTK_COMBO_BOX(new_object_level_combo), 0); /* always default to level 1 */
 }
 
 static void
 icon_view_rename_cave_cb(GtkWidget *widget, gpointer data) {
-    GList *list;
-    GtkTreeIter iter;
-    GtkTreeModel *model;
-    CaveStored *cave;
-    GtkWidget *dialog, *entry;
-    int result;
-
-    list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
-    g_return_if_fail(list != NULL);
-
-    /* use first element, as icon view is configured to enable only one selection */
-    model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-    gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) list->data);
-    gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-    g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL); /* free the list of paths */
-    g_list_free(list);
+    CaveStored *cave = icon_view_get_selected_cave();
+    g_return_if_fail(cave != NULL);
 
     // TRANSLATORS: Title text capitalization in English
-    dialog = gtk_dialog_new_with_buttons(_("Cave Name"), GTK_WINDOW(gd_editor_window), GtkDialogFlags(GTK_DIALOG_NO_SEPARATOR | GTK_DIALOG_DESTROY_WITH_PARENT),
-                                         GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Cave Name"), GTK_WINDOW(gd_editor_window), GTK_DIALOG_DESTROY_WITH_PARENT,
+                                                    GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
-    entry = gtk_entry_new();
+    GtkWidget *entry = gtk_entry_new();
     gtk_entry_set_activates_default(GTK_ENTRY(entry), TRUE);
     gtk_entry_set_text(GTK_ENTRY(entry), cave->name.c_str());
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), entry, FALSE, FALSE, 6);
-
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    gtk_container_add(GTK_CONTAINER(content_area), entry);
     gtk_widget_show(entry);
-    result = gtk_dialog_run(GTK_DIALOG(dialog));
+    int result = gtk_dialog_run(GTK_DIALOG(dialog));
+
     if (result == GTK_RESPONSE_ACCEPT) {
         cave->name = gtk_entry_get_text(GTK_ENTRY(entry));
-        gtk_list_store_set(GTK_LIST_STORE(model), &iter, NAME_COLUMN, cave->name.c_str(), -1);
+        
+        GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
+        gtk_tree_model_foreach(model, [] (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data) -> gboolean {
+            int cave_idx;
+            char *name;
+            gtk_tree_model_get(model, iter, CAVE_COLUMN, &cave_idx, NAME_COLUMN, &name, -1);
+            CaveStored &cave = caveset->caves[cave_idx];
+            if (cave.name != name) {
+                gtk_list_store_set(GTK_LIST_STORE(model), iter, NAME_COLUMN, cave.name.c_str(), -1);
+                return TRUE;
+            }
+            return FALSE;
+        }, NULL);
     }
     gtk_widget_destroy(dialog);
 }
 
 static void
 icon_view_cave_make_selectable_cb(GtkWidget *widget, gpointer data) {
-    GList *list;
-    GtkTreeIter iter;
-    GtkTreeModel *model;
-    CaveStored *cave;
+    CaveStored *cave = icon_view_get_selected_cave();
+    g_return_if_fail(cave != NULL);
 
-    list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
-    g_return_if_fail(list != NULL);
-
-    model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-    gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) list->data);
-    gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-    g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL); /* free the list of paths */
-    g_list_free(list);
     if (!cave->selectable) {
         cave->selectable = TRUE;
         /* we remove its pixbuf, as its color will be different */
@@ -1712,19 +1615,9 @@ icon_view_cave_make_selectable_cb(GtkWidget *widget, gpointer data) {
 
 static void
 icon_view_cave_make_unselectable_cb(GtkWidget *widget, gpointer data) {
-    GList *list;
-    GtkTreeIter iter;
-    GtkTreeModel *model;
-    CaveStored *cave;
+    CaveStored *cave = icon_view_get_selected_cave();
+    g_return_if_fail(cave != NULL);
 
-    list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
-    g_return_if_fail(list != NULL);
-
-    model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-    gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) list->data);
-    gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-    g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL); /* free the list of paths */
-    g_list_free(list);
     if (cave->selectable) {
         cave->selectable = FALSE;
         /* we remove its pixbuf, as its color will be different */
@@ -1735,95 +1628,161 @@ icon_view_cave_make_unselectable_cb(GtkWidget *widget, gpointer data) {
 
 static void
 icon_view_selection_changed_cb(GtkWidget *widget, gpointer data) {
-    GList *list;
-    GtkTreeModel *model;
-    int count;
-
-    list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(widget));
-    count = g_list_length(list);
+    GList *list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(widget));
+    int count = g_list_length(list);
     gtk_action_group_set_sensitive(actions_cave_selector, count == 1);
     gtk_action_group_set_sensitive(actions_clipboard, count != 0);
-    if (count == 0)
+    if (count == 0) {
         set_status_label_for_caveset();
-    else if (count == 1) {
+    } else if (count == 1) {
+        GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(widget));
         GtkTreeIter iter;
-        CaveStored *cave;
-
-        model = gtk_icon_view_get_model(GTK_ICON_VIEW(widget));
-
         gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) list->data);
-        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
+        int cave_idx;
+        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave_idx, -1);
 
-        set_status_label_for_cave(cave);    /* status bar now shows some basic data for cave */
+        set_status_label_for_cave(caveset->caves[cave_idx]);    /* status bar now shows some basic data for cave */
     } else {
-        gtk_label_set_markup(GTK_LABEL(label_object), CPrintf(ngettext("%d cave selected", "%d caves selected", count)) % count);
+        gtk_label_set_markup(GTK_LABEL(label_object), Printf(ngettext("%d cave selected", "%d caves selected", count), count).c_str());
     }
     g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL);
     g_list_free(list);
 }
 
 
-/* for caveset icon view */
+/* reorders caves in caveset->caves[] so that the order is matched with that in the icon view.
+ * can also be called when the icon view does not exist. */
 static void
-icon_view_destroyed(GtkIconView *icon_view, gpointer data) {
-    GtkTreePath *path;
-    GtkTreeModel *model;
+icon_view_reorder_caves() {
+    if (iconview_cavelist == NULL)
+        return;
+    
+    /* make a list of indices from the new order obtained from the icon view */
+    GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
+    GtkTreePath *path = gtk_tree_path_new_first();
     GtkTreeIter iter;
-
-    /* caveset should be an empty list, as the icon view stores the current caves and order */
-    g_assert(caveset->caves.empty());
-
-    model = gtk_icon_view_get_model(icon_view);
-    path = gtk_tree_path_new_first();
+    std::vector<int> cave_indices;
     while (gtk_tree_model_get_iter(model, &iter, path)) {
-        CaveStored *cave;
-
-        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-        /* make a new list from the new order obtained from the icon view */
-        caveset->caves.push_back_adopt(cave);
-
+        int cave_idx;
+        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave_idx, -1);
+        cave_indices.push_back(cave_idx);
         gtk_tree_path_next(path);
     }
     gtk_tree_path_free(path);
+    g_assert(cave_indices.size() == caveset->caves.size());
+    
+    /* overwrite caveset with new cave order. */
+    bool changed = false;
+    for (int n = 0; n < (int)cave_indices.size(); ++n) {
+        if (cave_indices[n] != n) {
+            changed = true;
+            break;
+        }
+    }
+    if (changed) {
+        std::vector<CaveStored> newcaves;
+        newcaves.reserve(cave_indices.size());
+        for (size_t n = 0; n < cave_indices.size(); ++n) {
+            newcaves.push_back(caveset->caves[cave_indices[n]]);
+        }
+        caveset->caves = std::move(newcaves);
+        caveset->edited = TRUE;
+    }
+}
+
+
+/* for caveset icon view */
+static void
+icon_view_destroyed(GtkWidget *widget, gpointer data) {
+    icon_view_reorder_caves();
+    iconview_cavelist = NULL;
 }
 
 
 
 static void
-icon_view_add_cave(GtkListStore *store, CaveStored *cave) {
-    GtkTreeIter treeiter;
-    GdkPixbuf *cave_pixbuf;
-    static GdkPixbuf *missing_image = NULL;
+icon_view_add_cave(GtkListStore *store, int cave_idx) {
+    if (!missing_image)
+        missing_image = gtk_widget_render_icon_pixbuf(gd_editor_window, GTK_STOCK_MISSING_IMAGE, GTK_ICON_SIZE_DIALOG);
 
-    if (!missing_image) {
-        missing_image = gtk_widget_render_icon(gd_editor_window, GTK_STOCK_MISSING_IMAGE, GTK_ICON_SIZE_DIALOG, NULL);
-    }
-
-    /* if we already know the pixbuf, set it. */
-    cave_pixbuf = (GdkPixbuf *) g_hash_table_lookup(cave_pixbufs, cave);
+    CaveStored *cave = &caveset->caves[cave_idx];
+    GdkPixbuf *cave_pixbuf = (GdkPixbuf *) g_hash_table_lookup(cave_pixbufs, cave);
     if (cave_pixbuf == NULL)
         cave_pixbuf = missing_image;
-    gtk_list_store_insert_with_values(store, &treeiter, -1, CAVE_COLUMN, cave, NAME_COLUMN, cave->name.c_str(), PIXBUF_COLUMN, cave_pixbuf, -1);
+    gtk_list_store_insert_with_values(store, NULL, -1, CAVE_COLUMN, cave_idx, NAME_COLUMN, cave->name.c_str(), PIXBUF_COLUMN, cave_pixbuf, -1);
 }
 
-/* does nothing else but sets caveset_edited to true. called by "reordering" (drag&drop), which is implemented by gtk+ by inserting and deleting */
-/* we only connect this signal after adding all caves to the icon view, so it is only activated by the user! */
+/* WE ARE NOW COPYING CAVES FROM A CAVESET */
+static std::vector<CaveStored>
+icon_view_copy_selected() {
+    std::vector<CaveStored> caves;
+
+    GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
+    GList *list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
+    list = g_list_reverse(list);        // gtk_icon_view_get_selected_items adds a reversed list for some reason
+    caves.reserve(g_list_length(list));
+    for (GList *listiter = list; listiter != NULL; listiter = listiter->next) {
+        GtkTreeIter iter;
+        gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) listiter->data);
+        int cave_idx;
+        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave_idx, -1);
+        caves.push_back(caveset->caves[cave_idx]);
+    }
+    g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL);
+    g_list_free(list);
+    
+    return caves;
+}
+
 static void
-icon_view_row_inserted(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data) {
-    caveset->edited = TRUE;
+icon_view_delete_selected() {
+    GList *list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
+    GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
+    /* for all caves selected, convert to tree row references - we must delete them for the icon view, so this is necessary */
+    GList *references = NULL;
+    for (GList *listiter = list; listiter != NULL; listiter = listiter->next)
+        references = g_list_append(references, gtk_tree_row_reference_new(model, (GtkTreePath *)listiter->data));
+    g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL);
+    g_list_free(list);
+    
+    /* now check the list of references and get all caves */
+    std::set<int> deleted_idx;
+    for (GList *listiter = references; listiter != NULL; listiter = listiter->next) {
+        GtkTreeRowReference *reference = (GtkTreeRowReference *)listiter->data;
+        GtkTreePath *path = gtk_tree_row_reference_get_path(reference);
+        GtkTreeIter iter;
+        gtk_tree_model_get_iter(model, &iter, path);
+        int cave_idx;
+        gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave_idx, -1);
+        deleted_idx.insert(cave_idx);
+        gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
+    }
+    g_list_foreach(references, (GFunc) gtk_tree_row_reference_free, NULL);
+    g_list_free(references);
+    
+    /* delete caves from caveset, as indices are now in descending order */
+    for (auto it = deleted_idx.rbegin(); it != deleted_idx.rend(); ++it)
+        caveset->caves.erase(caveset->caves.begin() + *it);
+    
+    /* re-add caves to icon view */
+    gtk_list_store_clear(GTK_LIST_STORE(model));
+    g_hash_table_remove_all(cave_pixbufs);
+    for (int n = 0; n < (int)caveset->caves.size(); ++n)
+        icon_view_add_cave(GTK_LIST_STORE(model), n);
+    icon_view_update_pixbufs();
 }
 
 /* for popup menu, by properties key */
 static void
 icon_view_popup_menu(GtkWidget *widget, gpointer data) {
-    gtk_menu_popup(GTK_MENU(caveset_popup), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+    gtk_menu_popup_at_pointer(GTK_MENU(caveset_popup), NULL);
 }
 
 /* for popup menu, by right-click */
 static gboolean
 icon_view_button_press_event(GtkWidget *widget, GdkEventButton *event, gpointer data) {
     if (event->type == GDK_BUTTON_PRESS && event->button == 3) {
-        gtk_menu_popup(GTK_MENU(caveset_popup), NULL, NULL, NULL, NULL, event->button, event->time);
+        gtk_menu_popup_at_pointer(GTK_MENU(caveset_popup), NULL);
         return TRUE;
     }
     return FALSE;
@@ -1836,31 +1795,31 @@ icon_view_button_press_event(GtkWidget *widget, GdkEventButton *event, gpointer 
  */
 
 static void
-select_cave_for_edit(CaveStored *cave) {
+select_cave_for_edit(int cave_idx) {
     object_list_clear_selection();
 
     gtk_action_group_set_sensitive(actions_edit_object, FALSE);     /* will be enabled later if needed */
     gtk_action_group_set_sensitive(actions_edit_one_object, FALSE);     /* will be enabled later if needed */
-    gtk_action_group_set_sensitive(actions_edit_cave, cave != NULL);
-    gtk_action_group_set_sensitive(actions_edit_caveset, cave == NULL);
-    gtk_action_group_set_sensitive(actions_edit_tools, cave != NULL);
+    gtk_action_group_set_sensitive(actions_edit_cave, cave_idx != -1);
+    gtk_action_group_set_sensitive(actions_edit_caveset, cave_idx == -1);
+    gtk_action_group_set_sensitive(actions_edit_tools, cave_idx != -1);
     gtk_action_group_set_sensitive(actions_edit_map, FALSE);    /* will be enabled later if needed */
     gtk_action_group_set_sensitive(actions_edit_random, FALSE);     /* will be enabled later if needed */
-    gtk_action_group_set_sensitive(actions_toggle, cave != NULL);
+    gtk_action_group_set_sensitive(actions_toggle, cave_idx != -1);
     /* this is sensitized by an icon selector callback. */
     gtk_action_group_set_sensitive(actions_cave_selector, FALSE);   /* will be enabled later if needed */
     gtk_action_group_set_sensitive(actions_clipboard, FALSE);   /* will be enabled later if needed */
     gtk_action_group_set_sensitive(actions_clipboard_paste,
-                                   (cave != NULL && !object_clipboard.empty())
-                                   || (cave == NULL && !cave_clipboard.empty()));
-    gtk_action_group_set_sensitive(actions_edit_undo, cave != NULL && !undo_caves.empty());
-    gtk_action_group_set_sensitive(actions_edit_redo, cave != NULL && !redo_caves.empty());
+                                   (cave_idx != -1 && !object_clipboard.empty())
+                                   || (cave_idx == -1 && !cave_clipboard.empty()));
+    gtk_action_group_set_sensitive(actions_edit_undo, cave_idx != -1 && !undo_caves.empty());
+    gtk_action_group_set_sensitive(actions_edit_redo, cave_idx != -1 && !redo_caves.empty());
 
     /* select cave */
-    edited_cave = cave;
+    edited_cave_idx = cave_idx;
 
     /* if cave data given, show it. */
-    if (cave) {
+    if (edited_cave_idx != -1) {
         if (iconview_cavelist)
             gtk_widget_destroy(iconview_cavelist);
 
@@ -1868,17 +1827,15 @@ select_cave_for_edit(CaveStored *cave) {
             gtk_widget_show(scroll_window_objects);
 
         /* create pixbufs for these colors */
-        editor_cell_renderer->select_pixbuf_colors(edited_cave->color0, edited_cave->color1, edited_cave->color2, edited_cave->color3, edited_cave->color4, edited_cave->color5);
+        editor_cell_renderer->select_pixbuf_colors(edited_cave().color0, edited_cave().color1, edited_cave().color2, edited_cave().color3, edited_cave().color4, edited_cave().color5);
         gd_element_button_update_pixbuf(element_button);
         gd_element_button_update_pixbuf(fillelement_button);
 
         /* put drawing area in an alignment, so window can be any large w/o problems */
         if (!drawing_area) {
-            GtkWidget *align = gtk_alignment_new(0.5, 0.5, 0, 0);
-            gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(scroll_window), align);
-            gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroll_window), GTK_SHADOW_NONE);
-
             drawing_area = gtk_drawing_area_new();
+            gtk_widget_set_halign(drawing_area, GTK_ALIGN_CENTER);
+            gtk_widget_set_valign(drawing_area, GTK_ALIGN_CENTER);
             mouse_x = mouse_y = -1;
             /* enable some events */
             gtk_widget_add_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_LEAVE_NOTIFY_MASK);
@@ -1887,16 +1844,14 @@ select_cave_for_edit(CaveStored *cave) {
             g_signal_connect(G_OBJECT(drawing_area), "button_release_event", G_CALLBACK(drawing_area_button_release_event), NULL);
             g_signal_connect(G_OBJECT(drawing_area), "motion_notify_event", G_CALLBACK(drawing_area_motion_event), NULL);
             g_signal_connect(G_OBJECT(drawing_area), "leave_notify_event", G_CALLBACK(drawing_area_leave_event), NULL);
-            g_signal_connect(G_OBJECT(drawing_area), "expose_event", G_CALLBACK(drawing_area_expose_event), NULL);
-            gtk_container_add(GTK_CONTAINER(align), drawing_area);
+            gtk_container_add(GTK_CONTAINER(scroll_window), drawing_area);
 
             screen->set_drawing_area(drawing_area);
         }
-        delete rendered_cave;
-        rendered_cave = NULL;
+        rendered_cave.reset();
         render_cave();
         int cs = editor_cell_renderer->get_cell_size();
-        screen->set_size(edited_cave->w * cs, edited_cave->h * cs, false);
+        screen->set_size(edited_cave().w * cs, edited_cave().h * cs, false);
     } else {
         /* if no cave given, show selector. */
         /* forget undo caves */
@@ -1904,41 +1859,33 @@ select_cave_for_edit(CaveStored *cave) {
 
         gfx_buffer.remove();
         object_highlight_map.remove();
-        delete rendered_cave;
-        rendered_cave = 0;
+        rendered_cave.reset();
 
-        gtk_list_store_clear(object_list);
+        GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(object_list_tree_view));
+        gtk_list_store_clear(GTK_LIST_STORE(model));
         gtk_widget_hide(scroll_window_objects);
 
         if (drawing_area)
-            gtk_widget_destroy(drawing_area->parent->parent);
-        /* parent is the align, parent of align is the viewport automatically added. */
+            gtk_widget_destroy(gtk_widget_get_parent(drawing_area));   /* parent is the viewport automatically added. */
 
         if (!iconview_cavelist) {
-            GtkListStore *cave_list;
-
             gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroll_window), GTK_SHADOW_IN);
 
             /* create list store for caveset */
-            cave_list = gtk_list_store_new(NUM_CAVESET_COLUMNS, G_TYPE_POINTER, G_TYPE_STRING, GDK_TYPE_PIXBUF);
+            GtkListStore *cave_list = gtk_list_store_new(NUM_CAVESET_COLUMNS, G_TYPE_INT, G_TYPE_STRING, GDK_TYPE_PIXBUF);
             for (unsigned n = 0; n < caveset->caves.size(); n++)
-                icon_view_add_cave(cave_list, &caveset->cave(n));
-            /* we only connect this signal after adding all caves to the icon view, so it is only activated by the user! */
-            g_signal_connect(G_OBJECT(cave_list), "row-inserted", G_CALLBACK(icon_view_row_inserted), NULL);
-            /* forget caveset; now we store caves in the GtkListStore */
-            caveset->caves.clear_i_own_them();
+                icon_view_add_cave(cave_list, n);
 
             iconview_cavelist = gtk_icon_view_new_with_model(GTK_TREE_MODEL(cave_list));
             g_object_unref(cave_list);  /* now the icon view holds the reference */
             icon_view_update_pixbufs(); /* create icons */
-            g_signal_connect(G_OBJECT(iconview_cavelist), "destroy", G_CALLBACK(icon_view_destroyed), &iconview_cavelist);
-            g_signal_connect(G_OBJECT(iconview_cavelist), "destroy", G_CALLBACK(gtk_widget_destroyed), &iconview_cavelist);
+            g_signal_connect(G_OBJECT(iconview_cavelist), "destroy", G_CALLBACK(icon_view_destroyed), NULL);
             g_signal_connect(G_OBJECT(iconview_cavelist), "popup-menu", G_CALLBACK(icon_view_popup_menu), NULL);
             g_signal_connect(G_OBJECT(iconview_cavelist), "button-press-event", G_CALLBACK(icon_view_button_press_event), NULL);
 
             gtk_icon_view_set_text_column(GTK_ICON_VIEW(iconview_cavelist), NAME_COLUMN);
             gtk_icon_view_set_pixbuf_column(GTK_ICON_VIEW(iconview_cavelist), PIXBUF_COLUMN);
-            gtk_icon_view_set_item_width(GTK_ICON_VIEW(iconview_cavelist), 128 + 24); /* 128 is the size of the icons */
+            gtk_icon_view_set_item_width(GTK_ICON_VIEW(iconview_cavelist), 128); /* the size of the icons */
             gtk_icon_view_set_reorderable(GTK_ICON_VIEW(iconview_cavelist), TRUE);
             gtk_icon_view_set_selection_mode(GTK_ICON_VIEW(iconview_cavelist), GTK_SELECTION_MULTIPLE);
             /* item (cave) activated. the enter button activates the menu item; this one is used for doubleclick */
@@ -1952,8 +1899,8 @@ select_cave_for_edit(CaveStored *cave) {
     /* show all items inside scrolled window. some may have been newly created. */
     gtk_widget_show_all(scroll_window);
 
-    /* hide toolbars if not editing a cave */
-    if (edited_cave)
+    /* show toolbars if editing a cave */
+    if (cave_idx != -1)
         gtk_widget_show(toolbars);
     else
         gtk_widget_hide(toolbars);
@@ -1964,15 +1911,14 @@ select_cave_for_edit(CaveStored *cave) {
 /****************************************************/
 static void
 cave_random_setup_cb(GtkWidget *widget, gpointer data) {
-    g_return_if_fail(edited_cave->map.empty());
+    g_return_if_fail(edited_cave().map.empty());
 
     undo_save();
 
     GtkWidget *dialog, *notebook;
     edit_properties_create_window(_("Cave Random Fill"), false, dialog, notebook);
 
-    std::list<EditorAutoUpdate *> eau_s;
-    edit_properties_add_widgets(notebook, eau_s, CaveStored::random_dialog, edited_cave, edited_cave, render_cave);
+    std::vector<std::unique_ptr<EditorAutoUpdate>> eau_s = edit_properties_add_widgets(notebook, CaveStored::random_dialog, &edited_cave(), &edited_cave(), render_cave);
 
     /* hint label */
     gd_dialog_add_hint(GTK_DIALOG(dialog), _("Hint: The random fill works by generating a random number between 0 and "
@@ -1983,9 +1929,6 @@ cave_random_setup_cb(GtkWidget *widget, gpointer data) {
     gtk_widget_show_all(dialog);
     int result = gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
-
-    for (std::list<EditorAutoUpdate *>::const_iterator it = eau_s.begin(); it != eau_s.end(); ++it)
-        delete *it;
 
     /* if not accepted by user, revert to original */
     if (result != GTK_RESPONSE_ACCEPT)
@@ -2000,95 +1943,82 @@ cave_random_setup_cb(GtkWidget *widget, gpointer data) {
  *******************************************/
 static void
 save_cave_png(GdkPixbuf *pixbuf) {
-    /* if no filename given, */
-    GtkWidget *dialog;
-    GtkFileFilter *filter;
-    GError *error = NULL;
-    char *filename = NULL;
-
     /* check if in cave editor */
-    g_return_if_fail(edited_cave != NULL);
+    g_return_if_fail(edited_cave_idx != -1);
 
-    dialog = gtk_file_chooser_dialog_new(_("Save Cave as PNG Image"), GTK_WINDOW(gd_editor_window), GTK_FILE_CHOOSER_ACTION_SAVE,
-                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                         GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
-                                         NULL);
+    GtkWidget *dialog = gtk_file_chooser_dialog_new(_("Save Cave as PNG Image"), GTK_WINDOW(gd_editor_window), GTK_FILE_CHOOSER_ACTION_SAVE,
+                                                    GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                                    GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+                                                    NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 
-    filter = gtk_file_filter_new();
+    GtkFileFilter *filter = gtk_file_filter_new();
     gtk_file_filter_set_name(filter, _("PNG files"));
     gtk_file_filter_add_pattern(filter, "*.png");
     gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
-    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), CPrintf("%s.png") % edited_cave->name);
+    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), Printf("%s.png", edited_cave().name).c_str());
     gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(dialog), TRUE);
 
+    GError *error = NULL;
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
-        filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+        char *filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
         if (!g_str_has_suffix(filename, ".png")) {
             char *suffixed = g_strdup_printf("%s.png", filename);
-
             g_free(filename);
             filename = suffixed;
         }
 
         gdk_pixbuf_save(pixbuf, filename , "png", &error, "compression", "9", NULL);
+        g_free(filename);
     }
     if (error) {
         gd_errormessage(error->message, NULL);
         g_error_free(error);
     }
     gtk_widget_destroy(dialog);
-    g_free(filename);
 }
 
 /* CAVE OVERVIEW
    this creates a pixbuf of the cave, and scales it down to fit the screen if needed.
    it is then presented to the user, with the option to save it in png */
 static void cave_overview(gboolean simple_view) {
-    /* view the RENDERED one, and the entire cave */
-    GdkPixbuf *pixbuf = gd_drawcave_to_pixbuf(rendered_cave, *editor_cell_renderer, 0, 0, simple_view, true), *scaled;
-    GtkWidget *dialog, *button;
-    int sx, sy;
-    double fx, fy;
-    int response;
+    /* simple dialog with this image only */
+    // TRANSLATORS: Title text capitalization in English
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Cave Overview"), GTK_WINDOW(gd_editor_window), GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+    GtkWidget *button = gtk_button_new_with_mnemonic(_("Save as _PNG"));
+    gtk_button_set_image(GTK_BUTTON(button), gtk_image_new_from_stock(GTK_STOCK_CONVERT, GTK_ICON_SIZE_BUTTON));
+    gtk_dialog_add_action_widget(GTK_DIALOG(dialog), button, 1);
+    gtk_dialog_add_button(GTK_DIALOG(dialog), GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE);
+    gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_CLOSE);
+    
+    /* create image. get screen size, and resize accordingly. */
+    gtk_widget_realize(dialog);
+    GdkDisplay *display = gtk_widget_get_display(dialog);
+    GdkMonitor *monitor = gdk_display_get_primary_monitor(display);
+    GdkRectangle geometry;
+    gdk_monitor_get_geometry(monitor, &geometry);
 
-    /* be careful not to use entire screen, there are window title and close button */
-    sx = gdk_screen_get_width(gdk_screen_get_default()) - 64;
-    sy = gdk_screen_get_height(gdk_screen_get_default()) - 128;
-    if (gdk_pixbuf_get_width(pixbuf) > sx)
-        fx = (double) sx / gdk_pixbuf_get_width(pixbuf);
-    else
-        fx = 1.0;
-    if (gdk_pixbuf_get_height(pixbuf) > sy)
-        fy = (double) sy / gdk_pixbuf_get_height(pixbuf);
-    else
-        fy = 1.0;
-    /* whichever is smaller */
-    if (fx < fy)
-        fy = fx;
-    if (fy < fx)
-        fx = fy;
+    GdkPixbuf *pixbuf = gd_drawcave_to_pixbuf(*rendered_cave, *editor_cell_renderer, 0, 0, simple_view, true);
+    int sx = geometry.width - 64;
+    int sy = geometry.height - 128;
+    double fx, fy;
+    fx = std::min((double) sx / gdk_pixbuf_get_width(pixbuf), 1.0);
+    fy = std::min((double) sy / gdk_pixbuf_get_height(pixbuf), 1.0);
+    double sc = std::min(fx, fy);
     /* if we have to make it smaller */
-    if (fx != 1.0 || fy != 1.0)
-        scaled = gdk_pixbuf_scale_simple(pixbuf, gdk_pixbuf_get_width(pixbuf) * fx, gdk_pixbuf_get_height(pixbuf) * fy, GDK_INTERP_BILINEAR);
+    GdkPixbuf *scaled;
+    if (sc)
+        scaled = gdk_pixbuf_scale_simple(pixbuf, gdk_pixbuf_get_width(pixbuf) * sc, gdk_pixbuf_get_height(pixbuf) * sc, GDK_INTERP_BILINEAR);
     else {
         scaled = pixbuf;
         g_object_ref(scaled);
     }
 
-    /* simple dialog with this image only */
-    // TRANSLATORS: Title text capitalization in English
-    dialog = gtk_dialog_new_with_buttons(_("Cave Overview"), GTK_WINDOW(gd_editor_window), GtkDialogFlags(GTK_DIALOG_NO_SEPARATOR | GTK_DIALOG_DESTROY_WITH_PARENT), NULL);
-    button = gtk_button_new_with_mnemonic(_("Save as _PNG"));
-    gtk_button_set_image(GTK_BUTTON(button), gtk_image_new_from_stock(GTK_STOCK_CONVERT, GTK_ICON_SIZE_BUTTON));
-    gtk_dialog_add_action_widget(GTK_DIALOG(dialog), button, 1);
-    gtk_dialog_add_button(GTK_DIALOG(dialog), GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE);
-    gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_CLOSE);
-
-    gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(dialog)->vbox), gtk_image_new_from_pixbuf(scaled));
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    gtk_container_add(GTK_CONTAINER(content_area), gtk_image_new_from_pixbuf(scaled));
 
     gtk_widget_show_all(dialog);
-    response = gtk_dialog_run(GTK_DIALOG(dialog));
+    int response = gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
     if (response == 1)
         save_cave_png(pixbuf);
@@ -2110,7 +2040,7 @@ cave_overview_simple_cb(GtkWidget *widget, gpointer data) {
 
 static void
 element_statistics_cb(GtkWidget *widget, gpointer data) {
-    g_return_if_fail(edited_cave != NULL);
+    g_return_if_fail(edited_cave_idx != -1);
     
     enum { numeq = 4 };
     struct {
@@ -2146,24 +2076,24 @@ element_statistics_cb(GtkWidget *widget, gpointer data) {
     }
     
     // TRANSLATORS: Title text capitalization in English
-    GtkWidget * dialog = gtk_dialog_new_with_buttons(_("Element Statistics"), GTK_WINDOW(gd_editor_window),
-        GtkDialogFlags(0), GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
-    GtkWidget * table = gtk_table_new(0, 0, FALSE);
-    gtk_container_set_border_width(GTK_CONTAINER(table), 6);
-    gtk_table_set_row_spacings(GTK_TABLE(table), 6);
-    gtk_table_set_col_spacings(GTK_TABLE(table), 6);
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Element Statistics"), GTK_WINDOW(gd_editor_window),
+                                                     GtkDialogFlags(0), GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
+    gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
+    GtkWidget *grid = gtk_grid_new();
+    gtk_container_set_border_width(GTK_CONTAINER(grid), 6);
+    gtk_grid_set_row_spacing(GTK_GRID(grid), 12);
+    gtk_grid_set_column_spacing(GTK_GRID(grid), 12);
     int row = 0;
-    gtk_table_attach(GTK_TABLE(table), gd_label_new_leftaligned(_("<b>Size of visible area</b>")), 0, 1, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
-    // TRANSLATORS: like "visible size: 880 cells" in the cave statistics
-    gtk_table_attach(GTK_TABLE(table), gd_label_new_rightaligned(CPrintf(_("%d cells")) % size), 1, 2, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
+    gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(_("<b>Size of visible area</b>")), 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%d", size).c_str()), 1, row, 1, 1);
     row++;
     for (int i = 0; numwhat[i].what[0] != O_NONE; ++i) {
-        gtk_table_attach(GTK_TABLE(table), gd_label_new_leftaligned(CPrintf("<b>%ms</b>") % visible_name_no_attribute(numwhat[i].what[0])), 0, 1, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
-        gtk_table_attach(GTK_TABLE(table), gd_label_new_rightaligned(CPrintf("%d") % numwhat[i].num), 1, 2, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
-        gtk_table_attach(GTK_TABLE(table), gd_label_new_rightaligned(CPrintf("%4.2f%%") % (100.0*numwhat[i].num/size)), 2, 3, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
+        gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(Printf("<b>%ms</b>", visible_name_no_attribute(numwhat[i].what[0])).c_str()), 0, row, 1, 1);
+        gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%d", numwhat[i].num).c_str()), 1, row, 1, 1);
+        gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%4.2f%%", 100.0 * numwhat[i].num / size).c_str()), 2, row, 1, 1);
         row++;
     }
-    gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), table);
+    gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), grid);
     gtk_widget_show_all(dialog);
     gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
@@ -2176,7 +2106,7 @@ element_statistics_cb(GtkWidget *widget, gpointer data) {
     after this, ew and eh will contain the effective width and height.
  */
 static void
-rendered_cave_auto_shrink(CaveRendered *cave) {
+rendered_cave_auto_shrink(CaveRendered &cave) {
     enum {
         STEEL_ONLY,
         STEEL_OR_OTHER,
@@ -2184,19 +2114,19 @@ rendered_cave_auto_shrink(CaveRendered *cave) {
     } empty;
 
     /* set to maximum size, then try to shrink */
-    cave->x1 = 0;
-    cave->y1 = 0;
-    cave->x2 = cave->w - 1;
-    cave->y2 = cave->h - 1;
+    cave.x1 = 0;
+    cave.y1 = 0;
+    cave.x2 = cave.w - 1;
+    cave.y2 = cave.h - 1;
 
     /* search for empty, steel-wall-only last rows. */
     /* clear all lines, which are only steel wall.
      * and clear only one line, which is steel wall, but also has a player or an outbox. */
     empty = STEEL_ONLY;
-    do {
-        for (int y = cave->y2 - 1; y <= cave->y2; y++)
-            for (int x = cave->x1; x <= cave->x2; x++)
-                switch (cave->map(x, y)) {
+    while (empty == STEEL_ONLY) {
+        for (int y = cave.y2 - 1; y <= cave.y2; y++)
+            for (int x = cave.x1; x <= cave.x2; x++)
+                switch (cave.map(x, y)) {
                     case O_STEEL:   /* if steels only, this is to be deleted. */
                         break;
                     case O_PRE_OUTBOX:
@@ -2212,15 +2142,15 @@ rendered_cave_auto_shrink(CaveRendered *cave) {
                         break;
                 }
         if (empty != NO_SHRINK) /* shrink if full steel or steel and player/outbox. */
-            cave->y2--;         /* one row shorter */
-    } while (empty == STEEL_ONLY); /* if found just steels, repeat. */
+            cave.y2--;         /* one row shorter */
+    }
 
     /* search for empty, steel-wall-only first rows. */
     empty = STEEL_ONLY;
-    do {
-        for (int y = cave->y1; y <= cave->y1 + 1; y++)
-            for (int x = cave->x1; x <= cave->x2; x++)
-                switch (cave->map(x, y)) {
+    while (empty == STEEL_ONLY) {
+        for (int y = cave.y1; y <= cave.y1 + 1; y++)
+            for (int x = cave.x1; x <= cave.x2; x++)
+                switch (cave.map(x, y)) {
                     case O_STEEL:
                         break;
                     case O_PRE_OUTBOX:
@@ -2237,15 +2167,15 @@ rendered_cave_auto_shrink(CaveRendered *cave) {
                         break;
                 }
         if (empty != NO_SHRINK)
-            cave->y1++;
-    } while (empty == STEEL_ONLY); /* if found one, repeat. */
+            cave.y1++;
+    }
 
     /* empty last columns. */
     empty = STEEL_ONLY;
-    do {
-        for (int y = cave->y1; y <= cave->y2; y++)
-            for (int x = cave->x2 - 1; x <= cave->x2; x++)
-                switch (cave->map(x, y)) {
+    while (empty == STEEL_ONLY) {
+        for (int y = cave.y1; y <= cave.y2; y++)
+            for (int x = cave.x2 - 1; x <= cave.x2; x++)
+                switch (cave.map(x, y)) {
                     case O_STEEL:
                         break;
                     case O_PRE_OUTBOX:
@@ -2261,15 +2191,15 @@ rendered_cave_auto_shrink(CaveRendered *cave) {
                         break;
                 }
         if (empty != NO_SHRINK)
-            cave->x2--;         /* just remember that one column shorter. g_free will know the size of memchunk, no need to realloc! */
-    } while (empty == STEEL_ONLY); /* if found one, repeat. */
+            cave.x2--;         /* just remember that one column shorter. g_free will know the size of memchunk, no need to realloc! */
+    }
 
     /* empty first columns. */
     empty = STEEL_ONLY;
-    do {
-        for (int y = cave->y1; y <= cave->y2; y++)
-            for (int x = cave->x1; x <= cave->x1 + 1; x++)
-                switch (cave->map(x, y)) {
+    while (empty == STEEL_ONLY) {
+        for (int y = cave.y1; y <= cave.y2; y++)
+            for (int x = cave.x1; x <= cave.x1 + 1; x++)
+                switch (cave.map(x, y)) {
                     case O_STEEL:
                         break;
                     case O_PRE_OUTBOX:
@@ -2285,23 +2215,24 @@ rendered_cave_auto_shrink(CaveRendered *cave) {
                         break;
                 }
         if (empty != NO_SHRINK)
-            cave->x1++;
-    } while (empty == STEEL_ONLY); /* if found one, repeat. */
+            cave.x1++;
+    }
 }
 
 
-/* automatically shrink cave
+/* 
+ * automatically shrink cave
  */
 static void
 auto_shrink_cave_cb(GtkWidget *widget, gpointer data) {
     undo_save();
     /* shrink the rendered cave, as it has all object and the like converted to a map. */
-    rendered_cave_auto_shrink(rendered_cave);
+    rendered_cave_auto_shrink(*rendered_cave);
     /* then copy the results to the original */
-    edited_cave->x1 = rendered_cave->x1;
-    edited_cave->y1 = rendered_cave->y1;
-    edited_cave->x2 = rendered_cave->x2;
-    edited_cave->y2 = rendered_cave->y2;
+    edited_cave().x1 = rendered_cave->x1;
+    edited_cave().y1 = rendered_cave->y1;
+    edited_cave().x2 = rendered_cave->x2;
+    edited_cave().y2 = rendered_cave->y2;
 
     /* re-render cave; after that, selecting visible region tool allows the user to see the result, maybe modify */
     render_cave();  /* not really needed? does not hurt, anyway. */
@@ -2322,7 +2253,7 @@ cave_colors_update_element_pixbufs() {
     if (cave_colors_colorchange_update_disabled)
         return;
     /* select new colors - render cave does not do this */
-    editor_cell_renderer->select_pixbuf_colors(edited_cave->color0, edited_cave->color1, edited_cave->color2, edited_cave->color3, edited_cave->color4, edited_cave->color5);
+    editor_cell_renderer->select_pixbuf_colors(edited_cave().color0, edited_cave().color1, edited_cave().color2, edited_cave().color3, edited_cave().color4, edited_cave().color5);
     /* update element buttons in editor (under toolbar) */
     gd_element_button_update_pixbuf(element_button);
     gd_element_button_update_pixbuf(fillelement_button);
@@ -2340,19 +2271,17 @@ cave_colors_update_element_pixbufs() {
 /* changed colors! */
 static void
 cave_colors_random_combo_cb(GtkWidget *widget, gpointer data) {
-    std::list<EditorAutoUpdate *> *eau_s = static_cast<std::list<EditorAutoUpdate *> *>(data);
-    int new_index;
-
-    new_index = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
+    int new_index = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
     if (new_index == 0) /* 0 is the "set random..." text, so we do nothing */
         return;
 
     /* create colors */
-    gd_cave_set_random_colors(*edited_cave, GdColor::Type(new_index - 1));  /* -1: 0 is "set random...", 1 is rgb... */
+    gd_cave_set_random_colors(edited_cave(), GdColor::Type(new_index - 1));  /* -1: 0 is "set random...", 1 is rgb... */
 
     /* and update combo boxes from cave */
     cave_colors_colorchange_update_disabled = TRUE; /* this is needed, otherwise all combos would want to update the pixbufs, one by one */
-    for (std::list<EditorAutoUpdate *>::const_iterator it = eau_s->begin(); it != eau_s->end(); ++it)
+    auto & eau_s = *static_cast<std::vector<std::unique_ptr<EditorAutoUpdate>>*>(data);
+    for (auto it = eau_s.begin(); it != eau_s.end(); ++it)
         (*it)->reload();
     cave_colors_colorchange_update_disabled = FALSE;
     cave_colors_update_element_pixbufs();
@@ -2372,17 +2301,17 @@ static void cave_colors_cb(GtkWidget *widget, gpointer data) {
     GtkWidget *dialog, *notebook;
     edit_properties_create_window(_("Cave Colors"), false, dialog, notebook);
 
-    GtkWidget *random_combo = gtk_combo_box_new_text();
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->action_area), random_combo, FALSE, FALSE, 0);
-    gtk_box_reorder_child(GTK_BOX(GTK_DIALOG(dialog)->action_area), random_combo, 0);
+    GtkWidget *random_combo = gtk_combo_box_text_new();
+    GtkWidget *action_area = gtk_dialog_get_action_area(GTK_DIALOG(dialog));
+    gtk_box_pack_start(GTK_BOX(action_area), random_combo, FALSE, FALSE, 0);
+    gtk_box_reorder_child(GTK_BOX(action_area), random_combo, 0);
 
-    std::list<EditorAutoUpdate *> eau_s;
-    edit_properties_add_widgets(notebook, eau_s, CaveStored::color_dialog, edited_cave, edited_cave, cave_colors_update_element_pixbufs);
+    std::vector<std::unique_ptr<EditorAutoUpdate>> eau_s = edit_properties_add_widgets(notebook, CaveStored::color_dialog, &edited_cave(), &edited_cave(), cave_colors_update_element_pixbufs);
 
     /* a combo box which has a callback that sets random colors */
-    gtk_combo_box_append_text(GTK_COMBO_BOX(random_combo), _("Set random...")); /* will be active=0 */
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(random_combo), _("Set random...")); /* will be active=0 */
     for (int i = 0; GdColor::get_palette_types_names()[i] != NULL; i++)
-        gtk_combo_box_append_text(GTK_COMBO_BOX(random_combo), _(GdColor::get_palette_types_names()[i]));
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(random_combo), _(GdColor::get_palette_types_names()[i]));
     gtk_combo_box_set_active(GTK_COMBO_BOX(random_combo), 0);
     g_signal_connect(random_combo, "changed", G_CALLBACK(cave_colors_random_combo_cb), &eau_s);
 
@@ -2395,8 +2324,6 @@ static void cave_colors_cb(GtkWidget *widget, gpointer data) {
     int result = gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
 
-    for (std::list<EditorAutoUpdate *>::const_iterator it = eau_s.begin(); it != eau_s.end(); ++it)
-        delete *it;
     /* if the new colors were not accepted by the user (escape pressed), we undo the changes. */
     if (result != GTK_RESPONSE_ACCEPT)
         undo_do_one_step_but_no_redo();
@@ -2412,45 +2339,21 @@ static void cave_colors_cb(GtkWidget *widget, gpointer data) {
  *
  */
 
+
 /* delete selected cave drawing element or cave.
 */
 static void
 delete_selected_cb(GtkWidget *widget, gpointer data) {
     /* deleting caves or cave object. */
-    if (edited_cave == NULL) {
+    if (edited_cave_idx == -1) {
         /* WE ARE DELETING ONE OR MORE CAVES HERE */
 
         /* first we ask the user if he is sure, as no undo is implemented yet */
         gboolean response = gd_question_yesno(_("Do you really want to delete cave(s)?"), _("This operation cannot be undone."));
-
         if (!response)
             return;
-        GList *list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
-        g_return_if_fail(list != NULL); /* list should be not empty. otherwise why was the button not insensitized? */
-
-        /* if anything was selected */
-        GtkTreeModel *model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-        /* for all caves selected, convert to tree row references - we must delete them for the icon view, so this is necessary */
-        GList *references = NULL;
-        for (GList *listiter = list; listiter != NULL; listiter = listiter->next)
-            references = g_list_append(references, gtk_tree_row_reference_new(model, (GtkTreePath *)listiter->data));
-        g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL);
-        g_list_free(list);
-
-        /* now check the list of references and delete each cave */
-        for (GList *listiter = references; listiter != NULL; listiter = listiter->next) {
-            GtkTreeRowReference *reference = (GtkTreeRowReference *)listiter->data;
-            GtkTreePath *path = gtk_tree_row_reference_get_path(reference);
-            GtkTreeIter iter;
-            gtk_tree_model_get_iter(model, &iter, path);
-            CaveStored *cave;
-            gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-            gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
-            delete cave;    /* and also free memory associated. */
-            g_hash_table_remove(cave_pixbufs, cave);
-        }
-        g_list_foreach(references, (GFunc) gtk_tree_row_reference_free, NULL);
-        g_list_free(references);
+        
+        icon_view_delete_selected();
 
         /* this modified the caveset */
         caveset->edited = TRUE;
@@ -2461,20 +2364,25 @@ delete_selected_cb(GtkWidget *widget, gpointer data) {
         undo_save();
 
         /* delete all objects */
-        edited_cave->objects.remove_if(object_list_is_selected);
+        object_list_delete_selected();
         object_list_clear_selection();
         render_cave();
     }
 }
 
-/* put selected drawing elements to bottom.
-*/
+/* put selected drawing elements to bottom. */
 static void send_to_back_selected_cb(GtkWidget *widget, gpointer data) {
     g_return_if_fail(object_list_is_any_selected());
 
     undo_save();
-    std::stable_partition(edited_cave->objects.begin(), edited_cave->objects.end(), object_list_is_selected);
+
+    std::vector<Polymorphic<CaveObject>> l = object_list_copy_of_selected();
+    object_list_delete_selected();
+    object_list_clear_selection();
+    edited_cave().objects.insert(edited_cave().objects.begin(), l.begin(), l.end());
     render_cave();
+    for (int i = 0; i < (int)l.size(); ++i)
+        object_list_add_to_selection(i);
 }
 
 /* bring selected drawing element to top. */
@@ -2482,8 +2390,14 @@ static void bring_to_front_selected_cb(GtkWidget *widget, gpointer data) {
     g_return_if_fail(object_list_is_any_selected());
 
     undo_save();
-    std::stable_partition(edited_cave->objects.begin(), edited_cave->objects.end(), object_list_is_not_selected);
+
+    std::vector<Polymorphic<CaveObject>> l = object_list_copy_of_selected();
+    object_list_delete_selected();
+    object_list_clear_selection();
+    edited_cave().objects.insert(edited_cave().objects.end(), l.begin(), l.end());
     render_cave();
+    for (int i = edited_cave().objects.size() - l.size(); i < (int)edited_cave().objects.size(); ++i)
+        object_list_add_to_selection(i);
 }
 
 /* enable currently selected objects on the currently viewed level only. */
@@ -2493,11 +2407,10 @@ show_object_this_level_only_cb(GtkWidget *widget, gpointer data) {
 
     undo_save();
 
-    for (std::set<CaveObject *>::iterator it = selected_objects.begin(); it != selected_objects.end(); ++it) {
-        CaveObject *obj = *it;
-
-        obj->disable_on_all();
-        obj->seen_on[edit_level] = true;
+    for (auto it = selected_objects.begin(); it != selected_objects.end(); ++it) {
+        CaveObject & obj = edited_cave().objects[*it];
+        obj.disable_on_all();
+        obj.seen_on[edit_level] = true;
     }
     render_cave();
 }
@@ -2509,10 +2422,9 @@ show_object_all_levels_cb(GtkWidget *widget, gpointer data) {
 
     undo_save();
 
-    for (std::set<CaveObject *>::iterator it = selected_objects.begin(); it != selected_objects.end(); ++it) {
-        CaveObject *obj = *it;
-
-        obj->enable_on_all();
+    for (auto it = selected_objects.begin(); it != selected_objects.end(); ++it) {
+        CaveObject & obj = edited_cave().objects[*it];
+        obj.enable_on_all();
     }
     render_cave();
 }
@@ -2524,10 +2436,9 @@ show_object_on_this_level_cb(GtkWidget *widget, gpointer data) {
 
     undo_save();
 
-    for (std::set<CaveObject *>::iterator it = selected_objects.begin(); it != selected_objects.end(); ++it) {
-        CaveObject *obj = *it;
-
-        obj->seen_on[edit_level] = true;
+    for (auto it = selected_objects.begin(); it != selected_objects.end(); ++it) {
+        CaveObject & obj = edited_cave().objects[*it];
+        obj.seen_on[edit_level] = true;
     }
     render_cave();
 }
@@ -2540,14 +2451,13 @@ hide_object_on_this_level_cb(GtkWidget *widget, gpointer data) {
     undo_save();
 
     int disappear = 0;
-    for (std::set<CaveObject *>::iterator it = selected_objects.begin(); it != selected_objects.end(); ++it) {
-        CaveObject *obj = *it;
-
-        obj->seen_on[edit_level] = false;
+    for (auto it = selected_objects.begin(); it != selected_objects.end(); ++it) {
+        CaveObject & obj = edited_cave().objects[*it];
+        obj.seen_on[edit_level] = false;
         /* an object should be visible on at least one level. */
         /* if it disappeared, switch it back, and remember that we will show an error message. */
-        if (obj->is_invisible()) {
-            obj->seen_on[edit_level] = true;
+        if (obj.is_invisible()) {
+            obj.seen_on[edit_level] = true;
             disappear++;
         }
     }
@@ -2557,44 +2467,16 @@ hide_object_on_this_level_cb(GtkWidget *widget, gpointer data) {
         gd_warningmessage(_("At least one object would have been totally hidden (not visible on any of the levels)."), _("Enabled those objects on the current level."));
 }
 
+
 /* copy selected object or caves to clipboard.
 */
 static void
 copy_selected_cb(GtkWidget *widget, gpointer data) {
-    if (edited_cave == NULL) {
-        /* WE ARE NOW COPYING CAVES FROM A CAVESET */
-        GList *list, *listiter;
-        GtkTreeModel *model;
-
-        list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
-        g_return_if_fail(list != NULL); /* list should be not empty. otherwise why was the button not insensitized? */
-
-        /* forget old clipboard */
-        cave_clipboard.clear();
-
-        /* now for all caves selected */
-        /* we do not need references here (as in cut), as we do not modify the treemodel */
-        model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-        for (listiter = list; listiter != NULL; listiter = listiter->next) {
-            CaveStored *cave = NULL;
-            GtkTreeIter iter;
-
-            gtk_tree_model_get_iter(model, &iter, (GtkTreePath *) listiter->data);
-            gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-            /* add to clipboard: prepend must be used for correct order */
-            /* here, a COPY is added to the clipboard */
-            cave_clipboard.push_front(*cave);
-        }
-        g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL);
-        g_list_free(list);
-
-        /* enable pasting */
+    if (edited_cave_idx == -1) {
+        cave_clipboard = icon_view_copy_selected();
         gtk_action_group_set_sensitive(actions_clipboard_paste, TRUE);
     } else {
-        /* delete contents of clipboard */
         object_clipboard = object_list_copy_of_selected();
-
-        /* enable pasting */
         gtk_action_group_set_sensitive(actions_clipboard_paste, TRUE);
     }
 }
@@ -2603,35 +2485,32 @@ copy_selected_cb(GtkWidget *widget, gpointer data) {
 */
 static void
 paste_clipboard_cb(GtkWidget *widget, gpointer data) {
-    if (edited_cave == NULL) {
+    if (edited_cave_idx == -1) {
         /* WE ARE IN THE CAVESET ICON VIEW */
         GtkListStore *store = GTK_LIST_STORE(gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist)));
 
-        for (std::list<CaveStored>::const_iterator it = cave_clipboard.begin(); it != cave_clipboard.end(); ++it)
-            icon_view_add_cave(store, new CaveStored(*it));
+        for (auto it = cave_clipboard.begin(); it != cave_clipboard.end(); ++it) {
+            caveset->caves.push_back(*it);
+            icon_view_add_cave(store, caveset->caves.size() - 1);
+        }
         icon_view_update_pixbufs();
 
         /* this modified the caveset */
         caveset->edited = TRUE;
     } else {
         /* WE ARE IN THE CAVE EDITOR */
-        std::list<CaveObject *> newly_added_objects;
-
         g_return_if_fail(!object_clipboard.empty());
 
-        /* we have a list of newly added (pasted) objects, so after pasting we can
-           select them. this is necessary, as only after pasting is render_cave() called,
-           which adds the new objects to the gtkliststore. otherwise that one would not
-           contain cave objects. the clipboard also cannot be used, as pointers are different */
-        for (CaveObjectStore::const_iterator it = object_clipboard.begin(); it != object_clipboard.end(); ++it) {
-            CaveObject *cloned = (*it)->clone();
-            edited_cave->objects.push_back_adopt(cloned);
-            newly_added_objects.push_back(cloned);
+        /* paste objects to cave */
+        for (auto it = object_clipboard.begin(); it != object_clipboard.end(); ++it) {
+            edited_cave().objects.push_back(*it);
         }
-
+        /* call render so that the object list is regenerated */
         render_cave();
+        /* select newly pasted objects, which are at the end of the container */
         object_list_clear_selection();
-        for_each(newly_added_objects.begin(), newly_added_objects.end(), object_list_add_to_selection);
+        for (int i = edited_cave().objects.size() - object_clipboard.size(); i < (int)edited_cave().objects.size(); ++i)
+            object_list_add_to_selection(i);
     }
 }
 
@@ -2639,44 +2518,13 @@ paste_clipboard_cb(GtkWidget *widget, gpointer data) {
 /* cut an object, or cave(s) from the caveset. */
 static void
 cut_selected_cb(GtkWidget *widget, gpointer data) {
-    if (edited_cave == NULL) {
+    if (edited_cave_idx == -1) {
         /* WE ARE NOW CUTTING CAVES FROM A CAVESET */
-        GList *list, *listiter;
-        GtkTreeModel *model;
-        GList *references = NULL;
-
-        list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
+        GList *list = gtk_icon_view_get_selected_items(GTK_ICON_VIEW(iconview_cavelist));
         g_return_if_fail(list != NULL); /* list should be not empty. otherwise why was the button not insensitized? */
-
-        /* forget old clipboard */
-        cave_clipboard.clear();
-
-        /* if anything was selected */
-        model = gtk_icon_view_get_model(GTK_ICON_VIEW(iconview_cavelist));
-        /* for all caves selected, convert to tree row references - we must delete them for the icon view, so this is necessary */
-        for (listiter = list; listiter != NULL; listiter = listiter->next)
-            references = g_list_append(references, gtk_tree_row_reference_new(model, (GtkTreePath *)listiter->data));
-        g_list_foreach(list, (GFunc) gtk_tree_path_free, NULL);
-        g_list_free(list);
-
-        for (listiter = references; listiter != NULL; listiter = listiter->next) {
-            GtkTreeRowReference *reference = (GtkTreeRowReference *) listiter->data;
-            GtkTreePath *path;
-            CaveStored *cave = NULL;
-            GtkTreeIter iter;
-
-            path = gtk_tree_row_reference_get_path(reference);
-            gtk_tree_model_get_iter(model, &iter, path);
-            gtk_tree_model_get(model, &iter, CAVE_COLUMN, &cave, -1);
-            /* prepend must be used for correct order */
-            /* here, the cave is not copied, but the pointer is moved to the clipboard */
-            cave_clipboard.push_front(*cave);
-            gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
-            /* remove its pixbuf */
-            g_hash_table_remove(cave_pixbufs, cave);
-        }
-        g_list_foreach(references, (GFunc) gtk_tree_row_reference_free, NULL);
-        g_list_free(references);
+        
+        cave_clipboard = icon_view_copy_selected();
+        icon_view_delete_selected();
 
         /* enable pasting */
         gtk_action_group_set_sensitive(actions_clipboard_paste, TRUE);
@@ -2691,7 +2539,7 @@ cut_selected_cb(GtkWidget *widget, gpointer data) {
         object_clipboard.clear();
 
         object_clipboard = object_list_copy_of_selected();
-        edited_cave->objects.remove_if(object_list_is_selected);
+        object_list_delete_selected();
 
         /* enable pasting */
         gtk_action_group_set_sensitive(actions_clipboard_paste, TRUE);
@@ -2703,7 +2551,7 @@ cut_selected_cb(GtkWidget *widget, gpointer data) {
 
 static void
 select_all_cb(GtkWidget *widget, gpointer data) {
-    if (edited_cave == NULL) /* in game editor */
+    if (edited_cave_idx == -1) /* in game editor */
         gtk_icon_view_select_all(GTK_ICON_VIEW(iconview_cavelist));     /* SELECT ALL CAVES */
     else                    /* in cave editor */
         gtk_tree_selection_select_all(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)));       /* SELECT ALL OBJECTS */
@@ -2712,15 +2560,15 @@ select_all_cb(GtkWidget *widget, gpointer data) {
 /* delete map from cave */
 static void
 remove_map_cb(GtkWidget *widget, gpointer data) {
-    g_return_if_fail(edited_cave != NULL);
-    g_return_if_fail(!edited_cave->map.empty());
+    g_return_if_fail(edited_cave_idx != -1);
+    g_return_if_fail(!edited_cave().map.empty());
 
     gboolean response = gd_question_yesno(_("Do you really want to remove cave map?"), _("This operation destroys all cave objects."));
 
     if (response) {
         undo_save(); /* changing cave; save for undo */
 
-        edited_cave->map.remove();
+        edited_cave().map.remove();
         /* map deleted; redraw cave */
         render_cave();
     }
@@ -2730,34 +2578,32 @@ remove_map_cb(GtkWidget *widget, gpointer data) {
 /* flatten cave -> pack everything in a map */
 static void
 flatten_cave_cb(GtkWidget *widget, gpointer data) {
-    gboolean response;
+    g_return_if_fail(edited_cave_idx != -1);
 
-    g_return_if_fail(edited_cave != NULL);
-
-    if (edited_cave->objects.empty()) {
+    if (edited_cave().objects.empty()) {
         gd_infomessage(_("This cave has no objects."), NULL);
         return;
     }
 
-    response = gd_question_yesno(_("Do you really want to flatten cave?"), _("This operation merges all cave objects currently seen in a single map. Further objects may later be added, but the ones already seen will behave like the random fill elements; they will not be editable."));
+    gboolean response = gd_question_yesno(_("Do you really want to flatten cave?"), _("This operation merges all cave objects currently seen in a single map. Further objects may later be added, but the ones already seen will behave like the random fill elements; they will not be editable."));
 
     if (response) {
         undo_save();    /* changing; save for undo */
 
-        CaveRendered rendered(*edited_cave, edit_level, 0);   /* render cave at specified level to obtain map. seed=0 */
-        edited_cave->map = rendered.map;    /* copy new map to cave */
-        edited_cave->objects.clear();       /* forget objects */
+        CaveRendered rendered(edited_cave(), edit_level, 0);   /* render cave at specified level to obtain map. seed=0 */
+        edited_cave().map = rendered.map;    /* copy new map to cave */
+        edited_cave().objects.clear();       /* forget objects */
         render_cave();      /* redraw */
     }
 }
 
 
 static void shiftmap(int dx, int dy) {
-    CaveMapClever<GdElementEnum> mapcopy(edited_cave->map);
+    CaveMap<GdElementEnum> mapcopy = edited_cave().map;
     mapcopy.set_wrap_type(CaveMapFuncs::Perfect);
-    for (int y = 0; y < edited_cave->h; y++)
-        for (int x = 0; x < edited_cave->w; x++)
-            edited_cave->map(x, y) = mapcopy(x - dx, y - dy);
+    for (int y = 0; y < edited_cave().h; y++)
+        for (int x = 0; x < edited_cave().w; x++)
+            edited_cave().map(x, y) = mapcopy(x - dx, y - dy);
     render_cave();
 }
 
@@ -2792,10 +2638,9 @@ set_engine_default_cb(GtkWidget *widget, gpointer data) {
     GdEngineEnum e = GdEngineEnum(GPOINTER_TO_INT(data));
 
     g_assert(e >= 0 && e < GD_ENGINE_MAX);
-    g_assert(edited_cave != NULL);
 
     undo_save();
-    C64Import::cave_set_engine_defaults(*edited_cave, e);
+    C64Import::cave_set_engine_defaults(edited_cave(), e);
 /// @TODO
 ///  props=gd_struct_explain_defaults_in_string(CaveStored::descriptor, gd_get_engine_default_array(e));
 ///  gd_infomessage(_("The following properties are set:"), props);
@@ -2805,33 +2650,25 @@ set_engine_default_cb(GtkWidget *widget, gpointer data) {
 
 static void
 save_html_cb(GtkWidget *widget, gpointer data) {
-    char *htmlname = NULL, *suggested_name;
-    /* if no filename given, */
-    GtkWidget *dialog;
-    GtkFileFilter *filter;
-    CaveStored *edited;
+    icon_view_reorder_caves();
 
-    edited = edited_cave;
-    /* destroy icon view so it does not interfere with saving (when icon view is active, caveset=NULL) */
-    if (iconview_cavelist)
-        gtk_widget_destroy(iconview_cavelist);
-
-    dialog = gtk_file_chooser_dialog_new(_("Save Cave Set in HTML"), GTK_WINDOW(gd_editor_window),
-                                         GTK_FILE_CHOOSER_ACTION_SAVE,
-                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                         GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
-                                         NULL);
+    GtkWidget *dialog = gtk_file_chooser_dialog_new(_("Save Cave Set in HTML"), GTK_WINDOW(gd_editor_window),
+                                                    GTK_FILE_CHOOSER_ACTION_SAVE,
+                                                    GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                                    GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+                                                    NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 
-    filter = gtk_file_filter_new();
+    GtkFileFilter *filter = gtk_file_filter_new();
     gtk_file_filter_set_name(filter, _("HTML files"));
     gtk_file_filter_add_pattern(filter, "*.html");
     gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
 
-    suggested_name = g_strdup_printf("%s.html", caveset->name.c_str());
+    char *suggested_name = g_strdup_printf("%s.html", caveset->name.c_str());
     gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), suggested_name);
     g_free(suggested_name);
 
+    char *htmlname = NULL;
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT)
         htmlname = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
     gtk_widget_destroy(dialog);
@@ -2839,32 +2676,28 @@ save_html_cb(GtkWidget *widget, gpointer data) {
     /* saving if got filename */
     if (htmlname) {
         Logger l;
-        gd_save_html(htmlname, gd_editor_window, *caveset);
+        gd_save_html(htmlname, *caveset);
         gd_show_errors(l, _("Errors - Saving Gallery to File"));
+        g_free(htmlname);
     }
-    g_free(htmlname);
-    select_cave_for_edit(edited);   /* go back to edited cave or recreate icon view */
 }
 
 
 /* export cave to a crli editor format */
 static void export_cavefile_cb(GtkWidget *widget, gpointer data) {
-    char *outname = NULL;
-    /* if no filename given, */
-    GtkWidget *dialog;
+    g_return_if_fail(edited_cave_idx != -1);
 
-    g_return_if_fail(edited_cave != NULL);
-
-    dialog = gtk_file_chooser_dialog_new(_("Export Cave as CrLi Cave File"), GTK_WINDOW(gd_editor_window),
+    GtkWidget *dialog = gtk_file_chooser_dialog_new(_("Export Cave as CrLi Cave File"), GTK_WINDOW(gd_editor_window),
                                          GTK_FILE_CHOOSER_ACTION_SAVE,
                                          GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                          GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
                                          NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 
-    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), edited_cave->name.c_str());
+    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), edited_cave().name.c_str());
     gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(dialog), TRUE);
 
+    char *outname = NULL;
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT)
         outname = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
     gtk_widget_destroy(dialog);
@@ -2872,7 +2705,7 @@ static void export_cavefile_cb(GtkWidget *widget, gpointer data) {
     /* if accepted, save. */
     if (outname) {
         Logger l;
-        gd_export_cave_to_crli_cavefile(edited_cave, edit_level, outname);
+        gd_export_cave_to_crli_cavefile(edited_cave(), edit_level, outname);
         gd_show_errors(l, _("Errors - Exporting Cave to CrLi Format"));
         g_free(outname);
     }
@@ -2881,26 +2714,19 @@ static void export_cavefile_cb(GtkWidget *widget, gpointer data) {
 
 /* export complete caveset to a crli cave pack */
 static void export_cavepack_cb(GtkWidget *widget, gpointer data) {
-    char *outname = NULL;
-    /* if no filename given, */
-    GtkWidget *dialog;
-    CaveStored *edited;
+    icon_view_reorder_caves();
 
-    edited = edited_cave;
-    /* destroy icon view so it does not interfere with saving (when icon view is active, caveset=NULL) */
-    if (iconview_cavelist)
-        gtk_widget_destroy(iconview_cavelist);
-
-    dialog = gtk_file_chooser_dialog_new(_("Export Cave as CrLi Cave Pack"), GTK_WINDOW(gd_editor_window),
-                                         GTK_FILE_CHOOSER_ACTION_SAVE,
-                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                         GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
-                                         NULL);
+    GtkWidget *dialog = gtk_file_chooser_dialog_new(_("Export Cave as CrLi Cave Pack"), GTK_WINDOW(gd_editor_window),
+                                                    GTK_FILE_CHOOSER_ACTION_SAVE,
+                                                    GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                                    GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+                                                    NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 
     gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), caveset->name.c_str());
     gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(dialog), TRUE);
 
+    char *outname = NULL;
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT)
         outname = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
     gtk_widget_destroy(dialog);
@@ -2908,32 +2734,27 @@ static void export_cavepack_cb(GtkWidget *widget, gpointer data) {
     /* saving if got filename */
     if (outname) {
         Logger l;
-        std::vector<CaveStored *> caves_to_export;
-        for (unsigned i = 0; i < caveset->caves.size(); ++i)
-            caves_to_export.push_back(&caveset->cave(i));
-        gd_export_caves_to_crli_cavepack(caves_to_export, edit_level, outname);
+        gd_export_caves_to_crli_cavepack(caveset->caves, edit_level, outname);
         gd_show_errors(l, _("Errors - Exporting Caves to File"));
         g_free(outname);
     }
-
-    select_cave_for_edit(edited);   /* go back to edited cave or recreate icon view */
 }
 
 
 /* test selected level. */
 static void
 play_level_cb(GtkWidget *widget, gpointer data) {
-    g_return_if_fail(edited_cave != NULL);
+    g_return_if_fail(edited_cave_idx != -1);
     gtk_widget_set_sensitive(gd_editor_window, FALSE);
-    GameControl *game = GameControl::new_test(edited_cave, edit_level);
-    main_window_run_a_game(game);
+    auto game = GameControl::new_test(&edited_cave(), edit_level);
+    main_window_run_a_game(std::move(game));
     gtk_widget_set_sensitive(gd_editor_window, TRUE);
 }
 
 
 static void
 object_properties_cb(GtkWidget *widget, gpointer data) {
-    object_properties(NULL);
+    object_properties(object_list_first_selected());
 }
 
 
@@ -2946,7 +2767,7 @@ set_caveset_properties_cb(GtkWidget *widget, gpointer data) {
 
 static void
 cave_properties_cb(const GtkWidget *widget, const gpointer data) {
-    cave_properties(edited_cave, TRUE);
+    cave_properties(edited_cave(), TRUE);
 }
 
 
@@ -2959,93 +2780,84 @@ cave_properties_cb(const GtkWidget *widget, const gpointer data) {
 /* go to cave selector */
 static void
 cave_selector_cb(GtkWidget *widget, gpointer data) {
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
+}
+
+/* view previous cave */
+static void
+previous_cave_cb(GtkWidget *widget, gpointer data) {
+    g_return_if_fail(edited_cave_idx != -1);
+    g_return_if_fail(caveset->has_caves());
+
+    int i = (edited_cave_idx - 1 + caveset->caves.size()) % caveset->caves.size();
+    select_cave_for_edit(i);
 }
 
 /* view next cave */
 static void
-previous_cave_cb(GtkWidget *widget, gpointer data) {
-    int i;
-    g_return_if_fail(edited_cave != NULL);
-    g_return_if_fail(caveset->has_caves());
-
-    i = caveset->cave_index(edited_cave);
-    g_return_if_fail(i != -1);
-    i = (i - 1 + caveset->caves.size()) % caveset->caves.size();
-    select_cave_for_edit(&caveset->cave(i));
-}
-
-/* go to cave selector */
-static void
 next_cave_cb(GtkWidget *widget, gpointer data) {
-    int i;
-    g_return_if_fail(edited_cave != NULL);
+    g_return_if_fail(edited_cave_idx != -1);
     g_return_if_fail(caveset->has_caves());
 
-    i = caveset->cave_index(edited_cave);
-    g_return_if_fail(i != -1);
-    i = (i + 1) % caveset->caves.size();
-    select_cave_for_edit(&caveset->cave(i));
+    int i = (edited_cave_idx + 1) % caveset->caves.size();
+    select_cave_for_edit(i);
 }
 
 /* create new cave */
 static void
 new_cave_cb(GtkWidget *widget, gpointer data) {
-    CaveStored *newcave;
-    GtkWidget *dialog, *entry_name, *entry_desc, *intermission_check, *table;
-
     // TRANSLATORS: Title text capitalization in English
-    dialog = gtk_dialog_new_with_buttons(_("Create New Cave"), GTK_WINDOW(gd_editor_window), GtkDialogFlags(GTK_DIALOG_NO_SEPARATOR | GTK_DIALOG_DESTROY_WITH_PARENT), GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, GTK_STOCK_NEW, GTK_RESPONSE_ACCEPT, NULL);
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Create New Cave"), GTK_WINDOW(gd_editor_window), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, GTK_STOCK_NEW, GTK_RESPONSE_ACCEPT, NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
     gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
 
-    table = gtk_table_new(0, 0, FALSE);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), table, FALSE, FALSE, 0);
-    gtk_container_set_border_width(GTK_CONTAINER(table), 6);
-    gtk_table_set_row_spacings(GTK_TABLE(table), 6);
-    gtk_table_set_col_spacings(GTK_TABLE(table), 6);
+    GtkWidget *grid = gtk_grid_new();
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    gtk_container_add(GTK_CONTAINER(content_area), grid);
+    gtk_container_set_border_width(GTK_CONTAINER(grid), 6);
+    gtk_grid_set_row_spacing(GTK_GRID(grid), 6);
+    gtk_grid_set_column_spacing(GTK_GRID(grid), 6);
 
     /* some properties - name */
-    gtk_table_attach_defaults(GTK_TABLE(table), gd_label_new_leftaligned(_("Name:")), 0, 1, 0, 1);
-    entry_name = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(_("Name:")), 0, 0, 1, 1);
+    GtkWidget *entry_name = gtk_entry_new();
     gtk_entry_set_activates_default(GTK_ENTRY(entry_name), TRUE);
     gtk_entry_set_text(GTK_ENTRY(entry_name), _("New cave"));
-    gtk_table_attach_defaults(GTK_TABLE(table), entry_name, 1, 2, 0, 1);
+    gtk_grid_attach(GTK_GRID(grid), entry_name, 1, 0, 1, 1);
 
     /* description */
-    gtk_table_attach_defaults(GTK_TABLE(table), gd_label_new_leftaligned(_("Description:")), 0, 1, 1, 2);
-    entry_desc = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(_("Description:")), 0, 1, 1, 1);
+    GtkWidget *entry_desc = gtk_entry_new();
     gtk_entry_set_activates_default(GTK_ENTRY(entry_desc), TRUE);
-    gtk_table_attach_defaults(GTK_TABLE(table), entry_desc, 1, 2, 1, 2);
+    gtk_grid_attach(GTK_GRID(grid), entry_desc, 1, 1, 1, 1);
 
     /* intermission */
-    gtk_table_attach_defaults(GTK_TABLE(table), gd_label_new_leftaligned(_("Intermission:")), 0, 1, 2, 3);
-    intermission_check = gtk_check_button_new();
+    gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(_("Intermission:")), 0, 2, 1, 1);
+    GtkWidget *intermission_check = gtk_check_button_new();
     gtk_widget_set_tooltip_text(intermission_check, _("Intermission caves are usually small and fast caves, which are not required to be solved. The player will not lose a life if he is not successful. The game always proceeds to the next cave. If you set this check box, the size of the cave will also be set to 20x12, as that is the standard size for intermissions."));
-    gtk_table_attach_defaults(GTK_TABLE(table), intermission_check, 1, 2, 2, 3);
+    gtk_grid_attach(GTK_GRID(grid), intermission_check, 1, 2, 1, 1);
 
     gtk_widget_show_all(dialog);
     if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
-        /* new cave */
-        newcave = new CaveStored;
-
         /* set some defaults */
-        gd_cave_set_random_colors(*newcave, GdColor::Type(gd_preferred_palette));
-        newcave->name = gtk_entry_get_text(GTK_ENTRY(entry_name));
-        newcave->description = gtk_entry_get_text(GTK_ENTRY(entry_desc));
-        newcave->author = g_get_real_name();
-        newcave->intermission = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(intermission_check));
-        /* if the user says that he creates an intermission, it is immediately resized */
-        if (newcave->intermission) {
-            newcave->w = 20;
-            newcave->h = 12;
-            gd_cave_correct_visible_size(*newcave);
+        CaveStored newcave;
+        newcave.name = gtk_entry_get_text(GTK_ENTRY(entry_name));
+        newcave.description = gtk_entry_get_text(GTK_ENTRY(entry_desc));
+        newcave.author = g_get_real_name();
+        newcave.date = gd_get_current_date();
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(intermission_check))) {
+            newcave.intermission = TRUE;
+            newcave.w = 20;
+            newcave.h = 12;
+            gd_cave_correct_visible_size(newcave);
         }
-        newcave->date = gd_get_current_date();
+        gd_cave_set_random_colors(newcave, GdColor::Type(gd_preferred_palette));
 
-        select_cave_for_edit(newcave);              /* close caveset icon view, and show cave */
-        caveset->caves.push_back_adopt(newcave);  /* append here, as the icon view may only be destroyed now by select_cave_for_edit */
+        /* add to caveset. first destory the icon view, so caves are reordered */
+        gtk_widget_destroy(iconview_cavelist);
+        caveset->caves.push_back(std::move(newcave));
         caveset->edited = TRUE;
+        select_cave_for_edit(caveset->caves.size() - 1);  /* close caveset icon view, and show cave */
     }
     gtk_widget_destroy(dialog);
 }
@@ -3064,7 +2876,7 @@ open_caveset_cb(GtkWidget *widget, gpointer data) {
         gtk_widget_destroy(iconview_cavelist);
     g_hash_table_remove_all(cave_pixbufs);
     gd_open_caveset(NULL, *caveset);
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
 }
 
 static void
@@ -3074,74 +2886,46 @@ open_installed_caveset_cb(GtkWidget *widget, gpointer data) {
         gtk_widget_destroy(iconview_cavelist);
     g_hash_table_remove_all(cave_pixbufs);
     gd_open_caveset(gd_system_caves_dir.c_str(), *caveset);
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
 }
 
 static void
 save_caveset_as_cb(GtkWidget *widget, gpointer data) {
-    CaveStored *edited;
-
-    edited = edited_cave;
-    /* destroy icon view so it does not interfere with the cave order, and the order of caves is saved */
-    if (iconview_cavelist)
-        gtk_widget_destroy(iconview_cavelist);
+    icon_view_reorder_caves();
     gd_save_caveset_as(*caveset);
-    select_cave_for_edit(edited);   /* go back to edited cave or recreate icon view */
 }
 
 static void
 save_caveset_cb(GtkWidget *widget, gpointer data) {
-    CaveStored *edited;
-
-    edited = edited_cave;
-    /* destroy icon view so it does not interfere with the cave order, and the order of caves is saved */
-    if (iconview_cavelist)
-        gtk_widget_destroy(iconview_cavelist);
+    icon_view_reorder_caves();
     gd_save_caveset(*caveset);
-    select_cave_for_edit(edited);   /* go back to edited cave or recreate icon view */
 }
 
 static void
 new_caveset_cb(GtkWidget *widget, gpointer data) {
-    GDate *date;
-    char datestr[128];
-
     /* destroy icon view so it does not interfere */
     if (iconview_cavelist)
         gtk_widget_destroy(iconview_cavelist);
+
     if (gd_discard_changes(*caveset)) {
         *caveset = CaveSet();
+        caveset->date = gd_get_current_date();
+        caveset->author = g_get_real_name();
+        caveset_properties(false);  /* false=do not show cancel button */
         g_hash_table_remove_all(cave_pixbufs);
     }
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
 
-    date = g_date_new();
-    g_date_set_time_t(date, time(NULL));
-    g_date_strftime(datestr, sizeof(datestr), "%Y-%m-%d", date);
-    caveset->date = datestr;
-    g_date_free(date);
-
-    caveset->author = g_get_real_name();
-
-    caveset_properties(false);  /* false=do not show cancel button */
 }
 
 
 static void
 remove_all_unknown_tags_cb(GtkWidget *widget, gpointer data) {
-    /* remember which cave was edited, or null if icon view. */
-    CaveStored *edited = edited_cave;
-    /* destroy icon view so it does not interfere with the cave order, and the order of caves is saved */
-    if (iconview_cavelist)
-        gtk_widget_destroy(iconview_cavelist);
-
     gboolean response = gd_question_yesno(_("Do you really want to remove unknown cave tags?"), _("This operation removes all unknown tags associated with all caves. Unknown tags might come from another BDCFF-compatible game or an older version of GDash. Those cave options cannot be interpreted by GDash, and therefore if you use this caveset in this application, they are of no use."));
 
     if (response)
         for (unsigned n = 0; n < caveset->caves.size(); ++n)
-            caveset->cave(n).unknown_tags = "";
-
-    select_cave_for_edit(edited);   /* go back to edited cave or recreate icon view */
+            caveset->caves[n].unknown_tags = "";
 }
 
 
@@ -3150,14 +2934,14 @@ static void
 selectable_all_cb(GtkWidget *widget, gpointer data) {
     gtk_widget_destroy(iconview_cavelist);  /* to generate caveset */
     for (unsigned n = 0; n < caveset->caves.size(); ++n) {
-        CaveStored &cave = caveset->cave(n);
-
+        CaveStored &cave = caveset->caves[n];
         if (!cave.selectable) {
             cave.selectable = TRUE;
+            caveset->edited = TRUE;
             g_hash_table_remove(cave_pixbufs, &cave);
         }
     }
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
 }
 
 /* make all but intermissions selectable */
@@ -3165,44 +2949,41 @@ static void
 selectable_all_but_intermissions_cb(GtkWidget *widget, gpointer data) {
     gtk_widget_destroy(iconview_cavelist);  /* to generate caveset */
     for (unsigned n = 0; n < caveset->caves.size(); ++n) {
-        CaveStored &cave = caveset->cave(n);
+        CaveStored &cave = caveset->caves[n];
         gboolean desired = !cave.intermission;
-
         if (cave.selectable != desired) {
             cave.selectable = desired;
+            caveset->edited = TRUE;
             g_hash_table_remove(cave_pixbufs, &cave);
         }
     }
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
 }
 
 
 /* make all after intermissions selectable */
 static void
 selectable_all_after_intermissions_cb(GtkWidget *widget, gpointer data) {
-    gboolean was_intermission = TRUE; /* treat the 'zeroth' cave as intermission, so the very first cave will be selectable */
-
-    gtk_widget_destroy(iconview_cavelist);  /* to generate caveset */
+    gtk_widget_destroy(iconview_cavelist);
+    gboolean was_intermission = TRUE; /* treat the first cave as intermission, so the very first cave will be selectable */
     for (unsigned n = 0; n < caveset->caves.size(); ++n) {
-        CaveStored &cave = caveset->cave(n);
-        gboolean desired;
-
-        desired = !cave.intermission && was_intermission; /* selectable if this is a normal cave, and the previous one was an interm. */
+        CaveStored &cave = caveset->caves[n];
+        gboolean desired = !cave.intermission && was_intermission; /* selectable if this is a normal cave, and the previous one was an interm. */
         if (cave.selectable != desired) {
             cave.selectable = desired;
+            caveset->edited = TRUE;
             g_hash_table_remove(cave_pixbufs, &cave);
         }
 
         was_intermission = cave.intermission; /* remember for next iteration */
     }
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
 }
 
 
 /******************************************************
  *
- * some necessary callbacks for the editor
- *
+ * callbacks for the editor
  *
  */
 
@@ -3227,7 +3008,6 @@ static void action_select_tool_cb(GtkWidget *widget, gpointer data) {
     /* first button - mainly for draw */
     gtk_label_set_text(GTK_LABEL(label_first_element), _(gd_object_description[action].first_button));
     gtk_widget_set_sensitive(element_button, gd_object_description[action].first_button != NULL);
-    gd_element_button_set_dialog_sensitive(element_button, gd_object_description[action].first_button != NULL);
     if (gd_object_description[action].first_button) {
         char *title = g_strdup_printf(_("%s Element"), _(gd_object_description[action].first_button));
         gd_element_button_set_dialog_title(element_button, title);
@@ -3238,7 +3018,6 @@ static void action_select_tool_cb(GtkWidget *widget, gpointer data) {
     /* second button - mainly for fill */
     gtk_label_set_text(GTK_LABEL(label_second_element), _(gd_object_description[action].second_button));
     gtk_widget_set_sensitive(fillelement_button, gd_object_description[action].second_button != NULL);
-    gd_element_button_set_dialog_sensitive(fillelement_button, gd_object_description[action].second_button != NULL);
     if (gd_object_description[action].second_button) {
         char *title = g_strdup_printf(_("%s Element"), _(gd_object_description[action].second_button));
         gd_element_button_set_dialog_title(fillelement_button, title);
@@ -3260,7 +3039,7 @@ toggle_colored_objects_cb(GtkWidget *widget, gpointer data) {
 static void
 toggle_object_list_cb(GtkWidget *widget, gpointer data) {
     gd_show_object_list = gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(widget));
-    if (gd_show_object_list && edited_cave)
+    if (gd_show_object_list && edited_cave_idx != -1)
         gtk_widget_show(scroll_window_objects);    /* show the scroll window containing the view */
     else
         gtk_widget_hide(scroll_window_objects);
@@ -3275,29 +3054,16 @@ close_editor_cb(GtkWidget *widget, gpointer data) {
 
 static void
 remove_bad_replays_cb(GtkWidget *widget, gpointer data) {
-    /* if the iconview is active, we destroy it, as it interferes with GList *caveset.
-       after highscore editing, we call editcave(null) to recreate */
-    gboolean has_iconview = iconview_cavelist != NULL;
-    GString *report;
-    int sum;
-
-    if (has_iconview)
-        gtk_widget_destroy(iconview_cavelist);
-
-    report = g_string_new(NULL);
-    sum = 0;
+    GString *report = g_string_new(NULL);
+    int sum = 0;
     for (unsigned n = 0; n < caveset->caves.size(); n++) {
-        CaveStored &cave = caveset->cave(n);
-        int removed;
-
-        removed = gd_cave_check_replays(cave, FALSE, TRUE, FALSE);
+        CaveStored &cave = caveset->caves[n];
+        int removed = gd_cave_check_replays(cave, FALSE, TRUE, FALSE);
         sum += removed;
         if (removed > 0)
             g_string_append_printf(report, _("%s: removed %d replay(s)\n"), cave.name.c_str(), removed);
     }
 
-    if (has_iconview)
-        select_cave_for_edit(NULL);
     if (sum > 0) {
         gd_infomessage(_("Some replays were removed."), report->str);
         caveset->edited = TRUE;
@@ -3308,28 +3074,16 @@ remove_bad_replays_cb(GtkWidget *widget, gpointer data) {
 
 static void
 mark_all_replays_as_working_cb(GtkWidget *widget, gpointer data) {
-    /* if the iconview is active, we destroy it, as it interferes with GList *caveset. */
-    gboolean has_iconview = iconview_cavelist != NULL;
-    GString *report;
-    int sum;
-
-    if (has_iconview)
-        gtk_widget_destroy(iconview_cavelist);
-
-    report = g_string_new(NULL);
-    sum = 0;
+    GString *report = g_string_new(NULL);
+    int sum = 0;
     for (unsigned n = 0; n < caveset->caves.size(); ++n) {
-        CaveStored &cave = caveset->cave(n);
-        int changed;
-
-        changed = gd_cave_check_replays(cave, FALSE, FALSE, TRUE);
+        CaveStored &cave = caveset->caves[n];
+        int changed = gd_cave_check_replays(cave, FALSE, FALSE, TRUE);
         sum += changed;
         if (changed > 0)
             g_string_append_printf(report, _("%s: marked %d replay(s) as working ones\n"), cave.name.c_str(), changed);
     }
 
-    if (has_iconview)
-        select_cave_for_edit(NULL);
     if (sum > 0) {
         gd_warningmessage(_("Some replay checksums were recalculated. This does not mean that those replays actually play correctly!"), report->str);
         caveset->edited = TRUE;
@@ -3341,11 +3095,10 @@ mark_all_replays_as_working_cb(GtkWidget *widget, gpointer data) {
 /* set image from gd_caveset_data title screen. */
 static void setup_caveset_title_image_load_image(GtkWidget *image) {
     if (caveset->title_screen != "") {
-        std::vector<Pixbuf *> title_images = get_title_animation_pixbuf(caveset->title_screen, caveset->title_screen_scroll, true, *editor_pixbuf_factory);
+        std::vector<std::unique_ptr<Pixbuf>> title_images = get_title_animation_pixbuf(caveset->title_screen, caveset->title_screen_scroll, true, *editor_pixbuf_factory);
         if (!title_images.empty()) {
-            GdkPixbuf *bigone = static_cast<GTKPixbuf *>(title_images[0])->get_gdk_pixbuf();
+            GdkPixbuf *bigone = static_cast<GTKPixbuf &>(*title_images[0]).get_gdk_pixbuf();
             gtk_image_set_from_pixbuf(GTK_IMAGE(image), bigone);
-            delete title_images[0];
         } else {
             // could not load, so clear it
             caveset->title_screen = "";
@@ -3369,31 +3122,25 @@ static void setup_caveset_title_image_clear_cb(GtkWidget *widget, gpointer data)
 /* load image from disk */
 static void
 setup_caveset_title_image_load_image_into_string(const char *title, GtkWidget *parent, GtkWidget *image, std::string &string, int maxwidth, int maxheight) {
-    char *filename;
-    GdkPixbuf *pixbuf;
-    GError *error = NULL;
-    gchar *buffer;
-    gsize bufsize;
-    gchar *base64;
-    int width, height;
-
-    filename = gd_select_image_file(title);
+    char *filename = gd_select_image_file(title);
     if (!filename)  /* no filename -> do nothing */
         return;
 
     /* check image format and size */
+    int width, height;
     if (!gdk_pixbuf_get_file_info(filename, &width, &height)) {
         gd_errormessage(_("Error loading image file."), _("Cannot recognize file format."));
         return;
     }
     /* check for maximum size */
     if (height > maxheight || width > maxwidth) {
-        gd_errormessage(_("The image selected is too big!"), CPrintf(_("Maximum sizes: %dx%d pixels")) % maxwidth % maxheight);
+        gd_errormessage(_("The image selected is too big!"), Printf(_("Maximum sizes: %dx%d pixels"), maxwidth, maxheight).c_str());
         return;
     }
 
     /* load pixbuf */
-    pixbuf = gdk_pixbuf_new_from_file(filename, &error);
+    GError *error = NULL;
+    GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(filename, &error);
     if (!pixbuf) {
         /* cannot load image - do nothing */
         gd_errormessage(_("Error loading image file."), error->message);
@@ -3402,6 +3149,8 @@ setup_caveset_title_image_load_image_into_string(const char *title, GtkWidget *p
     }
 
     /* now the image is loaded, "save" as png into a buffer */
+    gchar *buffer;
+    gsize bufsize;
     gdk_pixbuf_save_to_buffer(pixbuf, &buffer, &bufsize, "png", &error, "compression", "9", NULL);
     g_object_unref(pixbuf); /* not needed anymore */
     if (error) {
@@ -3410,7 +3159,7 @@ setup_caveset_title_image_load_image_into_string(const char *title, GtkWidget *p
         g_error_free(error);
         return;
     }
-    base64 = g_base64_encode((guchar *) buffer, bufsize);
+    gchar *base64 = g_base64_encode((guchar *) buffer, bufsize);
     g_free(buffer); /* binary data can be freed */
     string = base64;
     g_free(base64); /* copied to string so can be freed */
@@ -3433,38 +3182,37 @@ setup_caveset_title_image_load_tile_cb(GtkWidget *widget, gpointer data) {
 /* load images for the caveset title screen */
 static void
 setup_caveset_title_image_cb(GtkWidget *widget, gpointer data) {
-    GtkWidget *dialog;
-    GtkWidget *frame, *align, *image, *bbox;
-    GtkWidget *setbutton, *settilebutton, *clearbutton;
-
     // TRANSLATORS: Title text capitalization in English
-    dialog = gtk_dialog_new_with_buttons(_("Set Title Image"), GTK_WINDOW(gd_editor_window), GtkDialogFlags(0),
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Set Title Image"), GTK_WINDOW(gd_editor_window), GtkDialogFlags(0),
                                          GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
+    GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
 
-    /* an align, so the image shrinks to its size, and not the vbox determines its width. */
-    align = gtk_alignment_new(0.5, 0.5, 0, 0);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), align, TRUE, TRUE, 6);
     /* a frame around the image */
-    frame = gtk_frame_new(NULL);
-    gtk_container_add(GTK_CONTAINER(align), frame);
-    image = gtk_image_new();
+    GtkWidget *frame = gtk_frame_new(NULL);
+    gtk_widget_set_halign(frame, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(frame, GTK_ALIGN_CENTER);
+    gtk_box_pack_start(GTK_BOX(content_area), frame, TRUE, TRUE, 3);
+    GtkWidget *image = gtk_image_new();
     gtk_widget_set_size_request(image, CaveStored::GD_TITLE_SCREEN_MAX_WIDTH, CaveStored::GD_TITLE_SCREEN_MAX_HEIGHT);  /* max title image size */
     gtk_container_add(GTK_CONTAINER(frame), image);
 
     setup_caveset_title_image_load_image(image);
-    bbox = gtk_hbutton_box_new();
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), bbox, FALSE, FALSE, 6);
-    gtk_container_add(GTK_CONTAINER(bbox), setbutton = gtk_button_new_with_mnemonic(_("Load _image")));
-    gtk_container_add(GTK_CONTAINER(bbox), settilebutton = gtk_button_new_with_mnemonic(_("Load _tile")));
-    gtk_container_add(GTK_CONTAINER(bbox), clearbutton = gtk_button_new_from_stock(GTK_STOCK_CLEAR));
+    GtkWidget *bbox = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
+    gtk_box_pack_start(GTK_BOX(content_area), bbox, TRUE, TRUE, 3);
+    GtkWidget *setbutton = gtk_button_new_with_mnemonic(_("Load _image"));
+    GtkWidget *settilebutton = gtk_button_new_with_mnemonic(_("Load _tile"));
+    GtkWidget *clearbutton = gtk_button_new_from_stock(GTK_STOCK_CLEAR);
+    gtk_container_add(GTK_CONTAINER(bbox), setbutton);
+    gtk_container_add(GTK_CONTAINER(bbox), settilebutton);
+    gtk_container_add(GTK_CONTAINER(bbox), clearbutton);
     g_signal_connect(clearbutton, "clicked", G_CALLBACK(setup_caveset_title_image_clear_cb), image);
     g_signal_connect(setbutton, "clicked", G_CALLBACK(setup_caveset_title_image_load_screen_cb), image);
     g_signal_connect(settilebutton, "clicked", G_CALLBACK(setup_caveset_title_image_load_tile_cb), image);
 
     gd_dialog_add_hint(GTK_DIALOG(dialog),
-                       CPrintf(_("Recommended image sizes are 320x176 pixels for title image and 8x8 pixels for the scrolling tile. Maximum sizes are %dx%d and %dx%d, respectively."))
-                       % int(CaveStored::GD_TITLE_SCREEN_MAX_WIDTH) % int(CaveStored::GD_TITLE_SCREEN_MAX_HEIGHT)
-                       % int(CaveStored::GD_TITLE_SCROLL_MAX_WIDTH) % int(CaveStored::GD_TITLE_SCROLL_MAX_HEIGHT));
+                       Printf(_("Recommended image sizes are 320x176 pixels for title image and 8x8 pixels for the scrolling tile. Maximum sizes are %dx%d and %dx%d, respectively.")
+                       , int(CaveStored::GD_TITLE_SCREEN_MAX_WIDTH), int(CaveStored::GD_TITLE_SCREEN_MAX_HEIGHT)
+                       , int(CaveStored::GD_TITLE_SCROLL_MAX_WIDTH), int(CaveStored::GD_TITLE_SCROLL_MAX_HEIGHT)).c_str());
 
     gtk_widget_show_all(dialog);
     gtk_dialog_run(GTK_DIALOG(dialog));
@@ -3805,12 +3553,6 @@ static void create_cave_editor(CaveSet *cs) {
         "<toolitem action='Test'/>"
         "</toolbar>"
         "</ui>";
-    GtkWidget *vbox, *hbox;
-    GtkUIManager *ui;
-    GtkWidget *hbox_combo;
-    GtkTreeViewColumn *column;
-    GtkCellRenderer *renderer;
-    GtkWidget *menu;
 
     if (gd_editor_window) {
         /* if exists, only show it to the user. */
@@ -3825,16 +3567,15 @@ static void create_cave_editor(CaveSet *cs) {
 
     gd_editor_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(gd_editor_window), gd_editor_window_width, gd_editor_window_height);
-    g_signal_connect(G_OBJECT(gd_editor_window), "destroy", G_CALLBACK(gtk_widget_destroyed), &gd_editor_window);
     g_signal_connect(G_OBJECT(gd_editor_window), "destroy", G_CALLBACK(editor_window_destroy_event), NULL);
     g_signal_connect(G_OBJECT(gd_editor_window), "delete-event", G_CALLBACK(editor_window_delete_event), NULL);
 
-    editor_pixbuf_factory = new GTKPixbufFactory();
-    screen = new GTKScreen(*editor_pixbuf_factory, NULL);
+    editor_pixbuf_factory.reset(new GTKPixbufFactory);
+    screen.reset(new GTKScreen(*editor_pixbuf_factory, NULL));
     screen->set_properties(gd_cell_scale_factor_editor, GdScalingType(gd_cell_scale_type_editor), gd_pal_emulation_editor);
-    editor_cell_renderer = new EditorCellRenderer(*screen, gd_theme);
+    editor_cell_renderer.reset(new EditorCellRenderer(*screen, gd_theme));
 
-    vbox = gtk_vbox_new(FALSE, 0);
+    GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
     gtk_container_add(GTK_CONTAINER(gd_editor_window), vbox);
 
     /* menu and toolbar */
@@ -3896,7 +3637,7 @@ static void create_cave_editor(CaveSet *cs) {
     gtk_action_group_set_translation_domain(actions_toggle, PACKAGE);
     gtk_action_group_add_toggle_actions(actions_toggle, action_entries_toggle, G_N_ELEMENTS(action_entries_toggle), NULL);
 
-    ui = gtk_ui_manager_new();
+    GtkUIManager *ui = gtk_ui_manager_new();
     gtk_ui_manager_insert_action_group(ui, actions, 0);
     gtk_ui_manager_insert_action_group(ui, actions_edit_tools, 0);
     gtk_ui_manager_insert_action_group(ui, actions_edit_map, 0);
@@ -3915,21 +3656,19 @@ static void create_cave_editor(CaveSet *cs) {
     gtk_box_pack_start(GTK_BOX(vbox), gtk_ui_manager_get_widget(ui, "/MenuBar"), FALSE, FALSE, 0);
 
     /* make a submenu, which contains the engine defaults compiled in. */
-    menu = gtk_menu_new();
+    GtkWidget *menu = gtk_menu_new();
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(gtk_ui_manager_get_widget(ui, "/MenuBar/EditMenu/CaveMenu/EngineDefaults")), menu);
     for (int i = 0; i < GD_ENGINE_MAX; i++) {
         GtkWidget *menuitem = gtk_menu_item_new_with_label(visible_name(GdEngineEnum(i)));
-
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
         gtk_widget_show(menuitem);
         g_signal_connect(G_OBJECT(menuitem), "activate", G_CALLBACK(set_engine_default_cb), GINT_TO_POINTER(i));
     }
 
     /* TOOLBARS */
-    toolbars = gtk_vbox_new(FALSE, 0);
+    toolbars = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_pack_start(GTK_BOX(vbox), toolbars, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(toolbars), gtk_ui_manager_get_widget(ui, "/ToolBar"), FALSE, FALSE, 0);
-    gtk_toolbar_set_tooltips(GTK_TOOLBAR(gtk_ui_manager_get_widget(ui, "/ToolBar")), TRUE);
     gtk_toolbar_set_style(GTK_TOOLBAR(gtk_ui_manager_get_widget(ui, "/ToolBar")), GTK_TOOLBAR_BOTH_HORIZ);
     gtk_window_add_accel_group(GTK_WINDOW(gd_editor_window), gtk_ui_manager_get_accel_group(ui));
 
@@ -3945,45 +3684,46 @@ static void create_cave_editor(CaveSet *cs) {
     g_object_unref(ui);
 
     /* combo boxes under toolbar */
-    hbox_combo = gtk_hbox_new(FALSE, 6);
+    GtkWidget *hbox_combo = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_box_pack_start(GTK_BOX(toolbars), hbox_combo, FALSE, FALSE, 0);
 
     /* currently shown level - gtkscale */
-    level_scale = gtk_hscale_new_with_range(1.0, 5.0, 1.0);
+    level_scale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 1.0, 5.0, 1.0);
     gtk_scale_set_digits(GTK_SCALE(level_scale), 0);
     gtk_scale_set_value_pos(GTK_SCALE(level_scale), GTK_POS_LEFT);
     g_signal_connect(G_OBJECT(level_scale), "value-changed", G_CALLBACK(level_scale_changed_cb), NULL);
-    gtk_box_pack_end_defaults(GTK_BOX(hbox_combo), level_scale);
+    gtk_box_pack_end(GTK_BOX(hbox_combo), level_scale, TRUE, TRUE, 0);
     gtk_box_pack_end(GTK_BOX(hbox_combo), gtk_label_new(_("Level shown:")), FALSE, FALSE, 0);
 
     /* "new object will be placed on" - combo */
-    new_object_level_combo = gtk_combo_box_new_text();
+    new_object_level_combo = gtk_combo_box_text_new();
     for (unsigned i = 0; i < G_N_ELEMENTS(new_objects_visible_on); ++i)
-        gtk_combo_box_append_text(GTK_COMBO_BOX(new_object_level_combo), _(new_objects_visible_on[i].text));
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(new_object_level_combo), _(new_objects_visible_on[i].text));
     g_signal_connect(G_OBJECT(new_object_level_combo), "changed", G_CALLBACK(new_object_combo_changed_cb), NULL);
     gtk_combo_box_set_active(GTK_COMBO_BOX(new_object_level_combo), 0);
-    gtk_box_pack_end_defaults(GTK_BOX(hbox_combo), new_object_level_combo);
+    gtk_box_pack_end(GTK_BOX(hbox_combo), new_object_level_combo, TRUE, TRUE, 0);
     gtk_box_pack_end(GTK_BOX(hbox_combo), gtk_label_new(_("Draw on:")), FALSE, FALSE, 0);
 
     /* draw element */
     gtk_box_pack_start(GTK_BOX(hbox_combo), label_first_element = gtk_label_new(NULL), FALSE, FALSE, 0);
-    element_button = gd_element_button_new(O_DIRT, TRUE, NULL); /* combo box of object, default element dirt (not really important what it is) */
+    element_button = gd_element_button_new(O_DIRT, NULL); /* combo box of object, default element dirt (not really important what it is) */
     gtk_widget_set_tooltip_text(element_button, _("Element used to draw points, lines, and rectangles. You can use middle-click to pick one from the cave."));
-    gtk_box_pack_start_defaults(GTK_BOX(hbox_combo), element_button);
+    gtk_box_pack_start(GTK_BOX(hbox_combo), element_button, TRUE, TRUE, 0);
 
     gtk_box_pack_start(GTK_BOX(hbox_combo), label_second_element = gtk_label_new(NULL), FALSE, FALSE, 0);
-    fillelement_button = gd_element_button_new(O_SPACE, TRUE, NULL); /* combo box, default element space (not really important what it is) */
+    fillelement_button = gd_element_button_new(O_SPACE, NULL); /* combo box, default element space (not really important what it is) */
     gtk_widget_set_tooltip_text(fillelement_button, _("Element used to fill rectangles, and second element of joins. You can use Ctrl + middle-click to pick one from the cave."));
-    gtk_box_pack_start_defaults(GTK_BOX(hbox_combo), fillelement_button);
+    gtk_box_pack_start(GTK_BOX(hbox_combo), fillelement_button, TRUE, TRUE, 0);
 
     /* hbox for drawing area and object list */
-    hbox = gtk_hbox_new(FALSE, 6);
-    gtk_box_pack_start_defaults(GTK_BOX(vbox), hbox);
+    GtkWidget *hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
+    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 0);
 
     /* scroll window for drawing area and icon view ****************************************/
     scroll_window = gtk_scrolled_window_new(NULL, NULL);
-    gtk_box_pack_start_defaults(GTK_BOX(hbox), scroll_window);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroll_window), GTK_SHADOW_NONE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll_window), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_box_pack_start(GTK_BOX(hbox), scroll_window, TRUE, TRUE, 0);
 
     /* object list ***************************************/
     scroll_window_objects = gtk_scrolled_window_new(NULL, NULL);
@@ -3991,7 +3731,7 @@ static void create_cave_editor(CaveSet *cs) {
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroll_window_objects), GTK_SHADOW_ETCHED_IN);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll_window_objects), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 
-    object_list = gtk_list_store_new(NUM_EDITOR_COLUMNS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_POINTER);
+    GtkListStore *object_list = gtk_list_store_new(NUM_EDITOR_COLUMNS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, GDK_TYPE_PIXBUF, G_TYPE_STRING);
     object_list_tree_view = gtk_tree_view_new_with_model(GTK_TREE_MODEL(object_list));
     g_object_unref(object_list);
     g_signal_connect(G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view))), "changed", G_CALLBACK(object_list_selection_changed_signal), NULL);
@@ -4008,10 +3748,10 @@ static void create_cave_editor(CaveSet *cs) {
 
     /* tree view column which holds all data */
     /* we do not allow sorting, as it disables drag and drop */
-    column = gtk_tree_view_column_new();
+    GtkTreeViewColumn *column = gtk_tree_view_column_new();
     gtk_tree_view_column_set_spacing(column, 1);
     gtk_tree_view_column_set_title(column, _("_Objects"));
-    renderer = gtk_cell_renderer_pixbuf_new();
+    GtkCellRenderer *renderer = gtk_cell_renderer_pixbuf_new();
     gtk_tree_view_column_pack_start(column, renderer, FALSE);
     gtk_tree_view_column_set_attributes(column, renderer, "stock-id", LEVELS_PIXBUF_COLUMN, NULL);
     renderer = gtk_cell_renderer_pixbuf_new();
@@ -4026,7 +3766,7 @@ static void create_cave_editor(CaveSet *cs) {
     gtk_tree_view_append_column(GTK_TREE_VIEW(object_list_tree_view), column);
 
     /* something like a statusbar, maybe that would be nicer */
-    hbox = gtk_hbox_new(FALSE, 6);
+    hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_box_pack_end(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
     label_coordinate = gtk_label_new("[x:   y:   ]");
     gtk_box_pack_start(GTK_BOX(hbox), label_coordinate, FALSE, FALSE, 0);
@@ -4044,12 +3784,12 @@ static void create_cave_editor(CaveSet *cs) {
     /* to remember size; only attach signal after showing */
     g_signal_connect(G_OBJECT(gd_editor_window), "configure-event", G_CALLBACK(editor_window_configure_event), NULL);
 
-    select_cave_for_edit(NULL);
+    select_cave_for_edit(-1);
 }
 
 
 void gd_cave_editor_run(CaveSet *caveset) {
-start_again:
+  start_again:
     restart_editor = false;
     create_cave_editor(caveset);
     gtk_main();

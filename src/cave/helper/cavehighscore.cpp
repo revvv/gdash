@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -37,11 +37,6 @@ bool HighScoreTable::is_highscore(int score) const {
     return false;
 }
 
-/* for sorting. compares two highscores. */
-static bool highscore_compare(const HighScore &a, const HighScore &b) {
-    return b.score < a.score;
-}
-
 /// Adds a player with some score to the highscore table.
 /// Returns the new rank.
 /// @param name The name of the player.
@@ -53,7 +48,9 @@ int HighScoreTable::add(const std::string &name, int score) {
 
     /* add to the end */
     table.push_back(HighScore(name, score));
-    sort(table.begin(), table.end(), highscore_compare);
+    std::sort(table.begin(), table.end(), [] (const HighScore &a, const HighScore &b) {
+        return b.score < a.score;
+    });
     /* if too big, remove the lowest ones (after sorting) */
     if (table.size() > GD_HIGHSCORE_NUM)
         table.resize(GD_HIGHSCORE_NUM);

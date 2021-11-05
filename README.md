@@ -1,20 +1,19 @@
-# GDash export #
+# GDash #
 
-Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) to add a command line option to export caves as `.CrLi` file:
-[Crazy Light engine format specification](http://www.gratissaugen.de/erbsen/BD-Inside-FAQ.html#CrLi-Engine)<br>
-Previously you had to do that with the GUI for each cave, which is not very comfortable for a bulk export.
+**GDash** is a Boulder Dash clone. The main goal of the project is to implement a clone which is as close to the original as possible.
 
-### Usage
+The game runs under Windows, Linux and other Unix clones, and also on Mac. For compiling, you need the GTK+ dev files, SDL2, SDL2_Image and SDL2_Mixer (with dev files). Read more about GDash in the [Boulder Dash Forum](http://www.boulder-dash.nl/forum/viewtopic.php?t=121).
 
-    $ ./gdash BoulderDash02.bd --export
+GDash has a cave editor, supports sound, joystick and keyboard controls. It can use GTK+, SDL2 and OpenGL for drawing. The OpenGL engine can use shaders, which provide fullscreen graphical effects like TV screen emulation.
 
-will generate a `.CrLi` file for each cave in the current directory.
+![GDash](https://bitbucket.org/repo/ejzABR/images/4034423466-gdashgame.png)
 
-### Notes
+## License ##
 
-This project was only compiled on Windows and requires cygwin.
+The game is licensed under MIT license terms. See the COPYING file in the source tree.
 
+## Ports ##
 
-It does not require an X server. Except if you want to play or edit caves.<br>
-If you also want sound and music, please get the original [distribution](https://bitbucket.org/czirkoszoltan/gdash/downloads/)
-and copy the cygwin exe into this directory.
+GDash has an unofficial [Pandora port](http://repo.openpandora.org/?page=detail&app=gdash).
+
+For a Mac port, see [Mac port](https://www.macports.org/).

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -35,11 +35,6 @@
 #include "settings.hpp"
 
 
-SDLPixmap::~SDLPixmap() {
-    SDL_FreeSurface(surface);
-}
-
-
 int SDLPixmap::get_width() const {
     return surface->w;
 }
@@ -58,17 +53,16 @@ void SDLAbstractScreen::fill_rect(int x, int y, int w, int h, const GdColor &c) 
     dst.h = h;
     unsigned char r, g, b;
     c.get_rgb(r, g, b);
-    SDL_FillRect(surface, &dst, SDL_MapRGB(surface->format, r, g, b));
+    SDL_FillRect(surface.get(), &dst, SDL_MapRGB(surface->format, r, g, b));
 }
 
-
 void SDLAbstractScreen::blit(Pixmap const &src, int dx, int dy) const {
-    SDL_Surface *from = static_cast<SDLPixmap const &>(src).surface;
+    SDL_Surface *from = static_cast<SDLPixmap const &>(src).surface.get();
     SDL_Rect dstr;
     dstr.x = dx;
     dstr.y = dy;
     /* the clipping in sdl_blitsurface is very fast, so we do not do any pre-clipping here */
-    SDL_BlitSurface(from, NULL, surface, &dstr);
+    SDL_BlitSurface(from, NULL, surface.get(), &dstr);
 }
 
 
@@ -79,12 +73,12 @@ void SDLAbstractScreen::set_clip_rect(int x1, int y1, int w, int h) {
     cliprect.y = y1;
     cliprect.w = w;
     cliprect.h = h;
-    SDL_SetClipRect(surface, &cliprect);
+    SDL_SetClipRect(surface.get(), &cliprect);
 }
 
 
 void SDLAbstractScreen::remove_clip_rect() {
-    SDL_SetClipRect(surface, NULL);
+    SDL_SetClipRect(surface.get(), NULL);
 }
 
 
@@ -257,13 +251,13 @@ void SDLAbstractScreen::draw_particle_set(int dx, int dy, ParticleSet const &ps)
     Uint8 a = ps.life / 1000.0 * ps.opacity * 255;
     Uint32 color = r << 24 | g << 16 | b << 8 | a << 0;
     int size = ceil(ps.size);
-    if (SDL_MUSTLOCK(surface))
-        if (SDL_LockSurface(surface) < 0)
+    if (SDL_MUSTLOCK(surface.get()))
+        if (SDL_LockSurface(surface.get()) < 0)
             return;
     bool software_pal_emulation = get_pal_emulation();
     for (ParticleSet::const_iterator it = ps.begin(); it != ps.end(); ++it) {
-        filledDiamondColor(surface, dx + it->px, dy + it->py, size, color, software_pal_emulation);
+        filledDiamondColor(surface.get(), dx + it->px, dy + it->py, size, color, software_pal_emulation);
     }
-    if (SDL_MUSTLOCK(surface))
-        SDL_UnlockSurface(surface);
+    if (SDL_MUSTLOCK(surface.get()))
+        SDL_UnlockSurface(surface.get());
 }

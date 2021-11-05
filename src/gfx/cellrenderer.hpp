@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -31,9 +31,9 @@
 #include "cave/cavetypes.hpp"
 #include "cave/colors.hpp"
 #include "gfx/pixmapstorage.hpp"
+#include "gfx/pixbuf.hpp"
 
 class PixbufFactory;
-class Pixbuf;
 class Pixmap;
 class Screen;
 
@@ -48,10 +48,10 @@ class Screen;
 class CellRenderer : public PixmapStorage {
 protected:
     /// The pixbuf which was loaded from the disk.
-    Pixbuf *loaded;
+    std::unique_ptr<Pixbuf> loaded;
 
     /// The pixbuf which stores rgb data of all images.
-    Pixbuf *cells_all;
+    std::unique_ptr<Pixbuf> cells_all;
 
     bool is_c64_colored;
 
@@ -59,21 +59,18 @@ protected:
     unsigned cell_size;
 
     /// The cache to store the pixbufs already rendered.
-    Pixbuf *cells_pixbufs[NUM_OF_CELLS];
+    std::unique_ptr<Pixbuf> cells_pixbufs[NUM_OF_CELLS];
 
     /// The cache to store the pixbufs already rendered.
-    Pixmap *cells[3 * NUM_OF_CELLS];
+    std::unique_ptr<Pixmap> cells[3 * NUM_OF_CELLS];
 
     /// If using c64 gfx, these store the current color theme.
     GdColor color0, color1, color2, color3, color4, color5;
 
     void create_colorized_cells();
-    bool loadcells_image(Pixbuf *loadcells_image);
+    bool loadcells_image(std::unique_ptr<Pixbuf> loadcells_image);
     bool loadcells_file(const std::string &filename);
     virtual void remove_cached();
-
-    CellRenderer(const CellRenderer &); // not implemented
-    CellRenderer &operator=(const CellRenderer &);  // not implemented
 
 public:
     /// The Screen for which the CellRenderer is drawing.
@@ -86,7 +83,7 @@ public:
     virtual void release_pixmaps();
 
     /// Destructor.
-    virtual ~CellRenderer();
+    virtual ~CellRenderer() = default;
 
     /// @brief Loads a new theme.
     /// The theme_file can be a file name of a png file, or empty.

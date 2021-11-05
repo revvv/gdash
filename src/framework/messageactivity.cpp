@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,6 +24,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <cstring>
+#include <memory>
 
 #include "framework/messageactivity.hpp"
 #include "framework/app.hpp"
@@ -33,15 +34,15 @@
 #include "misc/util.hpp"
 
 
-MessageActivity::MessageActivity(App *app, std::string const &primary, std::string const &secondary, SmartPtr<Command> command_after_exit)
+MessageActivity::MessageActivity(App *app, std::string const &primary, std::string const &secondary, std::unique_ptr<Command> command_after_exit)
     :
     Activity(app),
-    command_after_exit(command_after_exit) {
+    command_after_exit(std::move(command_after_exit)) {
     std::string text;
     if (secondary != "")
-        text = SPrintf("%c%s\n\n%c%s") % GD_COLOR_INDEX_WHITE % primary % GD_COLOR_INDEX_GRAY3 % secondary;
+        text = Printf("%c%s\n\n%c%s", GD_COLOR_INDEX_WHITE, primary, GD_COLOR_INDEX_GRAY3, secondary);
     else
-        text = SPrintf("%c%s") % GD_COLOR_INDEX_WHITE % primary;
+        text = Printf("%c%s", GD_COLOR_INDEX_WHITE, primary);
     wrapped_text = gd_wrap_text(text.c_str(), app->screen->get_width() / app->font_manager->get_font_width_narrow() - 6);
 }
 
@@ -56,7 +57,7 @@ void MessageActivity::redraw_event(bool full) const {
 
     app->set_color(GD_GDASH_WHITE);
     for (size_t i = 0; i < wrapped_text.size(); ++i)
-        app->blittext_n(-1, y1 + (i + 1)*app->font_manager->get_line_height(), wrapped_text[i].c_str());
+        app->font_manager->blittext_n(-1, y1 + (i + 1)*app->font_manager->get_line_height(), wrapped_text[i].c_str());
 
     app->screen->remove_clip_rect();
 
@@ -65,14 +66,14 @@ void MessageActivity::redraw_event(bool full) const {
 
 
 MessageActivity::~MessageActivity() {
-    app->enqueue_command(command_after_exit);
+    app->enqueue_command(std::move(command_after_exit));
 }
 
 
 void MessageActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
     switch (keycode) {
         default:
-            app->enqueue_command(new PopActivityCommand(app));
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
             break;
         case 0:
             /* unknown key or modifier - do nothing */

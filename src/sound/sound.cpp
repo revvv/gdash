@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,8 +23,8 @@
 #include "config.h"
 
 #ifdef HAVE_SDL
-    #include <SDL/SDL.h>
-    #include <SDL/SDL_mixer.h>
+    #include <SDL2/SDL.h>
+    #include <SDL2/SDL_mixer.h>
 #endif
 
 #include <glib.h>
@@ -34,7 +34,6 @@
 #include "cave/caverendered.hpp"
 #include "misc/logger.hpp"
 #include "misc/util.hpp"
-#include "misc/printf.hpp"
 
 #include "sound/sound.hpp"
 
@@ -125,13 +124,13 @@ static void loadsound(GdSound which, const char *filename) {
     std::string full_filename = gd_find_data_file(filename, gd_sound_dirs);
     if (full_filename == "") {
         /* if cannot find file, exit now */
-        gd_message(CPrintf("%s: no such sound file") % filename);
+        gd_message("%s: no such sound file", filename);
         return;
     }
 
     sounds[which] = Mix_LoadWAV(full_filename.c_str());
     if (sounds[which] == NULL)
-        gd_message(CPrintf("%s: %s") % filename % Mix_GetError());
+        gd_message("%s: %s", filename, Mix_GetError());
 }
 #endif
 
@@ -211,7 +210,7 @@ gboolean gd_sound_init(unsigned int bufsize) {
     if (!gd_sound_enabled)
         return TRUE;
 
-    if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0) {
+    if (SDL_Init(SDL_INIT_AUDIO) < 0) {
         gd_message(SDL_GetError());
         return FALSE;
     }

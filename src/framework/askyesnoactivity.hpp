@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -28,7 +28,6 @@
 #include <glib.h>
 
 #include "framework/activity.hpp"
-#include "misc/smartptr.hpp"
 
 class App;
 class Command;
@@ -48,13 +47,13 @@ public:
      * @param no_answer The text of the answer treated as "no".
      * @param command_when_yes The command to be executed if the user said yes. May be NULL.
      * @param command_when_no The command to be executed if the user said no. May be NULL. */
-    AskYesNoActivity(App *app, char const *question, const char *yes_answer, char const *no_answer, SmartPtr<Command> command_when_yes, SmartPtr<Command> command_when_no);
+    AskYesNoActivity(App *app, char const *question, const char *yes_answer, char const *no_answer, std::unique_ptr<Command> command_when_yes, std::unique_ptr<Command> command_when_no);
     virtual void keypress_event(KeyCode keycode, int gfxlib_keycode);
     virtual void redraw_event(bool full) const;
 
 private:
     std::string question, yes_answer, no_answer;
-    SmartPtr<Command> command_when_yes, command_when_no;
+    std::unique_ptr<Command> command_when_yes, command_when_no;
 };
 
 #endif

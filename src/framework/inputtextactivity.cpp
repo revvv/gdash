@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,11 +26,11 @@
 #include "gfx/fontmanager.hpp"
 #include "gfx/screen.hpp"
 
-InputTextActivity::InputTextActivity(App *app, char const *title_line, const char *default_text, SmartPtr<Command1Param<std::string> > command_when_successful)
+InputTextActivity::InputTextActivity(App *app, char const *title_line, const char *default_text, std::unique_ptr<Command1Param<std::string> > command_when_successful)
     :
     Activity(app),
     title(title_line),
-    command_when_successful(command_when_successful),
+    command_when_successful(std::move(command_when_successful)),
     ms(0), blink(false) {
     text = g_string_new(default_text);
 }
@@ -51,14 +51,14 @@ void InputTextActivity::redraw_event(bool full) const {
     int width = cw / app->font_manager->get_font_width_narrow();
 
     app->set_color(GD_GDASH_WHITE);
-    app->blittext_n(-1, y1 + app->font_manager->get_line_height(), title.c_str());
+    app->font_manager->blittext_n(-1, y1 + app->font_manager->get_line_height(), title.c_str());
     int len = g_utf8_strlen(text->str, -1);
     int x;
     if (len < width - 1)
         x = -1; /* if fits on screen (+1 for cursor), centered */
     else
         x = cx + cw - (len + 1) * app->font_manager->get_font_width_narrow(); /* otherwise show end, +1 for cursor */
-    app->blittext_n(x, y1 + 3 * app->font_manager->get_line_height(), CPrintf("%s%c") % text->str % (blink ? '_' : ' '));
+    app->font_manager->blittext_n(x, y1 + 3 * app->font_manager->get_line_height(), "%s%c", text->str, blink ? '_' : ' ');
     app->screen->remove_clip_rect();
     app->screen->drawing_finished();
 }
@@ -68,8 +68,8 @@ void InputTextActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
     switch (keycode) {
         case App::Enter:
             command_when_successful->set_param1(text->str);
-            app->enqueue_command(new PopActivityCommand(app));
-            app->enqueue_command(command_when_successful);
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
+            app->enqueue_command(std::move(command_when_successful));
             break;
         case App::BackSpace:
             if (text->len != 0) {
@@ -80,15 +80,30 @@ void InputTextActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             }
             break;
         case App::Escape:
-            app->enqueue_command(new PopActivityCommand(app));
+            app->enqueue_command(std::make_unique<PopActivityCommand>(app));
             break;
         default:
-            if (keycode >= ' ') {
-                g_string_append_unichar(text, keycode);
-                queue_redraw();
-            }
             break;
     }
+}
+
+
+void InputTextActivity::textinput_event(char *appendtext) {
+    g_string_append(text, appendtext);
+    queue_redraw();
+}
+
+void InputTextActivity::textediting_event(char *overwritetext) {
+    g_string_assign(text, overwritetext);
+    queue_redraw();
+}
+
+void InputTextActivity::shown_event() {
+    app->screen->start_text_input();
+}    
+    
+void InputTextActivity::hidden_event() {
+    app->screen->stop_text_input();
 }
 
 

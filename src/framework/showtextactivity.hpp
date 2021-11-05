@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -25,7 +25,6 @@
 #define SHOWTEXTACTIVITY_HPP_INCLUDED
 
 #include "framework/activity.hpp"
-#include "misc/smartptr.hpp"
 
 #include <vector>
 #include <string>
@@ -35,14 +34,14 @@ class Command;
 
 class ShowTextActivity: public Activity {
 public:
-    ShowTextActivity(App *app, char const *title_line, std::string const &text, SmartPtr<Command> command_after_exit = SmartPtr<Command>());
+    ShowTextActivity(App *app, char const *title_line, std::string const &text, std::unique_ptr<Command> command_after_exit = nullptr);
     ~ShowTextActivity();
 
     virtual void redraw_event(bool full) const;
     virtual void keypress_event(KeyCode keycode, int gfxlib_keycode);
 
 private:
-    SmartPtr<Command> command_after_exit;
+    std::unique_ptr<Command> command_after_exit;
     std::string title_line;
     /* for long text */
     std::vector<std::string> wrapped_text;

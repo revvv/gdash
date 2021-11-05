@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -28,6 +28,7 @@
 #include "gfx/pixmapstorage.hpp"
 
 #include <vector>
+#include <memory>
 
 class Pixmap;
 
@@ -39,7 +40,7 @@ public:
     virtual void timer_event(int ms_elapsed);
     virtual void shown_event();
     virtual void hidden_event();
-    ~TitleScreenActivity();
+    ~TitleScreenActivity() = default;
 
     /// Implement PixbufStorage
     virtual void release_pixmaps();
@@ -47,7 +48,7 @@ public:
 private:
     const int scale;
     const int image_centered_threshold;
-    mutable std::vector<Pixmap *> animation;
+    mutable std::vector<std::unique_ptr<Pixmap>> animation;
     int frames, time_ms;
     mutable int animcycle;
     /* positions on screen */

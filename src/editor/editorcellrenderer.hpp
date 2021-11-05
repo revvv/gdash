@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -90,6 +90,6 @@ public:
     GdkPixbuf *combo_pixbuf_simple(GdElementEnum element);
 };
 
-GdkPixbuf *gd_drawcave_to_pixbuf(const CaveRendered *cave, EditorCellRenderer &cr, int width, int height, bool game_view, bool border);
+GdkPixbuf *gd_drawcave_to_pixbuf(const CaveRendered &cave, EditorCellRenderer &cr, int width, int height, bool game_view, bool border);
 
 #endif

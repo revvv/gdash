@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,9 +26,9 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #include "framework/activity.hpp"
-#include "misc/smartptr.hpp"
 
 template <typename T> class Command1Param;
 
@@ -47,7 +47,7 @@ public:
      * @param for_save Set to true, if the file selection is for saving a file, and therefore typing a new name should be allowed.
      * @param defaultname The default name to set.
      * @param command_when_successful Parametrize this command with the filename and execute it - if the file selection is successful. */
-    SelectFileActivity(App *app, const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, SmartPtr<Command1Param<std::string> > command_when_successful);
+    SelectFileActivity(App *app, const char *title, const char *start_dir, const char *glob, bool for_save, const char *defaultname, std::unique_ptr<Command1Param<std::string>> command_when_successful);
     ~SelectFileActivity();
 
     virtual void keypress_event(KeyCode keycode, int gfxlib_keycode);
@@ -59,7 +59,7 @@ public:
     void file_selected_do_command();
 
 private:
-    SmartPtr<Command1Param<std::string> > command_when_successful;
+    std::unique_ptr<Command1Param<std::string>> command_when_successful;
     std::string title;
     bool for_save;
     int yd;

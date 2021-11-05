@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,16 +26,15 @@
 #include "config.h"
 
 #include <list>
+#include <vector>
 
 #include "cave/cavebase.hpp"
 #include "cave/helper/cavehighscore.hpp"
 #include "cave/helper/reflective.hpp"
 #include "cave/helper/cavereplay.hpp"
 #include "cave/object/caveobject.hpp"
-#include "cave/helper/adoptingcontainer.hpp"
+#include "cave/helper/polymorphic.hpp"
 #include "cave/helper/cavemap.hpp"
-
-typedef AdoptingContainer<CaveObject> CaveObjectStore;
 
 /// @ingroup Cave
 /// A cave which is stored in the caveset and on the disk.
@@ -49,11 +48,6 @@ class CaveStored : public CaveBase, public Reflective {
 public:
     CaveStored();
 
-    /// This is for the adopting container.
-    CaveStored *clone() const {
-        return new CaveStored(*this);
-    }
-
     enum {
         GD_TITLE_SCREEN_MAX_WIDTH = 320,
         GD_TITLE_SCREEN_MAX_HEIGHT = 192,
@@ -61,19 +55,21 @@ public:
         GD_TITLE_SCROLL_MAX_HEIGHT = 32
     };
 
-    /* reflective class function reimplementations */
 private:
+    /* reflective class function reimplementations */
     static PropertyDescription const descriptor[];
+
 public:
     virtual PropertyDescription const *get_description_array() const {
         return descriptor;
     }
 
     /* other reflective dialogs */
-public:
     static PropertyDescription const color_dialog[];
     static PropertyDescription const random_dialog[];
     static PropertyDescription const cave_statistics_data[];
+
+public:
 
     // Player's data
     HighScoreTable highscore;                   ///< Highscore table
@@ -85,17 +81,12 @@ public:
     std::list<CaveReplay> replays;              ///< List of replays (demos) to this cave
 
     // Cave elements data - map + objects
-    CaveMapClever<GdElementEnum> map;                   ///< cave map
-    CaveObjectStore objects;                    ///< Stores cave drawing objects
+    CaveMap<GdElementEnum> map;                   ///< cave map
+    std::vector<Polymorphic<CaveObject>> objects;                    ///< Stores cave drawing objects
 
     /// Returns true, if it has different levels.
-    bool has_levels();
+    bool has_levels() const;
     void set_gdash_defaults();
-
-    /// For convenience - add object to cave.
-    void push_back_adopt(CaveObject *x) {
-        objects.push_back_adopt(x);
-    }
 
     /* cave properties */
     GdString charset;                       ///< for compatibility; not used by gdash.

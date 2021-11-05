@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -36,27 +36,27 @@ std::string CaveRectangle::get_bdcff() const {
     return BdcffFormat("Rectangle") << p1 << p2 << element;
 }
 
-CaveRectangle *CaveRectangle::clone_from_bdcff(const std::string &name, std::istream &is) const {
+std::unique_ptr<CaveObject> CaveRectangle::clone_from_bdcff(const std::string &name, std::istream &is) const {
     Coordinate p1, p2;
     GdElementEnum element;
     if (!(is >> p1 >> p2 >> element))
         return NULL;
-    return new CaveRectangle(p1, p2, element);
+    return std::make_unique<CaveRectangle>(p1, p2, element);
 }
 
 
-CaveRectangle *CaveRectangle::clone() const {
-    return new CaveRectangle(*this);
+std::unique_ptr<CaveObject> CaveRectangle::clone() const {
+    return std::make_unique<CaveRectangle>(*this);
 }
 
 
 CaveRectangle::CaveRectangle(Coordinate _p1, Coordinate _p2, GdElementEnum _element)
-    :   CaveRectangular(GD_RECTANGLE, _p1, _p2),
+    :   CaveRectangular(_p1, _p2),
         element(_element) {
 }
 
 /* rectangle, frame only */
-void CaveRectangle::draw(CaveRendered &cave) const {
+void CaveRectangle::draw(CaveRendered &cave, int order_idx) const {
     /* reorder coordinates if not drawing from northwest to southeast */
     int x1 = p1.x;
     int y1 = p1.y;
@@ -68,12 +68,12 @@ void CaveRectangle::draw(CaveRendered &cave) const {
         std::swap(x1, x2);
 
     for (int x = x1; x <= x2; x++) {
-        cave.store_rc(x, y1, element, this);
-        cave.store_rc(x, y2, element, this);
+        cave.store_rc(x, y1, element, order_idx);
+        cave.store_rc(x, y2, element, order_idx);
     }
     for (int y = y1; y <= y2; y++) {
-        cave.store_rc(x1, y, element, this);
-        cave.store_rc(x2, y, element, this);
+        cave.store_rc(x1, y, element, order_idx);
+        cave.store_rc(x2, y, element, order_idx);
     }
 }
 
@@ -86,13 +86,8 @@ PropertyDescription const CaveRectangle::descriptor[] = {
     {NULL},
 };
 
-PropertyDescription const *CaveRectangle::get_description_array() const {
-    return descriptor;
-}
-
 std::string CaveRectangle::get_description_markup() const {
-    return SPrintf(_("Rectangle from %d,%d to %d,%d of <b>%ms</b>"))
-           % p1.x % p1.y % p2.x % p2.y % visible_name_lowercase(element);
+    return Printf(_("Rectangle from %d,%d to %d,%d of <b>%ms</b>"), p1.x, p1.y, p2.x, p2.y, visible_name_lowercase(element));
 }
 
 GdElementEnum CaveRectangle::get_characteristic_element() const {

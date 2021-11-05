@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013, Czirkos Zoltan http://code.google.com/p/gdash/
+ * Copyright (c) 2007-2018, GDash Project
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,9 +26,11 @@
 
 #include "config.h"
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
+#include <memory>
 
 #include "gfx/screen.hpp"
+#include "misc/deleter.hpp"
 
 class ParticleSet;
 class GdColor;
@@ -39,17 +41,11 @@ class PixbufFactory;
 
 class SDLPixmap: public Pixmap {
 protected:
-    SDL_Surface *surface;
-
-    SDLPixmap(const SDLPixmap &);               // copy ctor not implemented
-    SDLPixmap &operator=(const SDLPixmap &);    // operator= not implemented
-    SDLPixmap(SDL_Surface *surface_) : surface(surface_) {}
+    std::unique_ptr<SDL_Surface, Deleter<SDL_Surface, SDL_FreeSurface>> surface;
 
 public:
     friend class SDLAbstractScreen;
-    friend class SDLNewOGLScreen;
-    friend class SDLScreen;
-    ~SDLPixmap();
+    explicit SDLPixmap(SDL_Surface *surface_) : surface(surface_) {}
 
     virtual int get_width() const;
     virtual int get_height() const;
@@ -57,15 +53,15 @@ public:
 
 class SDLAbstractScreen: public Screen {
 protected:
-    SDL_Surface *surface;
+    std::unique_ptr<SDL_Surface, Deleter<SDL_Surface, SDL_FreeSurface>> surface;
 
 public:
-    SDLAbstractScreen(PixbufFactory &pixbuf_factory): Screen(pixbuf_factory), surface(NULL) {}
-    virtual void fill_rect(int x, int y, int w, int h, const GdColor &c);
-    virtual void blit(Pixmap const &src, int dx, int dy) const;
-    virtual void set_clip_rect(int x1, int y1, int w, int h);
-    virtual void remove_clip_rect();
-    virtual void draw_particle_set(int dx, int dy, ParticleSet const &ps);
+    SDLAbstractScreen(PixbufFactory &pixbuf_factory): Screen(pixbuf_factory) {}
+    virtual void fill_rect(int x, int y, int w, int h, const GdColor &c) override;
+    virtual void blit(Pixmap const &src, int dx, int dy) const override;
+    virtual void set_clip_rect(int x1, int y1, int w, int h) override;
+    virtual void remove_clip_rect() override;
+    virtual void draw_particle_set(int dx, int dy, ParticleSet const &ps) override;
 };
 
 #endif

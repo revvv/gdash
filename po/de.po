@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/gdash/\n"
-"POT-Creation-Date: 2013-06-23 10:13+0200\n"
+"Report-Msgid-Bugs-To: https://bitbucket.org/czirkoszoltan/gdash\n"
+"POT-Creation-Date: 2018-01-29 08:38+0100\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -43,8 +43,8 @@ msgid "Select Key"
 msgstr "Taste auswählen"
 
 #: src/gtk/gtkuisettings.cpp:180
-msgid "Press key for action:"
-msgstr "Taste drücken für die Aktion:"
+msgid "Press key for action: <b>%s</b>"
+msgstr "Taste drücken für die Aktion: <b>%s</b>"
 
 #: src/gtk/gtkuisettings.cpp:205
 #, c-format
@@ -65,67 +65,67 @@ msgstr "GDash-Einstellungen"
 msgid "_Add theme"
 msgstr "Grafik-Thema _hinzufügen"
 
-#: src/gtk/gtkmainwindow.cpp:110
+#: src/gtk/gtkmainwindow.cpp:112
 msgid "Play"
 msgstr "Spielen"
 
-#: src/gtk/gtkmainwindow.cpp:111
+#: src/gtk/gtkmainwindow.cpp:113
 msgid "File"
 msgstr "Datei"
 
-#: src/gtk/gtkmainwindow.cpp:112 src/misc/helptext.cpp:208
+#: src/gtk/gtkmainwindow.cpp:114 src/misc/helptext.cpp:208
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gtk/gtkmainwindow.cpp:114
+#: src/gtk/gtkmainwindow.cpp:116
 msgid "_Error console"
 msgstr "_Fehler-Konsole"
 
-#: src/gtk/gtkmainwindow.cpp:117
+#: src/gtk/gtkmainwindow.cpp:119
 msgid "Game help"
 msgstr "Spiel-Hilfe"
 
-#: src/gtk/gtkmainwindow.cpp:118
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Caveset _information"
 msgstr "Höhlensatz-_Information"
 
-#: src/gtk/gtkmainwindow.cpp:118
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Show information about the game and its caves"
 msgstr "Zeige Informationen über das Spiel und dessen Höhlen"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:122
 msgid "Keyboard settings"
 msgstr "Tastatur-Einstellungen"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:122
 msgid "Set keyboard settings"
 msgstr "Tastatur-Einstellungen einstellen"
 
-#: src/gtk/gtkmainwindow.cpp:122
+#: src/gtk/gtkmainwindow.cpp:124
 msgid "_Sound volume"
 msgstr "_Lautstärke"
 
-#: src/gtk/gtkmainwindow.cpp:124
+#: src/gtk/gtkmainwindow.cpp:126
 msgid "Cave _editor"
 msgstr "Höhlen-_Editor"
 
-#: src/gtk/gtkmainwindow.cpp:126
+#: src/gtk/gtkmainwindow.cpp:128
 msgid "Open _recent"
 msgstr "Öffne _letzte Dateien"
 
-#: src/gtk/gtkmainwindow.cpp:127 src/editor/editor.cpp:3502
+#: src/gtk/gtkmainwindow.cpp:129 src/editor/editor.cpp:3502
 msgid "O_pen shipped"
 msgstr "_Öffne mitgelieferte Spiele"
 
-#: src/gtk/gtkmainwindow.cpp:130
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "Hi_ghscores"
 msgstr "Hi_ghscores"
 
-#: src/gtk/gtkmainwindow.cpp:131
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "Game play statistics"
 msgstr "Spiel-Statistik"
 
-#: src/gtk/gtkmainwindow.cpp:131
+#: src/gtk/gtkmainwindow.cpp:133
 msgid ""
 "Shows statistics of playing caves: times played, times played successfully "
 "etc."
@@ -133,52 +133,52 @@ msgstr ""
 "Zeigt Statistiken der gespielten Höhlen: gespielte Zeit, Anzahl der "
 "erfolgreichen Spiele, etc."
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:134
 msgid "Show _replays"
 msgstr "Zeige _Wiederholungen"
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:134
 msgid "List replays which are recorded for caves in this caveset"
 msgstr ""
 "Zeige die für die Höhlen dieses Höhlensatzes aufgenommenen Wiederholungen"
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:135
 msgid "Fullscreen mode"
 msgstr "Vollbildmodus"
 
-#: src/gtk/gtkmainwindow.cpp:137
+#: src/gtk/gtkmainwindow.cpp:139
 msgid "_Take snapshot"
 msgstr "Schnappschuss _erstellen"
 
-#: src/gtk/gtkmainwindow.cpp:138
+#: src/gtk/gtkmainwindow.cpp:140
 msgid "_Revert to snapshot"
 msgstr "_Zurück zum Schnappschuss"
 
-#: src/gtk/gtkmainwindow.cpp:139
+#: src/gtk/gtkmainwindow.cpp:141
 msgid "Random _colors"
 msgstr "_Zufällige Farben"
 
-#: src/gtk/gtkmainwindow.cpp:140
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "Re_start level"
 msgstr "Level _wiederholen"
 
-#: src/gtk/gtkmainwindow.cpp:140 src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:142 src/gtk/gtkmainwindow.cpp:143
 msgid "Restart current level"
 msgstr "Aktuellen Level neu starten"
 
-#: src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:143
 msgid "_Pause game"
 msgstr "Spiel _anhalten"
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:144
 msgid "_End game"
 msgstr "Spiel _beenden"
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:144
 msgid "End current game"
 msgstr "Aktuelles Spiel beenden"
 
-#: src/gtk/gtkmainwindow.cpp:362
+#: src/gtk/gtkmainwindow.cpp:364
 msgid "GDash cannot load file from a network link."
 msgstr "GDash kann keine Dateien aus einer Netzwerkverbindung laden."
 
@@ -294,8 +294,7 @@ msgstr ""
 "Speicherschnappschüssen von C64- oder Atari-Emulatoren zu laden."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:207
-#: src/misc/helptext.cpp:315
+#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:207 src/misc/helptext.cpp:315
 msgid "Control Keys"
 msgstr "Steuerungstasten"
 
@@ -351,8 +350,7 @@ msgstr "Höhlensatz-Spiel-Statistik"
 msgid "Replays"
 msgstr "Wiederholungen"
 
-#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:414
-#: src/misc/helptext.cpp:417
+#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:414 src/misc/helptext.cpp:417
 msgid "Cave editor"
 msgstr "Höhlen-Editor"
 
@@ -2478,7 +2476,7 @@ msgid "Name of cave"
 msgstr "Name def Höhle"
 
 #: src/cave/cavestored.cpp:42 src/cave/caveset.cpp:44
-#: src/framework/commands.cpp:187 src/editor/exporthtml.cpp:117
+#: src/framework/commands.cpp:179 src/editor/exporthtml.cpp:117
 #: src/editor/exporthtml.cpp:184
 msgid "Description"
 msgstr "Beschreibung"
@@ -2488,7 +2486,7 @@ msgid "Some words about the cave"
 msgstr "Einige Worte über die Höhle"
 
 #: src/cave/cavestored.cpp:43 src/cave/caveset.cpp:45
-#: src/framework/commands.cpp:183 src/framework/commands.cpp:203
+#: src/framework/commands.cpp:175 src/framework/commands.cpp:195
 #: src/editor/exporthtml.cpp:115 src/editor/exporthtml.cpp:182
 msgid "Author"
 msgstr "Author"
@@ -2498,7 +2496,7 @@ msgid "Name of author"
 msgstr "Name des Authors"
 
 #: src/cave/cavestored.cpp:44 src/cave/caveset.cpp:46
-#: src/framework/commands.cpp:185 src/framework/commands.cpp:205
+#: src/framework/commands.cpp:177 src/framework/commands.cpp:197
 #: src/framework/replaymenuactivity.cpp:203
 msgid "Date"
 msgstr "Datum"
@@ -2640,7 +2638,7 @@ msgstr ""
 "Information, wird nicht von GDash verwendet."
 
 #: src/cave/cavestored.cpp:63 src/cave/caveset.cpp:57
-#: src/framework/commands.cpp:189 src/editor/exporthtml.cpp:123
+#: src/framework/commands.cpp:181 src/editor/exporthtml.cpp:123
 #: src/editor/exporthtml.cpp:188
 msgid "Story"
 msgstr "Geschichte"
@@ -2651,7 +2649,7 @@ msgstr ""
 "Geschichte für die Höhle. Sie wird während des Spielens der Höhle angezeigt."
 
 #: src/cave/cavestored.cpp:67 src/cave/caveset.cpp:59
-#: src/framework/commands.cpp:191 src/editor/exporthtml.cpp:121
+#: src/framework/commands.cpp:183 src/editor/exporthtml.cpp:121
 #: src/editor/exporthtml.cpp:186
 msgid "Remark"
 msgstr "Anmerkung"
@@ -4364,48 +4362,48 @@ msgid "Score"
 msgstr "Punkt"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:388
+#: src/cave/gamerender.cpp:384
 msgid "PLAYING REPLAY"
 msgstr "WIEDERHOLUNG SPIELEN"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:403
+#: src/cave/gamerender.cpp:399
 msgid "CONTINUING REPLAY"
 msgstr "WIEDERHOLUNG FORTS."
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:410
+#: src/cave/gamerender.cpp:406
 msgid "PLAYING SNAPSHOT"
 msgstr "SCHNAPPSCHUSS SPIEL."
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:417
+#: src/cave/gamerender.cpp:413
 msgid "TESTING CAVE"
 msgstr "HÖHLEN-TESTMODUS"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:427
+#: src/cave/gamerender.cpp:423
 msgid "ONE LIFE EXTRA"
 msgstr "EXTRALEBEN"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:489
+#: src/cave/gamerender.cpp:485
 msgid "OUT OF TIME"
 msgstr "ZEIT ABGELAUFEN"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:568
+#: src/cave/gamerender.cpp:564
 msgid "SPACEBAR TO RESUME"
 msgstr "LEERTASTE FORTSETZEN"
 
 #. TRANSLATORS: the translated string must be at most 20 characters long.
 #. the c64 original had these spaces - you are allowed to do so.
-#: src/cave/gamerender.cpp:585
+#: src/cave/gamerender.cpp:581
 msgid "G A M E   O V E R"
 msgstr "S P I E L E N D E"
 
 #. TRANSLATORS: the translated string must be at most 40 characters long
-#: src/cave/gamerender.cpp:696
+#: src/cave/gamerender.cpp:692
 msgid "UP, DOWN: MOVE    FIRE: CONTINUE"
 msgstr "OBEN,UNTEN: BEWEGEN    FEUER: FORTSETZEN"
 
@@ -4426,8 +4424,7 @@ msgstr "Zeichne"
 #: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrectangle.cpp:82
 #: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368
-#: src/cave/object/caveobjectjoin.cpp:87
+#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
 #: src/cave/object/caveobjectfillrect.cpp:88
 msgid "Levels"
 msgstr "Level"
@@ -4440,8 +4437,7 @@ msgstr "Level"
 #: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrectangle.cpp:82
 #: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368
-#: src/cave/object/caveobjectjoin.cpp:87
+#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
 #: src/cave/object/caveobjectfillrect.cpp:88
 msgid "Levels on which this object is visible."
 msgstr "Level in denen dieses Objekt sichtbar ist."
@@ -4512,8 +4508,7 @@ msgstr "Element"
 #: src/cave/object/caveobjectpoint.cpp:67
 #: src/cave/object/caveobjectraster.cpp:89
 #: src/cave/object/caveobjectrectangle.cpp:85
-#: src/cave/object/caveobjectline.cpp:103
-#: src/cave/object/caveobjectjoin.cpp:89
+#: src/cave/object/caveobjectline.cpp:103 src/cave/object/caveobjectjoin.cpp:89
 msgid "The element to draw."
 msgstr "Das zu zeichnende Element."
 
@@ -6048,12 +6043,12 @@ msgstr "Oben+links"
 msgid "Milliseconds"
 msgstr "Millisekunden"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:230
+#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
 #: src/editor/exporthtml.cpp:190
 msgid "Yes"
 msgstr "Ja"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:230
+#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
 #: src/editor/exporthtml.cpp:190
 msgid "No"
 msgstr "Nein"
@@ -6121,66 +6116,66 @@ msgid "Unable to read file."
 msgstr "Die Datei kann nicht gelesen werden."
 
 #. TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-#: src/framework/titlescreenactivity.cpp:138 src/settings.cpp:223
+#: src/framework/titlescreenactivity.cpp:137 src/settings.cpp:223
 msgid "Game"
 msgstr "Spiel"
 
 #. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:154
+#: src/framework/titlescreenactivity.cpp:153
 msgid "Crsr: select   Space: play   H: help"
 msgstr "Kursor:auswählen  Space:spielen  H:Hilfe"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:160
+#: src/framework/titlescreenactivity.cpp:159
 msgid "F: hall of fame  E: editor  R: replays"
 msgstr "F:Ruhmeshalle E:Editor R:Wiederholungen"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:164
+#: src/framework/titlescreenactivity.cpp:163
 msgid "F: hall of fame    R: replays"
 msgstr "F:Ruhmeshalle    R:Wiederholungen"
 
 #. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:169
+#: src/framework/titlescreenactivity.cpp:168
 msgid "Joy: select   Fire: play"
 msgstr "Joystick:auswählen      Feuer:spielen"
 
-#: src/framework/titlescreenactivity.cpp:173
+#: src/framework/titlescreenactivity.cpp:172
 msgid "Crsr: select   Space: play   X: errors"
 msgstr "Kursor:auswählen Space:Spielen X:Fehler"
 
-#: src/framework/titlescreenactivity.cpp:178
+#: src/framework/titlescreenactivity.cpp:177
 #, c-format
 msgid "%cNo caves."
 msgstr "%cKeine Höhlen."
 
-#: src/framework/titlescreenactivity.cpp:182
+#: src/framework/titlescreenactivity.cpp:181
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr "%cHöhle: %c%s%c/%c%d"
 
-#: src/framework/titlescreenactivity.cpp:184
+#: src/framework/titlescreenactivity.cpp:183
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr "%cHöhle: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:332
+#: src/framework/titlescreenactivity.cpp:331
 msgid "Enter your name"
 msgstr "Spielername eingeben"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:343
+#: src/framework/titlescreenactivity.cpp:342
 msgid "Quit game?"
 msgstr "Spiel beenden?"
 
-#: src/framework/titlescreenactivity.cpp:343 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
 #: src/framework/replaymenuactivity.cpp:193
 #: src/framework/settingsactivity.cpp:315
 msgid "yes"
 msgstr "ja"
 
-#: src/framework/titlescreenactivity.cpp:343 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
 #: src/framework/replaymenuactivity.cpp:193
 #: src/framework/settingsactivity.cpp:315
@@ -6191,7 +6186,7 @@ msgstr "nein"
 #. language, uppercase. For example, the English "yes" -> the strings is "Y".
 #. It should rather not contain an accented character, as the user might not be able
 #. to type it if he does not have the correct keyboard layout.
-#: src/framework/askyesnoactivity.cpp:37
+#: src/framework/askyesnoactivity.cpp:38
 msgid "Y"
 msgstr "J"
 
@@ -6200,7 +6195,7 @@ msgstr "J"
 #. It might contain an accented character, but make sure the user can easily type it!
 #. It should rather not contain an accented character, as the user might not be able
 #. to type it if he does not have the correct keyboard layout.
-#: src/framework/askyesnoactivity.cpp:44
+#: src/framework/askyesnoactivity.cpp:45
 msgid "N"
 msgstr "N"
 
@@ -6292,7 +6287,7 @@ msgid "No snapshot saved."
 msgstr "Kein Schnappschuss gespeichert."
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. Title capitalization (I) in English.
-#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:220
+#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:212
 msgid "Cave Information"
 msgstr "Höhlen-Information"
 
@@ -6312,85 +6307,85 @@ msgid "Music volume"
 msgstr "Lautstärke Musik"
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/showtextactivity.cpp:56
+#: src/framework/showtextactivity.cpp:57
 msgid "Crsr: move     Space: exit"
 msgstr "Kursor: bewegen    Leert.: beenden"
 
-#: src/framework/replaysaveractivity.cpp:189
+#: src/framework/replaysaveractivity.cpp:192
 #, c-format
 msgid "Saved %d video frames and %dMiB of audio data to %s_*.png and %s.wav."
 msgstr ""
 "Gespeicherte %d Einzelbilder und %dMB Audiodaten als %s_*.png und %s.wav."
 
-#: src/framework/replaysaveractivity.cpp:190
+#: src/framework/replaysaveractivity.cpp:193
 msgid "Replay Saved"
 msgstr "Wiederholung gespeichert"
 
 #. TRANSLATORS: Title line capitalization in English
-#: src/framework/replaysaveractivity.cpp:287
+#: src/framework/replaysaveractivity.cpp:289
 msgid "Saving Replay"
 msgstr "Speichere Wiederholung"
 
-#: src/framework/replaysaveractivity.cpp:288
+#: src/framework/replaysaveractivity.cpp:290
 msgid "Please wait"
 msgstr "Bitte warten"
 
 #. TRANSLATORS: showing highscore, categories
-#: src/framework/commands.cpp:105 src/framework/commands.cpp:201
+#: src/framework/commands.cpp:97 src/framework/commands.cpp:193
 msgid "Caveset"
 msgstr "Höhlensatz"
 
-#: src/framework/commands.cpp:117 src/framework/commands.cpp:157
-#: src/framework/commands.cpp:181 src/framework/replaymenuactivity.cpp:188
+#: src/framework/commands.cpp:109 src/framework/commands.cpp:149
+#: src/framework/commands.cpp:173 src/framework/replaymenuactivity.cpp:188
 msgid "Cave"
 msgstr "Höhle"
 
 #. TRANSLATORS: should be 40 chars max. Title of the highscore window/activity. (That's why F is capitalized in English)
-#: src/framework/commands.cpp:126
+#: src/framework/commands.cpp:118
 msgid "Hall of Fame"
 msgstr "Ruhmeshalle"
 
 #. TRANSLATORS: Stands for level. Should be exactly 5 chars, pad with spaces at the end if necessary
-#: src/framework/commands.cpp:137
+#: src/framework/commands.cpp:129
 msgid "Lev. "
 msgstr "Lev. "
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. This is a window title, so it is capitalized in English.
-#: src/framework/commands.cpp:174
+#: src/framework/commands.cpp:166
 msgid "Caveset Playing Statistics"
 msgstr "Höhlensatz-Spiel-Statistik"
 
-#: src/framework/commands.cpp:220
+#: src/framework/commands.cpp:212
 msgid "Caveset Information"
 msgstr "Höhlensatz-Information"
 
 #. TRANSLATORS: 35 characters max.
-#: src/framework/commands.cpp:230
+#: src/framework/commands.cpp:222
 msgid "Caveset changed. Discard changes?"
 msgstr "Höhlensatz geändert. Verwerfen?"
 
 #. TRANSLATORS: title of the "file open fail" error message window.
-#: src/framework/commands.cpp:246
+#: src/framework/commands.cpp:238
 msgid "Caveset Load Error"
 msgstr "Höhlensatz Ladefehler"
 
 #. TRANSLATORS: title of the "file save fail" error window.
-#: src/framework/commands.cpp:258
+#: src/framework/commands.cpp:250
 msgid "Cave Save Error"
 msgstr "Höhlensatz Speicherfehler"
 
 #. TRANSLATORS: 40 characters max. Title of the "save caveset as new file" window.
-#: src/framework/commands.cpp:278
+#: src/framework/commands.cpp:270
 msgid "Save Caveset As New File"
 msgstr "Speichere Höhlensatz as neue Datei"
 
 #. TRANSLATORS: 40 characters max. Title of the "open file" window.
-#: src/framework/commands.cpp:291
+#: src/framework/commands.cpp:283
 msgid "Select Caveset to Load"
 msgstr "Wähle den zu spielenden Höhlensatz"
 
 #. TRANSLATORS: 40 characters max. Title of the window which shows the error messages. Title capitalization (C) in English.
-#: src/framework/commands.cpp:316
+#: src/framework/commands.cpp:308
 msgid "Error Console"
 msgstr "Fehler-Konsole"
 
@@ -6471,33 +6466,33 @@ msgstr "Leert.:ändern   H:Hilfe   Esc:beenden"
 msgid "Press T to install a new theme."
 msgstr "Zum Installieren eines Themas T drücken."
 
-#: src/framework/selectfileactivity.cpp:150
-#: src/framework/selectfileactivity.cpp:154
+#: src/framework/selectfileactivity.cpp:151
+#: src/framework/selectfileactivity.cpp:155
 #, c-format
 msgid "Cannot change to directory: %s."
 msgstr "Es ist nicht möglich, zum Verzeichnis '%s' zu wechseln."
 
-#: src/framework/selectfileactivity.cpp:238
+#: src/framework/selectfileactivity.cpp:239
 msgid "File exists. Overwrite?"
 msgstr "Die Datei existiert bereits. Soll sie überschrieben werden?"
 
 #. TRANSLATORS: 35 chars max
-#: src/framework/selectfileactivity.cpp:293
+#: src/framework/selectfileactivity.cpp:294
 msgid "Jump to directory"
 msgstr "Zum Verzeichnis springen"
 
 #. TRANSLATORS: 35 chars max
-#: src/framework/selectfileactivity.cpp:300
+#: src/framework/selectfileactivity.cpp:301
 msgid "Enter new file name"
 msgstr "Neuen Dateinamen eingeben"
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/selectfileactivity.cpp:324
+#: src/framework/selectfileactivity.cpp:325
 msgid "Crsr:select  N:new  J:jump  Esc:cancel"
 msgstr "Kursor:ausw. N:neu J:springen ESC:beend."
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/selectfileactivity.cpp:327
+#: src/framework/selectfileactivity.cpp:328
 msgid "Crsr: select   J: jump   Esc: cancel"
 msgstr "Kursor:auswählen J:springen ESC:beenden"
 
