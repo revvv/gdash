@@ -45,6 +45,7 @@
 #include "misc/about.hpp"
 #include "settings.hpp"
 #include "framework/commands.hpp"
+#include "fileops/bdcffload.hpp"
 #include "fileops/loadfile.hpp"
 #include "fileops/highscore.hpp"
 #include "fileops/binaryimport.hpp"
@@ -55,6 +56,7 @@
 #include "editor/editorcellrenderer.hpp"
 #include "editor/exporthtml.hpp"
 #include "editor/exporttext.hpp"
+#include "editor/exportcrli.hpp"
 #include "gtk/gtkpixbuffactory.hpp"
 #include "gtk/gtkscreen.hpp"
 #include "gtk/gtkui.hpp"
@@ -78,6 +80,7 @@ int main(int argc, char *argv[]) {
     char *text_dump_filename = NULL;
     char *png_filename = NULL, *png_size = NULL;
     char *save_cave_name = NULL, *save_gds_name = NULL;
+    int exportcrli = 0;
 #ifdef HAVE_GTK
     int save_doc_lang = -1;
 #endif
@@ -95,6 +98,7 @@ int main(int argc, char *argv[]) {
 #endif
         {"save-bdcff", 's', 0, G_OPTION_ARG_FILENAME, &save_cave_name, N_("Save caveset in a BDCFF file")},
         {"save-gds", 'd', 0, G_OPTION_ARG_FILENAME, &save_gds_name, N_("Save imported binary data to a GDS file. An input file name is required.")},
+        {"save-crli", 'x', 0, G_OPTION_ARG_NONE, &exportcrli, N_("Save caveset in CrLi files")},
 #ifdef HAVE_GTK
         {"save-docs", 0, 0, G_OPTION_ARG_INT, &save_doc_lang, N_("Save documentation in HTML, in the given language identified by an integer.")},
 #endif
@@ -220,6 +224,20 @@ int main(int argc, char *argv[]) {
 
     if (save_cave_name)
         caveset.save_to_file(save_cave_name);
+
+    /* export all caves into Crazy Light engine file format */
+    if (exportcrli) {
+        gd_message("Exporting caves into CrLi format...");
+        gd_message("cave set name: %s", caveset.name);
+        gd_message("number of caves: %d", caveset.caves.size());
+        for (unsigned n = 0; n < caveset.caves.size(); n++) {
+                CaveStored cave = caveset.caves.at(n);
+                char filename[50];
+                snprintf(filename, sizeof(filename), "%02d-%s.CrLi", n + 1, cave.name.c_str());
+                gd_message("Writing cave: %s", filename);
+                gd_export_cave_to_crli_cavefile(cave, 0, filename);
+        }
+    }
 
 #ifdef HAVE_GTK
     gd_register_stock_icons();
