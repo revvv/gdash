@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(GDash, 20180129unstable, [https://bitbucket.org/czirkoszoltan/gdash])
+AC_INIT(GDash, 2021-08-14-fork, [https://bitbucket.org/czirkoszoltan/gdash])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
