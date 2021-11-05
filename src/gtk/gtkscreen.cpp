@@ -85,10 +85,15 @@ void GTKScreen::configure_size() {
 
 
 void GTKScreen::set_title(char const *title) {
+    /* 
     if (drawing_area != NULL) {
+        // window was already destroyed, so commented out!
+        //     cygwin: Gtk-CRITICAL **: gtk_widget_get_toplevel: assertion 'GTK_IS_WIDGET (widget)' failed
+        //     mingw: SIGSEGV, Segmentation fault
         GtkWidget *toplevel = gtk_widget_get_toplevel(drawing_area);
         gtk_window_set_title(GTK_WINDOW(toplevel), title);
     }
+    */
 }
 
 
