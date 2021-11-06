@@ -19,6 +19,8 @@ will generate a `.CrLi` file for each cave.
 * 64 bit
 * ZIP distribution
 
+![Screenshot](https://bitbucket.org/repo/ejzABR/images/4034423466-gdashgame.png)
+
 ### Compile with MinGW
 
 Same as it ever was...
@@ -27,7 +29,7 @@ Same as it ever was...
     
 Strangely I got three compile errors like this one:
 
-    PROBLEM: C:/msys64/mingw64/include/c++/11.2.0/bits/basic_string.h:6724:50: error: 'libintl_vsnprintf' is not a member of 'std'; did you mean 'libintl_vsnprintf'?
+    C:/msys64/mingw64/include/c++/11.2.0/bits/basic_string.h:6724:50: error: 'libintl_vsnprintf' is not a member of 'std'; did you mean 'libintl_vsnprintf'?
     
 My workaround was just to remove the `std::` prefix in `basic_string.h`. Let me know if you know better...
 
