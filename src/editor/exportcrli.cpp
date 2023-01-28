@@ -54,6 +54,19 @@ static int element_to_crli(GdElementEnum e, std::set<GdElementEnum>& unknown) {
             break;  /* if found, exit loop */
         }
 
+    // add some elements from CrDr engine
+    // http://www.gratissaugen.de/erbsen/BD-Inside-FAQ.html#Objects
+    if (code == -1) {
+       switch (e) {
+       case O_TELEPORTER:
+          code = 0x95;
+          gd_warning("using CrDr element: '%s -> 0x%x", visible_name(e), code);
+          break;
+       default:
+          break;
+       }
+    }
+
     if (code == -1) {
         if (unknown.count(e) == 0) {
             gd_warning("the element '%s' can not be saved in crli, saving steel wall instead", visible_name(e));
