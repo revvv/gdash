@@ -6,7 +6,7 @@ Previously you had to do that with the GUI for each cave, which is not very comf
 
 ### HOWTO
 
-    $ gdash BoulderDash02.bd --save-crli
+    $ gdash BoulderDash02.bd --save-crli -q
 
 will generate a `.CrLi` file for each cave.
 
@@ -18,6 +18,9 @@ will generate a `.CrLi` file for each cave.
 * [Fixed:](https://github.com/revvv/gdash-export-CrLi/commit/aecf55649b96386d2b5d13a46ba4568e5a3d99e0) Start editor from a running game crashed
 * 64 bit
 * ZIP distribution
+* **New 1.2:** CrLi now also exports teleporter
+* **New 1.2:** CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
+* **New 1.2:** Added Arno Dash 21 (and fixed some caves in Arno Dash 6, 15, 17-21 and Future Dash)
 
 ![Screenshot](https://bitbucket.org/repo/ejzABR/images/4034423466-gdashgame.png)
 
