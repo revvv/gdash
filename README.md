@@ -30,9 +30,3 @@ Same as it ever was...
 
     $ ./configure && make
     
-Strangely I got three compile errors like this one:
-
-    C:/msys64/mingw64/include/c++/11.2.0/bits/basic_string.h:6724:50: error: 'libintl_vsnprintf' is not a member of 'std'; did you mean 'libintl_vsnprintf'?
-    
-My workaround was just to remove the `std::` prefix in `basic_string.h`. Let me know if you know better...
-
