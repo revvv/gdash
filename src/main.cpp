@@ -81,6 +81,7 @@ int main(int argc, char *argv[]) {
     char *png_filename = NULL, *png_size = NULL;
     char *save_cave_name = NULL, *save_gds_name = NULL;
     int exportcrli = 0;
+    char *save_cave_name_flat = NULL;
 #ifdef HAVE_GTK
     int save_doc_lang = -1;
 #endif
@@ -99,6 +100,7 @@ int main(int argc, char *argv[]) {
         {"save-bdcff", 's', 0, G_OPTION_ARG_FILENAME, &save_cave_name, N_("Save caveset in a BDCFF file")},
         {"save-gds", 'd', 0, G_OPTION_ARG_FILENAME, &save_gds_name, N_("Save imported binary data to a GDS file. An input file name is required.")},
         {"save-crli", 'x', 0, G_OPTION_ARG_NONE, &exportcrli, N_("Save caveset in CrLi files")},
+        {"save-flat", 'f', 0, G_OPTION_ARG_FILENAME, &save_cave_name_flat, N_("Save caveset in flattened format")},
 #ifdef HAVE_GTK
         {"save-docs", 0, 0, G_OPTION_ARG_INT, &save_doc_lang, N_("Save documentation in HTML, in the given language identified by an integer.")},
 #endif
@@ -238,6 +240,22 @@ int main(int argc, char *argv[]) {
                 gd_export_cave_to_crli_cavefile(cave, 0, filename);
         }
     }
+
+    /* flatten all caves */
+    if (save_cave_name_flat) {
+       gd_message("Flatten caves...");
+       gd_message("cave set name: %s", caveset.name);
+       gd_message("number of caves: %d", caveset.caves.size());
+       for (unsigned n = 0; n < caveset.caves.size(); n++) {
+               CaveStored cave = caveset.caves.at(n);
+               int edit_level = 0;
+               CaveRendered rendered(cave, edit_level, 0);   /* render cave at specified level to obtain map. seed=0 */
+               cave.map = rendered.map;
+               cave.objects.clear();
+               caveset.caves.at(n) = cave;
+       }
+       caveset.save_to_file(save_cave_name_flat);
+   }
 
 #ifdef HAVE_GTK
     gd_register_stock_icons();
