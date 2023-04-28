@@ -33,6 +33,7 @@
 #include "cave/colors.hpp"
 #include "cave/particle.hpp"
 #include "settings.hpp"
+#include "misc/logger.hpp"
 
 int GTKPixmap::get_width() const {
     return gdk_pixbuf_get_width(pixbuf.get());
@@ -83,17 +84,34 @@ void GTKScreen::configure_size() {
     cr.reset(cairo_create(back.get()));
 }
 
+bool destroyed = false;
 
 void GTKScreen::set_title(char const *title) {
-    /* 
+
+    /* This method is sometimes called on a destroyed window.
+     * Test case: Start game with space bar -> Start editor through menu item = Crash
+     * As I don't know how to prevent this, I mark this object as destroyed
+     * by calling set_title(NULL).
+     */
+    if (destroyed) {
+       destroyed = false;
+       gd_message("set_title: ignoring '%s'", title);
+       return;
+    }
+    if (title == NULL) {
+       destroyed = true;
+       return;
+    }
+
+    /* Without above workaround:
+     * cygwin: Gtk-CRITICAL **: gtk_widget_get_toplevel: assertion 'GTK_IS_WIDGET (widget)' failed
+     * mingw: SIGSEGV, Segmentation fault
+     */
+
     if (drawing_area != NULL) {
-        // window was already destroyed, so commented out!
-        //     cygwin: Gtk-CRITICAL **: gtk_widget_get_toplevel: assertion 'GTK_IS_WIDGET (widget)' failed
-        //     mingw: SIGSEGV, Segmentation fault
         GtkWidget *toplevel = gtk_widget_get_toplevel(drawing_area);
         gtk_window_set_title(GTK_WINDOW(toplevel), title);
     }
-    */
 }
 
 

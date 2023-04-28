@@ -626,6 +626,7 @@ GdMainWindow::~GdMainWindow() {
     gtk_widget_destroy(window);
     while (gtk_events_pending())
         gtk_main_iteration();
+    screen->set_title(NULL); // workaround: mark screen as destroyed
 
     delete app;
     delete screen;
