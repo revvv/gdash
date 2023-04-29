@@ -37,11 +37,5 @@ representation of the caves.
 * CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
 * Added Arno Dash 21 (and fixed some caves in Arno Dash 6, 15, 17-21 and Future Dash)
 
-![Screenshot](https://bitbucket.org/repo/ejzABR/images/4034423466-gdashgame.png)
+![Screenshot](https://raw.githubusercontent.com/revvv/gdash-export-CrLi/master/Arno_Dash-21-A.png)
 
-### Compile with MinGW
-
-Same as it ever was...
-
-    $ ./configure && make
-    
