@@ -85,7 +85,7 @@ MrNobody_CAVES = MrNobody/BoulderDash_Remix_02.gds MrNobody/BoulderDash_Game_2.g
 MrNobody_DATA = $(MrNobody_CAVES)
 
 Arno_Weberdir = $(pkgdatadir)/caves/Arno_Weber
-Arno_Weber_CAVES = Arno_Weber/Arno_Dash_16.gds Arno_Weber/Arno_Dash_20.gds Arno_Weber/Arno_Dash_06.gds Arno_Weber/Arno_Dash_07.gds Arno_Weber/Santas_Bd_Party.gds Arno_Weber/Arno_Dash_03.gds Arno_Weber/Arno_Dash_13.gds Arno_Weber/Arno_Dash_08.gds Arno_Weber/Arno_Dash_19.gds Arno_Weber/Arno_Dash_02.gds Arno_Weber/Arno_Dash_04.gds Arno_Weber/Arno_Dash_15.gds Arno_Weber/Future_Dash.gds Arno_Weber/Arno_Dash_01.gds Arno_Weber/Arno_Dash_12.gds Arno_Weber/Exploding_Dash.gds Arno_Weber/Arno_Dash_09.gds Arno_Weber/Arno_Dash_14.gds Arno_Weber/Arno_Dash_18.gds Arno_Weber/Arno_Dash_10.gds Arno_Weber/Arno_Dash_11.gds Arno_Weber/Exploding_Dash_II.gds Arno_Weber/Arno_Dash_05.gds Arno_Weber/Arno_Dash_17.gds
+Arno_Weber_CAVES = Arno_Weber/Arno_Dash_16.bd Arno_Weber/Arno_Dash_20.bd Arno_Weber/Arno_Dash_06.bd Arno_Weber/Arno_Dash_07.bd Arno_Weber/Santas_Bd_Party.bd Arno_Weber/Arno_Dash_03.bd Arno_Weber/Arno_Dash_13.bd Arno_Weber/Arno_Dash_08.bd Arno_Weber/Arno_Dash_19.bd Arno_Weber/Arno_Dash_02.bd Arno_Weber/Arno_Dash_04.bd Arno_Weber/Arno_Dash_15.bd Arno_Weber/Future_Dash.bd Arno_Weber/Arno_Dash_01.bd Arno_Weber/Arno_Dash_12.bd Arno_Weber/Exploding_Dash.bd Arno_Weber/Arno_Dash_09.bd Arno_Weber/Arno_Dash_14.bd Arno_Weber/Arno_Dash_18.bd Arno_Weber/Arno_Dash_10.bd Arno_Weber/Arno_Dash_11.bd Arno_Weber/Exploding_Dash_II.bd Arno_Weber/Arno_Dash_05.bd Arno_Weber/Arno_Dash_17.bd Arno_Weber/Arno_Dash_21.bd
 Arno_Weber_DATA = $(Arno_Weber_CAVES)
 
 variousdir = $(pkgdatadir)/caves/various
