@@ -176,10 +176,17 @@ int main(int argc, char *argv[]) {
             caveset = load_caveset_from_file(gd_param_cavenames[0]);
             load_highscore(caveset);
         } else {
-            /* if nothing requested, load default */
-            caveset = create_from_buffer(level_pointers[0], -1);
-            caveset.name = level_names[0];
-            load_highscore(caveset);
+            /* export-fork: load BD1 by default */
+            try {
+                caveset = load_caveset_from_file("caves/various/Boulder_Dash_1.bd");
+                load_highscore(caveset);
+            } catch (std::exception &e) {
+                gd_warning("BD1 not found, loading 'Afl Posocopi' instead");
+                /* if nothing requested, load default */
+                caveset = create_from_buffer(level_pointers[0], -1);
+                caveset.name = level_names[0];
+                load_highscore(caveset);
+            }
         }
     } catch (std::exception &e) {
         /// @todo show error to the screen
