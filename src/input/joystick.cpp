@@ -28,25 +28,34 @@
 #endif
 
 #include "input/joystick.hpp"
+#include "misc/logger.hpp"
 
 enum { JoystickThreshold = 32768 / 2 };
 
 #ifdef HAVE_SDL
-static SDL_Joystick *joystick_1 = NULL;
+static SDL_Joystick **joysticks = NULL;
+static int num_joysticks = 0;
 #endif
 
 void Joystick::init() {
 #ifdef HAVE_SDL
     if (!SDL_WasInit(SDL_INIT_JOYSTICK))
         SDL_Init(SDL_INIT_JOYSTICK);
-    if (SDL_NumJoysticks() > 0)
-        joystick_1 = SDL_JoystickOpen(0);
+    num_joysticks = SDL_NumJoysticks();
+    gd_message("Number of joysticks: %d", num_joysticks);
+    if (num_joysticks > 0) {
+        joysticks = (SDL_Joystick **) malloc(sizeof(SDL_Joystick *) * num_joysticks);
+        for (int i = 0; i < num_joysticks; i++) {
+            joysticks[i] = SDL_JoystickOpen(i);
+            gd_message("joystick %d: %s", i, SDL_JoystickNameForIndex(i));
+        }
+    }
 #endif
 }
 
 bool Joystick::have_joystick() {
 #ifdef HAVE_SDL
-    return joystick_1 != NULL;
+    return num_joysticks > 0;
 #else
     return false;
 #endif
@@ -54,10 +63,11 @@ bool Joystick::have_joystick() {
 
 bool Joystick::up() {
 #ifdef HAVE_SDL
-    #ifdef __CYGWIN__
-        SDL_JoystickUpdate();
-    #endif
-    return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 1) < -JoystickThreshold;
+    SDL_JoystickUpdate();
+    bool res = false;
+    for (int i = 0; i < num_joysticks; i++)
+        res |= joysticks[i] != NULL && SDL_JoystickGetAxis(joysticks[i], 1) < -JoystickThreshold;
+    return res;
 #else
     return false;
 #endif
@@ -65,10 +75,11 @@ bool Joystick::up() {
 
 bool Joystick::down() {
 #ifdef HAVE_SDL
-    #ifdef __CYGWIN__
-        SDL_JoystickUpdate();
-    #endif
-    return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 1) > JoystickThreshold;
+    SDL_JoystickUpdate();
+    bool res = false;
+    for (int i = 0; i < num_joysticks; i++)
+        res |= joysticks[i] != NULL && SDL_JoystickGetAxis(joysticks[i], 1) > JoystickThreshold;
+    return res;
 #else
     return false;
 #endif
@@ -76,10 +87,11 @@ bool Joystick::down() {
 
 bool Joystick::left() {
 #ifdef HAVE_SDL
-    #ifdef __CYGWIN__
-        SDL_JoystickUpdate();
-    #endif
-    return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 0) < -JoystickThreshold;
+    SDL_JoystickUpdate();
+    bool res = false;
+    for (int i = 0; i < num_joysticks; i++)
+        res |= joysticks[i] != NULL && SDL_JoystickGetAxis(joysticks[i], 0) < -JoystickThreshold;
+    return res;
 #else
     return false;
 #endif
@@ -87,10 +99,11 @@ bool Joystick::left() {
 
 bool Joystick::right() {
 #ifdef HAVE_SDL
-    #ifdef __CYGWIN__
-        SDL_JoystickUpdate();
-    #endif
-    return joystick_1 != NULL && SDL_JoystickGetAxis(joystick_1, 0) > JoystickThreshold;
+    SDL_JoystickUpdate();
+    bool res = false;
+    for (int i = 0; i < num_joysticks; i++)
+        res |= joysticks[i] != NULL && SDL_JoystickGetAxis(joysticks[i], 0) > JoystickThreshold;
+    return res;
 #else
     return false;
 #endif
@@ -98,10 +111,11 @@ bool Joystick::right() {
 
 bool Joystick::fire1() {
 #ifdef HAVE_SDL
-    #ifdef __CYGWIN__
-        SDL_JoystickUpdate();
-    #endif
-    return joystick_1 != NULL && (SDL_JoystickGetButton(joystick_1, 0));
+    SDL_JoystickUpdate();
+    bool res = false;
+    for (int i = 0; i < num_joysticks; i++)
+        res |= joysticks[i] != NULL && (SDL_JoystickGetButton(joysticks[i], 0));
+    return res;
 #else
     return false;
 #endif
@@ -109,10 +123,11 @@ bool Joystick::fire1() {
 
 bool Joystick::fire2() {
 #ifdef HAVE_SDL
-    #ifdef __CYGWIN__
-        SDL_JoystickUpdate();
-    #endif
-    return joystick_1 != NULL && (SDL_JoystickGetButton(joystick_1, 1));
+    SDL_JoystickUpdate();
+    bool res = false;
+    for (int i = 0; i < num_joysticks; i++)
+        res |= joysticks[i] != NULL && (SDL_JoystickGetButton(joysticks[i], 1));
+    return res;
 #else
     return false;
 #endif
