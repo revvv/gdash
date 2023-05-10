@@ -28,7 +28,10 @@ representation of the caves.
 
 * New command line option `--save-crli`
 * New command line option `--save-flat`
-* Fixed joystick support (recompile did it, cygwin required [patch](https://github.com/revvv/gdash-export-CrLi/commit/991c77465c4c0a08ffc8b56dc0cc4a0c4c6dcf19#diff-e1abb84f560b62e25bbf61530f2bf2a0e4047f0ea7ac730175da93b3916a1572))
+* Improved gamepad support
+    * Now all connected gamepads are supported at the same time
+    * Left stick or DPAD control the player
+    * You can configure your button layout with gamecontrollerdb.txt
 * [Fixed](https://github.com/revvv/gdash-export-CrLi/commit/fba5a7feb71335903b70c80627ea24d4911956b8) missing images in HTML help generated with: `gdash -q --save-docs 1`
 * [Fixed:](https://github.com/revvv/gdash-export-CrLi/commit/3bd063698313bd4fb86e61732ebfca262c92827e) Start editor from a running game crashed
 * 64 bit
@@ -36,6 +39,7 @@ representation of the caves.
 * CrLi now also exports teleporter
 * CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
 * Added Arno Dash 21 (and fixed some caves in Arno Dash 6, 15, 17-21 and Future Dash)
+* Default game is BD1
 
 ![Screenshot](https://raw.githubusercontent.com/revvv/gdash-export-CrLi/master/Arno_Dash-21-A.png)
 
