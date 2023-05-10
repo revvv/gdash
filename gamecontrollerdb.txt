@@ -1,0 +1,14 @@
+# Game Controller DB for SDL in 2.0.16 format
+# Source: https://github.com/gabomdq/SDL_GameControllerDB
+
+# Format specification:
+# https://wiki.libsdl.org/SDL2/SDL_GameControllerAddMapping
+
+# Windows
+03000bb503040000c197000000000000,Retrode,a:b0,b:b4,back:b2,dpdown:+a1,dpleft:-a0,dpright:+a0,dpup:-a1,leftshoulder:b6,rightshoulder:b7,start:b3,x:b1,y:b5,leftx:a0,lefty:a1,platform:Windows,
+03006ce8790000001100000000000000,Speedlink Hornet,a:b0,b:b1,back:b8,leftx:a0,lefty:a4,leftshoulder:b6,rightshoulder:b7,start:b9,x:b3,y:b4,dpup:-a4,dpdown:+a4,dpleft:-a0,dpright:+a0,platform:Windows,
+030003f05e0400008e02000000007200,Xbox 360 Controller,a:b0,b:b1,x:b2,y:b3,back:b6,guide:b10,start:b7,leftstick:b8,rightstick:b9,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:a4,righttrigger:a5,crc:f003,platform:Windows,
+
+# Mac OS X (untested)
+03000bb503040000c197000000000000,Retrode,a:b0,b:b4,back:b2,dpdown:+a1,dpleft:-a0,dpright:+a0,dpup:-a1,leftshoulder:b6,rightshoulder:b7,start:b3,x:b1,y:b5,leftx:a0,lefty:a1,platform:Mac OS X,
+03006ce8790000001100000000000000,Speedlink Hornet,a:b0,b:b1,back:b8,leftx:a0,lefty:a4,leftshoulder:b6,rightshoulder:b7,start:b9,x:b3,y:b4,dpup:-a4,dpdown:+a4,dpleft:-a0,dpright:+a0,platform:Mac OS X,
