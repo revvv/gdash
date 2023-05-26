@@ -489,16 +489,11 @@ static void add_dirs(std::vector<std::string>& dirs, const char *specific) {
     dirs.push_back(gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, ".", NULL)));
 }
 
-// use local translation files on Linux and Mac
-#define USE_LOCAL_DIR
-
 /* sets up directiories and loads translations */
 void gd_settings_init_dirs() {
 #ifdef G_OS_WIN32
     /* on win32, use the glib function. */
     gd_system_data_dir = g_win32_get_package_installation_directory(NULL, NULL);
-#elif defined USE_LOCAL_DIR
-    gd_system_data_dir = g_get_current_dir();
 #else
     /* on linux, this is a defined, built-in string, $perfix/share/locale */
     gd_system_data_dir = PKGDATADIR;
@@ -548,7 +543,7 @@ void gd_settings_set_locale() {
 void gd_settings_init_translation() {
     /* different directories storing the translation files on unix and win32. */
     /* gdash (and gtk) always uses utf8, so convert translated strings to utf8 if needed. */
-#if defined(G_OS_WIN32) || defined(USE_LOCAL_DIR)
+#ifdef G_OS_WIN32
     bindtextdomain("gtk20-properties", gd_system_data_dir.c_str());
     bind_textdomain_codeset("gtk20-properties", "UTF-8");
     bindtextdomain("gtk20", gd_system_data_dir.c_str());
