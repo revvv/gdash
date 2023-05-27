@@ -498,8 +498,10 @@ void gd_settings_init_dirs() {
     /* on linux, this is a defined, built-in string, $perfix/share/locale */
     gd_system_data_dir = PKGDATADIR;
 #endif
-    gd_system_caves_dir = gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, gd_system_data_dir.c_str(), "caves", NULL));
-    gd_system_music_dir = gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, gd_system_data_dir.c_str(), "music", NULL));
+    //gd_system_caves_dir = gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, gd_system_data_dir.c_str(), "caves", NULL));
+    gd_system_caves_dir = gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, g_get_current_dir(), "caves", NULL));
+    //gd_system_music_dir = gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, gd_system_data_dir.c_str(), "music", NULL));
+    gd_system_music_dir = gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, g_get_current_dir(), "music", NULL));
     gd_user_config_dir = gd_tostring_free(g_build_path(G_DIR_SEPARATOR_S, g_get_user_config_dir(), PACKAGE, NULL));
 
     add_dirs(gd_sound_dirs, "sound");
@@ -553,7 +555,8 @@ void gd_settings_init_translation() {
     bindtextdomain(PACKAGE, gd_system_data_dir.c_str());        /* gdash */
     bind_textdomain_codeset(PACKAGE, "UTF-8");
 #else
-    bindtextdomain(PACKAGE, LOCALEDIR);                 /* gdash */
+    //bindtextdomain(PACKAGE, LOCALEDIR);                 /* gdash */
+    bindtextdomain(PACKAGE, g_get_current_dir());
     bind_textdomain_codeset(PACKAGE, "UTF-8");
 #endif
     textdomain(PACKAGE);    /* set default textdomain to gdash */
