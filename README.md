@@ -2,20 +2,20 @@
 
 Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) to add new features:
 
+* Enable higher scaling factors
 * New command line options for bulk export
 * Enhanced game controller support
     * Now all connected gamepads are supported at the same time
     * Left stick or DPAD control the player
     * You can configure your button layout with [`gamecontrollerdb.txt`](https://github.com/revvv/gdash-export-CrLi/blob/master/gamecontrollerdb.txt)
-* Minor fixes
 
 ### All new features of this fork ###
 
+* Maximum scaling factor is now 8 instead of 4
 * New command line option `--save-crli`
 * New command line option `--save-flat`
 * Enhanced game controller support
-* [Fixed](https://github.com/revvv/gdash-export-CrLi/commit/fba5a7feb71335903b70c80627ea24d4911956b8) missing images in HTML help generated with: `gdash -q --save-docs 1`
-* [Fixed:](https://github.com/revvv/gdash-export-CrLi/commit/3bd063698313bd4fb86e61732ebfca262c92827e) Start editor from a running game crashed
+* Minor fixes for GTK updates
 * 64 bit ZIP distribution for **Windows, Linux and Mac**
 * CrLi now also exports teleporters
 * CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
