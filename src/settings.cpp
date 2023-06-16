@@ -239,7 +239,7 @@ Setting *gd_get_game_settings_array() {
         { TypePage, N_("Game graphics") },
         // TRANSLATORS: here "engine" = "graphics engine"
         { TypeStringv, N_("Engine"), &gd_graphics_engine, true, gd_graphics_engine_names, N_("Graphics engine which used for drawing.") },
-        { TypeInteger, N_("Scaling factor"), &gd_cell_scale_factor_game, true, NULL, N_("Scaling size."), 1, 4 },
+        { TypeInteger, N_("Scaling factor"), &gd_cell_scale_factor_game, true, NULL, N_("Scaling size."), 1, 8 },
         { TypeStringv, N_("  Scaling type"), &gd_cell_scale_type_game, true, gd_scaling_names, N_("Software scaling method used. This setting is only effective for the GTK+ and the SDL engines. If you use the OpenGL engine, you can configure its scaling method by selecting a shader.") },
         { TypeBoolean, N_("  Software PAL emu"), &gd_pal_emulation_game, true, NULL, N_("Use PAL emulated graphics, i.e. lines are striped, and colors are distorted like on a TV. Only effective for the GTK+ and the SDL engines.") },
         { TypePercent, N_("  PAL scanline shade"), &gd_pal_emu_scanline_shade, true, NULL, N_("Darker rows for PAL emulation. Only effective for the GTK+ and the SDL engines.") },
@@ -264,7 +264,7 @@ Setting *gd_get_game_settings_array() {
 
 #ifdef HAVE_GTK
         { TypePage, N_("Editor settings") },
-        { TypeInteger, N_("Scaling factor"), &gd_cell_scale_factor_editor, true, NULL, N_("Scaling size."), 1, 4 },
+        { TypeInteger, N_("Scaling factor"), &gd_cell_scale_factor_editor, true, NULL, N_("Scaling size."), 1, 8 },
         { TypeStringv, N_("  Scaling type"), &gd_cell_scale_type_editor, true, gd_scaling_names, N_("Scaling method.") },
         { TypeBoolean, N_("  Software PAL emu"), &gd_pal_emulation_editor, true, NULL, N_("Use PAL emulated graphics, i.e. lines are striped, and colors are distorted like on a TV.") },
         { TypeBoolean, N_("Animated view"), &gd_game_view, true, NULL, N_("Show simplified view of cave in the editor.") },
@@ -609,8 +609,8 @@ void gd_load_settings() {
     g_key_file_free(ini);
 
     /* check settings */
-    gd_cell_scale_factor_game = gd_clamp(gd_cell_scale_factor_game, 1, 4);
-    gd_cell_scale_factor_editor = gd_clamp(gd_cell_scale_factor_editor, 1, 4);
+    gd_cell_scale_factor_game = gd_clamp(gd_cell_scale_factor_game, 1, 8);
+    gd_cell_scale_factor_editor = gd_clamp(gd_cell_scale_factor_editor, 1, 8);
     gd_cell_scale_type_game = gd_clamp(gd_cell_scale_type_game, 0, GD_SCALING_MAX-1);
     gd_cell_scale_type_editor = gd_clamp(gd_cell_scale_type_editor, 0, GD_SCALING_MAX-1);
     if (gd_preferred_palette < 0 || gd_preferred_palette >= int(GdColor::TypeInvalid))

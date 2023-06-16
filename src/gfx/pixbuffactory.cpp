@@ -103,6 +103,13 @@ std::unique_ptr<Pixbuf> PixbufFactory::create_scaled(const Pixbuf &src, int scal
                     break;
             }
             break;
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+            /* ignores scaling_type */
+            src.scale(*scaled, scaling_factor);
+            break;
         default:
             g_assert_not_reached();
             break;

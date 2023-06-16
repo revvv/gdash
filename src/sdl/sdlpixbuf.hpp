@@ -52,6 +52,7 @@ public:
 
     virtual void blit_full(int x, int y, int w, int h, Pixbuf &dest, int dx, int dy) const;
     virtual void copy_full(int x, int y, int w, int h, Pixbuf &dest, int dx, int dy) const;
+    virtual void scale_full(Pixbuf &dest, double scaling_factor) const;
     virtual void fill_rect(int x, int y, int w, int h, const GdColor &c);
 
     virtual unsigned char *get_pixels() const;

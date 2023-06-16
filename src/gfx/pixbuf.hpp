@@ -136,6 +136,18 @@ public:
         copy_full(0, 0, get_width(), get_height(), dest, dx, dy);
     }
 
+    /// @brief Scale the whole pixbuf to another pixbuf.
+    /// @param dest The destination pixbuf.
+    /// @param scaling_factor The scaling factor.
+    virtual void scale_full(Pixbuf &dest, double scaling_factor) const = 0;
+
+    /// @brief Scale the whole pixbuf to another pixbuf.
+    /// @param dest The destination pixbuf.
+    /// @param scaling_factor The scaling factor.
+    void scale(Pixbuf &dest, double scaling_factor) const {
+        scale_full(dest, scaling_factor);
+    }
+
     /// @brief Fill the given area of the pixbuf with the specified color.
     /// No blending takes place!
     virtual void fill_rect(int x, int y, int w, int h, const GdColor &c) = 0;
