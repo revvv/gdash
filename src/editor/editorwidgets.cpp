@@ -124,6 +124,7 @@ color_combo_drawing_area_draw_event(GtkWidget *widget, cairo_t *cr, gpointer dat
     cairo_set_source_rgb(cr, r / 255.0, g / 255.0, b / 255.0);
     cairo_rectangle(cr, 0, 0, width, height);
     cairo_fill(cr);
+    return TRUE;
 }
 
 
@@ -490,7 +491,6 @@ static void element_button_clicked_func(GtkWidget *button) {
     gtk_container_add(GTK_CONTAINER(expander), grid2);
     gtk_box_pack_start(GTK_BOX(vbox), expander, TRUE, TRUE, 0);
 
-    GdkColor c;
     unsigned char r, g, b;
     editor_cell_renderer->background_color().get_rgb(r, g, b);
     /* create drawing areas */
