@@ -285,15 +285,23 @@ void gd_main_window_sdl_run(CaveSet *caveset, NextAction &na, bool opengl) {
 }
 
 
-void gd_main_window_sdl_run_a_game(std::unique_ptr<GameControl> game) {
+void gd_main_window_sdl_run_a_game(std::unique_ptr<GameControl> game, bool opengl) {
     SDLPixbufFactory pf;
-    SDLScreen screen(pf);
+    Screen *screen;
+    if (opengl)
+        screen = new SDLOGLScreen(pf);
+    else
+        screen = new SDLScreen(pf);
 
-    SDLApp the_app(screen);
+    {
+        SDLApp the_app(*screen);
 
-    NextAction na = StartTitle;      // because the func below needs one to work with
-    the_app.set_quit_event_command(std::make_unique<SetNextActionCommandSDL>(&the_app, na, Quit));
-    the_app.push_activity(std::make_unique<GameActivity>(&the_app, std::move(game)));
+        NextAction na = StartTitle;      // because the func below needs one to work with
+        the_app.set_quit_event_command(std::make_unique<SetNextActionCommandSDL>(&the_app, na, Quit));
+        the_app.push_activity(std::make_unique<GameActivity>(&the_app, std::move(game)));
 
-    run_the_app(the_app, na);
+        run_the_app(the_app, na);
+    }
+    /* the app must die before the screen, the block above controls its lifetime */
+    delete screen;
 }

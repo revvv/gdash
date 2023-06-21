@@ -88,8 +88,10 @@ void main_window_run_a_game(std::unique_ptr<GameControl> game) {
             #endif
             #ifdef HAVE_SDL
             case GRAPHICS_ENGINE_SDL:
+                gd_main_window_sdl_run_a_game(std::move(game), false);
+                break;
             case GRAPHICS_ENGINE_OPENGL:
-                gd_main_window_sdl_run_a_game(std::move(game));
+                gd_main_window_sdl_run_a_game(std::move(game), true);
                 break;
             #endif
             case GRAPHICS_ENGINE_MAX:

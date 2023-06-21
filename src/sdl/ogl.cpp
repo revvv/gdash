@@ -244,7 +244,7 @@ void SDLOGLScreen::configure_size() {
     SDL_Surface *icon = IMG_Load_RW(rwop, 1);  // 1 = automatically closes rwop
     SDL_SetWindowIcon(window.get(), icon);
     SDL_FreeSurface(icon);
-    set_title("GDash");
+    set_title("GDash (OpenGL)");
 
     {
         /* report parameters got. */

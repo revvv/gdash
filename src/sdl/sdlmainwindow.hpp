@@ -34,6 +34,6 @@ class CaveSet;
 class GameControl;
 
 void gd_main_window_sdl_run(CaveSet *caveset, NextAction &na, bool opengl);
-void gd_main_window_sdl_run_a_game(std::unique_ptr<GameControl> game);
+void gd_main_window_sdl_run_a_game(std::unique_ptr<GameControl> game, bool opengl);
 
 #endif

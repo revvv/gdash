@@ -71,7 +71,7 @@ void SDLScreen::configure_size() {
     SDL_WarpMouseInWindow(window.get(), w - 1, h - 1);
 
     /* title & icon */
-    set_title("GDash");
+    set_title("GDash (SDL)");
     SDL_RWops *rwop = SDL_RWFromConstMem(Screen::gdash_icon_32_png, Screen::gdash_icon_32_size);
     std::unique_ptr<SDL_Surface, Deleter<SDL_Surface, SDL_FreeSurface>> icon(IMG_Load_RW(rwop, 1));  // 1 = automatically closes rwop
     SDL_SetWindowIcon(window.get(), icon.get());
