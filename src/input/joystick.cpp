@@ -46,6 +46,7 @@ void Joystick::init() {
     if (num_joysticks > 0) {
         int res = SDL_GameControllerAddMappingsFromFile("gamecontrollerdb.txt");
         gd_message("gamecontrollerdb.txt: new mappings found: %d", res); // doesn't tell how many were updated
+        gd_message("Game Controller events: %d", SDL_GameControllerEventState(SDL_QUERY));
         gamepads = (SDL_GameController **) malloc(sizeof(SDL_GameController *) * num_joysticks);
         for (int i = 0; i < num_joysticks; i++) {
             gamepads[i] = SDL_GameControllerOpen(i);
@@ -69,7 +70,6 @@ bool Joystick::have_joystick() {
 
 bool Joystick::up() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate();
     bool res = false;
     for (int i = 0; i < num_joysticks; i++) {
         res |= gamepads[i] != NULL && (SDL_GameControllerGetAxis(gamepads[i], SDL_CONTROLLER_AXIS_LEFTY) < -JoystickThreshold
@@ -83,7 +83,6 @@ bool Joystick::up() {
 
 bool Joystick::down() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate();
     bool res = false;
     for (int i = 0; i < num_joysticks; i++) {
         res |= gamepads[i] != NULL && (SDL_GameControllerGetAxis(gamepads[i], SDL_CONTROLLER_AXIS_LEFTY) > JoystickThreshold
@@ -97,7 +96,6 @@ bool Joystick::down() {
 
 bool Joystick::left() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate();
     bool res = false;
     for (int i = 0; i < num_joysticks; i++) {
         res |= gamepads[i] != NULL && (SDL_GameControllerGetAxis(gamepads[i], SDL_CONTROLLER_AXIS_LEFTX) < -JoystickThreshold
@@ -111,7 +109,6 @@ bool Joystick::left() {
 
 bool Joystick::right() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate();
     bool res = false;
     for (int i = 0; i < num_joysticks; i++) {
         res |= gamepads[i] != NULL && (SDL_GameControllerGetAxis(gamepads[i], SDL_CONTROLLER_AXIS_LEFTX) > JoystickThreshold
@@ -125,7 +122,11 @@ bool Joystick::right() {
 
 bool Joystick::fire1() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate();
+    #ifdef __linux__
+        // WORKAROUND: although SDL_GameControllerEventState() is true, we have to poll for joystick events
+        if (num_joysticks > 0)
+            SDL_JoystickUpdate();
+    #endif
     bool res = false;
     for (int i = 0; i < num_joysticks; i++)
         res |= gamepads[i] != NULL && (SDL_GameControllerGetButton(gamepads[i], SDL_CONTROLLER_BUTTON_A));
@@ -137,7 +138,6 @@ bool Joystick::fire1() {
 
 bool Joystick::fire2() {
 #ifdef HAVE_SDL
-    SDL_JoystickUpdate();
     bool res = false;
     for (int i = 0; i < num_joysticks; i++)
         res |= gamepads[i] != NULL && (SDL_GameControllerGetButton(gamepads[i], SDL_CONTROLLER_BUTTON_X));
