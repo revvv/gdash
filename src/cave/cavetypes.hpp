@@ -412,6 +412,8 @@ enum GdElementEnum {
     O_COVERED,
     O_PLAYER_LEFT,
     O_PLAYER_RIGHT,
+    O_PLAYER_UP,
+    O_PLAYER_DOWN,
     O_PLAYER_TAP,
     O_PLAYER_BLINK,
     O_PLAYER_TAP_BLINK,
