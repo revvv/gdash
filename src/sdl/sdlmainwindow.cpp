@@ -130,7 +130,7 @@ private:
 };
 
 
-static void run_the_app(SDLApp &the_app, NextAction &na) {
+static void run_the_app(SDLApp &the_app, NextAction &na, bool opengl) {
     /* for the sdltimer based timing */
     int const timer_ms = gd_fine_scroll ? 20 : 40;
     SDL_TimerID timer_id = 0;
@@ -251,6 +251,9 @@ static void run_the_app(SDLApp &the_app, NextAction &na) {
         }
 
 #ifdef HAVE_GTK
+        #ifdef __APPLE__
+            if (!opengl) /* fix stuck key on Mac */
+        #endif
         // check if the g_main_loop has something to do. if it has,
         // it is usually gtk stuff - so let gtk do its job
         while (g_main_context_pending(NULL))
@@ -281,7 +284,7 @@ void gd_main_window_sdl_run(CaveSet *caveset, NextAction &na, bool opengl) {
 #endif
     the_app.push_activity(std::make_unique<TitleScreenActivity>(&the_app));
 
-    run_the_app(the_app, na);
+    run_the_app(the_app, na, opengl);
 }
 
 
@@ -300,7 +303,7 @@ void gd_main_window_sdl_run_a_game(std::unique_ptr<GameControl> game, bool openg
         the_app.set_quit_event_command(std::make_unique<SetNextActionCommandSDL>(&the_app, na, Quit));
         the_app.push_activity(std::make_unique<GameActivity>(&the_app, std::move(game)));
 
-        run_the_app(the_app, na);
+        run_the_app(the_app, na, opengl);
     }
     /* the app must die before the screen, the block above controls its lifetime */
     delete screen;
