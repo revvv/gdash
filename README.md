@@ -2,6 +2,7 @@
 
 Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) to add new features:
 
+* New up/down animations (gfx by @cwscws)
 * Enable higher scaling factors
 * New command line options for bulk export
 * Enhanced game controller support
@@ -11,6 +12,7 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 
 ### All new features of this fork ###
 
+* New up/down animations, configurable through settings
 * Maximum scaling factor is now 8 instead of 4
 * New command line option `--save-crli`
 * New command line option `--save-flat`
