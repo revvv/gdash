@@ -410,7 +410,7 @@ void gd_settings_init() {
     settings_integers["preferred_palette"] = &gd_preferred_palette;
     settings_strings["username"] = &gd_username;
     settings_strings["theme"] = &gd_theme;
-    settings_bools["gd_new_up_down_animation"] = &gd_new_up_down_animation;
+    settings_bools["new_up_down_animation"] = &gd_new_up_down_animation;
 
     settings_bools["game_view"] = &gd_game_view;
     settings_bools["colored_objects"] = &gd_colored_objects;
