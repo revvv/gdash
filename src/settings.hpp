@@ -45,6 +45,7 @@ extern bool gd_particle_effects;
 extern bool gd_show_story;
 extern bool gd_show_name_of_game;
 extern int gd_status_bar_colors;
+extern bool gd_new_up_down_animation;
 
 /* palette settings */
 extern int gd_c64_palette;
