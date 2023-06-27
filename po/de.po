@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
-"Report-Msgid-Bugs-To: https://bitbucket.org/czirkoszoltan/gdash\n"
-"POT-Creation-Date: 2018-01-29 08:38+0100\n"
+"Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
+"POT-Creation-Date: 2023-06-27 11:15+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -16,116 +16,117 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/gtk/gtkuisettings.cpp:59 src/gtk/gtkui.cpp:119
+#: src/gtk/gtkuisettings.cpp:53 src/gtk/gtkui.cpp:114
 msgid "All image files"
 msgstr "Alle Bilddateien"
 
-#: src/gtk/gtkuisettings.cpp:117
+#: src/gtk/gtkuisettings.cpp:102
 msgid "Add Theme from Image File"
 msgstr "Füge ein Grafik-Thema von einer Bilddatei hinzu"
 
-#: src/gtk/gtkuisettings.cpp:130
+#: src/gtk/gtkuisettings.cpp:115
 msgid "Overwrite file?"
 msgstr "Datei überschreiben?"
 
-#: src/gtk/gtkuisettings.cpp:146
+#: src/gtk/gtkuisettings.cpp:131
 msgid "The new theme is installed."
 msgstr "Das neue Thema wurde installiert."
 
-#: src/gtk/gtkuisettings.cpp:154
+#: src/gtk/gtkuisettings.cpp:139
 msgid "The selected image cannot be used as a GDash theme."
 msgstr ""
 "Das ausgewählte Bild kann nicht als GDash-Grafik-Thema verwendet werden."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkuisettings.cpp:172
+#: src/gtk/gtkuisettings.cpp:157
 msgid "Select Key"
 msgstr "Taste auswählen"
 
-#: src/gtk/gtkuisettings.cpp:180
+#: src/gtk/gtkuisettings.cpp:162
+#, c-format
 msgid "Press key for action: <b>%s</b>"
 msgstr "Taste drücken für die Aktion: <b>%s</b>"
 
-#: src/gtk/gtkuisettings.cpp:205
+#: src/gtk/gtkuisettings.cpp:187
 #, c-format
 msgid "Click here to set the key for action: %s"
 msgstr "Klicken Sie hier, um die Taste einzustellen für die Aktion: %s"
 
 #. TRANSLATORS: Default (builtin) theme, shader, etc.
-#: src/gtk/gtkuisettings.cpp:270 src/settings.cpp:323
+#: src/gtk/gtkuisettings.cpp:252 src/settings.cpp:324
 msgid "[Default]"
 msgstr "[Voreinstellung]"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkuisettings.cpp:290
+#: src/gtk/gtkuisettings.cpp:272
 msgid "GDash Preferences"
 msgstr "GDash-Einstellungen"
 
-#: src/gtk/gtkuisettings.cpp:379
+#: src/gtk/gtkuisettings.cpp:363
 msgid "_Add theme"
 msgstr "Grafik-Thema _hinzufügen"
 
-#: src/gtk/gtkmainwindow.cpp:112
+#: src/gtk/gtkmainwindow.cpp:111
 msgid "Play"
 msgstr "Spielen"
 
-#: src/gtk/gtkmainwindow.cpp:113
+#: src/gtk/gtkmainwindow.cpp:112
 msgid "File"
 msgstr "Datei"
 
-#: src/gtk/gtkmainwindow.cpp:114 src/misc/helptext.cpp:208
+#: src/gtk/gtkmainwindow.cpp:113 src/misc/helptext.cpp:208
 msgid "Help"
 msgstr "Hilfe"
 
-#: src/gtk/gtkmainwindow.cpp:116
+#: src/gtk/gtkmainwindow.cpp:115
 msgid "_Error console"
 msgstr "_Fehler-Konsole"
 
-#: src/gtk/gtkmainwindow.cpp:119
+#: src/gtk/gtkmainwindow.cpp:118
 msgid "Game help"
 msgstr "Spiel-Hilfe"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:119
 msgid "Caveset _information"
 msgstr "Höhlensatz-_Information"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:119
 msgid "Show information about the game and its caves"
 msgstr "Zeige Informationen über das Spiel und dessen Höhlen"
 
-#: src/gtk/gtkmainwindow.cpp:122
+#: src/gtk/gtkmainwindow.cpp:121
 msgid "Keyboard settings"
 msgstr "Tastatur-Einstellungen"
 
-#: src/gtk/gtkmainwindow.cpp:122
+#: src/gtk/gtkmainwindow.cpp:121
 msgid "Set keyboard settings"
 msgstr "Tastatur-Einstellungen einstellen"
 
-#: src/gtk/gtkmainwindow.cpp:124
+#: src/gtk/gtkmainwindow.cpp:123
 msgid "_Sound volume"
 msgstr "_Lautstärke"
 
-#: src/gtk/gtkmainwindow.cpp:126
+#: src/gtk/gtkmainwindow.cpp:125
 msgid "Cave _editor"
 msgstr "Höhlen-_Editor"
 
-#: src/gtk/gtkmainwindow.cpp:128
+#: src/gtk/gtkmainwindow.cpp:127
 msgid "Open _recent"
 msgstr "Öffne _letzte Dateien"
 
-#: src/gtk/gtkmainwindow.cpp:129 src/editor/editor.cpp:3502
+#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3250
 msgid "O_pen shipped"
 msgstr "_Öffne mitgelieferte Spiele"
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:131
 msgid "Hi_ghscores"
 msgstr "Hi_ghscores"
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "Game play statistics"
 msgstr "Spiel-Statistik"
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid ""
 "Shows statistics of playing caves: times played, times played successfully "
 "etc."
@@ -133,131 +134,131 @@ msgstr ""
 "Zeigt Statistiken der gespielten Höhlen: gespielte Zeit, Anzahl der "
 "erfolgreichen Spiele, etc."
 
-#: src/gtk/gtkmainwindow.cpp:134
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "Show _replays"
 msgstr "Zeige _Wiederholungen"
 
-#: src/gtk/gtkmainwindow.cpp:134
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "List replays which are recorded for caves in this caveset"
 msgstr ""
 "Zeige die für die Höhlen dieses Höhlensatzes aufgenommenen Wiederholungen"
 
-#: src/gtk/gtkmainwindow.cpp:135
+#: src/gtk/gtkmainwindow.cpp:134
 msgid "Fullscreen mode"
 msgstr "Vollbildmodus"
 
-#: src/gtk/gtkmainwindow.cpp:139
+#: src/gtk/gtkmainwindow.cpp:138
 msgid "_Take snapshot"
 msgstr "Schnappschuss _erstellen"
 
-#: src/gtk/gtkmainwindow.cpp:140
+#: src/gtk/gtkmainwindow.cpp:139
 msgid "_Revert to snapshot"
 msgstr "_Zurück zum Schnappschuss"
 
-#: src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:140
 msgid "Random _colors"
 msgstr "_Zufällige Farben"
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:141
 msgid "Re_start level"
 msgstr "Level _wiederholen"
 
-#: src/gtk/gtkmainwindow.cpp:142 src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:141 src/gtk/gtkmainwindow.cpp:142
 msgid "Restart current level"
 msgstr "Aktuellen Level neu starten"
 
-#: src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "_Pause game"
 msgstr "Spiel _anhalten"
 
-#: src/gtk/gtkmainwindow.cpp:144
+#: src/gtk/gtkmainwindow.cpp:143
 msgid "_End game"
 msgstr "Spiel _beenden"
 
-#: src/gtk/gtkmainwindow.cpp:144
+#: src/gtk/gtkmainwindow.cpp:143
 msgid "End current game"
 msgstr "Aktuelles Spiel beenden"
 
-#: src/gtk/gtkmainwindow.cpp:364
+#: src/gtk/gtkmainwindow.cpp:363
 msgid "GDash cannot load file from a network link."
 msgstr "GDash kann keine Dateien aus einer Netzwerkverbindung laden."
 
-#: src/gtk/gtkui.cpp:258
+#: src/gtk/gtkui.cpp:245
 #, c-format
 msgid "Caveset \"%s\" is edited or new replays are added. Discard changes?"
 msgstr ""
 "Der Höhlensatz \"%s\" wurde editiert oder es wurden neue Wiederholungen "
 "hinzugefügt. Änderungen verwerfen?"
 
-#: src/gtk/gtkui.cpp:259
+#: src/gtk/gtkui.cpp:246
 msgid "If you discard the caveset, all changes and new replays will be lost."
 msgstr ""
 "Wenn Sie den Höhlensatz verwerfen, sind alle Änderungen und neuen "
 "Wiederholungen verloren."
 
-#: src/gtk/gtkui.cpp:263
+#: src/gtk/gtkui.cpp:250
 msgid "_Discard"
 msgstr "_Verwerfen"
 
-#: src/gtk/gtkui.cpp:304
+#: src/gtk/gtkui.cpp:291
 msgid "Save File As"
 msgstr "Speichere Datei als"
 
-#: src/gtk/gtkui.cpp:309
+#: src/gtk/gtkui.cpp:296
 msgid "BDCFF cave sets (*.bd)"
 msgstr "BDCFF-Höhlensätze (*.bd)"
 
-#: src/gtk/gtkui.cpp:313
+#: src/gtk/gtkui.cpp:300
 msgid "All files (*)"
 msgstr "Alle Dateien (*)"
 
-#: src/gtk/gtkui.cpp:361
+#: src/gtk/gtkui.cpp:348
 msgid "Open File"
 msgstr "Öffne Datei"
 
-#: src/gtk/gtkui.cpp:365
+#: src/gtk/gtkui.cpp:352
 msgid "GDash cave sets"
 msgstr "GDash-Höhlensätze"
 
-#: src/gtk/gtkui.cpp:406
+#: src/gtk/gtkui.cpp:393
 msgid "Error loading caveset."
 msgstr "Fehler während des Ladens des Höhlensatzes."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkui.cpp:600
+#: src/gtk/gtkui.cpp:583
 msgid "GDash Help"
 msgstr "GDash Hilfe"
 
-#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:163
-#: src/misc/helptext.cpp:110 src/framework/app.cpp:309
+#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164
+#: src/misc/helptext.cpp:110 src/framework/app.cpp:306
 msgid "About GDash"
 msgstr "Über GDash"
 
-#: src/misc/helphtml.cpp:120 src/framework/app.cpp:310
+#: src/misc/helphtml.cpp:120 src/framework/app.cpp:307
 msgid "Copyright"
 msgstr "Copyright"
 
-#: src/misc/helphtml.cpp:121 src/framework/app.cpp:311
+#: src/misc/helphtml.cpp:121 src/framework/app.cpp:308
 msgid "License"
 msgstr "Lizenz"
 
-#: src/misc/helphtml.cpp:122 src/framework/app.cpp:312
+#: src/misc/helphtml.cpp:122 src/framework/app.cpp:309
 msgid "Website"
 msgstr "Webseite"
 
-#: src/misc/helphtml.cpp:130 src/framework/app.cpp:320
+#: src/misc/helphtml.cpp:130 src/framework/app.cpp:317
 msgid "Authors"
 msgstr "Authoren"
 
-#: src/misc/helphtml.cpp:131 src/framework/app.cpp:321
+#: src/misc/helphtml.cpp:131 src/framework/app.cpp:318
 msgid "Artists"
 msgstr "Künstler"
 
-#: src/misc/helphtml.cpp:132 src/framework/app.cpp:322
+#: src/misc/helphtml.cpp:132 src/framework/app.cpp:319
 msgid "Documenters"
 msgstr "Dokumentierer"
 
-#: src/misc/helphtml.cpp:161
+#: src/misc/helphtml.cpp:162
 msgid "Table of contents"
 msgstr "Inhaltsverzeichnis"
 
@@ -346,7 +347,7 @@ msgstr "Höhlensatz-Spiel-Statistik"
 
 #. TRANSLATORS: 40 chars max
 #: src/misc/helptext.cpp:96 src/misc/helptext.cpp:309
-#: src/framework/replaymenuactivity.cpp:91
+#: src/framework/replaymenuactivity.cpp:92
 msgid "Replays"
 msgstr "Wiederholungen"
 
@@ -1709,7 +1710,7 @@ msgstr ""
 "Daten erstellt, welche verschiedene Arten sein können: Einzelpunkte, Linien, "
 "Rechtecke und so weiter. Das sind folgende:"
 
-#: src/misc/helptext.cpp:420 src/cave/object/caveobjectpoint.cpp:64
+#: src/misc/helptext.cpp:420 src/cave/object/caveobjectpoint.cpp:63
 msgid "Point"
 msgstr "Punkt"
 
@@ -1735,7 +1736,7 @@ msgstr ""
 "oft einfacher zu benützen und die damit erzeugte Höhle ist somit auch "
 "leichter zu editieren."
 
-#: src/misc/helptext.cpp:422 src/cave/object/caveobjectline.cpp:99
+#: src/misc/helptext.cpp:422 src/cave/object/caveobjectline.cpp:98
 msgid "Line"
 msgstr "Linie"
 
@@ -1900,7 +1901,7 @@ msgid "The maze like that in PacMan: there are no dead ends."
 msgstr ""
 "Ein Irrgarten wie im klassischem Spiel 'PacMan' - es gibt keine Sackgassen."
 
-#: src/misc/helptext.cpp:436 src/cave/object/caveobjectrandomfill.cpp:199
+#: src/misc/helptext.cpp:436 src/cave/object/caveobjectrandomfill.cpp:198
 msgid "Random Fill"
 msgstr "Zufällige Füllung"
 
@@ -2193,7 +2194,7 @@ msgstr ""
 "Hintergrundbild hinzufügen, dass dann als eine sich wiederholende, "
 "scrollende Kachel hinter dem eigentlichen Titelbild verwendet wird."
 
-#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3539
+#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3287
 msgid "Test cave"
 msgstr "Teste Höhle"
 
@@ -2309,7 +2310,7 @@ msgstr ""
 "IM ZUSAMMENHANG MIT DER SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE "
 "ENTSTANDEN."
 
-#: src/misc/about.cpp:74
+#: src/misc/about.cpp:75
 msgid ""
 "The primary objective of this game is to collect required number of diamonds "
 "in defined time and exit the cave. You control your player's movement to "
@@ -2319,147 +2320,162 @@ msgstr ""
 "der angegebenen Zeit einzusammeln und die Höhle zu verlassen. Sie steuern "
 "die Bewegungen der Spielfigur, um die Aufgaben in der Höhle zu lösen."
 
-#: src/misc/about.cpp:78
+#: src/misc/about.cpp:79
 msgid "translator-credits"
 msgstr "CWS"
 
-#: src/main.cpp:86
+#: src/main.cpp:92
 msgid "Start editor"
 msgstr "Starte Editor"
 
-#: src/main.cpp:87
+#: src/main.cpp:93
 msgid "Save caveset in a HTML gallery"
 msgstr "Speichere Höhlensatz in einer HTML Gallerie"
 
-#: src/main.cpp:88
+#: src/main.cpp:94
+#, fuzzy
+msgid "Save caveset as BDCFF plain text"
+msgstr "Speichere Höhlensatz in eine BDCFF-Datei"
+
+#: src/main.cpp:95
 msgid "Link stylesheet from file to a HTML gallery, eg. \"../style.css\""
 msgstr ""
 "Verknüpfe die Formatforlage der Datei mit einer HTML Galerie (z. B. \"../"
 "style.css\")"
 
-#: src/main.cpp:89
+#: src/main.cpp:96
 msgid "Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\""
 msgstr ""
 "Verknüpfe das Iconkürzel mit einer HTML Galerie (z. B. \"../favicon.ico\")"
 
-#: src/main.cpp:90
+#: src/main.cpp:97
 msgid "Save image of first cave to PNG"
 msgstr "Speichere das Bild der ersten Höhle als PNG"
 
-#: src/main.cpp:91
+#: src/main.cpp:98
 msgid "Set PNG image size. Default is 128x96, set to 0x0 for unscaled"
 msgstr ""
 "Definiere PNG-Bildgröße. Voreingestellt ist 128x96, verwende 0x0 für keine "
 "Skalierung"
 
-#: src/main.cpp:93
+#: src/main.cpp:100
 msgid "Save caveset in a BDCFF file"
 msgstr "Speichere Höhlensatz in eine BDCFF-Datei"
 
-#: src/main.cpp:94
+#: src/main.cpp:101
 msgid ""
 "Save imported binary data to a GDS file. An input file name is required."
 msgstr ""
 "Speichere importierte Binärdaten in eine GDS-Datei. Ein Eingabedateiname ist "
 "erforderlich."
 
-#: src/main.cpp:96
+#: src/main.cpp:102
+#, fuzzy
+msgid "Save caveset in CrLi files"
+msgstr "Speichere Höhlensatz in eine BDCFF-Datei"
+
+#: src/main.cpp:103
+#, fuzzy
+msgid "Save caveset in flattened format"
+msgstr "Speichere Höhlensatz as neue Datei"
+
+#: src/main.cpp:105
 msgid ""
 "Save documentation in HTML, in the given language identified by an integer."
 msgstr ""
 "Speichere die Dokumentation als HTML, in der angegebenen, von einer Ganzzahl "
 "erkannten Sprache."
 
-#: src/main.cpp:98
+#: src/main.cpp:107
 msgid "Batch mode: quit after specified tasks"
 msgstr "Stapelmodus: Beende das Spiel nach angegebenen Tätigkeiten"
 
-#: src/main.cpp:192
+#: src/main.cpp:212
 #, c-format
 msgid "Invalid image size: %s"
 msgstr "Ungültige Bildgröße: %s"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Black"
 msgstr "Schwarz"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "White"
 msgstr "Weiss"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Red"
 msgstr "Rot"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Cyan"
 msgstr "Türkis"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Purple"
 msgstr "Violett"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Green"
 msgstr "Grün"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Blue"
 msgstr "Blau"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Yellow"
 msgstr "Gelb"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Orange"
 msgstr "Orange"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Brown"
 msgstr "Braun"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light red"
 msgstr "Hellrot"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Dark gray"
 msgstr "Dunkelgrau"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Gray"
 msgstr "Grau"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light green"
 msgstr "Hellgrün"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light blue"
 msgstr "Hellblau"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light gray"
 msgstr "Hellgrau"
 
-#: src/cave/colors.cpp:136
+#: src/cave/colors.cpp:135
 msgid "RGB colors"
 msgstr "RGB-Farben"
 
-#: src/cave/colors.cpp:137
+#: src/cave/colors.cpp:136
 msgid "C64 colors"
 msgstr "C64-Farben"
 
-#: src/cave/colors.cpp:138
+#: src/cave/colors.cpp:137
 msgid "C64DTV colors"
 msgstr "C64DTV-Farben"
 
-#: src/cave/colors.cpp:139
+#: src/cave/colors.cpp:138
 msgid "Atari colors"
 msgstr "Atari-Farben"
 
-#: src/cave/colors.cpp:449
+#: src/cave/colors.cpp:448
 msgid "Invalid"
 msgstr "Ungültig"
 
@@ -2476,8 +2492,8 @@ msgid "Name of cave"
 msgstr "Name def Höhle"
 
 #: src/cave/cavestored.cpp:42 src/cave/caveset.cpp:44
-#: src/framework/commands.cpp:179 src/editor/exporthtml.cpp:117
-#: src/editor/exporthtml.cpp:184
+#: src/framework/commands.cpp:164 src/editor/exporthtml.cpp:105
+#: src/editor/exporthtml.cpp:165
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -2486,8 +2502,8 @@ msgid "Some words about the cave"
 msgstr "Einige Worte über die Höhle"
 
 #: src/cave/cavestored.cpp:43 src/cave/caveset.cpp:45
-#: src/framework/commands.cpp:175 src/framework/commands.cpp:195
-#: src/editor/exporthtml.cpp:115 src/editor/exporthtml.cpp:182
+#: src/framework/commands.cpp:160 src/framework/commands.cpp:180
+#: src/editor/exporthtml.cpp:103 src/editor/exporthtml.cpp:163
 msgid "Author"
 msgstr "Author"
 
@@ -2496,8 +2512,8 @@ msgid "Name of author"
 msgstr "Name des Authors"
 
 #: src/cave/cavestored.cpp:44 src/cave/caveset.cpp:46
-#: src/framework/commands.cpp:177 src/framework/commands.cpp:197
-#: src/framework/replaymenuactivity.cpp:203
+#: src/framework/commands.cpp:162 src/framework/commands.cpp:182
+#: src/framework/replaymenuactivity.cpp:204
 msgid "Date"
 msgstr "Datum"
 
@@ -2506,7 +2522,7 @@ msgid "Date of creation"
 msgstr "Erstellungsdatum"
 
 #: src/cave/cavestored.cpp:45 src/cave/caveset.cpp:47
-#: src/editor/exporthtml.cpp:119
+#: src/editor/exporthtml.cpp:107
 msgid "WWW"
 msgstr "WWW"
 
@@ -2523,7 +2539,7 @@ msgstr "Schwierigkeitsgrad"
 msgid "Difficulty (informative)"
 msgstr "Schwierigkeitsgrad (informativ)"
 
-#: src/cave/cavestored.cpp:48 src/editor/exporthtml.cpp:190
+#: src/cave/cavestored.cpp:48 src/editor/exporthtml.cpp:171
 msgid "Selectable as start"
 msgstr "Als Start auswählbar"
 
@@ -2545,7 +2561,7 @@ msgstr ""
 "Ist diese Option aktiviert, erhält man ein zusätzliches Leben, sobald man "
 "eine Zwischenspiel-Höhle erreicht hat."
 
-#: src/cave/cavestored.cpp:50 src/editor/exporthtml.cpp:189
+#: src/cave/cavestored.cpp:50 src/editor/exporthtml.cpp:170
 msgid "Intermission"
 msgstr "Zwischenspiel"
 
@@ -2638,8 +2654,8 @@ msgstr ""
 "Information, wird nicht von GDash verwendet."
 
 #: src/cave/cavestored.cpp:63 src/cave/caveset.cpp:57
-#: src/framework/commands.cpp:181 src/editor/exporthtml.cpp:123
-#: src/editor/exporthtml.cpp:188
+#: src/framework/commands.cpp:166 src/editor/exporthtml.cpp:111
+#: src/editor/exporthtml.cpp:169
 msgid "Story"
 msgstr "Geschichte"
 
@@ -2649,8 +2665,8 @@ msgstr ""
 "Geschichte für die Höhle. Sie wird während des Spielens der Höhle angezeigt."
 
 #: src/cave/cavestored.cpp:67 src/cave/caveset.cpp:59
-#: src/framework/commands.cpp:183 src/editor/exporthtml.cpp:121
-#: src/editor/exporthtml.cpp:186
+#: src/framework/commands.cpp:168 src/editor/exporthtml.cpp:109
+#: src/editor/exporthtml.cpp:167
 msgid "Remark"
 msgstr "Anmerkung"
 
@@ -2665,7 +2681,7 @@ msgstr ""
 "angezeigt, sondern nur wenn der Benutzer den Höhlen-Informations-Dialog "
 "abfragt. Sie kann auch Lösungen und Hinweise enthalten."
 
-#: src/cave/cavestored.cpp:82 src/editor/exporthtml.cpp:191
+#: src/cave/cavestored.cpp:82 src/editor/exporthtml.cpp:172
 msgid "Diamonds needed"
 msgstr "Benötigte Diamanten"
 
@@ -2686,7 +2702,7 @@ msgstr ""
 msgid "Time"
 msgstr "Zeit"
 
-#: src/cave/cavestored.cpp:84 src/editor/exporthtml.cpp:194
+#: src/cave/cavestored.cpp:84 src/editor/exporthtml.cpp:175
 msgid "Time (s)"
 msgstr "Zeit (s)"
 
@@ -2838,7 +2854,7 @@ msgstr ""
 
 #. TRANSLATORS: "player" here means the name of the human player who played the replay
 #: src/cave/cavestored.cpp:113 src/cave/elementproperties.cpp:717
-#: src/cave/elementproperties.cpp:891 src/framework/replaymenuactivity.cpp:192
+#: src/cave/elementproperties.cpp:893 src/framework/replaymenuactivity.cpp:193
 msgid "Player"
 msgstr "Spieler"
 
@@ -3896,7 +3912,7 @@ msgstr ""
 "die Gravitation. Diese Option stellt die Anzahl der darauf zu wartenden "
 "Sekunden ein."
 
-#: src/cave/cavestored.cpp:275 src/settings.cpp:278 src/settings.cpp:279
+#: src/cave/cavestored.cpp:275 src/settings.cpp:279 src/settings.cpp:280
 msgid "Sound"
 msgstr "Ton"
 
@@ -4267,11 +4283,11 @@ msgstr "Schleim-Farbe für C64-Grafiken"
 msgid "Random fill"
 msgstr "Zufällige Füllung"
 
-#: src/cave/cavestored.cpp:335 src/cave/object/caveobjectrandomfill.cpp:206
+#: src/cave/cavestored.cpp:335 src/cave/object/caveobjectrandomfill.cpp:205
 msgid "Random seed"
 msgstr "Zufällige Streuung"
 
-#: src/cave/cavestored.cpp:336 src/cave/object/caveobjectrandomfill.cpp:206
+#: src/cave/cavestored.cpp:336 src/cave/object/caveobjectrandomfill.cpp:205
 msgid ""
 "Random seed value controls the predictable random number generator, which "
 "fills the cave initially. If set to -1, cave is totally random every time it "
@@ -4282,39 +4298,39 @@ msgstr ""
 "dieser Wert auf -1 gesetzt wird, ist die Höhle jedesmal, wenn sie gespielt "
 "wird, vollständig zufällig."
 
-#: src/cave/cavestored.cpp:338 src/cave/object/caveobjectrandomfill.cpp:207
+#: src/cave/cavestored.cpp:338 src/cave/object/caveobjectrandomfill.cpp:206
 msgid "Initial fill"
 msgstr "Anfängliche Füllung"
 
-#: src/cave/cavestored.cpp:339 src/cave/object/caveobjectrandomfill.cpp:208
+#: src/cave/cavestored.cpp:339 src/cave/object/caveobjectrandomfill.cpp:207
 msgid "Probability 1"
 msgstr "Wahrscheinlichkeit 1"
 
-#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:209
+#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:208
 msgid "Random fill 1"
 msgstr "Zufällige Füllung 1"
 
-#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:210
+#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:209
 msgid "Probability 2"
 msgstr "Wahrscheinlichkeit 2"
 
-#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:211
+#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:210
 msgid "Random fill 2"
 msgstr "Zufällige Füllung 2"
 
-#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:212
+#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:211
 msgid "Probability 3"
 msgstr "Wahrscheinlichkeit 3"
 
-#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:213
+#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:212
 msgid "Random fill 3"
 msgstr "Zufällige Füllung 3"
 
-#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:214
+#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:213
 msgid "Probability 4"
 msgstr "Wahrscheinlichkeit 4"
 
-#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:215
+#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:214
 msgid "Random fill 4"
 msgstr "Zufällige Füllung 4"
 
@@ -4407,118 +4423,118 @@ msgstr "S P I E L E N D E"
 msgid "UP, DOWN: MOVE    FIRE: CONTINUE"
 msgstr "OBEN,UNTEN: BEWEGEN    FEUER: FORTSETZEN"
 
-#: src/cave/object/caveobjectcopypaste.cpp:125
-#: src/cave/object/caveobjectjoin.cpp:86
-#: src/cave/object/caveobjectfillrect.cpp:87 src/editor/editor.cpp:160
-#: src/editor/editor.cpp:161 src/editor/editor.cpp:162
-#: src/editor/editor.cpp:164 src/editor/editor.cpp:165
-#: src/editor/editor.cpp:175
+#: src/cave/object/caveobjectcopypaste.cpp:124
+#: src/cave/object/caveobjectjoin.cpp:85
+#: src/cave/object/caveobjectfillrect.cpp:84 src/editor/editor.cpp:174
+#: src/editor/editor.cpp:175 src/editor/editor.cpp:176
+#: src/editor/editor.cpp:178 src/editor/editor.cpp:179
+#: src/editor/editor.cpp:189
 msgid "Draw"
 msgstr "Zeichne"
 
-#: src/cave/object/caveobjectcopypaste.cpp:126
-#: src/cave/object/caveobjectpoint.cpp:65
+#: src/cave/object/caveobjectcopypaste.cpp:125
+#: src/cave/object/caveobjectpoint.cpp:64
 #: src/cave/object/caveobjectraster.cpp:85
 #: src/cave/object/caveobjectfloodfill.cpp:83
-#: src/cave/object/caveobjectboundaryfill.cpp:102
-#: src/cave/object/caveobjectrandomfill.cpp:200
+#: src/cave/object/caveobjectboundaryfill.cpp:97
+#: src/cave/object/caveobjectrandomfill.cpp:199
 #: src/cave/object/caveobjectrectangle.cpp:82
-#: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
-#: src/cave/object/caveobjectfillrect.cpp:88
+#: src/cave/object/caveobjectline.cpp:99 src/cave/object/caveobjectmaze.cpp:368
+#: src/cave/object/caveobjectjoin.cpp:86
+#: src/cave/object/caveobjectfillrect.cpp:85
 msgid "Levels"
 msgstr "Level"
 
-#: src/cave/object/caveobjectcopypaste.cpp:126
-#: src/cave/object/caveobjectpoint.cpp:65
+#: src/cave/object/caveobjectcopypaste.cpp:125
+#: src/cave/object/caveobjectpoint.cpp:64
 #: src/cave/object/caveobjectraster.cpp:85
 #: src/cave/object/caveobjectfloodfill.cpp:83
-#: src/cave/object/caveobjectboundaryfill.cpp:102
-#: src/cave/object/caveobjectrandomfill.cpp:200
+#: src/cave/object/caveobjectboundaryfill.cpp:97
+#: src/cave/object/caveobjectrandomfill.cpp:199
 #: src/cave/object/caveobjectrectangle.cpp:82
-#: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
-#: src/cave/object/caveobjectfillrect.cpp:88
+#: src/cave/object/caveobjectline.cpp:99 src/cave/object/caveobjectmaze.cpp:368
+#: src/cave/object/caveobjectjoin.cpp:86
+#: src/cave/object/caveobjectfillrect.cpp:85
 msgid "Levels on which this object is visible."
 msgstr "Level in denen dieses Objekt sichtbar ist."
 
-#: src/cave/object/caveobjectcopypaste.cpp:127
+#: src/cave/object/caveobjectcopypaste.cpp:126
 #: src/cave/object/caveobjectfloodfill.cpp:84
-#: src/cave/object/caveobjectboundaryfill.cpp:103
-#: src/cave/object/caveobjectline.cpp:101
-#: src/cave/object/caveobjectfillrect.cpp:89
+#: src/cave/object/caveobjectboundaryfill.cpp:98
+#: src/cave/object/caveobjectline.cpp:100
+#: src/cave/object/caveobjectfillrect.cpp:86
 msgid "Start"
 msgstr "Start"
 
+#: src/cave/object/caveobjectcopypaste.cpp:126
 #: src/cave/object/caveobjectcopypaste.cpp:127
-#: src/cave/object/caveobjectcopypaste.cpp:128
 msgid "Specifies one of the corners of the source area."
 msgstr "Bitte bestimmen Sie eine der Ecken des Ausgangsbereiches."
 
-#: src/cave/object/caveobjectcopypaste.cpp:128
-#: src/cave/object/caveobjectline.cpp:102
-#: src/cave/object/caveobjectfillrect.cpp:90
+#: src/cave/object/caveobjectcopypaste.cpp:127
+#: src/cave/object/caveobjectline.cpp:101
+#: src/cave/object/caveobjectfillrect.cpp:87
 msgid "End"
 msgstr "Ende"
 
-#: src/cave/object/caveobjectcopypaste.cpp:129
+#: src/cave/object/caveobjectcopypaste.cpp:128
 msgid "Paste"
 msgstr "Einfügen"
 
-#: src/cave/object/caveobjectcopypaste.cpp:129
+#: src/cave/object/caveobjectcopypaste.cpp:128
 msgid "Specifies the upper left corner of the destination area."
 msgstr "Bestimmt die obere linke Ecke des Zielbereiches."
 
-#: src/cave/object/caveobjectcopypaste.cpp:130
+#: src/cave/object/caveobjectcopypaste.cpp:129
 msgid "Mirror"
 msgstr "Horizontal spiegeln"
 
-#: src/cave/object/caveobjectcopypaste.cpp:130
+#: src/cave/object/caveobjectcopypaste.cpp:129
 msgid "If checked, the contents will be mirrored horizontally."
 msgstr "Ist diese Option aktiviert, wird der Inhalt horizontal gespiegelt."
 
-#: src/cave/object/caveobjectcopypaste.cpp:131
+#: src/cave/object/caveobjectcopypaste.cpp:130
 msgid "Flip"
 msgstr "Vertikal spiegeln"
 
-#: src/cave/object/caveobjectcopypaste.cpp:131
+#: src/cave/object/caveobjectcopypaste.cpp:130
 msgid "If checked, the contents will be mirrored vertically."
 msgstr "Ist diese Option aktiviert, wird der Inhalt vertikal gespiegelt."
 
-#: src/cave/object/caveobjectcopypaste.cpp:162
+#: src/cave/object/caveobjectcopypaste.cpp:157
 #, c-format
 msgid "Copy from %d,%d-%d,%d, paste to %d,%d"
 msgstr "Kopiere von %d,%d-%d,%d und füge nach %d,%d ein"
 
-#: src/cave/object/caveobjectpoint.cpp:66
+#: src/cave/object/caveobjectpoint.cpp:65
 msgid "Coordinate"
 msgstr "Koordinate"
 
-#: src/cave/object/caveobjectpoint.cpp:66
+#: src/cave/object/caveobjectpoint.cpp:65
 msgid "Specifies the coordinate of the single element to draw."
 msgstr "Bestimmt die Koordinaten für das Zeichnen eines eizelnen Elements."
 
-#: src/cave/object/caveobjectpoint.cpp:67
+#: src/cave/object/caveobjectpoint.cpp:66
 #: src/cave/object/caveobjectraster.cpp:89
 #: src/cave/object/caveobjectrectangle.cpp:85
-#: src/cave/object/caveobjectline.cpp:103
+#: src/cave/object/caveobjectline.cpp:102
 msgid "Element"
 msgstr "Element"
 
-#: src/cave/object/caveobjectpoint.cpp:67
+#: src/cave/object/caveobjectpoint.cpp:66
 #: src/cave/object/caveobjectraster.cpp:89
 #: src/cave/object/caveobjectrectangle.cpp:85
-#: src/cave/object/caveobjectline.cpp:103 src/cave/object/caveobjectjoin.cpp:89
+#: src/cave/object/caveobjectline.cpp:102 src/cave/object/caveobjectjoin.cpp:88
 msgid "The element to draw."
 msgstr "Das zu zeichnende Element."
 
-#: src/cave/object/caveobjectpoint.cpp:92
+#: src/cave/object/caveobjectpoint.cpp:87
 #, c-format
 msgid "Point of <b>%ms</b> at %d,%d"
 msgstr "Einzelpunkt aus <b>%ms</b> bei %d,%d"
 
 #: src/cave/object/caveobjectraster.cpp:86
-#: src/cave/object/caveobjectrandomfill.cpp:201
+#: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrectangle.cpp:83
 #: src/cave/object/caveobjectmaze.cpp:370
 msgid "Start corner"
@@ -4526,26 +4542,26 @@ msgstr "Start-Ecke"
 
 #: src/cave/object/caveobjectraster.cpp:86
 #: src/cave/object/caveobjectraster.cpp:87
+#: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrandomfill.cpp:201
-#: src/cave/object/caveobjectrandomfill.cpp:202
 #: src/cave/object/caveobjectrectangle.cpp:83
 #: src/cave/object/caveobjectrectangle.cpp:84
 #: src/cave/object/caveobjectmaze.cpp:370
 #: src/cave/object/caveobjectmaze.cpp:371
-#: src/cave/object/caveobjectfillrect.cpp:89
-#: src/cave/object/caveobjectfillrect.cpp:90
+#: src/cave/object/caveobjectfillrect.cpp:86
+#: src/cave/object/caveobjectfillrect.cpp:87
 msgid "Specifies one of the corners of the object."
 msgstr "Bestimmt eine der Ecken des Objekts."
 
 #: src/cave/object/caveobjectraster.cpp:87
-#: src/cave/object/caveobjectrandomfill.cpp:202
+#: src/cave/object/caveobjectrandomfill.cpp:201
 #: src/cave/object/caveobjectrectangle.cpp:84
 #: src/cave/object/caveobjectmaze.cpp:371
 msgid "End corner"
 msgstr "End-Ecke"
 
 #: src/cave/object/caveobjectraster.cpp:88
-#: src/cave/object/caveobjectjoin.cpp:90
+#: src/cave/object/caveobjectjoin.cpp:89
 msgid "Distance"
 msgstr "Entfernung"
 
@@ -4553,7 +4569,7 @@ msgstr "Entfernung"
 msgid "The horizontal and vertical distance between elements."
 msgstr "Der horizontale und vertikale Abstand zwischen Elementen."
 
-#: src/cave/object/caveobjectraster.cpp:102
+#: src/cave/object/caveobjectraster.cpp:98
 #, c-format
 msgid "Raster from %d,%d to %d,%d of <b>%ms</b>, distance %+d,%+d"
 msgstr "Raster von %d,%d bis %d,%d aus <b>%ms</b>, Entfernung %d,%d"
@@ -4567,7 +4583,7 @@ msgid "The coordinate to start the filling at."
 msgstr "Die Koordinaten an dem die Füllung begonnen wird."
 
 #: src/cave/object/caveobjectfloodfill.cpp:85
-#: src/cave/object/caveobjectjoin.cpp:88
+#: src/cave/object/caveobjectjoin.cpp:87
 msgid "Search element"
 msgstr "Suche Element"
 
@@ -4579,8 +4595,8 @@ msgstr ""
 "überschrieben."
 
 #: src/cave/object/caveobjectfloodfill.cpp:86
-#: src/cave/object/caveobjectboundaryfill.cpp:105
-#: src/cave/object/caveobjectfillrect.cpp:92
+#: src/cave/object/caveobjectboundaryfill.cpp:100
+#: src/cave/object/caveobjectfillrect.cpp:89
 msgid "Fill element"
 msgstr "Füll-Element"
 
@@ -4588,25 +4604,25 @@ msgstr "Füll-Element"
 msgid "The element used to fill the area."
 msgstr "Das Element, welches dazu verwendet wird, den Bereich zu füllen."
 
-#: src/cave/object/caveobjectfloodfill.cpp:95
+#: src/cave/object/caveobjectfloodfill.cpp:91
 #, c-format
 msgid "Flood fill from %d,%d of <b>%ms</b>, replacing <b>%ms</b>"
 msgstr "Ersatz-Füllung von %d,%d mit <b>%ms</b>, ersetzt <b>%ms</b>"
 
-#: src/cave/object/caveobjectboundaryfill.cpp:101
+#: src/cave/object/caveobjectboundaryfill.cpp:96
 msgid "Boundary fill"
 msgstr "Eingegrenzte Füllung"
 
-#: src/cave/object/caveobjectboundaryfill.cpp:103
+#: src/cave/object/caveobjectboundaryfill.cpp:98
 msgid "The coordinate to start the fill at."
 msgstr "Die Koordinate an denen mit der Füllung begonnen wird."
 
-#: src/cave/object/caveobjectboundaryfill.cpp:104
-#: src/cave/object/caveobjectfillrect.cpp:91
+#: src/cave/object/caveobjectboundaryfill.cpp:99
+#: src/cave/object/caveobjectfillrect.cpp:88
 msgid "Border element"
 msgstr "Rand-Element"
 
-#: src/cave/object/caveobjectboundaryfill.cpp:104
+#: src/cave/object/caveobjectboundaryfill.cpp:99
 msgid ""
 "This is the border of the fill. The closed area must be bounded by this "
 "element."
@@ -4614,20 +4630,20 @@ msgstr ""
 "Dies ist der Rand der Füllung. Der eingegrenzte Bereich muß mit diesem "
 "Element begrenzt sein."
 
-#: src/cave/object/caveobjectboundaryfill.cpp:105
+#: src/cave/object/caveobjectboundaryfill.cpp:100
 msgid "This is the element the closed area will be filled with."
 msgstr "Dies ist das Element mit dem der eingegrenzte Bereich gefüllt wird."
 
-#: src/cave/object/caveobjectboundaryfill.cpp:114
+#: src/cave/object/caveobjectboundaryfill.cpp:105
 #, c-format
 msgid "Boundary fill from %d,%d of <b>%ms</b>, border <b>%ms</b>"
 msgstr "Eingegrenzte Füllung von %d,%d mit <b>%ms</b>, Rand aus <b>%ms</b>"
 
-#: src/cave/object/caveobjectrandomfill.cpp:203
+#: src/cave/object/caveobjectrandomfill.cpp:202
 msgid "Replace only"
 msgstr "Ersetze ausschließlich"
 
-#: src/cave/object/caveobjectrandomfill.cpp:203
+#: src/cave/object/caveobjectrandomfill.cpp:202
 msgid ""
 "If this setting is set to 'no element' but another one, only that will be "
 "replaced when drawing the fill, and other elements will not be overwritten. "
@@ -4637,15 +4653,15 @@ msgstr ""
 "eingestellt, wird nur dieses beim Füllen ersetzt. Andere Elemente werden "
 "nicht überschrieben werden. Andernfalls wird der gesamte Block gefüllt."
 
-#: src/cave/object/caveobjectrandomfill.cpp:204
+#: src/cave/object/caveobjectrandomfill.cpp:203
 msgid "Generator"
 msgstr "Generator"
 
-#: src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/object/caveobjectrandomfill.cpp:204
 msgid "C64 random"
 msgstr "C64-artige Zufallszahlen"
 
-#: src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/object/caveobjectrandomfill.cpp:204
 msgid ""
 "Controls if the C64 random generator is used for the fill, or a more "
 "advanced one. By using the C64 generator, you can recreate the patterns of "
@@ -4656,30 +4672,30 @@ msgstr ""
 "artigen Zufallsgenerator, kann man damit die Muster des Originalspiels "
 "nachbilden."
 
-#: src/cave/object/caveobjectrandomfill.cpp:225
+#: src/cave/object/caveobjectrandomfill.cpp:220
 #, c-format
 msgid "Random fill from %d,%d to %d,%d"
 msgstr "Zufällige Füllung von %d,%d bis %d,%d"
 
-#: src/cave/object/caveobjectrandomfill.cpp:228
+#: src/cave/object/caveobjectrandomfill.cpp:222
 #, c-format
 msgid "Random fill from %d,%d to %d,%d, replacing %ms"
 msgstr "Zufällige Füllung von %d,%d bis %d,%d, ersetze %ms"
 
-#: src/cave/object/caveobjectrectangle.cpp:94
+#: src/cave/object/caveobjectrectangle.cpp:90
 #, c-format
 msgid "Rectangle from %d,%d to %d,%d of <b>%ms</b>"
 msgstr "Rechteck von %d,%d bis %d,%d aus <b>%ms</b>"
 
-#: src/cave/object/caveobjectline.cpp:101
+#: src/cave/object/caveobjectline.cpp:100
 msgid "This is the start point of the line."
 msgstr "Dies ist der Startpunkt der Linie."
 
-#: src/cave/object/caveobjectline.cpp:102
+#: src/cave/object/caveobjectline.cpp:101
 msgid "This is the end point of the line."
 msgstr "Dies ist der Endpunkt der Linie."
 
-#: src/cave/object/caveobjectline.cpp:136
+#: src/cave/object/caveobjectline.cpp:131
 #, c-format
 msgid "Line from %d,%d to %d,%d of <b>%ms</b>"
 msgstr "Linie von %d,%d bis %d,%d aus <b>%ms</b>"
@@ -4733,32 +4749,32 @@ msgstr ""
 "Diese Zahl kontrolliert, wie sehr der Algorithmus horizontale Ruten "
 "bevorzugen wird."
 
-#: src/cave/object/caveobjectmaze.cpp:385
+#: src/cave/object/caveobjectmaze.cpp:381
 #, c-format
 msgid "Maze from %d,%d to %d,%d, wall <b>%ms</b>, path <b>%ms</b>"
 msgstr ""
 "Irrgarten von %d,%d bis %d,%d, Mauer aus <b>%ms</b>, Pfad aus <b>%ms</b>"
 
-#: src/cave/object/caveobjectjoin.cpp:88
+#: src/cave/object/caveobjectjoin.cpp:87
 msgid ""
 "The element to look for. Every element found will generate an add element."
 msgstr ""
 "Das Element, nachdem gesucht werden soll. Jedes gefundene Element wird ein "
 "hinzugefügtes Element erzeugen."
 
-#: src/cave/object/caveobjectjoin.cpp:89
+#: src/cave/object/caveobjectjoin.cpp:88
 msgid "Add element"
 msgstr "Addiere Element"
 
-#: src/cave/object/caveobjectjoin.cpp:90
+#: src/cave/object/caveobjectjoin.cpp:89
 msgid "The distance to draw the new element at."
 msgstr "Die Entfernung bis zu der das neue Element gezeichnet werden soll."
 
-#: src/cave/object/caveobjectjoin.cpp:92
+#: src/cave/object/caveobjectjoin.cpp:91
 msgid "Backwards"
 msgstr "Rückwärts"
 
-#: src/cave/object/caveobjectjoin.cpp:92
+#: src/cave/object/caveobjectjoin.cpp:91
 msgid ""
 "Normally the cave is searched from top to bottom, to find the search "
 "element, and draw the add element nearby. If the distance vector of the "
@@ -4780,20 +4796,20 @@ msgstr ""
 "Einstellung wird in erster Linie für die Kompatibilität zu alten Höhlen "
 "bereitgestellt."
 
-#: src/cave/object/caveobjectjoin.cpp:129
+#: src/cave/object/caveobjectjoin.cpp:121
 #, c-format
 msgid "Join <b>%ms</b> to every <b>%ms</b>, distance %+d,%+d"
 msgstr "Verbinde <b>%ms</b> mit jede(r/m) <b>%ms</b>, Entfernung %+d,%+d"
 
-#: src/cave/object/caveobjectfillrect.cpp:91
+#: src/cave/object/caveobjectfillrect.cpp:88
 msgid "The outline will be drawn with this element."
 msgstr "Die Umrandung wird mit diesem Element gezeichnet."
 
-#: src/cave/object/caveobjectfillrect.cpp:92
+#: src/cave/object/caveobjectfillrect.cpp:89
 msgid "The insides of the rectangle will be filled with this element."
 msgstr "Die Innenseite des Rechtecks wird mit diesem Element gefüllt."
 
-#: src/cave/object/caveobjectfillrect.cpp:101
+#: src/cave/object/caveobjectfillrect.cpp:94
 #, c-format
 msgid "Rectangle from %d,%d to %d,%d of <b>%ms</b>, filled with <b>%ms</b>"
 msgstr "Rechteck von %d,%d bis %d,%d aus <b>%ms</b>, gefüllt mit <b>%ms</b>"
@@ -5994,66 +6010,66 @@ msgstr "Titelbild, scrollend"
 msgid "Scrolling background for title screen image"
 msgstr "Scrollender Hintergrund für das Titelbild Bild"
 
-#: src/cave/caveset.cpp:129
+#: src/cave/caveset.cpp:121
 msgid "Could not open file for writing."
 msgstr "Die Datei kann nicht geschrieben werden."
 
-#: src/cave/caveset.cpp:136
+#: src/cave/caveset.cpp:128
 msgid "Error writing to file."
 msgstr "Fehler beim Schreiben der Datei."
 
 #. TRANSLATORS: None here means "no direction to move"; when there is no gravity while stirring the pot.
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "None"
 msgstr "Keine"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Up"
 msgstr "Oben"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Up+right"
 msgstr "Oben+rechts"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Right"
 msgstr "Rechts"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Down+right"
 msgstr "Unten+rechts"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Down"
 msgstr "Unten"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Down+left"
 msgstr "Unten+links"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Left"
 msgstr "Links"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Up+left"
 msgstr "Oben+links"
 
-#: src/cave/cavetypes.cpp:43
+#: src/cave/cavetypes.cpp:44
 msgid "Milliseconds"
 msgstr "Millisekunden"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
-#: src/editor/exporthtml.cpp:190
+#: src/cave/cavetypes.cpp:133 src/framework/commands.cpp:207
+#: src/editor/exporthtml.cpp:171
 msgid "Yes"
 msgstr "Ja"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
-#: src/editor/exporthtml.cpp:190
+#: src/cave/cavetypes.cpp:133 src/framework/commands.cpp:207
+#: src/editor/exporthtml.cpp:171
 msgid "No"
 msgstr "Nein"
 
-#. TRANSLATORS: in some languages (for example, german) nouns must be written capitalized.
+#. TRANSLATORS: in some languages (for example, German) nouns must be written capitalized.
 #. * In other languages, nouns can be written uncapitalized.
 #. * When the name of an element is put in a sentence, this has to be taken into account.
 #. *
@@ -6065,28 +6081,28 @@ msgstr "Nein"
 #. * translate this string to "lowercase-element-names-no".
 #. * Otherwise translate this to "lowercase-element-values-yes".
 #.
-#: src/cave/cavetypes.cpp:168
+#: src/cave/cavetypes.cpp:173
 msgid "lowercase-element-names-yes"
 msgstr "lowercase-element-names-no"
 
-#: src/fileops/c64import.cpp:2063 src/fileops/c64import.cpp:2111
-#: src/fileops/c64import.cpp:2182
+#: src/fileops/c64import.cpp:2058 src/fileops/c64import.cpp:2106
+#: src/fileops/c64import.cpp:2176
 #, c-format
 msgid "Intermission %d"
 msgstr "Zwischenspiel %d"
 
-#: src/fileops/c64import.cpp:2065 src/fileops/c64import.cpp:2113
-#: src/fileops/c64import.cpp:2188
+#: src/fileops/c64import.cpp:2060 src/fileops/c64import.cpp:2108
+#: src/fileops/c64import.cpp:2181
 #, c-format
 msgid "Cave %c"
 msgstr "Höhle %c"
 
-#: src/fileops/c64import.cpp:2180
+#: src/fileops/c64import.cpp:2174
 #, c-format
 msgid "Intermission %02d"
 msgstr "Zwischenspiel %02d"
 
-#: src/fileops/c64import.cpp:2186
+#: src/fileops/c64import.cpp:2179
 #, c-format
 msgid "Cave %02d"
 msgstr "Höhle %02d"
@@ -6095,89 +6111,89 @@ msgstr "Höhle %02d"
 msgid "Error loading GDS file."
 msgstr "Fehler beim Laden der GDS Datei."
 
-#: src/fileops/loadfile.cpp:63
+#: src/fileops/loadfile.cpp:62
 msgid "BRC files must be 96000 bytes long."
 msgstr "BRC-Dateien müssen 96000 Bytes lang sein."
 
-#: src/fileops/loadfile.cpp:96
+#: src/fileops/loadfile.cpp:95
 msgid "Cannot determine file format."
 msgstr "Das Dateiformat konnte nicht erkannt werden."
 
-#: src/fileops/loadfile.cpp:122
+#: src/fileops/loadfile.cpp:121
 msgid "Unable to open file."
 msgstr "Die Datei kann nicht geöffnet werden."
 
-#: src/fileops/loadfile.cpp:128
+#: src/fileops/loadfile.cpp:127
 msgid "File bigger than 2MiB, refusing to load."
 msgstr "Die Datei ist größer als 2 MB. Laden verweigert."
 
-#: src/fileops/loadfile.cpp:132
+#: src/fileops/loadfile.cpp:131
 msgid "Unable to read file."
 msgstr "Die Datei kann nicht gelesen werden."
 
 #. TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-#: src/framework/titlescreenactivity.cpp:137 src/settings.cpp:223
+#: src/framework/titlescreenactivity.cpp:130 src/settings.cpp:223
 msgid "Game"
 msgstr "Spiel"
 
 #. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:153
+#: src/framework/titlescreenactivity.cpp:146
 msgid "Crsr: select   Space: play   H: help"
 msgstr "Kursor:auswählen  Space:spielen  H:Hilfe"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:159
+#: src/framework/titlescreenactivity.cpp:152
 msgid "F: hall of fame  E: editor  R: replays"
 msgstr "F:Ruhmeshalle E:Editor R:Wiederholungen"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:163
+#: src/framework/titlescreenactivity.cpp:156
 msgid "F: hall of fame    R: replays"
 msgstr "F:Ruhmeshalle    R:Wiederholungen"
 
 #. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:168
+#: src/framework/titlescreenactivity.cpp:161
 msgid "Joy: select   Fire: play"
 msgstr "Joystick:auswählen      Feuer:spielen"
 
-#: src/framework/titlescreenactivity.cpp:172
+#: src/framework/titlescreenactivity.cpp:165
 msgid "Crsr: select   Space: play   X: errors"
 msgstr "Kursor:auswählen Space:Spielen X:Fehler"
 
-#: src/framework/titlescreenactivity.cpp:177
+#: src/framework/titlescreenactivity.cpp:170
 #, c-format
 msgid "%cNo caves."
 msgstr "%cKeine Höhlen."
 
-#: src/framework/titlescreenactivity.cpp:181
+#: src/framework/titlescreenactivity.cpp:174
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr "%cHöhle: %c%s%c/%c%d"
 
-#: src/framework/titlescreenactivity.cpp:183
+#: src/framework/titlescreenactivity.cpp:176
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr "%cHöhle: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:331
+#: src/framework/titlescreenactivity.cpp:324
 msgid "Enter your name"
 msgstr "Spielername eingeben"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:342
+#: src/framework/titlescreenactivity.cpp:335
 msgid "Quit game?"
 msgstr "Spiel beenden?"
 
-#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:335 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
-#: src/framework/replaymenuactivity.cpp:193
+#: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:315
 msgid "yes"
 msgstr "ja"
 
-#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:335 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
-#: src/framework/replaymenuactivity.cpp:193
+#: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:315
 msgid "no"
 msgstr "nein"
@@ -6274,20 +6290,20 @@ msgstr "rückwärts"
 msgid "forwards"
 msgstr "vorwärts"
 
-#: src/framework/gameactivity.cpp:156
+#: src/framework/gameactivity.cpp:155
 msgid "Snapshot taken."
 msgstr "Schnappschuss aufgenommen."
 
-#: src/framework/gameactivity.cpp:158
+#: src/framework/gameactivity.cpp:157
 msgid "No cave loaded, no snapshot taken."
 msgstr "Keine Höhle geladen, kein Schnappschuss aufgenommen."
 
-#: src/framework/gameactivity.cpp:164
+#: src/framework/gameactivity.cpp:163
 msgid "No snapshot saved."
 msgstr "Kein Schnappschuss gespeichert."
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. Title capitalization (I) in English.
-#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:212
+#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:197
 msgid "Cave Information"
 msgstr "Höhlen-Information"
 
@@ -6311,130 +6327,130 @@ msgstr "Lautstärke Musik"
 msgid "Crsr: move     Space: exit"
 msgstr "Kursor: bewegen    Leert.: beenden"
 
-#: src/framework/replaysaveractivity.cpp:192
+#: src/framework/replaysaveractivity.cpp:172
 #, c-format
 msgid "Saved %d video frames and %dMiB of audio data to %s_*.png and %s.wav."
 msgstr ""
 "Gespeicherte %d Einzelbilder und %dMB Audiodaten als %s_*.png und %s.wav."
 
-#: src/framework/replaysaveractivity.cpp:193
+#: src/framework/replaysaveractivity.cpp:173
 msgid "Replay Saved"
 msgstr "Wiederholung gespeichert"
 
 #. TRANSLATORS: Title line capitalization in English
-#: src/framework/replaysaveractivity.cpp:289
+#: src/framework/replaysaveractivity.cpp:269
 msgid "Saving Replay"
 msgstr "Speichere Wiederholung"
 
-#: src/framework/replaysaveractivity.cpp:290
+#: src/framework/replaysaveractivity.cpp:270
 msgid "Please wait"
 msgstr "Bitte warten"
 
 #. TRANSLATORS: showing highscore, categories
-#: src/framework/commands.cpp:97 src/framework/commands.cpp:193
+#: src/framework/commands.cpp:93 src/framework/commands.cpp:178
 msgid "Caveset"
 msgstr "Höhlensatz"
 
-#: src/framework/commands.cpp:109 src/framework/commands.cpp:149
-#: src/framework/commands.cpp:173 src/framework/replaymenuactivity.cpp:188
+#: src/framework/commands.cpp:105 src/framework/commands.cpp:134
+#: src/framework/commands.cpp:158 src/framework/replaymenuactivity.cpp:189
 msgid "Cave"
 msgstr "Höhle"
 
 #. TRANSLATORS: should be 40 chars max. Title of the highscore window/activity. (That's why F is capitalized in English)
-#: src/framework/commands.cpp:118
+#: src/framework/commands.cpp:114
 msgid "Hall of Fame"
 msgstr "Ruhmeshalle"
 
 #. TRANSLATORS: Stands for level. Should be exactly 5 chars, pad with spaces at the end if necessary
-#: src/framework/commands.cpp:129
+#: src/framework/commands.cpp:123
 msgid "Lev. "
 msgstr "Lev. "
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. This is a window title, so it is capitalized in English.
-#: src/framework/commands.cpp:166
+#: src/framework/commands.cpp:151
 msgid "Caveset Playing Statistics"
 msgstr "Höhlensatz-Spiel-Statistik"
 
-#: src/framework/commands.cpp:212
+#: src/framework/commands.cpp:197
 msgid "Caveset Information"
 msgstr "Höhlensatz-Information"
 
 #. TRANSLATORS: 35 characters max.
-#: src/framework/commands.cpp:222
+#: src/framework/commands.cpp:207
 msgid "Caveset changed. Discard changes?"
 msgstr "Höhlensatz geändert. Verwerfen?"
 
 #. TRANSLATORS: title of the "file open fail" error message window.
-#: src/framework/commands.cpp:238
+#: src/framework/commands.cpp:223
 msgid "Caveset Load Error"
 msgstr "Höhlensatz Ladefehler"
 
 #. TRANSLATORS: title of the "file save fail" error window.
-#: src/framework/commands.cpp:250
+#: src/framework/commands.cpp:235
 msgid "Cave Save Error"
 msgstr "Höhlensatz Speicherfehler"
 
 #. TRANSLATORS: 40 characters max. Title of the "save caveset as new file" window.
-#: src/framework/commands.cpp:270
+#: src/framework/commands.cpp:255
 msgid "Save Caveset As New File"
 msgstr "Speichere Höhlensatz as neue Datei"
 
 #. TRANSLATORS: 40 characters max. Title of the "open file" window.
-#: src/framework/commands.cpp:283
+#: src/framework/commands.cpp:268
 msgid "Select Caveset to Load"
 msgstr "Wähle den zu spielenden Höhlensatz"
 
 #. TRANSLATORS: 40 characters max. Title of the window which shows the error messages. Title capitalization (C) in English.
-#: src/framework/commands.cpp:308
+#: src/framework/commands.cpp:293
 msgid "Error Console"
 msgstr "Fehler-Konsole"
 
-#: src/framework/replaymenuactivity.cpp:82
+#: src/framework/replaymenuactivity.cpp:83
 msgid "No replays for caveset."
 msgstr "Keine Wiederholungen für diesen Höhlensatz."
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/replaymenuactivity.cpp:93
+#: src/framework/replaymenuactivity.cpp:94
 msgid "Space: play   H: help   Esc: exit"
 msgstr "Space:spielen   H:Hilfe   Esc:beenden"
 
 #. TRANSLATORS: Cave level (1-5)
-#: src/framework/replaymenuactivity.cpp:190
+#: src/framework/replaymenuactivity.cpp:191
 msgid "Level"
 msgstr "Level"
 
-#: src/framework/replaymenuactivity.cpp:193
+#: src/framework/replaymenuactivity.cpp:194
 msgid "Successful"
 msgstr "Erfolgreich"
 
-#: src/framework/replaymenuactivity.cpp:194
+#: src/framework/replaymenuactivity.cpp:195
 msgid "Score"
 msgstr "Punktzahl"
 
-#: src/framework/replaymenuactivity.cpp:194
+#: src/framework/replaymenuactivity.cpp:195
 msgid "points"
 msgstr "Punkt"
 
-#: src/framework/replaymenuactivity.cpp:197
+#: src/framework/replaymenuactivity.cpp:198
 msgid "Comment"
 msgstr "Kommentar"
 
 #. TRANSLATORS: duration of replay in seconds
-#: src/framework/replaymenuactivity.cpp:200
+#: src/framework/replaymenuactivity.cpp:201
 msgid "Duration"
 msgstr "Dauer"
 
 #. TRANSLATORS: ie. software by which the replay was recorded.
-#: src/framework/replaymenuactivity.cpp:206
+#: src/framework/replaymenuactivity.cpp:207
 msgid "Recorded with"
 msgstr "Aufgenommen mit"
 
 #. TRANSLATORS: title of the window showing data about a particular replay
-#: src/framework/replaymenuactivity.cpp:209
+#: src/framework/replaymenuactivity.cpp:210
 msgid "Replay Info"
 msgstr "Wiederholung Information"
 
-#: src/framework/replaymenuactivity.cpp:226
+#: src/framework/replaymenuactivity.cpp:227
 msgid "Output filename prefix"
 msgstr "Vorsilbe Ausgabedateiname"
 
@@ -6496,7 +6512,7 @@ msgstr "Kursor:ausw. N:neu J:springen ESC:beend."
 msgid "Crsr: select   J: jump   Esc: cancel"
 msgstr "Kursor:auswählen J:springen ESC:beenden"
 
-#: src/settings.cpp:56
+#: src/settings.cpp:55
 msgid "System default"
 msgstr "System-Standardwert"
 
@@ -6635,32 +6651,40 @@ msgstr "  Bevorzugte Palette"
 msgid "New caves and random colored caves use this palette."
 msgstr "Neue Höhlen und zufällig eingefärbte Höhlen benützen diese Palette."
 
-#: src/settings.cpp:240
+#: src/settings.cpp:239
+msgid "New up/down animation"
+msgstr "Neue hoch/runter Animation"
+
+#: src/settings.cpp:239
+msgid "New up/down animation for the player."
+msgstr "Neue hoch/runter Animation für den Spieler."
+
+#: src/settings.cpp:241
 msgid "Game graphics"
 msgstr "Spielgrafiken"
 
 #. TRANSLATORS: here "engine" = "graphics engine"
-#: src/settings.cpp:242
+#: src/settings.cpp:243
 msgid "Engine"
 msgstr "Engine"
 
-#: src/settings.cpp:242
+#: src/settings.cpp:243
 msgid "Graphics engine which used for drawing."
 msgstr "Grafik-Engine, die zur Grafikausgabe verwendet wird."
 
-#: src/settings.cpp:243 src/settings.cpp:268
+#: src/settings.cpp:244 src/settings.cpp:269
 msgid "Scaling factor"
 msgstr "Skalierungsfaktor"
 
-#: src/settings.cpp:243 src/settings.cpp:268
+#: src/settings.cpp:244 src/settings.cpp:269
 msgid "Scaling size."
 msgstr "Skalierungsgröße."
 
-#: src/settings.cpp:244 src/settings.cpp:269
+#: src/settings.cpp:245 src/settings.cpp:270
 msgid "  Scaling type"
 msgstr "  Skalierungstyp"
 
-#: src/settings.cpp:244
+#: src/settings.cpp:245
 msgid ""
 "Software scaling method used. This setting is only effective for the GTK+ "
 "and the SDL engines. If you use the OpenGL engine, you can configure its "
@@ -6671,11 +6695,11 @@ msgstr ""
 "Engine, kann man die Skalierungsmethode durch das Auswählen eines Shader-"
 "Effekts einstellen."
 
-#: src/settings.cpp:245 src/settings.cpp:270
+#: src/settings.cpp:246 src/settings.cpp:271
 msgid "  Software PAL emu"
 msgstr "  PAL-Emu. per Software"
 
-#: src/settings.cpp:245
+#: src/settings.cpp:246
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV. Only effective for the GTK+ and the SDL engines."
@@ -6684,11 +6708,11 @@ msgstr ""
 "Farbe, leichte Farbstörungen wie auf einem Fernseher.). Funktioniert nur mit "
 "der GTK+ und SDL-Engine."
 
-#: src/settings.cpp:246
+#: src/settings.cpp:247
 msgid "  PAL scanline shade"
 msgstr "  PAL Scanline-Schatten"
 
-#: src/settings.cpp:246
+#: src/settings.cpp:247
 msgid ""
 "Darker rows for PAL emulation. Only effective for the GTK+ and the SDL "
 "engines."
@@ -6696,11 +6720,11 @@ msgstr ""
 "Dunkle Zeilen für die PAL-Emulation. Funktioniert nur mit der GTK+ und SDL-"
 "Engine."
 
-#: src/settings.cpp:247
+#: src/settings.cpp:248
 msgid "Fine scrolling"
 msgstr "Feines Scrolling"
 
-#: src/settings.cpp:247
+#: src/settings.cpp:248
 msgid ""
 "If fine scrolling is turned off, scrolling and cave animation is limited to "
 "a lower frame rate, and consumes much less CPU. On some hardware, it might "
@@ -6712,24 +6736,24 @@ msgstr ""
 "Rechenleistung. Mit mancher Hardware sieht das Ergebnis besser als mit "
 "feinem Scrolling aus. Nicht jede Grafik-Engine unterstützt feines Scrolling."
 
-#: src/settings.cpp:248
+#: src/settings.cpp:249
 msgid "Particle effects"
 msgstr "Partikel-Effekte"
 
-#: src/settings.cpp:248
+#: src/settings.cpp:249
 msgid "Particle effects during play. This requires a lot of CPU power."
 msgstr ""
 "Partikel-Effekte während des Spielens. Benötigen sehr viel Rechenleistung."
 
-#: src/settings.cpp:251
+#: src/settings.cpp:252
 msgid "OpenGL settings"
 msgstr "OpenGL-Eigenschaften"
 
-#: src/settings.cpp:252
+#: src/settings.cpp:253
 msgid "Shader"
 msgstr "Shader-Effekt"
 
-#: src/settings.cpp:252
+#: src/settings.cpp:253
 msgid ""
 "The shader which adds a graphical effect to the screen. Only effective if "
 "the OpenGL engine is used. If your video card is older, it might not support "
@@ -6740,11 +6764,11 @@ msgstr ""
 "möglicherweise keine Shader-Effekte. Der 'GDash-TV' Shader-Effekt kann mit "
 "den unterhalb aufgelisteten Optionen individuell konfiguriert werden."
 
-#: src/settings.cpp:253
+#: src/settings.cpp:254
 msgid "Radial distortion"
 msgstr "Radiale Verzerrung"
 
-#: src/settings.cpp:253
+#: src/settings.cpp:254
 msgid ""
 "With radial distortion, the screen won't be flat, but it will look like as "
 "if it's projected on a sphere."
@@ -6752,103 +6776,103 @@ msgstr ""
 "Mit der radialen Verzerrung wirkt der Bildschirm nicht flach, sondern als ob "
 "das Bild auf eine Kugel projiziert werden würde."
 
-#: src/settings.cpp:254
+#: src/settings.cpp:255
 msgid "Random scanline displacement"
 msgstr "Zufälliger Scanlineversatz"
 
-#: src/settings.cpp:254
+#: src/settings.cpp:255
 msgid ""
 "Increasing this setting causes the the image to be unstable horizontally."
 msgstr "Die Erhöhung dieses Werts verursacht ein horizontal instabiles Bild."
 
-#: src/settings.cpp:255
+#: src/settings.cpp:256
 msgid "Luma X blur"
 msgstr "Leuchtkraftunschärfe X"
 
-#: src/settings.cpp:255
+#: src/settings.cpp:256
 msgid "Horizontal blur of luminosity."
 msgstr "Horizontale Unschärfe der Leuchtkraft."
 
-#: src/settings.cpp:256
+#: src/settings.cpp:257
 msgid "Chroma X blur"
 msgstr "Farbsättigungsunschärfe X"
 
-#: src/settings.cpp:256
+#: src/settings.cpp:257
 msgid "Slight horizontal blur of colors."
 msgstr "Leichte horizontale Unscharfzeichung der Farben."
 
-#: src/settings.cpp:257
+#: src/settings.cpp:258
 msgid "Chroma Y blur"
 msgstr "Farbsättigungsunschärfe Y"
 
-#: src/settings.cpp:257
+#: src/settings.cpp:258
 msgid "Vertical blur of colors, to imitate a PAL TV signal."
 msgstr ""
 "Vertikale Unscharfzeichnung der Farben. Diese Einstellung ahmt das PAL-TV-"
 "Signal nach."
 
-#: src/settings.cpp:258
+#: src/settings.cpp:259
 msgid "Chroma to luma"
 msgstr "Farbsättigung nach Leuchtkraft"
 
-#: src/settings.cpp:258
+#: src/settings.cpp:259
 msgid "Sudden changes in colors can cause patterns to appear on the image."
 msgstr ""
 "Plötzliche Änderungen der Farben können Störungsmuster im Bild erzeugen."
 
-#: src/settings.cpp:259
+#: src/settings.cpp:260
 msgid "Luma to chroma"
 msgstr "Leuchtkraft nach Farbsättigung"
 
-#: src/settings.cpp:259
+#: src/settings.cpp:260
 msgid ""
 "Sudden changes in luminosity can cause false colors to appear on the image."
 msgstr ""
 "Plötzliche Änderungen der Leuchtkraft können Falschfarben im Bild erzeugen."
 
-#: src/settings.cpp:260
+#: src/settings.cpp:261
 msgid "Random Y"
 msgstr "Zufällig Y"
 
-#: src/settings.cpp:260
+#: src/settings.cpp:261
 msgid "Noise level of luminosity."
 msgstr "Rauschpegel der Leuchtkraft."
 
-#: src/settings.cpp:261
+#: src/settings.cpp:262
 msgid "Random UV"
 msgstr "Zufällig UV"
 
-#: src/settings.cpp:261
+#: src/settings.cpp:262
 msgid "Noise level of colors."
 msgstr "Rauschpegel der Farben."
 
-#: src/settings.cpp:262
+#: src/settings.cpp:263
 msgid "Scanline shade"
 msgstr "Scanline-Schatten"
 
-#: src/settings.cpp:262
+#: src/settings.cpp:263
 msgid "Darkened horizontal rows to emulate a TV screen."
 msgstr "Dunkle, horizontale Linien, um einen TV-Bildschirm nachzuahmen."
 
-#: src/settings.cpp:263
+#: src/settings.cpp:264
 msgid "Phosphor shade"
 msgstr "Phosphor-Schatten"
 
-#: src/settings.cpp:263
+#: src/settings.cpp:264
 msgid "Red, green and blue subpixels of a TV screen can be emulated."
 msgstr ""
 "Es können rote, grüne und blaue Teilpunkte eines TV-Bildschirms emuliert "
 "werden."
 
-#: src/settings.cpp:267
+#: src/settings.cpp:268
 msgid "Editor settings"
 msgstr "Editor"
 
-#: src/settings.cpp:269
+#: src/settings.cpp:270
 msgid "Scaling method."
 msgstr "Skalierungsmethode."
 
-#: src/settings.cpp:270
+#: src/settings.cpp:271
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV."
@@ -6856,40 +6880,40 @@ msgstr ""
 "Verwendet PAL-emulierte Grafiken (z. B. jede zweite Zeile in einer dunkleren "
 "Farbe, leichte Farbstörungen wie auf einem Fernseher.)"
 
-#: src/settings.cpp:271 src/editor/editor.cpp:3607
+#: src/settings.cpp:272 src/editor/editor.cpp:3355
 msgid "Animated view"
 msgstr "Animierte Ansicht"
 
-#: src/settings.cpp:271
+#: src/settings.cpp:272
 msgid "Show simplified view of cave in the editor."
 msgstr ""
 "Deaktiviert man diese Option, wird eine vereinfachte Ansicht der Höhle ohne "
 "Animationen im Editor angezeigt."
 
-#: src/settings.cpp:272
+#: src/settings.cpp:273
 msgid "Colored objects"
 msgstr "Eingefärbte Objekte"
 
-#: src/settings.cpp:272
+#: src/settings.cpp:273
 msgid ""
 "Cave objects are colored, to make them different from random cave elements."
 msgstr ""
 "Höhlenobjekte sind eingefärbt, um Sie von zufälligen Höhlenelementen "
 "unterscheiden zu können."
 
-#: src/settings.cpp:273
+#: src/settings.cpp:274
 msgid "Object list"
 msgstr "Objekt-Liste"
 
-#: src/settings.cpp:273
+#: src/settings.cpp:274
 msgid "Show objects list sidebar in the editor."
 msgstr "Zeigt die 'Objekt-Liste'-Seitenleiste im Editor."
 
-#: src/settings.cpp:274
+#: src/settings.cpp:275
 msgid "Fast uncover in test"
 msgstr "Schnelles Aufdecken im Testmodus"
 
-#: src/settings.cpp:274
+#: src/settings.cpp:275
 msgid ""
 "Fast uncovering and covering of cave in editor cave test, to reduce waiting "
 "time."
@@ -6897,23 +6921,23 @@ msgstr ""
 "Schnelles Auf- und Zudecken der Höhle im Testmodus des Editors, um die "
 "Wartezeit zu reduzieren."
 
-#: src/settings.cpp:279
+#: src/settings.cpp:280
 msgid "Play sounds and music in the program."
 msgstr "Verwendet Töne und Musik im Spiel."
 
-#: src/settings.cpp:280
+#: src/settings.cpp:281
 msgid "Classic sounds only"
 msgstr "Nur klassische Spielgeräusche"
 
-#: src/settings.cpp:280
+#: src/settings.cpp:281
 msgid "Play only classic sounds taken from the original game."
 msgstr "Spielt nur klassische Spielgeräusche des Originalspiels ab."
 
-#: src/settings.cpp:281
+#: src/settings.cpp:282
 msgid "Stereo sounds"
 msgstr "Stereo-Geräusche"
 
-#: src/settings.cpp:281
+#: src/settings.cpp:282
 msgid ""
 "If you enable stereo sounds, you will hear the direction of sounds in the "
 "caves."
@@ -6921,130 +6945,126 @@ msgstr ""
 "Werden die Stereo-Geräusche aktiviert, kann man die Richtung, aus der die "
 "Geräusche in der Höhle kommen, hören."
 
-#: src/settings.cpp:282
+#: src/settings.cpp:283
 msgid "16-bit mixing"
 msgstr "16-bit-Mischung"
 
-#: src/settings.cpp:282
+#: src/settings.cpp:283
 msgid ""
 "Use 16-bit mixing of sounds. Try changing this setting if sound is clicky."
 msgstr ""
 "Verwendet die 16-bit-Mischung der Geräusche. Versuchen Sie die Einstellungen "
 "zu ändern, falls die Geräusche Tonstörungen verursachen."
 
-#: src/settings.cpp:283
+#: src/settings.cpp:284
 msgid "44kHz mixing"
 msgstr "44kHz-Mischung"
 
-#: src/settings.cpp:283
+#: src/settings.cpp:284
 msgid ""
 "Use 44kHz mixing of sounds. Try changing this setting if sound is clicky."
 msgstr ""
 "Verwendet die 44kHz-Mischung der Geräusche. Versuchen Sie die Einstellungen "
 "zu ändern, falls die Geräusche Tonstörungen verursachen."
 
-#: src/settings.cpp:299
+#: src/settings.cpp:300
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: src/settings.cpp:300
+#: src/settings.cpp:301
 msgid "Key left"
 msgstr "Taste links"
 
-#: src/settings.cpp:301
+#: src/settings.cpp:302
 msgid "Key right"
 msgstr "Taste rechts"
 
-#: src/settings.cpp:302
+#: src/settings.cpp:303
 msgid "Key up"
 msgstr "Taste rauf"
 
-#: src/settings.cpp:303
+#: src/settings.cpp:304
 msgid "Key down"
 msgstr "Taste runter"
 
-#: src/settings.cpp:304
+#: src/settings.cpp:305
 msgid "Key snap"
 msgstr "Taste schnappen"
 
-#: src/settings.cpp:305
+#: src/settings.cpp:306
 msgid "Key snap (alt.)"
 msgstr "Taste schnappen (alt.)"
 
-#: src/settings.cpp:306
+#: src/settings.cpp:307
 msgid "Key suicide"
 msgstr "Taste Selbstmord"
 
-#: src/settings.cpp:307
+#: src/settings.cpp:308
 msgid "Key fast forward"
 msgstr "Taste schnell vorwärts"
 
-#: src/settings.cpp:308
+#: src/settings.cpp:309
 msgid "Key status bar"
 msgstr "Taste Statuszeile"
 
-#: src/settings.cpp:309
+#: src/settings.cpp:310
 msgid "Key restart level"
 msgstr "Taste Level wiederholen"
 
-#: src/settings.cpp:666
+#: src/settings.cpp:671
 msgid "Show license and quit"
 msgstr "Zeige Lizenz und beende"
 
-#: src/settings.cpp:667
+#: src/settings.cpp:672
 msgid "Show some debug messages"
 msgstr "Anzeige des Fehlerprotokolls"
 
-#: src/settings.cpp:668
+#: src/settings.cpp:673
 msgid "Load default settings"
 msgstr "Voreinstellungen laden"
 
-#: src/settings.cpp:669
+#: src/settings.cpp:674
 msgid "Cave names"
 msgstr "Höhlen-Namen"
 
-#: src/settings.cpp:672
+#: src/settings.cpp:677
 msgid "[FILE NAME]"
 msgstr "[DATEINAME]"
 
-#: src/editor/exporthtml.cpp:58
-msgid "Saving HTML Gallery"
-msgstr "Speichere als HTML-Galerie"
-
-#: src/editor/exporthtml.cpp:113
+#: src/editor/exporthtml.cpp:101
 msgid "Caves"
 msgstr "Höhlen"
 
-#: src/editor/exporthtml.cpp:189
+#: src/editor/exporthtml.cpp:170
 msgid "Type"
 msgstr "Art"
 
-#: src/editor/exporthtml.cpp:189
+#: src/editor/exporthtml.cpp:170
 msgid "Normal cave"
 msgstr "Normale Höhle"
 
-#: src/editor/exporthtml.cpp:192
+#: src/editor/exporthtml.cpp:173
 msgid "Diamond value"
 msgstr "Diamanten-Wert"
 
-#: src/editor/exporthtml.cpp:193
+#: src/editor/exporthtml.cpp:174
 msgid "Extra diamond value"
 msgstr "Extra-Diamanten-Wert"
 
-#: src/editor/exporthtml.cpp:196
+#: src/editor/exporthtml.cpp:177
 msgid "Amoeba threshold and time (s)"
 msgstr "Amöbe Ansprechwert und Zeit (s)"
 
-#: src/editor/exporthtml.cpp:198
+#: src/editor/exporthtml.cpp:179
 msgid "Magic wall milling time (s)"
 msgstr "Zaubermauerzeit (s)"
 
-#: src/editor/editorautowidgets.cpp:348
+#: src/editor/editorautowidgets.cpp:339
 #, c-format
 msgid "Level %d"
 msgstr "Level %d"
 
-#: src/editor/editorautowidgets.cpp:428
+#: src/editor/editorautowidgets.cpp:421
 #, c-format
 msgid ""
 "\n"
@@ -7053,194 +7073,194 @@ msgstr ""
 "\n"
 "Standardwert: %s"
 
-#: src/editor/editor.cpp:163 src/editor/editor.cpp:167
+#: src/editor/editor.cpp:177 src/editor/editor.cpp:181
 msgid "Border"
 msgstr "Rand"
 
-#: src/editor/editor.cpp:163 src/editor/editor.cpp:166
-#: src/editor/editor.cpp:167
+#: src/editor/editor.cpp:177 src/editor/editor.cpp:180
+#: src/editor/editor.cpp:181
 msgid "Fill"
 msgstr "Fülle"
 
-#: src/editor/editor.cpp:165
+#: src/editor/editor.cpp:179
 msgid "Find"
 msgstr "Suche"
 
-#: src/editor/editor.cpp:168 src/editor/editor.cpp:169
-#: src/editor/editor.cpp:170
+#: src/editor/editor.cpp:182 src/editor/editor.cpp:183
+#: src/editor/editor.cpp:184
 msgid "Wall"
 msgstr "Mauer"
 
-#: src/editor/editor.cpp:168 src/editor/editor.cpp:169
-#: src/editor/editor.cpp:170
+#: src/editor/editor.cpp:182 src/editor/editor.cpp:183
+#: src/editor/editor.cpp:184
 msgid "Path"
 msgstr "Pfad"
 
-#: src/editor/editor.cpp:182
+#: src/editor/editor.cpp:196
 msgid "_Point"
 msgstr "_Punkt"
 
-#: src/editor/editor.cpp:182
+#: src/editor/editor.cpp:196
 msgid "Draw single element"
 msgstr "Zeichne einzelnes Element"
 
-#: src/editor/editor.cpp:183
+#: src/editor/editor.cpp:197
 msgid "_Line"
 msgstr "_Linie"
 
-#: src/editor/editor.cpp:183
+#: src/editor/editor.cpp:197
 msgid "Draw line of elements"
 msgstr "Zeichne Elemente in Linienform"
 
-#: src/editor/editor.cpp:184
+#: src/editor/editor.cpp:198
 msgid "_Outline"
 msgstr "_Rechteck Umriss"
 
-#: src/editor/editor.cpp:184
+#: src/editor/editor.cpp:198
 msgid "Draw rectangle outline"
 msgstr "Zeichne Rechteck in Umrissen"
 
-#: src/editor/editor.cpp:185
+#: src/editor/editor.cpp:199
 msgid "R_ectangle"
 msgstr "R_echteck"
 
-#: src/editor/editor.cpp:185
+#: src/editor/editor.cpp:199
 msgid "Draw filled rectangle"
 msgstr "Zeichne gefülltes Rechteck"
 
-#: src/editor/editor.cpp:186
+#: src/editor/editor.cpp:200
 msgid "Ra_ster"
 msgstr "Ra_ster"
 
-#: src/editor/editor.cpp:186
+#: src/editor/editor.cpp:200
 msgid "Draw raster"
 msgstr "Zeichne Raster"
 
-#: src/editor/editor.cpp:187
+#: src/editor/editor.cpp:201
 msgid "_Join"
 msgstr "_Verbinde"
 
-#: src/editor/editor.cpp:187
+#: src/editor/editor.cpp:201
 msgid "Draw join"
 msgstr "Zeichne Verbindung"
 
-#: src/editor/editor.cpp:188
+#: src/editor/editor.cpp:202
 msgid "_Flood fill"
 msgstr "_Ersatz-Füllen"
 
-#: src/editor/editor.cpp:188
+#: src/editor/editor.cpp:202
 msgid "Fill by replacing elements"
 msgstr "Fülle mit Ersatz-Elementen"
 
-#: src/editor/editor.cpp:189
+#: src/editor/editor.cpp:203
 msgid "_Boundary fill"
 msgstr "_Eingegrenzte Füllung"
 
-#: src/editor/editor.cpp:189
+#: src/editor/editor.cpp:203
 msgid "Fill a closed area"
 msgstr "Fülle eine eingegrenzte Fläche"
 
-#: src/editor/editor.cpp:190
+#: src/editor/editor.cpp:204
 msgid "Ma_ze"
 msgstr "Irr_garten"
 
-#: src/editor/editor.cpp:190
+#: src/editor/editor.cpp:204
 msgid "Draw maze"
 msgstr "Zeichne Irrgarten"
 
-#: src/editor/editor.cpp:191
+#: src/editor/editor.cpp:205
 msgid "U_nicursal maze"
 msgstr "U_nikursaler Irrgarten"
 
-#: src/editor/editor.cpp:191
+#: src/editor/editor.cpp:205
 msgid "Draw unicursal maze"
 msgstr "Zeichne unikursalen Irrgarten"
 
-#: src/editor/editor.cpp:192
+#: src/editor/editor.cpp:206
 msgid "Bra_id maze"
 msgstr "Sack_gassenfreier Irrgarten"
 
-#: src/editor/editor.cpp:192
+#: src/editor/editor.cpp:206
 msgid "Draw braid maze"
 msgstr "Zeichne Irrgarten ohne Sackgassen"
 
-#: src/editor/editor.cpp:193
+#: src/editor/editor.cpp:207
 msgid "R_andom fill"
 msgstr "Z_ufällige Füllung"
 
-#: src/editor/editor.cpp:193
+#: src/editor/editor.cpp:207
 msgid "Draw random elements"
 msgstr "Zeichne zufällige Elemente"
 
-#: src/editor/editor.cpp:194
+#: src/editor/editor.cpp:208
 msgid "_Copy and Paste"
 msgstr "_Kopieren und Einfügen"
 
-#: src/editor/editor.cpp:194
+#: src/editor/editor.cpp:208
 msgid "Copy and paste area"
 msgstr "Bereich kopieren und einfügen"
 
-#: src/editor/editor.cpp:196
+#: src/editor/editor.cpp:210
 msgid "_Move"
 msgstr "_Bewege"
 
-#: src/editor/editor.cpp:196
+#: src/editor/editor.cpp:210
 msgid "Move object"
 msgstr "Bewege Objekt"
 
-#: src/editor/editor.cpp:197
+#: src/editor/editor.cpp:211
 msgid "F_reehand"
 msgstr "F_reihand"
 
-#: src/editor/editor.cpp:197
+#: src/editor/editor.cpp:211
 msgid "Draw freely"
 msgstr "Freies Zeichnen"
 
-#: src/editor/editor.cpp:198
+#: src/editor/editor.cpp:212
 msgid "Set _visible region"
 msgstr "_Sichtbaren Bereich einstellen"
 
-#: src/editor/editor.cpp:198
+#: src/editor/editor.cpp:212
 msgid "Select visible region of cave during play"
 msgstr "Wähle den während des Spiels sichtbaren Bereich der Höhle"
 
-#: src/editor/editor.cpp:213
+#: src/editor/editor.cpp:220
 msgid "All levels"
 msgstr "alle Level"
 
-#: src/editor/editor.cpp:214
+#: src/editor/editor.cpp:221
 msgid "Level 2 and up"
 msgstr "Level 2 und höher"
 
-#: src/editor/editor.cpp:215
+#: src/editor/editor.cpp:222
 msgid "Level 3 and up"
 msgstr "Level 3 und höher"
 
-#: src/editor/editor.cpp:216
+#: src/editor/editor.cpp:223
 msgid "Level 4 and up"
 msgstr "Level 4 und höher"
 
-#: src/editor/editor.cpp:217
+#: src/editor/editor.cpp:224
 msgid "Level 5 only"
 msgstr "nur Level 5"
 
-#: src/editor/editor.cpp:371
+#: src/editor/editor.cpp:356
 #, c-format
 msgid "%d object selected"
 msgid_plural "%d objects selected"
 msgstr[0] "%d Objekt ausgewählt"
 msgstr[1] "%d Objekte ausgewählt"
 
-#: src/editor/editor.cpp:580
+#: src/editor/editor.cpp:552
 #, c-format
 msgid "GDash Cave Editor - %s"
 msgstr "GDash Höhlen-Editor - %s"
 
-#: src/editor/editor.cpp:706
+#: src/editor/editor.cpp:666
 msgid "Cave Properties"
 msgstr "Höhlen-Eigenschaften"
 
-#: src/editor/editor.cpp:759
+#: src/editor/editor.cpp:720
 msgid ""
 "You have changed the size of the cave. Please check the size of the visible "
 "region!"
@@ -7248,7 +7268,7 @@ msgstr ""
 "Sie haben die Größe der Höhle verwändert. Bitte prüfen Sie die Größe des "
 "sichtbaren Bereichs!"
 
-#: src/editor/editor.cpp:760
+#: src/editor/editor.cpp:721
 msgid ""
 "The visible area of the cave during the game can be smaller than the whole "
 "cave. If you resize the cave, the area to be shown cannot be guessed "
@@ -7263,59 +7283,59 @@ msgstr ""
 "Bereich. Verwenden Sie mit dem Maus-Cursor ziehen und fallenlassen um die "
 "Position und Größe des Rechtecks zu ändern."
 
-#: src/editor/editor.cpp:775
+#: src/editor/editor.cpp:735
 msgid "Cave Set Properties"
 msgstr "Höhlensatz-Eigenschaften"
 
-#: src/editor/editor.cpp:800
+#: src/editor/editor.cpp:760
 #, c-format
 msgid "<b>%ms</b>, %s, %dx%d, time %d:%02d, diamonds %d"
 msgstr "<b>%ms</b>, %s, %dx%d, Zeit %d:%02d, Diamanten %d"
 
-#: src/editor/editor.cpp:802
+#: src/editor/editor.cpp:762
 msgid "selectable"
 msgstr "auswählbar"
 
-#: src/editor/editor.cpp:802
+#: src/editor/editor.cpp:762
 msgid "not selectable"
 msgstr "nicht auswählbar"
 
-#: src/editor/editor.cpp:828
+#: src/editor/editor.cpp:775
 #, c-format
 msgid "<b>%ms</b>, %d cave"
 msgid_plural "<b>%ms</b>, %d caves"
 msgstr[0] "<b>%ms</b>, %d Höhle"
 msgstr[1] "<b>%ms</b>, %d Höhlen"
 
-#: src/editor/editor.cpp:917
+#: src/editor/editor.cpp:854
 msgid "Object Properties"
 msgstr "Objekt-Eigenschaften"
 
-#: src/editor/editor.cpp:928
+#: src/editor/editor.cpp:864
 msgid "The object should be visible on at least one level."
 msgstr "Das Objekt sollte zumindest in einem Level sichtbar sein."
 
-#: src/editor/editor.cpp:928
+#: src/editor/editor.cpp:864
 msgid "Enabled this object on all levels."
 msgstr "Schalte dieses Objekt in allen Levels ein."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:1673
+#: src/editor/editor.cpp:1573
 msgid "Cave Name"
 msgstr "Höhlen-Name"
 
-#: src/editor/editor.cpp:1759
+#: src/editor/editor.cpp:1646
 #, c-format
 msgid "%d cave selected"
 msgid_plural "%d caves selected"
 msgstr[0] "%d Höhle ausgewählt"
 msgstr[1] "%d Höhlen ausgewählt"
 
-#: src/editor/editor.cpp:1972
+#: src/editor/editor.cpp:1919
 msgid "Cave Random Fill"
 msgstr "Zufällige Füllung der Höhle"
 
-#: src/editor/editor.cpp:1978
+#: src/editor/editor.cpp:1924
 msgid ""
 "Hint: The random fill works by generating a random number between 0 and 255, "
 "then choosing an element from the list above. If the number generated is "
@@ -7332,47 +7352,41 @@ msgstr ""
 "ausgewählt usw. GDash wird dafür sorgen, daß die Wahrscheinlichkeitswerte in "
 "absteigender Reihenfolge erzeugt werden."
 
-#: src/editor/editor.cpp:2012
+#: src/editor/editor.cpp:1949
 msgid "Save Cave as PNG Image"
 msgstr "Speichere Höhle als PNG-Bild"
 
-#: src/editor/editor.cpp:2019
+#: src/editor/editor.cpp:1956
 msgid "PNG files"
 msgstr "PNG-Dateien"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2081
+#: src/editor/editor.cpp:1987
 msgid "Cave Overview"
 msgstr "Höhlen-Karte"
 
-#: src/editor/editor.cpp:2082
+#: src/editor/editor.cpp:1988
 msgid "Save as _PNG"
 msgstr "Speichere als _PNG"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2149
+#: src/editor/editor.cpp:2079
 msgid "Element Statistics"
 msgstr "Elemente-Statistik"
 
-#: src/editor/editor.cpp:2156
+#: src/editor/editor.cpp:2087
 msgid "<b>Size of visible area</b>"
 msgstr "<b>Größe des sichtbaren Bereichs</b>"
 
-#. TRANSLATORS: like "visible size: 880 cells" in the cave statistics
-#: src/editor/editor.cpp:2158
-#, c-format
-msgid "%d cells"
-msgstr "%d Zellen"
-
-#: src/editor/editor.cpp:2373
+#: src/editor/editor.cpp:2302
 msgid "Cave Colors"
 msgstr "Höhlen-Farben"
 
-#: src/editor/editor.cpp:2383
+#: src/editor/editor.cpp:2312
 msgid "Set random..."
 msgstr "Zufällig verwenden von..."
 
-#: src/editor/editor.cpp:2390
+#: src/editor/editor.cpp:2319
 msgid ""
 "Hint: As the palette can be changed for C64 and Atari colors, it is not "
 "recommended to use different types together (for example, RGB color for "
@@ -7382,15 +7396,15 @@ msgstr ""
 "es nicht empfohlen, verschiedene Typen zusammen zu verwenden (z. B. RGB-"
 "Farben für den Hintergrund, Atari-Farben für den Schleim)."
 
-#: src/editor/editor.cpp:2424
+#: src/editor/editor.cpp:2352
 msgid "Do you really want to delete cave(s)?"
 msgstr "Wollen Sie die Höhle(n) wirklich löschen?"
 
-#: src/editor/editor.cpp:2424
+#: src/editor/editor.cpp:2352
 msgid "This operation cannot be undone."
 msgstr "Dieser Befehl zerstört alle Höhlen-Objekte."
 
-#: src/editor/editor.cpp:2557
+#: src/editor/editor.cpp:2467
 msgid ""
 "At least one object would have been totally hidden (not visible on any of "
 "the levels)."
@@ -7398,27 +7412,27 @@ msgstr ""
 "Zumindest eine Objekt wäre vollständig versteckt gewesen (in keinem der "
 "Levels sichtbar)."
 
-#: src/editor/editor.cpp:2557
+#: src/editor/editor.cpp:2467
 msgid "Enabled those objects on the current level."
 msgstr "Schalte dieses Objekt in allen Levels ein."
 
-#: src/editor/editor.cpp:2718
+#: src/editor/editor.cpp:2566
 msgid "Do you really want to remove cave map?"
 msgstr "Wollen Sie wirklich die Höhlen-Karte löschen?"
 
-#: src/editor/editor.cpp:2718
+#: src/editor/editor.cpp:2566
 msgid "This operation destroys all cave objects."
 msgstr "Dieser Befehl zerstört alle Höhlen-Objekte."
 
-#: src/editor/editor.cpp:2738
+#: src/editor/editor.cpp:2584
 msgid "This cave has no objects."
 msgstr "Diese Höhle hat keine Objekte."
 
-#: src/editor/editor.cpp:2742
+#: src/editor/editor.cpp:2588
 msgid "Do you really want to flatten cave?"
 msgstr "Wollen Sie wirklich die Höhle zur Karte konvertieren?"
 
-#: src/editor/editor.cpp:2742
+#: src/editor/editor.cpp:2588
 msgid ""
 "This operation merges all cave objects currently seen in a single map. "
 "Further objects may later be added, but the ones already seen will behave "
@@ -7429,56 +7443,56 @@ msgstr ""
 "bereits sichtbaren Objekte werden sich allerdings wie die zufällig gefüllten "
 "Elemente verhalten und werden dadurch nicht editierbar sein."
 
-#: src/editor/editor.cpp:2819
+#: src/editor/editor.cpp:2655
 msgid "Save Cave Set in HTML"
 msgstr "Speichere Höhlensatz als HTML-Galerie"
 
-#: src/editor/editor.cpp:2827
+#: src/editor/editor.cpp:2663
 msgid "HTML files"
 msgstr "HTML-Dateien"
 
-#: src/editor/editor.cpp:2843
+#: src/editor/editor.cpp:2680
 msgid "Errors - Saving Gallery to File"
 msgstr "Fehler beim Speichern der Galerie als Datei"
 
-#: src/editor/editor.cpp:2858
+#: src/editor/editor.cpp:2690
 msgid "Export Cave as CrLi Cave File"
 msgstr "Exportiere Höhle als CrLi-Höhlen-Datei"
 
-#: src/editor/editor.cpp:2876
+#: src/editor/editor.cpp:2709
 msgid "Errors - Exporting Cave to CrLi Format"
 msgstr "Fehler beim Exportieren der Höhle in das CrLi-Format"
 
-#: src/editor/editor.cpp:2894
+#: src/editor/editor.cpp:2719
 msgid "Export Cave as CrLi Cave Pack"
 msgstr "Exportiere Höhle als CrLi-Höhlen-Pack"
 
-#: src/editor/editor.cpp:2915
+#: src/editor/editor.cpp:2738
 msgid "Errors - Exporting Caves to File"
 msgstr "Fehler beim Exportieren der Höhlen als Datei"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2998
+#: src/editor/editor.cpp:2810
 msgid "Create New Cave"
 msgstr "Neue Höhle erzeugen"
 
-#: src/editor/editor.cpp:3009
+#: src/editor/editor.cpp:2822
 msgid "Name:"
 msgstr "Name:"
 
-#: src/editor/editor.cpp:3012
+#: src/editor/editor.cpp:2825
 msgid "New cave"
 msgstr "Neue Höhle"
 
-#: src/editor/editor.cpp:3016
+#: src/editor/editor.cpp:2829
 msgid "Description:"
 msgstr "Beschreibung:"
 
-#: src/editor/editor.cpp:3022
+#: src/editor/editor.cpp:2835
 msgid "Intermission:"
 msgstr "Zwischenspiel:"
 
-#: src/editor/editor.cpp:3024
+#: src/editor/editor.cpp:2837
 msgid ""
 "Intermission caves are usually small and fast caves, which are not required "
 "to be solved. The player will not lose a life if he is not successful. The "
@@ -7493,11 +7507,11 @@ msgstr ""
 "aktiviert, wird auch die Größe der Höhle auf 20 x 12 Felder eingestellt, da "
 "dies die Standardgröße für Zwischenspiel-Höhlen ist."
 
-#: src/editor/editor.cpp:3138
+#: src/editor/editor.cpp:2924
 msgid "Do you really want to remove unknown cave tags?"
 msgstr "Wollen Sie wirklich alle unbekannten Höhlen-Markierungen löschen?"
 
-#: src/editor/editor.cpp:3138
+#: src/editor/editor.cpp:2924
 msgid ""
 "This operation removes all unknown tags associated with all caves. Unknown "
 "tags might come from another BDCFF-compatible game or an older version of "
@@ -7510,34 +7524,34 @@ msgstr ""
 "Diese Höhlen-Optionen können von GDash nicht interpretiert werden und sind "
 "daher ohne Funktion, wenn Sie diesen Höhlensatz in diesem Programm verwenden."
 
-#: src/editor/editor.cpp:3232 src/editor/editor.cpp:3243
+#: src/editor/editor.cpp:3012 src/editor/editor.cpp:3022
 #, c-format
 msgid "%s Element"
 msgstr "%s Element"
 
-#: src/editor/editor.cpp:3236
+#: src/editor/editor.cpp:3016
 msgid "Draw Element"
 msgstr "Zeichen-Element"
 
-#: src/editor/editor.cpp:3247
+#: src/editor/editor.cpp:3026
 msgid "Fill Element"
 msgstr "Füll-Element"
 
-#: src/editor/editor.cpp:3296
+#: src/editor/editor.cpp:3064
 #, c-format
 msgid "%s: removed %d replay(s)\n"
 msgstr "%s: entfernte %d Wiederholung(en)\n"
 
-#: src/editor/editor.cpp:3302
+#: src/editor/editor.cpp:3068
 msgid "Some replays were removed."
 msgstr "Einige Wiederholungen wurden entfernt."
 
-#: src/editor/editor.cpp:3328
+#: src/editor/editor.cpp:3084
 #, c-format
 msgid "%s: marked %d replay(s) as working ones\n"
 msgstr "%s: %d Wiederholung(en) als funktionierend markiert\n"
 
-#: src/editor/editor.cpp:3334
+#: src/editor/editor.cpp:3088
 msgid ""
 "Some replay checksums were recalculated. This does not mean that those "
 "replays actually play correctly!"
@@ -7545,45 +7559,45 @@ msgstr ""
 "Einige Wiederholungs-Prüfsummen wurden neu berechnet. Das bedeutet aber "
 "nicht, dass diese Wiederholungen auch wirklich korrekt abgespielt werden!"
 
-#: src/editor/editor.cpp:3386 src/editor/editor.cpp:3399
+#: src/editor/editor.cpp:3132 src/editor/editor.cpp:3146
 msgid "Error loading image file."
 msgstr "Fehler während des Ladens der Bilddatei."
 
-#: src/editor/editor.cpp:3386
+#: src/editor/editor.cpp:3132
 msgid "Cannot recognize file format."
 msgstr "Das Dateiformat konnte nicht erkannt werden."
 
-#: src/editor/editor.cpp:3391
+#: src/editor/editor.cpp:3137
 msgid "The image selected is too big!"
 msgstr "Das ausgewählte Bild ist zu groß!"
 
-#: src/editor/editor.cpp:3391
+#: src/editor/editor.cpp:3137
 #, c-format
 msgid "Maximum sizes: %dx%d pixels"
 msgstr "Maximale Größe: %dx%d Pixel"
 
-#: src/editor/editor.cpp:3423
+#: src/editor/editor.cpp:3172
 msgid "Select Image File for Title Screen"
 msgstr "Bilddatei für Titelbild auswählen"
 
-#: src/editor/editor.cpp:3429
+#: src/editor/editor.cpp:3178
 msgid "Select Image File for Background Tile"
 msgstr "Bilddatei für Hintergrundkachel auswählen"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:3441
+#: src/editor/editor.cpp:3186
 msgid "Set Title Image"
 msgstr "Titelbild einstellen"
 
-#: src/editor/editor.cpp:3457
+#: src/editor/editor.cpp:3202
 msgid "Load _image"
 msgstr "Lade _Titel"
 
-#: src/editor/editor.cpp:3458
+#: src/editor/editor.cpp:3203
 msgid "Load _tile"
 msgstr "Lade _Kachel"
 
-#: src/editor/editor.cpp:3465
+#: src/editor/editor.cpp:3213
 #, c-format
 msgid ""
 "Recommended image sizes are 320x176 pixels for title image and 8x8 pixels "
@@ -7592,435 +7606,435 @@ msgstr ""
 "Empfohlene Bildgrößen sind 320x176 Pixel für Titelbilder und 8x8 Pixel für "
 "die scrollende Kacheln. Die maximalen Größen sind %dx%d und %dx%d."
 
-#: src/editor/editor.cpp:3487
+#: src/editor/editor.cpp:3235
 msgid "_File"
 msgstr "_Datei"
 
-#: src/editor/editor.cpp:3488
+#: src/editor/editor.cpp:3236
 msgid "_Edit"
 msgstr "_Bearbeiten"
 
-#: src/editor/editor.cpp:3489
+#: src/editor/editor.cpp:3237
 msgid "_View"
 msgstr "_Anzeige"
 
-#: src/editor/editor.cpp:3490
+#: src/editor/editor.cpp:3238
 msgid "_Tools"
 msgstr "_Werkzeuge"
 
-#: src/editor/editor.cpp:3491
+#: src/editor/editor.cpp:3239
 msgid "_Help"
 msgstr "_Hilfe"
 
-#: src/editor/editor.cpp:3492
+#: src/editor/editor.cpp:3240
 msgid "_Object"
 msgstr "_Objekt"
 
-#: src/editor/editor.cpp:3493
+#: src/editor/editor.cpp:3241
 msgid "_Cave"
 msgstr "_Höhle"
 
-#: src/editor/editor.cpp:3494
+#: src/editor/editor.cpp:3242
 msgid "Cave_set"
 msgstr "Höhlen_satz"
 
-#: src/editor/editor.cpp:3495
+#: src/editor/editor.cpp:3243
 msgid "Close cave editor"
 msgstr "Höhlen-Editor schließen"
 
-#: src/editor/editor.cpp:3496
+#: src/editor/editor.cpp:3244
 msgid "New _cave"
 msgstr "Neue _Höhle"
 
-#: src/editor/editor.cpp:3496
+#: src/editor/editor.cpp:3244
 msgid "Create new cave"
 msgstr "Neue Höhle erzeugen"
 
-#: src/editor/editor.cpp:3498
+#: src/editor/editor.cpp:3246
 msgid "_Editor help"
 msgstr "_Editor-Hilfe"
 
-#: src/editor/editor.cpp:3499
+#: src/editor/editor.cpp:3247
 msgid "Save cave set to file"
 msgstr "Speichere Höhlensatz in die Datei"
 
-#: src/editor/editor.cpp:3500
+#: src/editor/editor.cpp:3248
 msgid "Save cave set as new file"
 msgstr "Speichere Höhlensatz as neue Datei"
 
-#: src/editor/editor.cpp:3501
+#: src/editor/editor.cpp:3249
 msgid "Load cave set from file"
 msgstr "Lade Höhlensatz von der Datei"
 
-#: src/editor/editor.cpp:3502
+#: src/editor/editor.cpp:3250
 msgid "Load shipped cave set from file"
 msgstr "Lade mitgelieferten Höhlensatz von der Datei"
 
-#: src/editor/editor.cpp:3503
+#: src/editor/editor.cpp:3251
 msgid "Select all items"
 msgstr "Alle Objekte auswählen"
 
-#: src/editor/editor.cpp:3504
+#: src/editor/editor.cpp:3252
 msgid "Cave set _properties"
 msgstr "Höhlensatz-_Eigenschaften"
 
-#: src/editor/editor.cpp:3504
+#: src/editor/editor.cpp:3252
 msgid "Set properties of cave set"
 msgstr "Eigenschaften des Höhlensatzes einstellen"
 
-#: src/editor/editor.cpp:3505
+#: src/editor/editor.cpp:3253
 msgid "Cave set _title image"
 msgstr "Höhlensatz-_Titelbild"
 
-#: src/editor/editor.cpp:3505
+#: src/editor/editor.cpp:3253
 msgid "Set caveset title image"
 msgstr "Höhlensatz-Titelbild einstellen"
 
-#: src/editor/editor.cpp:3511
+#: src/editor/editor.cpp:3259
 msgid "_Role in caveset"
 msgstr "_Verhalten im Höhlensatz"
 
-#: src/editor/editor.cpp:3512
+#: src/editor/editor.cpp:3260
 msgid "_Edit cave"
 msgstr "Höhle _bearbeiten"
 
-#: src/editor/editor.cpp:3512
+#: src/editor/editor.cpp:3260
 msgid "Edit selected cave"
 msgstr "Ausgewählte Höhle editieren"
 
-#: src/editor/editor.cpp:3513
+#: src/editor/editor.cpp:3261
 msgid "_Rename cave"
 msgstr "Höhle _umbenennen"
 
-#: src/editor/editor.cpp:3513
+#: src/editor/editor.cpp:3261
 msgid "Rename selected cave"
 msgstr "Ausgewählte Höhle umbenennen"
 
-#: src/editor/editor.cpp:3514
+#: src/editor/editor.cpp:3262
 msgid "Make cave _selectable"
 msgstr "Höhle als _auswählbar markieren"
 
-#: src/editor/editor.cpp:3514
+#: src/editor/editor.cpp:3262
 msgid "Make the cave selectable as game start"
 msgstr "Die Höhle zum Spielstart auswählbar machen"
 
-#: src/editor/editor.cpp:3515
+#: src/editor/editor.cpp:3263
 msgid "Make cave _unselectable"
 msgstr "Höhle als _nicht auswählbar markieren"
 
-#: src/editor/editor.cpp:3515
+#: src/editor/editor.cpp:3263
 msgid "Make the cave unselectable as game start"
 msgstr "Die Höhle zum Spielstart nicht auswählbar machen"
 
-#: src/editor/editor.cpp:3520
+#: src/editor/editor.cpp:3268
 msgid "_New cave set"
 msgstr "_Neuer Höhlensatz"
 
-#: src/editor/editor.cpp:3520
+#: src/editor/editor.cpp:3268
 msgid "Create new cave set with no caves"
 msgstr "Einen neuen Höhlensatz ohne Höhlen erstellen"
 
-#: src/editor/editor.cpp:3521
+#: src/editor/editor.cpp:3269
 msgid "Save _HTML gallery"
 msgstr "Speichere als HTML-_Galerie"
 
-#: src/editor/editor.cpp:3521
+#: src/editor/editor.cpp:3269
 msgid "Save game in a HTML gallery"
 msgstr "Speichere das Spiel in eine HTML-Galerie"
 
-#: src/editor/editor.cpp:3522
+#: src/editor/editor.cpp:3270
 msgid "Export _CrLi cave pack"
 msgstr "Exportiere als _CrLi-Höhlen-Pack"
 
-#: src/editor/editor.cpp:3523
+#: src/editor/editor.cpp:3271
 msgid "_Selectable caves"
 msgstr "Au_swählbare Höhlen"
 
-#: src/editor/editor.cpp:3524
+#: src/editor/editor.cpp:3272
 msgid "All _caves"
 msgstr "Alle _Höhlen"
 
-#: src/editor/editor.cpp:3524
+#: src/editor/editor.cpp:3272
 msgid "Make all caves selectable as game start"
 msgstr "Alle Höhlen zum Spielstart als auswählbar markieren"
 
-#: src/editor/editor.cpp:3525
+#: src/editor/editor.cpp:3273
 msgid "All _but intermissions"
 msgstr "Alle _außer den Zwischenspielen"
 
-#: src/editor/editor.cpp:3525
+#: src/editor/editor.cpp:3273
 msgid "Make all caves but intermissions selectable as game start"
 msgstr "Alle Höhlen außer den Zwischenspielen zum Spielstart auswählbar machen"
 
-#: src/editor/editor.cpp:3526
+#: src/editor/editor.cpp:3274
 msgid "All _after intermissions"
 msgstr "Alle _nach Zwischenspielen"
 
-#: src/editor/editor.cpp:3526
+#: src/editor/editor.cpp:3274
 msgid "Make all caves after intermissions selectable as game start"
 msgstr "Alle Höhlen nach Zwischenspielen zum Spielstart auswählbar machen"
 
-#: src/editor/editor.cpp:3527
+#: src/editor/editor.cpp:3275
 msgid "Remove all unknown tags"
 msgstr "Alle unbekannten Markierungen entfernen"
 
-#: src/editor/editor.cpp:3527
+#: src/editor/editor.cpp:3275
 msgid "Removes all unknown tags found in the BDCFF file"
 msgstr "Entfernt alle unbekannten Markierungen in der BDCFF-Datei"
 
-#: src/editor/editor.cpp:3528
+#: src/editor/editor.cpp:3276
 msgid "Remove bad replays"
 msgstr "Ungültige Wiederholungen entfernen"
 
-#: src/editor/editor.cpp:3528
+#: src/editor/editor.cpp:3276
 msgid "Removes replays which won't play as they have their caves modified."
 msgstr ""
 "Entfernt Wiederholungen, die nicht abgespielt werden können, da die "
 "dazugehörigen Höhlen verändert wurden."
 
-#: src/editor/editor.cpp:3529
+#: src/editor/editor.cpp:3277
 msgid "Fix replay checksums"
 msgstr "Wiederholungen-Prüfsummen reparieren"
 
-#: src/editor/editor.cpp:3529
+#: src/editor/editor.cpp:3277
 msgid "Treats all replays with wrong checksums as working ones."
 msgstr ""
 "Behandelt alle Wiederholungen mit falscher Prüfsumme wie funktionierende "
 "Wiederholungen."
 
-#: src/editor/editor.cpp:3534
+#: src/editor/editor.cpp:3282
 msgid "_Map"
 msgstr "_Karte"
 
-#: src/editor/editor.cpp:3535
+#: src/editor/editor.cpp:3283
 msgid "_Export as CrLi cave file"
 msgstr "E_xportiere als CrLi-Höhlen-Datei"
 
-#: src/editor/editor.cpp:3536
+#: src/editor/editor.cpp:3284
 msgid "Open cave selector"
 msgstr "Höhlen-Index"
 
-#: src/editor/editor.cpp:3537
+#: src/editor/editor.cpp:3285
 msgid "_Next cave"
 msgstr "N_ächste Höhle"
 
-#: src/editor/editor.cpp:3537
+#: src/editor/editor.cpp:3285
 msgid "Next cave"
 msgstr "Nächste Höhle"
 
-#: src/editor/editor.cpp:3538
+#: src/editor/editor.cpp:3286
 msgid "_Previous cave"
 msgstr "_Vorherige Höhle"
 
-#: src/editor/editor.cpp:3538
+#: src/editor/editor.cpp:3286
 msgid "Previous cave"
 msgstr "Vorherige Höhle"
 
-#: src/editor/editor.cpp:3539
+#: src/editor/editor.cpp:3287
 msgid "_Test"
 msgstr "_Test"
 
-#: src/editor/editor.cpp:3540
+#: src/editor/editor.cpp:3288
 msgid "Ca_ve properties"
 msgstr "_Höhlen-Eigenschaften"
 
-#: src/editor/editor.cpp:3540
+#: src/editor/editor.cpp:3288
 msgid "Cave settings"
 msgstr "Höhlen-Eigenschaften"
 
-#: src/editor/editor.cpp:3541
+#: src/editor/editor.cpp:3289
 msgid "_Element statistics"
 msgstr "_Elemente-Statistik"
 
-#: src/editor/editor.cpp:3541
+#: src/editor/editor.cpp:3289
 msgid "Element statistics: number and ratio of elements"
 msgstr "Element-Statistiken: Anzahl und Verhältnis der Elemente"
 
-#: src/editor/editor.cpp:3542
+#: src/editor/editor.cpp:3290
 msgid "Set engine defaults"
 msgstr "Engine Standardwerte einstellen"
 
-#: src/editor/editor.cpp:3543
+#: src/editor/editor.cpp:3291
 msgid "Cave co_lors"
 msgstr "Höhlen-F_arben"
 
-#: src/editor/editor.cpp:3543
+#: src/editor/editor.cpp:3291
 msgid "Select cave colors"
 msgstr "Wähle Höhlen-Farben aus"
 
-#: src/editor/editor.cpp:3544
+#: src/editor/editor.cpp:3292
 msgid "Convert to map"
 msgstr "Zur Karte konvertieren"
 
-#: src/editor/editor.cpp:3544
+#: src/editor/editor.cpp:3292
 msgid "Flatten cave to a single cave map without objects"
 msgstr "Höhle zu einer einzigen Höhlen-Karte ohne Objekte ebnen"
 
-#: src/editor/editor.cpp:3545
+#: src/editor/editor.cpp:3293
 msgid "O_verview"
 msgstr "_Vorschau"
 
-#: src/editor/editor.cpp:3545
+#: src/editor/editor.cpp:3293
 msgid "Full screen overview of cave"
 msgstr "Vollbild-Karte der Höhle"
 
-#: src/editor/editor.cpp:3546
+#: src/editor/editor.cpp:3294
 msgid "O_verview (simple)"
 msgstr "V_orschau (nahezu wie im Spiel)"
 
-#: src/editor/editor.cpp:3546
+#: src/editor/editor.cpp:3294
 msgid "Full screen overview of cave almost as in game"
 msgstr "Vollbild-Karte der Höhle, wie sie annähernd im Spiel erscheint"
 
-#: src/editor/editor.cpp:3547
+#: src/editor/editor.cpp:3295
 msgid "_Auto shrink"
 msgstr "_Automatische Anpassung"
 
-#: src/editor/editor.cpp:3547
+#: src/editor/editor.cpp:3295
 msgid "Automatically set the visible region of the cave"
 msgstr "Den sichtbaren Bereich der Höhle automatisch einstellen"
 
-#: src/editor/editor.cpp:3552
+#: src/editor/editor.cpp:3300
 msgid "Send to _back"
 msgstr "In den _Hintergrund stellen"
 
-#: src/editor/editor.cpp:3552
+#: src/editor/editor.cpp:3300
 msgid "Send object to bottom of object list (draw first)"
 msgstr "Verschiebe Objekt in der Objekt-Liste nach unten (zuerst zeichnen)"
 
-#: src/editor/editor.cpp:3553
+#: src/editor/editor.cpp:3301
 msgid "Bring to _front"
 msgstr "In den _Vordergrund stellen"
 
-#: src/editor/editor.cpp:3553
+#: src/editor/editor.cpp:3301
 msgid "Bring object to front of object list (drawn last)"
 msgstr "Verschiebe Objekt in der Objekt-Liste nach oben (zuletzt zeichnen)"
 
-#: src/editor/editor.cpp:3554
+#: src/editor/editor.cpp:3302
 msgid "Show on this level"
 msgstr "In diesem Level anzeigen"
 
-#: src/editor/editor.cpp:3554
+#: src/editor/editor.cpp:3302
 msgid "Enable object on currently visible level"
 msgstr "Schaltet dieses Objekt im momentan ausgewählten Level ein."
 
-#: src/editor/editor.cpp:3555
+#: src/editor/editor.cpp:3303
 msgid "Hide on this level"
 msgstr "In diesem Level ausblenden"
 
-#: src/editor/editor.cpp:3555
+#: src/editor/editor.cpp:3303
 msgid "Disable object on currently visible level"
 msgstr "Schaltet dieses Objekt im momentan ausgewählten Level aus."
 
-#: src/editor/editor.cpp:3556
+#: src/editor/editor.cpp:3304
 msgid "Only on this level"
 msgstr "Nur in diesem Level"
 
-#: src/editor/editor.cpp:3556
+#: src/editor/editor.cpp:3304
 msgid "Enable object only on the currently visible level"
 msgstr "Schaltet dieses Objekt nur im momentan ausgewählten Level ein."
 
-#: src/editor/editor.cpp:3557
+#: src/editor/editor.cpp:3305
 msgid "Show on all levels"
 msgstr "In allen Levels anzeigen"
 
-#: src/editor/editor.cpp:3557
+#: src/editor/editor.cpp:3305
 msgid "Enable object on all levels"
 msgstr "Schaltet dieses Objekt in allen Levels ein."
 
-#: src/editor/editor.cpp:3561
+#: src/editor/editor.cpp:3309
 msgid "Ob_ject properties"
 msgstr "Ob_jekt-Eigenschaften"
 
-#: src/editor/editor.cpp:3561
+#: src/editor/editor.cpp:3309
 msgid "Set object properties"
 msgstr "Objekt-Eigenschaften"
 
-#: src/editor/editor.cpp:3566
+#: src/editor/editor.cpp:3314
 msgid "Shift _left"
 msgstr "Nach _links verschieben"
 
-#: src/editor/editor.cpp:3567
+#: src/editor/editor.cpp:3315
 msgid "Shift _right"
 msgstr "Nach _rechts verschieben"
 
-#: src/editor/editor.cpp:3568
+#: src/editor/editor.cpp:3316
 msgid "Shift _up"
 msgstr "Nach _oben verschieben"
 
-#: src/editor/editor.cpp:3569
+#: src/editor/editor.cpp:3317
 msgid "Shift _down"
 msgstr "Nach _unten verschieben"
 
-#: src/editor/editor.cpp:3570
+#: src/editor/editor.cpp:3318
 msgid "Remove m_ap"
 msgstr "K_arte entfernen"
 
-#: src/editor/editor.cpp:3570
+#: src/editor/editor.cpp:3318
 msgid "Remove cave map, if it has one"
 msgstr "Lösche Höhlen-Karte, falls eine vorhanden ist"
 
-#: src/editor/editor.cpp:3575
+#: src/editor/editor.cpp:3323
 msgid "Setup cave _random fill"
 msgstr "_Zufällige Füllung der Höhle einstellen"
 
-#: src/editor/editor.cpp:3575
+#: src/editor/editor.cpp:3323
 msgid "Setup initial fill random elements for the cave"
 msgstr "Anfängliche Füllung der zufälligen Elemente für die Höhle einstellen"
 
-#: src/editor/editor.cpp:3580
+#: src/editor/editor.cpp:3328
 msgid "Cut to clipboard"
 msgstr "Objekt in die Zwischenablage ausschneiden"
 
-#: src/editor/editor.cpp:3581
+#: src/editor/editor.cpp:3329
 msgid "Copy to clipboard"
 msgstr "Objekt in die Zwischenablage kopieren"
 
-#: src/editor/editor.cpp:3582
+#: src/editor/editor.cpp:3330
 msgid "Delete"
 msgstr "Löschen"
 
-#: src/editor/editor.cpp:3587
+#: src/editor/editor.cpp:3335
 msgid "Paste object from clipboard"
 msgstr "Objekt aus der Zwischenablage einfügen"
 
-#: src/editor/editor.cpp:3592
+#: src/editor/editor.cpp:3340
 msgid "Undo last action"
 msgstr "Letzte Aktion rückgängig machen"
 
-#: src/editor/editor.cpp:3597
+#: src/editor/editor.cpp:3345
 msgid "Redo last action"
 msgstr "Letzte Aktion wiederherstellen"
 
-#: src/editor/editor.cpp:3607
+#: src/editor/editor.cpp:3355
 msgid "_Animated view"
 msgstr "_Animierte Ansicht"
 
-#: src/editor/editor.cpp:3608
+#: src/editor/editor.cpp:3356
 msgid "_Colored objects"
 msgstr "_Eingefärbte Objekte"
 
-#: src/editor/editor.cpp:3608
+#: src/editor/editor.cpp:3356
 msgid "Cave objects are colored"
 msgstr "Die Objekte der Höhle sind eingefärbt"
 
-#: src/editor/editor.cpp:3609
+#: src/editor/editor.cpp:3357
 msgid "_Object list"
 msgstr "_Objekt-Liste"
 
-#: src/editor/editor.cpp:3609
+#: src/editor/editor.cpp:3357
 msgid "Object list sidebar"
 msgstr "Objekt-Liste Seitenleiste"
 
-#: src/editor/editor.cpp:3957
+#: src/editor/editor.cpp:3696
 msgid "Level shown:"
 msgstr "Angezeigter Level:"
 
-#: src/editor/editor.cpp:3966
+#: src/editor/editor.cpp:3705
 msgid "Draw on:"
 msgstr "Zeichne in:"
 
-#: src/editor/editor.cpp:3971
+#: src/editor/editor.cpp:3710
 msgid ""
 "Element used to draw points, lines, and rectangles. You can use middle-click "
 "to pick one from the cave."
@@ -8029,7 +8043,7 @@ msgstr ""
 "Rechtecken verwendet. Mit der mittleren Maustaste lässt sich ein Element aus "
 "der aktuellen Höhle auswählen."
 
-#: src/editor/editor.cpp:3976
+#: src/editor/editor.cpp:3715
 msgid ""
 "Element used to fill rectangles, and second element of joins. You can use "
 "Ctrl + middle-click to pick one from the cave."
@@ -8038,7 +8052,7 @@ msgstr ""
 "eine Verbindung verwendet. Mit CTRL + mittlere Maustaste lässt sich ein "
 "Element aus der aktuellen Höhle auswählen."
 
-#: src/editor/editor.cpp:4013
+#: src/editor/editor.cpp:3753
 msgid "_Objects"
 msgstr "_Objekte"
 
@@ -8047,40 +8061,40 @@ msgid "Select Color"
 msgstr "Wähle Farbe"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editorwidgets.cpp:185
+#: src/editor/editorwidgets.cpp:178
 msgid "Select Atari Color"
 msgstr "Wähle Atari-Farbe"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editorwidgets.cpp:190
+#: src/editor/editorwidgets.cpp:183
 msgid "Select C64 DTV Color"
 msgstr "Wähle C64DTV-Farbe"
 
-#: src/editor/editorwidgets.cpp:288
+#: src/editor/editorwidgets.cpp:271
 msgid "C64 Colors"
 msgstr "C64-Farben"
 
-#: src/editor/editorwidgets.cpp:301
+#: src/editor/editorwidgets.cpp:282
 msgid "Atari color..."
 msgstr "Atari-Farbe..."
 
-#: src/editor/editorwidgets.cpp:303
+#: src/editor/editorwidgets.cpp:284
 msgid "C64DTV color..."
 msgstr "C64DTV-Farbe..."
 
-#: src/editor/editorwidgets.cpp:305
+#: src/editor/editorwidgets.cpp:286
 msgid "RGB color..."
 msgstr "RGB-Farbe..."
 
-#: src/editor/editorwidgets.cpp:528
+#: src/editor/editorwidgets.cpp:480
 msgid "Normal elements"
 msgstr "Normale Elemente"
 
-#: src/editor/editorwidgets.cpp:535
+#: src/editor/editorwidgets.cpp:488
 msgid "For effects"
 msgstr "Für Effekte"
 
-#: src/editor/editorwidgets.cpp:630
+#: src/editor/editorwidgets.cpp:553
 msgid "Elements"
 msgstr "Elemente"
 
@@ -8089,6 +8103,13 @@ msgstr "Elemente"
 #: src/gfx/pixbuffactory.cpp:36
 msgid "Nearest neighbor"
 msgstr "Nächstgelegener Nachbar"
+
+#~ msgid "Saving HTML Gallery"
+#~ msgstr "Speichere als HTML-Galerie"
+
+#, c-format
+#~ msgid "%d cells"
+#~ msgstr "%d Zellen"
 
 #~ msgid ""
 #~ "Software scaling method used. Only effective for the GTK+ and the SDL "

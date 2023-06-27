@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
-"Report-Msgid-Bugs-To: https://bitbucket.org/czirkoszoltan/gdash\n"
-"POT-Creation-Date: 2018-01-29 08:38+0100\n"
+"Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
+"POT-Creation-Date: 2023-06-27 11:15+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -16,115 +16,116 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/gtk/gtkuisettings.cpp:59 src/gtk/gtkui.cpp:119
+#: src/gtk/gtkuisettings.cpp:53 src/gtk/gtkui.cpp:114
 msgid "All image files"
 msgstr "Összes képfájl"
 
-#: src/gtk/gtkuisettings.cpp:117
+#: src/gtk/gtkuisettings.cpp:102
 msgid "Add Theme from Image File"
 msgstr "Téma hozzáadása képfájlból"
 
-#: src/gtk/gtkuisettings.cpp:130
+#: src/gtk/gtkuisettings.cpp:115
 msgid "Overwrite file?"
 msgstr "Felülírjam a fájlt?"
 
-#: src/gtk/gtkuisettings.cpp:146
+#: src/gtk/gtkuisettings.cpp:131
 msgid "The new theme is installed."
 msgstr "Az új téma telepítve van."
 
-#: src/gtk/gtkuisettings.cpp:154
+#: src/gtk/gtkuisettings.cpp:139
 msgid "The selected image cannot be used as a GDash theme."
 msgstr "Ezt a képet nem lehet GDash témaként használni."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkuisettings.cpp:172
+#: src/gtk/gtkuisettings.cpp:157
 msgid "Select Key"
 msgstr "Billentyű kiválasztása"
 
-#: src/gtk/gtkuisettings.cpp:180
+#: src/gtk/gtkuisettings.cpp:162
+#, c-format
 msgid "Press key for action: <b>%s</b>"
 msgstr "Nyomd meg a billentyűt a következőhöz: <b>%s</b>"
 
-#: src/gtk/gtkuisettings.cpp:205
+#: src/gtk/gtkuisettings.cpp:187
 #, c-format
 msgid "Click here to set the key for action: %s"
 msgstr "Kattints ide a billentyű kiválasztásához ehhez: %s"
 
 #. TRANSLATORS: Default (builtin) theme, shader, etc.
-#: src/gtk/gtkuisettings.cpp:270 src/settings.cpp:323
+#: src/gtk/gtkuisettings.cpp:252 src/settings.cpp:324
 msgid "[Default]"
 msgstr "[Alapértelmezett]"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkuisettings.cpp:290
+#: src/gtk/gtkuisettings.cpp:272
 msgid "GDash Preferences"
 msgstr "A GDash beállításai"
 
-#: src/gtk/gtkuisettings.cpp:379
+#: src/gtk/gtkuisettings.cpp:363
 msgid "_Add theme"
 msgstr "_Téma hozzáadása"
 
-#: src/gtk/gtkmainwindow.cpp:112
+#: src/gtk/gtkmainwindow.cpp:111
 msgid "Play"
 msgstr "Játék"
 
-#: src/gtk/gtkmainwindow.cpp:113
+#: src/gtk/gtkmainwindow.cpp:112
 msgid "File"
 msgstr "Fájl"
 
-#: src/gtk/gtkmainwindow.cpp:114 src/misc/helptext.cpp:208
+#: src/gtk/gtkmainwindow.cpp:113 src/misc/helptext.cpp:208
 msgid "Help"
 msgstr "Súgó"
 
-#: src/gtk/gtkmainwindow.cpp:116
+#: src/gtk/gtkmainwindow.cpp:115
 msgid "_Error console"
 msgstr "_Hibakonzol"
 
-#: src/gtk/gtkmainwindow.cpp:119
+#: src/gtk/gtkmainwindow.cpp:118
 msgid "Game help"
 msgstr "A játék súgója"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:119
 msgid "Caveset _information"
 msgstr "Játék _információ"
 
-#: src/gtk/gtkmainwindow.cpp:120
+#: src/gtk/gtkmainwindow.cpp:119
 msgid "Show information about the game and its caves"
 msgstr "Információ a játékról és a pályákról"
 
-#: src/gtk/gtkmainwindow.cpp:122
+#: src/gtk/gtkmainwindow.cpp:121
 msgid "Keyboard settings"
 msgstr "Billentyűzet beállításai"
 
-#: src/gtk/gtkmainwindow.cpp:122
+#: src/gtk/gtkmainwindow.cpp:121
 msgid "Set keyboard settings"
 msgstr "Az irányításhoz használt billentyűk megadása"
 
-#: src/gtk/gtkmainwindow.cpp:124
+#: src/gtk/gtkmainwindow.cpp:123
 msgid "_Sound volume"
 msgstr "_Hangerő"
 
-#: src/gtk/gtkmainwindow.cpp:126
+#: src/gtk/gtkmainwindow.cpp:125
 msgid "Cave _editor"
 msgstr "Pálya_szerkesztő"
 
-#: src/gtk/gtkmainwindow.cpp:128
+#: src/gtk/gtkmainwindow.cpp:127
 msgid "Open _recent"
 msgstr "_Legutóbbi megnyitása"
 
-#: src/gtk/gtkmainwindow.cpp:129 src/editor/editor.cpp:3502
+#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3250
 msgid "O_pen shipped"
 msgstr "_Telepített játék megnyitása"
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:131
 msgid "Hi_ghscores"
 msgstr "P_ontok"
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "Game play statistics"
 msgstr "Játszott pályák statisztikája"
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid ""
 "Shows statistics of playing caves: times played, times played successfully "
 "etc."
@@ -132,130 +133,130 @@ msgstr ""
 "A végigjátszott pályák statisztikáját mutatja: próbálkozások száma, sikeres "
 "próbálkozások stb."
 
-#: src/gtk/gtkmainwindow.cpp:134
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "Show _replays"
 msgstr "Visszajá_tszások"
 
-#: src/gtk/gtkmainwindow.cpp:134
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "List replays which are recorded for caves in this caveset"
 msgstr "A játékhoz tartozó visszajátszások listázása"
 
-#: src/gtk/gtkmainwindow.cpp:135
+#: src/gtk/gtkmainwindow.cpp:134
 msgid "Fullscreen mode"
 msgstr "Teljes képernyős mód"
 
-#: src/gtk/gtkmainwindow.cpp:139
+#: src/gtk/gtkmainwindow.cpp:138
 msgid "_Take snapshot"
 msgstr "_Pillanatfelvétel"
 
-#: src/gtk/gtkmainwindow.cpp:140
+#: src/gtk/gtkmainwindow.cpp:139
 msgid "_Revert to snapshot"
 msgstr "_Pillanatfelvétel visszatöltése"
 
-#: src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:140
 msgid "Random _colors"
 msgstr "Véletlen _színek"
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:141
 msgid "Re_start level"
 msgstr "Pálya új_rakezdése"
 
-#: src/gtk/gtkmainwindow.cpp:142 src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:141 src/gtk/gtkmainwindow.cpp:142
 msgid "Restart current level"
 msgstr "Pálya újrakezdése"
 
-#: src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "_Pause game"
 msgstr "Játék _szünet"
 
-#: src/gtk/gtkmainwindow.cpp:144
+#: src/gtk/gtkmainwindow.cpp:143
 msgid "_End game"
 msgstr "Játék vég_e"
 
-#: src/gtk/gtkmainwindow.cpp:144
+#: src/gtk/gtkmainwindow.cpp:143
 msgid "End current game"
 msgstr "Aktuális játék befejezése"
 
-#: src/gtk/gtkmainwindow.cpp:364
+#: src/gtk/gtkmainwindow.cpp:363
 msgid "GDash cannot load file from a network link."
 msgstr "A GDash nem tudja a hálózatról letölteni a fájlokat."
 
-#: src/gtk/gtkui.cpp:258
+#: src/gtk/gtkui.cpp:245
 #, c-format
 msgid "Caveset \"%s\" is edited or new replays are added. Discard changes?"
 msgstr ""
 "A(z) \"%s\" játék megváltozott vagy új visszajátszások vannak. Dobjam el a "
 "változtatásokat?"
 
-#: src/gtk/gtkui.cpp:259
+#: src/gtk/gtkui.cpp:246
 msgid "If you discard the caveset, all changes and new replays will be lost."
 msgstr ""
 "Ha eldobod a játékot, az összes változtatás és az új visszajátszások "
 "elvesznek."
 
-#: src/gtk/gtkui.cpp:263
+#: src/gtk/gtkui.cpp:250
 msgid "_Discard"
 msgstr "El_dob"
 
-#: src/gtk/gtkui.cpp:304
+#: src/gtk/gtkui.cpp:291
 msgid "Save File As"
 msgstr "Játék mentése másként"
 
-#: src/gtk/gtkui.cpp:309
+#: src/gtk/gtkui.cpp:296
 msgid "BDCFF cave sets (*.bd)"
 msgstr "BDCFF pályák (*.bd)"
 
-#: src/gtk/gtkui.cpp:313
+#: src/gtk/gtkui.cpp:300
 msgid "All files (*)"
 msgstr "Összes fájl (*)"
 
-#: src/gtk/gtkui.cpp:361
+#: src/gtk/gtkui.cpp:348
 msgid "Open File"
 msgstr "Fájl megnyitása"
 
-#: src/gtk/gtkui.cpp:365
+#: src/gtk/gtkui.cpp:352
 msgid "GDash cave sets"
 msgstr "GDash pályák"
 
-#: src/gtk/gtkui.cpp:406
+#: src/gtk/gtkui.cpp:393
 msgid "Error loading caveset."
 msgstr "Nem lehetett betölteni a pályákat."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkui.cpp:600
+#: src/gtk/gtkui.cpp:583
 msgid "GDash Help"
 msgstr "GDash Súgó"
 
-#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:163
-#: src/misc/helptext.cpp:110 src/framework/app.cpp:309
+#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164
+#: src/misc/helptext.cpp:110 src/framework/app.cpp:306
 msgid "About GDash"
 msgstr "A GDash-ről"
 
-#: src/misc/helphtml.cpp:120 src/framework/app.cpp:310
+#: src/misc/helphtml.cpp:120 src/framework/app.cpp:307
 msgid "Copyright"
 msgstr "Szerzői jog"
 
-#: src/misc/helphtml.cpp:121 src/framework/app.cpp:311
+#: src/misc/helphtml.cpp:121 src/framework/app.cpp:308
 msgid "License"
 msgstr "Licensz"
 
-#: src/misc/helphtml.cpp:122 src/framework/app.cpp:312
+#: src/misc/helphtml.cpp:122 src/framework/app.cpp:309
 msgid "Website"
 msgstr "Weboldal"
 
-#: src/misc/helphtml.cpp:130 src/framework/app.cpp:320
+#: src/misc/helphtml.cpp:130 src/framework/app.cpp:317
 msgid "Authors"
 msgstr "Szerzők"
 
-#: src/misc/helphtml.cpp:131 src/framework/app.cpp:321
+#: src/misc/helphtml.cpp:131 src/framework/app.cpp:318
 msgid "Artists"
 msgstr "Grafika"
 
-#: src/misc/helphtml.cpp:132 src/framework/app.cpp:322
+#: src/misc/helphtml.cpp:132 src/framework/app.cpp:319
 msgid "Documenters"
 msgstr "Dokumentáció"
 
-#: src/misc/helphtml.cpp:161
+#: src/misc/helphtml.cpp:162
 msgid "Table of contents"
 msgstr "Tartalom"
 
@@ -343,7 +344,7 @@ msgstr "Játék statisztika"
 
 #. TRANSLATORS: 40 chars max
 #: src/misc/helptext.cpp:96 src/misc/helptext.cpp:309
-#: src/framework/replaymenuactivity.cpp:91
+#: src/framework/replaymenuactivity.cpp:92
 msgid "Replays"
 msgstr "Visszajátszások"
 
@@ -1606,7 +1607,7 @@ msgstr ""
 "fölé. Ezek többfélék lehetnek: pontok, vonalak, téglalapok stb. Az elérhető "
 "objektumok a következőek:"
 
-#: src/misc/helptext.cpp:420 src/cave/object/caveobjectpoint.cpp:64
+#: src/misc/helptext.cpp:420 src/cave/object/caveobjectpoint.cpp:63
 msgid "Point"
 msgstr "Pont"
 
@@ -1630,7 +1631,7 @@ msgstr ""
 "rajzelemek sokkal egyszerűbbek, és az azokkal készített pályákat könnyebb "
 "szerkeszteni."
 
-#: src/misc/helptext.cpp:422 src/cave/object/caveobjectline.cpp:99
+#: src/misc/helptext.cpp:422 src/cave/object/caveobjectline.cpp:98
 msgid "Line"
 msgstr "Vonal"
 
@@ -1787,7 +1788,7 @@ msgstr "Körös labirintus"
 msgid "The maze like that in PacMan: there are no dead ends."
 msgstr "A labirintus, mint amilyen a PacMan-ben van: nincsenek zsákutcák."
 
-#: src/misc/helptext.cpp:436 src/cave/object/caveobjectrandomfill.cpp:199
+#: src/misc/helptext.cpp:436 src/cave/object/caveobjectrandomfill.cpp:198
 msgid "Random Fill"
 msgstr "Véletlen kitöltés"
 
@@ -2058,7 +2059,7 @@ msgstr ""
 "kisebb háttérképet is hozzá lehet adni, amelyből mintát készít a program, és "
 "görgeti a nagyobbik mögött."
 
-#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3539
+#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3287
 msgid "Test cave"
 msgstr "Pálya tesztelése"
 
@@ -2148,7 +2149,7 @@ msgid ""
 "IN THE SOFTWARE."
 msgstr ""
 
-#: src/misc/about.cpp:74
+#: src/misc/about.cpp:75
 msgid ""
 "The primary objective of this game is to collect required number of diamonds "
 "in defined time and exit the cave. You control your player's movement to "
@@ -2158,144 +2159,159 @@ msgstr ""
 "megadott idő alatt, és megkeresd a kijáratot. A játékos figurát te irányítod "
 "az adott feladvány megoldásához."
 
-#: src/misc/about.cpp:78
+#: src/misc/about.cpp:79
 msgid "translator-credits"
 msgstr "cirix <cirix@fw.hu>"
 
-#: src/main.cpp:86
+#: src/main.cpp:92
 msgid "Start editor"
 msgstr "Pályaszerkesztő elindítása"
 
-#: src/main.cpp:87
+#: src/main.cpp:93
 msgid "Save caveset in a HTML gallery"
 msgstr "Játék pályáinak mentése egy HTML galériában"
 
-#: src/main.cpp:88
+#: src/main.cpp:94
+#, fuzzy
+msgid "Save caveset as BDCFF plain text"
+msgstr "Játék pályáinak mentése egy BDCFF fájlban"
+
+#: src/main.cpp:95
 msgid "Link stylesheet from file to a HTML gallery, eg. \"../style.css\""
 msgstr ""
 "A megadott nevű stíluslap linkelése a HTML galériához, pl. \"../style.css\""
 
-#: src/main.cpp:89
+#: src/main.cpp:96
 msgid "Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\""
 msgstr ""
 "A megadott nevű ikon linkelése a HTML galériához, pl. \"../favicon.ico\""
 
-#: src/main.cpp:90
+#: src/main.cpp:97
 msgid "Save image of first cave to PNG"
 msgstr "Az első pálya képének mentése egy PNG fájlba"
 
-#: src/main.cpp:91
+#: src/main.cpp:98
 msgid "Set PNG image size. Default is 128x96, set to 0x0 for unscaled"
 msgstr "PNG kép méretének állítása. Alap 128x96, az eredeti mérethez 0x0"
 
-#: src/main.cpp:93
+#: src/main.cpp:100
 msgid "Save caveset in a BDCFF file"
 msgstr "Játék pályáinak mentése egy BDCFF fájlban"
 
-#: src/main.cpp:94
+#: src/main.cpp:101
 msgid ""
 "Save imported binary data to a GDS file. An input file name is required."
 msgstr ""
 "A bináris fájlból importált pályák mentése egy GDS fájlba. Egy bemeneti "
 "fájlnév is szükséges."
 
-#: src/main.cpp:96
+#: src/main.cpp:102
+#, fuzzy
+msgid "Save caveset in CrLi files"
+msgstr "Játék pályáinak mentése egy BDCFF fájlban"
+
+#: src/main.cpp:103
+#, fuzzy
+msgid "Save caveset in flattened format"
+msgstr "Játék pályáinak mentése új néven"
+
+#: src/main.cpp:105
 msgid ""
 "Save documentation in HTML, in the given language identified by an integer."
 msgstr ""
 "Dokumentáció mentése HTML fájlba, a paraméterben adott egész számmal jelölt "
 "nyelven."
 
-#: src/main.cpp:98
+#: src/main.cpp:107
 msgid "Batch mode: quit after specified tasks"
 msgstr "Kötegelt üzemmód: a megadott műveletek után kilépés"
 
-#: src/main.cpp:192
+#: src/main.cpp:212
 #, c-format
 msgid "Invalid image size: %s"
 msgstr "%s: hibás képméret"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Black"
 msgstr "Fekete"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "White"
 msgstr "Fehér"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Red"
 msgstr "Vörös"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Cyan"
 msgstr "Türkiz"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Purple"
 msgstr "Lila"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Green"
 msgstr "Zöld"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Blue"
 msgstr "Kék"
 
-#: src/cave/colors.cpp:49
+#: src/cave/colors.cpp:48
 msgid "Yellow"
 msgstr "Sárga"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Orange"
 msgstr "Narancs"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Brown"
 msgstr "Barna"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light red"
 msgstr "Rózsaszín"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Dark gray"
 msgstr "Sötétszürke"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Gray"
 msgstr "Szürke"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light green"
 msgstr "Világoszöld"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light blue"
 msgstr "Világoskék"
 
-#: src/cave/colors.cpp:50
+#: src/cave/colors.cpp:49
 msgid "Light gray"
 msgstr "Világosszürke"
 
-#: src/cave/colors.cpp:136
+#: src/cave/colors.cpp:135
 msgid "RGB colors"
 msgstr "RGB színek"
 
-#: src/cave/colors.cpp:137
+#: src/cave/colors.cpp:136
 msgid "C64 colors"
 msgstr "C64 színek"
 
-#: src/cave/colors.cpp:138
+#: src/cave/colors.cpp:137
 msgid "C64DTV colors"
 msgstr "C64DTV színek"
 
-#: src/cave/colors.cpp:139
+#: src/cave/colors.cpp:138
 msgid "Atari colors"
 msgstr "Atari színek"
 
-#: src/cave/colors.cpp:449
+#: src/cave/colors.cpp:448
 msgid "Invalid"
 msgstr "Érvénytelen"
 
@@ -2312,8 +2328,8 @@ msgid "Name of cave"
 msgstr "A pálya neve"
 
 #: src/cave/cavestored.cpp:42 src/cave/caveset.cpp:44
-#: src/framework/commands.cpp:179 src/editor/exporthtml.cpp:117
-#: src/editor/exporthtml.cpp:184
+#: src/framework/commands.cpp:164 src/editor/exporthtml.cpp:105
+#: src/editor/exporthtml.cpp:165
 msgid "Description"
 msgstr "Leírás"
 
@@ -2322,8 +2338,8 @@ msgid "Some words about the cave"
 msgstr "Néhány szó a pályáról"
 
 #: src/cave/cavestored.cpp:43 src/cave/caveset.cpp:45
-#: src/framework/commands.cpp:175 src/framework/commands.cpp:195
-#: src/editor/exporthtml.cpp:115 src/editor/exporthtml.cpp:182
+#: src/framework/commands.cpp:160 src/framework/commands.cpp:180
+#: src/editor/exporthtml.cpp:103 src/editor/exporthtml.cpp:163
 msgid "Author"
 msgstr "Szerző"
 
@@ -2332,8 +2348,8 @@ msgid "Name of author"
 msgstr "Szerző neve"
 
 #: src/cave/cavestored.cpp:44 src/cave/caveset.cpp:46
-#: src/framework/commands.cpp:177 src/framework/commands.cpp:197
-#: src/framework/replaymenuactivity.cpp:203
+#: src/framework/commands.cpp:162 src/framework/commands.cpp:182
+#: src/framework/replaymenuactivity.cpp:204
 msgid "Date"
 msgstr "Dátum"
 
@@ -2342,7 +2358,7 @@ msgid "Date of creation"
 msgstr "Létrehozás időpontja"
 
 #: src/cave/cavestored.cpp:45 src/cave/caveset.cpp:47
-#: src/editor/exporthtml.cpp:119
+#: src/editor/exporthtml.cpp:107
 msgid "WWW"
 msgstr "WWW"
 
@@ -2359,7 +2375,7 @@ msgstr "Nehézség"
 msgid "Difficulty (informative)"
 msgstr "Nehézség (informatív)"
 
-#: src/cave/cavestored.cpp:48 src/editor/exporthtml.cpp:190
+#: src/cave/cavestored.cpp:48 src/editor/exporthtml.cpp:171
 msgid "Selectable as start"
 msgstr "Kezdéskor kiválasztható"
 
@@ -2377,7 +2393,7 @@ msgid ""
 "reached."
 msgstr "Ha igaz, egy jutalom életet kap a játékos, amikor a pályát eléri."
 
-#: src/cave/cavestored.cpp:50 src/editor/exporthtml.cpp:189
+#: src/cave/cavestored.cpp:50 src/editor/exporthtml.cpp:170
 msgid "Intermission"
 msgstr "Jutalom pálya"
 
@@ -2466,8 +2482,8 @@ msgid "Font used during the game. Informative, not used by GDash."
 msgstr "A játék közben használt betűkészlet. Nem használja a GDash."
 
 #: src/cave/cavestored.cpp:63 src/cave/caveset.cpp:57
-#: src/framework/commands.cpp:181 src/editor/exporthtml.cpp:123
-#: src/editor/exporthtml.cpp:188
+#: src/framework/commands.cpp:166 src/editor/exporthtml.cpp:111
+#: src/editor/exporthtml.cpp:169
 msgid "Story"
 msgstr "Történet"
 
@@ -2478,8 +2494,8 @@ msgstr ""
 "pályához ér a felhasználó."
 
 #: src/cave/cavestored.cpp:67 src/cave/caveset.cpp:59
-#: src/framework/commands.cpp:183 src/editor/exporthtml.cpp:121
-#: src/editor/exporthtml.cpp:186
+#: src/framework/commands.cpp:168 src/editor/exporthtml.cpp:109
+#: src/editor/exporthtml.cpp:167
 msgid "Remark"
 msgstr "Megjegyzés"
 
@@ -2494,7 +2510,7 @@ msgstr ""
 "csak ha a felhasználó külön megnyitja a pálya adatai ablakot. Ezért "
 "tartalmazhat a megoldással kapcsolatos ötleteket is."
 
-#: src/cave/cavestored.cpp:82 src/editor/exporthtml.cpp:191
+#: src/cave/cavestored.cpp:82 src/editor/exporthtml.cpp:172
 msgid "Diamonds needed"
 msgstr "Gyűjtendő gyémántok"
 
@@ -2512,7 +2528,7 @@ msgstr ""
 msgid "Time"
 msgstr "Idő"
 
-#: src/cave/cavestored.cpp:84 src/editor/exporthtml.cpp:194
+#: src/cave/cavestored.cpp:84 src/editor/exporthtml.cpp:175
 msgid "Time (s)"
 msgstr "Idő (mp)"
 
@@ -2654,7 +2670,7 @@ msgstr "Ennyi pont jár gyémántonként, a kapu nyitása után."
 
 #. TRANSLATORS: "player" here means the name of the human player who played the replay
 #: src/cave/cavestored.cpp:113 src/cave/elementproperties.cpp:717
-#: src/cave/elementproperties.cpp:891 src/framework/replaymenuactivity.cpp:192
+#: src/cave/elementproperties.cpp:893 src/framework/replaymenuactivity.cpp:193
 msgid "Player"
 msgstr "Játékos"
 
@@ -3648,7 +3664,7 @@ msgstr ""
 "A gravitáció kis idővel azután, hogy a gravitáció kapcsolót használtad. Ez a "
 "beállítás az időtartamot adja meg, másodpercben."
 
-#: src/cave/cavestored.cpp:275 src/settings.cpp:278 src/settings.cpp:279
+#: src/cave/cavestored.cpp:275 src/settings.cpp:279 src/settings.cpp:280
 msgid "Sound"
 msgstr "Hang"
 
@@ -3982,11 +3998,11 @@ msgstr "C64 színek esetén az iszap színe"
 msgid "Random fill"
 msgstr "Véletlen kitöltés"
 
-#: src/cave/cavestored.cpp:335 src/cave/object/caveobjectrandomfill.cpp:206
+#: src/cave/cavestored.cpp:335 src/cave/object/caveobjectrandomfill.cpp:205
 msgid "Random seed"
 msgstr "Véletlenszám kezdet"
 
-#: src/cave/cavestored.cpp:336 src/cave/object/caveobjectrandomfill.cpp:206
+#: src/cave/cavestored.cpp:336 src/cave/object/caveobjectrandomfill.cpp:205
 msgid ""
 "Random seed value controls the predictable random number generator, which "
 "fills the cave initially. If set to -1, cave is totally random every time it "
@@ -3995,39 +4011,39 @@ msgstr ""
 "A véletlenszám kezdeti értéke a pálya kezdeti kitöltését szabályozza. Ha -1-"
 "re állítod, a pálya minden egyes játszás alkalmával teljesen máshogy néz ki."
 
-#: src/cave/cavestored.cpp:338 src/cave/object/caveobjectrandomfill.cpp:207
+#: src/cave/cavestored.cpp:338 src/cave/object/caveobjectrandomfill.cpp:206
 msgid "Initial fill"
 msgstr "Kezdő kitöltés"
 
-#: src/cave/cavestored.cpp:339 src/cave/object/caveobjectrandomfill.cpp:208
+#: src/cave/cavestored.cpp:339 src/cave/object/caveobjectrandomfill.cpp:207
 msgid "Probability 1"
 msgstr "1. valószínűség"
 
-#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:209
+#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:208
 msgid "Random fill 1"
 msgstr "1. kitöltés"
 
-#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:210
+#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:209
 msgid "Probability 2"
 msgstr "2. valószínűség"
 
-#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:211
+#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:210
 msgid "Random fill 2"
 msgstr "2. kitöltés"
 
-#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:212
+#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:211
 msgid "Probability 3"
 msgstr "3. valószínűség"
 
-#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:213
+#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:212
 msgid "Random fill 3"
 msgstr "3. kitöltés"
 
-#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:214
+#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:213
 msgid "Probability 4"
 msgstr "4. valószínűség"
 
-#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:215
+#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:214
 msgid "Random fill 4"
 msgstr "4. kitöltés"
 
@@ -4119,118 +4135,118 @@ msgstr "J Á T É K   V É G E"
 msgid "UP, DOWN: MOVE    FIRE: CONTINUE"
 msgstr "FEL, LE: MOZGÁS    TŰZ: TOVÁBB"
 
-#: src/cave/object/caveobjectcopypaste.cpp:125
-#: src/cave/object/caveobjectjoin.cpp:86
-#: src/cave/object/caveobjectfillrect.cpp:87 src/editor/editor.cpp:160
-#: src/editor/editor.cpp:161 src/editor/editor.cpp:162
-#: src/editor/editor.cpp:164 src/editor/editor.cpp:165
-#: src/editor/editor.cpp:175
+#: src/cave/object/caveobjectcopypaste.cpp:124
+#: src/cave/object/caveobjectjoin.cpp:85
+#: src/cave/object/caveobjectfillrect.cpp:84 src/editor/editor.cpp:174
+#: src/editor/editor.cpp:175 src/editor/editor.cpp:176
+#: src/editor/editor.cpp:178 src/editor/editor.cpp:179
+#: src/editor/editor.cpp:189
 msgid "Draw"
 msgstr "Rajz"
 
-#: src/cave/object/caveobjectcopypaste.cpp:126
-#: src/cave/object/caveobjectpoint.cpp:65
+#: src/cave/object/caveobjectcopypaste.cpp:125
+#: src/cave/object/caveobjectpoint.cpp:64
 #: src/cave/object/caveobjectraster.cpp:85
 #: src/cave/object/caveobjectfloodfill.cpp:83
-#: src/cave/object/caveobjectboundaryfill.cpp:102
-#: src/cave/object/caveobjectrandomfill.cpp:200
+#: src/cave/object/caveobjectboundaryfill.cpp:97
+#: src/cave/object/caveobjectrandomfill.cpp:199
 #: src/cave/object/caveobjectrectangle.cpp:82
-#: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
-#: src/cave/object/caveobjectfillrect.cpp:88
+#: src/cave/object/caveobjectline.cpp:99 src/cave/object/caveobjectmaze.cpp:368
+#: src/cave/object/caveobjectjoin.cpp:86
+#: src/cave/object/caveobjectfillrect.cpp:85
 msgid "Levels"
 msgstr "Szintek"
 
-#: src/cave/object/caveobjectcopypaste.cpp:126
-#: src/cave/object/caveobjectpoint.cpp:65
+#: src/cave/object/caveobjectcopypaste.cpp:125
+#: src/cave/object/caveobjectpoint.cpp:64
 #: src/cave/object/caveobjectraster.cpp:85
 #: src/cave/object/caveobjectfloodfill.cpp:83
-#: src/cave/object/caveobjectboundaryfill.cpp:102
-#: src/cave/object/caveobjectrandomfill.cpp:200
+#: src/cave/object/caveobjectboundaryfill.cpp:97
+#: src/cave/object/caveobjectrandomfill.cpp:199
 #: src/cave/object/caveobjectrectangle.cpp:82
-#: src/cave/object/caveobjectline.cpp:100
-#: src/cave/object/caveobjectmaze.cpp:368 src/cave/object/caveobjectjoin.cpp:87
-#: src/cave/object/caveobjectfillrect.cpp:88
+#: src/cave/object/caveobjectline.cpp:99 src/cave/object/caveobjectmaze.cpp:368
+#: src/cave/object/caveobjectjoin.cpp:86
+#: src/cave/object/caveobjectfillrect.cpp:85
 msgid "Levels on which this object is visible."
 msgstr "A szintek, ahol az objektum látható"
 
-#: src/cave/object/caveobjectcopypaste.cpp:127
+#: src/cave/object/caveobjectcopypaste.cpp:126
 #: src/cave/object/caveobjectfloodfill.cpp:84
-#: src/cave/object/caveobjectboundaryfill.cpp:103
-#: src/cave/object/caveobjectline.cpp:101
-#: src/cave/object/caveobjectfillrect.cpp:89
+#: src/cave/object/caveobjectboundaryfill.cpp:98
+#: src/cave/object/caveobjectline.cpp:100
+#: src/cave/object/caveobjectfillrect.cpp:86
 msgid "Start"
 msgstr "Kiinduló"
 
+#: src/cave/object/caveobjectcopypaste.cpp:126
 #: src/cave/object/caveobjectcopypaste.cpp:127
-#: src/cave/object/caveobjectcopypaste.cpp:128
 msgid "Specifies one of the corners of the source area."
 msgstr "A forrás egyik sarkának koorinátája"
 
-#: src/cave/object/caveobjectcopypaste.cpp:128
-#: src/cave/object/caveobjectline.cpp:102
-#: src/cave/object/caveobjectfillrect.cpp:90
+#: src/cave/object/caveobjectcopypaste.cpp:127
+#: src/cave/object/caveobjectline.cpp:101
+#: src/cave/object/caveobjectfillrect.cpp:87
 msgid "End"
 msgstr "Vége"
 
-#: src/cave/object/caveobjectcopypaste.cpp:129
+#: src/cave/object/caveobjectcopypaste.cpp:128
 msgid "Paste"
 msgstr "Beilleszt"
 
-#: src/cave/object/caveobjectcopypaste.cpp:129
+#: src/cave/object/caveobjectcopypaste.cpp:128
 msgid "Specifies the upper left corner of the destination area."
 msgstr "A cél terület bal felső sarkának koordinátája."
 
-#: src/cave/object/caveobjectcopypaste.cpp:130
+#: src/cave/object/caveobjectcopypaste.cpp:129
 msgid "Mirror"
 msgstr "Tükrözés"
 
-#: src/cave/object/caveobjectcopypaste.cpp:130
+#: src/cave/object/caveobjectcopypaste.cpp:129
 msgid "If checked, the contents will be mirrored horizontally."
 msgstr "Ha be van jelölve, a területet vízszintesen tükrözni fogja."
 
-#: src/cave/object/caveobjectcopypaste.cpp:131
+#: src/cave/object/caveobjectcopypaste.cpp:130
 msgid "Flip"
 msgstr "Fordítás"
 
-#: src/cave/object/caveobjectcopypaste.cpp:131
+#: src/cave/object/caveobjectcopypaste.cpp:130
 msgid "If checked, the contents will be mirrored vertically."
 msgstr "Ha be van jelölve, a területet függőlegesen megfordítja."
 
-#: src/cave/object/caveobjectcopypaste.cpp:162
+#: src/cave/object/caveobjectcopypaste.cpp:157
 #, c-format
 msgid "Copy from %d,%d-%d,%d, paste to %d,%d"
 msgstr "Másolás %d,%d-%d,%d, beillesztés %d,%d"
 
-#: src/cave/object/caveobjectpoint.cpp:66
+#: src/cave/object/caveobjectpoint.cpp:65
 msgid "Coordinate"
 msgstr "Koordináta"
 
-#: src/cave/object/caveobjectpoint.cpp:66
+#: src/cave/object/caveobjectpoint.cpp:65
 msgid "Specifies the coordinate of the single element to draw."
 msgstr "A rajzolandó elem koorinátáját adja meg."
 
-#: src/cave/object/caveobjectpoint.cpp:67
+#: src/cave/object/caveobjectpoint.cpp:66
 #: src/cave/object/caveobjectraster.cpp:89
 #: src/cave/object/caveobjectrectangle.cpp:85
-#: src/cave/object/caveobjectline.cpp:103
+#: src/cave/object/caveobjectline.cpp:102
 msgid "Element"
 msgstr "Elem"
 
-#: src/cave/object/caveobjectpoint.cpp:67
+#: src/cave/object/caveobjectpoint.cpp:66
 #: src/cave/object/caveobjectraster.cpp:89
 #: src/cave/object/caveobjectrectangle.cpp:85
-#: src/cave/object/caveobjectline.cpp:103 src/cave/object/caveobjectjoin.cpp:89
+#: src/cave/object/caveobjectline.cpp:102 src/cave/object/caveobjectjoin.cpp:88
 msgid "The element to draw."
 msgstr "A rajzolandó elem."
 
-#: src/cave/object/caveobjectpoint.cpp:92
+#: src/cave/object/caveobjectpoint.cpp:87
 #, c-format
 msgid "Point of <b>%ms</b> at %d,%d"
 msgstr "<b>%ms</b> karakter %d,%d pontban"
 
 #: src/cave/object/caveobjectraster.cpp:86
-#: src/cave/object/caveobjectrandomfill.cpp:201
+#: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrectangle.cpp:83
 #: src/cave/object/caveobjectmaze.cpp:370
 msgid "Start corner"
@@ -4238,26 +4254,26 @@ msgstr "Egyik sarok"
 
 #: src/cave/object/caveobjectraster.cpp:86
 #: src/cave/object/caveobjectraster.cpp:87
+#: src/cave/object/caveobjectrandomfill.cpp:200
 #: src/cave/object/caveobjectrandomfill.cpp:201
-#: src/cave/object/caveobjectrandomfill.cpp:202
 #: src/cave/object/caveobjectrectangle.cpp:83
 #: src/cave/object/caveobjectrectangle.cpp:84
 #: src/cave/object/caveobjectmaze.cpp:370
 #: src/cave/object/caveobjectmaze.cpp:371
-#: src/cave/object/caveobjectfillrect.cpp:89
-#: src/cave/object/caveobjectfillrect.cpp:90
+#: src/cave/object/caveobjectfillrect.cpp:86
+#: src/cave/object/caveobjectfillrect.cpp:87
 msgid "Specifies one of the corners of the object."
 msgstr "Az objektum egyik sarkát adja meg."
 
 #: src/cave/object/caveobjectraster.cpp:87
-#: src/cave/object/caveobjectrandomfill.cpp:202
+#: src/cave/object/caveobjectrandomfill.cpp:201
 #: src/cave/object/caveobjectrectangle.cpp:84
 #: src/cave/object/caveobjectmaze.cpp:371
 msgid "End corner"
 msgstr "Másik sarok"
 
 #: src/cave/object/caveobjectraster.cpp:88
-#: src/cave/object/caveobjectjoin.cpp:90
+#: src/cave/object/caveobjectjoin.cpp:89
 msgid "Distance"
 msgstr "Távolság"
 
@@ -4265,7 +4281,7 @@ msgstr "Távolság"
 msgid "The horizontal and vertical distance between elements."
 msgstr "A vízszintes és függőleges távolság az elemek között."
 
-#: src/cave/object/caveobjectraster.cpp:102
+#: src/cave/object/caveobjectraster.cpp:98
 #, c-format
 msgid "Raster from %d,%d to %d,%d of <b>%ms</b>, distance %+d,%+d"
 msgstr ""
@@ -4280,7 +4296,7 @@ msgid "The coordinate to start the filling at."
 msgstr "A koordináta, ahol a kitöltést kezdeni kell."
 
 #: src/cave/object/caveobjectfloodfill.cpp:85
-#: src/cave/object/caveobjectjoin.cpp:88
+#: src/cave/object/caveobjectjoin.cpp:87
 msgid "Search element"
 msgstr "Keresett elem"
 
@@ -4290,8 +4306,8 @@ msgid ""
 msgstr "Az elem, amelyik megadja a kitöltendő területet, és felül lesz írva."
 
 #: src/cave/object/caveobjectfloodfill.cpp:86
-#: src/cave/object/caveobjectboundaryfill.cpp:105
-#: src/cave/object/caveobjectfillrect.cpp:92
+#: src/cave/object/caveobjectboundaryfill.cpp:100
+#: src/cave/object/caveobjectfillrect.cpp:89
 msgid "Fill element"
 msgstr "Kitöltő elem"
 
@@ -4299,26 +4315,26 @@ msgstr "Kitöltő elem"
 msgid "The element used to fill the area."
 msgstr "A területet ezzel az elemmel tölti ki."
 
-#: src/cave/object/caveobjectfloodfill.cpp:95
+#: src/cave/object/caveobjectfloodfill.cpp:91
 #, c-format
 msgid "Flood fill from %d,%d of <b>%ms</b>, replacing <b>%ms</b>"
 msgstr ""
 "Kitöltés %d,%d pontból <b>%ms</b> karakterrel, <b>%ms</b> karaktert cserélve"
 
-#: src/cave/object/caveobjectboundaryfill.cpp:101
+#: src/cave/object/caveobjectboundaryfill.cpp:96
 msgid "Boundary fill"
 msgstr "Kitöltés keretig"
 
-#: src/cave/object/caveobjectboundaryfill.cpp:103
+#: src/cave/object/caveobjectboundaryfill.cpp:98
 msgid "The coordinate to start the fill at."
 msgstr "A kitöltés kezdeti koordinátája"
 
-#: src/cave/object/caveobjectboundaryfill.cpp:104
-#: src/cave/object/caveobjectfillrect.cpp:91
+#: src/cave/object/caveobjectboundaryfill.cpp:99
+#: src/cave/object/caveobjectfillrect.cpp:88
 msgid "Border element"
 msgstr "Keret karakter"
 
-#: src/cave/object/caveobjectboundaryfill.cpp:104
+#: src/cave/object/caveobjectboundaryfill.cpp:99
 msgid ""
 "This is the border of the fill. The closed area must be bounded by this "
 "element."
@@ -4326,20 +4342,20 @@ msgstr ""
 "A kitöltött terület keretét adó elem. A kitöltendő területet ilyen elem kell "
 "körbevegye."
 
-#: src/cave/object/caveobjectboundaryfill.cpp:105
+#: src/cave/object/caveobjectboundaryfill.cpp:100
 msgid "This is the element the closed area will be filled with."
 msgstr "Ezzel lesz kitöltve a körbezárt terület."
 
-#: src/cave/object/caveobjectboundaryfill.cpp:114
+#: src/cave/object/caveobjectboundaryfill.cpp:105
 #, c-format
 msgid "Boundary fill from %d,%d of <b>%ms</b>, border <b>%ms</b>"
 msgstr "Kitöltés %d,%d pontból <b>%ms</b> karakterre, keret <b>%ms</b>"
 
-#: src/cave/object/caveobjectrandomfill.cpp:203
+#: src/cave/object/caveobjectrandomfill.cpp:202
 msgid "Replace only"
 msgstr "Cserélni"
 
-#: src/cave/object/caveobjectrandomfill.cpp:203
+#: src/cave/object/caveobjectrandomfill.cpp:202
 msgid ""
 "If this setting is set to 'no element' but another one, only that will be "
 "replaced when drawing the fill, and other elements will not be overwritten. "
@@ -4349,15 +4365,15 @@ msgstr ""
 "egyetlen elem lesz kicserélve a rajzolás közben, és semelyik másik elem nem "
 "lesz felülírva. Egyébként a teljes blokk ki van töltve."
 
-#: src/cave/object/caveobjectrandomfill.cpp:204
+#: src/cave/object/caveobjectrandomfill.cpp:203
 msgid "Generator"
 msgstr "Generátor"
 
-#: src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/object/caveobjectrandomfill.cpp:204
 msgid "C64 random"
 msgstr "C64 véletlen számok"
 
-#: src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/object/caveobjectrandomfill.cpp:204
 msgid ""
 "Controls if the C64 random generator is used for the fill, or a more "
 "advanced one. By using the C64 generator, you can recreate the patterns of "
@@ -4368,30 +4384,30 @@ msgstr ""
 "használatával az eredeti játékban használt pálya mintázatok, elrendeződések "
 "jeleníthetők meg."
 
-#: src/cave/object/caveobjectrandomfill.cpp:225
+#: src/cave/object/caveobjectrandomfill.cpp:220
 #, c-format
 msgid "Random fill from %d,%d to %d,%d"
 msgstr "Véletlen kitöltés %d,%d-%d,%d téglalapban"
 
-#: src/cave/object/caveobjectrandomfill.cpp:228
+#: src/cave/object/caveobjectrandomfill.cpp:222
 #, c-format
 msgid "Random fill from %d,%d to %d,%d, replacing %ms"
 msgstr "Véletlen kitöltés %d,%d-%d,%d téglalapban, %ms karaktert cserélve"
 
-#: src/cave/object/caveobjectrectangle.cpp:94
+#: src/cave/object/caveobjectrectangle.cpp:90
 #, c-format
 msgid "Rectangle from %d,%d to %d,%d of <b>%ms</b>"
 msgstr "Téglalap %d,%d és %d,%d sarkokkal, <b>%ms</b> karakter"
 
-#: src/cave/object/caveobjectline.cpp:101
+#: src/cave/object/caveobjectline.cpp:100
 msgid "This is the start point of the line."
 msgstr "Ez a szakasz kezdőpontja."
 
-#: src/cave/object/caveobjectline.cpp:102
+#: src/cave/object/caveobjectline.cpp:101
 msgid "This is the end point of the line."
 msgstr "Ez a szakasz végpontja."
 
-#: src/cave/object/caveobjectline.cpp:136
+#: src/cave/object/caveobjectline.cpp:131
 #, c-format
 msgid "Line from %d,%d to %d,%d of <b>%ms</b>"
 msgstr "Vonal %d,%d pontból %d,%d pontba, <b>%ms</b> karakter"
@@ -4444,31 +4460,31 @@ msgstr ""
 "Ez a szám azt adja meg, hogy a rajzoló algoritmus mennyire preferálja a "
 "vízszintes utakat a függőlegesekhez képest."
 
-#: src/cave/object/caveobjectmaze.cpp:385
+#: src/cave/object/caveobjectmaze.cpp:381
 #, c-format
 msgid "Maze from %d,%d to %d,%d, wall <b>%ms</b>, path <b>%ms</b>"
 msgstr ""
 "Labirintus %d,%d és %d,%d sarkokkal, fal <b>%ms</b>, járat <b>%ms</b> "
 "karakter"
 
-#: src/cave/object/caveobjectjoin.cpp:88
+#: src/cave/object/caveobjectjoin.cpp:87
 msgid ""
 "The element to look for. Every element found will generate an add element."
 msgstr "A keresendő elem. Minden találat egy hozzáadott elemet hoz létre."
 
-#: src/cave/object/caveobjectjoin.cpp:89
+#: src/cave/object/caveobjectjoin.cpp:88
 msgid "Add element"
 msgstr "Hozzáadott elem"
 
-#: src/cave/object/caveobjectjoin.cpp:90
+#: src/cave/object/caveobjectjoin.cpp:89
 msgid "The distance to draw the new element at."
 msgstr "A távolság, amennyire a hozzáadott elem lesz az eredetitől."
 
-#: src/cave/object/caveobjectjoin.cpp:92
+#: src/cave/object/caveobjectjoin.cpp:91
 msgid "Backwards"
 msgstr "Hátrafelé"
 
-#: src/cave/object/caveobjectjoin.cpp:92
+#: src/cave/object/caveobjectjoin.cpp:91
 msgid ""
 "Normally the cave is searched from top to bottom, to find the search "
 "element, and draw the add element nearby. If the distance vector of the "
@@ -4489,21 +4505,21 @@ msgstr ""
 "keresést, ha ez szükséges - így ez a beállítás csak a régebbi pályákkal való "
 "kompatibilitást szolgálja."
 
-#: src/cave/object/caveobjectjoin.cpp:129
+#: src/cave/object/caveobjectjoin.cpp:121
 #, c-format
 msgid "Join <b>%ms</b> to every <b>%ms</b>, distance %+d,%+d"
 msgstr ""
 "Kötés: <b>%ms</b> karakter minden <b>%ms</b> mellé, %+d,%+d távolságban"
 
-#: src/cave/object/caveobjectfillrect.cpp:91
+#: src/cave/object/caveobjectfillrect.cpp:88
 msgid "The outline will be drawn with this element."
 msgstr "A keretet ezzel az elemmel rajzolja."
 
-#: src/cave/object/caveobjectfillrect.cpp:92
+#: src/cave/object/caveobjectfillrect.cpp:89
 msgid "The insides of the rectangle will be filled with this element."
 msgstr "A téglalap belsejét ezzel az elemmel tölti ki."
 
-#: src/cave/object/caveobjectfillrect.cpp:101
+#: src/cave/object/caveobjectfillrect.cpp:94
 #, c-format
 msgid "Rectangle from %d,%d to %d,%d of <b>%ms</b>, filled with <b>%ms</b>"
 msgstr ""
@@ -5706,66 +5722,66 @@ msgstr "Címképernyő, görgetett"
 msgid "Scrolling background for title screen image"
 msgstr "Gördülő háttér a címképhez"
 
-#: src/cave/caveset.cpp:129
+#: src/cave/caveset.cpp:121
 msgid "Could not open file for writing."
 msgstr "Nem lehetett megnyitni a fájlt írásra."
 
-#: src/cave/caveset.cpp:136
+#: src/cave/caveset.cpp:128
 msgid "Error writing to file."
 msgstr "Nem lehetett írni a fájlba."
 
 #. TRANSLATORS: None here means "no direction to move"; when there is no gravity while stirring the pot.
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "None"
 msgstr "Nincs"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Up"
 msgstr "Fel"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Up+right"
 msgstr "Fel+jobbra"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Right"
 msgstr "Jobbra"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Down+right"
 msgstr "Le+jobbra"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Down"
 msgstr "Le"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Down+left"
 msgstr "Le+balra"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Left"
 msgstr "Balra"
 
-#: src/cave/cavetypes.cpp:40
+#: src/cave/cavetypes.cpp:39
 msgid "Up+left"
 msgstr "Fel+balra"
 
-#: src/cave/cavetypes.cpp:43
+#: src/cave/cavetypes.cpp:44
 msgid "Milliseconds"
 msgstr "Milliszekundum"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
-#: src/editor/exporthtml.cpp:190
+#: src/cave/cavetypes.cpp:133 src/framework/commands.cpp:207
+#: src/editor/exporthtml.cpp:171
 msgid "Yes"
 msgstr "Igen"
 
-#: src/cave/cavetypes.cpp:128 src/framework/commands.cpp:222
-#: src/editor/exporthtml.cpp:190
+#: src/cave/cavetypes.cpp:133 src/framework/commands.cpp:207
+#: src/editor/exporthtml.cpp:171
 msgid "No"
 msgstr "Nem"
 
-#. TRANSLATORS: in some languages (for example, german) nouns must be written capitalized.
+#. TRANSLATORS: in some languages (for example, German) nouns must be written capitalized.
 #. * In other languages, nouns can be written uncapitalized.
 #. * When the name of an element is put in a sentence, this has to be taken into account.
 #. *
@@ -5777,28 +5793,28 @@ msgstr "Nem"
 #. * translate this string to "lowercase-element-names-no".
 #. * Otherwise translate this to "lowercase-element-values-yes".
 #.
-#: src/cave/cavetypes.cpp:168
+#: src/cave/cavetypes.cpp:173
 msgid "lowercase-element-names-yes"
 msgstr "lowercase-element-names-yes"
 
-#: src/fileops/c64import.cpp:2063 src/fileops/c64import.cpp:2111
-#: src/fileops/c64import.cpp:2182
+#: src/fileops/c64import.cpp:2058 src/fileops/c64import.cpp:2106
+#: src/fileops/c64import.cpp:2176
 #, c-format
 msgid "Intermission %d"
 msgstr "%d. jutalom pálya"
 
-#: src/fileops/c64import.cpp:2065 src/fileops/c64import.cpp:2113
-#: src/fileops/c64import.cpp:2188
+#: src/fileops/c64import.cpp:2060 src/fileops/c64import.cpp:2108
+#: src/fileops/c64import.cpp:2181
 #, c-format
 msgid "Cave %c"
 msgstr "%c. pálya"
 
-#: src/fileops/c64import.cpp:2180
+#: src/fileops/c64import.cpp:2174
 #, c-format
 msgid "Intermission %02d"
 msgstr "%02d. jutalom pálya"
 
-#: src/fileops/c64import.cpp:2186
+#: src/fileops/c64import.cpp:2179
 #, c-format
 msgid "Cave %02d"
 msgstr "%02d. pálya"
@@ -5807,89 +5823,89 @@ msgstr "%02d. pálya"
 msgid "Error loading GDS file."
 msgstr "Nem lehetett betölteni a GDS fájlt."
 
-#: src/fileops/loadfile.cpp:63
+#: src/fileops/loadfile.cpp:62
 msgid "BRC files must be 96000 bytes long."
 msgstr "A BRC fájlok pontosan 96000 bájtosak kell legyenek."
 
-#: src/fileops/loadfile.cpp:96
+#: src/fileops/loadfile.cpp:95
 msgid "Cannot determine file format."
 msgstr "A fájl formátuma nem felismerhető."
 
-#: src/fileops/loadfile.cpp:122
+#: src/fileops/loadfile.cpp:121
 msgid "Unable to open file."
 msgstr "A fájlt nem lehet megnyitni."
 
-#: src/fileops/loadfile.cpp:128
+#: src/fileops/loadfile.cpp:127
 msgid "File bigger than 2MiB, refusing to load."
 msgstr "A fájl nagyobb, mint 2MiB, nem töltöm be."
 
-#: src/fileops/loadfile.cpp:132
+#: src/fileops/loadfile.cpp:131
 msgid "Unable to read file."
 msgstr "A fájl nem olvasható."
 
 #. TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-#: src/framework/titlescreenactivity.cpp:137 src/settings.cpp:223
+#: src/framework/titlescreenactivity.cpp:130 src/settings.cpp:223
 msgid "Game"
 msgstr "Játék"
 
 #. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:153
+#: src/framework/titlescreenactivity.cpp:146
 msgid "Crsr: select   Space: play   H: help"
 msgstr "Kurzor: választ  Szóköz: játék  H: súgó"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:159
+#: src/framework/titlescreenactivity.cpp:152
 msgid "F: hall of fame  E: editor  R: replays"
 msgstr "F: dicsőségl.  E: szerk.  R: visszaj."
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:163
+#: src/framework/titlescreenactivity.cpp:156
 msgid "F: hall of fame    R: replays"
 msgstr "F: dicsőséglista    R: visszajátszás"
 
 #. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:168
+#: src/framework/titlescreenactivity.cpp:161
 msgid "Joy: select   Fire: play"
 msgstr "Joy: kiválszt   Tűz: játék"
 
-#: src/framework/titlescreenactivity.cpp:172
+#: src/framework/titlescreenactivity.cpp:165
 msgid "Crsr: select   Space: play   X: errors"
 msgstr "Kurzor: választ  Szóköz: játék  X: hibák"
 
-#: src/framework/titlescreenactivity.cpp:177
+#: src/framework/titlescreenactivity.cpp:170
 #, c-format
 msgid "%cNo caves."
 msgstr "%cNincsenek pályák."
 
-#: src/framework/titlescreenactivity.cpp:181
+#: src/framework/titlescreenactivity.cpp:174
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr "%cPálya: %c%s%c/%c%d"
 
-#: src/framework/titlescreenactivity.cpp:183
+#: src/framework/titlescreenactivity.cpp:176
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr "%cPálya: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:331
+#: src/framework/titlescreenactivity.cpp:324
 msgid "Enter your name"
 msgstr "Írd be a neved"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:342
+#: src/framework/titlescreenactivity.cpp:335
 msgid "Quit game?"
 msgstr "Kilépés a játékból?"
 
-#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:335 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
-#: src/framework/replaymenuactivity.cpp:193
+#: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:315
 msgid "yes"
 msgstr "igen"
 
-#: src/framework/titlescreenactivity.cpp:342 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:335 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
-#: src/framework/replaymenuactivity.cpp:193
+#: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:315
 msgid "no"
 msgstr "nem"
@@ -5986,20 +6002,20 @@ msgstr "hátra"
 msgid "forwards"
 msgstr "előre"
 
-#: src/framework/gameactivity.cpp:156
+#: src/framework/gameactivity.cpp:155
 msgid "Snapshot taken."
 msgstr "Pillanatfelvétel mentve."
 
-#: src/framework/gameactivity.cpp:158
+#: src/framework/gameactivity.cpp:157
 msgid "No cave loaded, no snapshot taken."
 msgstr "Nincs pálya betöltve, ezért nem lett pillanatfelvétel mentve."
 
-#: src/framework/gameactivity.cpp:164
+#: src/framework/gameactivity.cpp:163
 msgid "No snapshot saved."
 msgstr "Nincs mentett pillanatfelvétel."
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. Title capitalization (I) in English.
-#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:212
+#: src/framework/gameactivity.cpp:167 src/framework/commands.cpp:197
 msgid "Cave Information"
 msgstr "Pálya információk"
 
@@ -6023,130 +6039,130 @@ msgstr "Zene hangerő "
 msgid "Crsr: move     Space: exit"
 msgstr "Kurzor: mozgás     Szóköz: kilép"
 
-#: src/framework/replaysaveractivity.cpp:192
+#: src/framework/replaysaveractivity.cpp:172
 #, c-format
 msgid "Saved %d video frames and %dMiB of audio data to %s_*.png and %s.wav."
 msgstr ""
 "%d képkocka és %d MiB hanganyag elmentve a(z) %s_*.png és %s.wav fájlokba."
 
-#: src/framework/replaysaveractivity.cpp:193
+#: src/framework/replaysaveractivity.cpp:173
 msgid "Replay Saved"
 msgstr "Visszajátszás elmentve"
 
 #. TRANSLATORS: Title line capitalization in English
-#: src/framework/replaysaveractivity.cpp:289
+#: src/framework/replaysaveractivity.cpp:269
 msgid "Saving Replay"
 msgstr "Visszajátszás mentése"
 
-#: src/framework/replaysaveractivity.cpp:290
+#: src/framework/replaysaveractivity.cpp:270
 msgid "Please wait"
 msgstr "Kérlek várj"
 
 #. TRANSLATORS: showing highscore, categories
-#: src/framework/commands.cpp:97 src/framework/commands.cpp:193
+#: src/framework/commands.cpp:93 src/framework/commands.cpp:178
 msgid "Caveset"
 msgstr "Pályák"
 
-#: src/framework/commands.cpp:109 src/framework/commands.cpp:149
-#: src/framework/commands.cpp:173 src/framework/replaymenuactivity.cpp:188
+#: src/framework/commands.cpp:105 src/framework/commands.cpp:134
+#: src/framework/commands.cpp:158 src/framework/replaymenuactivity.cpp:189
 msgid "Cave"
 msgstr "Pálya"
 
 #. TRANSLATORS: should be 40 chars max. Title of the highscore window/activity. (That's why F is capitalized in English)
-#: src/framework/commands.cpp:118
+#: src/framework/commands.cpp:114
 msgid "Hall of Fame"
 msgstr "Dicsőséglista"
 
 #. TRANSLATORS: Stands for level. Should be exactly 5 chars, pad with spaces at the end if necessary
-#: src/framework/commands.cpp:129
+#: src/framework/commands.cpp:123
 msgid "Lev. "
 msgstr "Sz.  "
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. This is a window title, so it is capitalized in English.
-#: src/framework/commands.cpp:166
+#: src/framework/commands.cpp:151
 msgid "Caveset Playing Statistics"
 msgstr "Játék statisztika"
 
-#: src/framework/commands.cpp:212
+#: src/framework/commands.cpp:197
 msgid "Caveset Information"
 msgstr "Pálya információk"
 
 #. TRANSLATORS: 35 characters max.
-#: src/framework/commands.cpp:222
+#: src/framework/commands.cpp:207
 msgid "Caveset changed. Discard changes?"
 msgstr "Eldobod a pályák változásait?"
 
 #. TRANSLATORS: title of the "file open fail" error message window.
-#: src/framework/commands.cpp:238
+#: src/framework/commands.cpp:223
 msgid "Caveset Load Error"
 msgstr "Pályák: betöltési hiba"
 
 #. TRANSLATORS: title of the "file save fail" error window.
-#: src/framework/commands.cpp:250
+#: src/framework/commands.cpp:235
 msgid "Cave Save Error"
 msgstr "Pályák: mentési hiba"
 
 #. TRANSLATORS: 40 characters max. Title of the "save caveset as new file" window.
-#: src/framework/commands.cpp:270
+#: src/framework/commands.cpp:255
 msgid "Save Caveset As New File"
 msgstr "Játék pályáinak mentése új néven"
 
 #. TRANSLATORS: 40 characters max. Title of the "open file" window.
-#: src/framework/commands.cpp:283
+#: src/framework/commands.cpp:268
 msgid "Select Caveset to Load"
 msgstr "Betöltendő pálya kiválasztása"
 
 #. TRANSLATORS: 40 characters max. Title of the window which shows the error messages. Title capitalization (C) in English.
-#: src/framework/commands.cpp:308
+#: src/framework/commands.cpp:293
 msgid "Error Console"
 msgstr "Hibakonzol"
 
-#: src/framework/replaymenuactivity.cpp:82
+#: src/framework/replaymenuactivity.cpp:83
 msgid "No replays for caveset."
 msgstr "Nincs visszajátszás ezekhez a pályákhoz."
 
 #. TRANSLATORS: 40 chars max
-#: src/framework/replaymenuactivity.cpp:93
+#: src/framework/replaymenuactivity.cpp:94
 msgid "Space: play   H: help   Esc: exit"
 msgstr "Szóköz: játék  H: súgó  Esc: kilép"
 
 #. TRANSLATORS: Cave level (1-5)
-#: src/framework/replaymenuactivity.cpp:190
+#: src/framework/replaymenuactivity.cpp:191
 msgid "Level"
 msgstr "Szint"
 
-#: src/framework/replaymenuactivity.cpp:193
+#: src/framework/replaymenuactivity.cpp:194
 msgid "Successful"
 msgstr "Sikeres"
 
-#: src/framework/replaymenuactivity.cpp:194
+#: src/framework/replaymenuactivity.cpp:195
 msgid "Score"
 msgstr "Pont"
 
-#: src/framework/replaymenuactivity.cpp:194
+#: src/framework/replaymenuactivity.cpp:195
 msgid "points"
 msgstr "pont"
 
-#: src/framework/replaymenuactivity.cpp:197
+#: src/framework/replaymenuactivity.cpp:198
 msgid "Comment"
 msgstr "Megjegyzés"
 
 #. TRANSLATORS: duration of replay in seconds
-#: src/framework/replaymenuactivity.cpp:200
+#: src/framework/replaymenuactivity.cpp:201
 msgid "Duration"
 msgstr "Hossz"
 
 #. TRANSLATORS: ie. software by which the replay was recorded.
-#: src/framework/replaymenuactivity.cpp:206
+#: src/framework/replaymenuactivity.cpp:207
 msgid "Recorded with"
 msgstr "Felvevő"
 
 #. TRANSLATORS: title of the window showing data about a particular replay
-#: src/framework/replaymenuactivity.cpp:209
+#: src/framework/replaymenuactivity.cpp:210
 msgid "Replay Info"
 msgstr "Visszajátszás adatai"
 
-#: src/framework/replaymenuactivity.cpp:226
+#: src/framework/replaymenuactivity.cpp:227
 msgid "Output filename prefix"
 msgstr "Kimeneti fájlnév eleje"
 
@@ -6208,7 +6224,7 @@ msgstr "Kurzor:választ  N:új  J:ugrás  Esc:mégse"
 msgid "Crsr: select   J: jump   Esc: cancel"
 msgstr "Kurzor: választ   J: ugrás   Esc: mégse"
 
-#: src/settings.cpp:56
+#: src/settings.cpp:55
 msgid "System default"
 msgstr "Rendszer alapértelmezése"
 
@@ -6343,32 +6359,40 @@ msgstr "  Kedvenc paletta"
 msgid "New caves and random colored caves use this palette."
 msgstr "Az új és a véletlenszerűen színezett pályák ezt a palettát használják."
 
-#: src/settings.cpp:240
+#: src/settings.cpp:239
+msgid "New up/down animation"
+msgstr "Új fel/le animáció."
+
+#: src/settings.cpp:239
+msgid "New up/down animation for the player."
+msgstr "Új fel/le animáció a játékos."
+
+#: src/settings.cpp:241
 msgid "Game graphics"
 msgstr "Játék grafika"
 
 #. TRANSLATORS: here "engine" = "graphics engine"
-#: src/settings.cpp:242
+#: src/settings.cpp:243
 msgid "Engine"
 msgstr "Grafikus motor"
 
-#: src/settings.cpp:242
+#: src/settings.cpp:243
 msgid "Graphics engine which used for drawing."
 msgstr "A játék kirajzolásához használt grafikus motor."
 
-#: src/settings.cpp:243 src/settings.cpp:268
+#: src/settings.cpp:244 src/settings.cpp:269
 msgid "Scaling factor"
 msgstr "Nagyítás"
 
-#: src/settings.cpp:243 src/settings.cpp:268
+#: src/settings.cpp:244 src/settings.cpp:269
 msgid "Scaling size."
 msgstr "A képernyőre rajzolt kép nagyítása."
 
-#: src/settings.cpp:244 src/settings.cpp:269
+#: src/settings.cpp:245 src/settings.cpp:270
 msgid "  Scaling type"
 msgstr "  Nagyítás típusa"
 
-#: src/settings.cpp:244
+#: src/settings.cpp:245
 msgid ""
 "Software scaling method used. This setting is only effective for the GTK+ "
 "and the SDL engines. If you use the OpenGL engine, you can configure its "
@@ -6379,11 +6403,11 @@ msgstr ""
 "használod, a képátméretezés módját egy shader program kiválasztásával tudod "
 "megadni."
 
-#: src/settings.cpp:245 src/settings.cpp:270
+#: src/settings.cpp:246 src/settings.cpp:271
 msgid "  Software PAL emu"
 msgstr "  Szoftveres PAL hatás"
 
-#: src/settings.cpp:245
+#: src/settings.cpp:246
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV. Only effective for the GTK+ and the SDL engines."
@@ -6391,11 +6415,11 @@ msgstr ""
 "PAL emulált grafika, vagyis csíkos rajzok és torzított színek, mint egy TV-"
 "n. Csak a GTK+ és az SDL motoroknál használt beállítás."
 
-#: src/settings.cpp:246
+#: src/settings.cpp:247
 msgid "  PAL scanline shade"
 msgstr "  PAL pászta árnyalás"
 
-#: src/settings.cpp:246
+#: src/settings.cpp:247
 msgid ""
 "Darker rows for PAL emulation. Only effective for the GTK+ and the SDL "
 "engines."
@@ -6403,11 +6427,11 @@ msgstr ""
 "Sötétebb sorok a PAL emulációhoz. Csak akkor van hatása, ha a GTK+ vagy az "
 "SDL motor aktív."
 
-#: src/settings.cpp:247
+#: src/settings.cpp:248
 msgid "Fine scrolling"
 msgstr "Finom görgetés"
 
-#: src/settings.cpp:247
+#: src/settings.cpp:248
 msgid ""
 "If fine scrolling is turned off, scrolling and cave animation is limited to "
 "a lower frame rate, and consumes much less CPU. On some hardware, it might "
@@ -6420,23 +6444,23 @@ msgstr ""
 "ki, mintha be lenne kapcsolva. Nem mindegyik grafikus motor támogatja a "
 "finom görgetést."
 
-#: src/settings.cpp:248
+#: src/settings.cpp:249
 msgid "Particle effects"
 msgstr "Részecske hatások"
 
-#: src/settings.cpp:248
+#: src/settings.cpp:249
 msgid "Particle effects during play. This requires a lot of CPU power."
 msgstr "Részecske hatások a játék közben. Ehhez erős gép kell."
 
-#: src/settings.cpp:251
+#: src/settings.cpp:252
 msgid "OpenGL settings"
 msgstr "OpenGL beállítások"
 
-#: src/settings.cpp:252
+#: src/settings.cpp:253
 msgid "Shader"
 msgstr "Shader program"
 
-#: src/settings.cpp:252
+#: src/settings.cpp:253
 msgid ""
 "The shader which adds a graphical effect to the screen. Only effective if "
 "the OpenGL engine is used. If your video card is older, it might not support "
@@ -6447,11 +6471,11 @@ msgstr ""
 "grafikus hardverrel a shader programok nem használhatóak. A GDash saját TV "
 "shader programja a lenti beállításokkal finomhangolható."
 
-#: src/settings.cpp:253
+#: src/settings.cpp:254
 msgid "Radial distortion"
 msgstr "Gömbi torzítás"
 
-#: src/settings.cpp:253
+#: src/settings.cpp:254
 msgid ""
 "With radial distortion, the screen won't be flat, but it will look like as "
 "if it's projected on a sphere."
@@ -6459,161 +6483,161 @@ msgstr ""
 "Gömbi torzításnál a képernyő úgy néz ki, mintha nem sík lenne, hanem egy "
 "gömb belsejében jelenne meg a kép."
 
-#: src/settings.cpp:254
+#: src/settings.cpp:255
 msgid "Random scanline displacement"
 msgstr "Véletlenszerű eltolás"
 
-#: src/settings.cpp:254
+#: src/settings.cpp:255
 msgid ""
 "Increasing this setting causes the the image to be unstable horizontally."
 msgstr "Ezt a számot növelve a kép vízszintesen instabillá válik."
 
-#: src/settings.cpp:255
+#: src/settings.cpp:256
 msgid "Luma X blur"
 msgstr "Fényesség X elmosása"
 
-#: src/settings.cpp:255
+#: src/settings.cpp:256
 msgid "Horizontal blur of luminosity."
 msgstr "A képpontok fényességének elmosása vízszintesen."
 
-#: src/settings.cpp:256
+#: src/settings.cpp:257
 msgid "Chroma X blur"
 msgstr "Színek X elmosása"
 
-#: src/settings.cpp:256
+#: src/settings.cpp:257
 msgid "Slight horizontal blur of colors."
 msgstr "A képpontok színének elmosása vízszintesen."
 
-#: src/settings.cpp:257
+#: src/settings.cpp:258
 msgid "Chroma Y blur"
 msgstr "Színek Y elmosása"
 
-#: src/settings.cpp:257
+#: src/settings.cpp:258
 msgid "Vertical blur of colors, to imitate a PAL TV signal."
 msgstr ""
 "A képpontok fényességének elmosása függőlegesen, a PAL tévé jelet utánozva."
 
-#: src/settings.cpp:258
+#: src/settings.cpp:259
 msgid "Chroma to luma"
 msgstr "Színből fényesség"
 
-#: src/settings.cpp:258
+#: src/settings.cpp:259
 msgid "Sudden changes in colors can cause patterns to appear on the image."
 msgstr "A színek erős kontrasztja mintázatokat hozhat létre a képen."
 
-#: src/settings.cpp:259
+#: src/settings.cpp:260
 msgid "Luma to chroma"
 msgstr "Fényességből szín"
 
-#: src/settings.cpp:259
+#: src/settings.cpp:260
 msgid ""
 "Sudden changes in luminosity can cause false colors to appear on the image."
 msgstr ""
 "A fényességek erős kontrasztja hamis színek megjelenését eredményezheti."
 
-#: src/settings.cpp:260
+#: src/settings.cpp:261
 msgid "Random Y"
 msgstr "Véletlen Y"
 
-#: src/settings.cpp:260
+#: src/settings.cpp:261
 msgid "Noise level of luminosity."
 msgstr "A fényességben megjelenő zaj."
 
-#: src/settings.cpp:261
+#: src/settings.cpp:262
 msgid "Random UV"
 msgstr "Véletlen UV"
 
-#: src/settings.cpp:261
+#: src/settings.cpp:262
 msgid "Noise level of colors."
 msgstr "A színekben megjelenő zaj."
 
-#: src/settings.cpp:262
+#: src/settings.cpp:263
 msgid "Scanline shade"
 msgstr "Pászta árnyalás"
 
-#: src/settings.cpp:262
+#: src/settings.cpp:263
 msgid "Darkened horizontal rows to emulate a TV screen."
 msgstr "Sötétebb sorok vízszintesen a TV emulációhoz."
 
-#: src/settings.cpp:263
+#: src/settings.cpp:264
 msgid "Phosphor shade"
 msgstr "Foszfor árnyalás"
 
-#: src/settings.cpp:263
+#: src/settings.cpp:264
 msgid "Red, green and blue subpixels of a TV screen can be emulated."
 msgstr ""
 "A régi TV képernyők vörös, zöld és kék világító foszforpöttyeinek utánzása."
 
-#: src/settings.cpp:267
+#: src/settings.cpp:268
 msgid "Editor settings"
 msgstr "Szerkeztő beállításai"
 
-#: src/settings.cpp:269
+#: src/settings.cpp:270
 msgid "Scaling method."
 msgstr "A kép nagyításának algoritmusa."
 
-#: src/settings.cpp:270
+#: src/settings.cpp:271
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV."
 msgstr ""
 "PAL emulált grafika, vagyis csíkos rajzok és torzított színek, mint egy TV-n."
 
-#: src/settings.cpp:271 src/editor/editor.cpp:3607
+#: src/settings.cpp:272 src/editor/editor.cpp:3355
 msgid "Animated view"
 msgstr "Animált nézet"
 
-#: src/settings.cpp:271
+#: src/settings.cpp:272
 msgid "Show simplified view of cave in the editor."
 msgstr "Egyszerűsített nézetet mutat a pályaszerkesztőben."
 
-#: src/settings.cpp:272
+#: src/settings.cpp:273
 msgid "Colored objects"
 msgstr "Színes rajzelemek"
 
-#: src/settings.cpp:272
+#: src/settings.cpp:273
 msgid ""
 "Cave objects are colored, to make them different from random cave elements."
 msgstr ""
 "A pálya rajzelemeit külön színnel jelöli, hogy meg lehessen különböztetni "
 "őket a véletlenszerűen generált elemektől."
 
-#: src/settings.cpp:273
+#: src/settings.cpp:274
 msgid "Object list"
 msgstr "Rajzelem lista"
 
-#: src/settings.cpp:273
+#: src/settings.cpp:274
 msgid "Show objects list sidebar in the editor."
 msgstr "Objektumok listájának mutatása egy oldalsában a szerkesztőben."
 
-#: src/settings.cpp:274
+#: src/settings.cpp:275
 msgid "Fast uncover in test"
 msgstr "Gyors felfedés teszt közben"
 
-#: src/settings.cpp:274
+#: src/settings.cpp:275
 msgid ""
 "Fast uncovering and covering of cave in editor cave test, to reduce waiting "
 "time."
 msgstr ""
 "A felfedést gyorsítva animálja teszt közben, hogy ne kelljen annyit várni."
 
-#: src/settings.cpp:279
+#: src/settings.cpp:280
 msgid "Play sounds and music in the program."
 msgstr "Hangok és zene lejátszása a programban."
 
-#: src/settings.cpp:280
+#: src/settings.cpp:281
 msgid "Classic sounds only"
 msgstr "Csak klasszikus hangok"
 
-#: src/settings.cpp:280
+#: src/settings.cpp:281
 msgid "Play only classic sounds taken from the original game."
 msgstr "Csak klasszikus hangok lejátszása, az eredeti játékból."
 
-#: src/settings.cpp:281
+#: src/settings.cpp:282
 msgid "Stereo sounds"
 msgstr "Sztereó hangok"
 
-#: src/settings.cpp:281
+#: src/settings.cpp:282
 msgid ""
 "If you enable stereo sounds, you will hear the direction of sounds in the "
 "caves."
@@ -6621,126 +6645,122 @@ msgstr ""
 "Ha a sztereó hangok engedélyezve vannak, a pályákon a hangok irányát is "
 "hallani lehet majd."
 
-#: src/settings.cpp:282
+#: src/settings.cpp:283
 msgid "16-bit mixing"
 msgstr "16 bites keverés"
 
-#: src/settings.cpp:282
+#: src/settings.cpp:283
 msgid ""
 "Use 16-bit mixing of sounds. Try changing this setting if sound is clicky."
 msgstr "A hangok 16 bites keverése. Ha furcsa a hang, próbáld meg átállítani."
 
-#: src/settings.cpp:283
+#: src/settings.cpp:284
 msgid "44kHz mixing"
 msgstr "44 kHz-es keverés"
 
-#: src/settings.cpp:283
+#: src/settings.cpp:284
 msgid ""
 "Use 44kHz mixing of sounds. Try changing this setting if sound is clicky."
 msgstr "A hangok 44 kHz-es keverése. Próbáld meg átállítani, ha a hang furcsa."
 
-#: src/settings.cpp:299
+#: src/settings.cpp:300
 msgid "Keyboard"
 msgstr "Billentyűzet"
 
-#: src/settings.cpp:300
+#: src/settings.cpp:301
 msgid "Key left"
 msgstr "Balra gomb"
 
-#: src/settings.cpp:301
+#: src/settings.cpp:302
 msgid "Key right"
 msgstr "Jobbra gomb"
 
-#: src/settings.cpp:302
+#: src/settings.cpp:303
 msgid "Key up"
 msgstr "Fel gomb"
 
-#: src/settings.cpp:303
+#: src/settings.cpp:304
 msgid "Key down"
 msgstr "Le gomb"
 
-#: src/settings.cpp:304
+#: src/settings.cpp:305
 msgid "Key snap"
 msgstr "Lopás gomb"
 
-#: src/settings.cpp:305
+#: src/settings.cpp:306
 msgid "Key snap (alt.)"
 msgstr "Lopás gomb (másik)"
 
-#: src/settings.cpp:306
+#: src/settings.cpp:307
 msgid "Key suicide"
 msgstr "Öngyilkosság gomb"
 
-#: src/settings.cpp:307
+#: src/settings.cpp:308
 msgid "Key fast forward"
 msgstr "Gyorsított játék gomb"
 
-#: src/settings.cpp:308
+#: src/settings.cpp:309
 msgid "Key status bar"
 msgstr "Státusz sor gomb"
 
-#: src/settings.cpp:309
+#: src/settings.cpp:310
 msgid "Key restart level"
 msgstr "Újrakezdés gomb"
 
-#: src/settings.cpp:666
+#: src/settings.cpp:671
 msgid "Show license and quit"
 msgstr "Licenc mutatása és kilépés"
 
-#: src/settings.cpp:667
+#: src/settings.cpp:672
 msgid "Show some debug messages"
 msgstr "Néhány hibakereső üzenet"
 
-#: src/settings.cpp:668
+#: src/settings.cpp:673
 msgid "Load default settings"
 msgstr "Alapbeállítások betöltése"
 
-#: src/settings.cpp:669
+#: src/settings.cpp:674
 msgid "Cave names"
 msgstr "Pálya nevek"
 
-#: src/settings.cpp:672
+#: src/settings.cpp:677
 msgid "[FILE NAME]"
 msgstr "[fájlnév]"
 
-#: src/editor/exporthtml.cpp:58
-msgid "Saving HTML Gallery"
-msgstr "HTML galéria mentése"
-
-#: src/editor/exporthtml.cpp:113
+#: src/editor/exporthtml.cpp:101
 msgid "Caves"
 msgstr "A pályák"
 
-#: src/editor/exporthtml.cpp:189
+#: src/editor/exporthtml.cpp:170
 msgid "Type"
 msgstr "Típus"
 
-#: src/editor/exporthtml.cpp:189
+#: src/editor/exporthtml.cpp:170
 msgid "Normal cave"
 msgstr "Normál pálya"
 
-#: src/editor/exporthtml.cpp:192
+#: src/editor/exporthtml.cpp:173
 msgid "Diamond value"
 msgstr "Gyémánt értéke"
 
-#: src/editor/exporthtml.cpp:193
+#: src/editor/exporthtml.cpp:174
 msgid "Extra diamond value"
 msgstr "Plusz gyémánt értéke"
 
-#: src/editor/exporthtml.cpp:196
+#: src/editor/exporthtml.cpp:177
 msgid "Amoeba threshold and time (s)"
 msgstr "Amőba határ és idő (mp)"
 
-#: src/editor/exporthtml.cpp:198
+#: src/editor/exporthtml.cpp:179
 msgid "Magic wall milling time (s)"
 msgstr "Idő (mp)"
 
-#: src/editor/editorautowidgets.cpp:348
+#: src/editor/editorautowidgets.cpp:339
 #, c-format
 msgid "Level %d"
 msgstr "%d. szint"
 
-#: src/editor/editorautowidgets.cpp:428
+#: src/editor/editorautowidgets.cpp:421
 #, c-format
 msgid ""
 "\n"
@@ -6749,201 +6769,201 @@ msgstr ""
 "\n"
 "Alapérték: %s"
 
-#: src/editor/editor.cpp:163 src/editor/editor.cpp:167
+#: src/editor/editor.cpp:177 src/editor/editor.cpp:181
 msgid "Border"
 msgstr "Keret"
 
-#: src/editor/editor.cpp:163 src/editor/editor.cpp:166
-#: src/editor/editor.cpp:167
+#: src/editor/editor.cpp:177 src/editor/editor.cpp:180
+#: src/editor/editor.cpp:181
 msgid "Fill"
 msgstr "Kitöltés"
 
-#: src/editor/editor.cpp:165
+#: src/editor/editor.cpp:179
 msgid "Find"
 msgstr "Keres"
 
-#: src/editor/editor.cpp:168 src/editor/editor.cpp:169
-#: src/editor/editor.cpp:170
+#: src/editor/editor.cpp:182 src/editor/editor.cpp:183
+#: src/editor/editor.cpp:184
 msgid "Wall"
 msgstr "Fal"
 
-#: src/editor/editor.cpp:168 src/editor/editor.cpp:169
-#: src/editor/editor.cpp:170
+#: src/editor/editor.cpp:182 src/editor/editor.cpp:183
+#: src/editor/editor.cpp:184
 msgid "Path"
 msgstr "Járat"
 
-#: src/editor/editor.cpp:182
+#: src/editor/editor.cpp:196
 msgid "_Point"
 msgstr "_Pont"
 
-#: src/editor/editor.cpp:182
+#: src/editor/editor.cpp:196
 msgid "Draw single element"
 msgstr "Egyetlen karakter rajzolása"
 
-#: src/editor/editor.cpp:183
+#: src/editor/editor.cpp:197
 msgid "_Line"
 msgstr "_Vonal"
 
-#: src/editor/editor.cpp:183
+#: src/editor/editor.cpp:197
 msgid "Draw line of elements"
 msgstr "Vonal rajzolása"
 
-#: src/editor/editor.cpp:184
+#: src/editor/editor.cpp:198
 msgid "_Outline"
 msgstr "_Keret"
 
-#: src/editor/editor.cpp:184
+#: src/editor/editor.cpp:198
 msgid "Draw rectangle outline"
 msgstr "Téglalap rajzolása"
 
-#: src/editor/editor.cpp:185
+#: src/editor/editor.cpp:199
 msgid "R_ectangle"
 msgstr "Té_glalap"
 
-#: src/editor/editor.cpp:185
+#: src/editor/editor.cpp:199
 msgid "Draw filled rectangle"
 msgstr "Kitöltött téglalap rajzolása"
 
-#: src/editor/editor.cpp:186
+#: src/editor/editor.cpp:200
 msgid "Ra_ster"
 msgstr "R_aszter"
 
-#: src/editor/editor.cpp:186
+#: src/editor/editor.cpp:200
 msgid "Draw raster"
 msgstr "Raszter rajzolása"
 
-#: src/editor/editor.cpp:187
+#: src/editor/editor.cpp:201
 msgid "_Join"
 msgstr "Kö_tés"
 
-#: src/editor/editor.cpp:187
+#: src/editor/editor.cpp:201
 msgid "Draw join"
 msgstr "Kötés rajzolása"
 
-#: src/editor/editor.cpp:188
+#: src/editor/editor.cpp:202
 msgid "_Flood fill"
 msgstr "_Kitöltés"
 
-#: src/editor/editor.cpp:188
+#: src/editor/editor.cpp:202
 msgid "Fill by replacing elements"
 msgstr "Kitöltés elemek cseréjével"
 
-#: src/editor/editor.cpp:189
+#: src/editor/editor.cpp:203
 msgid "_Boundary fill"
 msgstr "K_itöltés keretig"
 
-#: src/editor/editor.cpp:189
+#: src/editor/editor.cpp:203
 msgid "Fill a closed area"
 msgstr "Zárt terület kitöltése"
 
-#: src/editor/editor.cpp:190
+#: src/editor/editor.cpp:204
 msgid "Ma_ze"
 msgstr "La_birintus"
 
-#: src/editor/editor.cpp:190
+#: src/editor/editor.cpp:204
 msgid "Draw maze"
 msgstr "Labirintus rajzolása"
 
-#: src/editor/editor.cpp:191
+#: src/editor/editor.cpp:205
 msgid "U_nicursal maze"
 msgstr "Kí_gyózó labirintus"
 
-#: src/editor/editor.cpp:191
+#: src/editor/editor.cpp:205
 msgid "Draw unicursal maze"
 msgstr "Kígyózó labirintus rajzolása"
 
-#: src/editor/editor.cpp:192
+#: src/editor/editor.cpp:206
 msgid "Bra_id maze"
 msgstr "Körös labirin_tus rajzolása"
 
-#: src/editor/editor.cpp:192
+#: src/editor/editor.cpp:206
 msgid "Draw braid maze"
 msgstr "Körös labirintus rajzolása"
 
-#: src/editor/editor.cpp:193
+#: src/editor/editor.cpp:207
 msgid "R_andom fill"
 msgstr "Vé_letlen kitöltés"
 
-#: src/editor/editor.cpp:193
+#: src/editor/editor.cpp:207
 msgid "Draw random elements"
 msgstr "Véletlen karakterek rajzolása"
 
-#: src/editor/editor.cpp:194
+#: src/editor/editor.cpp:208
 msgid "_Copy and Paste"
 msgstr "_Másol és beilleszt"
 
-#: src/editor/editor.cpp:194
+#: src/editor/editor.cpp:208
 msgid "Copy and paste area"
 msgstr "Terület másolása és beillesztése"
 
-#: src/editor/editor.cpp:196
+#: src/editor/editor.cpp:210
 msgid "_Move"
 msgstr "_Mozgat"
 
-#: src/editor/editor.cpp:196
+#: src/editor/editor.cpp:210
 msgid "Move object"
 msgstr "Rajzelem mozgatása"
 
-#: src/editor/editor.cpp:197
+#: src/editor/editor.cpp:211
 msgid "F_reehand"
 msgstr "S_zabadkézi"
 
-#: src/editor/editor.cpp:197
+#: src/editor/editor.cpp:211
 msgid "Draw freely"
 msgstr "Szabad rajz"
 
-#: src/editor/editor.cpp:198
+#: src/editor/editor.cpp:212
 msgid "Set _visible region"
 msgstr "Látható rész_let megadása"
 
-#: src/editor/editor.cpp:198
+#: src/editor/editor.cpp:212
 msgid "Select visible region of cave during play"
 msgstr "A pálya játék közben látható részeinek beállítása"
 
-#: src/editor/editor.cpp:213
+#: src/editor/editor.cpp:220
 msgid "All levels"
 msgstr "Összes szint"
 
-#: src/editor/editor.cpp:214
+#: src/editor/editor.cpp:221
 msgid "Level 2 and up"
 msgstr "2-estől felfelé"
 
-#: src/editor/editor.cpp:215
+#: src/editor/editor.cpp:222
 msgid "Level 3 and up"
 msgstr "3-astól felfelé"
 
-#: src/editor/editor.cpp:216
+#: src/editor/editor.cpp:223
 msgid "Level 4 and up"
 msgstr "4-estől felfelé"
 
-#: src/editor/editor.cpp:217
+#: src/editor/editor.cpp:224
 msgid "Level 5 only"
 msgstr "Csak az 5-ös"
 
-#: src/editor/editor.cpp:371
+#: src/editor/editor.cpp:356
 #, c-format
 msgid "%d object selected"
 msgid_plural "%d objects selected"
 msgstr[0] "%d rajzelem kiválasztva"
 msgstr[1] "%d rajzelem kiválasztva"
 
-#: src/editor/editor.cpp:580
+#: src/editor/editor.cpp:552
 #, c-format
 msgid "GDash Cave Editor - %s"
 msgstr "GDash Pályaszerkesztő - %s"
 
-#: src/editor/editor.cpp:706
+#: src/editor/editor.cpp:666
 msgid "Cave Properties"
 msgstr "Pálya tulajdonságai"
 
-#: src/editor/editor.cpp:759
+#: src/editor/editor.cpp:720
 msgid ""
 "You have changed the size of the cave. Please check the size of the visible "
 "region!"
 msgstr ""
 "Megváltoztattad a pálya méretét. Ellenőrizd a játék közben látható részt!"
 
-#: src/editor/editor.cpp:760
+#: src/editor/editor.cpp:721
 msgid ""
 "The visible area of the cave during the game can be smaller than the whole "
 "cave. If you resize the cave, the area to be shown cannot be guessed "
@@ -6957,59 +6977,59 @@ msgstr ""
 "kiválasztott területet. Használd a fogd és vidd módszert a téglalap helyének "
 "és méretének megadásához."
 
-#: src/editor/editor.cpp:775
+#: src/editor/editor.cpp:735
 msgid "Cave Set Properties"
 msgstr "Játék tulajdonságai"
 
-#: src/editor/editor.cpp:800
+#: src/editor/editor.cpp:760
 #, c-format
 msgid "<b>%ms</b>, %s, %dx%d, time %d:%02d, diamonds %d"
 msgstr "<b>%ms</b>, %s,%dx%d, idő: %d:%02d, gyémántok: %d"
 
-#: src/editor/editor.cpp:802
+#: src/editor/editor.cpp:762
 msgid "selectable"
 msgstr "kiválasztható"
 
-#: src/editor/editor.cpp:802
+#: src/editor/editor.cpp:762
 msgid "not selectable"
 msgstr "nem kiválasztható"
 
-#: src/editor/editor.cpp:828
+#: src/editor/editor.cpp:775
 #, c-format
 msgid "<b>%ms</b>, %d cave"
 msgid_plural "<b>%ms</b>, %d caves"
 msgstr[0] "<b>%ms</b>, %d pálya"
 msgstr[1] "<b>%ms</b>, %d pálya"
 
-#: src/editor/editor.cpp:917
+#: src/editor/editor.cpp:854
 msgid "Object Properties"
 msgstr "Objektum tulajdonságai"
 
-#: src/editor/editor.cpp:928
+#: src/editor/editor.cpp:864
 msgid "The object should be visible on at least one level."
 msgstr "Az objektumnak legalább egy nehézségi szinten látszania kell."
 
-#: src/editor/editor.cpp:928
+#: src/editor/editor.cpp:864
 msgid "Enabled this object on all levels."
 msgstr "Az összes szinten engedélyeztem az objektumot."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:1673
+#: src/editor/editor.cpp:1573
 msgid "Cave Name"
 msgstr "Pálya neve"
 
-#: src/editor/editor.cpp:1759
+#: src/editor/editor.cpp:1646
 #, c-format
 msgid "%d cave selected"
 msgid_plural "%d caves selected"
 msgstr[0] "%d pálya kiválasztva"
 msgstr[1] "%d pálya kiválasztva"
 
-#: src/editor/editor.cpp:1972
+#: src/editor/editor.cpp:1919
 msgid "Cave Random Fill"
 msgstr "Pálya véletlen kitöltés"
 
-#: src/editor/editor.cpp:1978
+#: src/editor/editor.cpp:1924
 msgid ""
 "Hint: The random fill works by generating a random number between 0 and 255, "
 "then choosing an element from the list above. If the number generated is "
@@ -7024,47 +7044,41 @@ msgstr ""
 "1-es, de nagyobb, mint a kettes, akkor az első elemet választja stb. A Gdash "
 "csökkenő sorrendbe állítja a valószínűségeket."
 
-#: src/editor/editor.cpp:2012
+#: src/editor/editor.cpp:1949
 msgid "Save Cave as PNG Image"
 msgstr "Pálya mentése PNG képként"
 
-#: src/editor/editor.cpp:2019
+#: src/editor/editor.cpp:1956
 msgid "PNG files"
 msgstr "PNG képek"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2081
+#: src/editor/editor.cpp:1987
 msgid "Cave Overview"
 msgstr "Áttekintés"
 
-#: src/editor/editor.cpp:2082
+#: src/editor/editor.cpp:1988
 msgid "Save as _PNG"
 msgstr "Mentése _PNG-ként"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2149
+#: src/editor/editor.cpp:2079
 msgid "Element Statistics"
 msgstr "Pályaelemek statisztikája"
 
-#: src/editor/editor.cpp:2156
+#: src/editor/editor.cpp:2087
 msgid "<b>Size of visible area</b>"
 msgstr "<b>A látható terület mérete</b>"
 
-#. TRANSLATORS: like "visible size: 880 cells" in the cave statistics
-#: src/editor/editor.cpp:2158
-#, c-format
-msgid "%d cells"
-msgstr "%d cella"
-
-#: src/editor/editor.cpp:2373
+#: src/editor/editor.cpp:2302
 msgid "Cave Colors"
 msgstr "Pálya színei"
 
-#: src/editor/editor.cpp:2383
+#: src/editor/editor.cpp:2312
 msgid "Set random..."
 msgstr "Véletlenszerű..."
 
-#: src/editor/editor.cpp:2390
+#: src/editor/editor.cpp:2319
 msgid ""
 "Hint: As the palette can be changed for C64 and Atari colors, it is not "
 "recommended to use different types together (for example, RGB color for "
@@ -7074,42 +7088,42 @@ msgstr ""
 "felhasználó, nem ajánlott különböző típusú színeket együtt használni (pl. "
 "RGB szín a háttérhez, Atari szín az iszaphoz.)"
 
-#: src/editor/editor.cpp:2424
+#: src/editor/editor.cpp:2352
 msgid "Do you really want to delete cave(s)?"
 msgstr "Biztos ki akarod törölni a pályá(ka)t?"
 
-#: src/editor/editor.cpp:2424
+#: src/editor/editor.cpp:2352
 msgid "This operation cannot be undone."
 msgstr "Ezt a műveletet nem lehet visszavonni."
 
-#: src/editor/editor.cpp:2557
+#: src/editor/editor.cpp:2467
 msgid ""
 "At least one object would have been totally hidden (not visible on any of "
 "the levels)."
 msgstr ""
 "Legalább egy objektum teljesen eltűnt volna (nem látszana egyik szinten sem)."
 
-#: src/editor/editor.cpp:2557
+#: src/editor/editor.cpp:2467
 msgid "Enabled those objects on the current level."
 msgstr "Azok az objektumok engedélyezve lettek az aktuális szinten."
 
-#: src/editor/editor.cpp:2718
+#: src/editor/editor.cpp:2566
 msgid "Do you really want to remove cave map?"
 msgstr "Biztos törölni szeretnéd a pálya térképét?"
 
-#: src/editor/editor.cpp:2718
+#: src/editor/editor.cpp:2566
 msgid "This operation destroys all cave objects."
 msgstr "Ez a művelet a pálya minden elemét törli."
 
-#: src/editor/editor.cpp:2738
+#: src/editor/editor.cpp:2584
 msgid "This cave has no objects."
 msgstr "Nincsenek ezen a pĂÂĂÂlyĂÂĂÂn rajzelemek."
 
-#: src/editor/editor.cpp:2742
+#: src/editor/editor.cpp:2588
 msgid "Do you really want to flatten cave?"
 msgstr "Biztos össze szeretnéd vonni a pályát egyetlen térképpé?"
 
-#: src/editor/editor.cpp:2742
+#: src/editor/editor.cpp:2588
 msgid ""
 "This operation merges all cave objects currently seen in a single map. "
 "Further objects may later be added, but the ones already seen will behave "
@@ -7119,56 +7133,56 @@ msgstr ""
 "objektumok később is hozzáadhatóak, de az eddigiek a kezdeti véletlen "
 "kitöltéshez hasonlóan fognak viselkedni, és nem maradnak szerkeszthetőek."
 
-#: src/editor/editor.cpp:2819
+#: src/editor/editor.cpp:2655
 msgid "Save Cave Set in HTML"
 msgstr "HTML galéria mentése"
 
-#: src/editor/editor.cpp:2827
+#: src/editor/editor.cpp:2663
 msgid "HTML files"
 msgstr "HTML fájlok"
 
-#: src/editor/editor.cpp:2843
+#: src/editor/editor.cpp:2680
 msgid "Errors - Saving Gallery to File"
 msgstr "Hibák - galéria fájlba mentése"
 
-#: src/editor/editor.cpp:2858
+#: src/editor/editor.cpp:2690
 msgid "Export Cave as CrLi Cave File"
 msgstr "CrLi pálya fájl exportálása"
 
-#: src/editor/editor.cpp:2876
+#: src/editor/editor.cpp:2709
 msgid "Errors - Exporting Cave to CrLi Format"
 msgstr "Hibák - pálya CrLi formátumban mentése"
 
-#: src/editor/editor.cpp:2894
+#: src/editor/editor.cpp:2719
 msgid "Export Cave as CrLi Cave Pack"
 msgstr "CrLi pályagyűjtemény exportálása"
 
-#: src/editor/editor.cpp:2915
+#: src/editor/editor.cpp:2738
 msgid "Errors - Exporting Caves to File"
 msgstr "Hibák - pályák fájlba mentése"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2998
+#: src/editor/editor.cpp:2810
 msgid "Create New Cave"
 msgstr "Új pálya létrehozása"
 
-#: src/editor/editor.cpp:3009
+#: src/editor/editor.cpp:2822
 msgid "Name:"
 msgstr "Név:"
 
-#: src/editor/editor.cpp:3012
+#: src/editor/editor.cpp:2825
 msgid "New cave"
 msgstr "Új pálya"
 
-#: src/editor/editor.cpp:3016
+#: src/editor/editor.cpp:2829
 msgid "Description:"
 msgstr "Leírás:"
 
-#: src/editor/editor.cpp:3022
+#: src/editor/editor.cpp:2835
 msgid "Intermission:"
 msgstr "Jutalom pálya:"
 
-#: src/editor/editor.cpp:3024
+#: src/editor/editor.cpp:2837
 msgid ""
 "Intermission caves are usually small and fast caves, which are not required "
 "to be solved. The player will not lose a life if he is not successful. The "
@@ -7182,11 +7196,11 @@ msgstr ""
 "pálya mérete is 20x12-re lesz állítva, mivel a jutalom pályáknak az a "
 "szokásos mérete."
 
-#: src/editor/editor.cpp:3138
+#: src/editor/editor.cpp:2924
 msgid "Do you really want to remove unknown cave tags?"
 msgstr "Biztos törölni szeretnéd az összes ismeretlen mezőt?"
 
-#: src/editor/editor.cpp:3138
+#: src/editor/editor.cpp:2924
 msgid ""
 "This operation removes all unknown tags associated with all caves. Unknown "
 "tags might come from another BDCFF-compatible game or an older version of "
@@ -7199,34 +7213,34 @@ msgstr ""
 "GDash nem tudja értelmezni, ezért ha ebben a programban használod a "
 "pályákat, haszontalanok."
 
-#: src/editor/editor.cpp:3232 src/editor/editor.cpp:3243
+#: src/editor/editor.cpp:3012 src/editor/editor.cpp:3022
 #, c-format
 msgid "%s Element"
 msgstr "%s elem"
 
-#: src/editor/editor.cpp:3236
+#: src/editor/editor.cpp:3016
 msgid "Draw Element"
 msgstr "Elem rajzolása"
 
-#: src/editor/editor.cpp:3247
+#: src/editor/editor.cpp:3026
 msgid "Fill Element"
 msgstr "Kitöltő elem"
 
-#: src/editor/editor.cpp:3296
+#: src/editor/editor.cpp:3064
 #, c-format
 msgid "%s: removed %d replay(s)\n"
 msgstr "%s: %d visszajátszás törölve\n"
 
-#: src/editor/editor.cpp:3302
+#: src/editor/editor.cpp:3068
 msgid "Some replays were removed."
 msgstr "Néhány visszajátszás törölve."
 
-#: src/editor/editor.cpp:3328
+#: src/editor/editor.cpp:3084
 #, c-format
 msgid "%s: marked %d replay(s) as working ones\n"
 msgstr "%s: %d visszajátszás működőként megjelölve\n"
 
-#: src/editor/editor.cpp:3334
+#: src/editor/editor.cpp:3088
 msgid ""
 "Some replay checksums were recalculated. This does not mean that those "
 "replays actually play correctly!"
@@ -7234,45 +7248,45 @@ msgstr ""
 "Néhány visszajátszás ellenőrző összegét újraszámoltam. Ez nem jelenti azt, "
 "hogy azok tényleg működnek is!"
 
-#: src/editor/editor.cpp:3386 src/editor/editor.cpp:3399
+#: src/editor/editor.cpp:3132 src/editor/editor.cpp:3146
 msgid "Error loading image file."
 msgstr "Nem lehetett betölteni a kép fájlt."
 
-#: src/editor/editor.cpp:3386
+#: src/editor/editor.cpp:3132
 msgid "Cannot recognize file format."
 msgstr "A kép formátuma nem felismerhető."
 
-#: src/editor/editor.cpp:3391
+#: src/editor/editor.cpp:3137
 msgid "The image selected is too big!"
 msgstr "A kiválasztott kép túl nagy!"
 
-#: src/editor/editor.cpp:3391
+#: src/editor/editor.cpp:3137
 #, c-format
 msgid "Maximum sizes: %dx%d pixels"
 msgstr "Maximum méret: %dx%d képpont"
 
-#: src/editor/editor.cpp:3423
+#: src/editor/editor.cpp:3172
 msgid "Select Image File for Title Screen"
 msgstr "Válassz fájlt a címképhez"
 
-#: src/editor/editor.cpp:3429
+#: src/editor/editor.cpp:3178
 msgid "Select Image File for Background Tile"
 msgstr "Válassz fájlt a címkép hátteréhez"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:3441
+#: src/editor/editor.cpp:3186
 msgid "Set Title Image"
 msgstr "Címkép beállítása"
 
-#: src/editor/editor.cpp:3457
+#: src/editor/editor.cpp:3202
 msgid "Load _image"
 msgstr "_Kép betöltése"
 
-#: src/editor/editor.cpp:3458
+#: src/editor/editor.cpp:3203
 msgid "Load _tile"
 msgstr "_Minta betöltése"
 
-#: src/editor/editor.cpp:3465
+#: src/editor/editor.cpp:3213
 #, c-format
 msgid ""
 "Recommended image sizes are 320x176 pixels for title image and 8x8 pixels "
@@ -7281,434 +7295,434 @@ msgstr ""
 "Az ajánlott képméretek 320x176 képpont a címképhez és 8x8 képpont a gördülő "
 "mintához. A maximum méretek %dx%d és %dx%d képpont."
 
-#: src/editor/editor.cpp:3487
+#: src/editor/editor.cpp:3235
 msgid "_File"
 msgstr "_Fájl"
 
-#: src/editor/editor.cpp:3488
+#: src/editor/editor.cpp:3236
 msgid "_Edit"
 msgstr "S_zerkesztés"
 
-#: src/editor/editor.cpp:3489
+#: src/editor/editor.cpp:3237
 msgid "_View"
 msgstr "_Nézet"
 
-#: src/editor/editor.cpp:3490
+#: src/editor/editor.cpp:3238
 msgid "_Tools"
 msgstr "_Eszközök"
 
-#: src/editor/editor.cpp:3491
+#: src/editor/editor.cpp:3239
 msgid "_Help"
 msgstr "_Súgó"
 
-#: src/editor/editor.cpp:3492
+#: src/editor/editor.cpp:3240
 msgid "_Object"
 msgstr "_Objektum"
 
-#: src/editor/editor.cpp:3493
+#: src/editor/editor.cpp:3241
 msgid "_Cave"
 msgstr "_Pálya"
 
-#: src/editor/editor.cpp:3494
+#: src/editor/editor.cpp:3242
 msgid "Cave_set"
 msgstr "_Pályák"
 
-#: src/editor/editor.cpp:3495
+#: src/editor/editor.cpp:3243
 msgid "Close cave editor"
 msgstr "Pályaszerkesztő bezárása"
 
-#: src/editor/editor.cpp:3496
+#: src/editor/editor.cpp:3244
 msgid "New _cave"
 msgstr "Új _pálya"
 
-#: src/editor/editor.cpp:3496
+#: src/editor/editor.cpp:3244
 msgid "Create new cave"
 msgstr "Új pálya létrehozása"
 
-#: src/editor/editor.cpp:3498
+#: src/editor/editor.cpp:3246
 msgid "_Editor help"
 msgstr "_Szerkesztő súgója"
 
-#: src/editor/editor.cpp:3499
+#: src/editor/editor.cpp:3247
 msgid "Save cave set to file"
 msgstr "Játék pályáinak mentése új néven"
 
-#: src/editor/editor.cpp:3500
+#: src/editor/editor.cpp:3248
 msgid "Save cave set as new file"
 msgstr "Játék pályáinak mentése új néven"
 
-#: src/editor/editor.cpp:3501
+#: src/editor/editor.cpp:3249
 msgid "Load cave set from file"
 msgstr "Játék betöltése fájlból"
 
-#: src/editor/editor.cpp:3502
+#: src/editor/editor.cpp:3250
 msgid "Load shipped cave set from file"
 msgstr "Telepített játék betöltése fájlból"
 
-#: src/editor/editor.cpp:3503
+#: src/editor/editor.cpp:3251
 msgid "Select all items"
 msgstr "Összes elem kiválasztása"
 
-#: src/editor/editor.cpp:3504
+#: src/editor/editor.cpp:3252
 msgid "Cave set _properties"
 msgstr "Játék _tulajdonságai"
 
-#: src/editor/editor.cpp:3504
+#: src/editor/editor.cpp:3252
 msgid "Set properties of cave set"
 msgstr "Játék tulajdonságainak beállítása"
 
-#: src/editor/editor.cpp:3505
+#: src/editor/editor.cpp:3253
 msgid "Cave set _title image"
 msgstr "Játék _címkép"
 
-#: src/editor/editor.cpp:3505
+#: src/editor/editor.cpp:3253
 msgid "Set caveset title image"
 msgstr "Játék címképernyő beállítása"
 
-#: src/editor/editor.cpp:3511
+#: src/editor/editor.cpp:3259
 msgid "_Role in caveset"
 msgstr "_Szerep a pályák közt"
 
-#: src/editor/editor.cpp:3512
+#: src/editor/editor.cpp:3260
 msgid "_Edit cave"
 msgstr "Pálya s_zerkesztése"
 
-#: src/editor/editor.cpp:3512
+#: src/editor/editor.cpp:3260
 msgid "Edit selected cave"
 msgstr "Kiválasztott pálya szerkesztése"
 
-#: src/editor/editor.cpp:3513
+#: src/editor/editor.cpp:3261
 msgid "_Rename cave"
 msgstr "_Pálya átnevezése"
 
-#: src/editor/editor.cpp:3513
+#: src/editor/editor.cpp:3261
 msgid "Rename selected cave"
 msgstr "Kiválasztott pálya átnevezése"
 
-#: src/editor/editor.cpp:3514
+#: src/editor/editor.cpp:3262
 msgid "Make cave _selectable"
 msgstr "Pálya _kiválasztható"
 
-#: src/editor/editor.cpp:3514
+#: src/editor/editor.cpp:3262
 msgid "Make the cave selectable as game start"
 msgstr "Az adott pálya legyen kiválasztható a játék elején"
 
-#: src/editor/editor.cpp:3515
+#: src/editor/editor.cpp:3263
 msgid "Make cave _unselectable"
 msgstr "Pálya _nem kiválasztható"
 
-#: src/editor/editor.cpp:3515
+#: src/editor/editor.cpp:3263
 msgid "Make the cave unselectable as game start"
 msgstr "Az adott pálya ne legyen kiválasztható a játék elején"
 
-#: src/editor/editor.cpp:3520
+#: src/editor/editor.cpp:3268
 msgid "_New cave set"
 msgstr "Ú_j játék"
 
-#: src/editor/editor.cpp:3520
+#: src/editor/editor.cpp:3268
 msgid "Create new cave set with no caves"
 msgstr "Új, üres játék létrehozása"
 
-#: src/editor/editor.cpp:3521
+#: src/editor/editor.cpp:3269
 msgid "Save _HTML gallery"
 msgstr "_HTML galéria mentése"
 
-#: src/editor/editor.cpp:3521
+#: src/editor/editor.cpp:3269
 msgid "Save game in a HTML gallery"
 msgstr "Játék mentése egy HTML galériaába"
 
-#: src/editor/editor.cpp:3522
+#: src/editor/editor.cpp:3270
 msgid "Export _CrLi cave pack"
 msgstr "_CrLi játék exportálása"
 
-#: src/editor/editor.cpp:3523
+#: src/editor/editor.cpp:3271
 msgid "_Selectable caves"
 msgstr "_Kiválasztható pályák"
 
-#: src/editor/editor.cpp:3524
+#: src/editor/editor.cpp:3272
 msgid "All _caves"
 msgstr "Összes _pálya"
 
-#: src/editor/editor.cpp:3524
+#: src/editor/editor.cpp:3272
 msgid "Make all caves selectable as game start"
 msgstr "Legyen az összes pálya kiválasztható a játék elején"
 
-#: src/editor/editor.cpp:3525
+#: src/editor/editor.cpp:3273
 msgid "All _but intermissions"
 msgstr "Jutalom pályákon _kívül mind"
 
-#: src/editor/editor.cpp:3525
+#: src/editor/editor.cpp:3273
 msgid "Make all caves but intermissions selectable as game start"
 msgstr ""
 "A jutalom pályákon kívül az összes legyen kiválasztható játék kezdetnek"
 
-#: src/editor/editor.cpp:3526
+#: src/editor/editor.cpp:3274
 msgid "All _after intermissions"
 msgstr "Jutalom pályák _utániak"
 
-#: src/editor/editor.cpp:3526
+#: src/editor/editor.cpp:3274
 msgid "Make all caves after intermissions selectable as game start"
 msgstr "Az összes jutalom pálya utáni legyen kiválasztható játék kezdetnek"
 
-#: src/editor/editor.cpp:3527
+#: src/editor/editor.cpp:3275
 msgid "Remove all unknown tags"
 msgstr "Összes ismeretlen mező törlése"
 
-#: src/editor/editor.cpp:3527
+#: src/editor/editor.cpp:3275
 msgid "Removes all unknown tags found in the BDCFF file"
 msgstr "Az összes ismeretlen mezőt törli, amit a BDCFF fájlban talált"
 
-#: src/editor/editor.cpp:3528
+#: src/editor/editor.cpp:3276
 msgid "Remove bad replays"
 msgstr "Rossz visszajátszások törlése"
 
-#: src/editor/editor.cpp:3528
+#: src/editor/editor.cpp:3276
 msgid "Removes replays which won't play as they have their caves modified."
 msgstr ""
 "Törli azokat a visszajátszásokat, amelyeknek nem működnek, mert megváltozott "
 "a pálya."
 
-#: src/editor/editor.cpp:3529
+#: src/editor/editor.cpp:3277
 msgid "Fix replay checksums"
 msgstr "Visszajátszás ellenőrzők javítása"
 
-#: src/editor/editor.cpp:3529
+#: src/editor/editor.cpp:3277
 msgid "Treats all replays with wrong checksums as working ones."
 msgstr "Az összes rossznak bejelölt visszajátszást működőnek tekinti."
 
-#: src/editor/editor.cpp:3534
+#: src/editor/editor.cpp:3282
 msgid "_Map"
 msgstr "_Térkép"
 
-#: src/editor/editor.cpp:3535
+#: src/editor/editor.cpp:3283
 msgid "_Export as CrLi cave file"
 msgstr "CrLi pálya _exportálása"
 
-#: src/editor/editor.cpp:3536
+#: src/editor/editor.cpp:3284
 msgid "Open cave selector"
 msgstr "Pályaválasztó megnyitása"
 
-#: src/editor/editor.cpp:3537
+#: src/editor/editor.cpp:3285
 msgid "_Next cave"
 msgstr "_Következő pálya"
 
-#: src/editor/editor.cpp:3537
+#: src/editor/editor.cpp:3285
 msgid "Next cave"
 msgstr "Következő pálya"
 
-#: src/editor/editor.cpp:3538
+#: src/editor/editor.cpp:3286
 msgid "_Previous cave"
 msgstr "_Előző pálya"
 
-#: src/editor/editor.cpp:3538
+#: src/editor/editor.cpp:3286
 msgid "Previous cave"
 msgstr "Előző pálya"
 
-#: src/editor/editor.cpp:3539
+#: src/editor/editor.cpp:3287
 msgid "_Test"
 msgstr "T_esztelés"
 
-#: src/editor/editor.cpp:3540
+#: src/editor/editor.cpp:3288
 msgid "Ca_ve properties"
 msgstr "Pá_lya tulajdonságai"
 
-#: src/editor/editor.cpp:3540
+#: src/editor/editor.cpp:3288
 msgid "Cave settings"
 msgstr "Pálya beállításai"
 
-#: src/editor/editor.cpp:3541
+#: src/editor/editor.cpp:3289
 msgid "_Element statistics"
 msgstr "Pálya_elemek statisztikája"
 
-#: src/editor/editor.cpp:3541
+#: src/editor/editor.cpp:3289
 msgid "Element statistics: number and ratio of elements"
 msgstr "Elem statisztikák: cellák száma és aránya"
 
-#: src/editor/editor.cpp:3542
+#: src/editor/editor.cpp:3290
 msgid "Set engine defaults"
 msgstr "Adott motor alapértékei"
 
-#: src/editor/editor.cpp:3543
+#: src/editor/editor.cpp:3291
 msgid "Cave co_lors"
 msgstr "Pálya _színei"
 
-#: src/editor/editor.cpp:3543
+#: src/editor/editor.cpp:3291
 msgid "Select cave colors"
 msgstr "Pálya színeinek kiválasztása"
 
-#: src/editor/editor.cpp:3544
+#: src/editor/editor.cpp:3292
 msgid "Convert to map"
 msgstr "Térképpé alakítás"
 
-#: src/editor/editor.cpp:3544
+#: src/editor/editor.cpp:3292
 msgid "Flatten cave to a single cave map without objects"
 msgstr "A pálya lapítása egyetlen térképpé"
 
-#: src/editor/editor.cpp:3545
+#: src/editor/editor.cpp:3293
 msgid "O_verview"
 msgstr "Át_tekintés"
 
-#: src/editor/editor.cpp:3545
+#: src/editor/editor.cpp:3293
 msgid "Full screen overview of cave"
 msgstr "A teljes pálya áttekintése"
 
-#: src/editor/editor.cpp:3546
+#: src/editor/editor.cpp:3294
 msgid "O_verview (simple)"
 msgstr "Át_tekintés (egyszerű)"
 
-#: src/editor/editor.cpp:3546
+#: src/editor/editor.cpp:3294
 msgid "Full screen overview of cave almost as in game"
 msgstr "A teljes pálya áttekintése (majdnem, ahogyan a játékban)"
 
-#: src/editor/editor.cpp:3547
+#: src/editor/editor.cpp:3295
 msgid "_Auto shrink"
 msgstr "_Automatikus zsugorítás"
 
-#: src/editor/editor.cpp:3547
+#: src/editor/editor.cpp:3295
 msgid "Automatically set the visible region of the cave"
 msgstr "A pálya látható részének automatikus beállítása"
 
-#: src/editor/editor.cpp:3552
+#: src/editor/editor.cpp:3300
 msgid "Send to _back"
 msgstr "_Hátraküldés"
 
-#: src/editor/editor.cpp:3552
+#: src/editor/editor.cpp:3300
 msgid "Send object to bottom of object list (draw first)"
 msgstr "Rajzelem alulra küldése (elsőnek rajzol)"
 
-#: src/editor/editor.cpp:3553
+#: src/editor/editor.cpp:3301
 msgid "Bring to _front"
 msgstr "_Előtérbe hozás"
 
-#: src/editor/editor.cpp:3553
+#: src/editor/editor.cpp:3301
 msgid "Bring object to front of object list (drawn last)"
 msgstr "Rajzelem felülre hozása (utolsónak rajzol)"
 
-#: src/editor/editor.cpp:3554
+#: src/editor/editor.cpp:3302
 msgid "Show on this level"
 msgstr "Látsszon ezen a szinten"
 
-#: src/editor/editor.cpp:3554
+#: src/editor/editor.cpp:3302
 msgid "Enable object on currently visible level"
 msgstr "Az objektum látszódjon a jelenlegi szinten"
 
-#: src/editor/editor.cpp:3555
+#: src/editor/editor.cpp:3303
 msgid "Hide on this level"
 msgstr "Eltűntetés erről a szintről"
 
-#: src/editor/editor.cpp:3555
+#: src/editor/editor.cpp:3303
 msgid "Disable object on currently visible level"
 msgstr "Az objektum tiltása a jelenlegi szinten"
 
-#: src/editor/editor.cpp:3556
+#: src/editor/editor.cpp:3304
 msgid "Only on this level"
 msgstr "Csak ezen a szinten"
 
-#: src/editor/editor.cpp:3556
+#: src/editor/editor.cpp:3304
 msgid "Enable object only on the currently visible level"
 msgstr "Az objektum csak a jelenlegi szinten látszódjon"
 
-#: src/editor/editor.cpp:3557
+#: src/editor/editor.cpp:3305
 msgid "Show on all levels"
 msgstr "Összes szinten látszik"
 
-#: src/editor/editor.cpp:3557
+#: src/editor/editor.cpp:3305
 msgid "Enable object on all levels"
 msgstr "Objektum engedélyezése az összes szinten"
 
-#: src/editor/editor.cpp:3561
+#: src/editor/editor.cpp:3309
 msgid "Ob_ject properties"
 msgstr "Rajz_elem tulajdonságai"
 
-#: src/editor/editor.cpp:3561
+#: src/editor/editor.cpp:3309
 msgid "Set object properties"
 msgstr "Elem tulajdonságainak szerkesztése"
 
-#: src/editor/editor.cpp:3566
+#: src/editor/editor.cpp:3314
 msgid "Shift _left"
 msgstr "Léptetés _balra"
 
-#: src/editor/editor.cpp:3567
+#: src/editor/editor.cpp:3315
 msgid "Shift _right"
 msgstr "Léptretés _jobbra"
 
-#: src/editor/editor.cpp:3568
+#: src/editor/editor.cpp:3316
 msgid "Shift _up"
 msgstr "Léptetés _fel"
 
-#: src/editor/editor.cpp:3569
+#: src/editor/editor.cpp:3317
 msgid "Shift _down"
 msgstr "Léptetés _le"
 
-#: src/editor/editor.cpp:3570
+#: src/editor/editor.cpp:3318
 msgid "Remove m_ap"
 msgstr "Térkép tö_rlése"
 
-#: src/editor/editor.cpp:3570
+#: src/editor/editor.cpp:3318
 msgid "Remove cave map, if it has one"
 msgstr "A pálya térkép törlése"
 
-#: src/editor/editor.cpp:3575
+#: src/editor/editor.cpp:3323
 msgid "Setup cave _random fill"
 msgstr "Véletlenszerű _elemek beállítása"
 
-#: src/editor/editor.cpp:3575
+#: src/editor/editor.cpp:3323
 msgid "Setup initial fill random elements for the cave"
 msgstr "A véletlenszerű kezdeti kitöltés beállítása a pályához"
 
-#: src/editor/editor.cpp:3580
+#: src/editor/editor.cpp:3328
 msgid "Cut to clipboard"
 msgstr "Kivágás a vágólapra"
 
-#: src/editor/editor.cpp:3581
+#: src/editor/editor.cpp:3329
 msgid "Copy to clipboard"
 msgstr "Másolás a vágólapra"
 
-#: src/editor/editor.cpp:3582
+#: src/editor/editor.cpp:3330
 msgid "Delete"
 msgstr "Törlés"
 
-#: src/editor/editor.cpp:3587
+#: src/editor/editor.cpp:3335
 msgid "Paste object from clipboard"
 msgstr "Rajzelem beillesztése a vágólapról"
 
-#: src/editor/editor.cpp:3592
+#: src/editor/editor.cpp:3340
 msgid "Undo last action"
 msgstr "Előző művelet visszavonása"
 
-#: src/editor/editor.cpp:3597
+#: src/editor/editor.cpp:3345
 msgid "Redo last action"
 msgstr "Visszavont művelet ismétlése"
 
-#: src/editor/editor.cpp:3607
+#: src/editor/editor.cpp:3355
 msgid "_Animated view"
 msgstr "_Animált nézet"
 
-#: src/editor/editor.cpp:3608
+#: src/editor/editor.cpp:3356
 msgid "_Colored objects"
 msgstr "_Színes rajzelemek"
 
-#: src/editor/editor.cpp:3608
+#: src/editor/editor.cpp:3356
 msgid "Cave objects are colored"
 msgstr "A rajzelemek kiemelése színnel"
 
-#: src/editor/editor.cpp:3609
+#: src/editor/editor.cpp:3357
 msgid "_Object list"
 msgstr "Ra_jzelem lista"
 
-#: src/editor/editor.cpp:3609
+#: src/editor/editor.cpp:3357
 msgid "Object list sidebar"
 msgstr "Objektumok oldalsáv"
 
-#: src/editor/editor.cpp:3957
+#: src/editor/editor.cpp:3696
 msgid "Level shown:"
 msgstr "Szint:"
 
-#: src/editor/editor.cpp:3966
+#: src/editor/editor.cpp:3705
 msgid "Draw on:"
 msgstr "Rajz ezen:"
 
-#: src/editor/editor.cpp:3971
+#: src/editor/editor.cpp:3710
 msgid ""
 "Element used to draw points, lines, and rectangles. You can use middle-click "
 "to pick one from the cave."
@@ -7716,7 +7730,7 @@ msgstr ""
 "A pontok, vonalak és téglalapok rajzolásához használt elem. A pályára a "
 "középső egérgombbal kattintva is kiválasztható."
 
-#: src/editor/editor.cpp:3976
+#: src/editor/editor.cpp:3715
 msgid ""
 "Element used to fill rectangles, and second element of joins. You can use "
 "Ctrl + middle-click to pick one from the cave."
@@ -7725,7 +7739,7 @@ msgstr ""
 "billentyű megnyomásával és a középső gombbal kattintva a pályára is "
 "beállítható."
 
-#: src/editor/editor.cpp:4013
+#: src/editor/editor.cpp:3753
 msgid "_Objects"
 msgstr "_Objektumok"
 
@@ -7734,40 +7748,40 @@ msgid "Select Color"
 msgstr "Szín kiválasztása"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editorwidgets.cpp:185
+#: src/editor/editorwidgets.cpp:178
 msgid "Select Atari Color"
 msgstr "Atari szín kiválasztása"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editorwidgets.cpp:190
+#: src/editor/editorwidgets.cpp:183
 msgid "Select C64 DTV Color"
 msgstr "C64 DTV szín kiválasztása"
 
-#: src/editor/editorwidgets.cpp:288
+#: src/editor/editorwidgets.cpp:271
 msgid "C64 Colors"
 msgstr "C64 Színek"
 
-#: src/editor/editorwidgets.cpp:301
+#: src/editor/editorwidgets.cpp:282
 msgid "Atari color..."
 msgstr "Atari szín..."
 
-#: src/editor/editorwidgets.cpp:303
+#: src/editor/editorwidgets.cpp:284
 msgid "C64DTV color..."
 msgstr "C64DTV szín..."
 
-#: src/editor/editorwidgets.cpp:305
+#: src/editor/editorwidgets.cpp:286
 msgid "RGB color..."
 msgstr "RGB szín..."
 
-#: src/editor/editorwidgets.cpp:528
+#: src/editor/editorwidgets.cpp:480
 msgid "Normal elements"
 msgstr "Normál karakterek"
 
-#: src/editor/editorwidgets.cpp:535
+#: src/editor/editorwidgets.cpp:488
 msgid "For effects"
 msgstr "Hatásokhoz"
 
-#: src/editor/editorwidgets.cpp:630
+#: src/editor/editorwidgets.cpp:553
 msgid "Elements"
 msgstr "Elemek"
 
@@ -7776,6 +7790,13 @@ msgstr "Elemek"
 #: src/gfx/pixbuffactory.cpp:36
 msgid "Nearest neighbor"
 msgstr "Legközelebbi"
+
+#~ msgid "Saving HTML Gallery"
+#~ msgstr "HTML galéria mentése"
+
+#, c-format
+#~ msgid "%d cells"
+#~ msgstr "%d cella"
 
 #~ msgid ""
 #~ "Software scaling method used. Only effective for the GTK+ and the SDL "

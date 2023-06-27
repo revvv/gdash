@@ -232,9 +232,9 @@ void CaveRendered::draw_indexes(CaveMap<int> &gfx_buffer, CaveMap<bool> const &c
             draw = gd_element_properties[O_PLAYER_TAP].image_game;
         else
             draw = gd_element_properties[O_PLAYER].image_game;
-    } else if (last_direction == MV_UP)
+    } else if (last_direction == MV_UP && gd_new_up_down_animation)
         draw = gd_element_properties[O_PLAYER_UP].image_game;
-    else if (last_direction == MV_DOWN)
+    else if (last_direction == MV_DOWN && gd_new_up_down_animation)
         draw = gd_element_properties[O_PLAYER_DOWN].image_game;
     else if (last_horizontal_direction == MV_LEFT)
         draw = gd_element_properties[O_PLAYER_LEFT].image_game;
