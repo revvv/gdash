@@ -295,19 +295,24 @@ Setting *gd_get_game_settings_array() {
 
 
 
-Setting *gd_get_keyboard_settings_array(GameInputHandler *gih) {
+Setting *gtk_get_keyboard_settings_array() {
+
+    // append "GTK" or "SDL" to "Keyboard"
+    static std::string keyboard_engine = Printf("%s (%s)", _("Keyboard"), (gd_graphics_engine == GRAPHICS_ENGINE_GTK) ? "GTK" : "SDL"); // not using N_()!
+
     static Setting settings_static[] = {
-        { TypePage, N_("Keyboard") },
-        { TypeKey,     N_("Key left"), &gih->get_key_variable(GameInputHandler::KeyLeft), false },
-        { TypeKey,     N_("Key right"), &gih->get_key_variable(GameInputHandler::KeyRight), false },
-        { TypeKey,     N_("Key up"), &gih->get_key_variable(GameInputHandler::KeyUp), false },
-        { TypeKey,     N_("Key down"), &gih->get_key_variable(GameInputHandler::KeyDown), false },
-        { TypeKey,     N_("Key snap"), &gih->get_key_variable(GameInputHandler::KeyFire1), false },
-        { TypeKey,     N_("Key snap (alt.)"), &gih->get_key_variable(GameInputHandler::KeyFire2), false },
-        { TypeKey,     N_("Key suicide"), &gih->get_key_variable(GameInputHandler::KeySuicide), false },
-        { TypeKey,     N_("Key fast forward"), &gih->get_key_variable(GameInputHandler::KeyFastForward), false },
-        { TypeKey,     N_("Key status bar"), &gih->get_key_variable(GameInputHandler::KeyStatusBar), false },
-        { TypeKey,     N_("Key restart level"), &gih->get_key_variable(GameInputHandler::KeyRestartLevel), false },
+        //{ TypePage, N_("Keyboard") },
+        { TypePage, g_strdup(keyboard_engine.c_str()) }, // g_strdup required, otherwise points to invalid memory
+        { TypeKey,     N_("Key left"), &gd_gtk_key_left, false },
+        { TypeKey,     N_("Key right"), &gd_gtk_key_right, false },
+        { TypeKey,     N_("Key up"), &gd_gtk_key_up, false },
+        { TypeKey,     N_("Key down"), &gd_gtk_key_down, false },
+        { TypeKey,     N_("Key snap"), &gd_gtk_key_fire_1, false },
+        { TypeKey,     N_("Key snap (alt.)"), &gd_gtk_key_fire_2, false },
+        { TypeKey,     N_("Key suicide"), &gd_gtk_key_suicide, false },
+        { TypeKey,     N_("Key fast forward"), &gd_gtk_key_fast_forward, false },
+        { TypeKey,     N_("Key status bar"), &gd_gtk_key_status_bar, false },
+        { TypeKey,     N_("Key restart level"), &gd_gtk_key_restart_level, false },
         /* end */
         { TypeBoolean, NULL },
     };
@@ -315,6 +320,43 @@ Setting *gd_get_keyboard_settings_array(GameInputHandler *gih) {
     set_page_numbers(settings_static);
 
     return settings_static;
+}
+
+
+Setting *sdl_get_keyboard_settings_array() {
+
+    // append "GTK" or "SDL" to "Keyboard"
+    static std::string keyboard_engine = Printf("%s (%s)", _("Keyboard"), (gd_graphics_engine == GRAPHICS_ENGINE_GTK) ? "GTK" : "SDL"); // not using N_()!
+
+    static Setting settings_static[] = {
+        //{ TypePage, N_("Keyboard") }, // without engine
+        { TypePage, g_strdup(keyboard_engine.c_str()) }, // g_strdup required, otherwise points to invalid memory
+        { TypeKey,     N_("Key left"), &gd_sdl_key_left, false },
+        { TypeKey,     N_("Key right"), &gd_sdl_key_right, false },
+        { TypeKey,     N_("Key up"), &gd_sdl_key_up, false },
+        { TypeKey,     N_("Key down"), &gd_sdl_key_down, false },
+        { TypeKey,     N_("Key snap"), &gd_sdl_key_fire_1, false },
+        { TypeKey,     N_("Key snap (alt.)"), &gd_sdl_key_fire_2, false },
+        { TypeKey,     N_("Key suicide"), &gd_sdl_key_suicide, false },
+        { TypeKey,     N_("Key fast forward"), &gd_sdl_key_fast_forward, false },
+        { TypeKey,     N_("Key status bar"), &gd_sdl_key_status_bar, false },
+        { TypeKey,     N_("Key restart level"), &gd_sdl_key_restart_level, false },
+        /* end */
+        { TypeBoolean, NULL },
+    };
+
+    set_page_numbers(settings_static);
+
+    return settings_static;
+}
+
+
+Setting *gd_get_keyboard_settings_array(GameInputHandler *gih) {
+    // WARNING: gih might contain the wrong handler, therefore we don't use it here
+    if (gd_graphics_engine == GRAPHICS_ENGINE_GTK)
+        return gtk_get_keyboard_settings_array();
+    else
+        return sdl_get_keyboard_settings_array();
 }
 
 
