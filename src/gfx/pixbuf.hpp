@@ -26,6 +26,7 @@
 #include <glib.h>
 #include <vector>
 
+#include "gfx/pixbuffactory.hpp"
 #include "config.h"
 
 class GdColor;
@@ -139,13 +140,13 @@ public:
     /// @brief Scale the whole pixbuf to another pixbuf.
     /// @param dest The destination pixbuf.
     /// @param scaling_factor The scaling factor.
-    virtual void scale_full(Pixbuf &dest, double scaling_factor) const = 0;
+    virtual void scale_full(Pixbuf &dest, double scaling_factor, GdScalingType scaling_type) const = 0;
 
     /// @brief Scale the whole pixbuf to another pixbuf.
     /// @param dest The destination pixbuf.
     /// @param scaling_factor The scaling factor.
-    void scale(Pixbuf &dest, double scaling_factor) const {
-        scale_full(dest, scaling_factor);
+    void scale(Pixbuf &dest, double scaling_factor, GdScalingType scaling_type) const {
+        scale_full(dest, scaling_factor, scaling_type);
     }
 
     /// @brief Fill the given area of the pixbuf with the specified color.

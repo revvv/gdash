@@ -83,9 +83,27 @@ void GTKPixbuf::copy_full(int x, int y, int w, int h, Pixbuf &dest, int dx, int 
     gdk_pixbuf_copy_area(pixbuf, x, y, w, h, destpb, dx, dy);
 }
 
-void GTKPixbuf::scale_full(Pixbuf &dest, double scaling_factor) const {
+void GTKPixbuf::scale_full(Pixbuf &dest, double scaling_factor, GdScalingType scaling_type) const {
     GdkPixbuf *destpb = static_cast<GTKPixbuf &>(dest).pixbuf;
-    gdk_pixbuf_scale(pixbuf, destpb, 0, 0, dest.get_width(), dest.get_height(), 0, 0, scaling_factor, scaling_factor, GDK_INTERP_NEAREST);
+
+    GdkInterpType interp_type;
+    switch (scaling_type) {
+        case GD_SCALING_NEAREST:
+            interp_type = GDK_INTERP_NEAREST;
+            break;
+        case GD_SCALING_SCALE2X:
+            interp_type = GDK_INTERP_TILES;
+            break;
+        case GD_SCALING_HQX:
+            interp_type = GDK_INTERP_BILINEAR;
+            break;
+        case GD_SCALING_MAX:
+            interp_type = GDK_INTERP_HYPER; // unreachable
+            g_assert_not_reached();
+            break;
+    }
+
+    gdk_pixbuf_scale(pixbuf, destpb, 0, 0, dest.get_width(), dest.get_height(), 0, 0, scaling_factor, scaling_factor, interp_type);
 }
 
 void GTKPixbuf::fill_rect(int x, int y, int w, int h, const GdColor &c) {

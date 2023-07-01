@@ -94,7 +94,7 @@ void SDLPixbuf::copy_full(int x, int y, int w, int h, Pixbuf &dest, int dx, int 
     SDL_BlitSurface(surface.get(), &src, static_cast<SDLPixbuf &>(dest).surface.get(), &dst);
 }
 
-void SDLPixbuf::scale_full(Pixbuf &dest, double scaling_factor) const {
+void SDLPixbuf::scale_full(Pixbuf &dest, double scaling_factor, GdScalingType scaling_type) const {
     SDL_Rect src, dst;
     src.x = 0;
     src.y = 0;
