@@ -301,7 +301,7 @@ Setting *gtk_get_keyboard_settings_array() {
     static std::string keyboard_engine = Printf("%s (%s)", _("Keyboard"), (gd_graphics_engine == GRAPHICS_ENGINE_GTK) ? "GTK" : "SDL"); // not using N_()!
 
     static Setting settings_static[] = {
-        //{ TypePage, N_("Keyboard") },
+        //{ TypePage, N_("Keyboard") }, // without engine
         { TypePage, g_strdup(keyboard_engine.c_str()) }, // g_strdup required, otherwise points to invalid memory
         { TypeKey,     N_("Key left"), &gd_gtk_key_left, false },
         { TypeKey,     N_("Key right"), &gd_gtk_key_right, false },
