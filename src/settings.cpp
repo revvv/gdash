@@ -297,12 +297,12 @@ Setting *gd_get_game_settings_array() {
 
 Setting *gtk_get_keyboard_settings_array() {
 
-    // append "GTK" or "SDL" to "Keyboard"
-    static std::string keyboard_engine = Printf("%s (%s)", _("Keyboard"), (gd_graphics_engine == GRAPHICS_ENGINE_GTK) ? "GTK" : "SDL"); // not using N_()!
+    // append "GTK" to "Keyboard"
+    static std::string keyboard_engine = Printf("%s (%s)", _("Keyboard"), "GTK");
 
     static Setting settings_static[] = {
         //{ TypePage, N_("Keyboard") }, // without engine
-        { TypePage, g_strdup(keyboard_engine.c_str()) }, // g_strdup required, otherwise points to invalid memory
+        { TypePage, keyboard_engine.c_str() },
         { TypeKey,     N_("Key left"), &gd_gtk_key_left, false },
         { TypeKey,     N_("Key right"), &gd_gtk_key_right, false },
         { TypeKey,     N_("Key up"), &gd_gtk_key_up, false },
@@ -325,12 +325,12 @@ Setting *gtk_get_keyboard_settings_array() {
 
 Setting *sdl_get_keyboard_settings_array() {
 
-    // append "GTK" or "SDL" to "Keyboard"
-    static std::string keyboard_engine = Printf("%s (%s)", _("Keyboard"), (gd_graphics_engine == GRAPHICS_ENGINE_GTK) ? "GTK" : "SDL"); // not using N_()!
+    // append "SDL" to "Keyboard"
+    static std::string keyboard_engine = Printf("%s (%s)", _("Keyboard"), "SDL");
 
     static Setting settings_static[] = {
         //{ TypePage, N_("Keyboard") }, // without engine
-        { TypePage, g_strdup(keyboard_engine.c_str()) }, // g_strdup required, otherwise points to invalid memory
+        { TypePage, keyboard_engine.c_str() },
         { TypeKey,     N_("Key left"), &gd_sdl_key_left, false },
         { TypeKey,     N_("Key right"), &gd_sdl_key_right, false },
         { TypeKey,     N_("Key up"), &gd_sdl_key_up, false },
