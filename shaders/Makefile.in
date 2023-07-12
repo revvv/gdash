@@ -286,11 +286,18 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 shadersdata = \
+	crt-caligari.shader \
+	crt-cgwg.shader \
+	crt-geom.shader \
+	crt-trinitron.shader \
+	crt-trinitron2.shader \
 	Curvature.shader \
 	Dot_N_Bloom.shader \
 	GDash-TV.shader \
 	Phosphor-simple.shader \
-	templateshader
+	templateshader \
+	xbrz4x.shader \
+	xbrz6x.shader
 
 @SDL_TRUE@shadersdir = $(pkgdatadir)/shaders
 @SDL_TRUE@shaders_DATA = $(shadersdata)
