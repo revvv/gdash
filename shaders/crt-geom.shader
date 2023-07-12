@@ -9,12 +9,8 @@
     Software Foundation; either version 2 of the License, or (at your option)
     any later version.
     -->
-<!-- Source: https://github.com/alunbestor/Boxer/blob/master/Resources/Shaders/crt-geom-interlaced-curved.shader
-     Modified for GDash: add version, disable CURVATURE, add interlace_detect
--->
 <shader language="GLSL">
     <vertex><![CDATA[
-#version 120
 varying float CRTgamma;
 varying float monitorgamma;
 varying vec2 overscan;
@@ -77,8 +73,10 @@ vec3 maxscale()
 {
   vec2 c = bkwtrans(-R * sinangle / (1.0 + R/d*cosangle.x*cosangle.y));
   vec2 a = vec2(0.5,0.5)*aspect;
-  vec2 lo = vec2(fwtrans(vec2(-a.x,c.y)).x, fwtrans(vec2(c.x,-a.y)).y)/aspect;
-  vec2 hi = vec2(fwtrans(vec2(+a.x,c.y)).x, fwtrans(vec2(c.x,+a.y)).y)/aspect;
+  vec2 lo = vec2(fwtrans(vec2(-a.x,c.y)).x,
+		 fwtrans(vec2(c.x,-a.y)).y)/aspect;
+  vec2 hi = vec2(fwtrans(vec2(+a.x,c.y)).x,
+		 fwtrans(vec2(c.x,+a.y)).y)/aspect;
   return vec3((hi+lo)*aspect*0.5,max(hi.x-lo.x,hi.y-lo.y));
 }
 
@@ -136,20 +134,17 @@ void main()
 }
     ]]></vertex>
     <fragment filter="nearest"><![CDATA[
-#version 120
 // Comment the next line to disable interpolation in linear gamma (and gain speed).
 //#define LINEAR_PROCESSING
 
 // Enable screen curvature.
-//#define CURVATURE
+#define CURVATURE
 
 // Enable 3x oversampling of the beam profile
 #define OVERSAMPLE
 
 // Use the older, purely gaussian beam profile
 //#define USEGAUSSIAN
-
-#define interlace_detect 1.0
 
 // Macros.
 #define FIX(c) max(abs(c), 1e-5);
@@ -292,8 +287,7 @@ void main()
 
   // Of all the pixels that are mapped onto the texel we are
   // currently rendering, which pixel are we currently rendering?
-  vec2 ilvec = vec2(0.0,ilfac.y * interlace_detect > 1.5 ? mod(float(rubyFrameCount),2.0) : 0.0);
-  
+  vec2 ilvec = vec2(0.0,ilfac.y > 1.5 ? mod(float(rubyFrameCount),2.0) : 0.0);
   vec2 ratio_scale = (xy * rubyTextureSize - vec2(0.5) + ilvec)/ilfac;
 #ifdef OVERSAMPLE
   float filter = fwidth(ratio_scale.y);
