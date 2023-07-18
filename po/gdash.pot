@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdash export-1.5-fork\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-06-27 11:15+0200\n"
+"POT-Creation-Date: 2023-07-18 12:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgid "Click here to set the key for action: %s"
 msgstr ""
 
 #. TRANSLATORS: Default (builtin) theme, shader, etc.
-#: src/gtk/gtkuisettings.cpp:252 src/settings.cpp:324
+#: src/gtk/gtkuisettings.cpp:252 src/settings.cpp:366
 msgid "[Default]"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Open _recent"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3250
+#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3269
 msgid "O_pen shipped"
 msgstr ""
 
@@ -1589,7 +1589,7 @@ msgid ""
 "beneath the big one."
 msgstr ""
 
-#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3287
+#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3306
 msgid "Test cave"
 msgstr ""
 
@@ -5604,11 +5604,11 @@ msgid "New caves and random colored caves use this palette."
 msgstr ""
 
 #: src/settings.cpp:239
-msgid "New up/down animation"
+msgid "Alternate vertical animation"
 msgstr ""
 
 #: src/settings.cpp:239
-msgid "New up/down animation for the player."
+msgid "Alternate vertical animation for the player."
 msgstr ""
 
 #: src/settings.cpp:241
@@ -5804,7 +5804,7 @@ msgid ""
 "like on a TV."
 msgstr ""
 
-#: src/settings.cpp:272 src/editor/editor.cpp:3355
+#: src/settings.cpp:272 src/editor/editor.cpp:3374
 msgid "Animated view"
 msgstr ""
 
@@ -5879,67 +5879,67 @@ msgid ""
 "Use 44kHz mixing of sounds. Try changing this setting if sound is clicky."
 msgstr ""
 
-#: src/settings.cpp:300
+#: src/settings.cpp:301 src/settings.cpp:329
 msgid "Keyboard"
 msgstr ""
 
-#: src/settings.cpp:301
+#: src/settings.cpp:306 src/settings.cpp:334
 msgid "Key left"
 msgstr ""
 
-#: src/settings.cpp:302
+#: src/settings.cpp:307 src/settings.cpp:335
 msgid "Key right"
 msgstr ""
 
-#: src/settings.cpp:303
+#: src/settings.cpp:308 src/settings.cpp:336
 msgid "Key up"
 msgstr ""
 
-#: src/settings.cpp:304
+#: src/settings.cpp:309 src/settings.cpp:337
 msgid "Key down"
 msgstr ""
 
-#: src/settings.cpp:305
+#: src/settings.cpp:310 src/settings.cpp:338
 msgid "Key snap"
 msgstr ""
 
-#: src/settings.cpp:306
+#: src/settings.cpp:311 src/settings.cpp:339
 msgid "Key snap (alt.)"
 msgstr ""
 
-#: src/settings.cpp:307
+#: src/settings.cpp:312 src/settings.cpp:340
 msgid "Key suicide"
 msgstr ""
 
-#: src/settings.cpp:308
+#: src/settings.cpp:313 src/settings.cpp:341
 msgid "Key fast forward"
 msgstr ""
 
-#: src/settings.cpp:309
+#: src/settings.cpp:314 src/settings.cpp:342
 msgid "Key status bar"
 msgstr ""
 
-#: src/settings.cpp:310
+#: src/settings.cpp:315 src/settings.cpp:343
 msgid "Key restart level"
 msgstr ""
 
-#: src/settings.cpp:671
+#: src/settings.cpp:713
 msgid "Show license and quit"
 msgstr ""
 
-#: src/settings.cpp:672
+#: src/settings.cpp:714
 msgid "Show some debug messages"
 msgstr ""
 
-#: src/settings.cpp:673
+#: src/settings.cpp:715
 msgid "Load default settings"
 msgstr ""
 
-#: src/settings.cpp:674
+#: src/settings.cpp:716
 msgid "Cave names"
 msgstr ""
 
-#: src/settings.cpp:677
+#: src/settings.cpp:719
 msgid "[FILE NAME]"
 msgstr ""
 
@@ -6161,22 +6161,22 @@ msgid_plural "%d objects selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/editor/editor.cpp:552
+#: src/editor/editor.cpp:571
 #, c-format
 msgid "GDash Cave Editor - %s"
 msgstr ""
 
-#: src/editor/editor.cpp:666
+#: src/editor/editor.cpp:685
 msgid "Cave Properties"
 msgstr ""
 
-#: src/editor/editor.cpp:720
+#: src/editor/editor.cpp:739
 msgid ""
 "You have changed the size of the cave. Please check the size of the visible "
 "region!"
 msgstr ""
 
-#: src/editor/editor.cpp:721
+#: src/editor/editor.cpp:740
 msgid ""
 "The visible area of the cave during the game can be smaller than the whole "
 "cave. If you resize the cave, the area to be shown cannot be guessed "
@@ -6185,59 +6185,59 @@ msgid ""
 "the rectangle."
 msgstr ""
 
-#: src/editor/editor.cpp:735
+#: src/editor/editor.cpp:754
 msgid "Cave Set Properties"
 msgstr ""
 
-#: src/editor/editor.cpp:760
+#: src/editor/editor.cpp:779
 #, c-format
 msgid "<b>%ms</b>, %s, %dx%d, time %d:%02d, diamonds %d"
 msgstr ""
 
-#: src/editor/editor.cpp:762
+#: src/editor/editor.cpp:781
 msgid "selectable"
 msgstr ""
 
-#: src/editor/editor.cpp:762
+#: src/editor/editor.cpp:781
 msgid "not selectable"
 msgstr ""
 
-#: src/editor/editor.cpp:775
+#: src/editor/editor.cpp:794
 #, c-format
 msgid "<b>%ms</b>, %d cave"
 msgid_plural "<b>%ms</b>, %d caves"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/editor/editor.cpp:854
+#: src/editor/editor.cpp:873
 msgid "Object Properties"
 msgstr ""
 
-#: src/editor/editor.cpp:864
+#: src/editor/editor.cpp:883
 msgid "The object should be visible on at least one level."
 msgstr ""
 
-#: src/editor/editor.cpp:864
+#: src/editor/editor.cpp:883
 msgid "Enabled this object on all levels."
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:1573
+#: src/editor/editor.cpp:1592
 msgid "Cave Name"
 msgstr ""
 
-#: src/editor/editor.cpp:1646
+#: src/editor/editor.cpp:1665
 #, c-format
 msgid "%d cave selected"
 msgid_plural "%d caves selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/editor/editor.cpp:1919
+#: src/editor/editor.cpp:1938
 msgid "Cave Random Fill"
 msgstr ""
 
-#: src/editor/editor.cpp:1924
+#: src/editor/editor.cpp:1943
 msgid ""
 "Hint: The random fill works by generating a random number between 0 and 255, "
 "then choosing an element from the list above. If the number generated is "
@@ -6247,138 +6247,138 @@ msgid ""
 "descending order."
 msgstr ""
 
-#: src/editor/editor.cpp:1949
+#: src/editor/editor.cpp:1968
 msgid "Save Cave as PNG Image"
 msgstr ""
 
-#: src/editor/editor.cpp:1956
+#: src/editor/editor.cpp:1975
 msgid "PNG files"
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:1987
+#: src/editor/editor.cpp:2006
 msgid "Cave Overview"
 msgstr ""
 
-#: src/editor/editor.cpp:1988
+#: src/editor/editor.cpp:2007
 msgid "Save as _PNG"
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2079
+#: src/editor/editor.cpp:2098
 msgid "Element Statistics"
 msgstr ""
 
-#: src/editor/editor.cpp:2087
+#: src/editor/editor.cpp:2106
 msgid "<b>Size of visible area</b>"
 msgstr ""
 
-#: src/editor/editor.cpp:2302
+#: src/editor/editor.cpp:2321
 msgid "Cave Colors"
 msgstr ""
 
-#: src/editor/editor.cpp:2312
+#: src/editor/editor.cpp:2331
 msgid "Set random..."
 msgstr ""
 
-#: src/editor/editor.cpp:2319
+#: src/editor/editor.cpp:2338
 msgid ""
 "Hint: As the palette can be changed for C64 and Atari colors, it is not "
 "recommended to use different types together (for example, RGB color for "
 "background, Atari color for Slime.)"
 msgstr ""
 
-#: src/editor/editor.cpp:2352
+#: src/editor/editor.cpp:2371
 msgid "Do you really want to delete cave(s)?"
 msgstr ""
 
-#: src/editor/editor.cpp:2352
+#: src/editor/editor.cpp:2371
 msgid "This operation cannot be undone."
 msgstr ""
 
-#: src/editor/editor.cpp:2467
+#: src/editor/editor.cpp:2486
 msgid ""
 "At least one object would have been totally hidden (not visible on any of "
 "the levels)."
 msgstr ""
 
-#: src/editor/editor.cpp:2467
+#: src/editor/editor.cpp:2486
 msgid "Enabled those objects on the current level."
 msgstr ""
 
-#: src/editor/editor.cpp:2566
+#: src/editor/editor.cpp:2585
 msgid "Do you really want to remove cave map?"
 msgstr ""
 
-#: src/editor/editor.cpp:2566
+#: src/editor/editor.cpp:2585
 msgid "This operation destroys all cave objects."
 msgstr ""
 
-#: src/editor/editor.cpp:2584
+#: src/editor/editor.cpp:2603
 msgid "This cave has no objects."
 msgstr ""
 
-#: src/editor/editor.cpp:2588
+#: src/editor/editor.cpp:2607
 msgid "Do you really want to flatten cave?"
 msgstr ""
 
-#: src/editor/editor.cpp:2588
+#: src/editor/editor.cpp:2607
 msgid ""
 "This operation merges all cave objects currently seen in a single map. "
 "Further objects may later be added, but the ones already seen will behave "
 "like the random fill elements; they will not be editable."
 msgstr ""
 
-#: src/editor/editor.cpp:2655
+#: src/editor/editor.cpp:2674
 msgid "Save Cave Set in HTML"
 msgstr ""
 
-#: src/editor/editor.cpp:2663
+#: src/editor/editor.cpp:2682
 msgid "HTML files"
 msgstr ""
 
-#: src/editor/editor.cpp:2680
+#: src/editor/editor.cpp:2699
 msgid "Errors - Saving Gallery to File"
 msgstr ""
 
-#: src/editor/editor.cpp:2690
+#: src/editor/editor.cpp:2709
 msgid "Export Cave as CrLi Cave File"
 msgstr ""
 
-#: src/editor/editor.cpp:2709
+#: src/editor/editor.cpp:2728
 msgid "Errors - Exporting Cave to CrLi Format"
 msgstr ""
 
-#: src/editor/editor.cpp:2719
+#: src/editor/editor.cpp:2738
 msgid "Export Cave as CrLi Cave Pack"
 msgstr ""
 
-#: src/editor/editor.cpp:2738
+#: src/editor/editor.cpp:2757
 msgid "Errors - Exporting Caves to File"
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2810
+#: src/editor/editor.cpp:2829
 msgid "Create New Cave"
 msgstr ""
 
-#: src/editor/editor.cpp:2822
+#: src/editor/editor.cpp:2841
 msgid "Name:"
 msgstr ""
 
-#: src/editor/editor.cpp:2825
+#: src/editor/editor.cpp:2844
 msgid "New cave"
 msgstr ""
 
-#: src/editor/editor.cpp:2829
+#: src/editor/editor.cpp:2848
 msgid "Description:"
 msgstr ""
 
-#: src/editor/editor.cpp:2835
+#: src/editor/editor.cpp:2854
 msgid "Intermission:"
 msgstr ""
 
-#: src/editor/editor.cpp:2837
+#: src/editor/editor.cpp:2856
 msgid ""
 "Intermission caves are usually small and fast caves, which are not required "
 "to be solved. The player will not lose a life if he is not successful. The "
@@ -6387,11 +6387,11 @@ msgid ""
 "intermissions."
 msgstr ""
 
-#: src/editor/editor.cpp:2924
+#: src/editor/editor.cpp:2943
 msgid "Do you really want to remove unknown cave tags?"
 msgstr ""
 
-#: src/editor/editor.cpp:2924
+#: src/editor/editor.cpp:2943
 msgid ""
 "This operation removes all unknown tags associated with all caves. Unknown "
 "tags might come from another BDCFF-compatible game or an older version of "
@@ -6399,521 +6399,521 @@ msgid ""
 "you use this caveset in this application, they are of no use."
 msgstr ""
 
-#: src/editor/editor.cpp:3012 src/editor/editor.cpp:3022
+#: src/editor/editor.cpp:3031 src/editor/editor.cpp:3041
 #, c-format
 msgid "%s Element"
 msgstr ""
 
-#: src/editor/editor.cpp:3016
+#: src/editor/editor.cpp:3035
 msgid "Draw Element"
 msgstr ""
 
-#: src/editor/editor.cpp:3026
+#: src/editor/editor.cpp:3045
 msgid "Fill Element"
 msgstr ""
 
-#: src/editor/editor.cpp:3064
+#: src/editor/editor.cpp:3083
 #, c-format
 msgid "%s: removed %d replay(s)\n"
 msgstr ""
 
-#: src/editor/editor.cpp:3068
+#: src/editor/editor.cpp:3087
 msgid "Some replays were removed."
 msgstr ""
 
-#: src/editor/editor.cpp:3084
+#: src/editor/editor.cpp:3103
 #, c-format
 msgid "%s: marked %d replay(s) as working ones\n"
 msgstr ""
 
-#: src/editor/editor.cpp:3088
+#: src/editor/editor.cpp:3107
 msgid ""
 "Some replay checksums were recalculated. This does not mean that those "
 "replays actually play correctly!"
 msgstr ""
 
-#: src/editor/editor.cpp:3132 src/editor/editor.cpp:3146
+#: src/editor/editor.cpp:3151 src/editor/editor.cpp:3165
 msgid "Error loading image file."
 msgstr ""
 
-#: src/editor/editor.cpp:3132
+#: src/editor/editor.cpp:3151
 msgid "Cannot recognize file format."
 msgstr ""
 
-#: src/editor/editor.cpp:3137
+#: src/editor/editor.cpp:3156
 msgid "The image selected is too big!"
 msgstr ""
 
-#: src/editor/editor.cpp:3137
+#: src/editor/editor.cpp:3156
 #, c-format
 msgid "Maximum sizes: %dx%d pixels"
 msgstr ""
 
-#: src/editor/editor.cpp:3172
+#: src/editor/editor.cpp:3191
 msgid "Select Image File for Title Screen"
 msgstr ""
 
-#: src/editor/editor.cpp:3178
+#: src/editor/editor.cpp:3197
 msgid "Select Image File for Background Tile"
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:3186
+#: src/editor/editor.cpp:3205
 msgid "Set Title Image"
 msgstr ""
 
-#: src/editor/editor.cpp:3202
+#: src/editor/editor.cpp:3221
 msgid "Load _image"
 msgstr ""
 
-#: src/editor/editor.cpp:3203
+#: src/editor/editor.cpp:3222
 msgid "Load _tile"
 msgstr ""
 
-#: src/editor/editor.cpp:3213
+#: src/editor/editor.cpp:3232
 #, c-format
 msgid ""
 "Recommended image sizes are 320x176 pixels for title image and 8x8 pixels "
 "for the scrolling tile. Maximum sizes are %dx%d and %dx%d, respectively."
 msgstr ""
 
-#: src/editor/editor.cpp:3235
+#: src/editor/editor.cpp:3254
 msgid "_File"
 msgstr ""
 
-#: src/editor/editor.cpp:3236
+#: src/editor/editor.cpp:3255
 msgid "_Edit"
 msgstr ""
 
-#: src/editor/editor.cpp:3237
+#: src/editor/editor.cpp:3256
 msgid "_View"
 msgstr ""
 
-#: src/editor/editor.cpp:3238
+#: src/editor/editor.cpp:3257
 msgid "_Tools"
 msgstr ""
 
-#: src/editor/editor.cpp:3239
+#: src/editor/editor.cpp:3258
 msgid "_Help"
 msgstr ""
 
-#: src/editor/editor.cpp:3240
+#: src/editor/editor.cpp:3259
 msgid "_Object"
 msgstr ""
 
-#: src/editor/editor.cpp:3241
+#: src/editor/editor.cpp:3260
 msgid "_Cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3242
+#: src/editor/editor.cpp:3261
 msgid "Cave_set"
 msgstr ""
 
-#: src/editor/editor.cpp:3243
+#: src/editor/editor.cpp:3262
 msgid "Close cave editor"
 msgstr ""
 
-#: src/editor/editor.cpp:3244
+#: src/editor/editor.cpp:3263
 msgid "New _cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3244
+#: src/editor/editor.cpp:3263
 msgid "Create new cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3246
+#: src/editor/editor.cpp:3265
 msgid "_Editor help"
 msgstr ""
 
-#: src/editor/editor.cpp:3247
+#: src/editor/editor.cpp:3266
 msgid "Save cave set to file"
 msgstr ""
 
-#: src/editor/editor.cpp:3248
+#: src/editor/editor.cpp:3267
 msgid "Save cave set as new file"
 msgstr ""
 
-#: src/editor/editor.cpp:3249
+#: src/editor/editor.cpp:3268
 msgid "Load cave set from file"
 msgstr ""
 
-#: src/editor/editor.cpp:3250
+#: src/editor/editor.cpp:3269
 msgid "Load shipped cave set from file"
 msgstr ""
 
-#: src/editor/editor.cpp:3251
+#: src/editor/editor.cpp:3270
 msgid "Select all items"
 msgstr ""
 
-#: src/editor/editor.cpp:3252
+#: src/editor/editor.cpp:3271
 msgid "Cave set _properties"
 msgstr ""
 
-#: src/editor/editor.cpp:3252
+#: src/editor/editor.cpp:3271
 msgid "Set properties of cave set"
 msgstr ""
 
-#: src/editor/editor.cpp:3253
+#: src/editor/editor.cpp:3272
 msgid "Cave set _title image"
 msgstr ""
 
-#: src/editor/editor.cpp:3253
+#: src/editor/editor.cpp:3272
 msgid "Set caveset title image"
 msgstr ""
 
-#: src/editor/editor.cpp:3259
+#: src/editor/editor.cpp:3278
 msgid "_Role in caveset"
 msgstr ""
 
-#: src/editor/editor.cpp:3260
+#: src/editor/editor.cpp:3279
 msgid "_Edit cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3260
+#: src/editor/editor.cpp:3279
 msgid "Edit selected cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3261
+#: src/editor/editor.cpp:3280
 msgid "_Rename cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3261
+#: src/editor/editor.cpp:3280
 msgid "Rename selected cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3262
+#: src/editor/editor.cpp:3281
 msgid "Make cave _selectable"
 msgstr ""
 
-#: src/editor/editor.cpp:3262
+#: src/editor/editor.cpp:3281
 msgid "Make the cave selectable as game start"
 msgstr ""
 
-#: src/editor/editor.cpp:3263
+#: src/editor/editor.cpp:3282
 msgid "Make cave _unselectable"
 msgstr ""
 
-#: src/editor/editor.cpp:3263
+#: src/editor/editor.cpp:3282
 msgid "Make the cave unselectable as game start"
 msgstr ""
 
-#: src/editor/editor.cpp:3268
+#: src/editor/editor.cpp:3287
 msgid "_New cave set"
 msgstr ""
 
-#: src/editor/editor.cpp:3268
+#: src/editor/editor.cpp:3287
 msgid "Create new cave set with no caves"
 msgstr ""
 
-#: src/editor/editor.cpp:3269
+#: src/editor/editor.cpp:3288
 msgid "Save _HTML gallery"
 msgstr ""
 
-#: src/editor/editor.cpp:3269
+#: src/editor/editor.cpp:3288
 msgid "Save game in a HTML gallery"
 msgstr ""
 
-#: src/editor/editor.cpp:3270
+#: src/editor/editor.cpp:3289
 msgid "Export _CrLi cave pack"
 msgstr ""
 
-#: src/editor/editor.cpp:3271
+#: src/editor/editor.cpp:3290
 msgid "_Selectable caves"
 msgstr ""
 
-#: src/editor/editor.cpp:3272
+#: src/editor/editor.cpp:3291
 msgid "All _caves"
 msgstr ""
 
-#: src/editor/editor.cpp:3272
+#: src/editor/editor.cpp:3291
 msgid "Make all caves selectable as game start"
 msgstr ""
 
-#: src/editor/editor.cpp:3273
+#: src/editor/editor.cpp:3292
 msgid "All _but intermissions"
 msgstr ""
 
-#: src/editor/editor.cpp:3273
+#: src/editor/editor.cpp:3292
 msgid "Make all caves but intermissions selectable as game start"
 msgstr ""
 
-#: src/editor/editor.cpp:3274
+#: src/editor/editor.cpp:3293
 msgid "All _after intermissions"
 msgstr ""
 
-#: src/editor/editor.cpp:3274
+#: src/editor/editor.cpp:3293
 msgid "Make all caves after intermissions selectable as game start"
 msgstr ""
 
-#: src/editor/editor.cpp:3275
+#: src/editor/editor.cpp:3294
 msgid "Remove all unknown tags"
 msgstr ""
 
-#: src/editor/editor.cpp:3275
+#: src/editor/editor.cpp:3294
 msgid "Removes all unknown tags found in the BDCFF file"
 msgstr ""
 
-#: src/editor/editor.cpp:3276
+#: src/editor/editor.cpp:3295
 msgid "Remove bad replays"
 msgstr ""
 
-#: src/editor/editor.cpp:3276
+#: src/editor/editor.cpp:3295
 msgid "Removes replays which won't play as they have their caves modified."
 msgstr ""
 
-#: src/editor/editor.cpp:3277
+#: src/editor/editor.cpp:3296
 msgid "Fix replay checksums"
 msgstr ""
 
-#: src/editor/editor.cpp:3277
+#: src/editor/editor.cpp:3296
 msgid "Treats all replays with wrong checksums as working ones."
 msgstr ""
 
-#: src/editor/editor.cpp:3282
+#: src/editor/editor.cpp:3301
 msgid "_Map"
 msgstr ""
 
-#: src/editor/editor.cpp:3283
+#: src/editor/editor.cpp:3302
 msgid "_Export as CrLi cave file"
 msgstr ""
 
-#: src/editor/editor.cpp:3284
+#: src/editor/editor.cpp:3303
 msgid "Open cave selector"
 msgstr ""
 
-#: src/editor/editor.cpp:3285
+#: src/editor/editor.cpp:3304
 msgid "_Next cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3285
+#: src/editor/editor.cpp:3304
 msgid "Next cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3286
+#: src/editor/editor.cpp:3305
 msgid "_Previous cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3286
+#: src/editor/editor.cpp:3305
 msgid "Previous cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3287
+#: src/editor/editor.cpp:3306
 msgid "_Test"
 msgstr ""
 
-#: src/editor/editor.cpp:3288
+#: src/editor/editor.cpp:3307
 msgid "Ca_ve properties"
 msgstr ""
 
-#: src/editor/editor.cpp:3288
+#: src/editor/editor.cpp:3307
 msgid "Cave settings"
 msgstr ""
 
-#: src/editor/editor.cpp:3289
+#: src/editor/editor.cpp:3308
 msgid "_Element statistics"
 msgstr ""
 
-#: src/editor/editor.cpp:3289
+#: src/editor/editor.cpp:3308
 msgid "Element statistics: number and ratio of elements"
 msgstr ""
 
-#: src/editor/editor.cpp:3290
+#: src/editor/editor.cpp:3309
 msgid "Set engine defaults"
 msgstr ""
 
-#: src/editor/editor.cpp:3291
+#: src/editor/editor.cpp:3310
 msgid "Cave co_lors"
 msgstr ""
 
-#: src/editor/editor.cpp:3291
+#: src/editor/editor.cpp:3310
 msgid "Select cave colors"
 msgstr ""
 
-#: src/editor/editor.cpp:3292
+#: src/editor/editor.cpp:3311
 msgid "Convert to map"
 msgstr ""
 
-#: src/editor/editor.cpp:3292
+#: src/editor/editor.cpp:3311
 msgid "Flatten cave to a single cave map without objects"
 msgstr ""
 
-#: src/editor/editor.cpp:3293
+#: src/editor/editor.cpp:3312
 msgid "O_verview"
 msgstr ""
 
-#: src/editor/editor.cpp:3293
+#: src/editor/editor.cpp:3312
 msgid "Full screen overview of cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3294
+#: src/editor/editor.cpp:3313
 msgid "O_verview (simple)"
 msgstr ""
 
-#: src/editor/editor.cpp:3294
+#: src/editor/editor.cpp:3313
 msgid "Full screen overview of cave almost as in game"
 msgstr ""
 
-#: src/editor/editor.cpp:3295
+#: src/editor/editor.cpp:3314
 msgid "_Auto shrink"
 msgstr ""
 
-#: src/editor/editor.cpp:3295
+#: src/editor/editor.cpp:3314
 msgid "Automatically set the visible region of the cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3300
+#: src/editor/editor.cpp:3319
 msgid "Send to _back"
 msgstr ""
 
-#: src/editor/editor.cpp:3300
+#: src/editor/editor.cpp:3319
 msgid "Send object to bottom of object list (draw first)"
 msgstr ""
 
-#: src/editor/editor.cpp:3301
+#: src/editor/editor.cpp:3320
 msgid "Bring to _front"
 msgstr ""
 
-#: src/editor/editor.cpp:3301
+#: src/editor/editor.cpp:3320
 msgid "Bring object to front of object list (drawn last)"
 msgstr ""
 
-#: src/editor/editor.cpp:3302
+#: src/editor/editor.cpp:3321
 msgid "Show on this level"
 msgstr ""
 
-#: src/editor/editor.cpp:3302
+#: src/editor/editor.cpp:3321
 msgid "Enable object on currently visible level"
 msgstr ""
 
-#: src/editor/editor.cpp:3303
+#: src/editor/editor.cpp:3322
 msgid "Hide on this level"
 msgstr ""
 
-#: src/editor/editor.cpp:3303
+#: src/editor/editor.cpp:3322
 msgid "Disable object on currently visible level"
 msgstr ""
 
-#: src/editor/editor.cpp:3304
+#: src/editor/editor.cpp:3323
 msgid "Only on this level"
 msgstr ""
 
-#: src/editor/editor.cpp:3304
+#: src/editor/editor.cpp:3323
 msgid "Enable object only on the currently visible level"
 msgstr ""
 
-#: src/editor/editor.cpp:3305
+#: src/editor/editor.cpp:3324
 msgid "Show on all levels"
 msgstr ""
 
-#: src/editor/editor.cpp:3305
+#: src/editor/editor.cpp:3324
 msgid "Enable object on all levels"
 msgstr ""
 
-#: src/editor/editor.cpp:3309
+#: src/editor/editor.cpp:3328
 msgid "Ob_ject properties"
 msgstr ""
 
-#: src/editor/editor.cpp:3309
+#: src/editor/editor.cpp:3328
 msgid "Set object properties"
 msgstr ""
 
-#: src/editor/editor.cpp:3314
+#: src/editor/editor.cpp:3333
 msgid "Shift _left"
 msgstr ""
 
-#: src/editor/editor.cpp:3315
+#: src/editor/editor.cpp:3334
 msgid "Shift _right"
 msgstr ""
 
-#: src/editor/editor.cpp:3316
+#: src/editor/editor.cpp:3335
 msgid "Shift _up"
 msgstr ""
 
-#: src/editor/editor.cpp:3317
+#: src/editor/editor.cpp:3336
 msgid "Shift _down"
 msgstr ""
 
-#: src/editor/editor.cpp:3318
+#: src/editor/editor.cpp:3337
 msgid "Remove m_ap"
 msgstr ""
 
-#: src/editor/editor.cpp:3318
+#: src/editor/editor.cpp:3337
 msgid "Remove cave map, if it has one"
 msgstr ""
 
-#: src/editor/editor.cpp:3323
+#: src/editor/editor.cpp:3342
 msgid "Setup cave _random fill"
 msgstr ""
 
-#: src/editor/editor.cpp:3323
+#: src/editor/editor.cpp:3342
 msgid "Setup initial fill random elements for the cave"
 msgstr ""
 
-#: src/editor/editor.cpp:3328
+#: src/editor/editor.cpp:3347
 msgid "Cut to clipboard"
 msgstr ""
 
-#: src/editor/editor.cpp:3329
+#: src/editor/editor.cpp:3348
 msgid "Copy to clipboard"
 msgstr ""
 
-#: src/editor/editor.cpp:3330
+#: src/editor/editor.cpp:3349
 msgid "Delete"
 msgstr ""
 
-#: src/editor/editor.cpp:3335
+#: src/editor/editor.cpp:3354
 msgid "Paste object from clipboard"
 msgstr ""
 
-#: src/editor/editor.cpp:3340
+#: src/editor/editor.cpp:3359
 msgid "Undo last action"
 msgstr ""
 
-#: src/editor/editor.cpp:3345
+#: src/editor/editor.cpp:3364
 msgid "Redo last action"
 msgstr ""
 
-#: src/editor/editor.cpp:3355
+#: src/editor/editor.cpp:3374
 msgid "_Animated view"
 msgstr ""
 
-#: src/editor/editor.cpp:3356
+#: src/editor/editor.cpp:3375
 msgid "_Colored objects"
 msgstr ""
 
-#: src/editor/editor.cpp:3356
+#: src/editor/editor.cpp:3375
 msgid "Cave objects are colored"
 msgstr ""
 
-#: src/editor/editor.cpp:3357
+#: src/editor/editor.cpp:3376
 msgid "_Object list"
 msgstr ""
 
-#: src/editor/editor.cpp:3357
+#: src/editor/editor.cpp:3376
 msgid "Object list sidebar"
 msgstr ""
 
-#: src/editor/editor.cpp:3696
+#: src/editor/editor.cpp:3715
 msgid "Level shown:"
 msgstr ""
 
-#: src/editor/editor.cpp:3705
+#: src/editor/editor.cpp:3724
 msgid "Draw on:"
 msgstr ""
 
-#: src/editor/editor.cpp:3710
+#: src/editor/editor.cpp:3729
 msgid ""
 "Element used to draw points, lines, and rectangles. You can use middle-click "
 "to pick one from the cave."
 msgstr ""
 
-#: src/editor/editor.cpp:3715
+#: src/editor/editor.cpp:3734
 msgid ""
 "Element used to fill rectangles, and second element of joins. You can use "
 "Ctrl + middle-click to pick one from the cave."
 msgstr ""
 
-#: src/editor/editor.cpp:3753
+#: src/editor/editor.cpp:3774
 msgid "_Objects"
 msgstr ""
 

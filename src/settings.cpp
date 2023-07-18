@@ -106,7 +106,7 @@ bool gd_particle_effects = true;
 bool gd_show_story = true;
 bool gd_show_name_of_game = true;
 int gd_status_bar_colors = GD_STATUS_BAR_ORIGINAL;
-bool gd_new_up_down_animation = true;
+bool gd_alternate_vertical_animation = true;
 
 /* palette settings */
 int gd_c64_palette = 0;
@@ -236,7 +236,7 @@ Setting *gd_get_game_settings_array() {
         { TypeStringv, N_("  C64DTV palette"), &gd_c64dtv_palette, false, GdColor::get_c64dtv_palette_names(), N_("The color palette for imported C64 DTV games.") },
         { TypeStringv, N_("  Atari palette"), &gd_atari_palette, false, GdColor::get_atari_palette_names(), N_("The color palette for imported Atari games.") },
         { TypeStringv, N_("  Preferred palette"), &gd_preferred_palette, false, GdColor::get_palette_types_names(), N_("New caves and random colored caves use this palette.") },
-        { TypeBoolean, N_("New up/down animation"), &gd_new_up_down_animation, true, NULL, N_("New up/down animation for the player.") },
+        { TypeBoolean, N_("Alternate vertical animation"), &gd_alternate_vertical_animation, true, NULL, N_("Alternate vertical animation for the player.") },
 
         { TypePage, N_("Game graphics") },
         // TRANSLATORS: here "engine" = "graphics engine"
@@ -452,7 +452,7 @@ void gd_settings_init() {
     settings_integers["preferred_palette"] = &gd_preferred_palette;
     settings_strings["username"] = &gd_username;
     settings_strings["theme"] = &gd_theme;
-    settings_bools["new_up_down_animation"] = &gd_new_up_down_animation;
+    settings_bools["alternate_vertical_animation"] = &gd_alternate_vertical_animation;
 
     settings_bools["game_view"] = &gd_game_view;
     settings_bools["colored_objects"] = &gd_colored_objects;
