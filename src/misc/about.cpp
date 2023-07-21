@@ -56,6 +56,7 @@ const char *About::artists[] = { "CWS",
 const char *About::authors[] = { "Czirkos Zoltan <czirkos.zoltan@gmail.com>",
                                  "Scale2x: Andrea Mazzoleni",
                                  "hqx: Maxim Stepin, Cameron Zemek",
+                                 "specifications/test: CWS",
                                  "misc: revvv",
 #ifdef HAVE_SDL
                                  "SDL: Sam Lantinga <slouken@libsdl.org>",
