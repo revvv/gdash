@@ -2,22 +2,15 @@
 
 Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) to add new features:
 
-* New up/down animations (gfx by @cwscws)
+* New player animations (gfx by [cwscws](https://github.com/cwscws))
 * Enable higher scaling factors
 * New command line options for bulk export
 * Enhanced game controller support
     * Now all connected gamepads are supported at the same time
     * Left stick or DPAD control the player
     * You can configure your button layout with [`gamecontrollerdb.txt`](https://github.com/revvv/gdash-export-CrLi/blob/master/gamecontrollerdb.txt)
-
-### All new features of this fork ###
-
-* New up/down animations, configurable through settings
-* Maximum scaling factor is now 8 instead of 4
-* New command line option `--save-crli`
-* New command line option `--save-flat`
-* Enhanced game controller support
-* Minor fixes for GTK updates
+* New themes, shaders, caves
+* GTK fixes
 * 64 bit ZIP distribution for **Windows, Linux and Mac**
 * CrLi now also exports teleporters
 * CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
