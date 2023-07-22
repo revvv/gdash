@@ -122,7 +122,7 @@ bool Joystick::right() {
 
 bool Joystick::fire1() {
 #ifdef HAVE_SDL
-    #ifdef __linux__
+    #if defined(__linux__) or defined(__CYGWIN__)
         // WORKAROUND: although SDL_GameControllerEventState() is true, we have to poll for joystick events
         if (num_joysticks > 0)
             SDL_JoystickUpdate();
