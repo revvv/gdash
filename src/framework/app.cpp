@@ -294,7 +294,7 @@ void App::show_message(std::string const &primary, std::string const &secondary,
 
 void App::show_help(helpdata const help_text[]) {
     // TRANSLATORS: 'H' uppercase because of title capitalization in English.
-    show_text_and_do_command("GDash Help", help_text_to_string(help_text));
+    show_text_and_do_command(_("GDash Help"), help_text_to_string(help_text));
 }
 
 void App::show_about_info() {

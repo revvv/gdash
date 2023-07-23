@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-07-23 13:14+0200\n"
+"POT-Creation-Date: 2023-07-23 14:20+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -223,7 +223,8 @@ msgid "Error loading caveset."
 msgstr "Nem lehetett betölteni a pályákat."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkui.cpp:583
+#. TRANSLATORS: 'H' uppercase because of title capitalization in English.
+#: src/gtk/gtkui.cpp:583 src/framework/app.cpp:297
 msgid "GDash Help"
 msgstr "GDash Súgó"
 

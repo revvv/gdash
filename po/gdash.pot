@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdash export-1.7-fork\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-07-23 13:14+0200\n"
+"POT-Creation-Date: 2023-07-23 14:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -219,7 +219,8 @@ msgid "Error loading caveset."
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/gtk/gtkui.cpp:583
+#. TRANSLATORS: 'H' uppercase because of title capitalization in English.
+#: src/gtk/gtkui.cpp:583 src/framework/app.cpp:297
 msgid "GDash Help"
 msgstr ""
 
