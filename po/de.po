@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-07-18 15:50+0200\n"
+"POT-Creation-Date: 2023-07-23 13:14+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -114,7 +114,7 @@ msgstr "Höhlen-_Editor"
 msgid "Open _recent"
 msgstr "Öffne _letzte Dateien"
 
-#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3272
+#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3269
 msgid "O_pen shipped"
 msgstr "_Öffne mitgelieferte Spiele"
 
@@ -503,7 +503,7 @@ msgstr ""
 "Bilddatei mit nur #000000, #00FF00 und dergleichen wird als C64-Grafik-Thema "
 "erkannt und verwendet werden.\n"
 "Für C64-Themen bedeuten die Farben folgendes:\n"
-"- Transparent: Sie sollten sie überall dort verwenden, wo sich kein Element "
+"- Transparenz: Sie sollten sie überall dort verwenden, wo sich kein Element "
 "befindet.\n"
 "- Schwarz #000000: Hintergrundfarbe.\n"
 "- Rot #ff0000: Vordergrundfarbe 1.\n"
@@ -2194,7 +2194,7 @@ msgstr ""
 "Hintergrundbild hinzufügen, dass dann als eine sich wiederholende, "
 "scrollende Kachel hinter dem eigentlichen Titelbild verwendet wird."
 
-#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3309
+#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3306
 msgid "Test cave"
 msgstr "Teste Höhle"
 
@@ -2372,7 +2372,7 @@ msgstr ""
 msgid "Save caveset in CrLi files"
 msgstr "Speichere Höhlensatz in CrLi Dateien"
 
-#: src/main.cpp:103 src/editor/editor.cpp:424 src/editor/editor.cpp:425
+#: src/main.cpp:103
 msgid "Save caveset in flattened format"
 msgstr "Speichere Höhlensatz als Karte"
 
@@ -6390,7 +6390,7 @@ msgstr "Höhlensatz Speicherfehler"
 #. TRANSLATORS: 40 characters max. Title of the "save caveset as new file" window.
 #: src/framework/commands.cpp:255
 msgid "Save Caveset As New File"
-msgstr "Speichere Höhlensatz as neue Datei"
+msgstr "Speichere Höhlensatz als neue Datei"
 
 #. TRANSLATORS: 40 characters max. Title of the "open file" window.
 #: src/framework/commands.cpp:268
@@ -6648,7 +6648,7 @@ msgstr "  Bevorzugte Palette"
 msgid "New caves and random colored caves use this palette."
 msgstr "Neue Höhlen und zufällig eingefärbte Höhlen benützen diese Palette."
 
-#: src/settings.cpp:239 src/editor/editor.cpp:423
+#: src/settings.cpp:239
 msgid "Alternate vertical animation"
 msgstr "Alternative vertikale Animation"
 
@@ -6877,7 +6877,7 @@ msgstr ""
 "Verwendet PAL-emulierte Grafiken (z. B. jede zweite Zeile in einer dunkleren "
 "Farbe, leichte Farbstörungen wie auf einem Fernseher.)"
 
-#: src/settings.cpp:272 src/editor/editor.cpp:3377
+#: src/settings.cpp:272 src/editor/editor.cpp:3374
 msgid "Animated view"
 msgstr "Animierte Ansicht"
 
@@ -7248,16 +7248,16 @@ msgid_plural "%d objects selected"
 msgstr[0] "%d Objekt ausgewählt"
 msgstr[1] "%d Objekte ausgewählt"
 
-#: src/editor/editor.cpp:574
+#: src/editor/editor.cpp:571
 #, c-format
 msgid "GDash Cave Editor - %s"
 msgstr "GDash Höhlen-Editor - %s"
 
-#: src/editor/editor.cpp:688
+#: src/editor/editor.cpp:685
 msgid "Cave Properties"
 msgstr "Höhlen-Eigenschaften"
 
-#: src/editor/editor.cpp:742
+#: src/editor/editor.cpp:739
 msgid ""
 "You have changed the size of the cave. Please check the size of the visible "
 "region!"
@@ -7265,7 +7265,7 @@ msgstr ""
 "Sie haben die Größe der Höhle verwändert. Bitte prüfen Sie die Größe des "
 "sichtbaren Bereichs!"
 
-#: src/editor/editor.cpp:743
+#: src/editor/editor.cpp:740
 msgid ""
 "The visible area of the cave during the game can be smaller than the whole "
 "cave. If you resize the cave, the area to be shown cannot be guessed "
@@ -7280,59 +7280,59 @@ msgstr ""
 "Bereich. Verwenden Sie mit dem Maus-Cursor ziehen und fallenlassen um die "
 "Position und Größe des Rechtecks zu ändern."
 
-#: src/editor/editor.cpp:757
+#: src/editor/editor.cpp:754
 msgid "Cave Set Properties"
 msgstr "Höhlensatz-Eigenschaften"
 
-#: src/editor/editor.cpp:782
+#: src/editor/editor.cpp:779
 #, c-format
 msgid "<b>%ms</b>, %s, %dx%d, time %d:%02d, diamonds %d"
 msgstr "<b>%ms</b>, %s, %dx%d, Zeit %d:%02d, Diamanten %d"
 
-#: src/editor/editor.cpp:784
+#: src/editor/editor.cpp:781
 msgid "selectable"
 msgstr "auswählbar"
 
-#: src/editor/editor.cpp:784
+#: src/editor/editor.cpp:781
 msgid "not selectable"
 msgstr "nicht auswählbar"
 
-#: src/editor/editor.cpp:797
+#: src/editor/editor.cpp:794
 #, c-format
 msgid "<b>%ms</b>, %d cave"
 msgid_plural "<b>%ms</b>, %d caves"
 msgstr[0] "<b>%ms</b>, %d Höhle"
 msgstr[1] "<b>%ms</b>, %d Höhlen"
 
-#: src/editor/editor.cpp:876
+#: src/editor/editor.cpp:873
 msgid "Object Properties"
 msgstr "Objekt-Eigenschaften"
 
-#: src/editor/editor.cpp:886
+#: src/editor/editor.cpp:883
 msgid "The object should be visible on at least one level."
 msgstr "Das Objekt sollte zumindest in einem Level sichtbar sein."
 
-#: src/editor/editor.cpp:886
+#: src/editor/editor.cpp:883
 msgid "Enabled this object on all levels."
 msgstr "Schalte dieses Objekt in allen Levels ein."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:1595
+#: src/editor/editor.cpp:1592
 msgid "Cave Name"
 msgstr "Höhlen-Name"
 
-#: src/editor/editor.cpp:1668
+#: src/editor/editor.cpp:1665
 #, c-format
 msgid "%d cave selected"
 msgid_plural "%d caves selected"
 msgstr[0] "%d Höhle ausgewählt"
 msgstr[1] "%d Höhlen ausgewählt"
 
-#: src/editor/editor.cpp:1941
+#: src/editor/editor.cpp:1938
 msgid "Cave Random Fill"
 msgstr "Zufällige Füllung der Höhle"
 
-#: src/editor/editor.cpp:1946
+#: src/editor/editor.cpp:1943
 msgid ""
 "Hint: The random fill works by generating a random number between 0 and 255, "
 "then choosing an element from the list above. If the number generated is "
@@ -7349,41 +7349,41 @@ msgstr ""
 "ausgewählt usw. GDash wird dafür sorgen, daß die Wahrscheinlichkeitswerte in "
 "absteigender Reihenfolge erzeugt werden."
 
-#: src/editor/editor.cpp:1971
+#: src/editor/editor.cpp:1968
 msgid "Save Cave as PNG Image"
 msgstr "Speichere Höhle als PNG-Bild"
 
-#: src/editor/editor.cpp:1978
+#: src/editor/editor.cpp:1975
 msgid "PNG files"
 msgstr "PNG-Dateien"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2009
+#: src/editor/editor.cpp:2006
 msgid "Cave Overview"
 msgstr "Höhlen-Karte"
 
-#: src/editor/editor.cpp:2010
+#: src/editor/editor.cpp:2007
 msgid "Save as _PNG"
 msgstr "Speichere als _PNG"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2101
+#: src/editor/editor.cpp:2098
 msgid "Element Statistics"
 msgstr "Elemente-Statistik"
 
-#: src/editor/editor.cpp:2109
+#: src/editor/editor.cpp:2106
 msgid "<b>Size of visible area</b>"
 msgstr "<b>Größe des sichtbaren Bereichs</b>"
 
-#: src/editor/editor.cpp:2324
+#: src/editor/editor.cpp:2321
 msgid "Cave Colors"
 msgstr "Höhlen-Farben"
 
-#: src/editor/editor.cpp:2334
+#: src/editor/editor.cpp:2331
 msgid "Set random..."
 msgstr "Zufällig verwenden von..."
 
-#: src/editor/editor.cpp:2341
+#: src/editor/editor.cpp:2338
 msgid ""
 "Hint: As the palette can be changed for C64 and Atari colors, it is not "
 "recommended to use different types together (for example, RGB color for "
@@ -7393,15 +7393,15 @@ msgstr ""
 "es nicht empfohlen, verschiedene Typen zusammen zu verwenden (z. B. RGB-"
 "Farben für den Hintergrund, Atari-Farben für den Schleim)."
 
-#: src/editor/editor.cpp:2374
+#: src/editor/editor.cpp:2371
 msgid "Do you really want to delete cave(s)?"
 msgstr "Wollen Sie die Höhle(n) wirklich löschen?"
 
-#: src/editor/editor.cpp:2374
+#: src/editor/editor.cpp:2371
 msgid "This operation cannot be undone."
 msgstr "Dieser Befehl zerstört alle Höhlen-Objekte."
 
-#: src/editor/editor.cpp:2489
+#: src/editor/editor.cpp:2486
 msgid ""
 "At least one object would have been totally hidden (not visible on any of "
 "the levels)."
@@ -7409,27 +7409,27 @@ msgstr ""
 "Zumindest eine Objekt wäre vollständig versteckt gewesen (in keinem der "
 "Levels sichtbar)."
 
-#: src/editor/editor.cpp:2489
+#: src/editor/editor.cpp:2486
 msgid "Enabled those objects on the current level."
 msgstr "Schalte dieses Objekt in allen Levels ein."
 
-#: src/editor/editor.cpp:2588
+#: src/editor/editor.cpp:2585
 msgid "Do you really want to remove cave map?"
 msgstr "Wollen Sie wirklich die Höhlen-Karte löschen?"
 
-#: src/editor/editor.cpp:2588
+#: src/editor/editor.cpp:2585
 msgid "This operation destroys all cave objects."
 msgstr "Dieser Befehl zerstört alle Höhlen-Objekte."
 
-#: src/editor/editor.cpp:2606
+#: src/editor/editor.cpp:2603
 msgid "This cave has no objects."
 msgstr "Diese Höhle hat keine Objekte."
 
-#: src/editor/editor.cpp:2610
+#: src/editor/editor.cpp:2607
 msgid "Do you really want to flatten cave?"
 msgstr "Wollen Sie wirklich die Höhle zur Karte konvertieren?"
 
-#: src/editor/editor.cpp:2610
+#: src/editor/editor.cpp:2607
 msgid ""
 "This operation merges all cave objects currently seen in a single map. "
 "Further objects may later be added, but the ones already seen will behave "
@@ -7440,56 +7440,56 @@ msgstr ""
 "bereits sichtbaren Objekte werden sich allerdings wie die zufällig gefüllten "
 "Elemente verhalten und werden dadurch nicht editierbar sein."
 
-#: src/editor/editor.cpp:2677
+#: src/editor/editor.cpp:2674
 msgid "Save Cave Set in HTML"
 msgstr "Speichere Höhlensatz als HTML-Galerie"
 
-#: src/editor/editor.cpp:2685
+#: src/editor/editor.cpp:2682
 msgid "HTML files"
 msgstr "HTML-Dateien"
 
-#: src/editor/editor.cpp:2702
+#: src/editor/editor.cpp:2699
 msgid "Errors - Saving Gallery to File"
 msgstr "Fehler beim Speichern der Galerie als Datei"
 
-#: src/editor/editor.cpp:2712
+#: src/editor/editor.cpp:2709
 msgid "Export Cave as CrLi Cave File"
 msgstr "Exportiere Höhle als CrLi-Höhlen-Datei"
 
-#: src/editor/editor.cpp:2731
+#: src/editor/editor.cpp:2728
 msgid "Errors - Exporting Cave to CrLi Format"
 msgstr "Fehler beim Exportieren der Höhle in das CrLi-Format"
 
-#: src/editor/editor.cpp:2741
+#: src/editor/editor.cpp:2738
 msgid "Export Cave as CrLi Cave Pack"
 msgstr "Exportiere Höhle als CrLi-Höhlen-Pack"
 
-#: src/editor/editor.cpp:2760
+#: src/editor/editor.cpp:2757
 msgid "Errors - Exporting Caves to File"
 msgstr "Fehler beim Exportieren der Höhlen als Datei"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2832
+#: src/editor/editor.cpp:2829
 msgid "Create New Cave"
 msgstr "Neue Höhle erzeugen"
 
-#: src/editor/editor.cpp:2844
+#: src/editor/editor.cpp:2841
 msgid "Name:"
 msgstr "Name:"
 
-#: src/editor/editor.cpp:2847
+#: src/editor/editor.cpp:2844
 msgid "New cave"
 msgstr "Neue Höhle"
 
-#: src/editor/editor.cpp:2851
+#: src/editor/editor.cpp:2848
 msgid "Description:"
 msgstr "Beschreibung:"
 
-#: src/editor/editor.cpp:2857
+#: src/editor/editor.cpp:2854
 msgid "Intermission:"
 msgstr "Zwischenspiel:"
 
-#: src/editor/editor.cpp:2859
+#: src/editor/editor.cpp:2856
 msgid ""
 "Intermission caves are usually small and fast caves, which are not required "
 "to be solved. The player will not lose a life if he is not successful. The "
@@ -7504,11 +7504,11 @@ msgstr ""
 "aktiviert, wird auch die Größe der Höhle auf 20 x 12 Felder eingestellt, da "
 "dies die Standardgröße für Zwischenspiel-Höhlen ist."
 
-#: src/editor/editor.cpp:2946
+#: src/editor/editor.cpp:2943
 msgid "Do you really want to remove unknown cave tags?"
 msgstr "Wollen Sie wirklich alle unbekannten Höhlen-Markierungen löschen?"
 
-#: src/editor/editor.cpp:2946
+#: src/editor/editor.cpp:2943
 msgid ""
 "This operation removes all unknown tags associated with all caves. Unknown "
 "tags might come from another BDCFF-compatible game or an older version of "
@@ -7521,34 +7521,34 @@ msgstr ""
 "Diese Höhlen-Optionen können von GDash nicht interpretiert werden und sind "
 "daher ohne Funktion, wenn Sie diesen Höhlensatz in diesem Programm verwenden."
 
-#: src/editor/editor.cpp:3034 src/editor/editor.cpp:3044
+#: src/editor/editor.cpp:3031 src/editor/editor.cpp:3041
 #, c-format
 msgid "%s Element"
 msgstr "%s Element"
 
-#: src/editor/editor.cpp:3038
+#: src/editor/editor.cpp:3035
 msgid "Draw Element"
 msgstr "Zeichen-Element"
 
-#: src/editor/editor.cpp:3048
+#: src/editor/editor.cpp:3045
 msgid "Fill Element"
 msgstr "Füll-Element"
 
-#: src/editor/editor.cpp:3086
+#: src/editor/editor.cpp:3083
 #, c-format
 msgid "%s: removed %d replay(s)\n"
 msgstr "%s: entfernte %d Wiederholung(en)\n"
 
-#: src/editor/editor.cpp:3090
+#: src/editor/editor.cpp:3087
 msgid "Some replays were removed."
 msgstr "Einige Wiederholungen wurden entfernt."
 
-#: src/editor/editor.cpp:3106
+#: src/editor/editor.cpp:3103
 #, c-format
 msgid "%s: marked %d replay(s) as working ones\n"
 msgstr "%s: %d Wiederholung(en) als funktionierend markiert\n"
 
-#: src/editor/editor.cpp:3110
+#: src/editor/editor.cpp:3107
 msgid ""
 "Some replay checksums were recalculated. This does not mean that those "
 "replays actually play correctly!"
@@ -7556,45 +7556,45 @@ msgstr ""
 "Einige Wiederholungs-Prüfsummen wurden neu berechnet. Das bedeutet aber "
 "nicht, dass diese Wiederholungen auch wirklich korrekt abgespielt werden!"
 
-#: src/editor/editor.cpp:3154 src/editor/editor.cpp:3168
+#: src/editor/editor.cpp:3151 src/editor/editor.cpp:3165
 msgid "Error loading image file."
 msgstr "Fehler während des Ladens der Bilddatei."
 
-#: src/editor/editor.cpp:3154
+#: src/editor/editor.cpp:3151
 msgid "Cannot recognize file format."
 msgstr "Das Dateiformat konnte nicht erkannt werden."
 
-#: src/editor/editor.cpp:3159
+#: src/editor/editor.cpp:3156
 msgid "The image selected is too big!"
 msgstr "Das ausgewählte Bild ist zu groß!"
 
-#: src/editor/editor.cpp:3159
+#: src/editor/editor.cpp:3156
 #, c-format
 msgid "Maximum sizes: %dx%d pixels"
 msgstr "Maximale Größe: %dx%d Pixel"
 
-#: src/editor/editor.cpp:3194
+#: src/editor/editor.cpp:3191
 msgid "Select Image File for Title Screen"
 msgstr "Bilddatei für Titelbild auswählen"
 
-#: src/editor/editor.cpp:3200
+#: src/editor/editor.cpp:3197
 msgid "Select Image File for Background Tile"
 msgstr "Bilddatei für Hintergrundkachel auswählen"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:3208
+#: src/editor/editor.cpp:3205
 msgid "Set Title Image"
 msgstr "Titelbild einstellen"
 
-#: src/editor/editor.cpp:3224
+#: src/editor/editor.cpp:3221
 msgid "Load _image"
 msgstr "Lade _Titel"
 
-#: src/editor/editor.cpp:3225
+#: src/editor/editor.cpp:3222
 msgid "Load _tile"
 msgstr "Lade _Kachel"
 
-#: src/editor/editor.cpp:3235
+#: src/editor/editor.cpp:3232
 #, c-format
 msgid ""
 "Recommended image sizes are 320x176 pixels for title image and 8x8 pixels "
@@ -7603,435 +7603,435 @@ msgstr ""
 "Empfohlene Bildgrößen sind 320x176 Pixel für Titelbilder und 8x8 Pixel für "
 "die scrollende Kacheln. Die maximalen Größen sind %dx%d und %dx%d."
 
-#: src/editor/editor.cpp:3257
+#: src/editor/editor.cpp:3254
 msgid "_File"
 msgstr "_Datei"
 
-#: src/editor/editor.cpp:3258
+#: src/editor/editor.cpp:3255
 msgid "_Edit"
 msgstr "_Bearbeiten"
 
-#: src/editor/editor.cpp:3259
+#: src/editor/editor.cpp:3256
 msgid "_View"
 msgstr "_Anzeige"
 
-#: src/editor/editor.cpp:3260
+#: src/editor/editor.cpp:3257
 msgid "_Tools"
 msgstr "_Werkzeuge"
 
-#: src/editor/editor.cpp:3261
+#: src/editor/editor.cpp:3258
 msgid "_Help"
 msgstr "_Hilfe"
 
-#: src/editor/editor.cpp:3262
+#: src/editor/editor.cpp:3259
 msgid "_Object"
 msgstr "_Objekt"
 
-#: src/editor/editor.cpp:3263
+#: src/editor/editor.cpp:3260
 msgid "_Cave"
 msgstr "_Höhle"
 
-#: src/editor/editor.cpp:3264
+#: src/editor/editor.cpp:3261
 msgid "Cave_set"
 msgstr "Höhlen_satz"
 
-#: src/editor/editor.cpp:3265
+#: src/editor/editor.cpp:3262
 msgid "Close cave editor"
 msgstr "Höhlen-Editor schließen"
 
-#: src/editor/editor.cpp:3266
+#: src/editor/editor.cpp:3263
 msgid "New _cave"
 msgstr "Neue _Höhle"
 
-#: src/editor/editor.cpp:3266
+#: src/editor/editor.cpp:3263
 msgid "Create new cave"
 msgstr "Neue Höhle erzeugen"
 
-#: src/editor/editor.cpp:3268
+#: src/editor/editor.cpp:3265
 msgid "_Editor help"
 msgstr "_Editor-Hilfe"
 
-#: src/editor/editor.cpp:3269
+#: src/editor/editor.cpp:3266
 msgid "Save cave set to file"
 msgstr "Speichere Höhlensatz in die Datei"
 
-#: src/editor/editor.cpp:3270
+#: src/editor/editor.cpp:3267
 msgid "Save cave set as new file"
 msgstr "Speichere Höhlensatz as neue Datei"
 
-#: src/editor/editor.cpp:3271
+#: src/editor/editor.cpp:3268
 msgid "Load cave set from file"
 msgstr "Lade Höhlensatz von der Datei"
 
-#: src/editor/editor.cpp:3272
+#: src/editor/editor.cpp:3269
 msgid "Load shipped cave set from file"
 msgstr "Lade mitgelieferten Höhlensatz von der Datei"
 
-#: src/editor/editor.cpp:3273
+#: src/editor/editor.cpp:3270
 msgid "Select all items"
 msgstr "Alle Objekte auswählen"
 
-#: src/editor/editor.cpp:3274
+#: src/editor/editor.cpp:3271
 msgid "Cave set _properties"
 msgstr "Höhlensatz-_Eigenschaften"
 
-#: src/editor/editor.cpp:3274
+#: src/editor/editor.cpp:3271
 msgid "Set properties of cave set"
 msgstr "Eigenschaften des Höhlensatzes einstellen"
 
-#: src/editor/editor.cpp:3275
+#: src/editor/editor.cpp:3272
 msgid "Cave set _title image"
 msgstr "Höhlensatz-_Titelbild"
 
-#: src/editor/editor.cpp:3275
+#: src/editor/editor.cpp:3272
 msgid "Set caveset title image"
 msgstr "Höhlensatz-Titelbild einstellen"
 
-#: src/editor/editor.cpp:3281
+#: src/editor/editor.cpp:3278
 msgid "_Role in caveset"
 msgstr "_Verhalten im Höhlensatz"
 
-#: src/editor/editor.cpp:3282
+#: src/editor/editor.cpp:3279
 msgid "_Edit cave"
 msgstr "Höhle _bearbeiten"
 
-#: src/editor/editor.cpp:3282
+#: src/editor/editor.cpp:3279
 msgid "Edit selected cave"
 msgstr "Ausgewählte Höhle editieren"
 
-#: src/editor/editor.cpp:3283
+#: src/editor/editor.cpp:3280
 msgid "_Rename cave"
 msgstr "Höhle _umbenennen"
 
-#: src/editor/editor.cpp:3283
+#: src/editor/editor.cpp:3280
 msgid "Rename selected cave"
 msgstr "Ausgewählte Höhle umbenennen"
 
-#: src/editor/editor.cpp:3284
+#: src/editor/editor.cpp:3281
 msgid "Make cave _selectable"
 msgstr "Höhle als _auswählbar markieren"
 
-#: src/editor/editor.cpp:3284
+#: src/editor/editor.cpp:3281
 msgid "Make the cave selectable as game start"
 msgstr "Die Höhle zum Spielstart auswählbar machen"
 
-#: src/editor/editor.cpp:3285
+#: src/editor/editor.cpp:3282
 msgid "Make cave _unselectable"
 msgstr "Höhle als _nicht auswählbar markieren"
 
-#: src/editor/editor.cpp:3285
+#: src/editor/editor.cpp:3282
 msgid "Make the cave unselectable as game start"
 msgstr "Die Höhle zum Spielstart nicht auswählbar machen"
 
-#: src/editor/editor.cpp:3290
+#: src/editor/editor.cpp:3287
 msgid "_New cave set"
 msgstr "_Neuer Höhlensatz"
 
-#: src/editor/editor.cpp:3290
+#: src/editor/editor.cpp:3287
 msgid "Create new cave set with no caves"
 msgstr "Einen neuen Höhlensatz ohne Höhlen erstellen"
 
-#: src/editor/editor.cpp:3291
+#: src/editor/editor.cpp:3288
 msgid "Save _HTML gallery"
 msgstr "Speichere als HTML-_Galerie"
 
-#: src/editor/editor.cpp:3291
+#: src/editor/editor.cpp:3288
 msgid "Save game in a HTML gallery"
 msgstr "Speichere das Spiel in eine HTML-Galerie"
 
-#: src/editor/editor.cpp:3292
+#: src/editor/editor.cpp:3289
 msgid "Export _CrLi cave pack"
 msgstr "Exportiere als _CrLi-Höhlen-Pack"
 
-#: src/editor/editor.cpp:3293
+#: src/editor/editor.cpp:3290
 msgid "_Selectable caves"
 msgstr "Au_swählbare Höhlen"
 
-#: src/editor/editor.cpp:3294
+#: src/editor/editor.cpp:3291
 msgid "All _caves"
 msgstr "Alle _Höhlen"
 
-#: src/editor/editor.cpp:3294
+#: src/editor/editor.cpp:3291
 msgid "Make all caves selectable as game start"
 msgstr "Alle Höhlen zum Spielstart als auswählbar markieren"
 
-#: src/editor/editor.cpp:3295
+#: src/editor/editor.cpp:3292
 msgid "All _but intermissions"
 msgstr "Alle _außer den Zwischenspielen"
 
-#: src/editor/editor.cpp:3295
+#: src/editor/editor.cpp:3292
 msgid "Make all caves but intermissions selectable as game start"
 msgstr "Alle Höhlen außer den Zwischenspielen zum Spielstart auswählbar machen"
 
-#: src/editor/editor.cpp:3296
+#: src/editor/editor.cpp:3293
 msgid "All _after intermissions"
 msgstr "Alle _nach Zwischenspielen"
 
-#: src/editor/editor.cpp:3296
+#: src/editor/editor.cpp:3293
 msgid "Make all caves after intermissions selectable as game start"
 msgstr "Alle Höhlen nach Zwischenspielen zum Spielstart auswählbar machen"
 
-#: src/editor/editor.cpp:3297
+#: src/editor/editor.cpp:3294
 msgid "Remove all unknown tags"
 msgstr "Alle unbekannten Markierungen entfernen"
 
-#: src/editor/editor.cpp:3297
+#: src/editor/editor.cpp:3294
 msgid "Removes all unknown tags found in the BDCFF file"
 msgstr "Entfernt alle unbekannten Markierungen in der BDCFF-Datei"
 
-#: src/editor/editor.cpp:3298
+#: src/editor/editor.cpp:3295
 msgid "Remove bad replays"
 msgstr "Ungültige Wiederholungen entfernen"
 
-#: src/editor/editor.cpp:3298
+#: src/editor/editor.cpp:3295
 msgid "Removes replays which won't play as they have their caves modified."
 msgstr ""
 "Entfernt Wiederholungen, die nicht abgespielt werden können, da die "
 "dazugehörigen Höhlen verändert wurden."
 
-#: src/editor/editor.cpp:3299
+#: src/editor/editor.cpp:3296
 msgid "Fix replay checksums"
 msgstr "Wiederholungen-Prüfsummen reparieren"
 
-#: src/editor/editor.cpp:3299
+#: src/editor/editor.cpp:3296
 msgid "Treats all replays with wrong checksums as working ones."
 msgstr ""
 "Behandelt alle Wiederholungen mit falscher Prüfsumme wie funktionierende "
 "Wiederholungen."
 
-#: src/editor/editor.cpp:3304
+#: src/editor/editor.cpp:3301
 msgid "_Map"
 msgstr "_Karte"
 
-#: src/editor/editor.cpp:3305
+#: src/editor/editor.cpp:3302
 msgid "_Export as CrLi cave file"
 msgstr "E_xportiere als CrLi-Höhlen-Datei"
 
-#: src/editor/editor.cpp:3306
+#: src/editor/editor.cpp:3303
 msgid "Open cave selector"
 msgstr "Höhlen-Index"
 
-#: src/editor/editor.cpp:3307
+#: src/editor/editor.cpp:3304
 msgid "_Next cave"
 msgstr "N_ächste Höhle"
 
-#: src/editor/editor.cpp:3307
+#: src/editor/editor.cpp:3304
 msgid "Next cave"
 msgstr "Nächste Höhle"
 
-#: src/editor/editor.cpp:3308
+#: src/editor/editor.cpp:3305
 msgid "_Previous cave"
 msgstr "_Vorherige Höhle"
 
-#: src/editor/editor.cpp:3308
+#: src/editor/editor.cpp:3305
 msgid "Previous cave"
 msgstr "Vorherige Höhle"
 
-#: src/editor/editor.cpp:3309
+#: src/editor/editor.cpp:3306
 msgid "_Test"
 msgstr "_Test"
 
-#: src/editor/editor.cpp:3310
+#: src/editor/editor.cpp:3307
 msgid "Ca_ve properties"
 msgstr "_Höhlen-Eigenschaften"
 
-#: src/editor/editor.cpp:3310
+#: src/editor/editor.cpp:3307
 msgid "Cave settings"
 msgstr "Höhlen-Eigenschaften"
 
-#: src/editor/editor.cpp:3311
+#: src/editor/editor.cpp:3308
 msgid "_Element statistics"
 msgstr "_Elemente-Statistik"
 
-#: src/editor/editor.cpp:3311
+#: src/editor/editor.cpp:3308
 msgid "Element statistics: number and ratio of elements"
 msgstr "Element-Statistiken: Anzahl und Verhältnis der Elemente"
 
-#: src/editor/editor.cpp:3312
+#: src/editor/editor.cpp:3309
 msgid "Set engine defaults"
 msgstr "Engine Standardwerte einstellen"
 
-#: src/editor/editor.cpp:3313
+#: src/editor/editor.cpp:3310
 msgid "Cave co_lors"
 msgstr "Höhlen-F_arben"
 
-#: src/editor/editor.cpp:3313
+#: src/editor/editor.cpp:3310
 msgid "Select cave colors"
 msgstr "Wähle Höhlen-Farben aus"
 
-#: src/editor/editor.cpp:3314
+#: src/editor/editor.cpp:3311
 msgid "Convert to map"
 msgstr "Zur Karte konvertieren"
 
-#: src/editor/editor.cpp:3314
+#: src/editor/editor.cpp:3311
 msgid "Flatten cave to a single cave map without objects"
 msgstr "Höhle zu einer einzigen Höhlen-Karte ohne Objekte ebnen"
 
-#: src/editor/editor.cpp:3315
+#: src/editor/editor.cpp:3312
 msgid "O_verview"
 msgstr "_Vorschau"
 
-#: src/editor/editor.cpp:3315
+#: src/editor/editor.cpp:3312
 msgid "Full screen overview of cave"
 msgstr "Vollbild-Karte der Höhle"
 
-#: src/editor/editor.cpp:3316
+#: src/editor/editor.cpp:3313
 msgid "O_verview (simple)"
 msgstr "V_orschau (nahezu wie im Spiel)"
 
-#: src/editor/editor.cpp:3316
+#: src/editor/editor.cpp:3313
 msgid "Full screen overview of cave almost as in game"
 msgstr "Vollbild-Karte der Höhle, wie sie annähernd im Spiel erscheint"
 
-#: src/editor/editor.cpp:3317
+#: src/editor/editor.cpp:3314
 msgid "_Auto shrink"
 msgstr "_Automatische Anpassung"
 
-#: src/editor/editor.cpp:3317
+#: src/editor/editor.cpp:3314
 msgid "Automatically set the visible region of the cave"
 msgstr "Den sichtbaren Bereich der Höhle automatisch einstellen"
 
-#: src/editor/editor.cpp:3322
+#: src/editor/editor.cpp:3319
 msgid "Send to _back"
 msgstr "In den _Hintergrund stellen"
 
-#: src/editor/editor.cpp:3322
+#: src/editor/editor.cpp:3319
 msgid "Send object to bottom of object list (draw first)"
 msgstr "Verschiebe Objekt in der Objekt-Liste nach unten (zuerst zeichnen)"
 
-#: src/editor/editor.cpp:3323
+#: src/editor/editor.cpp:3320
 msgid "Bring to _front"
 msgstr "In den _Vordergrund stellen"
 
-#: src/editor/editor.cpp:3323
+#: src/editor/editor.cpp:3320
 msgid "Bring object to front of object list (drawn last)"
 msgstr "Verschiebe Objekt in der Objekt-Liste nach oben (zuletzt zeichnen)"
 
-#: src/editor/editor.cpp:3324
+#: src/editor/editor.cpp:3321
 msgid "Show on this level"
 msgstr "In diesem Level anzeigen"
 
-#: src/editor/editor.cpp:3324
+#: src/editor/editor.cpp:3321
 msgid "Enable object on currently visible level"
 msgstr "Schaltet dieses Objekt im momentan ausgewählten Level ein."
 
-#: src/editor/editor.cpp:3325
+#: src/editor/editor.cpp:3322
 msgid "Hide on this level"
 msgstr "In diesem Level ausblenden"
 
-#: src/editor/editor.cpp:3325
+#: src/editor/editor.cpp:3322
 msgid "Disable object on currently visible level"
 msgstr "Schaltet dieses Objekt im momentan ausgewählten Level aus."
 
-#: src/editor/editor.cpp:3326
+#: src/editor/editor.cpp:3323
 msgid "Only on this level"
 msgstr "Nur in diesem Level"
 
-#: src/editor/editor.cpp:3326
+#: src/editor/editor.cpp:3323
 msgid "Enable object only on the currently visible level"
 msgstr "Schaltet dieses Objekt nur im momentan ausgewählten Level ein."
 
-#: src/editor/editor.cpp:3327
+#: src/editor/editor.cpp:3324
 msgid "Show on all levels"
 msgstr "In allen Levels anzeigen"
 
-#: src/editor/editor.cpp:3327
+#: src/editor/editor.cpp:3324
 msgid "Enable object on all levels"
 msgstr "Schaltet dieses Objekt in allen Levels ein."
 
-#: src/editor/editor.cpp:3331
+#: src/editor/editor.cpp:3328
 msgid "Ob_ject properties"
 msgstr "Ob_jekt-Eigenschaften"
 
-#: src/editor/editor.cpp:3331
+#: src/editor/editor.cpp:3328
 msgid "Set object properties"
 msgstr "Objekt-Eigenschaften"
 
-#: src/editor/editor.cpp:3336
+#: src/editor/editor.cpp:3333
 msgid "Shift _left"
 msgstr "Nach _links verschieben"
 
-#: src/editor/editor.cpp:3337
+#: src/editor/editor.cpp:3334
 msgid "Shift _right"
 msgstr "Nach _rechts verschieben"
 
-#: src/editor/editor.cpp:3338
+#: src/editor/editor.cpp:3335
 msgid "Shift _up"
 msgstr "Nach _oben verschieben"
 
-#: src/editor/editor.cpp:3339
+#: src/editor/editor.cpp:3336
 msgid "Shift _down"
 msgstr "Nach _unten verschieben"
 
-#: src/editor/editor.cpp:3340
+#: src/editor/editor.cpp:3337
 msgid "Remove m_ap"
 msgstr "K_arte entfernen"
 
-#: src/editor/editor.cpp:3340
+#: src/editor/editor.cpp:3337
 msgid "Remove cave map, if it has one"
 msgstr "Lösche Höhlen-Karte, falls eine vorhanden ist"
 
-#: src/editor/editor.cpp:3345
+#: src/editor/editor.cpp:3342
 msgid "Setup cave _random fill"
 msgstr "_Zufällige Füllung der Höhle einstellen"
 
-#: src/editor/editor.cpp:3345
+#: src/editor/editor.cpp:3342
 msgid "Setup initial fill random elements for the cave"
 msgstr "Anfängliche Füllung der zufälligen Elemente für die Höhle einstellen"
 
-#: src/editor/editor.cpp:3350
+#: src/editor/editor.cpp:3347
 msgid "Cut to clipboard"
 msgstr "Objekt in die Zwischenablage ausschneiden"
 
-#: src/editor/editor.cpp:3351
+#: src/editor/editor.cpp:3348
 msgid "Copy to clipboard"
 msgstr "Objekt in die Zwischenablage kopieren"
 
-#: src/editor/editor.cpp:3352
+#: src/editor/editor.cpp:3349
 msgid "Delete"
 msgstr "Löschen"
 
-#: src/editor/editor.cpp:3357
+#: src/editor/editor.cpp:3354
 msgid "Paste object from clipboard"
 msgstr "Objekt aus der Zwischenablage einfügen"
 
-#: src/editor/editor.cpp:3362
+#: src/editor/editor.cpp:3359
 msgid "Undo last action"
 msgstr "Letzte Aktion rückgängig machen"
 
-#: src/editor/editor.cpp:3367
+#: src/editor/editor.cpp:3364
 msgid "Redo last action"
 msgstr "Letzte Aktion wiederherstellen"
 
-#: src/editor/editor.cpp:3377
+#: src/editor/editor.cpp:3374
 msgid "_Animated view"
 msgstr "_Animierte Ansicht"
 
-#: src/editor/editor.cpp:3378
+#: src/editor/editor.cpp:3375
 msgid "_Colored objects"
 msgstr "_Eingefärbte Objekte"
 
-#: src/editor/editor.cpp:3378
+#: src/editor/editor.cpp:3375
 msgid "Cave objects are colored"
 msgstr "Die Objekte der Höhle sind eingefärbt"
 
-#: src/editor/editor.cpp:3379
+#: src/editor/editor.cpp:3376
 msgid "_Object list"
 msgstr "_Objekt-Liste"
 
-#: src/editor/editor.cpp:3379
+#: src/editor/editor.cpp:3376
 msgid "Object list sidebar"
 msgstr "Objekt-Liste Seitenleiste"
 
-#: src/editor/editor.cpp:3718
+#: src/editor/editor.cpp:3715
 msgid "Level shown:"
 msgstr "Angezeigter Level:"
 
-#: src/editor/editor.cpp:3727
+#: src/editor/editor.cpp:3724
 msgid "Draw on:"
 msgstr "Zeichne in:"
 
-#: src/editor/editor.cpp:3732
+#: src/editor/editor.cpp:3729
 msgid ""
 "Element used to draw points, lines, and rectangles. You can use middle-click "
 "to pick one from the cave."
@@ -8040,7 +8040,7 @@ msgstr ""
 "Rechtecken verwendet. Mit der mittleren Maustaste lässt sich ein Element aus "
 "der aktuellen Höhle auswählen."
 
-#: src/editor/editor.cpp:3737
+#: src/editor/editor.cpp:3734
 msgid ""
 "Element used to fill rectangles, and second element of joins. You can use "
 "Ctrl + middle-click to pick one from the cave."
@@ -8049,7 +8049,7 @@ msgstr ""
 "eine Verbindung verwendet. Mit CTRL + mittlere Maustaste lässt sich ein "
 "Element aus der aktuellen Höhle auswählen."
 
-#: src/editor/editor.cpp:3777
+#: src/editor/editor.cpp:3774
 msgid "_Objects"
 msgstr "_Objekte"
 
