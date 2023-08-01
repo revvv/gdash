@@ -424,7 +424,7 @@ object_list_row_delete(GtkTreeModel *model, GtkTreePath *changed_path, gpointer 
 }
 
 // WORKAROUND: using object_list_row_delete() as "row-delete" handler is not thread-safe
-//             simply store the parameters for later use in "drag-end" handler
+//             simply store the parameters for later use in "drag-end" handler object_list_drag_end()
 static GtkTreeModel *_model;
 static GtkTreePath *_changed_path;
 static gpointer _user_data;
@@ -3757,11 +3757,10 @@ static void create_cave_editor(CaveSet *cs) {
     gtk_tree_selection_set_mode(gtk_tree_view_get_selection(GTK_TREE_VIEW(object_list_tree_view)), GTK_SELECTION_MULTIPLE);
     gtk_tree_view_set_reorderable(GTK_TREE_VIEW(object_list_tree_view), TRUE);
     gtk_container_add(GTK_CONTAINER(scroll_window_objects), object_list_tree_view);
-    /* two signals which are required to handle cave object drag-and-drop reordering */
+    /* three signals which are required to handle cave object drag-and-drop reordering */
     g_signal_connect(G_OBJECT(object_list), "row-changed", G_CALLBACK(object_list_row_changed), NULL);
     g_signal_connect(G_OBJECT(object_list), "row-deleted", G_CALLBACK(object_list_row_delete_defer), NULL);
-    g_signal_connect (object_list_tree_view, "drag-end", G_CALLBACK (object_list_drag_end), NULL);
-
+    g_signal_connect(G_OBJECT(object_list_tree_view), "drag-end", G_CALLBACK(object_list_drag_end), NULL);
     /* object double-click: */
     g_signal_connect(G_OBJECT(object_list_tree_view), "row-activated", G_CALLBACK(object_list_row_activated), NULL);
     g_signal_connect(G_OBJECT(object_list_tree_view), "popup-menu", G_CALLBACK(object_list_show_popup_menu), NULL);
