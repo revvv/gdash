@@ -272,6 +272,7 @@ void C64Import::cave_set_bd1_defaults(CaveStored &cave) {
     cave.intermission_rewardlife = false;
     cave.magic_wall_stops_amoeba = false;
     cave.magic_wall_breakscan = true;
+    cave.magic_timer_zero_is_infinite = true;
     cave.magic_timer_wait_for_hatching = false;
     cave.pushing_stone_prob = 250000;
     cave.pushing_stone_prob_sweet = 1000000;
@@ -313,6 +314,7 @@ void C64Import::cave_set_bd2_defaults(CaveStored &cave) {
     cave.intermission_instantlife = true;
     cave.intermission_rewardlife = false;
     cave.magic_wall_stops_amoeba = false; /* marek roth bd inside faq 3.0 */
+    cave.magic_timer_zero_is_infinite = true;
     cave.magic_timer_wait_for_hatching = false;
     cave.pushing_stone_prob = 250000;
     cave.pushing_stone_prob_sweet = 1000000;
@@ -353,6 +355,7 @@ void C64Import::cave_set_plck_defaults(CaveStored &cave) {
     cave.intermission_instantlife = true;
     cave.intermission_rewardlife = false;
     cave.magic_wall_stops_amoeba = false;
+    cave.magic_timer_zero_is_infinite = true;
     cave.magic_timer_wait_for_hatching = false;
     cave.pushing_stone_prob = 250000;
     cave.pushing_stone_prob_sweet = 1000000;
@@ -382,6 +385,7 @@ void C64Import::cave_set_1stb_defaults(CaveStored &cave) {
         cave.level_hatching_delay_time[i] = 2;
     cave.intermission_instantlife = false;
     cave.intermission_rewardlife = true;
+    cave.magic_timer_zero_is_infinite = true;
     cave.magic_timer_wait_for_hatching = true;
     cave.pushing_stone_prob = 250000;
     cave.pushing_stone_prob_sweet = 1000000;
@@ -414,6 +418,7 @@ void C64Import::cave_set_crdr_7_defaults(CaveStored &cave) {
         cave.level_hatching_delay_time[i] = 2;
     cave.intermission_instantlife = false;
     cave.intermission_rewardlife = true;
+    cave.magic_timer_zero_is_infinite = false;
     cave.magic_timer_wait_for_hatching = true;
     cave.pushing_stone_prob = 250000;
     cave.pushing_stone_prob_sweet = 1000000;
@@ -448,6 +453,7 @@ void C64Import::cave_set_crli_defaults(CaveStored &cave) {
         cave.level_hatching_delay_time[i] = 2;
     cave.intermission_instantlife = false;
     cave.intermission_rewardlife = true;
+    cave.magic_timer_zero_is_infinite = false;
     cave.magic_timer_wait_for_hatching = true;
     cave.pushing_stone_prob = 250000;
     cave.pushing_stone_prob_sweet = 1000000;

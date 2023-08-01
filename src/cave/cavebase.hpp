@@ -102,6 +102,7 @@ public:
 
     GdBool magic_wall_stops_amoeba; ///< Turning on magic wall changes amoeba to diamonds.
     GdBool magic_wall_breakscan;    ///< Currently this setting enabled will turn the amoeba to an enclosed state. To implement buggy BD1 behaviour.
+    GdBool magic_timer_zero_is_infinite;    ///< magic wall timer 0 is interpreted as infinite
     GdBool magic_timer_wait_for_hatching;   ///< magic wall timer does not start before player's birth
 
     GdProbability amoeba_growth_prob;       ///< Amoeba slow growth probability

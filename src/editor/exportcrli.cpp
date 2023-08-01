@@ -163,6 +163,8 @@ static int crli_export(CaveStored const &to_convert, const int level, guint8 *co
         gd_warning("crli voodoo dies by stone hit, can collect diamonds and can't be destroyed");
     if (to_convert.short_explosions)
         gd_warning("crli explosions are slower than original");
+    if (!to_convert.magic_timer_zero_is_infinite)
+        gd_message("crli magic wall timer 0 is interpreted as infinite");
     if (!to_convert.magic_timer_wait_for_hatching)
         gd_message("crli magic wall timer waits for hatching");
     if (!to_convert.slime_predictable)

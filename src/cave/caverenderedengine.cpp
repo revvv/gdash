@@ -3084,7 +3084,8 @@ GdDirectionEnum CaveRendered::iterate(GdDirectionEnum player_move, bool player_f
     }
 
     /* magic wall; if active&wait or not wait for hatching */
-    if (magic_wall_state == GD_MW_ACTIVE && (hatched || !magic_timer_wait_for_hatching)) {
+    if (magic_wall_state == GD_MW_ACTIVE && (hatched || !magic_timer_wait_for_hatching)
+            && !(magic_wall_time == 0 && magic_timer_zero_is_infinite)) {
         magic_wall_time -= speed;
         if (magic_wall_time < 0)
             magic_wall_time = 0;

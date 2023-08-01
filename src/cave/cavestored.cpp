@@ -168,6 +168,7 @@ PropertyDescription const CaveStored::descriptor[] = {
     {"", GD_TAB, 0, N_("Magic Wall")},
     {"", GD_LABEL, GD_SHOW_LEVEL_LABEL, N_("Timing")},
     {"MagicWallTime", GD_TYPE_INT_LEVELS, 0, N_("Milling time (s)"), GetterBase::create_new(&CaveStored::level_magic_wall_time), N_("Magic wall will stop after this time, and it cannot be activated again."), 0, 999},
+    {"MagicWallProperties.zeroisinfinite", GD_TYPE_BOOLEAN, 0, N_("Milling time 0 is infinite"), GetterBase::create_new(&CaveStored::magic_timer_zero_is_infinite), N_("This determines if the magic wall timer 0 is interpreted as infinite.")},
     {"MagicWallProperties.waitforhatching", GD_TYPE_BOOLEAN, 0, N_("Timer waits for hatching"), GetterBase::create_new(&CaveStored::magic_timer_wait_for_hatching), N_("This determines if the magic wall timer starts before the player appearing. Magic can always be activated before that; but if this is set to true, the timer will not start.")},
     {"", GD_LABEL, 0, N_("Conversions")},
     {"MagicWallProperties", GD_TYPE_ELEMENT, 0, N_("Diamond to"), GetterBase::create_new(&CaveStored::magic_diamond_to), N_("As a special effect, magic walls can convert diamonds to any other element.")},
@@ -444,6 +445,7 @@ void CaveStored::set_gdash_defaults() {
     magic_flying_stone_to = O_FLYING_DIAMOND_F;
     magic_flying_diamond_to = O_FLYING_STONE_F;
     magic_wall_stops_amoeba = true;
+    magic_timer_zero_is_infinite = true;
     magic_timer_wait_for_hatching = false;
 
     /* amoeba */
