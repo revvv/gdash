@@ -2,15 +2,17 @@
 
 Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) to add new features:
 
+* Fixed replay feature (fire was not recorded)
+* Add feature *"Milling time 0 is infinite"*
 * New player animations (gfx by [cwscws](https://github.com/cwscws))
 * Enable higher scaling factors
-* New command line options for bulk export
+* New command line options for bulk export (*the reason for the fork's name...*)
 * Enhanced game controller support
     * Now all connected gamepads are supported at the same time
     * Left stick or DPAD control the player
     * You can configure your button layout with [`gamecontrollerdb.txt`](https://github.com/revvv/gdash-export-CrLi/blob/master/gamecontrollerdb.txt)
 * New themes, shaders, caves
-* GTK fixes
+* GTK fixes (esp. for Mac: Drag-and-drop, stuck key)
 * 64 bit ZIP distribution for **Windows, Linux and Mac**
 * CrLi now also exports teleporters
 * CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
