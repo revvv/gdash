@@ -226,7 +226,10 @@ std::string CaveReplay::movements_to_bdcff() const {
         movement data = movements[pos];
         if (data & REPLAY_SUICIDE_MASK)
             str += "k";
-        str += direction_fire_to_bdcff(GdDirectionEnum(data & REPLAY_MOVE_MASK), (data & REPLAY_FIRE_MASK) != 0);
+        else if ((data & REPLAY_FIRE_MASK) && ((data & REPLAY_MOVE_MASK) == MV_STILL))
+            str += "F";
+        else
+            str += direction_fire_to_bdcff(GdDirectionEnum(data & REPLAY_MOVE_MASK), (data & REPLAY_FIRE_MASK) != 0);
         if (num != 1) {
             std::ostringstream s;
 
