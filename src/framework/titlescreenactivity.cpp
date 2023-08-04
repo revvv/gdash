@@ -181,29 +181,42 @@ void TitleScreenActivity::redraw_event(bool full) const {
 }
 
 
+static bool does_selectable_cave_exist(CaveSet &caveset) {
+    for (unsigned cn = 0; cn < caveset.caves.size(); cn++)
+        if (gd_all_caves_selectable || caveset.caves[cn].selectable)
+            return true;
+
+    return false;
+}
+
+
 static int previous_selectable_cave(CaveSet &caveset, unsigned cavenum) {
+    if (!does_selectable_cave_exist(caveset))
+        return cavenum; // prevents endless loop below
+
     unsigned cn = cavenum;
-    while (cn > 0) {
+    while (true) {
+        if (cn == 0)
+            cn = caveset.caves.size();
         cn--;
         if (gd_all_caves_selectable || caveset.caves[cn].selectable)
             return cn;
     }
-
-    /* if not found any suitable, return current */
-    return cavenum;
 }
 
 
 static int next_selectable_cave(CaveSet &caveset, unsigned cavenum) {
+    if (!does_selectable_cave_exist(caveset))
+        return cavenum; // prevents endless loop below
+
     unsigned cn = cavenum;
-    while (cn + 1 < caveset.caves.size()) {
+    while (true) {
         cn++;
+        if (cn >= caveset.caves.size())
+            cn = 0;
         if (gd_all_caves_selectable || caveset.caves[cn].selectable)
             return cn;
     }
-
-    /* if not found any suitable, return current */
-    return cavenum;
 }
 
 
