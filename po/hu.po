@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-07-23 14:20+0200\n"
+"POT-Creation-Date: 2023-08-07 13:44+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -2758,7 +2758,7 @@ msgstr ""
 "Ha ez engedélyezve van, a játékos végtelen sok raktétát ki tud majd lőni. "
 "Egyébként minden rakétavető csak egyetlen egy rakétát tartalmaz."
 
-#: src/cave/cavestored.cpp:128 src/cave/cavestored.cpp:292
+#: src/cave/cavestored.cpp:128 src/cave/cavestored.cpp:293
 #: src/cave/elementproperties.cpp:430
 msgid "Pneumatic hammer"
 msgstr "Légkalapács"
@@ -2874,7 +2874,7 @@ msgid "Penalty time when the voodoo is destroyed by a stone."
 msgstr "Idő levonás, ha a voodoo figurát eltalálja egy kő."
 
 #: src/cave/cavestored.cpp:144 src/cave/cavestored.cpp:149
-#: src/cave/cavestored.cpp:283 src/cave/elementproperties.cpp:471
+#: src/cave/cavestored.cpp:284 src/cave/elementproperties.cpp:471
 msgid "Amoeba"
 msgstr "Amőba"
 
@@ -2896,7 +2896,7 @@ msgstr ""
 "elején elindul, függetlenül attól, hogy az amőba épp tud-e nőni vagy nem. Ez "
 "nagy különbséget jelenthet játék közben!"
 
-#: src/cave/cavestored.cpp:147 src/cave/cavestored.cpp:171
+#: src/cave/cavestored.cpp:147 src/cave/cavestored.cpp:172
 msgid "Timer waits for hatching"
 msgstr "Az időzítő megvárja a játékos születését"
 
@@ -3019,6 +3019,15 @@ msgid "Magic wall will stop after this time, and it cannot be activated again."
 msgstr "A varázsfal ennyi idő után megáll, és nem lehet újra elindítani azt."
 
 #: src/cave/cavestored.cpp:171
+msgid "Milling time 0 is infinite"
+msgstr "Varázsfal ideje 0 végtelen"
+
+#: src/cave/cavestored.cpp:171
+msgid "This determines if the magic wall timer 0 is interpreted as infinite."
+msgstr ""
+"Ez határozza meg, hogy a varázsfali időzítő 0 végtelennek legyen értelmezve."
+
+#: src/cave/cavestored.cpp:172
 msgid ""
 "This determines if the magic wall timer starts before the player appearing. "
 "Magic can always be activated before that; but if this is set to true, the "
@@ -3028,59 +3037,59 @@ msgstr ""
 "megszületik. Aktiválni bármelyik esetben lehet az előtt is; de ha ez igazra "
 "van állítva, az időzítő nem fog elindulni."
 
-#: src/cave/cavestored.cpp:172
+#: src/cave/cavestored.cpp:173
 msgid "Conversions"
 msgstr "Átalakítások"
 
-#: src/cave/cavestored.cpp:173
+#: src/cave/cavestored.cpp:174
 msgid "Diamond to"
 msgstr "Gyémántot"
 
-#: src/cave/cavestored.cpp:173
+#: src/cave/cavestored.cpp:174
 msgid ""
 "As a special effect, magic walls can convert diamonds to any other element."
 msgstr ""
 "Speciális hatásként a varázsfal a gyémántokat más elemmé is alakíthatja."
 
-#: src/cave/cavestored.cpp:174
+#: src/cave/cavestored.cpp:175
 msgid "Stone to"
 msgstr "Követ"
 
-#: src/cave/cavestored.cpp:174
+#: src/cave/cavestored.cpp:175
 msgid ""
 "As a special effect, magic walls can convert stones to any other element."
 msgstr "Speciális hatásként a varázsfal a köveket más elemmé is alakíthatja."
 
-#: src/cave/cavestored.cpp:175
+#: src/cave/cavestored.cpp:176
 msgid "Mega stone to"
 msgstr "Nehéz követ"
 
-#: src/cave/cavestored.cpp:175
+#: src/cave/cavestored.cpp:176
 msgid "If a mega stone falls into the magic wall, it will drop this element."
 msgstr "Ha egy nehéz kő a varázsfalra esik, ilyen elem fog megjelenni alul."
 
-#: src/cave/cavestored.cpp:176
+#: src/cave/cavestored.cpp:177
 msgid "Nitro pack to"
 msgstr "Nitró töltetet"
 
-#: src/cave/cavestored.cpp:176
+#: src/cave/cavestored.cpp:177
 msgid ""
 "If a nitro pack falls into the magic wall, it will be turned to this element."
 msgstr "Ha egy nitró töltet a varázsfalra esik, ilyen elemmé lesz alakítva."
 
-#: src/cave/cavestored.cpp:177
+#: src/cave/cavestored.cpp:178
 msgid "Nut to"
 msgstr "Diót"
 
-#: src/cave/cavestored.cpp:177
+#: src/cave/cavestored.cpp:178
 msgid "As a special effect, magic walls can convert nuts to any other element."
 msgstr "Speciális hatásként a varázsfal a diókat más elemmé is alakíthatja."
 
-#: src/cave/cavestored.cpp:178
+#: src/cave/cavestored.cpp:179
 msgid "Flying stone to"
 msgstr "Repülő követ"
 
-#: src/cave/cavestored.cpp:178
+#: src/cave/cavestored.cpp:179
 msgid ""
 "If a flying stone climbs up into the magic wall, it will be turned to this "
 "element. Remember that flying stones enter the magic wall from its bottom, "
@@ -3090,11 +3099,11 @@ msgstr ""
 "fog változni. Figyelj arra, hogy a repülő kövek alulról mennek be a falba, "
 "nem pedig felülről!"
 
-#: src/cave/cavestored.cpp:179
+#: src/cave/cavestored.cpp:180
 msgid "Flying diamonds to"
 msgstr "Repülő gyémántot"
 
-#: src/cave/cavestored.cpp:179
+#: src/cave/cavestored.cpp:180
 msgid ""
 "If a flying diamond enters the magic wall, it will be turned to this "
 "element. Remember that flying diamonds enter the magic wall from its bottom, "
@@ -3104,23 +3113,23 @@ msgstr ""
 "Figyelj arra, hogy a repülő gyémántok alulról mennek be a falba, nem pedig "
 "felülről!"
 
-#: src/cave/cavestored.cpp:180
+#: src/cave/cavestored.cpp:181
 msgid "With amoeba"
 msgstr "Amőbával"
 
-#: src/cave/cavestored.cpp:181
+#: src/cave/cavestored.cpp:182
 msgid "Stops amoeba"
 msgstr "Az amőbát gyémánttá változtatja"
 
-#: src/cave/cavestored.cpp:181
+#: src/cave/cavestored.cpp:182
 msgid "When the magic wall is activated, it can convert amoeba into diamonds."
 msgstr "Amikor a varázsfal elindul, az amőbát gyémánttá változtathatja."
 
-#: src/cave/cavestored.cpp:182
+#: src/cave/cavestored.cpp:183
 msgid "BD1 amoeba bug"
 msgstr "BD1 amőba hiba"
 
-#: src/cave/cavestored.cpp:182
+#: src/cave/cavestored.cpp:183
 msgid ""
 "This setting emulates the BD1 bug, where a stone or a diamond falling into a "
 "magic wall sometimes caused the active amoeba to convert into a diamond. The "
@@ -3135,20 +3144,20 @@ msgstr ""
 "esett, az amőba gyémánttá alakul. A programhiba időzítéssel kapcsolatos "
 "viselkedését ez a beállítás nem utánozza."
 
-#: src/cave/cavestored.cpp:185 src/cave/cavestored.cpp:285
+#: src/cave/cavestored.cpp:186 src/cave/cavestored.cpp:286
 #: src/cave/elementproperties.cpp:492
 msgid "Slime"
 msgstr "Iszap"
 
-#: src/cave/cavestored.cpp:186
+#: src/cave/cavestored.cpp:187
 msgid "Permeability"
 msgstr "Permeabilitás"
 
-#: src/cave/cavestored.cpp:187
+#: src/cave/cavestored.cpp:188
 msgid "Predictable"
 msgstr "Előre megjósolható"
 
-#: src/cave/cavestored.cpp:187
+#: src/cave/cavestored.cpp:188
 msgid ""
 "Controls if the predictable random generator is used for slime. It is "
 "required for compatibility with some older caves."
@@ -3156,11 +3165,11 @@ msgstr ""
 "Azt állítja be, hogy az iszapon az elemek előre megjósolhatóan jutnak-e át. "
 "Régi pályákkal való kompatibilitás miatt szerepel ez az opció."
 
-#: src/cave/cavestored.cpp:189
+#: src/cave/cavestored.cpp:190
 msgid "Permeability (unpredictable, %)"
 msgstr "Viszkozitás (megjósolhatatlan, %)"
 
-#: src/cave/cavestored.cpp:189
+#: src/cave/cavestored.cpp:190
 msgid ""
 "This controls the rate at which elements go through the slime. Higher values "
 "represent higher probability of passing. This one is for unpredictable slime."
@@ -3169,11 +3178,11 @@ msgstr ""
 "nagyobb értékek az átjutás kisebb valószínűségét jelentik. Ez az érték a "
 "megjósolhatatlan iszaphoz való."
 
-#: src/cave/cavestored.cpp:190
+#: src/cave/cavestored.cpp:191
 msgid "Permeability (predictable, bits)"
 msgstr "Viszkozitás (megjósolható, bitek)"
 
-#: src/cave/cavestored.cpp:190
+#: src/cave/cavestored.cpp:191
 msgid ""
 "This controls the rate at which elements go through the slime. This one is "
 "for predictable slime, and the value is used for a bitwise AND function. The "
@@ -3185,11 +3194,11 @@ msgstr ""
 "operandusa lesz. A C64 motorok által használt értékek a 0, 128, 192, 224, "
 "240, 248, 252, 254 és 255."
 
-#: src/cave/cavestored.cpp:191
+#: src/cave/cavestored.cpp:192
 msgid "Random seed (predictable)"
 msgstr "Véletlenszám kezdet (megjósolható)"
 
-#: src/cave/cavestored.cpp:191
+#: src/cave/cavestored.cpp:192
 msgid ""
 "The random number seed for predictable slime. Use -1 to leave on its "
 "default. Not recommended to change. Does not affect unpredictable slime."
@@ -3198,18 +3207,18 @@ msgstr ""
 "-1 értéket az alapértelmezett beállításhoz. Nem ajánlott megváltoztatni. "
 "Nincs hatással a megjósolhatatlan iszapra."
 
-#: src/cave/cavestored.cpp:192
+#: src/cave/cavestored.cpp:193
 msgid "Passing elements"
 msgstr "Áthaladó elemek"
 
-#: src/cave/cavestored.cpp:193 src/cave/cavestored.cpp:195
-#: src/cave/cavestored.cpp:197
+#: src/cave/cavestored.cpp:194 src/cave/cavestored.cpp:196
+#: src/cave/cavestored.cpp:198
 msgid "Eats this..."
 msgstr "Ezt eszi..."
 
-#: src/cave/cavestored.cpp:193 src/cave/cavestored.cpp:194
-#: src/cave/cavestored.cpp:195 src/cave/cavestored.cpp:196
-#: src/cave/cavestored.cpp:197 src/cave/cavestored.cpp:198
+#: src/cave/cavestored.cpp:194 src/cave/cavestored.cpp:195
+#: src/cave/cavestored.cpp:196 src/cave/cavestored.cpp:197
+#: src/cave/cavestored.cpp:198 src/cave/cavestored.cpp:199
 msgid ""
 "Slime can let other elements than stone and diamond go through. It always "
 "lets a waiting or a chasing stone pass, though. Also, flying diamonds and "
@@ -3219,88 +3228,88 @@ msgstr ""
 "üldöző kövek egyébként bármikor átjuthatnak rajta. A repülő gyémántok és "
 "kövek, illetve a buborékok is mindig áthaladhatnak."
 
-#: src/cave/cavestored.cpp:194 src/cave/cavestored.cpp:196
-#: src/cave/cavestored.cpp:198
+#: src/cave/cavestored.cpp:195 src/cave/cavestored.cpp:197
+#: src/cave/cavestored.cpp:199
 msgid "  ... and converts to"
 msgstr "  ... és ezzé változtatja"
 
-#: src/cave/cavestored.cpp:201
+#: src/cave/cavestored.cpp:202
 msgid "Other elements"
 msgstr "Más elemek"
 
-#: src/cave/cavestored.cpp:203 src/cave/cavestored.cpp:288
+#: src/cave/cavestored.cpp:204 src/cave/cavestored.cpp:289
 #: src/cave/elementproperties.cpp:392
 msgid "Acid"
 msgstr "Sav"
 
-#: src/cave/cavestored.cpp:204
+#: src/cave/cavestored.cpp:205
 msgid "Eats this element"
 msgstr "Ezt eszi"
 
-#: src/cave/cavestored.cpp:204
+#: src/cave/cavestored.cpp:205
 msgid ""
 "The element which acid eats. If it cannot find any, it simply disappears."
 msgstr "Az elem, amelyre a sav terjed. Ha nem talál ilyet, akkor eltűnik."
 
-#: src/cave/cavestored.cpp:205
+#: src/cave/cavestored.cpp:206
 msgid "Spread ratio (%)"
 msgstr "Terjedés sebessége (%)"
 
-#: src/cave/cavestored.cpp:205
+#: src/cave/cavestored.cpp:206
 msgid ""
 "The probability at which an acid will explode and eat neighbouring elements."
 msgstr "A sav robbanásának és terjedésének valószínűsége."
 
-#: src/cave/cavestored.cpp:206
+#: src/cave/cavestored.cpp:207
 msgid "Leaves this behind"
 msgstr "Ez marad utána"
 
-#: src/cave/cavestored.cpp:206
+#: src/cave/cavestored.cpp:207
 msgid ""
 "If acid converts to an explosion puff on spreading or any other element."
 msgstr ""
 "Ez azt állítja, hogy a sav robbanássá változik-e terjedéskor, vagy bármilyen "
 "más elemmé."
 
-#: src/cave/cavestored.cpp:208 src/cave/cavestored.cpp:289
+#: src/cave/cavestored.cpp:209 src/cave/cavestored.cpp:290
 msgid "Biter"
 msgstr "Zabáló"
 
-#: src/cave/cavestored.cpp:209 src/cave/cavestored.cpp:220
+#: src/cave/cavestored.cpp:210 src/cave/cavestored.cpp:221
 msgid "Delay (frame)"
 msgstr "Késleltetés (képkocka)"
 
-#: src/cave/cavestored.cpp:209
+#: src/cave/cavestored.cpp:210
 msgid "Number of frames biters wait between movements."
 msgstr "A képkockák száma, amennyit a zabálók várnak mozdulataik között."
 
-#: src/cave/cavestored.cpp:210
+#: src/cave/cavestored.cpp:211
 msgid "Eats this"
 msgstr "Ezt eszi"
 
-#: src/cave/cavestored.cpp:210
+#: src/cave/cavestored.cpp:211
 msgid "Biters eat this element. They always eat dirt."
 msgstr "A zabálók ezt eszik. A földet mindig megkajálják."
 
-#: src/cave/cavestored.cpp:212 src/cave/cavestored.cpp:290
+#: src/cave/cavestored.cpp:213 src/cave/cavestored.cpp:291
 #: src/cave/elementproperties.cpp:493
 msgid "Bladder"
 msgstr "Buborék"
 
-#: src/cave/cavestored.cpp:213
+#: src/cave/cavestored.cpp:214
 msgid "Converts to clock by touching"
 msgstr "Ezáltal változnak órává"
 
-#: src/cave/cavestored.cpp:215 src/cave/cavestored.cpp:281
+#: src/cave/cavestored.cpp:216 src/cave/cavestored.cpp:282
 #: src/cave/elementproperties.cpp:352
 msgid "Expanding wall"
 msgstr "Épülő fal"
 
-#: src/cave/cavestored.cpp:216 src/cave/cavestored.cpp:224
+#: src/cave/cavestored.cpp:217 src/cave/cavestored.cpp:225
 msgid "Direction changed"
 msgstr "Irányok felcserélve"
 
-#: src/cave/cavestored.cpp:216
+#: src/cave/cavestored.cpp:217
 msgid ""
 "If this option is enabled, the direction of growing for the horizontal and "
 "vertical expanding wall is switched. As you can use both horizontal and "
@@ -3314,32 +3323,32 @@ msgstr ""
 "csak kavarodást okoz. A tervezett növekedési iránynak megfelelő elemet "
 "érdemes inkább kiválasztani a pálya rajzolásakor."
 
-#: src/cave/cavestored.cpp:218 src/cave/cavestored.cpp:287
+#: src/cave/cavestored.cpp:219 src/cave/cavestored.cpp:288
 #: src/cave/elementproperties.cpp:486
 msgid "Replicator"
 msgstr "Klónozó"
 
-#: src/cave/cavestored.cpp:219 src/cave/cavestored.cpp:223
+#: src/cave/cavestored.cpp:220 src/cave/cavestored.cpp:224
 msgid "Active at start"
 msgstr "Aktív induláskor"
 
-#: src/cave/cavestored.cpp:219
+#: src/cave/cavestored.cpp:220
 msgid "Whether the replicators are turned on or off at the cave start."
 msgstr "Beállítja, hogy a klónozók be lesznek-e kapcsolva a játék kezdetén."
 
-#: src/cave/cavestored.cpp:220
+#: src/cave/cavestored.cpp:221
 msgid "Number of frames to wait between replicating elements."
 msgstr "A képkockák száma, amennyit várnak mozdulataik között."
 
-#: src/cave/cavestored.cpp:222
+#: src/cave/cavestored.cpp:223
 msgid "Conveyor belt"
 msgstr "Futószalag"
 
-#: src/cave/cavestored.cpp:223
+#: src/cave/cavestored.cpp:224
 msgid "Whether the conveyor belts are moving when the cave starts."
 msgstr "Beállítja, hogy a futószalagok működnek-e a pálya indulásakor."
 
-#: src/cave/cavestored.cpp:224
+#: src/cave/cavestored.cpp:225
 msgid ""
 "If the conveyor belts' movement is changed, i.e. they are running in the "
 "opposite direction. As you can freely use left and right going versions of "
@@ -3351,16 +3360,16 @@ msgstr ""
 "futószalag is, nem ajánlatos ezzel fordítani meg az irányukat, hanem inkább "
 "érdemes a megfelelőt kiválasztani az elemek közül."
 
-#: src/cave/cavestored.cpp:226 src/cave/cavestored.cpp:291
+#: src/cave/cavestored.cpp:227 src/cave/cavestored.cpp:292
 #: src/cave/elementproperties.cpp:433
 msgid "Water"
 msgstr "Víz"
 
-#: src/cave/cavestored.cpp:227
+#: src/cave/cavestored.cpp:228
 msgid "Does not flow downwards"
 msgstr "Nem folyik lefelé"
 
-#: src/cave/cavestored.cpp:227
+#: src/cave/cavestored.cpp:228
 msgid ""
 "In CrDr, the water element had the odd property that it did not flow "
 "downwards, only in other directions. This flag emulates this behaviour."
@@ -3368,16 +3377,16 @@ msgstr ""
 "A CrDr-ben a víz karakter azzal a furcsa tulajdonsággal rendelkezett, hogy "
 "lefelé nem folyt, csak más irányokba. A beállítás ezt a viselkedést emulálja."
 
-#: src/cave/cavestored.cpp:229 src/cave/cavestored.cpp:279
+#: src/cave/cavestored.cpp:230 src/cave/cavestored.cpp:280
 #: src/cave/elementproperties.cpp:318
 msgid "Nut"
 msgstr "Dió"
 
-#: src/cave/cavestored.cpp:230
+#: src/cave/cavestored.cpp:231
 msgid "Turns to when crushed"
 msgstr "Feltörve ez lesz"
 
-#: src/cave/cavestored.cpp:230
+#: src/cave/cavestored.cpp:231
 msgid ""
 "Normally, a nut contains a diamond. If you crush it with a stone, the "
 "diamond will appear after the usual nut explosion sequence. This setting can "
@@ -3387,57 +3396,57 @@ msgstr ""
 "megjelenik a szokásos dió robbanás animáció után. Ezzel a beállítással meg "
 "lehet változtatni az elemet, amivé a feltört dió változik."
 
-#: src/cave/cavestored.cpp:233
+#: src/cave/cavestored.cpp:234
 msgid "Effects"
 msgstr "Hatások"
 
-#: src/cave/cavestored.cpp:235
+#: src/cave/cavestored.cpp:236
 msgid "Stone and diamond effects"
 msgstr "Kő és gyémánt hatások"
 
-#: src/cave/cavestored.cpp:236
+#: src/cave/cavestored.cpp:237
 msgid "Falling stones convert to"
 msgstr "A zuhanó kövek ezzé változnak"
 
-#: src/cave/cavestored.cpp:236
+#: src/cave/cavestored.cpp:237
 msgid "When a stone begins falling, it converts to this element."
 msgstr "Amikor egy kő zuhanni kezd, ezzé változik."
 
-#: src/cave/cavestored.cpp:237
+#: src/cave/cavestored.cpp:238
 msgid "Bouncing stones convert to"
 msgstr "A leérkező kövek ezzé változnak"
 
-#: src/cave/cavestored.cpp:237
+#: src/cave/cavestored.cpp:238
 msgid "When a stone stops falling and rolling, it converts to this element."
 msgstr "Amikor egy kő nem tud tovább zuhanni vagy gurulni, ezzé változik."
 
-#: src/cave/cavestored.cpp:238
+#: src/cave/cavestored.cpp:239
 msgid "Falling diamonds convert to"
 msgstr "A zuhanó gyémántok ezzé változnak"
 
-#: src/cave/cavestored.cpp:238
+#: src/cave/cavestored.cpp:239
 msgid "When a diamond begins falling, it converts to this element."
 msgstr "Amikor egy gyémánt zuhanni kezd, ezzé az elemmé változik."
 
-#: src/cave/cavestored.cpp:239
+#: src/cave/cavestored.cpp:240
 msgid "Bouncing diamonds convert to"
 msgstr "A leérkező gyémántok ezzé változnak"
 
-#: src/cave/cavestored.cpp:239
+#: src/cave/cavestored.cpp:240
 msgid "When a diamond stops falling and rolling, it converts to this element."
 msgstr ""
 "Amikor egy gyémánt nem tud tovább zuhanni vagy gurulni, ilyen elemmé "
 "változik."
 
-#: src/cave/cavestored.cpp:241
+#: src/cave/cavestored.cpp:242
 msgid "Creature explosion effects"
 msgstr "Lények robbanása"
 
-#: src/cave/cavestored.cpp:242
+#: src/cave/cavestored.cpp:243
 msgid "Fireflies explode to"
 msgstr "A szörnyek robbanásából"
 
-#: src/cave/cavestored.cpp:242
+#: src/cave/cavestored.cpp:243
 msgid ""
 "When a firefly explodes, it will create this element. Change this setting "
 "wisely. The firefly is a traditional element which is expected to explode to "
@@ -3447,11 +3456,11 @@ msgstr ""
 "át ezt az opciót! A szörny egy tradicionális elem, amelynél a felhasználó "
 "arra számít, hogy üres teret hagy maga után robbanáskor."
 
-#: src/cave/cavestored.cpp:243
+#: src/cave/cavestored.cpp:244
 msgid "Alt. fireflies explode to"
 msgstr "Alt. szörnyek robbanása"
 
-#: src/cave/cavestored.cpp:243
+#: src/cave/cavestored.cpp:244
 msgid ""
 "When an alternative firefly explodes, it will create this element. Use this "
 "setting wisely. Do not create a firefly which explodes to stones, for "
@@ -3461,11 +3470,11 @@ msgstr ""
 "használd ezt a beállítást. Ne hozz létre olyan szörnyet, amelyik kövekké "
 "változik: használd a molylepkét inkább."
 
-#: src/cave/cavestored.cpp:244
+#: src/cave/cavestored.cpp:245
 msgid "Butterflies explode to"
 msgstr "Lepkék robbanása"
 
-#: src/cave/cavestored.cpp:244
+#: src/cave/cavestored.cpp:245
 msgid ""
 "When a butterfly explodes, it will create this element. Use this setting "
 "wisely. Butterflies should explode to diamonds. If you need a creature which "
@@ -3475,11 +3484,11 @@ msgstr ""
 "csak át! A lepkék megszokottan gyémánttá változnak. Ha egy olyan lény kell, "
 "amelyik üres helyet hagy robbanás után, használd a szörnyet inkább."
 
-#: src/cave/cavestored.cpp:245
+#: src/cave/cavestored.cpp:246
 msgid "Alt. butterflies explode to"
 msgstr "Alt. lepkék robbanása"
 
-#: src/cave/cavestored.cpp:245
+#: src/cave/cavestored.cpp:246
 msgid ""
 "When an alternative butterfly explodes, it will create this element. Use "
 "this setting wisely."
@@ -3487,39 +3496,39 @@ msgstr ""
 "Amikor egy alternatív lepke felrobban, ilyen elemet hoz létre. Meggondoltan "
 "használd ezt a beállítást."
 
-#: src/cave/cavestored.cpp:246
+#: src/cave/cavestored.cpp:247
 msgid "Stoneflies explode to"
 msgstr "Molylepkék robbanása"
 
-#: src/cave/cavestored.cpp:246
+#: src/cave/cavestored.cpp:247
 msgid "When a stonefly explodes, it will create this element."
 msgstr "Amikor egy molylepke felrobban, ilyen elemet hoz létre."
 
-#: src/cave/cavestored.cpp:247
+#: src/cave/cavestored.cpp:248
 msgid "Dragonflies explode to"
 msgstr "Szitakötők robbanása"
 
-#: src/cave/cavestored.cpp:247
+#: src/cave/cavestored.cpp:248
 msgid "When a dragonfly explodes, it will create this element."
 msgstr "Amikor egy szitakötő felrobban, ilyen elemeket hoz létre."
 
-#: src/cave/cavestored.cpp:249
+#: src/cave/cavestored.cpp:250
 msgid "Explosion effects"
 msgstr "Robbanás hatások"
 
-#: src/cave/cavestored.cpp:250
+#: src/cave/cavestored.cpp:251
 msgid "Explosions end in"
 msgstr "Robbanások végül"
 
-#: src/cave/cavestored.cpp:250
+#: src/cave/cavestored.cpp:251
 msgid "This element appears in places where an explosion finishes."
 msgstr "Ez a karakter jelenik meg ott, ahol egy robbanás befejeződik."
 
-#: src/cave/cavestored.cpp:251
+#: src/cave/cavestored.cpp:252
 msgid "Diamond births end in"
 msgstr "Gyémánt születések végül"
 
-#: src/cave/cavestored.cpp:251
+#: src/cave/cavestored.cpp:252
 msgid ""
 "When a diamond birth animation reaches its end, it will leave this element "
 "there. This can be used to change the element butterflies explode to."
@@ -3528,37 +3537,37 @@ msgstr ""
 "meg a helyén. Ezzel is be lehet állítani, hogy a lepkék robbanása miket hoz "
 "létre."
 
-#: src/cave/cavestored.cpp:252
+#: src/cave/cavestored.cpp:253
 msgid "Bombs explosions end in"
 msgstr "Bomba robbanások végül"
 
-#: src/cave/cavestored.cpp:252
+#: src/cave/cavestored.cpp:253
 msgid "Use this setting to select the element the exploding bomb creates."
 msgstr ""
 "Azt lehet ezzel beállítani, hogy a bomba milyen elemet hoz létre robbanáskor."
 
-#: src/cave/cavestored.cpp:253
+#: src/cave/cavestored.cpp:254
 msgid "Nitro explosions end in"
 msgstr "Nitró robbanások végül"
 
-#: src/cave/cavestored.cpp:253
+#: src/cave/cavestored.cpp:254
 msgid "The nitro explosions can create some element other than space."
 msgstr ""
 "A nitró töltetek robbanásai üres helyen kívül más elemeket is létrehozhatnak."
 
-#: src/cave/cavestored.cpp:256
+#: src/cave/cavestored.cpp:257
 msgid "More effects"
 msgstr "Más hatások"
 
-#: src/cave/cavestored.cpp:258
+#: src/cave/cavestored.cpp:259
 msgid "Visual effects"
 msgstr "Látvány hatások"
 
-#: src/cave/cavestored.cpp:259
+#: src/cave/cavestored.cpp:260
 msgid "Expanding wall looks like"
 msgstr "Épülő fal így néz ki"
 
-#: src/cave/cavestored.cpp:259
+#: src/cave/cavestored.cpp:260
 msgid ""
 "This is a compatibility setting for old caves. If you need an expanding wall "
 "which looks like steel, you should rather choose the expanding steel wall "
@@ -3568,11 +3577,11 @@ msgstr ""
 "falat szeretnél, amelyik törhetetlen falnak néz ki, inkább használd magát a "
 "törhetetlen fal elemet."
 
-#: src/cave/cavestored.cpp:260
+#: src/cave/cavestored.cpp:261
 msgid "Dirt looks like"
 msgstr "A föld így néz ki"
 
-#: src/cave/cavestored.cpp:260
+#: src/cave/cavestored.cpp:261
 msgid ""
 "Compatibility setting. Use it wisely! Anything other than Dirt 2 (which can "
 "be used to emulate the Dirt Mod) is not recommended."
@@ -3580,25 +3589,25 @@ msgstr ""
 "Kompatibilitási beállítás. Megfontoltan használd! Az alternatív földön kívül "
 "(amely a Dirt Mod emulálásához használható) semmi más nem ajánlott."
 
-#: src/cave/cavestored.cpp:263
+#: src/cave/cavestored.cpp:264
 msgid "Creature movement"
 msgstr "Lények mozgása"
 
-#: src/cave/cavestored.cpp:264
+#: src/cave/cavestored.cpp:265
 msgid "Start backwards"
 msgstr "Hátrafelé indulnak"
 
-#: src/cave/cavestored.cpp:264
+#: src/cave/cavestored.cpp:265
 msgid ""
 "Whether the direction creatures travel will already be switched at the cave "
 "start."
 msgstr "A lények mozgási iránya már a pálya elején meg legyen-e fordítva."
 
-#: src/cave/cavestored.cpp:265
+#: src/cave/cavestored.cpp:266
 msgid "Automatically turn (s)"
 msgstr "Automatikus fordulás (s)"
 
-#: src/cave/cavestored.cpp:265
+#: src/cave/cavestored.cpp:266
 msgid ""
 "If this is greater than zero, creatures will automatically change direction "
 "in every x seconds."
@@ -3606,11 +3615,11 @@ msgstr ""
 "Ha ez a szám nagyobb, mint nulla, akkor a lények ennyi másodpercenként "
 "automatikusan irányt fognak váltani."
 
-#: src/cave/cavestored.cpp:266
+#: src/cave/cavestored.cpp:267
 msgid "Auto turn on hatching"
 msgstr "Fordulás a játékos születésekor"
 
-#: src/cave/cavestored.cpp:266
+#: src/cave/cavestored.cpp:267
 msgid ""
 "If this is set to true, creatures also turn at the start signal. If false, "
 "the first change in direction occurs only later."
@@ -3618,23 +3627,23 @@ msgstr ""
 "Ha ez be van állítva, a szörnyek a pálya legelején is irányt váltanak. Ha "
 "nincs, akkor az első fordulás csak később történik."
 
-#: src/cave/cavestored.cpp:268 src/cave/cavestored.cpp:296
+#: src/cave/cavestored.cpp:269 src/cave/cavestored.cpp:297
 msgid "Gravity change"
 msgstr "Gravitáció változás"
 
-#: src/cave/cavestored.cpp:269
+#: src/cave/cavestored.cpp:270
 msgid "Direction"
 msgstr "Irány"
 
-#: src/cave/cavestored.cpp:269
+#: src/cave/cavestored.cpp:270
 msgid "The direction where stones and diamonds fall."
 msgstr "A kövek és gyémántok esésének iránya."
 
-#: src/cave/cavestored.cpp:270
+#: src/cave/cavestored.cpp:271
 msgid "Switch active at start"
 msgstr "A kapcsoló aktív induláskor"
 
-#: src/cave/cavestored.cpp:270
+#: src/cave/cavestored.cpp:271
 msgid ""
 "If set to true, the gravity switch will be already activated, when the cave "
 "is started, as if a pot has already been collected."
@@ -3642,19 +3651,19 @@ msgstr ""
 "Ha igaz, a gravitáció kapcsoló már aktiválva lesz, amikor a pálya elindul, "
 "mintha már egy üstöt összegyűjtött volna a játékos."
 
-#: src/cave/cavestored.cpp:271
+#: src/cave/cavestored.cpp:272
 msgid "Skeletons needed for pot"
 msgstr "Csontvázak az üsthöz"
 
-#: src/cave/cavestored.cpp:271
+#: src/cave/cavestored.cpp:272
 msgid "The number of skeletons to be collected to be able to use a pot."
 msgstr "A csontvázak száma, amennyit gyűjteni kell az üst használatához."
 
-#: src/cave/cavestored.cpp:272
+#: src/cave/cavestored.cpp:273
 msgid "Gravity switch delay"
 msgstr "Gravitáció kapcsoló késleltetése"
 
-#: src/cave/cavestored.cpp:272
+#: src/cave/cavestored.cpp:273
 msgid ""
 "The gravity changes after a while using the gravity switch. This option sets "
 "the number of seconds to wait."
@@ -3662,134 +3671,134 @@ msgstr ""
 "A gravitáció kis idővel azután, hogy a gravitáció kapcsolót használtad. Ez a "
 "beállítás az időtartamot adja meg, másodpercben."
 
-#: src/cave/cavestored.cpp:275 src/settings.cpp:279 src/settings.cpp:280
+#: src/cave/cavestored.cpp:276 src/settings.cpp:279 src/settings.cpp:280
 msgid "Sound"
 msgstr "Hang"
 
-#: src/cave/cavestored.cpp:276
+#: src/cave/cavestored.cpp:277
 msgid "Sound for elements"
 msgstr "Elemek hangja"
 
-#: src/cave/cavestored.cpp:277 src/cave/elementproperties.cpp:286
+#: src/cave/cavestored.cpp:278 src/cave/elementproperties.cpp:286
 msgid "Diamond"
 msgstr "Gyémánt"
 
-#: src/cave/cavestored.cpp:277
+#: src/cave/cavestored.cpp:278
 msgid "If true, falling diamonds will have sound."
 msgstr "Ha engedélyezve van, a zuhanó gyémántok hangot adnak."
 
-#: src/cave/cavestored.cpp:278 src/cave/elementproperties.cpp:238
+#: src/cave/cavestored.cpp:279 src/cave/elementproperties.cpp:238
 msgid "Stone"
 msgstr "Kő"
 
-#: src/cave/cavestored.cpp:278
+#: src/cave/cavestored.cpp:279
 msgid "If true, falling and pushed stones will have sound."
 msgstr "Ha engedélyezve van, a zuhanó és eltolt kövek hangot adnak."
 
-#: src/cave/cavestored.cpp:279
+#: src/cave/cavestored.cpp:280
 msgid "If true, falling and cracked nuts have sound."
 msgstr "Ha engedélyezve van, a zuhanó és összetört diók hangot adnak."
 
-#: src/cave/cavestored.cpp:280 src/cave/elementproperties.cpp:769
+#: src/cave/cavestored.cpp:281 src/cave/elementproperties.cpp:769
 msgid "Nitro pack"
 msgstr "Nitró töltet"
 
-#: src/cave/cavestored.cpp:280
+#: src/cave/cavestored.cpp:281
 msgid "If true, falling and pushed nitro packs will have sound."
 msgstr "Ha engedélyezve van, a leeső és eltolt nitró töltetek hangot adnak."
 
-#: src/cave/cavestored.cpp:281
+#: src/cave/cavestored.cpp:282
 msgid "If true, expanding wall will have sound."
 msgstr "Ha engedélyezve van, a növekedő fal hangot ad."
 
-#: src/cave/cavestored.cpp:282 src/cave/elementproperties.cpp:400
+#: src/cave/cavestored.cpp:283 src/cave/elementproperties.cpp:400
 msgid "Falling wall"
 msgstr "Zuhanó fal"
 
-#: src/cave/cavestored.cpp:282
+#: src/cave/cavestored.cpp:283
 msgid "If true, falling wall will have sound."
 msgstr "Ha engedélyezve van, a zuhanó fal hangot ad."
 
-#: src/cave/cavestored.cpp:283
+#: src/cave/cavestored.cpp:284
 msgid "Controls if the living amoeba has sound or not."
 msgstr "Azt állítja be, hogy az élő amőbának van-e hangja."
 
-#: src/cave/cavestored.cpp:284 src/cave/elementproperties.cpp:186
+#: src/cave/cavestored.cpp:285 src/cave/elementproperties.cpp:186
 msgid "Magic wall"
 msgstr "Varázsfal"
 
-#: src/cave/cavestored.cpp:284
+#: src/cave/cavestored.cpp:285
 msgid "If true, the activated magic wall will have sound."
 msgstr "Ha engedélyezve van, a működő mágikus fal hangot ad."
 
-#: src/cave/cavestored.cpp:285
+#: src/cave/cavestored.cpp:286
 msgid "If true, the elements passing slime will have sound."
 msgstr "Ha igaz, az iszap hangot fog adni, amikor valami átmegy rajta."
 
-#: src/cave/cavestored.cpp:286 src/cave/elementproperties.cpp:489
+#: src/cave/cavestored.cpp:287 src/cave/elementproperties.cpp:489
 msgid "Lava"
 msgstr "Láva"
 
-#: src/cave/cavestored.cpp:286
+#: src/cave/cavestored.cpp:287
 msgid "If true, the elements sinking in lava will have sound."
 msgstr "Ha igaz, a lávában elnyelődő elemek hangot fognak adni."
 
-#: src/cave/cavestored.cpp:287
+#: src/cave/cavestored.cpp:288
 msgid ""
 "If true, the new element appearing under the replicator will make sound."
 msgstr "Ha igaz, a klónozó alatt megjelenő új elem hangot fog adni."
 
-#: src/cave/cavestored.cpp:288
+#: src/cave/cavestored.cpp:289
 msgid "If true, the acid spreading will have sound."
 msgstr "Ha engedélyezve van, a terjedő sav hangot ad."
 
-#: src/cave/cavestored.cpp:289
+#: src/cave/cavestored.cpp:290
 msgid "Biters eating something or pushing a stone will have sound."
 msgstr "Ha engedélyezve van, a zabálók hangot fognak adni."
 
-#: src/cave/cavestored.cpp:290
+#: src/cave/cavestored.cpp:291
 msgid "Bladders moving and being pushed can have sound."
 msgstr "A mozgó és eltolt buborékok hangja."
 
-#: src/cave/cavestored.cpp:291
+#: src/cave/cavestored.cpp:292
 msgid "If true, the cave containing water will have sound."
 msgstr "Ha igaz, a víznek hangja lesz a pályán."
 
-#: src/cave/cavestored.cpp:292
+#: src/cave/cavestored.cpp:293
 msgid "If true, using the pneumatic hammer will have sound."
 msgstr "Ha engedélyezve van, a működő légkalapács hangot ad."
 
-#: src/cave/cavestored.cpp:293
+#: src/cave/cavestored.cpp:294
 msgid "Bladder spender"
 msgstr "Buborék csapda"
 
-#: src/cave/cavestored.cpp:293
+#: src/cave/cavestored.cpp:294
 msgid "If true, the bladder spender will make sound, when the bladder appears."
 msgstr ""
 "Ha engedélyezve van, a buborék csapda hangot ad, amikor előkerül belőle a "
 "buborék."
 
-#: src/cave/cavestored.cpp:294
+#: src/cave/cavestored.cpp:295
 msgid "Bladder convert"
 msgstr "Buborék átalakulás"
 
-#: src/cave/cavestored.cpp:294
+#: src/cave/cavestored.cpp:295
 msgid "If true, the bladder converting to a clock will make sound."
 msgstr "Ha igaz, az átalakuló buboréknak hangja lesz."
 
-#: src/cave/cavestored.cpp:295
+#: src/cave/cavestored.cpp:296
 msgid "Event sounds"
 msgstr "Esemény hangok"
 
-#: src/cave/cavestored.cpp:296
+#: src/cave/cavestored.cpp:297
 msgid "If true, the gravity changing will make sound."
 msgstr "Ha engedélyezve van, a gravitáció megváltozása hangot ad."
 
-#: src/cave/cavestored.cpp:297
+#: src/cave/cavestored.cpp:298
 msgid "Creature direction change"
 msgstr "Lény irányváltozás"
 
-#: src/cave/cavestored.cpp:297
+#: src/cave/cavestored.cpp:298
 msgid ""
 "If this is set to true, creatures changing direction will be signaled by a "
 "sound."
@@ -3797,19 +3806,19 @@ msgstr ""
 "Ha ez engedélyezve van, a lények mozgási irányának megváltozását hanggal is "
 "jelzi a program."
 
-#: src/cave/cavestored.cpp:300
+#: src/cave/cavestored.cpp:301
 msgid "Compatibility"
 msgstr "Kompatibilitás"
 
-#: src/cave/cavestored.cpp:301 src/cave/elementproperties.cpp:432
+#: src/cave/cavestored.cpp:302 src/cave/elementproperties.cpp:432
 msgid "Skeleton"
 msgstr "Csontváz"
 
-#: src/cave/cavestored.cpp:302
+#: src/cave/cavestored.cpp:303
 msgid "Skeletons worth diamonds"
 msgstr "Csontvázak ennyi gyémántot érnek"
 
-#: src/cave/cavestored.cpp:302
+#: src/cave/cavestored.cpp:303
 msgid ""
 "The number of diamonds each skeleton is worth. Normally skeletons are used "
 "for letting the player use the pot! They are not intended to be used as a "
@@ -3819,15 +3828,15 @@ msgstr ""
 "engedjék a játékosnak használni az üstöt! Nem arra, hogy egy másik fajta "
 "gyémántként használják őket."
 
-#: src/cave/cavestored.cpp:303
+#: src/cave/cavestored.cpp:304
 msgid "Borders"
 msgstr "Keret"
 
-#: src/cave/cavestored.cpp:304
+#: src/cave/cavestored.cpp:305
 msgid "Line shifting border"
 msgstr "Sor eltoló keret"
 
-#: src/cave/cavestored.cpp:304
+#: src/cave/cavestored.cpp:305
 msgid ""
 "If this is set to true, the player exiting on either side will appear one "
 "row lower or upper on the other side."
@@ -3835,11 +3844,11 @@ msgstr ""
 "Ha ez az opció be van kapcsolva, a pálya egyik szélén kisétáló játékos egy "
 "sorral lejjebb vagy feljebb fog megjelenni a másik oldalon."
 
-#: src/cave/cavestored.cpp:305
+#: src/cave/cavestored.cpp:306
 msgid "Objects wrap around"
 msgstr "Objektumok átfordulnak"
 
-#: src/cave/cavestored.cpp:305
+#: src/cave/cavestored.cpp:306
 msgid ""
 "If true, objects will wrap around the cave borders as well, i.e. if you drag "
 "a line to the left, part of it will appear on the right hand side of the "
@@ -3855,11 +3864,11 @@ msgstr ""
 "a rajzolás az előző vagy a következő sorra ugrik; a felső vagy alsó keret "
 "átlépése esetén pedig nem történik semmi."
 
-#: src/cave/cavestored.cpp:306
+#: src/cave/cavestored.cpp:307
 msgid "Scan first and last row"
 msgstr "Felső és alsó sor mozgatása"
 
-#: src/cave/cavestored.cpp:306
+#: src/cave/cavestored.cpp:307
 msgid ""
 "Elements move on first and last row, too. Usually those rows are the border. "
 "The games created by the original editor were not allowed to put anything "
@@ -3874,15 +3883,15 @@ msgstr ""
 "ezt a működést a kompatibilitáshoz; azonban nem ajánlott megáltoztatni az "
 "újonnan tervezettekhez."
 
-#: src/cave/cavestored.cpp:307
+#: src/cave/cavestored.cpp:308
 msgid "Other"
 msgstr "Egyéb"
 
-#: src/cave/cavestored.cpp:308
+#: src/cave/cavestored.cpp:309
 msgid "Short explosions"
 msgstr "Rövid robbanások"
 
-#: src/cave/cavestored.cpp:308
+#: src/cave/cavestored.cpp:309
 msgid ""
 "In 1stB and newer engines, explosions were longer, they took five cave "
 "frames to complete, as opposed to four frames in the original."
@@ -3890,11 +3899,11 @@ msgstr ""
 "A 1stB-ben és újabb motorokban a robbanások öt képkockán keresztül "
 "tartottak, a régebbi játékokban pedig csak négyen keresztül."
 
-#: src/cave/cavestored.cpp:309
+#: src/cave/cavestored.cpp:310
 msgid "Gravity change affects everything"
 msgstr "Gravitáció változása mindenre hat"
 
-#: src/cave/cavestored.cpp:309
+#: src/cave/cavestored.cpp:310
 msgid ""
 "If this is enabled, changing the gravity will also affect bladders (moving "
 "and pushing), bladder spenders, falling walls and waiting stones. Otherwise, "
@@ -3908,11 +3917,11 @@ msgstr ""
 "gravitáció mindig lefelé mutatna. Ez egy kompatibilitási beállítás, amelyet "
 "nem ajánlatos megváltoztatni. Az importált pályákhoz használatos."
 
-#: src/cave/cavestored.cpp:310
+#: src/cave/cavestored.cpp:311
 msgid "Explosion stage 3 to"
 msgstr "Robbanás 3. fázisból"
 
-#: src/cave/cavestored.cpp:310
+#: src/cave/cavestored.cpp:311
 msgid ""
 "This element appears as the next stage of explosion 3. Not recommended to "
 "change. Check explosion effects on the effects page for a better alternative."
@@ -3920,87 +3929,87 @@ msgstr ""
 "Ez az elem jelenik meg a robbanás 3. fázisa után. Nem javasolt "
 "megváltoztatni. A robbanás effekteknél van jobb alternatíva."
 
-#: src/cave/cavestored.cpp:313
+#: src/cave/cavestored.cpp:314
 msgid "Unknown tags"
 msgstr "Ismeretlen"
 
-#: src/cave/cavestored.cpp:314
+#: src/cave/cavestored.cpp:315
 msgid "Tags which were read from the BDCFF, but are not understood by GDash."
 msgstr ""
 "Olyan paraméterek, amelyeket a BDCFF fájlból beolvasott, de nem ért a GDash."
 
-#: src/cave/cavestored.cpp:320
+#: src/cave/cavestored.cpp:321
 msgid "Colors"
 msgstr "Színek"
 
-#: src/cave/cavestored.cpp:321
+#: src/cave/cavestored.cpp:322
 msgid "Border color"
 msgstr "Háttérszín"
 
-#: src/cave/cavestored.cpp:321
+#: src/cave/cavestored.cpp:322
 msgid ""
 "Border color for C64 graphics. Only for compatibility, not used by GDash."
 msgstr ""
 "C64 színek esetén a keret színe. Csak kompatibilitási okokból; a GDash nem "
 "használja."
 
-#: src/cave/cavestored.cpp:322
+#: src/cave/cavestored.cpp:323
 msgid "Background color"
 msgstr "Háttérszín"
 
-#: src/cave/cavestored.cpp:322
+#: src/cave/cavestored.cpp:323
 msgid "Background color for C64 graphics"
 msgstr "C64 színek esetén a háttér színe"
 
-#: src/cave/cavestored.cpp:323
+#: src/cave/cavestored.cpp:324
 msgid "Color 1 (dirt)"
 msgstr "1. szín (föld)"
 
-#: src/cave/cavestored.cpp:323
+#: src/cave/cavestored.cpp:324
 msgid "Foreground color 1 for C64 graphics"
 msgstr "C64 színek esetén az 1-es előtérszín"
 
-#: src/cave/cavestored.cpp:324
+#: src/cave/cavestored.cpp:325
 msgid "Color 2 (steel wall)"
 msgstr "2. szín (törhetetlen fal)"
 
-#: src/cave/cavestored.cpp:324
+#: src/cave/cavestored.cpp:325
 msgid "Foreground color 2 for C64 graphics"
 msgstr "C64 színek esetén a 2-es előtérszín"
 
-#: src/cave/cavestored.cpp:325
+#: src/cave/cavestored.cpp:326
 msgid "Color 3 (brick wall)"
 msgstr "3. szín (téglafal)"
 
-#: src/cave/cavestored.cpp:325
+#: src/cave/cavestored.cpp:326
 msgid "Foreground color 3 for C64 graphics"
 msgstr "C64 színek esetén a 3-as előtérszín"
 
-#: src/cave/cavestored.cpp:326
+#: src/cave/cavestored.cpp:327
 msgid "Amoeba color"
 msgstr "Amőba szín"
 
-#: src/cave/cavestored.cpp:326
+#: src/cave/cavestored.cpp:327
 msgid "Amoeba color for C64 graphics"
 msgstr "C64 színek esetén az amőba színe"
 
-#: src/cave/cavestored.cpp:327
+#: src/cave/cavestored.cpp:328
 msgid "Slime color"
 msgstr "Iszap színe"
 
-#: src/cave/cavestored.cpp:327
+#: src/cave/cavestored.cpp:328
 msgid "Slime color for C64 graphics"
 msgstr "C64 színek esetén az iszap színe"
 
-#: src/cave/cavestored.cpp:332
+#: src/cave/cavestored.cpp:333
 msgid "Random fill"
 msgstr "Véletlen kitöltés"
 
-#: src/cave/cavestored.cpp:335 src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/cavestored.cpp:336 src/cave/object/caveobjectrandomfill.cpp:205
 msgid "Random seed"
 msgstr "Véletlenszám kezdet"
 
-#: src/cave/cavestored.cpp:336 src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/cavestored.cpp:337 src/cave/object/caveobjectrandomfill.cpp:205
 msgid ""
 "Random seed value controls the predictable random number generator, which "
 "fills the cave initially. If set to -1, cave is totally random every time it "
@@ -4009,47 +4018,47 @@ msgstr ""
 "A véletlenszám kezdeti értéke a pálya kezdeti kitöltését szabályozza. Ha -1-"
 "re állítod, a pálya minden egyes játszás alkalmával teljesen máshogy néz ki."
 
-#: src/cave/cavestored.cpp:338 src/cave/object/caveobjectrandomfill.cpp:206
+#: src/cave/cavestored.cpp:339 src/cave/object/caveobjectrandomfill.cpp:206
 msgid "Initial fill"
 msgstr "Kezdő kitöltés"
 
-#: src/cave/cavestored.cpp:339 src/cave/object/caveobjectrandomfill.cpp:207
+#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:207
 msgid "Probability 1"
 msgstr "1. valószínűség"
 
-#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:208
+#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:208
 msgid "Random fill 1"
 msgstr "1. kitöltés"
 
-#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:209
+#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:209
 msgid "Probability 2"
 msgstr "2. valószínűség"
 
-#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:210
+#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:210
 msgid "Random fill 2"
 msgstr "2. kitöltés"
 
-#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:211
+#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:211
 msgid "Probability 3"
 msgstr "3. valószínűség"
 
-#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:212
+#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:212
 msgid "Random fill 3"
 msgstr "3. kitöltés"
 
-#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:213
+#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:213
 msgid "Probability 4"
 msgstr "4. valószínűség"
 
-#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:214
+#: src/cave/cavestored.cpp:347 src/cave/object/caveobjectrandomfill.cpp:214
 msgid "Random fill 4"
 msgstr "4. kitöltés"
 
-#: src/cave/cavestored.cpp:347
+#: src/cave/cavestored.cpp:348
 msgid "Initial border"
 msgstr "Kezdő keret"
 
-#: src/cave/cavestored.cpp:347
+#: src/cave/cavestored.cpp:348
 msgid ""
 "The border which is drawn around the cave, after filling it. You can set it "
 "to no element to skip the drawing."
@@ -4058,31 +4067,31 @@ msgstr ""
 "állítható a rajzolás kihagyásához."
 
 #. TRANSLATORS: short for "number of times played". 5 chars max!
-#: src/cave/cavestored.cpp:354
+#: src/cave/cavestored.cpp:355
 msgctxt "Statistics"
 msgid "Play"
 msgstr "Próba"
 
 #. TRANSLATORS: short for "number of times played successfully". 5 chars max!
-#: src/cave/cavestored.cpp:356
+#: src/cave/cavestored.cpp:357
 msgctxt "Statistics"
 msgid "Succ"
 msgstr "Siker"
 
 #. TRANSLATORS: short for "best time". 5 chars max!
-#: src/cave/cavestored.cpp:358
+#: src/cave/cavestored.cpp:359
 msgctxt "Statistics"
 msgid "Time"
 msgstr "Idő"
 
 #. TRANSLATORS: short for "max diamonds collected". 5 chars max!
-#: src/cave/cavestored.cpp:360
+#: src/cave/cavestored.cpp:361
 msgctxt "Statistics"
 msgid "Diam"
 msgstr "Gyém."
 
 #. TRANSLATORS: short for "max score collected". 5 chars max!
-#: src/cave/cavestored.cpp:362
+#: src/cave/cavestored.cpp:363
 msgctxt "Statistics"
 msgid "Score"
 msgstr "Pont"
@@ -5795,24 +5804,24 @@ msgstr "Nem"
 msgid "lowercase-element-names-yes"
 msgstr "lowercase-element-names-yes"
 
-#: src/fileops/c64import.cpp:2058 src/fileops/c64import.cpp:2106
-#: src/fileops/c64import.cpp:2176
+#: src/fileops/c64import.cpp:2064 src/fileops/c64import.cpp:2112
+#: src/fileops/c64import.cpp:2182
 #, c-format
 msgid "Intermission %d"
 msgstr "%d. jutalom pálya"
 
-#: src/fileops/c64import.cpp:2060 src/fileops/c64import.cpp:2108
-#: src/fileops/c64import.cpp:2181
+#: src/fileops/c64import.cpp:2066 src/fileops/c64import.cpp:2114
+#: src/fileops/c64import.cpp:2187
 #, c-format
 msgid "Cave %c"
 msgstr "%c. pálya"
 
-#: src/fileops/c64import.cpp:2174
+#: src/fileops/c64import.cpp:2180
 #, c-format
 msgid "Intermission %02d"
 msgstr "%02d. jutalom pálya"
 
-#: src/fileops/c64import.cpp:2179
+#: src/fileops/c64import.cpp:2185
 #, c-format
 msgid "Cave %02d"
 msgstr "%02d. pálya"
@@ -5885,23 +5894,23 @@ msgstr "%cPálya: %c%s%c/%c%d"
 msgid "%cCave: %c%s%c"
 msgstr "%cPálya: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:324
+#: src/framework/titlescreenactivity.cpp:337
 msgid "Enter your name"
 msgstr "Írd be a neved"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:335
+#: src/framework/titlescreenactivity.cpp:348
 msgid "Quit game?"
 msgstr "Kilépés a játékból?"
 
-#: src/framework/titlescreenactivity.cpp:335 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:348 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
 #: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:315
 msgid "yes"
 msgstr "igen"
 
-#: src/framework/titlescreenactivity.cpp:335 src/framework/gameactivity.cpp:90
+#: src/framework/titlescreenactivity.cpp:348 src/framework/gameactivity.cpp:90
 #: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
 #: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:315
@@ -7737,7 +7746,7 @@ msgstr ""
 "billentyű megnyomásával és a középső gombbal kattintva a pályára is "
 "beállítható."
 
-#: src/editor/editor.cpp:3774
+#: src/editor/editor.cpp:3773
 msgid "_Objects"
 msgstr "_Objektumok"
 
