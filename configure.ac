@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(GDash, export-1.8.1-fork, [https://github.com/revvv/gdash-export-CrLi])
+AC_INIT(GDash, export-1.8.2-fork, [https://github.com/revvv/gdash-export-CrLi])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
