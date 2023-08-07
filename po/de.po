@@ -249,7 +249,7 @@ msgstr "Webseite"
 
 #: src/misc/helphtml.cpp:130 src/framework/app.cpp:317
 msgid "Authors"
-msgstr "Authoren"
+msgstr "Autoren"
 
 #: src/misc/helphtml.cpp:131 src/framework/app.cpp:318
 msgid "Artists"
@@ -439,8 +439,8 @@ msgstr ""
 "Engine ist eine Art Reservesystem, da der Vollbildmodus nicht unterstützt "
 "wird und sie auch je nach verwendetem Betriebssystem langsam sein kann. "
 "Allerdings besitzt sie eine graphische Benutzerführung mit Menüleiste. Diese "
-"Engine kann keine Shader-Effekte verwenden, es wird jedoch eine einfache PAL-"
-"Emulation in GDash zur Verfügung gestellt."
+"Engines können keine Shader-Effekte verwenden, es wird jedoch eine einfache "
+"PAL-Emulation in GDash zur Verfügung gestellt."
 
 #: src/misc/helptext.cpp:143
 msgid ""
@@ -497,7 +497,7 @@ msgstr ""
 "unbedingt nur 16 x 16 Pixel. Sie müssen jedoch quadratisch sein und einen "
 "Alpha-Kanal (oder eine transparente Ebene in manchen Grafikprogrammen) "
 "besitzen. Falls die Grafik nur eine geringe Anzahl an Farben hat (volles Rot "
-"für die Vordergrundfarbe, volles Grün für die Amöbe, etc.), wird das Spiel "
+"für die Vordergrundfarbe 1, sattes Grün für die Amöbe, etc.), wird das Spiel "
 "die originalen C64-Farben verwenden, verschiedene für jede Höhle. Ob die PNG-"
 "Datei als Echtfarbgrafik oder als eine mit C64-Farben interpretiert wird, "
 "hängt von den verwendeten Farben ab und wird automatisch erkannt. Eine "
@@ -567,7 +567,7 @@ msgid ""
 "quickly and a secret door is revealed for you to advance to the next level. "
 "As the game progresses, levels usually become more intricate and difficult."
 msgstr ""
-"Die Hauptaufgabe in diesem Spiel ist sehr einfach. Die Spielfigur mussdurch "
+"Die Hauptaufgabe in diesem Spiel ist sehr einfach. Die Spielfigur muss durch "
 "ein Labyrinth aus Erde und Felsbrocken gesteuert werden, um die geforderte "
 "Anzahl an Diamanten in der vorgegebenen Zeit einzusammeln. Achten Sie "
 "darauf, dass Ihnen keine Felsbrocken auf den Kopf fallen oder dass Sie von "
@@ -667,7 +667,7 @@ msgstr ""
 msgid "You can move through dirt leaving empty space behind. Amoeba eats it."
 msgstr ""
 "Sie können sich durch Erde graben und hinterlassen dadurch Leerfelder. Die "
-"Amöbe verschlingt Erde."
+"Amöbe verschlingt auch Erde."
 
 #: src/misc/helptext.cpp:228
 msgid ""
@@ -683,7 +683,7 @@ msgid ""
 "can dig them away. Sometimes they help you to solve puzzles."
 msgstr ""
 "Ein rollender Erde-Brocken und ein fallendes Stück Erde. Man kann sie nicht "
-"verschieben, aber man kann sie weggraben. Manchmal können sie dabei helfen "
+"verschieben, aber man kann sie weggraben. Manchmal können sie dabei helfen, "
 "Rätsel zu lösen."
 
 #: src/misc/helptext.cpp:230
@@ -724,7 +724,8 @@ msgid ""
 "Like ordinary stones, but these are so heavy, that you cannot push them."
 msgstr ""
 "Wie normale Felsbrocken, nur sind diese so schwer, dass man sie nicht "
-"verschieben kann - außer man hat vorher ein Bonbon eingesammelt."
+"verschieben kann - manchmal ermöglicht ein Bonbon sie trotzdem zu "
+"verschieben. "
 
 #: src/misc/helptext.cpp:235
 msgid ""
@@ -732,7 +733,7 @@ msgid ""
 "the wall - instead try to blow it up."
 msgstr ""
 "Die Ziegelmauer kann nicht verschoben werden, aber eine Explosion kann sie "
-"zerstören. Man kann nicht durch eine Ziegelmauer gehen - stattdessen sollte "
+"zerstören. Man kann nicht durch eine Ziegelmauer graben - stattdessen sollte "
 "man versuchen sie zu sprengen."
 
 #: src/misc/helptext.cpp:236
@@ -802,7 +803,7 @@ msgstr ""
 "Diese Gegner bewachen ebenfalls die Diamanten, die man gerne einsammeln "
 "würde. Sie bewegen sich jedoch sehr unterschiedlich. Am liebsten bewegen sie "
 "sich geradeaus und wechseln die Richtung nur dann, wenn sie an etwas "
-"anstoßen. Wie normale Gegner darf man sie nicht berühren. Sie könnenjedoch "
+"anstoßen. Wie normale Gegner darf man sie nicht berühren. Sie können jedoch "
 "einfach mit Felsbrocken zerschmettert werden."
 
 #: src/misc/helptext.cpp:247
@@ -833,7 +834,7 @@ msgid ""
 "This creature wanders around the cave like a firefly, but you can touch it. "
 "If it is enclosed, it turns into a skeleton."
 msgstr ""
-"Diese Kreatur wandert genauso herum, wie ein Glühwürmchen, man kann sie "
+"Diese Kreatur wandert genauso herum wie ein Glühwürmchen, man kann sie "
 "jedoch gefahrenlos berühren. Wird die Kuh eingeschlossen, verwandelt sie "
 "sich in ein Skelett."
 
@@ -967,7 +968,7 @@ msgstr ""
 "Man kann diese Bombe wie einen Diamanten einsammeln. Um sie zu verwenden, "
 "drücken Sie die Feuertaste und die gewünschte Richtung - man sollte dann "
 "allerdings schnell aus dem Weg gehen! Es kann nur eine Bombe auf einmal "
-"tragen werden."
+"getragen werden."
 
 #: src/misc/helptext.cpp:264
 msgid ""
@@ -1281,7 +1282,7 @@ msgid ""
 msgstr ""
 "Gegner bewegen sich am liebsten um Erde herum. Große Mengen an Erde zu "
 "entfernen hilft sichere Ort für die Spielfigur zu schaffen. Diese Technik "
-"kann in Levels behilflich sein, in denen viele Glühwürmchen frei gelassen "
+"kann in Höhlen behilflich sein, in denen viele Glühwürmchen frei gelassen "
 "wurden und es sehr schwierig ist, sie zu zerschmettern. Man sollte jedoch "
 "trotzdem vorsichtig sein - manche Gegnerformationen können mitten im leeren "
 "Raum schweben und sich sogar langsam durch ihn bewegen (wenn sich z. B. zwei "
@@ -1384,8 +1385,8 @@ msgstr ""
 "übernehmen, sobald man die Steuerungstasten (oben, unten, etc.) betätigt. "
 "Von diesem Punkt an kann man das Spiel fortsetzen, als ob es ein "
 "Schnappschuß der Höhle wäre. Somit kann man sich Fragen wie 'Was wäre "
-"gewesen wenn...' selbst beantworten. Oder man kann die Höhle besser als der "
-"Originalspieler lösen."
+"gewesen wenn...' selbst beantworten. Oder versuchen Sie, die Höhle besser "
+"als der Originalspieler lösen!"
 
 #: src/misc/helptext.cpp:316
 msgid "Cursor keys"
@@ -1442,13 +1443,14 @@ msgstr ""
 "Dateien zu erzeugen. Die Taste R im Titelbild zeigt the verfügbaren "
 "Wiederholungen an. Die gewünschte Wiederholung kann mit den Kursortasten "
 "ausgewählt und mit der Taste W konvertiert abgespeichert werden. Geben Sie "
-"dazu den gewünschten Dateinamen an, der dann vor den Dateitypen wie .png, ."
-"avi oder .wav vorangesetzt wird. Das Verzeichnis, in das abgespeichert "
-"werden soll, kann abenfalls ausgewählt werden. Beachten Sie bitte, dass "
-"gleichlautende Dateien im selben Verzeichnis überschrieben werden. Es ist "
-"möglich, dass die Dateien von dem Konvertierprogramm Avidemux, welches die "
-"Umwandlung der Bilddateien in AVI-Dateien durchführt, nicht korrekt erkannt "
-"werden."
+"dazu den gewünschten Dateinamen an, der dann vor den Dateitypen wie .png, "
+".avi oder .wav vorangesetzt wird. Bilddateien erhalten Namen wie z. B. "
+"out_00000000.png oder out_00000001.png, Audiodateien z. B. out.wav. Das "
+"Verzeichnis, in das abgespeichert werden soll, kann abenfalls ausgewählt "
+"werden. Beachten Sie bitte, dass gleichlautende Dateien im selben "
+"Verzeichnis überschrieben werden. In dem Fall ist es dann auch möglich, "
+"dass die Dateien von dem Konvertierprogramm Avidemux, welches die Umwandlung "
+"der Bilddateien in AVI-Dateien durchführt, nicht korrekt erkannt werden."
 
 #: src/misc/helptext.cpp:338
 msgid ""
@@ -1490,7 +1492,7 @@ msgid ""
 "Avidemux will automatically recognize them. You can now see the first frame "
 "of your animation."
 msgstr ""
-"- Klicken Sie auf Datei|Öffnen und wählen Sie die erste Bilddatei Ihres "
+"- Klicken Sie auf 'Datei|Öffnen' und wählen Sie die erste Bilddatei Ihres "
 "Projektes aus (z. B. out_00000000.png). Es ist nicht notwendig, die "
 "fortlaufenden Bilder auszuwählen, da sie Avidemux automatisch erkennt. Nach "
 "dem Auswählen der ersten Bilddatei, sehen Sie sofort das erste Bild Ihrer "
@@ -1501,7 +1503,7 @@ msgid ""
 "- Click Audio|Main Track from the menu. For Audio source, select External "
 "WAV. Click browse, and import the wave file GDash has written (out.wav.)"
 msgstr ""
-"- Klicken Sie auf Audio|Hauptspur im Menü. Als Audioquelle 'Externes WAV' "
+"- Klicken Sie auf 'Audio|Hauptspur' im Menü. Als Audioquelle 'Externes WAV' "
 "auswählen. Danach klicken Sie auf 'browsen' und importieren die WAV-Datei, "
 "die GDash erzeugt hat (out.wav)."
 
@@ -1511,7 +1513,7 @@ msgid ""
 "the default value in Avidemux and is also required for the GDash replays, "
 "but you should check to make sure it is ok."
 msgstr ""
-"- Wählen Sie Video|Bildrate im Menü. Sie soll auf 25 Bilder pro Sekunde "
+"- Wählen Sie 'Video|Bildrate' im Menü. Sie soll auf 25 Bilder pro Sekunde "
 "eingestellt sein. Das ist der voreingestellte Wert in Avidemux und wird auch "
 "für GDash Wiederholungen benötigt. Um Probleme zu vermeiden, kontrollieren "
 "Sie bitte diesen Wert."
@@ -1676,11 +1678,11 @@ msgid ""
 msgstr ""
 "Im Spiel-Editor bekommen Sie eine Übersicht Ihres Spiels präsentiert. Man "
 "kann auf jede beliebige Höhle klicken, um sie auszuwählen. Mit einem "
-"Doppelklick oder dem Menü-Befehl 'Datei/Höhle bearbeiten' kann sie angezeigt "
-"oder modifiziert werden. Man kann die standardmäßigen Zwischenablage-"
-"Aktionen wie Ausschneiden und Einfügen verwenden, auch zwischen "
+"Doppelklick oder dem Menü-Befehl 'Anzeige/Höhle bearbeiten' kann sie "
+"angezeigt oder modifiziert werden. Man kann die standardmäßigen Zwischen-"
+"ablage-Aktionen wie Ausschneiden und Einfügen verwenden, auch zwischen "
 "verschiedenen Spielen. Die Höhlen können in der Übersicht auch einfach mit "
-"der Maus durch ziehen und fallenlassen neu angeordnet werden. Um eine neue "
+"der Maus durch ziehen und loslassen neu angeordnet werden. Um eine neue "
 "Höhle zu erzeugen, wählen Sie den Menü-Befehl 'Datei/Neue Höhle' aus."
 
 #: src/misc/helptext.cpp:417
@@ -1920,7 +1922,7 @@ msgid ""
 msgstr ""
 "Dieses Werkzeug kann dazu verwendet werden, um einen Teil der Höhle mit "
 "zufälligen Elementen zu füllen. Es hat Ähnlichkeiten mit der Einstellung für "
-"die zufälligen Elemente in der Höhle. Es können höchstens fünf Elemente "
+"die zufällige Füllung in der Höhle. Es können höchstens fünf Elemente "
 "angegeben werden. Es kann auch ein Ersatz-Element eingestellt werden. In "
 "diesem Fall wird nur dieses in das zufällig ausgewählte Element geändert. Es "
 "kann dazu verwendet werden, um die Pfade eines Irrgartens oder den Rand "
@@ -1984,7 +1986,7 @@ msgid ""
 "The origin of the flood fill objects is marked with an X, if you select them "
 "to edit. "
 msgstr ""
-"Ein ausgewähltes Objekt kann mit der Maus durch Drücken und Verschieben neu "
+"Ein ausgewähltes Objekt kann mit der Maus durch klicken und verschieben neu "
 "positioniert werden. Linien und Rechtecke können durch Klicken auf deren "
 "End- oder Eckpunkte in ihrer Größe neu angepasst werden. Durch Ziehen an "
 "einer beliebigen anderen Stelle dieser Objekte können diese als Ganzes "
@@ -2046,12 +2048,12 @@ msgid ""
 "of the settings also have a long explanation, which shows up if you point to "
 "them with your mouse."
 msgstr ""
-"Um die Höhlen-Eigenschaften anzuzeigen, klickt man auf den Knopf in der "
-"Werkzeugleiste bzw. wählt den Menüpunkt 'Bearbeiten|Höhlen-Eigenschaften' "
-"aus. Es wird darauf ein Dialog mit vielen verschiedenen Optionen angezeigt. "
-"Diese werden hier nicht weiter erklärt. Viele der Einstellungen haben aber "
-"ausführliche Erklärungen, die auf dem Bildschirm erscheinen, sobald man mit "
-"dem Mauszeiger über sie fährt."
+"Um die Höhlen-Eigenschaften anzuzeigen, klickt man entweder auf das Symbol "
+"in der Werkzeugleiste oder wählt den Menüpunkt 'Bearbeiten|Höhle|Höhlen-"
+"Eigenschaften' aus. Es wird darauf ein Dialog mit vielen verschiedenen Optionen "
+"angezeigt. Diese werden hier nicht weiter erklärt. Viele der Einstellungen "
+"haben aber ausführliche Erklärungen, die auf dem Bildschirm erscheinen, sobald "
+"man mit dem Mauszeiger über sie fährt."
 
 #: src/misc/helptext.cpp:456
 msgid "More on random cave data"
@@ -2081,7 +2083,7 @@ msgstr ""
 "Daten gefüllt werden. Die Hauptaufgabe wird allerdings immer die gleiche "
 "sein, da sie in erster Linie von den gesetzten Elementen in der Höhle "
 "definiert wird. Der anzuzeigende Level kann mit dem Schieberegler, der sich "
-"auf der rechten oberen Ecke des Editors befindet, eingestellt werden."
+"in der rechten oberen Ecke des Editors befindet, eingestellt werden."
 
 #: src/misc/helptext.cpp:467
 msgid ""
@@ -2096,7 +2098,7 @@ msgstr ""
 "Sie, dass nicht jede auf diese Weise generierte Höhle gespielt werden kann, "
 "da z. B. manche Diamanten nicht eingesammelt werden können. Wird im "
 "Eingabefeld 'Benötigte Diamanten' ein negativer Wert eingegeben, werden "
-"diese bei Beginn des Spiels gezählt und vom angegebenen Wert abgezogen."
+"diese bei Beginn des Spiels gezählt und die angegebene Zahl davon abgezogen."
 
 #: src/misc/helptext.cpp:473
 msgid ""
@@ -2386,7 +2388,7 @@ msgstr ""
 
 #: src/main.cpp:107
 msgid "Batch mode: quit after specified tasks"
-msgstr "Stapelmodus: Beende das Spiel nach angegebenen Tätigkeiten"
+msgstr "Stapelmodus: nach angegebenen Aufgaben beenden"
 
 #: src/main.cpp:212
 #, c-format
@@ -2487,7 +2489,7 @@ msgstr "Name"
 
 #: src/cave/cavestored.cpp:41
 msgid "Name of cave"
-msgstr "Name def Höhle"
+msgstr "Name der Höhle"
 
 #: src/cave/cavestored.cpp:42 src/cave/caveset.cpp:44
 #: src/framework/commands.cpp:164 src/editor/exporthtml.cpp:105
@@ -2503,11 +2505,11 @@ msgstr "Einige Worte über die Höhle"
 #: src/framework/commands.cpp:160 src/framework/commands.cpp:180
 #: src/editor/exporthtml.cpp:103 src/editor/exporthtml.cpp:163
 msgid "Author"
-msgstr "Author"
+msgstr "Autor"
 
 #: src/cave/cavestored.cpp:43 src/cave/caveset.cpp:45
 msgid "Name of author"
-msgstr "Name des Authors"
+msgstr "Name des Autors"
 
 #: src/cave/cavestored.cpp:44 src/cave/caveset.cpp:46
 #: src/framework/commands.cpp:162 src/framework/commands.cpp:182
@@ -2660,7 +2662,7 @@ msgstr "Geschichte"
 #: src/cave/cavestored.cpp:64
 msgid "Story for the cave. It will be shown when the cave is played."
 msgstr ""
-"Geschichte für die Höhle. Sie wird während des Spielens der Höhle angezeigt."
+"Geschichte für die Höhle. Sie wird vor dem Spielen der Höhle angezeigt."
 
 #: src/cave/cavestored.cpp:67 src/cave/caveset.cpp:59
 #: src/framework/commands.cpp:168 src/editor/exporthtml.cpp:109
@@ -2983,7 +2985,7 @@ msgid ""
 "This sets the number of game frames, after hammered walls reappear, when the "
 "above setting is true."
 msgstr ""
-"Dieser Wert stellt die Anzahl der Einzelbilder ein, nachdenen aufgebrochene "
+"Dieser Wert stellt die Anzahl der Einzelbilder ein, nach denen aufgebrochene "
 "Mauerstücke wieder erscheinen, wenn die obere Einstellung aktiviert wurde."
 
 #: src/cave/cavestored.cpp:133 src/cave/elementproperties.cpp:419
@@ -3050,8 +3052,8 @@ msgid ""
 "any possible way, i.e. touched by a firefly, hit by a stone or an explosion."
 msgstr ""
 "Steuert, ob die Spielfigur explodiert, wenn die Voodoo-Puppe in irgendeiner "
-"Art und Weise verletzt wird. Zum Beispiel wenn sie durch ein Glühwürmchen "
-"berührt, durch einen Felsbrocken getroffen oder durch eine Explosion "
+"Art und Weise verletzt wird. Zum Beispiel, wenn sie von einem Glühwürmchen "
+"berührt, von einem Felsbrocken getroffen oder durch eine Explosion "
 "zerstört wird."
 
 #: src/cave/cavestored.cpp:141
@@ -3456,7 +3458,7 @@ msgstr "Ätzt weg"
 msgid ""
 "The element which acid eats. If it cannot find any, it simply disappears."
 msgstr ""
-"Das Element, welches von der Säure weggeätzt wird. Wird keines solches "
+"Das Element, welches von der Säure weggeätzt wird. Wird kein solches "
 "gefunden, verschwindet sie einfach."
 
 #: src/cave/cavestored.cpp:205
@@ -3467,7 +3469,7 @@ msgstr "Verbreitungsgeschwindigkeit (%)"
 msgid ""
 "The probability at which an acid will explode and eat neighbouring elements."
 msgstr ""
-"Die Wahrscheinlichkeit, zu welcher Säure Nachbarobjekte explodieren lässt "
+"Die Wahrscheinlichkeit, mit welcher Säure Nachbarobjekte explodieren lässt "
 "und verschlingt."
 
 #: src/cave/cavestored.cpp:206
@@ -3478,8 +3480,8 @@ msgstr "Hinterlässt"
 msgid ""
 "If acid converts to an explosion puff on spreading or any other element."
 msgstr ""
-"Ob sich Säure bei der Ausdehnung in eine Explosion oder in ein anderes "
-"Element verwandelt."
+"Ob sich Säure bei der Ausdehnung in eine Explosionsverpuffungswolke oder "
+"in jedes andere Element verwandelt."
 
 #: src/cave/cavestored.cpp:208 src/cave/cavestored.cpp:289
 msgid "Biter"
@@ -3969,7 +3971,9 @@ msgstr ""
 
 #: src/cave/cavestored.cpp:283
 msgid "Controls if the living amoeba has sound or not."
-msgstr "Ist diese Option aktiviert, wird die Amöbe Geräusche verursachen."
+msgstr ""
+"Ist diese Option aktiviert, wird die wachsende Amöbe Geräusche "
+"verursachen."
 
 #: src/cave/cavestored.cpp:284 src/cave/elementproperties.cpp:186
 msgid "Magic wall"
@@ -4441,7 +4445,7 @@ msgstr "Zeichne"
 #: src/cave/object/caveobjectjoin.cpp:86
 #: src/cave/object/caveobjectfillrect.cpp:85
 msgid "Levels"
-msgstr "Level"
+msgstr "Levels"
 
 #: src/cave/object/caveobjectcopypaste.cpp:125
 #: src/cave/object/caveobjectpoint.cpp:64
@@ -4454,7 +4458,7 @@ msgstr "Level"
 #: src/cave/object/caveobjectjoin.cpp:86
 #: src/cave/object/caveobjectfillrect.cpp:85
 msgid "Levels on which this object is visible."
-msgstr "Level in denen dieses Objekt sichtbar ist."
+msgstr "Levels in denen dieses Objekt sichtbar ist."
 
 #: src/cave/object/caveobjectcopypaste.cpp:126
 #: src/cave/object/caveobjectfloodfill.cpp:84
@@ -4766,7 +4770,7 @@ msgstr "Addiere Element"
 
 #: src/cave/object/caveobjectjoin.cpp:89
 msgid "The distance to draw the new element at."
-msgstr "Die Entfernung bis zu der das neue Element gezeichnet werden soll."
+msgstr "Die Entfernung mit der das neue Element gezeichnet werden soll."
 
 #: src/cave/object/caveobjectjoin.cpp:91
 msgid "Backwards"
@@ -4789,7 +4793,7 @@ msgstr ""
 "zeigt, ist es praktikabler, die Suche von unten nach oben durchzuführen, so "
 "daß die gesuchten Elemente nicht überschrieben werden, bevor sie gefunden "
 "worden sind. Andernfalls werden diese vervielfacht, wenn das gesuchte und "
-"das hinzuzufügende Element die selben sind. Wird ein Verbindung gezeichnet, "
+"das hinzuzufügende Element die selben sind. Wird eine Verbindung gezeichnet, "
 "wählt GDash im Bedarfsfall automatisch die Rückwärtssuche aus. Diese "
 "Einstellung wird in erster Linie für die Kompatibilität zu alten Höhlen "
 "bereitgestellt."
@@ -5050,7 +5054,7 @@ msgstr "Wachsmauer, vertikal (gescannt)"
 
 #: src/cave/elementproperties.cpp:356
 msgid "Expanding wall (scanned)"
-msgstr "Titan-Wachsmauer (gescannt)"
+msgstr "Wachsmauer (gescannt)"
 
 #: src/cave/elementproperties.cpp:360
 msgid "Expanding steel wall, horizontal"
@@ -5550,7 +5554,7 @@ msgstr "Steinschmetterling, oben (gescannt)"
 
 #: src/cave/elementproperties.cpp:680
 msgid "Stonefly, right (scanned)"
-msgstr "Steinschmetterling, rechts"
+msgstr "Steinschmetterling, rechts (gescannt)"
 
 #: src/cave/elementproperties.cpp:684
 msgid "Stonefly, down (scanned)"
@@ -6137,7 +6141,7 @@ msgstr "Spiel"
 #. TRANSLATORS: 40 chars max. Select the game to play.
 #: src/framework/titlescreenactivity.cpp:146
 msgid "Crsr: select   Space: play   H: help"
-msgstr "Kursor:auswählen  Space:spielen  H:Hilfe"
+msgstr "Kursor:auswählen  Leert:spielen  H:Hilfe"
 
 #. TRANSLATORS: 40 chars max.
 #: src/framework/titlescreenactivity.cpp:152
@@ -6156,7 +6160,7 @@ msgstr "Joystick:auswählen      Feuer:spielen"
 
 #: src/framework/titlescreenactivity.cpp:165
 msgid "Crsr: select   Space: play   X: errors"
-msgstr "Kursor:auswählen Space:Spielen X:Fehler"
+msgstr "Kursor:auswählen Leert:Spielen X:Fehler"
 
 #: src/framework/titlescreenactivity.cpp:170
 #, c-format
@@ -6274,11 +6278,11 @@ msgstr ""
 
 #: src/framework/gameactivity.cpp:87
 msgid "vertical"
-msgstr "Vertikal"
+msgstr "vertikal"
 
 #: src/framework/gameactivity.cpp:87
 msgid "horizontal"
-msgstr "Horizontal"
+msgstr "horizontal"
 
 #: src/framework/gameactivity.cpp:88
 msgid "backwards"
@@ -6396,7 +6400,7 @@ msgstr "Speichere Höhlensatz als neue Datei"
 #. TRANSLATORS: 40 characters max. Title of the "open file" window.
 #: src/framework/commands.cpp:268
 msgid "Select Caveset to Load"
-msgstr "Wähle den zu spielenden Höhlensatz"
+msgstr "Wähle den zu ladenden Höhlensatz"
 
 #. TRANSLATORS: 40 characters max. Title of the window which shows the error messages. Title capitalization (C) in English.
 #: src/framework/commands.cpp:293
@@ -6410,7 +6414,7 @@ msgstr "Keine Wiederholungen für diesen Höhlensatz."
 #. TRANSLATORS: 40 chars max
 #: src/framework/replaymenuactivity.cpp:94
 msgid "Space: play   H: help   Esc: exit"
-msgstr "Space:spielen   H:Hilfe   Esc:beenden"
+msgstr "Leert:spielen   H:Hilfe   Esc:beenden"
 
 #. TRANSLATORS: Cave level (1-5)
 #: src/framework/replaymenuactivity.cpp:191
@@ -6427,7 +6431,7 @@ msgstr "Punktzahl"
 
 #: src/framework/replaymenuactivity.cpp:195
 msgid "points"
-msgstr "Punkt"
+msgstr "Punkte"
 
 #: src/framework/replaymenuactivity.cpp:198
 msgid "Comment"
@@ -6450,7 +6454,7 @@ msgstr "Wiederholung Information"
 
 #: src/framework/replaymenuactivity.cpp:227
 msgid "Output filename prefix"
-msgstr "Vorsilbe Ausgabedateiname"
+msgstr "Vorangestellter Ausgabedateiname"
 
 #: src/framework/settingsactivity.cpp:108
 msgid "Cannot install theme!"
@@ -6459,7 +6463,7 @@ msgstr "Das Thema kann nicht installiert werden!"
 #. TRANSLATORS: 35 chars max
 #: src/framework/settingsactivity.cpp:263
 msgid "Select key for action"
-msgstr "Taste zur Aktion auswählen"
+msgstr "Taste für Aktion auswählen"
 
 #. TRANSLATORS: 40 chars max
 #: src/framework/settingsactivity.cpp:273
@@ -6615,7 +6619,7 @@ msgid ""
 "bar layout."
 msgstr ""
 "Die bevorzugten Farben der Statuszeile. Beeinflußt nur die Farben, nicht "
-"den  Aufbau der Statuszeile."
+"den Aufbau der Statuszeile."
 
 #: src/settings.cpp:235
 msgid "  C64 palette"
@@ -7224,7 +7228,7 @@ msgstr "Wähle den während des Spiels sichtbaren Bereich der Höhle"
 
 #: src/editor/editor.cpp:220
 msgid "All levels"
-msgstr "alle Level"
+msgstr "allen Levels"
 
 #: src/editor/editor.cpp:221
 msgid "Level 2 and up"
@@ -7278,7 +7282,7 @@ msgstr ""
 "gesamte Höhle sein. Verändert man die Größe der Höhle, kann der anzuzeigende "
 "Bereich nicht automatisch geschätzt werden. Das Werkzeug, um dieses "
 "Verhalten zu steuern, ist nun ausgewählt und zeigt den momentan sichtbaren "
-"Bereich. Verwenden Sie mit dem Maus-Cursor ziehen und fallenlassen um die "
+"Bereich. Verwenden Sie mit dem Maus-Cursor ziehen und loslassen um die "
 "Position und Größe des Rechtecks zu ändern."
 
 #: src/editor/editor.cpp:754
@@ -7344,11 +7348,11 @@ msgid ""
 msgstr ""
 "Hinweiß: Das zufällige Füllen funktioniert durch generieren einer zufälligen "
 "Zahl zwischen 0 und 255 und danach ein Element aus der oberen Liste "
-"auszuwählen. Ist die Zahl größer als die Wahrscheinlichkeit 1, wird die "
-"ursprüngliche Füllung ausgewählt. Ist sie kleiner als die Wahrscheinlichkeit "
-"1 aber größer als die Wahrscheinlichkeit 2, wird das erste Element "
-"ausgewählt usw. GDash wird dafür sorgen, daß die Wahrscheinlichkeitswerte in "
-"absteigender Reihenfolge erzeugt werden."
+"auszuwählen. Ist die generierte Zahl größer als die Wahrscheinlichkeit 1, "
+"wird die ursprüngliche Füllung ausgewählt. Ist sie kleiner als die 
+"Wahrscheinlichkeit 1 aber größer als die Wahrscheinlichkeit 2, wird das "
+"erste Element ausgewählt usw. GDash wird dafür sorgen, daß die "
+"Wahrscheinlichkeitswerte in absteigender Reihenfolge erzeugt werden."
 
 #: src/editor/editor.cpp:1968
 msgid "Save Cave as PNG Image"
@@ -7400,7 +7404,7 @@ msgstr "Wollen Sie die Höhle(n) wirklich löschen?"
 
 #: src/editor/editor.cpp:2371
 msgid "This operation cannot be undone."
-msgstr "Dieser Befehl zerstört alle Höhlen-Objekte."
+msgstr "Dieser Vorgang kann nicht rückgängig gemacht werden."
 
 #: src/editor/editor.cpp:2486
 msgid ""
@@ -7412,7 +7416,7 @@ msgstr ""
 
 #: src/editor/editor.cpp:2486
 msgid "Enabled those objects on the current level."
-msgstr "Schalte dieses Objekt in allen Levels ein."
+msgstr "Schalte diese Objekte im aktuellen Level ein."
 
 #: src/editor/editor.cpp:2585
 msgid "Do you really want to remove cave map?"
@@ -7529,7 +7533,7 @@ msgstr "%s Element"
 
 #: src/editor/editor.cpp:3035
 msgid "Draw Element"
-msgstr "Zeichen-Element"
+msgstr "Zeichnen-Element"
 
 #: src/editor/editor.cpp:3045
 msgid "Fill Element"
@@ -7589,7 +7593,7 @@ msgstr "Titelbild einstellen"
 
 #: src/editor/editor.cpp:3221
 msgid "Load _image"
-msgstr "Lade _Titel"
+msgstr "Lade _Bild"
 
 #: src/editor/editor.cpp:3222
 msgid "Load _tile"
@@ -7658,7 +7662,7 @@ msgstr "Speichere Höhlensatz in die Datei"
 
 #: src/editor/editor.cpp:3267
 msgid "Save cave set as new file"
-msgstr "Speichere Höhlensatz as neue Datei"
+msgstr "Speichere Höhlensatz als neue Datei"
 
 #: src/editor/editor.cpp:3268
 msgid "Load cave set from file"
@@ -7866,7 +7870,7 @@ msgstr "Zur Karte konvertieren"
 
 #: src/editor/editor.cpp:3311
 msgid "Flatten cave to a single cave map without objects"
-msgstr "Höhle zu einer einzigen Höhlen-Karte ohne Objekte ebnen"
+msgstr "Höhle zu einer einzigen Höhlen-Karte ohne Objekte konvertieren"
 
 #: src/editor/editor.cpp:3312
 msgid "O_verview"
@@ -7898,7 +7902,7 @@ msgstr "In den _Hintergrund stellen"
 
 #: src/editor/editor.cpp:3319
 msgid "Send object to bottom of object list (draw first)"
-msgstr "Verschiebe Objekt in der Objekt-Liste nach unten (zuerst zeichnen)"
+msgstr "Verschiebe Objekt in der Objekt-Liste in den Hintergrund (zuerst zeichnen)"
 
 #: src/editor/editor.cpp:3320
 msgid "Bring to _front"
@@ -7906,7 +7910,7 @@ msgstr "In den _Vordergrund stellen"
 
 #: src/editor/editor.cpp:3320
 msgid "Bring object to front of object list (drawn last)"
-msgstr "Verschiebe Objekt in der Objekt-Liste nach oben (zuletzt zeichnen)"
+msgstr "Verschiebe Objekt in der Objekt-Liste in den Vordergrund (zuletzt zeichnen)"
 
 #: src/editor/editor.cpp:3321
 msgid "Show on this level"
@@ -7946,7 +7950,7 @@ msgstr "Ob_jekt-Eigenschaften"
 
 #: src/editor/editor.cpp:3328
 msgid "Set object properties"
-msgstr "Objekt-Eigenschaften"
+msgstr "Objekt-Eigenschaften einstellen"
 
 #: src/editor/editor.cpp:3333
 msgid "Shift _left"
