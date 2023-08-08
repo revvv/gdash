@@ -449,7 +449,7 @@ const helpdata editorhelp[] = {
         NULL, NULL, NULL, O_NONE, N_("If you want to restart editing, all cave objects can be deleted at once. A cave map can also "
         "be deleted by selecting Remove map from the menu.")
     },
-    {NULL, NULL, NULL, O_NONE, N_("To select an element, you can middle-click any time on the cave map to pick one you already use. Use Ctrl together with middle-click to pick a fill element. With middle-click you can pick an element from the cave.")},
+    {NULL, NULL, NULL, O_NONE, N_("To select a draw element, you can middle-click any time on the cave map to pick one you already use. Use Ctrl together with middle-click to pick a fill element.")},
 
     {GTK_STOCK_PROPERTIES, N_("Cave properties"), NULL, O_NONE, N_("To view cave properties, select Edit|Cave properties from the menu. A dialog will pop up with many different options. Those are not explained here; most of the settings also have a long explanation, which shows up if you point to them with your mouse.")},
     {
