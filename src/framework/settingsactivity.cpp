@@ -208,6 +208,9 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                     break;
                 case TypeKey:
                     break;
+                case TypeDouble:
+                    *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var - 0.1, settings[current].min, settings[current].max);
+                    break;
             }
             if (settings[current].restart)
                 restart = true;
@@ -232,6 +235,9 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                     *(int *)settings[current].var = gd_clamp(*(int *)settings[current].var + 1, 0, g_strv_length((char **) settings[current].stringv) - 1);
                     break;
                 case TypeKey:
+                    break;
+                case TypeDouble:
+                    *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var + 0.1, settings[current].min, settings[current].max);
                     break;
             }
             if (settings[current].restart)
@@ -261,6 +267,12 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                 case TypeKey:
                     // TRANSLATORS: 35 chars max
                     app->enqueue_command(std::make_unique<PushActivityCommand>(app, std::make_unique<SelectKeyActivity>(app, _("Select key for action"), settings[current].name, (int *) settings[current].var)));
+                    break;
+                case TypeDouble:
+                    if (*(double *)settings[current].var >= settings[current].max)
+                        *(double *)settings[current].var = settings[current].min;
+                    else
+                        *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var + 0.1, settings[current].min, settings[current].max);
                     break;
             }
             if (settings[current].restart)
@@ -327,6 +339,9 @@ void SettingsActivity::redraw_event(bool full) const {
                     break;
                 case TypeKey:
                     value = app->gameinput->get_key_name_from_keycode(*(guint *)settings[n].var);
+                    break;
+                case TypeDouble:
+                    value = Printf("%f", *(double *)settings[n].var);
                     break;
             }
 

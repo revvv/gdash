@@ -40,7 +40,7 @@ unsigned char const *Screen::gdash_icon_48_png = gdash_icon_48;
 unsigned const Screen::gdash_icon_48_size = sizeof(gdash_icon_48);
 
 
-void Screen::set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) {
+void Screen::set_properties(double scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) {
     scaling_factor = scaling_factor_;
     scaling_type = scaling_type_;
     pal_emulation = pal_emulation_;

@@ -212,6 +212,16 @@ void SettingsWindow::int_change(GtkWidget *widget, gpointer data) {
 }
 
 
+void SettingsWindow::double_change(GtkWidget *widget, gpointer data) {
+    bool *restart_bool = (bool *)g_object_get_data(G_OBJECT(widget), GDASH_RESTAT_BOOL);
+    Setting *setting = static_cast<Setting *>(data);
+    double *value = (double *) setting->var;
+    *value = gtk_spin_button_get_value(GTK_SPIN_BUTTON(widget));
+    if (setting->restart && restart_bool)
+        *restart_bool = true;
+}
+
+
 void SettingsWindow::stringv_change(GtkWidget *widget, gpointer data) {
     bool *restart_bool = (bool *)g_object_get_data(G_OBJECT(widget), GDASH_RESTAT_BOOL);
     Setting *setting = static_cast<Setting *>(data);
@@ -338,6 +348,13 @@ bool SettingsWindow::do_settings_dialog(Setting *settings, PixbufFactory &pf) {
 
             case TypeKey:
                 widget = gd_keysim_button(&settings[i]);
+                gtk_grid_attach(GTK_GRID(grid), widget, 1, row, 1, 1);
+                break;
+
+            case TypeDouble:
+                widget = gtk_spin_button_new_with_range(settings[i].min, settings[i].max, 0.1);
+                gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), *(double *)settings[i].var);
+                g_signal_connect(G_OBJECT(widget), "value-changed", G_CALLBACK(SettingsWindow::double_change), &settings[i]);
                 gtk_grid_attach(GTK_GRID(grid), widget, 1, row, 1, 1);
                 break;
         }

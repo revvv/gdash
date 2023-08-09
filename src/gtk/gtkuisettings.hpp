@@ -40,6 +40,7 @@ class SettingsWindow {
 private:
     static void bool_toggle(GtkWidget *widget, gpointer data);
     static void int_change(GtkWidget *widget, gpointer data);
+    static void double_change(GtkWidget *widget, gpointer data);
     static void stringv_change(GtkWidget *widget, gpointer data);
     static void theme_change(GtkWidget *widget, gpointer data);
     static GtkWidget *combo_box_new_from_stringv(const char **str);

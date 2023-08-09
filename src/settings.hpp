@@ -71,10 +71,10 @@ extern bool gd_show_preview;
 /* graphics */
 extern int gd_graphics_engine;
 extern bool gd_fullscreen;
-extern int gd_cell_scale_factor_game;
+extern double gd_cell_scale_factor_game;
 extern int gd_cell_scale_type_game;
 extern bool gd_pal_emulation_game;
-extern int gd_cell_scale_factor_editor;
+extern double gd_cell_scale_factor_editor;
 extern int gd_cell_scale_type_editor;
 extern bool gd_pal_emulation_editor;
 
@@ -181,6 +181,7 @@ enum SettingType {
     TypePercent,
     TypeStringv,
     TypeKey,
+    TypeDouble,
 };
 class Setting {
 public:

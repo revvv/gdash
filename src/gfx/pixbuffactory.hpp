@@ -89,7 +89,7 @@ public:
     /// @param scaling_type The scaling algorithm.
     /// @param pal_emulation Whether to add a PAL TV effect.
     /// @return The scaled pixbuf, to be freed by the caller.
-    std::unique_ptr<Pixbuf> create_scaled(const Pixbuf &src, int scaling_factor, GdScalingType scaling_type, bool pal_emulation) const;
+    std::unique_ptr<Pixbuf> create_scaled(const Pixbuf &src, double scaling_factor, GdScalingType scaling_type, bool pal_emulation) const;
 
     /// Names of rotations.
     enum Rotation {

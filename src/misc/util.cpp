@@ -80,6 +80,16 @@ int gd_clamp(int val, int min, int max) {
     return val;
 }
 
+double gd_clamp_double(double val, double min, double max) {
+    g_assert(min <= max);
+
+    if (val < min)
+        return min;
+    if (val > max)
+        return max;
+    return val;
+}
+
 /* return current date in 2008-12-04 format */
 std::string gd_get_current_date() {
     char dats[128];

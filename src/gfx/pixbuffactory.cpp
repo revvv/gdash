@@ -39,79 +39,75 @@ static_assert(G_N_ELEMENTS(gd_scaling_names) == GD_SCALING_MAX + 1); /* +1 is th
 
 
 /* scales a pixbuf with the appropriate scaling type. */
-std::unique_ptr<Pixbuf> PixbufFactory::create_scaled(const Pixbuf &src, int scaling_factor, GdScalingType scaling_type, bool pal_emulation) const {
+std::unique_ptr<Pixbuf> PixbufFactory::create_scaled(const Pixbuf &src, double scaling_factor, GdScalingType scaling_type, bool pal_emulation) const {
+
+    // XXX WORKAROUND title screen needs integer scaling_factor (cause unknown)
+    if (src.get_width() != src.get_height()) {
+        scaling_factor = (int) scaling_factor;
+    }
+
     std::unique_ptr<Pixbuf> scaled = this->create(src.get_width() * scaling_factor, src.get_height() * scaling_factor);
-    switch (scaling_factor) {
-        case 1:
-            src.copy(*scaled, 0, 0);
-            break;
-        case 2:
-            switch (scaling_type) {
-                case GD_SCALING_NEAREST:
-                    scale2xnearest(src, *scaled);
-                    break;
-                case GD_SCALING_SCALE2X:
-                    scale2x(src, *scaled);
-                    break;
-                case GD_SCALING_HQX:
-                    hq2x(src, *scaled);
-                    break;
-                case GD_SCALING_MAX:
-                    g_assert_not_reached();
-                    break;
-            }
-            break;
-        case 3:
-            switch (scaling_type) {
-                case GD_SCALING_NEAREST:
-                    scale3xnearest(src, *scaled);
-                    break;
-                case GD_SCALING_SCALE2X:
-                    scale3x(src, *scaled);
-                    break;
-                case GD_SCALING_HQX:
-                    hq3x(src, *scaled);
-                    break;
-                case GD_SCALING_MAX:
-                    g_assert_not_reached();
-                    break;
-            }
-            break;
-        case 4:
-            switch (scaling_type) {
-                case GD_SCALING_NEAREST:
-                    /* 2x nearest applied twice. */
-                    {
-                        std::unique_ptr<Pixbuf> scale2x(this->create(src.get_width() * 2, src.get_height() * 2));
-                        scale2xnearest(src, *scale2x);
-                        scale2xnearest(*scale2x, *scaled);
-                    }
-                    break;
-                case GD_SCALING_SCALE2X:
-                    /* scale2x applied twice. */
-                    {
-                        std::unique_ptr<Pixbuf> scale2xpb(this->create(src.get_width() * 2, src.get_height() * 2));
-                        scale2x(src, *scale2xpb);
-                        scale2x(*scale2xpb, *scaled);
-                    }
-                    break;
-                case GD_SCALING_HQX:
-                    hq4x(src, *scaled);
-                    break;
-                case GD_SCALING_MAX:
-                    g_assert_not_reached();
-                    break;
-            }
-            break;
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-            src.scale(*scaled, scaling_factor, scaling_type);
-            break;
-        default:
-            g_assert_not_reached();
-            break;
+
+    // NOTE: integer scaling factors 1-4 have special algorithms
+    if (scaling_factor == 1.0) {
+        src.copy(*scaled, 0, 0);
+    } else if (scaling_factor == 2.0) {
+        switch (scaling_type) {
+            case GD_SCALING_NEAREST:
+                scale2xnearest(src, *scaled);
+                break;
+            case GD_SCALING_SCALE2X:
+                scale2x(src, *scaled);
+                break;
+            case GD_SCALING_HQX:
+                hq2x(src, *scaled);
+                break;
+            case GD_SCALING_MAX:
+                g_assert_not_reached();
+                break;
+        }
+    } else if (scaling_factor == 3.0) {
+        switch (scaling_type) {
+            case GD_SCALING_NEAREST:
+                scale3xnearest(src, *scaled);
+                break;
+            case GD_SCALING_SCALE2X:
+                scale3x(src, *scaled);
+                break;
+            case GD_SCALING_HQX:
+                hq3x(src, *scaled);
+                break;
+            case GD_SCALING_MAX:
+                g_assert_not_reached();
+                break;
+        }
+    } else if (scaling_factor == 4.0) {
+        switch (scaling_type) {
+            case GD_SCALING_NEAREST:
+                /* 2x nearest applied twice. */
+                {
+                    std::unique_ptr<Pixbuf> scale2x(this->create(src.get_width() * 2, src.get_height() * 2));
+                    scale2xnearest(src, *scale2x);
+                    scale2xnearest(*scale2x, *scaled);
+                }
+                break;
+            case GD_SCALING_SCALE2X:
+                /* scale2x applied twice. */
+                {
+                    std::unique_ptr<Pixbuf> scale2xpb(this->create(src.get_width() * 2, src.get_height() * 2));
+                    scale2x(src, *scale2xpb);
+                    scale2x(*scale2xpb, *scaled);
+                }
+                break;
+            case GD_SCALING_HQX:
+                hq4x(src, *scaled);
+                break;
+            case GD_SCALING_MAX:
+                g_assert_not_reached();
+                break;
+        }
+    } else {
+        src.scale(*scaled, scaling_factor, scaling_type);
     }
 
     if (pal_emulation)

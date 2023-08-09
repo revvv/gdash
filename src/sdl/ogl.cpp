@@ -96,7 +96,7 @@ SDLOGLScreen::SDLOGLScreen(PixbufFactory &pixbuf_factory)
 }
 
 
-void SDLOGLScreen::set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) {
+void SDLOGLScreen::set_properties(double scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) {
     oglscaling = scaling_factor_;
     /* the other two are not used by this screen implementation */
 }

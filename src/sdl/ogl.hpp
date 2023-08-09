@@ -98,7 +98,7 @@ private:
 
 public:
     SDLOGLScreen(PixbufFactory &pixbuf_factory);
-    virtual void set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) override;
+    virtual void set_properties(double scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_) override;
     virtual void set_title(char const *) override;
     virtual void configure_size() override;
     virtual void flip() override;

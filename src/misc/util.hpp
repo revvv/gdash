@@ -51,6 +51,9 @@ std::string gd_get_current_date_time();
 /// clamp integer into range
 int gd_clamp(int val, int min, int max);
 
+/// clamp double into range
+double gd_clamp_double(double val, double min, double max);
+
 /// remove leading and trailing spaces from s
 void gd_strchomp(std::string &s);
 

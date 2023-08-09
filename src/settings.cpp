@@ -91,6 +91,7 @@ static const char **language_locale[] = {
 static std::map<char const *, int *> settings_integers;
 static std::map<char const *, bool *> settings_bools;
 static std::map<char const *, std::string *> settings_strings;
+static std::map<char const *, double *> settings_doubles;
 
 
 /* universal settings */
@@ -129,10 +130,10 @@ bool gd_show_preview = true;
 /* graphics */
 int gd_graphics_engine = 0; /* whichever is the first one supported */
 bool gd_fullscreen = false;
-int gd_cell_scale_factor_game = 2;
+double gd_cell_scale_factor_game = 2.0;
 int gd_cell_scale_type_game = GD_SCALING_NEAREST;
 bool gd_pal_emulation_game = false;
-int gd_cell_scale_factor_editor = 1;
+double gd_cell_scale_factor_editor = 1.0;
 int gd_cell_scale_type_editor = GD_SCALING_NEAREST;
 bool gd_pal_emulation_editor = false;
 
@@ -242,7 +243,7 @@ Setting *gd_get_game_settings_array() {
         { TypePage, N_("Game graphics") },
         // TRANSLATORS: here "engine" = "graphics engine"
         { TypeStringv, N_("Engine"), &gd_graphics_engine, true, gd_graphics_engine_names, N_("Graphics engine which used for drawing.") },
-        { TypeInteger, N_("Scaling factor"), &gd_cell_scale_factor_game, true, NULL, N_("Scaling size."), 1, 8 },
+        { TypeDouble, N_("Scaling factor"), &gd_cell_scale_factor_game, true, NULL, N_("Scaling size."), 1, 8 },
         { TypeStringv, N_("  Scaling type"), &gd_cell_scale_type_game, true, gd_scaling_names, N_("Software scaling method used. This setting is only effective for the GTK+ and the SDL engines. If you use the OpenGL engine, you can configure its scaling method by selecting a shader.") },
         { TypeBoolean, N_("  Software PAL emu"), &gd_pal_emulation_game, true, NULL, N_("Use PAL emulated graphics, i.e. lines are striped, and colors are distorted like on a TV. Only effective for the GTK+ and the SDL engines.") },
         { TypePercent, N_("  PAL scanline shade"), &gd_pal_emu_scanline_shade, true, NULL, N_("Darker rows for PAL emulation. Only effective for the GTK+ and the SDL engines.") },
@@ -268,7 +269,7 @@ Setting *gd_get_game_settings_array() {
 
 #ifdef HAVE_GTK
         { TypePage, N_("Editor settings") },
-        { TypeInteger, N_("Scaling factor"), &gd_cell_scale_factor_editor, true, NULL, N_("Scaling size."), 1, 8 },
+        { TypeDouble, N_("Scaling factor"), &gd_cell_scale_factor_editor, true, NULL, N_("Scaling size."), 1, 8 },
         { TypeStringv, N_("  Scaling type"), &gd_cell_scale_type_editor, true, gd_scaling_names, N_("Scaling method.") },
         { TypeBoolean, N_("  Software PAL emu"), &gd_pal_emulation_editor, true, NULL, N_("Use PAL emulated graphics, i.e. lines are striped, and colors are distorted like on a TV.") },
         { TypeBoolean, N_("Animated view"), &gd_game_view, true, NULL, N_("Show simplified view of cave in the editor.") },
@@ -422,6 +423,17 @@ static int keyfile_get_integer_with_default(GKeyFile *keyfile, const char *group
     return def;
 }
 
+/* gets double value from key file; returns def if not found or unreadable */
+static double keyfile_get_double_with_default(GKeyFile *keyfile, const char *group, const char *key, double def) {
+    GError *error = NULL;
+    double result = g_key_file_get_double(keyfile, group, key, &error);
+    if (!error)
+        return result;
+    gd_debug(error->message);
+    g_error_free(error);
+    return def;
+}
+
 static std::string keyfile_get_string(GKeyFile *keyfile, const char *group, const char *key) {
     if (!g_key_file_has_key(keyfile, group, key, NULL))
         return "";
@@ -469,9 +481,9 @@ void gd_settings_init() {
     settings_integers["language"] = &gd_language;
     settings_bools["fullscreen"] = &gd_fullscreen;
     settings_integers["graphics_engine"] = &gd_graphics_engine;
-    settings_integers["cell_scale_factor_game"] = &gd_cell_scale_factor_game;
+    settings_doubles["cell_scale_factor_game"] = &gd_cell_scale_factor_game;
     settings_integers["cell_scale_type_game"] = &gd_cell_scale_type_game;
-    settings_integers["cell_scale_factor_editor"] = &gd_cell_scale_factor_editor;
+    settings_doubles["cell_scale_factor_editor"] = &gd_cell_scale_factor_editor;
     settings_integers["cell_scale_type_editor"] = &gd_cell_scale_type_editor;
 
 #ifdef HAVE_GTK
@@ -643,6 +655,11 @@ void gd_load_settings() {
         int &var = *it->second;
         var = keyfile_get_integer_with_default(ini, SETTINGS_GDASH_GROUP, key, var);
     }
+    for (std::map<char const *, double *>::const_iterator it = settings_doubles.begin(); it != settings_doubles.end(); ++it) {
+        char const *key = it->first;
+        double &var = *it->second;
+        var = keyfile_get_double_with_default(ini, SETTINGS_GDASH_GROUP, key, var);
+    }
     for (std::map<char const *, bool *>::const_iterator it = settings_bools.begin(); it != settings_bools.end(); ++it) {
         char const *key = it->first;
         bool &var = *it->second;
@@ -657,8 +674,8 @@ void gd_load_settings() {
     g_key_file_free(ini);
 
     /* check settings */
-    gd_cell_scale_factor_game = gd_clamp(gd_cell_scale_factor_game, 1, 8);
-    gd_cell_scale_factor_editor = gd_clamp(gd_cell_scale_factor_editor, 1, 8);
+    gd_cell_scale_factor_game = gd_clamp_double(gd_cell_scale_factor_game, 1.0, 8.0);
+    gd_cell_scale_factor_editor = gd_clamp_double(gd_cell_scale_factor_editor, 1.0, 8.0);
     gd_cell_scale_type_game = gd_clamp(gd_cell_scale_type_game, 0, GD_SCALING_MAX-1);
     gd_cell_scale_type_editor = gd_clamp(gd_cell_scale_type_editor, 0, GD_SCALING_MAX-1);
     if (gd_preferred_palette < 0 || gd_preferred_palette >= int(GdColor::TypeInvalid))
@@ -677,6 +694,11 @@ void gd_save_settings() {
         char const *key = it->first;
         int &var = *it->second;
         g_key_file_set_integer(ini, SETTINGS_GDASH_GROUP, key, var);
+    }
+    for (std::map<char const *, double *>::const_iterator it = settings_doubles.begin(); it != settings_doubles.end(); ++it) {
+        char const *key = it->first;
+        double &var = *it->second;
+        g_key_file_set_double(ini, SETTINGS_GDASH_GROUP, key, var);
     }
     for (std::map<char const *, bool *>::const_iterator it = settings_bools.begin(); it != settings_bools.end(); ++it) {
         char const *key = it->first;

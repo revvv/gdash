@@ -78,7 +78,7 @@ protected:
     int w, h;
     bool fullscreen;
     bool did_some_drawing;
-    int scaling_factor;
+    double scaling_factor;
     GdScalingType scaling_type;
     bool pal_emulation;
 
@@ -88,15 +88,15 @@ public:
     Screen(PixbufFactory &pixbuf_factory)
         : w(0), h(0),
           fullscreen(false), did_some_drawing(false),
-          scaling_factor(1), scaling_type(GD_SCALING_NEAREST), pal_emulation(false),
+          scaling_factor(1.0), scaling_type(GD_SCALING_NEAREST), pal_emulation(false),
           pixbuf_factory(pixbuf_factory) {}
     virtual ~Screen() = default;
 
-    virtual void set_properties(int scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_);
+    virtual void set_properties(double scaling_factor_, GdScalingType scaling_type_, bool pal_emulation_);
 
     /// @brief Return the scale factor of the pixbuf->pixmap.
     /// @return The scale factor, 1 is unscaled (original size)
-    int get_pixmap_scale() const {
+    double get_pixmap_scale() const {
         return scaling_factor;
     }
 
