@@ -23,6 +23,8 @@
 #ifndef SETTINGS_HPP_INCLUDED
 #define SETTINGS_HPP_INCLUDED
 
+#define DOUBLE_INCREMENT 0.125
+
 #include "config.h"
 
 #include <glib.h>

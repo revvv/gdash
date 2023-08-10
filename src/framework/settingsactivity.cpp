@@ -209,7 +209,7 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                 case TypeKey:
                     break;
                 case TypeDouble:
-                    *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var - 0.1, settings[current].min, settings[current].max);
+                    *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var - DOUBLE_INCREMENT, settings[current].min, settings[current].max);
                     break;
             }
             if (settings[current].restart)
@@ -237,7 +237,7 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                 case TypeKey:
                     break;
                 case TypeDouble:
-                    *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var + 0.1, settings[current].min, settings[current].max);
+                    *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var + DOUBLE_INCREMENT, settings[current].min, settings[current].max);
                     break;
             }
             if (settings[current].restart)
@@ -272,7 +272,7 @@ void SettingsActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                     if (*(double *)settings[current].var >= settings[current].max)
                         *(double *)settings[current].var = settings[current].min;
                     else
-                        *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var + 0.1, settings[current].min, settings[current].max);
+                        *(double *)settings[current].var = gd_clamp_double(*(double *)settings[current].var + DOUBLE_INCREMENT, settings[current].min, settings[current].max);
                     break;
             }
             if (settings[current].restart)
