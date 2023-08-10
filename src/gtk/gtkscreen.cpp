@@ -79,8 +79,6 @@ void GTKScreen::configure_size() {
             if (gtk_widget_get_window(drawing_area) != NULL) {
                 back.reset(gdk_window_create_similar_surface(gtk_widget_get_window(drawing_area), CAIRO_CONTENT_COLOR, w, h));
             } else {
-                // FIX Issue #1
-                gd_message("configure_size: window w/o particle effects");
                 back.reset(cairo_image_surface_create(CAIRO_FORMAT_RGB24, w, h));
             }
         }
