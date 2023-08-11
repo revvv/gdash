@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-08-09 14:44+0200\n"
+"POT-Creation-Date: 2023-08-11 11:16+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -61,7 +61,7 @@ msgstr "[Alapértelmezett]"
 msgid "GDash Preferences"
 msgstr "A GDash beállításai"
 
-#: src/gtk/gtkuisettings.cpp:380
+#: src/gtk/gtkuisettings.cpp:381
 msgid "_Add theme"
 msgstr "_Téma hozzáadása"
 
@@ -1910,18 +1910,18 @@ msgstr ""
 "gombbal. Ha a Ctrl billentyűt is nyomva tartod, akkor kitöltő elemet "
 "választasz."
 
-#: src/misc/helptext.cpp:454
+#: src/misc/helptext.cpp:454 src/editor/editor.cpp:3307
 msgid "Cave properties"
 msgstr "Pálya tulajdonságai"
 
 #: src/misc/helptext.cpp:454
 msgid ""
-"To view cave properties, select Edit|Cave properties from the menu. A dialog "
-"will pop up with many different options. Those are not explained here; most "
-"of the settings also have a long explanation, which shows up if you point to "
-"them with your mouse."
+"To view cave properties, select Edit|Cave|Cave properties from the menu. A "
+"dialog will pop up with many different options. Those are not explained "
+"here; most of the settings also have a long explanation, which shows up if "
+"you point to them with your mouse."
 msgstr ""
-"A pálya tulajdonságainak megtekintéséhez a menü Szerkesztés|Pálya "
+"A pálya tulajdonságainak megtekintéséhez a menü Szerkesztés|Pálya|Pálya "
 "tulajdonságai pontjára kattints. A megjelenő párbeszédablak rengeteg opciót "
 "tartalmaz. Ezek nincsenek itt részletezve; a legtöbb beállítás egy hosszú "
 "magyarázattal is rendelkezik, amely megjelenik, ha az egérmutatót felette "
@@ -7541,10 +7541,6 @@ msgstr "T_esztelés"
 msgid "Ca_ve properties"
 msgstr "Pá_lya tulajdonságai"
 
-#: src/editor/editor.cpp:3307
-msgid "Cave settings"
-msgstr "Pálya beállításai"
-
 #: src/editor/editor.cpp:3308
 msgid "_Element statistics"
 msgstr "Pálya_elemek statisztikája"
@@ -7805,9 +7801,6 @@ msgstr "Elemek"
 #: src/gfx/pixbuffactory.cpp:36
 msgid "Nearest neighbor"
 msgstr "Legközelebbi"
-
-#~ msgid "New up/down animation"
-#~ msgstr "Új fel/le animáció."
 
 #~ msgid "Saving HTML Gallery"
 #~ msgstr "HTML galéria mentése"

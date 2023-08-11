@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gdash export-1.8.3-fork\n"
+"Project-Id-Version: gdash export-1.8.5-fork\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-08-09 14:44+0200\n"
+"POT-Creation-Date: 2023-08-11 11:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgstr ""
 msgid "GDash Preferences"
 msgstr ""
 
-#: src/gtk/gtkuisettings.cpp:380
+#: src/gtk/gtkuisettings.cpp:381
 msgid "_Add theme"
 msgstr ""
 
@@ -1486,16 +1486,16 @@ msgid ""
 "element."
 msgstr ""
 
-#: src/misc/helptext.cpp:454
+#: src/misc/helptext.cpp:454 src/editor/editor.cpp:3307
 msgid "Cave properties"
 msgstr ""
 
 #: src/misc/helptext.cpp:454
 msgid ""
-"To view cave properties, select Edit|Cave properties from the menu. A dialog "
-"will pop up with many different options. Those are not explained here; most "
-"of the settings also have a long explanation, which shows up if you point to "
-"them with your mouse."
+"To view cave properties, select Edit|Cave|Cave properties from the menu. A "
+"dialog will pop up with many different options. Those are not explained "
+"here; most of the settings also have a long explanation, which shows up if "
+"you point to them with your mouse."
 msgstr ""
 
 #: src/misc/helptext.cpp:456
@@ -6720,10 +6720,6 @@ msgstr ""
 
 #: src/editor/editor.cpp:3307
 msgid "Ca_ve properties"
-msgstr ""
-
-#: src/editor/editor.cpp:3307
-msgid "Cave settings"
 msgstr ""
 
 #: src/editor/editor.cpp:3308

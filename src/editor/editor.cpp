@@ -3304,7 +3304,7 @@ static const GtkActionEntry action_entries_edit_cave[] = {
     {"NextCave", GTK_STOCK_GO_FORWARD, N_("_Next cave"), "Page_Down", N_("Next cave"), G_CALLBACK(next_cave_cb)},
     {"PreviousCave", GTK_STOCK_GO_BACK, N_("_Previous cave"), "Page_Up", N_("Previous cave"), G_CALLBACK(previous_cave_cb)},
     {"Test", GTK_STOCK_MEDIA_PLAY, N_("_Test"), "<control>T", N_("Test cave"), G_CALLBACK(play_level_cb)},
-    {"CaveProperties", GTK_STOCK_PROPERTIES, N_("Ca_ve properties"), NULL, N_("Cave settings"), G_CALLBACK(cave_properties_cb)},
+    {"CaveProperties", GTK_STOCK_PROPERTIES, N_("Ca_ve properties"), NULL, N_("Cave properties"), G_CALLBACK(cave_properties_cb)},
     {"ElementStatistics", GD_ICON_STATISTICS, N_("_Element statistics"), NULL, N_("Element statistics: number and ratio of elements"), G_CALLBACK(element_statistics_cb)},
     {"EngineDefaults", NULL, N_("Set engine defaults")},
     {"CaveColors", GTK_STOCK_SELECT_COLOR, N_("Cave co_lors"), NULL, N_("Select cave colors"), G_CALLBACK(cave_colors_cb)},
