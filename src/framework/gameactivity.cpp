@@ -76,7 +76,7 @@ static std::string info_and_variables_of_cave(CaveStored const *cavestored, Cave
         s += "\n";
     }
 
-    s += Printf("%cCave internals:\n", GD_COLOR_INDEX_WHITE);
+    s += Printf(_("%cCave internals:\n"), GD_COLOR_INDEX_WHITE);
     s += Printf(_("%cSpeed %c%dms\n%cAmoeba 1 %c%ds, %s\n%cAmoeba 2 %c%ds, %s\n%cMagic wall %c%ds, %s\n"
                    "%cExpanding wall %c%s\n%cCreatures %c%ds, %s\n%cGravity %c%s\n"
                    "%cKill player %c%s\n%cSweet eaten %c%s\n%cDiamond key %c%s\n%cDiamonds collected %c%d"),
