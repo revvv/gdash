@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-08-11 11:16+0200\n"
+"POT-Creation-Date: 2023-08-12 11:09+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -574,7 +574,7 @@ msgstr ""
 "Gegnern berührt werden. Nachdem die korrekte Anzahl an Diamanten "
 "eingesammelt wurde, blitzt der Bildschirm kurz auf. In diesem Moment wird "
 "sich irgendwo in der Höhle eine geheime Tür öffnen, um in die nächste Höhle "
-"gelangen zu können. Im Laufe des Spiels werden die Level normalerweise "
+"gelangen zu können. Im Laufe des Spiels werden die Levels normalerweise "
 "komplizierter und schwieriger werden."
 
 #. TRANSLATORS: Title text capitalization in English
@@ -691,7 +691,7 @@ msgid ""
 "Stones can be pushed by the player, and he can drop them on flies to make an "
 "explosion."
 msgstr ""
-"Felsbrocken können von der Spielfigur verschoben werden. Außerdem kann sie "
+"Felsbrocken können von der Spielfigur verschoben werden. Außerdem kann man "
 "sie auf Glühwürmchen und Schmetterlinge fallen lassen, um sie explodieren zu "
 "lassen."
 
@@ -1193,7 +1193,7 @@ msgstr ""
 msgid ""
 "The conveyor belts also have a switch which can completely stop their action."
 msgstr ""
-"Das Förderband besitzt auch einen Schalter um es komplett abzuschalten."
+"Das Förderband besitzt auch einen Schalter, um es komplett abzuschalten."
 
 #: src/misc/helptext.cpp:289
 msgid "Strange elements"
@@ -1341,7 +1341,7 @@ msgstr ""
 "Sammeln Sie nicht blind alle Diamanten ein. Manche sind nur ein "
 "Ablenkungsmanöver, andere sind unerreichbar oder Teil einer Falle. Und "
 "glauben Sie es oder nicht - manchmal sind die Diamanten an der Stelle, an "
-"der sie sich befinden, auf Grund eines gemeinen Rätsels nützlicher, als wenn "
+"der sie sich befinden, auf Grund eines gemeinen Rätsels nützlicher als wenn "
 "sie eingesammelt werden würden."
 
 #: src/misc/helptext.cpp:309
@@ -6256,6 +6256,11 @@ msgstr "aktiv"
 #: src/framework/gameactivity.cpp:65
 msgid "expired"
 msgstr "abgelaufen"
+
+#: src/framework/gameactivity.cpp:79
+#, c-format
+msgid "%cCave internals:\n"
+msgstr "%cHöhlen-Interna:\n"
 
 #: src/framework/gameactivity.cpp:80
 #, c-format

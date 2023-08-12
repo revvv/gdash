@@ -1,0 +1,805 @@
+[BDCFF]
+Version=0.5
+[game]
+Name=Boulder Dash 2 Atari
+TitleScreen=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
+Levels=5
+
+[cave]
+Name=Cave A
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atari56 Atari56
+DiamondsRequired=10 10 10 20 20
+DiamondValue=15 15
+CaveTime=240 160 120 100 100
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=11 12 13 14 15
+RandomFill=BOULDER 50 DIAMOND 5 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=25 25 25 25 25
+MagicWallTime=25 25 25 25 25
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=19 1 19 11 WALL
+Line=1 11 19 11 WALL
+Line=3 6 16 6 DIRT
+Line=3 7 16 7 MAGICWALL
+Line=3 10 16 10 DIRT
+Line=33 1 33 16 STEELWALL
+Point=20 5 BOULDER
+FillRect=21 1 32 16 DIRT
+Line=33 16 14 16 STEELWALL
+FillRect=15 17 38 20 SPACE
+Raster=16 17 4 1 6 1 FIREFLYr
+Raster=18 17 4 4 6 1 DIRT
+Raster=22 1 6 3 2 2 MAGICWALL
+Raster=23 1 3 3 4 2 MAGICWALL
+Raster=22 2 3 1 4 1 MAGICWALL
+Point=28 4 MAGICWALL
+Point=32 4 MAGICWALL
+Point=22 4 MAGICWALL
+Line=23 5 24 5 DIRT
+Point=37 3 INBOX
+Point=5 18 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave B
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari36 Atari76 Atari7c Atarid4 Atarid4
+DiamondsRequired=75 80 85 90 95
+DiamondValue=3 10
+CaveTime=200 190 180 170 160
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=100 137 140 251 51
+RandomFill=BOULDER 254 AMOEBA 127 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=25 25 25 25 25
+MagicWallTime=25 25 25 25 25
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=1 15 30 15 STEELWALL
+FillRect=1 16 38 20 SPACE
+FillRect=1 0 7 15 STEELWALL
+FillRect=11 0 17 15 STEELWALL
+FillRect=21 0 27 15 STEELWALL
+FillRect=31 0 38 15 STEELWALL
+Raster=9 14 3 1 10 1 BOULDER
+Raster=9 15 3 1 10 1 DIRT
+Line=1 1 38 1 BOULDER
+Line=1 2 38 2 DIRT
+Line=1 3 38 3 DIRT
+Rectangle=2 1 3 15 SPACE
+Rectangle=36 1 37 15 SPACE
+Point=3 16 INBOX
+Point=38 16 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave C
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari74 Atari36 Atari3e Atari66 Atari66
+DiamondsRequired=16 12 18 15 15
+DiamondValue=25 50
+CaveTime=150 150 150 150 200
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=24 45 52 30 40
+RandomFill=SPACE 120 BOULDER 50 FIREFLYl 15 DIAMOND 9
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=7 4 38 4 STEELWALL
+Line=7 4 7 15 STEELWALL
+Line=7 16 32 16 STEELWALL
+Line=32 16 32 9 STEELWALL
+Line=14 8 32 8 STEELWALL
+Line=14 8 14 12 STEELWALL
+Line=14 12 25 12 STEELWALL
+Point=37 3 INBOX
+Point=18 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave D
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari26 Atari2e Atarid4 Atarid4
+DiamondsRequired=50 52 54 56 58
+DiamondValue=5 8
+CaveTime=80 70 60 50 40
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=140 140 140 140 140
+MagicWallTime=140 140 140 140 140
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=5 2 14 2 FIREFLYl
+Point=15 2 BOULDER
+Line=5 5 14 5 FIREFLYl
+Point=15 5 BOULDER
+Line=5 8 14 8 FIREFLYl
+Point=15 8 BOULDER
+Rectangle=22 1 23 20 AMOEBA
+Line=21 10 21 20 WALL
+FillRect=24 1 38 20 DIAMOND DIRT
+Rectangle=18 10 20 12 DIRT
+Point=19 11 INBOX
+Point=1 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 1
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atarif6 Atari44 Atari7c Ataria6 Ataria6
+DiamondsRequired=1 1 1 1 1
+DiamondValue=30 30
+CaveTime=20 20 20 20 20
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL DIRT
+FillRect=5 2 11 8 BOULDER FIREFLYl
+Point=8 5 DIAMOND
+Point=3 3 INBOX
+Point=2 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave E
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari06 Atari26 Atarifc Atari72 Atari72
+DiamondsRequired=5 8 10 10 10
+DiamondValue=20 40
+CaveTime=30 30 30 30 30
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=30 31 32 33 34
+RandomFill=BOULDER 255 DIAMOND 127 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=2 2 2 2 2
+MagicWallTime=2 2 2 2 2
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=224 224 224 224 224
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 7 38 20 SPACE
+FillRect=20 1 38 20 DIRT
+Raster=1 5 19 3 1 2 SLIME
+Line=1 18 19 18 SLIME
+Line=1 20 19 20 MAGICWALL
+Point=3 17 INBOX
+Point=35 18 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave F
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari14 Atari56 Atari4c Atari16 Atari16
+DiamondsRequired=30 40 32 32 42
+DiamondValue=5 80
+CaveTime=200 200 200 200 200
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=10 11 12 13 14
+RandomFill=BOULDER 220 DIAMOND 80 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+FillRect=1 10 38 12 DIRT WALL
+FillRect=1 1 15 20 DIRT
+FillRect=25 1 38 20 DIRT
+Line=14 2 14 19 WALL
+Line=26 2 26 19 WALL
+Point=1 2 INBOX
+Point=2 5 OUTBOX
+FillRect=4 1 8 20 SPACE
+Line=3 2 3 20 STEELWALL
+Line=9 1 9 19 STEELWALL
+Raster=5 3 3 6 1 3 STEELWALL
+Raster=6 2 1 3 1 6 FIREFLYl
+Raster=6 7 1 3 1 6 FIREFLYr
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave G
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari44 Atari76 Ataricc Atarif6 Atarif6
+DiamondsRequired=8 14 15 15 12
+DiamondValue=20 50
+CaveTime=200 180 180 150 150
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=10 11 15 13 14
+RandomFill=SPACE 120 BOULDER 50 FIREFLYl 15 DIAMOND 9
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Raster=2 2 9 5 4 4 WALL
+Raster=3 2 9 5 4 4 WALL
+Add=0 1 FIREFLYl BOULDER
+FillRect=11 4 23 13 WALL SPACE
+Line=11 5 25 5 BOULDER
+Line=11 6 25 6 DIRT
+Raster=11 5 5 8 3 1 WALL
+Rectangle=0 0 39 21 STEELWALL
+Point=9 11 INBOX
+Point=12 11 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave H
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari34 Atari96 Atari7c Atarid4 Atarid4
+DiamondsRequired=30 40 50 60 70
+DiamondValue=5 10
+CaveTime=200 160 120 100 80
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=120 120 120 120 120
+MagicWallTime=120 120 120 120 120
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=2 2 13 9 SPACE
+Raster=4 9 5 1 2 1 BUTTERFLYl
+Raster=13 2 1 4 1 2 BUTTERFLYd
+Raster=3 2 5 1 2 1 BUTTERFLYr
+Line=20 1 20 15 WALL
+Line=25 1 34 1 AMOEBA
+Point=1 1 INBOX
+Point=19 4 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 2
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atarib4 Atari36 Atari7c Atarib6 Atarib6
+DiamondsRequired=6 6 6 6 6
+DiamondValue=10 0
+CaveTime=30 25 20 20 20
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL DIRT
+FillRect=3 3 5 5 SPACE DIAMOND
+FillRect=8 3 10 5 SPACE DIAMOND
+FillRect=13 3 15 5 SPACE DIAMOND
+FillRect=3 7 5 9 SPACE DIAMOND
+FillRect=8 7 10 9 SPACE DIAMOND
+FillRect=13 7 15 9 SPACE DIAMOND
+Raster=5 3 3 1 5 1 FIREFLYl
+Raster=3 7 3 1 5 1 BUTTERFLYd
+Point=1 2 INBOX
+Point=18 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave I
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari04 Atari26 Atari2c Atari56 Atari56
+DiamondsRequired=75 75 75 75 75
+DiamondValue=5 50
+CaveTime=160 140 120 100 80
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 1 38 20 SPACE
+Raster=3 2 17 5 2 4 DIAMOND
+Raster=4 2 17 5 2 4 DIRT
+Raster=3 3 34 5 1 4 STEELWALL
+Rectangle=12 1 13 8 SPACE
+Rectangle=28 1 29 8 SPACE
+Raster=4 1 1 5 1 4 FIREFLYl
+Raster=20 1 1 5 1 4 FIREFLYl
+Raster=36 1 1 5 1 4 FIREFLYl
+FillRect=17 9 22 20 SPACE
+Line=19 10 19 19 STEELWALL
+Raster=20 10 1 5 1 2 DIAMOND
+Raster=20 11 1 5 1 2 DIRT
+Point=19 9 FIREFLYl
+Point=1 13 INBOX
+Point=38 13 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave J
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari84 Atari16 Atari0c Atari46 Atari46
+DiamondsRequired=18 27 36 45 54
+DiamondValue=5 10
+CaveTime=200 180 160 140 120
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=1 2 3 4 5
+RandomFill=BOULDER 1 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Raster=3 3 4 2 7 9 FIREFLYl
+Raster=4 3 4 2 7 9 BUTTERFLYd
+Raster=3 4 4 2 7 9 BOULDER
+Raster=4 4 4 2 7 9 BOULDER
+Point=7 10 INBOX
+Point=30 15 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave K
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari34 Atari76 Atari7c Atari86 Atari86
+DiamondsRequired=21 24 19 23 27
+DiamondValue=15 30
+CaveTime=60 60 60 60 60
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=10 11 12 13 15
+RandomFill=DIAMOND 15 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=2 2 2 2 2
+MagicWallTime=2 2 2 2 2
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+Line=1 1 25 1 FIREFLYl
+Line=1 2 38 2 DIRT
+Point=10 2 BOULDER
+FillRect=9 3 11 5 WALL SPACE
+Line=9 3 11 3 DIRT
+Add=0 1 DIAMOND MAGICWALL
+Point=10 3 INBOX
+Point=35 18 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave L
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari24 Atari56 Atari2c Atari96 Atari96
+DiamondsRequired=35 36 33 37 34
+DiamondValue=15 15
+CaveTime=240 220 200 170 150
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=12 8 7 9 11
+RandomFill=BOULDER 90 DIAMOND 20 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=75 75 75 75 75
+MagicWallTime=75 75 75 75 75
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Raster=1 6 36 3 1 6 WALL
+Raster=6 1 6 18 6 1 WALL
+Raster=3 6 6 3 6 6 SPACE
+Raster=6 3 6 3 6 6 SPACE
+Line=38 1 38 20 DIRT
+Line=1 20 38 20 DIRT
+Point=21 3 INBOX
+Point=37 6 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 3
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atari84 Atari08 Atari2c Ataric6 Ataric6
+DiamondsRequired=2 2 2 2 2
+DiamondValue=25 60
+CaveTime=30 25 20 20 20
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL SPACE
+Line=3 1 11 9 FIREFLYl
+Line=13 7 17 3 FIREFLYl
+Raster=2 1 9 10 2 1 DIRT
+Point=14 5 DIAMOND
+Point=16 5 DIAMOND
+Point=1 2 INBOX
+Point=18 5 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave M
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atarid4 Atari26 Atari5c Atari72 Atari72
+DiamondsRequired=1 20 20 40 50
+DiamondValue=2 10
+CaveTime=200 200 200 200 180
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=137 140 100 251 51
+RandomFill=BOULDER 255 DIAMOND 127 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=5 5 5 5 5
+MagicWallTime=5 5 5 5 5
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 16 38 20 BOULDER
+Raster=2 1 19 9 2 2 STEELWALL
+Raster=2 2 19 9 2 2 DIRT
+Line=1 18 38 18 SLIME
+Rectangle=1 19 38 20 DIRT
+Rectangle=37 1 38 20 DIRT
+Point=2 19 INBOX
+Point=2 13 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave N
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataric4 Atari46 Atari4c Ataria6 Ataria6
+DiamondsRequired=21 21 21 21 21
+DiamondValue=20 1
+CaveTime=200 180 160 140 120
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=15 16 17 18 19
+RandomFill=BOULDER 60 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 SPACE
+Rectangle=2 2 37 13 DIRT
+FillRect=1 14 38 20 SPACE
+Raster=1 19 9 1 2 1 FIREFLYl
+Raster=1 20 19 1 2 1 FIREFLYl
+FillRect=19 14 21 20 DIRT SPACE
+Raster=5 2 7 3 5 4 DIAMOND
+Point=20 17 INBOX
+Point=20 19 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave O
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari84 Atarie6 Atari0c Atari26 Atari26
+DiamondsRequired=36 36 36 36 36
+DiamondValue=10 10
+CaveTime=200 150 133 125 120
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=10 10 10 10 10
+MagicWallTime=10 10 10 10 10
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=3 6 9 12 DIRT SPACE
+Point=4 8 BUTTERFLYd
+Point=6 5 BOULDER
+FillRect=12 6 18 15 WALL DIRT
+Line=12 16 18 16 WALL
+FillRect=13 7 17 11 SPACE
+Line=13 6 17 6 DIRT
+Raster=12 6 4 1 2 1 HEXPANDINGWALL
+Point=13 8 BUTTERFLYd
+Point=15 7 DIRT
+Point=15 6 BOULDER
+FillRect=19 8 28 16 SPACE
+FillRect=21 9 27 15 DIRT SPACE
+Line=20 9 27 9 WALL
+Point=22 11 BUTTERFLYd
+Point=24 1 BOULDER
+Point=24 3 BOULDER
+FillRect=30 6 36 12 DIRT SPACE
+Point=31 8 BUTTERFLYd
+Point=30 7 BOULDER
+Line=30 12 36 12 MAGICWALL
+Line=30 13 36 13 MAGICWALL
+Point=3 18 INBOX
+Point=38 3 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave P
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari14 Atari46 Atari3c Atari36 Atari36
+DiamondsRequired=20 15 17 15 20
+DiamondValue=10 40
+CaveTime=200 200 200 200 200
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 189 BOULDER 179 DIAMOND 19 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+Point=3 2 INBOX
+Point=20 11 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 4
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atarid6 Atari36 Atari7c Atarie6 Atarie6
+DiamondsRequired=1 1 1 1 1
+DiamondValue=10 20
+CaveTime=20 20 20 20 20
+CaveScheduling=bd2ckatari
+PALTiming=true
+CaveDelay=9 8 7 6 6
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL DIRT
+FillRect=6 5 8 7 SPACE BOULDER
+FillRect=10 2 12 4 SPACE DIAMOND
+Point=12 2 FIREFLYl
+Point=2 1 INBOX
+FillRect=10 8 12 10 FIREFLYl OUTBOX
+Line=12 8 12 10 STEELWALL
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]

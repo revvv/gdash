@@ -1,0 +1,858 @@
+[BDCFF]
+Version=0.5
+[game]
+Name=Boulder Dash 1 Atari
+TitleScreen=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
+TitleScreenScroll=iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAFJJREFUGNNjdG5b9Z8BD2BBF3jy4B4DAwMDw6SZ5dgVwEBX+2rsCm7OqoAw0jqwK3BuW4XqBnQ7YUZjOBJdAgYYGRgY/jMwMDCoQ+2UUVBCUQAAMc8XB+zlelIAAAAASUVORK5CYII=
+Levels=5
+
+[cave]
+[highscore]
+339 Czirkos Zoltan
+337 Czirkos Zoltan
+[/highscore]
+Name=Cave A
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari20 Atari20 Atari26 Atari06 Atari0c Atarid4 Atarid4
+DiamondsRequired=12 12 12 12 12
+DiamondValue=10 15
+CaveTime=150 110 70 40 30
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=1 7 30 7 WALL
+Line=9 14 38 14 WALL
+Point=3 2 INBOX
+Point=38 16 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+364 Czirkos Zoltan
+323 Czirkos Zoltan
+[/highscore]
+Name=Cave B
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari44 Atari76 Ataricc Atari04 Atari04
+DiamondsRequired=10 12 9 13 10
+DiamondValue=20 50
+CaveTime=150 110 70 70 70
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=3 0 1 87 88
+RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 FIREFLYl 2
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=1 6 38 6 WALL
+Line=1 13 38 13 WALL
+Line=8 1 8 20 WALL
+Line=16 1 16 20 WALL
+Line=24 1 24 20 WALL
+Line=32 1 32 20 WALL
+Line=1 3 38 3 SPACE
+Line=1 9 38 9 SPACE
+Line=1 16 38 16 SPACE
+Line=20 1 20 20 SPACE
+Point=18 19 INBOX
+Point=18 20 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+469 Czirkos Zoltan
+464 Czirkos Zoltan
+[/highscore]
+Name=Cave C
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataric4 Atari46 Atari4c Atari04 Atari04
+DiamondsRequired=24 23 24 23 21
+DiamondValue=15 0
+CaveTime=150 100 90 80 70
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 50 54 52 55
+RandomFill=WALL 100 BOULDER 50 DIAMOND 9 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=3 2 INBOX
+Point=39 18 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+271 Czirkos Zoltan
+[/highscore]
+Name=Cave D
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari74 Atari36 Atari3c Atarid4 Atarid4
+DiamondsRequired=36 36 36 36 36
+DiamondValue=5 20
+CaveTime=120 100 80 60 50
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 110 112 115 119
+RandomFill=BOULDER 20 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMOND 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=1 1 INBOX
+Point=38 20 OUTBOX
+FillRect=8 8 11 11 DIRT SPACE
+Point=10 9 BUTTERFLYd
+FillRect=16 8 19 11 DIRT SPACE
+Point=18 9 BUTTERFLYd
+FillRect=24 8 27 11 DIRT SPACE
+Point=26 9 BUTTERFLYd
+FillRect=32 8 35 11 DIRT SPACE
+Point=34 9 BUTTERFLYd
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 1
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atari76 Atari44 Atari7c Atari04 Atari04
+DiamondsRequired=6 6 6 6 6
+DiamondValue=30 0
+CaveTime=10 10 10 10 10
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 255 DIAMOND 9 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=UNKNOWN 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL SPACE
+Point=10 10 BUTTERFLYu
+Point=10 2 BOULDER
+Point=10 3 DIRT
+Point=3 3 INBOX
+Point=18 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+705 Czirkos Zoltan
+[/highscore]
+Name=Cave E
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari14 Atari56 Atari4c Atari04 Atari04
+DiamondsRequired=4 5 6 7 8
+DiamondValue=50 90
+CaveTime=150 120 90 60 30
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=1 1 INBOX
+Point=39 20 OUTBOX
+FillRect=8 8 10 10 SPACE
+FillRect=16 8 18 10 SPACE
+FillRect=24 8 26 10 SPACE
+FillRect=32 8 34 10 SPACE
+Point=9 10 DIAMOND
+Point=10 8 FIREFLYl
+Point=17 10 DIAMOND
+Point=18 8 FIREFLYl
+Point=25 10 DIAMOND
+Point=26 8 FIREFLYl
+Point=33 10 DIAMOND
+Point=34 8 FIREFLYl
+FillRect=8 14 10 16 SPACE
+FillRect=16 14 18 16 SPACE
+FillRect=24 14 26 16 SPACE
+FillRect=32 14 34 16 SPACE
+Point=9 16 DIAMOND
+Point=10 14 FIREFLYl
+Point=17 16 DIAMOND
+Point=18 14 FIREFLYl
+Point=25 16 DIAMOND
+Point=26 14 FIREFLYl
+Point=33 16 DIAMOND
+Point=34 14 FIREFLYl
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+388 Czirkos Zoltan
+[/highscore]
+Name=Cave F
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari84 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=4 6 7 8 8
+DiamondValue=40 60
+CaveTime=150 120 100 90 80
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 20 21 22 23
+RandomFill=BOULDER 50 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=BUTTERFLYu 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 1 10 4 WALL SPACE
+FillRect=1 4 10 7 WALL SPACE
+FillRect=1 7 10 10 WALL SPACE
+FillRect=1 10 10 13 WALL SPACE
+Line=10 1 10 13 DIRT
+Point=3 3 DIAMOND
+Point=4 3 FIREFLYl
+Point=3 6 DIAMOND
+Point=4 6 FIREFLYl
+Point=3 9 DIAMOND
+Point=4 9 FIREFLYl
+Point=3 12 DIAMOND
+Point=4 12 FIREFLYl
+FillRect=29 1 38 4 WALL SPACE
+FillRect=29 4 38 7 WALL SPACE
+FillRect=29 7 38 10 WALL SPACE
+FillRect=29 10 38 13 WALL SPACE
+Line=29 1 29 13 DIRT
+Point=36 3 DIAMOND
+Point=35 3 FIREFLYl
+Point=36 6 DIAMOND
+Point=35 6 FIREFLYl
+Point=36 9 DIAMOND
+Point=35 9 FIREFLYl
+Point=36 12 DIAMOND
+Point=35 12 FIREFLYl
+Point=3 18 INBOX
+Point=38 18 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+545 Czirkos Zoltan
+[/highscore]
+Name=Cave G
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari24 Atari46 Atari3c Atarid4 Atarid4
+DiamondsRequired=15 20 25 25 25
+DiamondValue=10 20
+CaveTime=120 120 120 120 120
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=2 7 8 10 9
+RandomFill=SPACE 100 BOULDER 40 FIREFLYl 2 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=75 75 75 75 75
+MagicWallTime=75 75 75 75 75
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=1 5 12 5 WALL
+Line=28 3 38 3 WALL
+Line=19 19 20 19 AMOEBA
+Point=4 4 DIAMOND
+Point=4 12 DIAMOND
+Point=4 20 DIAMOND
+Point=34 2 DIAMOND
+Point=34 10 DIAMOND
+Point=34 20 DIAMOND
+Point=20 1 INBOX
+Point=39 5 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+551 Czirkos Zoltan
+[/highscore]
+Name=Cave H
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari34 Atari96 Atari7c Atari04 Atari04
+DiamondsRequired=10 15 20 20 20
+DiamondValue=10 20
+CaveTime=120 110 100 90 80
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=1 3 4 5 6
+RandomFill=SPACE 90 BOULDER 50 FIREFLYl 2 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=EXPLOSION1 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=4 4 DIAMOND
+Point=34 2 DIAMOND
+Point=34 10 DIAMOND
+Point=0 3 OUTBOX
+Point=20 1 INBOX
+Line=1 5 12 5 WALL
+Line=1 13 12 13 WALL
+Line=28 3 38 3 WALL
+Line=28 11 38 11 WALL
+Line=14 15 21 15 MAGICWALL
+Point=12 14 DIAMOND
+Point=14 16 SPACE
+Point=19 16 DIAMOND
+Line=14 13 21 13 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 2
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atari74 Atari08 Atari2c Atari00 Atari00
+DiamondsRequired=16 16 16 16 16
+DiamondValue=10 0
+CaveTime=15 15 15 15 15
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.0000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL DIRT
+Line=1 1 9 9 BOULDER
+Line=2 1 9 8 FIREFLYl
+Line=1 3 8 10 DIAMOND
+Line=1 4 7 10 BOULDER
+Line=18 1 10 9 BOULDER
+Line=18 3 11 10 DIAMOND
+Line=18 4 12 10 BOULDER
+Point=1 2 INBOX
+Point=18 2 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+922 Czirkos Zoltan
+[/highscore]
+Name=Cave I
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari30 Atari30 Atari36 Atari76 Atari7c Atari04 Atari04
+DiamondsRequired=75 75 80 85 90
+DiamondValue=5 10
+CaveTime=150 150 130 130 120
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=100 137 140 251 51
+RandomFill=BOULDER 240 DIAMOND 120 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=BUTTERFLYd 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=5 8 17 20 WALL SPACE
+Point=12 8 DIRT
+FillRect=25 8 37 20 WALL SPACE
+Point=31 8 DIRT
+Line=17 16 25 16 WALL
+Line=17 17 25 17 SPACE
+Point=7 10 INBOX
+Point=8 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave J
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari84 Atari26 Atari0c Atarid4 Atarid4
+DiamondsRequired=12 12 12 12 12
+DiamondValue=25 60
+CaveTime=150 130 120 110 100
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=13 1 INBOX
+Point=39 20 OUTBOX
+Line=5 2 21 18 DIAMOND
+Line=21 2 5 18 DIAMOND
+FillRect=5 9 21 11 SPACE FIREFLYl
+Rectangle=1 2 21 18 WALL
+Point=13 2 SPACE
+Rectangle=7 4 19 16 WALL
+Point=13 4 SPACE
+Rectangle=9 6 17 14 WALL
+Point=13 6 SPACE
+Rectangle=11 8 15 12 WALL
+Point=13 8 SPACE
+FillRect=3 4 5 18 WALL FIREFLYl
+Point=4 4 SPACE
+Line=4 14 4 17 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave K
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari04 Atari26 Atari2c Atari00 Atari00
+DiamondsRequired=6 6 6 6 6
+DiamondValue=50 0
+CaveTime=120 120 150 150 240
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 4 102 151 100
+RandomFill=SPACE 100 BOULDER 80 FIREFLYl 2 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.0000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=10 1 10 9 WALL
+Line=20 1 20 9 WALL
+Line=30 1 30 9 WALL
+Line=9 20 9 12 WALL
+Line=12 13 28 13 WALL
+Line=5 9 13 9 WALL
+Line=15 9 23 9 WALL
+Line=25 9 33 9 WALL
+Line=28 17 38 7 WALL
+Point=4 1 DIAMOND
+Point=14 1 DIAMOND
+Point=24 1 DIAMOND
+Point=34 1 DIAMOND
+Point=4 20 DIAMOND
+Point=35 19 DIAMOND
+Point=20 18 INBOX
+Point=38 15 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave L
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari06 Atari54 Atari5a Atarid4 Atarid4
+DiamondsRequired=19 19 14 16 21
+DiamondValue=20 0
+CaveTime=180 170 160 160 160
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 60 2 59 102
+RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=10 3 10 20 WALL
+Line=14 3 14 20 WALL
+Line=18 3 18 20 WALL
+Line=22 3 22 20 WALL
+Line=2 4 12 4 WALL
+Line=2 8 12 8 WALL
+Line=2 12 16 12 WALL
+Line=2 16 12 16 WALL
+FillRect=30 2 33 5 DIRT SPACE
+Point=32 3 FIREFLYl
+FillRect=30 7 33 10 DIRT SPACE
+Point=32 8 FIREFLYl
+FillRect=30 12 33 15 DIRT SPACE
+Point=32 13 FIREFLYl
+Point=3 18 INBOX
+Point=39 20 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 3
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atari76 Atari36 Atari7c Atari14 Atari14
+DiamondsRequired=14 14 14 14 14
+DiamondValue=10 0
+CaveTime=20 20 20 20 20
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=4 4 4 4 4
+MagicWallTime=4 4 4 4 4
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.0784
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL SPACE
+Line=1 10 18 10 DIAMOND
+FillRect=15 7 18 10 FIREFLYl
+Point=8 1 INBOX
+Point=18 5 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave M
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari74 Atari26 Atari2c Atarid4 Atarid4
+DiamondsRequired=50 55 60 70 80
+DiamondValue=5 8
+CaveTime=160 155 150 145 140
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandomFill=BOULDER 40 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=140 140 140 140 140
+MagicWallTime=140 140 140 140 140
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=GUYBIRTH3 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=18 1 INBOX
+Point=10 1 OUTBOX
+Point=20 1 AMOEBA
+Line=5 16 34 16 WALL
+Line=5 17 34 17 BUTTERFLYd
+Line=5 18 34 18 BOULDER
+Rectangle=5 19 34 20 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave N
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari06 Atari26 Atarifc Atari00 Atari00
+DiamondsRequired=30 35 40 42 45
+DiamondValue=10 20
+CaveTime=150 145 140 135 130
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=BOULDER 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.0000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=10 8 22 20 DIRT SPACE
+Line=11 9 22 20 BUTTERFLYd
+Rectangle=12 8 14 20 DIRT
+Rectangle=16 8 18 20 DIRT
+Rectangle=20 8 22 20 DIRT
+Line=22 6 33 6 BOULDER
+Line=22 5 33 5 FIREFLYl
+Rectangle=23 4 25 7 DIRT
+Rectangle=27 4 29 7 DIRT
+Rectangle=31 4 33 7 DIRT
+Point=3 1 INBOX
+Point=39 18 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave O
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari36 Atari76 Atari7c Atari04 Atari04
+DiamondsRequired=15 20 20 25 30
+DiamondValue=10 20
+CaveTime=120 120 120 120 140
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=1 29 30 31 32
+RandomFill=SPACE 100 BOULDER 80 FIREFLYl 2 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=8 8 8 8 8
+MagicWallTime=8 8 8 8 8
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=2 2 11 11 WALL
+Line=15 11 24 2 WALL
+Line=12 12 14 12 DIRT
+Line=12 13 14 13 MAGICWALL
+Point=20 20 OUTBOX
+Point=20 1 INBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave P
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Atari24 Atari56 Atari2c Atarid4 Atarid4
+DiamondsRequired=12 15 15 15 12
+DiamondValue=10 20
+CaveTime=150 150 150 150 150
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=1 120 129 126 123
+RandomFill=BOULDER 50 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=BUTTERFLYu 0.8314
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=1 1 INBOX
+Point=39 2 OUTBOX
+FillRect=8 17 11 20 DIRT SPACE
+Point=10 18 FIREFLYl
+Rectangle=7 8 12 15 WALL
+Line=7 8 12 8 MAGICWALL
+FillRect=16 17 19 20 DIRT SPACE
+Point=18 18 FIREFLYl
+Rectangle=15 8 20 15 WALL
+Line=15 8 20 8 MAGICWALL
+FillRect=24 17 27 20 DIRT SPACE
+Point=26 18 FIREFLYl
+FillRect=32 17 35 20 DIRT SPACE
+Point=34 18 FIREFLYl
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 4
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Atari00 Atari00 Atari74 Atari36 Atari7c Atari04 Atari04
+DiamondsRequired=6 6 6 6 6
+DiamondValue=30 0
+CaveTime=20 20 20 20 20
+CaveScheduling=bd1atari
+PALTiming=true
+CaveDelay=12 6 3 1 0
+FrameTime=200 200 200 200 200
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=3 3 3 3 3
+MagicWallTime=3 3 3 3 3
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.0157
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL DIRT
+Rectangle=11 1 13 2 BOULDER
+FillRect=11 5 13 10 SPACE
+Line=11 4 13 4 MAGICWALL
+Line=11 8 13 8 MAGICWALL
+Line=8 5 10 7 BOULDER
+Point=3 1 INBOX
+Point=9 8 OUTBOX
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]
