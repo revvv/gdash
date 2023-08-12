@@ -1,0 +1,2143 @@
+[BDCFF]
+Version=0.5
+[game]
+Name=Rockford's Tale
+Author=Dustin
+Lives=5 99
+TitleScreen=iVBORw0KGgoAAAANSUhEUgAAAUAAAAC+CAYAAABEf9Z3AAAABHNCSVQICAgIfAhkiAAAB7lJREFUeNrt3c9u3EQcB/Ax2idIeiHi0At9ARAn1BMF8QRFvZaKx4DyFIlor5Q+AVLLqeLIE5QLp3DiGcwhWZQs8Y7tGdtjz+cjVVWyG2fW6/3mN39sN23btgGgQh/YBYAABBCAAAIQQAACbNGux3MauwlYqVYFCDCmAmwaBSCw0vIvssxZBQhUSwACAhCgNrscGzkJ5+1nn3wVQgjh1z/uz/oCGoOUQK0VYHvNWwlU2wUWhEC1ASgIgeoDUBAC1QcggAAEEIAAt+0KaEPSOr7T5qINIYSx6xBPwnnSzye/+Mg6xtT2pW5/6falmvr9TW3/1o+/pd9/FSBMyGTbuvefAARBWO3+E4AgCKvdf4sHYNM0Sf/AB9n+UwECCEAAAQhw1OLrADcwTnJ0IDJ1nSLe35T22X8qQAABCCAAAQRgOusUvb8lt2/p9pe+/3ZbPnZ9fIHaAlDwAdUFoOADqgtAwUe1YutoS79v9j/tdwIw9Ri4KwhNQED5Aa0CzByEjeQDenJfYEAACkKgNju7ACjQLENZAhCoLvgEIFBt8JUUgIveFxgER73tVwECS1p0Ha8ABIoJwrnX8bocFlBOCrovsPsCQ67PjyBUAQIIQAABCBDcF3jz7d96+6aeNbT/kkW3f9pctO4LDKALDCAAAQQgsE6lr+UVgIAKEEAAAghAAAEIIAABBCCAAARYry1fEt/VUnH8UV0AOvBw/FFdADrwcPwxfwDeO7tsPnrw/vqr+6vaAffOLpsQQii1/dqnfVtv35L5sdkxQDdMwvFHdQHowMPxR3UB6MDD8cfg9y12T4HGOwusVCzfLIQGdIG36iSctyGEsNRdp1TQUC4V4Awl+Npv/QkCEEEIAhBBCAIQQQgCEEAAAghAgPLt7IKopHV8p83FpOsQU9c5pq5TLH2dZen7Z+r2T/36BCCrtp+IsWB7Hb7+9K87v78Pxv3jXUEZe1wAIgjZTFAeBiMCEEG4Wn0rvVjFyBWTIHQGoXWK6w7Km+F4+DUqQKimYkQFOErTNEn/ABUgMENlF6v4VIQCcFUyrAM7WoZOvU4xtX3cvX+6JkEsgxGAoAJUAQpAWLt7Z5chhP/fl/fZkzchhBB++vnLW8/v+n7fxwUgULyuAIsFm+C7zSwwrNCzJ2/+q+b6fL/v4ypAQAUoANmC2FrEk3BedPtq9/7yx6v/X119/eKVfaILDKACJKb083lT2zf1RRucD60CBBCAAAIQQAACCEAAAQggAAEKZx3g9k19PcDkdXinzUW74PUIJ319BVxvERUggAqQzLquVwcqQAABCCAAAYphDHDjpr4eYI7r1S19TcKU/bfm14YKEFAB0sX14KIVjnVuqAABBCCAAAQQgAACEEAAAghAAAEIIAABBCCAAAQQgABZuRjCchq7AASg4AMEoOADBKDgmbP9zcb3b+P4o4tJEEAFuFVrv2/t1O1P3X7p+3fp9rlvsgDkrn5Ro2cEAlDwAQJQ8AEzfy7d9QyolVlgQAACCEAAAQggAAE2qQkhmAVmNl2LDiwTYgnWAVKljz/8ftDz//z7+dGfiz3ed/tD25n6e6fengCEI5Uft4OutgBamjFAQBcY1lT5HW7XGCICkOoCNHfwdY3F5d5u7rHC1DFEAYiAyRgwQyu/oc9X8U2rlmAUgJXbB0lXAA1dtjK2y/vtN78Nev7Tx29H/Z6Xrx8dfTw2yztWrkkNFZ0AZIEgzBV0qcFHv4AcGoRj/6AIQKoOQsGHAEQQCj4EIKzb1LPAh2N4Q2d1u7q8CEBW3CWOiU1egABkc0G49eDrqgjnruxq/QMjAOnFubxskXOBAV1gmKPye/HLFyEEs8EIQIjaL9DdyhjVVGN8zgAZxxWhyVr5DZ0s6VsJmgVGAFJc8D04+yHp9z18+Pmg5++DcO5Ttw4DOPfvn3r7/pAIQDIGYGrwHXbd+n7g5wqKpYJ37t9TO2OALBJ8Y21tTNB+FICsoatwPbaXe/B+v72xlc9SXWIEIBuu/Eq/4KgKBgHIZJVeLofLM7oD93mWSnBogObaHgIQgdf79+VaYF1qJTj3rPHQgEcAMoOuKxTHgnCtY3tdwWSsskzOBWZwl3aKsw7atk2qCp8+fitcEICUWwneNYPcNM3RbvjL14+Mx6ELTHmV4M0ubqpcY5FLjwnOVYWqdlWAbKgSjFEJogJk85Vg7gpJaHb/QUEAsmAleDNAh35wdQEFni4wRVWCJV6TzuwwRytABwc5vXv3+6hKcOhlsUAXmOLsg2xoENbS1cxVcAw906Tr8dq7xrrAFFM51hqaCEA2WAnq1qILDAMrwZtd6am7pAhAmLQSvBlscyk1+Pq2S3DPwz1BmMXQhdJu8zjO1NdRFIAwQxAeBmDs5/qekRJ73uHjXUF8+Phc7VvqD8TYM2tiP9f1eGzWuu/jsfbqArMqfYMxFhB9g64r8HK3b+zr6Ari2Nd9t59rec1hIA29C+DYQIzZlXYOJ1CeWIU29EKwc5/S2FURqgApusLL1dWeq8vYt6AY+7y+r6O0LnRqcE31uACEAUEyd4+p1smg1DHBvj8vAFlV5Td2EmWp15FrsmXo68t9mbLDLuRh8CzdxR1LAMKAgBp7Ga++wT53Vz32uvpOQqRWdGMnSVID9l/i5Q4V9mg7YwAAAABJRU5ErkJggg==
+TitleScreenScroll=iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAFlJREFUGNNjTInc+Z8BCRw6eJSBgYGB4ebTRgYGBgYGFgYcIDVqF3YFt541QRgH67ArSIncicJnQbcTZjRcAbqd6ICRgYHhPwMDA4OaFMROO3trVBPQ7UQHAGZWGOt2UtKnAAAAAElFTkSuQmCC
+Levels=5
+
+[cave]
+[highscore]
+600 Dustin Bachstein
+[/highscore]
+Name=Glamourous Intro
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Welcome to a new Rockford adventure! Or, more precisely, an old one, but with new surprises!\nRockford has become father (Congratulations! :D) and one day his children aksed him about how he became so famous and how his treasur- seeking once begun.\nAnd so Rockford tells them about his very first adventurs in the mid- 1980s, about every single cave of Boulder Dash 1 and 2 which he searched for diamonds. Well, we all know Rockford, and he couldn't help showing off in front of his children. So, in order to dramatise his story a bit, he takes some liberties with the truth...\n\nLet us see what Rockford claims to have experienced! I wish you a lot of fun with the game!\n\nCheers, Dustin
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Gray1 White White White
+DiamondsRequired=60 63 66 69 72
+DiamondValue=5 15
+CaveTime=210 195 189 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=10 11 12 13 14
+RandomFill=DIRT 60 BOULDER 50 DIAMOND 9 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=180 180 180 180 180
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.83140
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.........d.r......r.r............r....W
+W.rPr................rd..r.............W
+W.............r.....r.r..r........r....W
+Wr.rr.........r......r..r....r...r.....W
+Wr..r..........r..r........r......r.rr.W
+W......r........r.....r..r........r.rr.W
+WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...r..r.W
+W.....r..d....r.r..........d.rd........W
+W..d.....r..............rr.r..r....r...W
+W...r..r.r..............r..r..r........W
+W.r.....r........rrr.......r....d....r.W
+W.d.....r........r.rd..d....r...r..d...W
+W..r..............r.r..r........d.....rW
+W........MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW
+W.r.........r...d....r.....r...r.......W
+W.r..........r..r........r......r.rr..XW
+W....r........r.....r.......d...r.rr...W
+W....rd..r........r......r.rd......r...W
+W......r....r.rr.........r.rd.........rW
+W.d......................r..r....r...r.W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+532 Dustin Bachstein
+[/highscore]
+Name=Inhabited Rooms
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Rockford: After I had found out that the first cave's walls were magic, I soon advanced to the next cave, which consisted of small rooms. They were so full of fireflies I nearly didn't know where to hide...
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Purple White White White
+DiamondsRequired=16 18 20 21 22
+DiamondValue=15 50
+CaveTime=180 170 160 150 140
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=3 0 1 87 88
+RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 FIREFLYl 2
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.r..r..w.r...d.w... .r.wr......w..rr..W
+W.......w......rwrr. ...w ..d...w....r.W
+W   Q   d   Q   d   Q   d   Q   d   Q  W
+Wd......w.r....rw.r. .. w..r..d.w..r.r.W
+W.......w.r....rw.r. r..w.....r.w... ..W
+WwwwwwwwwwwwwwwwwwwwdwwwwwwwwwwwwwwwwwwW
+W....rr.w..r....w... ..rw....r..w.....rW
+W.......w.. ....w... ...w....r. w.....rW
+W   Q   d   Q   d   Q   d   Q   d   Q  W
+Wr..r...w....r..w..r ...w......dwr.....W
+Wr....r.w..r..r.w... . rw.......wr...r.W
+W.r.....w...r...w... . rw.......w r..r.W
+WwwwwwwwwwwwwwwwwwwwdwwwwwwwwwwwwwwwwwwW
+Wr.  Q..w....r.rw... ...w.rd..r.w......W
+W.....r.wr......w..d ...w ..r...w.r.rr.W
+W   Q   d   Q   d   Q   d   Q   d   Q  W
+Wd.. .r.wr....r.w.r. ..rw.r.r...w......W
+W.....r.wr..d...w... r..w..r....w...rr W
+W.d... rw..r....w.Pd r..w. .....w...rr W
+W.r.... w.. ..r.w.X. ...w....r.rw.... .W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+487 Dustin Bachstein
+[/highscore]
+Name=Tight Maze
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Now I found myself inside a maze. Rocks and walls everywhere, and I nearly got stuck! But, you know, you have a very clever father, and so I managed to collect all the diamonds and find the exit door!
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Orange White White White
+DiamondsRequired=39 39 39 39 39
+DiamondValue=10 0
+CaveTime=210 195 180 160 140
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 50 54 52 55
+RandomFill=WALL 100 BOULDER 50 DIAMOND 9 SPACE 0
+ActiveGuyIsFirst=false
+MagicWallTime=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.01570
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr.ww.wrrwwr.rrwr..r..r.w...r..w..rw.d.W
+W..Pw.d.r.w..rwww.rw.r....r.rr.r...w.wrW
+W...dwr.rd..rr..ww.....r.wwr..w....w.wwW
+Wd.w..wrwr..r....w...r..r...r.rr.....wwW
+Wrdw.r.w..r.ww..r.wwd.wd..rwrdrrw..r..wW
+Wrrd.r...rw.wwr..w.d.r.rr......r.wdww..W
+W..r.ww..r.rr...w....r.rr...rw.w..rww.rW
+Ww.w...d.d..r.d.r..wwr..r.wrwr..wr..d.rW
+Wrrr....w.ww.rd.rd.wwr..rrwdrw...w.dr.wW
+Wrr.www.r..rrwr..d.wrwr..wrr..wr.rd.r.wW
+Ww.ww...d..rrwr.rr.w.www.dw.dr.ww..r.wwW
+W.w.r.r.w...wwr..r....w...r..w..ww.r.wwW
+Wrw.r.rrw.d.w.wr..wr....rw.r.rr....w..wW
+Wwr.wrwr..rw...w...d...w.rw..dw..w.ww.dW
+Ww...wwr.ww.d...wr..r.r...rrwrr.....w..W
+Ww.d..w.r.ww..r.wwrw.d.rr.r.wr....d.w..W
+Ww.r....w...r......r.rr.r...ww..r.w.r.wW
+Wr.ww..r.ww...w....r.rr.w....w.wrd..r.rX
+Ww.r.r......r.rd......r...ww..wr..d.w..W
+Wrr...w.....rrrd......w..r.wd.d.rw.r...W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+255 Dustin Bachstein
+[/highscore]
+Name=Borderline Butterflies
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Four butterflies awaited me in the next cave. But no weapons against them. How to get my diamonds? Luckily, I found exactly enough rocks, just because of my quite systematic search!
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Orange White White White
+DiamondsRequired=36 36 36 36 36
+DiamondValue=5 20
+CaveTime=150 140 130 120 110
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 110 112 115 119
+RandomFill=DIRT 20 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMOND 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WP.....................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W........ c...... c...... c...... c....W
+W........  ......  ......  ......  ....W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W....................rr................W
+W...................r..r...............W
+W......................................W
+W......................................W
+W.....................................XW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 1
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black LightBlue Red White White White
+DiamondsRequired=9 9 9 9 9
+DiamondValue=30 0
+CaveTime=10 10 10 10 10
+CaveScheduling=ms
+PALTiming=true
+FrameTime=90 85 80 75 70
+CaveDelay=12 6 3 1 0
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 255 DIAMOND 9 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=UNKNOWN 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W        rr        WWWWWWWWWWWWWWWWWWWWW
+W  P     ..        WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W         b       XWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+395 Dustin Bachstein
+[/highscore]
+Name=Guards Livin' Apart
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=I advanced further and found a cave with nothing but diamonds, fireflies guarding them and a wall which wanted to block my way. With a heavy heart, I had to sacrifice one of my valuable treasuries...
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White White White
+DiamondsRequired=7 7 7 7 7
+DiamondValue=50 90
+CaveTime=90 85 80 75 70
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WP.....................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W.......  Q.....  Q.....  Q.....  Q....W
+W.......   .....   .....   .....   ....W
+W....... d ..... d ..... d ..... d ....W
+W......................................W
+W......................................W
+WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW
+W.......  Q.....  Q.....  Q.....  Q....W
+W.......   .....   .....   .....   ....W
+W....... d ..... d ..... d ..... d ....W
+W......................................W
+W......................................W
+W......................................W
+W......................................X
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+698 Dustin Bachstein
+[/highscore]
+Name=Singin' Firefly Dens
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Another cave in which I found eight diamonds and the same number of fireflies. But the eight diamonds weren't enough! So what could I do? A flash of genius came over me, and I started to play a little melody!
+Size=40 22 0 0 39 21
+Colors=Black Black LightBlue LightRed White White White
+DiamondsRequired=12 13 14 15 16
+DiamondValue=40 60
+CaveTime=210 195 180 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 20 21 22 23
+RandomFill=BOULDER 50 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=90 90 90 90 90
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=BUTTERFLYu 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wwwwwwwwww....r.r..r........r.wwwwwwwwwW
+Ww        ...........r....r...        wW
+Ww dQ     ..r..........r...r..     Qd wW
+WwwwwwwwwM..r........r......r.MwwwwwwwwW
+Ww        ......r...r.......r.        wW
+Ww dQ     ....r......r.rr.....     Qd wW
+WwwwwwwwwM.rr........r.rr.....MwwwwwwwwW
+Ww        ....r.r....r..r.....        wW
+Ww dQ     ....r.r....r..r..r..     Qd wW
+WwwwwwwwwM.rr.r..r....r...r...MwwwwwwwwW
+Ww        .rr.r..r............        wW
+Ww dQ     ....r..r........r...     Qd wW
+WwwwwwwwwM.....r...r....r..r..MwwwwwwwwW
+W....r.r..r........r.....r............rW
+W......r....r....r..r.r...r..r.........W
+W..r....r.....r...r.......r..r.........W
+W..r........r......r.rr.........r......W
+Wr.P...r...........r.rr.........rr..r.XW
+W....r......r.rr......r........r..r....W
+Wrr.........r.rr.........r..r.r.r..r...W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+731 Dustin Bachstein
+[/highscore]
+Name=Unstoppable? Amoeba
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=The next cave confronted me with the amoeba for the first time in my life. But how could I restrain it? I tried to trap it with rocks, but it grew with lightning speed and I was much too slow. I was already on the verge of despairing... until I thought of playing a song which immediately lead to the amoeba's freezing!
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed Green Green Green
+DiamondsRequired=50 55 60 65 70
+DiamondValue=10 20
+CaveTime=120 110 100 90 80
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=2 7 8 10 9
+RandomFill=SPACE 100 BOULDER 40 FIREFLYl 2 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=2 2 2 2 2
+MagicWallTime=5 5 5 5 5
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W. .. .rr..... ..r. P.... rr r..r. .  .W
+W ..r. .. .  .... .r.r. ... .r..r.d.. .W
+Wr.....  .Q.  ... .r.r. ... MMMMMMMMMMMW
+W.r.d... .  ...... ..rr..r.... . ... . W
+WMMMMMMMMMMMM.r. ..   r.. .... ...r....X
+Wr. r...... ..r. ... ..r.  ..r.  Q.....W
+Wr. r...... .. r..r.... ...r......r.rr.W
+W... ..r  ... ..r.  ..r.  ... ....r.rr.W
+W... ..r. .r.... ...Q......r.r..  r..r.W
+W  .. r.... ..r.r.... .  .......  d.. .W
+W. ... .. .  .. .  .....rr r..r. . r.. W
+W.. d..r.r.... .  ......r  r..r. .  ...W
+W.r.  ..r.  ... .r.r. ...  r.. .... ...W
+W....  .r.  ... .r.r. .r. . r.. r.... .W
+W.  .... ....  .. r r..r.... ...r... .rW
+W..... .  .rr. ...  r.. .r... r..r.r...W
+W r...... ..r. .r.... .  ..r.  r.......W
+W r...... .. r..r.... ...r......r.rr...W
+W. ..r. ... ..r.  .aa.  ... ....r.rr...W
+W. .drQ..r.... ...r......r.rQ.....dr...W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+601 Dustin Bachstein
+[/highscore]
+Name=Enchanted Walls
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=More magic walls in the next cave - I needed a good timing in order to get enough diamonds before the walls stopped their work!
+Size=40 22 0 0 39 21
+Colors=Black Black Red LightBlue White White White
+DiamondsRequired=48 50 52 54 56
+DiamondValue=10 20
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=1 3 4 5 6
+RandomFill=SPACE 90 BOULDER 50 FIREFLYl 2 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=45 42 39 36 33
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=EXPLOSION1 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W . r.. . .. ..r. ..P ..r.  ..r. r... .W
+W.r.rr...... ..r...r.... ...r.....dr.r.W
+X r..r...  ...r..r. ..r.r...MMMMMMMMMMMW
+W...d...r. Q.....r..... ........rr r..rW
+WMMMMMMMMMMMM..r.r.... .  ......r  r..rW
+W.  ... ..r.  ..r.  .... rrr.....  r.. W
+W... r... Q.. ..r.  .....r.rr..r. . r..W
+W..r. ..r. r.... ..... ...r r..r.... ..W
+W.....r ...... .  Qrr. ...  r.. .r....rW
+Wr.r... . r...... ..r...r....r....dr. .W
+W......r. r......... r..r...MMMMMMMMMMMW
+W.rr.........r. ... ..r.  ..r.  ... r..W
+WMMMMMMMMMMMMr........ ...r......r.rr..W
+W..r...  ...d..r. ..r.rr.........r.rr..W
+W.. ..r. .r...MMMMMMMM.........  r..r..W
+Wr.. r....r..r r...d .. .......  r..r..W
+W ... ..r. ...r.  .....rrrr..r. . r.. rW
+W. r..Q.r.... .  ......rr r..r...  ...rW
+Wr.  ..r.  .....r.r. ...  r..r.... ...rW
+W...  .r.r .....r.r.....   .. .r....r..W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 2
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Gray3 White White White
+DiamondsRequired=18 18 18 18 18
+DiamondValue=10 0
+CaveTime=20 20 20 20 20
+CaveScheduling=ms
+PALTiming=true
+FrameTime=90 85 80 75 70
+CaveDelay=12 6 3 1 0
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WrQ...............rWWWWWWWWWWWWWWWWWWWWW
+WPrQ.............rXWWWWWWWWWWWWWWWWWWWWW
+Wd.rQ....dd.....r.dWWWWWWWWWWWWWWWWWWWWW
+Wrd.rQ.........r.drWWWWWWWWWWWWWWWWWWWWW
+W.rd.rQ.......r.dr.WWWWWWWWWWWWWWWWWWWWW
+W..rd.rQ.....r.dr..WWWWWWWWWWWWWWWWWWWWW
+W...rd.rQ...r.dr...WWWWWWWWWWWWWWWWWWWWW
+W....rd.rQ.r.dr....WWWWWWWWWWWWWWWWWWWWW
+W.....rd.rr.dr.....WWWWWWWWWWWWWWWWWWWWW
+W......rd..dr......WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+994 Dustin Bachstein
+[/highscore]
+Name=Nearly Sateless Greed
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=On and on I progressed and was overwhelmed by the hundreds of diamonds! But, I couldn't collect them all by far, so I had to keep cool or I would have got stuck!
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Purple White White White
+DiamondsRequired=160 165 170 175 180
+DiamondValue=5 10
+CaveTime=210 195 180 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=100 137 140 251 51
+RandomFill=BOULDER 240 DIAMOND 150 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=BUTTERFLYd 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wdddrrddrddd.rrrrdrdd.ddrddrdddddrdrdrdW
+Wdrrdddddrdrddrrrrrrdrdd.ddddrrrdrddrrdW
+Wddrdrdddrdrddrr.rrrdrrdddrdr.rrdrddddrW
+Wdrdrddrrrrrrdrdddd..dddrddddrrdrdd.drdW
+Wdrdrddrrrrrrdrdd.ddddrrrdrdddrrddrrdrdW
+Wddddrdrd.ddrrdddrdddrrdddrrr.drddrrdrdW
+Wrrrdrdrddddd..rrrdrdd.rdrddr.ddddddddrW
+Wdrddwwwwwww.wwwwwdddrrdrwwwwww.wwwwwwrW
+Wd.ddw           wrdddrddw           wrW
+Wdrdrw PX        wrdddrddw           wrW
+Wddrdw           wr.ddddrw           wrW
+Wdrrdw           wddddrddw           wdW
+Wddddw           wdrdd.ddw           wdW
+Wrdrdw           wdrrdddrw           wdW
+Wdrddw           w.ddrrddw           wdW
+Wddddw           wdrrrrdrw           wrW
+Wrdrdw           wdrrddddw           wrW
+Wrdrdw           wdd.rdrdw           wdW
+Wddrdw           wdrrdrddw           wrW
+Wdd..wwwwwwwwwwwwwdrrddddwwwwwwwwwwwwwdW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+599 Dustin Bachstein
+[/highscore]
+Name=Space- Saving Tracks
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=In the next cave, I was confronted with a maze in which fireflies blocked my way to my diamonds. Luckily there was enough room outside the labyrinth to deflect and trap the fireflies, but I mustn't be too wasteful with the space since there were quite a lot of the flies and I had to collect every single diamond they guarded!
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Orange White White White
+DiamondsRequired=20 20 20 20 20
+DiamondValue=25 60
+CaveTime=210 195 180 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W............P.........................W
+Wwwwwwwwwwwww wwwwwwww.................W
+Ww....d.............dw.................W
+Ww w w.wwwwww wwwwww.w.................W
+WwQwQw.wd.........dw.w.................W
+WwQwQw.w.wwww wwww.w.w.................W
+WwQwQw.w.wd.....dw.w.w.................W
+WwQwQw.w.w.ww ww.w.w.w.................W
+WwQwQw w w w   w w w w.................W
+WwQwQwQwQwQwQQQwQwQwQw.................W
+WwQwQw w w w   w w w w.................W
+WwQwQw.w.w.wwwww.w.w.w.................W
+WwQwQw.w.wd.....dw.w.w.................W
+Wwdwdw.w.wwwwwwwww.w.w.................W
+Wwdwdw.wd.........dw.w.................W
+Wwdwdw.wwwwwwwwwwwww.w.................W
+Wwdwdwd.............dw.................W
+Wwwwwwwwwwwwwwwwwwwwww.................W
+W......................................W
+W......................................X
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+462 Dustin Bachstein
+[/highscore]
+Name=Overcrowded
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=I felt beat by the next cave's difficulty! Lots of walls and rocks blocking my way, so I needed fireflies to break through, but it was even difficult to find and release enough without getting crushed!
+Size=40 22 0 0 39 21
+Colors=Black Black Gray1 Orange White White White
+DiamondsRequired=6 6 6 6 6
+DiamondValue=50 0
+CaveTime=360 335 310 285 260
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 4 102 151 100
+RandomFill=BOULDER 130 SPACE 100 BOULDER 80 FIREFLYl 2
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr.rd.rrr.wr.rdrrr.rw...d.rrrrwrr.dr.r.W
+Wr.r .r.r.w..rQ r..rwr...rr..rwr...r.rrW
+W.... ..rrw.r.r..r.rw..r. rr..w....r.rrW
+Wr.rr. rrrw.r.r.. ..wrr.....r.wr......rW
+Wr. ..rr..w.  r.r.rrw.r.....r.wr...... W
+Wrrr.r....w.r.rr.rrrwr.rr.....wr.rr r..W
+W..r.rr..rwrr.r.r.rrwr.rr.....wr.... .wW
+W..r.rrr..wr..r.r..rwrr.r. .rrw. rr.QwrW
+Wrrr.wwwwwwwwwQwwwwwwwwwrwwwwwwwww..w. W
+W.r.  .....rrrrr.r.r.rr..rrr.. r..rwr..W
+Wr.rr....rrrrrrr.r. . r..rr..r.rr.wrr..W
+Wr .r.r. w.rrrr..r.... ...rr.r..rw.r.r.W
+Wr .r.r. wrrwwwwwwwwwwwwwwwwwrr.w.rr...W
+Wr.. rrrrwr....r.rrr..r .rr....w.r.rr..W
+Wrr.rrrr.wr.r.r. r..rrr...r.rrw....r..XW
+W .r....rw  ..r.rrr.r.....r.rw......r..W
+Wr.r.... w..rr.....r.rr.....wr.rr r..r.W
+Wr.rr..r.wr...r.rr.rPrr......r..rQr.r..W
+Wr.rrr..rw..r.rQ .....r.r. rr. r..rdr..W
+Wrr.d. .rw..r.rr......r.rrr r.Q.rr...r.W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+401 Dustin Bachstein
+[/highscore]
+Name=Invulnerable Walls
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=And once again I had to break through blockades, but this time the walls were made of solid steel and indestructible, so I had to find other ways...
+Size=40 22 0 0 39 21
+Colors=Black Black Gray2 LightRed White White White
+DiamondsRequired=19 19 19 19 19
+DiamondValue=20 0
+CaveTime=210 195 180 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 60 2 59 102
+RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr. ...rr.....r.r..r........r.....r..d.W
+W.....d.r....... ....r....r..r..... ..rW
+W.......rdW.r.W.. W...Wr...r... Q.. .. W
+WdWWWWWWWWWWW.W...W..rW.....r..  ......W
+Wr........W...W.r.W d.W.....r..........W
+Wrr..r....W...W...W..rWrr......r..d....W
+W..r.....rWrr.W...W..rWrr.........r...rW
+W.WWWWWWWWWWW.W.r.W .rW.r....r. Q...d.rW
+Wr.r......W...W.r.W..rW.r..d...  ...r..W
+W.r.......Wrr W..dW.. W...r.......d.r..W
+W ........Wrr W..rW...W... ..r.....r...W
+W.WWWWWWWWWWWWWWWrW...W...r........r.  W
+W...r.r...W...Wr..Wr..W.r..r.r. Q......W
+W....r r..W...r...Wd..W..r ....  .....dW
+W.... .r..W.d.W..rW.r.W...r. r.........W
+W.WWWWWWWWWWW.W...W...W...r. r.........W
+W..r......W.r.W...Wr.rW...... ..r......W
+Wr.P...r. W...W...Wr.rW.........rd..r..W
+W....r....W.r.Wd..W...W.... ...r..d. ..W
+Wrr.......W.r.Wd..W...W..r..d.d.r..r...X
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+149 Dustin Bachstein
+[/highscore]
+Name=Intermission 3
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Orange White White White
+DiamondsRequired=14 14 14 14 14
+DiamondValue=10 0
+CaveTime=20 20 20 20 20
+CaveScheduling=ms
+PALTiming=true
+FrameTime=90 85 80 75 70
+CaveDelay=12 6 3 1 0
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=4 4 4 4 4
+MagicWallTime=4 4 4 4 4
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W       P          WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W                 XWWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+W              QQQQWWWWWWWWWWWWWWWWWWWWW
+W              QbbQWWWWWWWWWWWWWWWWWWWWW
+W              QbbQWWWWWWWWWWWWWWWWWWWWW
+WddddddddddddddQQQQWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+676 Dustin Bachstein
+[/highscore]
+Name=No Apocalypse
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=I was so glad to see a simple cave with butterflies and amoeba! Just lead them together and... oh shit! Soon I found out that I had to try a completely different strategy!
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Orange Green Green Green
+DiamondsRequired=70 80 90 100 110
+DiamondValue=5 8
+CaveTime=180 170 160 150 140
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandomFill=BOULDER 50 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=75 75 75 75 75
+MagicWallTime=140 140 140 140 140
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=GUYBIRTH3 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr.....rr.X...r.r.Pra.......r.....r..r.W
+W.....r.r............r....r..r.r......rW
+W.......rr..r..........r...r...........W
+Wr.....r.r..r........r......r.rr.......W
+Wr........r.....r...r.......r.rr.......W
+Wrr..r........r......r.rr......r..r....W
+W..r.....r.rr........r.rr.........r...rW
+W......r......r.r....r..r....r...r..r.rW
+Wr.r..........r.r....r..r..r........r..W
+W.r........rr.r..r....r...r....r..r.r..W
+W..........rr.r..r...........r.....r...W
+W...r.r.......r..r........r........r...W
+W...r.r...r....r...r....r..r.rr........W
+W....r.r..r........r.....r............rW
+W......r....r....r..r.r...r..r......rr.W
+W..r.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwr...W
+W.rrrcccccccccccccccccccccccccccccc....W
+Wr...rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.r..W
+W......................................W
+Wrr................................r...W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+608 Dustin Bachstein
+[/highscore]
+Name=Zigzag In Jail
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=No bonus diamonds in the next cave- six butterflies awaited exectuion, but all the rocks were guarded and the butterflies in a quite solid cage...
+Size=40 22 0 0 39 21
+Colors=Black Black Gray2 Orange White White White
+DiamondsRequired=53 53 53 53 53
+DiamondValue=10 20
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=0 0 0 0 0
+RandomFill=BOULDER 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W..P...................................W
+W......................................W
+W......................................W
+W......................................W
+W.....................Q.Q.Q.Q.Q.Q......W
+W.....................r.r.r.r.r.r......W
+W......................................W
+W.........wwwwwwwwwwwww................W
+W.........wc. . . . . w................W
+W.........w . . . . . w................W
+W.........w .c. . . . w................W
+W.........w . . . . . w................W
+W.........w . .c. . . w................W
+W.........w . . . . . w................W
+W.........w . . .c. . w................W
+W.........w . . . . . w................W
+W.........w . . . .c. w................W
+W.........w . . . . . w................X
+W.........w . . . . .cw................W
+W.........wwwwwwwwwwwww................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+208 Dustin Bachstein
+[/highscore]
+Name=Caught In The Funnel
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=I found myself inside a gigantic funnel. I tried to get out but from every side, rocks or walls blocked my way! I panicked and thought I was stuck forever since there was no way out- or was there?
+Size=40 22 0 0 39 21
+Colors=Black Black Orange LightBlue White White White
+DiamondsRequired=15 16 17 18 19
+DiamondValue=10 20
+CaveTime=120 110 100 90 80
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=1 29 30 31 32
+RandomFill=SPACE 100 BOULDER 80 FIREFLYl 2 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=8 8 8 8 8
+MagicWallTime=12 12 12 12 12
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr.rr..  r..r..r.r..Pr..rrrr..r.rr...r.W
+W.w.rr......r..r...r....w...r......r.r.W
+Wrrw.r... r.. r..r.r..rwr.... .. ..r.rQW
+W...wr..r. r.....r. ..wr.  .....rrrr..rW
+W.rr.wrr... r..r.r...wr. r......rrrr..rW
+W. r..wr..r.r ..r.rrw... rrr. ...rrr..rW
+W...rr.w. r..r..r.rw.....r.rr..r.r.rr..W
+W..r.r..w.rr.... .w...r.. rrr..r....r..W
+W... .rr.w....r. wQrr. ...rrr..r.r... rW
+Wr.r...r.rw.....wr..r. .r....r.  ..r.rrW
+W......r.rrw...w. ..rr..r.... ...r.....W
+W.rr......rr...r...r..r.r ..r.rr... r..W
+W.rr......r.MMMr.r....r...r......r.rr..W
+W..r... r...r. r.r..r.rr... .....r.rr..W
+W..r..r. .r..QQ......r.  ......rrr..r. W
+Wr.. r....r..r.r....r.  .......rrr..r..W
+Wr...r..r.  ..r.  .... rrrr..r.r.rr..rrW
+W. r..Q r....r.rr......rrrr..r. .rr.. rW
+Wr.rr..r.rr... .r.r. ...rrr..r.... ...rW
+W...rr.r.rr... .r.r.X...r r..r.r....r..W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+235 Dustin Bachstein
+[/highscore]
+Name=Overturned Enchanted Boxes
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Your dad's very first adventure ended with a magic wall which I had to use in order to create my diamonds, but things weren't that easy this time...
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White White White
+DiamondsRequired=15 16 17 18 19
+DiamondValue=10 20
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=12 6 3 1 0
+RandSeed=1 120 129 126 123
+RandomFill=BOULDER 50 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=BUTTERFLYu 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WP..r..........r........r.....r..r.....W
+W.r.rr.........r...r........r......r.r.X
+W.r..r........r..r....r.r..........r.rrW
+W.......r..r.....r..............rr.r..rW
+W..r...r....r..r.r..............r..r..rW
+W.........r.....r........rrr.......r...W
+W....r....r.....r........r.rr..r....r..W
+W..r...wwwwww..wwwwww.....r.r..r.......W
+W.....rw....w..w..rrw.......r....r....rW
+Wr.r...w..r.w..w....w...r....r.....r...W
+W......w..r.w..w....wr..r........r.....W
+W.rr...w....wr.w....w.r.....r.......r..W
+W.rr...w....wrrw.r..w.....r......r.rr..W
+W..r...w....w..w....w.rr.........r.rr..W
+W.....rMMMMMM..MMMMMM............r..r..W
+Wr...r....r..r.r.................r..r..W
+W.............r........r.....r........rW
+W..r..r.. Q...... Q....r. Q..r... Q...rW
+Wr.....r.  ......  ......  ..r...  ...rW
+W......r.......................r....r..W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 4
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Orange White White White
+DiamondsRequired=8 8 8 8 8
+DiamondValue=30 0
+CaveTime=30 30 30 30 30
+CaveScheduling=ms
+PALTiming=true
+FrameTime=90 85 80 75 70
+CaveDelay=12 6 3 1 0
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=3 3 3 3 3
+MagicWallTime=25 25 25 25 25
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=SPACE 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W..P.......rrr.....WWWWWWWWWWWWWWWWWWWWW
+W..........rrr.....WWWWWWWWWWWWWWWWWWWWW
+W..................WWWWWWWWWWWWWWWWWWWWW
+W..........www.....WWWWWWWWWWWWWWWWWWWWW
+W.......r..   .....WWWWWWWWWWWWWWWWWWWWW
+W........r.   .....WWWWWWWWWWWWWWWWWWWWW
+W.........r   .....WWWWWWWWWWWWWWWWWWWWW
+W........X.MMM.....WWWWWWWWWWWWWWWWWWWWW
+W..........   .....WWWWWWWWWWWWWWWWWWWWW
+W..........   .....WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+292 Dustin Bachstein
+[/highscore]
+Name=Spintro
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=One year had passed, and I was crazy about a new adventure! The first cave turned out to me much more difficult that it seemed to be at first sight. It was soon clear that I had to blast a wall, but neither was the needed firefly easy to lead to the wall nor was a rock in sight to crush the fly...
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Gray1 White Orange Orange
+DiamondsRequired=10 15 20 25 30
+DiamondValue=15 15
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=11 12 13 14 15
+RandomFill=BOULDER 50 DIAMOND 5 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=25 25 25 25 25
+MagicWallTime=25 25 25 25 25
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.r..r..r......r.rrw.....MMM........r..W
+Wr......r.rd......rw.......M.....W.rdrrW
+W.......r.rd.......w.....MMM.....W...P.W
+W....rr.r..r....r..w.....M.......W.....W
+W....r..r..r.......w.....MMM.....W....rW
+W.................rw.............W....rW
+Wd.MMMMMMMMMMMMMM..w.............W.....W
+Wr..r........r.....w......M......W.....W
+Wr....r....r..r.r..w.............W...r.W
+W.r................w.............Wr..r.W
+WMMMMMMMMMMMMMMMMMMw.............W.r...W
+Wr.......d...r.rr................W.....W
+W.....r.rr......r................W.rr..W
+W.....r.rr.........r.............W.....W
+W.....r..r....r...r..............W.....W
+W.....r..r..d.WWWWWWWWWWWWWWWWWWWW..rrrW
+W.d....r...r... Q .   Q .   Q .   Q .  W
+W.r..X.....r..r   .     .     .     .  W
+W.r........r...   .     .     .     .  W
+W...r....r..r.r   .     .     .     .  W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+609 Dustin Bachstein
+[/highscore]
+Name=Airy Silos
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Next, I met a big amoeba caught in some kind of silos. But it still had some outcomes, and it wasn't that easy to lock them!
+Size=40 22 0 0 39 21
+Colors=Black Black Green Purple White Green Green
+DiamondsRequired=75 80 85 90 95
+DiamondValue=3 10
+CaveTime=200 190 180 170 160
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=100 137 140 251 51
+RandomFill=BOULDER 254 AMOEBA 127 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=25 25 25 25 25
+MagicWallTime=25 25 25 25 25
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr  rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  rW
+W.  ................................  .W
+W                                      W
+WW  WWWWrrrWWWWWWWarrWWWWWWWarrWWWWW  WW
+WW  WWWWrrrWWWWWWWaraWWWWWWWaarWWWWW  WW
+WW  WWWWaraWWWWWWWaaaWWWWWWWrraWWWWW  WW
+WW  WWWWaaaWWWWWWWaraWWWWWWWrrrWWWWW  WW
+WW  WWWWaarWWWWWWWarrWWWWWWWrrrWWWWW  WW
+WW  WWWWarrWWWWWWWraaWWWWWWWaraWWWWW  WW
+WW  WWWWrraWWWWWWWraaWWWWWWWaaaWWWWW  WW
+WW  WWWWrarWWWWWWWrrrWWWWWWWaaaWWWWW  WW
+WW  WWWWarrWWWWWWWaaaWWWWWWWaarWWWWW  WW
+WW  WWWWaraWWWWWWWarrWWWWWWWrraWWWWW  WW
+WW  WWWWaraWWWWWWWarrWWWWWWWrraWWWWW  WW
+WW  WWWWW.WWWWWWWWW.WWWWWWWWW.WWWWWW  WW
+W  P                                  XW
+W                                      W
+W                                      W
+W                                      W
+W                                      W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+430 Dustin Bachstein
+[/highscore]
+Name=Narrowest Spiral
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=A very narrow spiral was your dad's next challenge. It was quite not easy to avoid the many fireflies in that narrow space! In addition, the passage was blocked at some places...
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Orange White Purple Purple
+DiamondsRequired=14 14 14 14 14
+DiamondValue=25 50
+CaveTime=210 195 180 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=24 45 52 30 40
+RandomFill=SPACE 120 BOULDER 50 FIREFLYl 15 DIAMOND 9
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wrd .r.... ...r...... . r...... .. r..rW
+W.. ...r......r.rr...... ..r. ... ..rP W
+W.rWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W .W...r.rQ......r. d  ..  ..r.  ..Q rrW
+W. W  .r.r ...... ..r. .d.... .  d..  .W
+W.dW.  WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW .W
+W..W.  W..r. d  ... ..r.  ..r.  ... WrrW
+W .W. .Wr.. r .. r..d r.... .  .... WrrW
+W .W. .W ..  ..r.  ..r.  ... .Q.r. .W  W
+W..W...W .WWWWWWWWWWWWWWWWWWWWWWWW .W. W
+Wr.W r W. r..r.rr. .  ....  .. r W .W..W
+W .W d.W  .r ...... .  .dr. .. X W..W.dW
+W. W..QWWWWWWWWWWWWWWWWWWWWWWWWWWWr.W .W
+W. WQ. .....r. r...... .. r..r.... .W.rW
+W..W.r.rr...... ..Q  ..  ..r.  ..r. W..W
+W..W.r.rr...... ..rd .r.... .  Q..  W.QW
+Wd.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW.QW
+Wd...... ..r  d.d.r .r. .. .  .... rr rW
+WQ. . r.. r .. r... r.... .  ..... r  rW
+Wr. .  ..  ..r.  ..r.  ...  rrr. ..   rW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Massive Breakthrough
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=Now I got confronted with something which was fully new for me: an amoeba which couldn't move and didn't make any noise! That made the atmosphere quite spooky for me, but it turned out that For the first time, I freed an amoeba instead of trapping it, only to find that I had to blast away big parts of it!
+Size=40 22 0 0 39 21
+Colors=Black Black Green Orange White Green Green
+DiamondsRequired=50 52 54 56 58
+DiamondValue=5 8
+CaveTime=210 195 180 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=140 140 140 140 140
+MagicWallTime=140 140 140 140 140
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W....................waadddddddddddddddW
+W....QQQQQQQQQQr.....waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....QQQQQQQQQQr.....waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....QQQQQQQQQQr.....waad.............dW
+W....................waad.............dW
+WX...................waad.............dW
+W..................P.waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....................waad.............dW
+W....................waadddddddddddddddW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 5
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black LightBlue Red White LightBlue LightBlue
+DiamondsRequired=1 1 1 1 1
+DiamondValue=30 30
+CaveTime=40 40 40 40 40
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W..................WWWWWWWWWWWWWWWWWWWWW
+W....rrrrrrr.......WWWWWWWWWWWWWWWWWWWWW
+W..P.rQQQQQr.......WWWWWWWWWWWWWWWWWWWWW
+W....rQQQQQr.......WWWWWWWWWWWWWWWWWWWWW
+W....rQQdQQr.......WWWWWWWWWWWWWWWWWWWWW
+W....rQQQQQr.......WWWWWWWWWWWWWWWWWWWWW
+W....rQQQQQr.......WWWWWWWWWWWWWWWWWWWWW
+W....rrrrrrr.......WWWWWWWWWWWWWWWWWWWWW
+Wwww...............WWWWWWWWWWWWWWWWWWWWW
+WwXw...............WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+193 Dustin Bachstein
+[/highscore]
+Name=Uncatchable Shower
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Gray2 White Blue Blue
+DiamondsRequired=5 5 5 5 5
+DiamondValue=20 40
+CaveTime=30 30 30 30 30
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=30 31 32 33 34
+RandomFill=BOULDER 255 DIAMOND 127 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=2 2 2 2 2
+MagicWallTime=2 2 2 2 2
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=224 224 224 224 224
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wrrrrrrddddddrrrrrrr...................W
+Wdrrdrdrdrddrrrddddd...................W
+Wddrrdddrdddrrdrddrd...................W
+Wrdrdddrrddrddrrrrrr...................W
+Wsssssssssssssssssss...................W
+Wdrdddrdrrrrrdrddrrr...................W
+Wsssssssssssssssssss...................W
+W                   ...................W
+Wsssssssssssssssssss...................W
+W                   ...................W
+W                   ...................W
+W                   ...................W
+W                   ...................W
+W                   ...................W
+W                   ...................W
+W  r                ...................W
+W  P                ...................W
+W                   ...............X...W
+W                   ...................W
+WMMMMMMMMMMMMMMMMMMM...................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+561 Dustin Bachstein
+[/highscore]
+Name=Diversified Gauntlet
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White Brown Brown
+DiamondsRequired=90 92 94 96 98
+DiamondValue=5 20
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=10 11 12 13 14
+RandomFill=BOULDER 220 DIAMOND 80 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=30 30 30 30 30
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W...     W.............................W
+WP.W  Q  W....w.r.rrrddrr.w.rrdrrr.rd.wW
+W..W WWW W....w.dr.rdddrr.w.r.rrrrdr..wW
+W..W     W....w.rr.rddrrd.w.rdrdddrr..wW
+W.XW    oW....w.rrdr.r.rr.w.rrrrrrdrd.wW
+W..W WWW W....w.drddrrdrd.w..d.rrrdrd.wW
+W..W     W....w.drrrd.rrr.w.rd.rdddrr.wW
+W..W     W....w.drr..rrrr.w.rddrrrrrr.wW
+W..W WWW W....w..rrr.rrrd.w.rrdrr.ddr.wW
+W..W    OW....w...........w...........wW
+W..W     W....w.wwwwwwwww.w.MMMMMMMMM.wW
+W..W WWW W....w...........w...........wW
+W..W  O  W....w..rdddrrdr.w.drrrd.rrr.wW
+W..W     W....w..rdddrrdr.w..rdrrdrdr.wW
+W..W WWW W....w.drrrrdrrr.w.rdddrr.rr.wW
+W..Wq    W....w.dr.r.rrrr.w.rrrrdrddr.wW
+W..WQ    W....w.dr.rdrdd..w.drrrdrddr.wW
+W..W WWW W....w.rrd.rrr.r.w.drrrrrrdr.wW
+W..W     W....w.r..rrrr.r.w.drrrrrrdr.wW
+W..W     ..............................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+400 Dustin Bachstein
+[/highscore]
+Name=Azkaban - Jail For Wizards
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Purple White LightRed LightRed
+DiamondsRequired=14 14 14 14 14
+DiamondValue=20 50
+CaveTime=210 195 180 165 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=10 11 15 13 14
+RandomFill=SPACE 120 BOULDER 50 FIREFLYl 15 DIAMOND 9
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=120 120 120 120 120
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W. .. .  .d.r ..  .Q.r. ...   .. .r... W
+W.wwr.ww .ww..ww..wr.rww.rww..ww  ww . W
+W....... .  ..Q.  . r r..r.... ...r....W
+Wr.rr......wwwwwwwwwwwwwr. ..r.  Q.....W
+Wr. r......wrrwrrwrrwrrwrr.r ....rr.rr.W
+W.ww .ww  ww..w..w..w..w..ww. ww..wwrr.W
+W... ..r. .w  w  w  w  w ..Q.r..  r..r.W
+W  .. r..d w  w  w  w  w ..r.rd...... .W
+W  d.....r.w  w  w  w  wrr r .Q. . r.. W
+W.wwr.ww rww  w  w  w  wr ww..rw .ww.. W
+W.r.  ..rP wW w  w  w  w   r.. .d. . Q.W
+W d   ..r. w  w  w  w  w. . r.. r..d r.W
+W. r...  ..wMMMMMMMMMMMw.... . .d..  .rW
+W.ww..ww  ww           w.Qww. ww.Qww...W
+W r...... ..r. .d....r.  r.r.  r.r.....W
+W r...... .. r..r.... ...r......r.rr...W
+W. ..r  ... ..r.  ..r.  ... d...r.rr...W
+W.ww.rww.rww..ww..ww..ww.rwwd.ww..ww. .W
+W..  ..Q. ..r.rr... .  ..Q.rd...... ..rW
+W.d....r.  .. .  .... .  r..r. . r.. r W
+WWWWWWWWWWWWWWWXWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+728 Dustin Bachstein
+[/highscore]
+Name=Double Valuable Ring Around The Rosy
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Green Brown White Green Green
+DiamondsRequired=150 160 170 180 190
+DiamondValue=2 7
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=80 80 80 80 80
+MagicWallTime=120 120 120 120 120
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WP..................w....aaaaaaaaaa....W
+W. B B B B B c......w..................W
+W. .......... ......w..................W
+W. ..........c.....Xw..................W
+W. .......... ......w..................W
+W. ..........c......w..................W
+W. .......... ......w..................W
+W. ..........c......w..................W
+W.  C C C C C ......w..................W
+W...................w..................W
+W...................w..................W
+W...................w..................W
+W...................w..................W
+W...................w..................W
+W...................w..................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 6
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Gray3 White Blue Blue
+DiamondsRequired=30 30 30 30 30
+DiamondValue=10 0
+CaveTime=30 30 30 30 30
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W..................WWWWWWWWWWWWWWWWWWWWW
+WP.................WWWWWWWWWWWWWWWWWWWWW
+W..  Q..  Q..  Q...WWWWWWWWWWWWWWWWWWWWW
+W.. d .. d .. d ...WWWWWWWWWWWWWWWWWWWWW
+W..   ..   ..   ...WWWWWWWWWWWWWWWWWWWWW
+W..................WWWWWWWWWWWWWWWWWWWWW
+W..c  ..c  ..c  ...WWWWWWWWWWWWWWWWWWWWW
+W.. d .. d .. d ...WWWWWWWWWWWWWWWWWWWWW
+W..   ..   ..   ...WWWWWWWWWWWWWWWWWWWWW
+W.................XWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+477 Dustin Bachstein
+[/highscore]
+Name=Very Fast Tricky Tracks
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray1 Orange White Gray1 Gray1
+DiamondsRequired=75 75 75 75 75
+DiamondValue=5 50
+CaveTime=40 38 36 34 32
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                          B   B       W
+W  d.d.d.d.d  .d.d.d.d.d.d.d  .d.d.d.  W
+W  WWWWWWWWW  WWWWWWWWWWWWWW  WWWWWWW  W
+W       C                              W
+W      Q                           Q   W
+W  d.d.d.d.d  .d.d.d.d.d.d.d  .d.d.d.  W
+W  WWWWWWWWW  WWWWWWWWWWWWWW  WWWWWWW  W
+W             O                        W
+W        B           B           B     W
+W  d.d.d.d.d.d.d.  Wd  d.d.d.d.d.d.d.  W
+W  WWWWWWWWWWWWWW  W.  WWWWWWWWWWWWWW  W
+W                  Wd                  W
+WP                 W.                 XW
+W  d.d.d.d.d.d.d.  Wd  d.d.d.d.d.d.d.  W
+W  WWWWWWWWWWWWWW  W.  WWWWWWWWWWWWWW  W
+W         O        Wd             O    W
+W          B       W.              B   W
+W  d.d.d.d.d.d.d.  Wd  d.d.d.d.d.d.d.  W
+W  WWWWWWWWWWWWWW  W.  WWWWWWWWWWWWWW  W
+W                                      W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Non-Looping Mixed Doubles
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Orange White Blue Blue
+DiamondsRequired=54 58 62 66 70
+DiamondValue=5 10
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=1 2 3 4 5
+RandomFill=BOULDER 1 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W......................................W
+W......................................W
+W..Qb.....Qb.....Qb.....Qb.............W
+W..rr.....rr.....rr.....rr.............W
+W......................................W
+W......................................W
+W.........r............................W
+W......................................W
+W.................r....................W
+W......P...............................W
+W......................................W
+W..Qb.....Qb.....Qb.....Qb.............W
+W..rr.....rr.....rr.....rr.............W
+W......................................W
+W.............................X........W
+W......................................W
+W......................................W
+W.....r................................W
+W......................................W
+W......................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Careful Snake
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange LightBlue White Orange Orange
+DiamondsRequired=21 22 23 24 25
+DiamondValue=15 30
+CaveTime=60 60 60 60 60
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=10 11 12 13 15
+RandomFill=DIRT 60 WALL 45 FIREFLYl 20 DIAMOND 15
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=2 2 2 2 2
+MagicWallTime=2 2 2 2 2
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WQQQQQQQQQQQQQQQQQQQQQQQQQ.............W
+W.........r............................W
+W.........P...d.......w...........w....W
+W...w....w w..M......w..w....w...d.....W
+W...w....www...Q..w........w.....Mw.wQ.W
+W......d........w.....Q...........w.wQ.W
+W......M...Q........d......d.Q....w..w.W
+W.....w..d....w.w...M......M..d........W
+W..d.....M..............ww.Q..M....w...W
+W..Mw..d.w..............w..w..w........W
+W.w....Mw........www.......w....d....d.W
+W.d.....Q........Q.wd..d....w...M..d.M.W
+W.M...............w.M..M........d..M...W
+W.........ddw.......w....d....w.Md.w...W
+W.w.......MMw...d........M.w...Q.M.....W
+W.w..........w..M........w......w.ww...W
+W....Q........w.....w.......d...w.ww...W
+W....wd..w........Q........wM......X...W
+W.....Md....w..w.........d.wd..........W
+W......M.................M..M..........W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Non- Diverted Gridlock
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White Brown Brown
+DiamondsRequired=28 28 28 28 28
+DiamondValue=15 0
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=12 8 7 9 11
+RandomFill=BOULDER 90 DIAMOND 20 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=75 75 75 75 75
+MagicWallTime=75 75 75 75 75
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr.r..wrrr..w.d...wr..d.w...r.wr....wwwW
+Wr...dw...r.w...r.wrd...w...r.wr....wwwW
+Wrr..r ...r. .r... ..P.r ..... r..d. .wW
+W..r.rw..r.rw...rdw..r.rw.....wr..rdw.wW
+W..r..wd....w.d.rdw.....w...rrw..r..w.wW
+Www wwwww wwwww wwwww wwwww wwwww wwwXwW
+W.r...w.....wrr..rw..rr.wrr...wr..d.wwwW
+Wr..r.w.....wrr..rw.d.r.w.r..rwr...rwwwW
+W...rr d..d. .rr.. d...r ..d.d ...r.wwwW
+W...rrwd..r.w.rr..wr..d.wr..r.wr....wwwW
+Wr...rwr..r.w..r..wr....wrr.d.wr....wwwW
+Www wwwww wwwww wwwww wwwww wwwww wwwwwW
+W..d..w.r...w.r.rrw.....w.r.rrw.d.r.wwwW
+W..r..w.....w.....wr.rr.w....rw.r.r.wwwW
+W.r... r.rrd ..... r.rr. ....r .rd..wwwW
+Wr...rw.....w.rd..w...r.wd.r..wr..r.wwwW
+W.rr..wr....w.rd..w...r.wr...dw...r.wwwW
+WwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwW
+WwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwW
+WwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 7
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Orange White Blue Blue
+DiamondsRequired=16 16 16 16 16
+DiamondValue=25 0
+CaveTime=40 40 40 40 40
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W .Q. . . . . . . .WWWWWWWWWWWWWWWWWWWWW
+WP. . . . . . . . .WWWWWWWWWWWWWWWWWWWWW
+W . .Q. . . . . .Q.WWWWWWWWWWWWWWWWWWWWW
+W . . . . . . . . .WWWWWWWWWWWWWWWWWWWWW
+W d d dQd d d dQd XWWWWWWWWWWWWWWWWWWWWW
+W . . . . . . . . .WWWWWWWWWWWWWWWWWWWWW
+W . . . .Q. .Q. . .WWWWWWWWWWWWWWWWWWWWW
+W d d d d d d d d .WWWWWWWWWWWWWWWWWWWWW
+W . . . . .Q. . . .WWWWWWWWWWWWWWWWWWWWW
+W . . . . . . . . .WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+424 Dustin Bachstein
+[/highscore]
+Name=New Combination
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue LightRed White Blue Blue
+DiamondsRequired=95 97 99 101 103
+DiamondValue=2 10
+CaveTime=270 250 230 210 190
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=137 140 100 251 51
+RandomFill=BOULDER 255 DIAMOND 127 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=5 5 5 5 5
+MagicWallTime=5 5 5 5 5
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WdWdWdWrWrWrWdWdWdWrWrWrWdWrWrWrWrWrW..W
+Wd.r.d.r.r.r.d.d.r.r.r.d.r.d.r.d.r.d...W
+WrWrWdWrWrWdWdWdWrWrWdWdWrWdWrWrWdWrW..W
+Wr.d.d.d.d.d.d.d.r.d.d.r.d.r.d.r.r.d...W
+WrWdWdWdWdWdWdWdWrWdWrWdWdWrWdWdWrWdW..W
+Wr.r.d.d.r.d.r.r.r.r.d.d.r.d.d.d.r.d...W
+WrWrWrWrWdWrWdWrWdWrWdWdWrWrWdWrWrWdW..W
+Wd.r.r.r.d.d.d.r.d.d.r.r.r.d.d.r.d.d...W
+WdWrWrWrWrWdWrWdWrWrWrWdWrWrWrWrWdWdW..W
+Wr.r.d.r.r.d.r.r.r.r.r.d.r.r.r.r.d.d...W
+WrWrWrWdWrWrWdWdWrWrWrWdWdWdWrWdWrWdW..W
+Wd.d.r.r.r.d.d.d.r.r.r.d.r.d.r.r.r.d...W
+WrWdWrWrWdWrWrWrWrWrWdWrWdWrWdWrWdWdW..W
+Wr.d.r.r.d.r.r.r.r.d.d.r.r.d.d.d.r.r...W
+WdWdWdWdWdWdWdWrWdWdWrWdWrWdWrWrWdWdW..W
+Wd.d.d.d.d.d.d.r.d.r.d.d.r.d.d.r.r.d...W
+WrWdWdWrWdWdWdWdWrWrWdWdWrWdWdWrWdWrW..W
+Wssssssssssssssssssssssssssssssssssss..W
+W.P....................................W
+W.X....................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Most Dangerous Diamond Tree
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Orange White Brown Brown
+DiamondsRequired=24 24 24 24 24
+DiamondValue=20 1
+CaveTime=150 140 130 120 110
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=15 16 17 18 19
+RandomFill=BOULDER 60 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                                      W
+W d....d....d....d....d....d....d....d W
+W ..r..r.....r.r..r........r......r.r. W
+W .....r........r.....r...r.......r.r. W
+W .....rr..r........r......r.rr....... W
+W d...rd.r..d..r.dr...d....d.rr.d....d W
+W ..r........r......r.r....r..r....r.. W
+W ..r..r.r..........r.r....r..r..r.... W
+W ......r........rrrr..r...rr...r..... W
+W d....d....d....dr.r.dr...dr...d..r.d W
+W ........r.r.....r.r..r........r..... W
+W .rr.....r.rr..r....r...r..r.r..r.rr. W
+W .................................... W
+W                  ...                 W
+W                  . .                 W
+W                  . .                 W
+W                  .P.                 W
+W                  . .                 W
+WQ Q Q Q Q Q Q Q Q .X.                 W
+WQ Q Q Q Q Q Q Q Q ... Q Q Q Q Q Q Q Q W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Brainteasing Cocoons
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightBlue LightRed White LightBlue LightBlue
+DiamondsRequired=36 36 36 36 36
+DiamondValue=10 10
+CaveTime=360 335 310 285 260
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=10 10 10 10 10
+MagicWallTime=10 10 10 10 10
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.......................r..............W
+W......................................W
+W.....................................XW
+W......................................W
+W.....r................................W
+W..wwwwwww..x.xrx.x....................W
+W..w     w..w  .  w...........r     ...W
+W..wc    w..wc    w          ..C    ...W
+W..w     w..w     w wwwwwwww ..     ...W
+W..w     w..W     w  .     . ..     ...W
+W..w     w..w     w  .c    . ..     ...W
+W..wwwwwww..w     w  .     . .MMMMMMM..W
+W...........w     w  .     . .MMMMMMM..W
+W...........w     w  .     . ..........W
+W...........wwwwwww  ....... ..........W
+W...........wwwwwww          ..........W
+W......................................W
+W..P...................................W
+W......................................W
+W......................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+[highscore]
+266 Dustin Bachstein
+[/highscore]
+Name=Limited Spelunking
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White Brown Brown
+DiamondsRequired=11 11 11 11 11
+DiamondValue=10 40
+CaveTime=150 140 130 120 110
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=10 11 12 13 14
+RandomFill=SPACE 189 BOULDER 179 DIAMOND 19 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W......................................W
+W.rPrrr.r.rr.... .r.rrdrrrr. .rrrr..r.rW
+Wrr.rrr.r.rr..d.rr.rr.rr rr...r.rrrr.rrW
+Wr.rr....r.r.rr.rr.rrr.rr.r....rrdrr.rrW
+Wr.rr.... .r.rrdrrrr...r.rrrr.rrr.r rd.W
+W r.rrrdrr..rrrrrrrr.rr.rr.r.r..r.r rr.W
+W.r.r.rr.rrdr. .r rrd..rr. drd. rrrrrrrW
+Wrr..rrrrdrr .rrrrr..r rr.rdrdd...rr rrW
+Wrrd...r.rrrr..r.rrr.rrrrrrdrrdrr.rr..rW
+Wr.rrrrdrrrr..rrrr.r.rrrrrrrrrrrr.rr..rW
+Wrrrrr..r.rrr.rrrrrrXrr.rrrrr r d.r.rdrW
+Wrdrrr.rd.rrr.rr.rrrdrrdrr.rr..rrrrdrr W
+Wrrrrr.rr..rrrr..rrrrrrrr...r rrd..rr.rW
+W.rrr.r.rrddr.rr.rrrrr.r.d.r.rrr drrrr.W
+Wrr....r.r.rr.rrdr.r.rrrr..r.rrdrr.rrr.W
+Wrr.... .r.rrrrrrr...r.rrrr.rrr.r.rr...W
+W.r rdrr..rrr rrrr. r.rr.r.rdrr.r.rr...W
+W.r.rrdrrrr. .r rrd..rr..drrd...rr rrr.W
+W..rrrrdrr..rrrrr..r.rr. drrd... r.r rrW
+Wrdr.r.rrrr..r.rrr.rrrrrrrrrrrr.rr..rrrW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 8
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Orange White Blue Blue
+DiamondsRequired=10 10 10 10 10
+DiamondValue=10 20
+CaveTime=20 20 20 20 20
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 140 130 120 110
+CaveDelay=9 8 7 6 6
+RandSeed=0 0 0 0 0
+RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=0 0 39 21 STEELWALL
+FillRect=0 0 19 11 STEELWALL DIRT
+FillRect=6 5 8 7 SPACE BOULDER
+FillRect=10 2 12 4 SPACE DIAMOND
+Point=12 2 BUTTERFLYd
+Point=2 1 INBOX
+FillRect=10 8 12 10 FIREFLYl OUTBOX
+Line=12 8 12 10 STEELWALL
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]
