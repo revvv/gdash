@@ -50,9 +50,39 @@ public:
     SDLApp(Screen &screenref);
 };
 
+static double full_cave_scaling_factor = 2.0;
+
+// NOTE: needs to be called after SDL_Init()
+static void calculate_full_cave_scaling_factor_for_monitor() {
+    SDL_DisplayMode dm;
+    int res = SDL_GetCurrentDisplayMode(0, &dm);
+    if (res < 0) {
+        gd_message("SDL: cannot detect screen size: %d %s)", res, SDL_GetError());
+        return;
+    }
+    gd_debug("SDL screen size: %u x %u", dm.w, dm.h);
+    // visible  cave is (20*16) x (11*16) = 320 x 190
+    // complete cave is (40*16) x (22*16) = 640 x 352
+    int w = 640;
+    int h = 352;
+    double ratioW = (double) dm.w / (double) w;
+    double ratioH = (double) dm.h / (double) h;
+    double ratio = std::min(ratioW, ratioH);
+    double r = std::round(ratio);
+    if (r > ratio)
+        r -= DOUBLE_INCREMENT;
+    int newWidth = (int) (w * r);
+    int newHeight = (int) (h * r);
+    gd_debug("SDL upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
+    full_cave_scaling_factor = r;
+}
+
 SDLApp::SDLApp(Screen &screenref)
     : App(screenref) {
-    screen->set_properties(gd_cell_scale_factor_game, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
+    if (gd_full_cave_view)
+        screen->set_properties(full_cave_scaling_factor, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
+    else
+        screen->set_properties(gd_cell_scale_factor_game, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
     font_manager = new FontManager(*screen, "");
     gameinput = new SDLGameInputHandler;
 }
@@ -142,6 +172,8 @@ static void run_the_app(SDLApp &the_app, NextAction &na, bool opengl) {
 
     if (!SDL_WasInit(SDL_INIT_TIMER))
         SDL_Init(SDL_INIT_TIMER);
+
+    calculate_full_cave_scaling_factor_for_monitor();
 
     /* if screen reports we can use it for timing, measure the number of
      * milliseconds each refresh takes */

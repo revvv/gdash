@@ -249,7 +249,7 @@ Setting *gd_get_game_settings_array() {
         { TypePercent, N_("  PAL scanline shade"), &gd_pal_emu_scanline_shade, true, NULL, N_("Darker rows for PAL emulation. Only effective for the GTK+ and the SDL engines.") },
         { TypeBoolean, N_("Fine scrolling"), &gd_fine_scroll, true, NULL, N_("If fine scrolling is turned off, scrolling and cave animation is limited to a lower frame rate, and consumes much less CPU. On some hardware, it might actually look better than fine scrolling. Not all graphics engines support fine scrolling.") },
         { TypeBoolean, N_("Particle effects"), &gd_particle_effects, true, NULL, N_("Particle effects during play. This requires a lot of CPU power.") },
-        { TypeBoolean, N_("Full cave view"), &gd_full_cave_view, false, NULL, N_("Show the whole cave on the screen without scrolling.") },
+        { TypeBoolean, N_("Full cave view"), &gd_full_cave_view, true, NULL, N_("Show the whole cave on the screen without scrolling.") },
 
 #ifdef HAVE_SDL
         { TypePage, N_("OpenGL settings") },

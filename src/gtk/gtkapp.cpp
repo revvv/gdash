@@ -23,6 +23,7 @@
 
 #include "config.h"
 
+#include <cmath>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
@@ -36,6 +37,28 @@
 #include "gtk/gtkuisettings.hpp"
 #include "gfx/fontmanager.hpp"
 #include "misc/autogfreeptr.hpp"
+#include "misc/logger.hpp"
+
+
+static double calculate_full_cave_scaling_factor_for_monitor() {
+    GdkRectangle monitor = {0};
+    gdk_monitor_get_workarea(gdk_display_get_primary_monitor(gdk_display_get_default()), &monitor);
+    gd_debug("GTK screen size: %u x %u", monitor.width, monitor.height);
+    // visible  cave is (20*16) x (11*16) = 320 x 190
+    // complete cave is (40*16) x (22*16) = 640 x 352
+    int w = 640;
+    int h = 352;
+    double ratioW = (double) monitor.width / (double) w;
+    double ratioH = (double) monitor.height / (double) h;
+    double ratio = std::min(ratioW, ratioH);
+    double r = std::round(ratio);
+    if (r > ratio)
+        r -= DOUBLE_INCREMENT;
+    int newWidth = (int) (w * r);
+    int newHeight = (int) (h * r);
+    gd_debug("GTK upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
+    return r;
+}
 
 
 GTKApp::GTKApp(GTKScreen &screenref, GtkWidget *toplevel, GtkActionGroup *actions_game)
@@ -43,7 +66,10 @@ GTKApp::GTKApp(GTKScreen &screenref, GtkWidget *toplevel, GtkActionGroup *action
     App(screenref),
     toplevel(toplevel),
     actions_game(actions_game) {
-    screen->set_properties(gd_cell_scale_factor_game, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
+    if (gd_full_cave_view)
+       screen->set_properties(calculate_full_cave_scaling_factor_for_monitor(), GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
+    else
+        screen->set_properties(gd_cell_scale_factor_game, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
     gameinput = new GTKGameInputHandler;    /* deleted by the base class dtor */
     font_manager = new FontManager(*screen, "");    /* deleted by the base class dtor */
     game_active(false);
