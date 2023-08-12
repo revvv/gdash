@@ -27,6 +27,7 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
+#include "framework/gameactivity.hpp"
 #include "framework/commands.hpp"
 #include "gtk/gtkapp.hpp"
 #include "settings.hpp"
@@ -44,10 +45,8 @@ static double calculate_full_cave_scaling_factor_for_monitor() {
     GdkRectangle monitor = {0};
     gdk_monitor_get_workarea(gdk_display_get_primary_monitor(gdk_display_get_default()), &monitor);
     gd_debug("GTK screen size: %u x %u", monitor.width, monitor.height);
-    // visible  cave is (20*16) x (11*16) = 320 x 190
-    // complete cave is (40*16) x (22*16) = 640 x 352
-    int w = 640;
-    int h = 352;
+    int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
+    int h = GAME_RENDERER_SCREEN_SIZE_MAX_Y * 16;
     double ratioW = (double) monitor.width / (double) w;
     double ratioH = (double) monitor.height / (double) h;
     double ratio = std::min(ratioW, ratioH);

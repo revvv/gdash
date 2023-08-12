@@ -61,10 +61,8 @@ static void calculate_full_cave_scaling_factor_for_monitor() {
         return;
     }
     gd_debug("SDL screen size: %u x %u", dm.w, dm.h);
-    // visible  cave is (20*16) x (11*16) = 320 x 190
-    // complete cave is (40*16) x (22*16) = 640 x 352
-    int w = 640;
-    int h = 352;
+    int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
+    int h = GAME_RENDERER_SCREEN_SIZE_MAX_Y * 16;
     double ratioW = (double) dm.w / (double) w;
     double ratioH = (double) dm.h / (double) h;
     double ratio = std::min(ratioW, ratioH);
