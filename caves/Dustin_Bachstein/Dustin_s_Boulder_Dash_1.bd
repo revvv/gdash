@@ -1,0 +1,660 @@
+[BDCFF]
+Version=0.5
+[game]
+Name=Dustin's Boulder Dash 1
+Author=Dustin Bachstein
+Date=2010-02-08
+Lives=5 99
+TitleScreen=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
+Levels=5
+
+[cave]
+Name=A
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Red White White White
+DiamondsRequired=3 4 5 6 6
+DiamondValue=40 60
+CaveTime=150 120 100 80 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=10 11 12 13 0
+RandomFill=DIRT 75 DIRT 75 DIRT 75 BOULDER 60
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+Raster=2 11 7 10 6 1 WALL
+Raster=5 20 6 1 6 2 DIAMOND
+FillRect=18 3 22 7 DIRT
+Point=1 20 INBOX
+Point=20 5 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=B
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Green Yellow White White White
+DiamondsRequired=18 18 17 18 21
+DiamondValue=5 25
+CaveTime=120 150 150 150 180
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=27 36 15 50 32
+RandomFill=FIREFLYl 100 BOULDER 90 SPACE 40 DIAMOND 9
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 9 8 16 STEELWALL
+Line=9 5 24 20 STEELWALL
+Line=18 1 33 16 STEELWALL
+Line=38 10 33 5 STEELWALL
+Point=1 10 INBOX
+Point=35 6 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=C
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Red Green LightBlue White White
+DiamondsRequired=192 194 196 198 200
+DiamondValue=1 10
+CaveTime=300 270 240 210 210
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=54 45 36 27 18
+InitialFill=BOULDER
+RandomFill=DIAMOND 100 DIRT 0 DIRT 0 DIRT 0
+MagicWallTime=240 240 240 240 240
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 6 20 DIRT
+FillRect=17 1 22 20 DIRT
+FillRect=33 1 38 20 DIRT
+Rectangle=6 1 17 12 DIRT
+Rectangle=22 1 33 12 DIRT
+Line=7 13 32 13 MAGICWALL
+FillRect=7 14 32 20 SPACE
+Point=18 6 INBOX
+Point=21 6 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=D
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Cyan Blue White White White
+DiamondsRequired=15 20 25 30 35
+DiamondValue=20 30
+CaveTime=240 210 210 210 210
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=2 71 45 76 115
+RandomFill=DIRT 50 BOULDER 50 DIAMOND 0 BUTTERFLYl 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+Line=5 7 13 15 WALL
+Line=25 9 34 18 WALL
+Point=9 14 INBOX
+Point=17 10 OUTBOX
+FillRect=4 13 6 15 FIREFLYl BUTTERFLYl
+FillRect=17 13 19 15 FIREFLYl BUTTERFLYl
+FillRect=34 13 36 15 FIREFLYl BUTTERFLYl
+FillRect=10 3 12 5 FIREFLYl BUTTERFLYl
+FillRect=26 3 28 5 FIREFLYl BUTTERFLYl
+Rectangle=9 2 13 6 DIRT
+Rectangle=3 12 7 16 DIRT
+Rectangle=16 12 20 16 DIRT
+Rectangle=25 2 29 6 DIRT
+Rectangle=33 12 37 16 DIRT
+Add=0 2 BUTTERFLYl BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=BONUS LIFE
+Author=Dustin
+Intermission=true
+IntermissionProperties.instantlife=true
+Size=20 12 0 0 19 11
+Colors=Black Black Green Yellow Blue White White
+DiamondsRequired=2 2 2 2 2
+DiamondValue=50 0
+CaveTime=48 45 42 39 36
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+MagicWallTime=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=3 8 16 8 MAGICWALL
+FillRect=3 9 15 10 SPACE
+Line=8 2 11 2 BOULDER
+Point=9 2 INBOX
+Point=10 2 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=E
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightBlue Gray2 Green White White
+DiamondsRequired=1 1 1 1 1
+DiamondValue=50 99
+CaveTime=180 165 150 135 120
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=STEELWALL
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=2 20 DIAMOND
+Point=1 20 INBOX
+Line=1 1 1 20 DIRT
+Maze=7 1 38 20 1 1 50 1 2 3 4 5 STEELWALL SPACE unicursal
+Point=7 2 STEELWALL
+Line=2 1 6 1 DIRT
+Line=3 6 3 19 FIREFLYl
+Line=3 3 6 3 SPACE
+Line=5 4 5 16 SPACE
+Point=3 5 OUTBOX
+Line=3 3 4 3 DIAMOND
+Point=3 20 DIRT
+Line=3 17 3 19 SPACE
+Point=1 20 INBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=F
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Cyan LightBlue White White White
+DiamondsRequired=5 12 21 23 25
+DiamondValue=10 15
+CaveTime=240 240 240 240 300
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=12 24 2 17 155
+RandomFill=DIRT 100 DIRT 100 DIRT 71 BOULDER 60
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=6 9 9 15 STEELWALL DIRT
+FillRect=18 9 21 15 STEELWALL DIRT
+FillRect=30 9 33 15 STEELWALL DIRT
+Line=7 9 8 9 MAGICWALL
+Line=19 9 20 9 MAGICWALL
+Line=31 9 32 9 MAGICWALL
+Point=36 14 INBOX
+Point=13 13 OUTBOX
+FillRect=1 16 38 20 DIRT
+FillRect=6 17 9 20 DIRT SPACE
+FillRect=18 17 21 20 DIRT SPACE
+FillRect=30 17 33 20 DIRT SPACE
+Point=8 19 FIREFLYl
+Point=20 19 FIREFLYl
+Point=32 19 FIREFLYl
+Add=0 -1 MAGICWALL DIRT
+FillRect=12 17 15 20 DIRT SPACE
+FillRect=24 17 27 20 DIRT SPACE
+Point=14 19 FIREFLYl
+Point=26 19 FIREFLYl
+FillRect=13 1 14 11 SPACE
+FillRect=25 1 26 11 SPACE
+[/objects]
+[/cave]
+
+[cave]
+Name=G
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Purple White White White
+DiamondsRequired=6 6 6 6 6
+DiamondValue=50 0
+CaveTime=150 140 130 120 100
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=134 124 120 132 10
+RandomFill=DIRT 120 SPACE 120 BOULDER 75 FIREFLYl 10
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 7 7 STEELWALL
+FillRect=1 14 11 20 STEELWALL
+FillRect=9 8 14 13 STEELWALL
+FillRect=21 8 26 13 STEELWALL
+Line=15 13 20 13 STEELWALL
+FillRect=15 1 20 6 STEELWALL
+FillRect=28 1 38 7 STEELWALL
+FillRect=24 14 38 20 STEELWALL
+Rectangle=8 7 27 14 DIRT
+Rectangle=7 6 28 15 STEELWALL
+Line=7 10 7 12 DIRT
+Line=10 6 12 6 DIRT
+Line=23 6 25 6 DIRT
+Line=28 10 28 12 DIRT
+Line=16 15 19 15 DIRT
+Point=1 9 DIAMOND
+Point=11 1 DIAMOND
+Point=24 1 DIAMOND
+Point=38 10 DIAMOND
+Point=18 20 DIAMOND
+Point=18 12 DIAMOND
+Point=17 6 INBOX
+Point=18 6 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=H
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Red Red Yellow White White
+DiamondsRequired=100 150 200 250 300
+DiamondValue=1 5
+CaveTime=300 300 280 270 270
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=117 234 102 138 160
+InitialFill=SPACE
+RandomFill=DIRT 240 BOULDER 240 WALL 154 DIAMOND 150
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=17 1 INBOX
+Point=22 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=BONUS LIFE
+Author=Dustin
+Intermission=true
+IntermissionProperties.instantlife=true
+Size=20 12 0 0 19 11
+Colors=Black Black Purple Blue LightBlue White White
+DiamondsRequired=9 9 9 9 9
+DiamondValue=30 0
+CaveTime=32 30 28 26 24
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=8 4 10 10 WALL
+Point=9 2 BOULDER
+Point=9 3 DIRT
+Point=9 4 SPACE
+Point=9 5 FIREFLYl
+Point=9 8 BUTTERFLYd
+Point=4 3 INBOX
+Point=16 7 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=I
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Green White Cyan White
+DiamondsRequired=5 8 12 14 10
+DiamondValue=15 45
+CaveTime=60 55 50 45 40
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=20 14 1 5 7
+RandomFill=SPACE 72 FIREFLYl 30 DIAMOND 27 BOULDER 20
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=12 7 24 15 AMOEBA DIRT
+Rectangle=11 6 25 16 DIRT
+Point=18 6 FIREFLYl
+Point=22 6 FIREFLYl
+Point=14 16 FIREFLYl
+Point=22 16 FIREFLYl
+Point=25 9 FIREFLYl
+Point=14 6 FIREFLYl
+Point=18 10 INBOX
+Point=18 11 OUTBOX
+Point=25 13 FIREFLYl
+Point=18 16 FIREFLYl
+Point=11 9 FIREFLYl
+Point=11 13 FIREFLYl
+[/objects]
+[/cave]
+
+[cave]
+Name=J
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Yellow Cyan White White Brown
+DiamondsRequired=-8 -7 -6 -5 -4
+DiamondValue=20 50
+CaveTime=210 196 182 168 140
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=23 32 35 46 48
+RandomFill=SPACE 150 BOULDER 100 FIREFLYl 12 DIAMOND 5
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 10 38 10 SLIME
+Point=39 1 OUTBOX
+Add=0 -1 SLIME BOULDER
+Add=0 1 SLIME DIRT
+FillRect=19 17 21 19 DIRT INBOX
+Line=1 7 38 7 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=K
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Blue White LightGreen White
+DiamondsRequired=30 45 60 80 95
+DiamondValue=2 8
+CaveTime=240 230 220 210 200
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+RandomFill=DIRT 120 DIRT 120 FIREFLYl 120 BUTTERFLYd 50
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=7 1 32 14 DIRT
+FillRect=1 1 38 3 DIRT
+Line=7 15 7 20 DIRT
+Line=32 15 32 20 DIRT
+Line=13 1 26 1 AMOEBA
+Point=19 3 INBOX
+Point=38 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=L
+Author=Dustin
+Selectable=false
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Gray2 LightBlue White White
+DiamondsRequired=-12 -10 -8 -4 -3
+DiamondValue=10 50
+CaveTime=120 110 100 90 80
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=138 37 112 216 249
+RandomFill=DIAMOND 36 DIRT 0 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=8 3 36 18 SPACE
+Raster=8 3 14 1 2 2 FIREFLYl
+Raster=8 5 1 7 2 2 FIREFLYd
+Raster=7 18 15 1 2 2 FIREFLYr
+Raster=36 3 1 5 2 2 FIREFLYu
+Rectangle=9 4 35 17 DIRT
+Rectangle=6 1 38 2 DIRT
+Rectangle=37 3 38 18 DIRT
+Rectangle=6 19 38 20 DIRT
+FillRect=1 1 7 20 DIRT
+Point=4 9 OUTBOX
+Add=0 1 DIAMOND STEELWALL
+Point=38 20 INBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=BONUS LIFE
+Author=Dustin
+Intermission=true
+IntermissionProperties.instantlife=true
+Size=20 12 0 0 19 11
+Colors=Black Black Brown Gray1 LightGreen Cyan White
+DiamondsRequired=10 10 10 10 10
+DiamondValue=15 0
+CaveTime=48 45 42 39 36
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+AmoebaTime=5 5 5 5 5
+MagicWallTime=3 3 3 3 3
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 6 15 8 WALL DIRT
+FillRect=7 8 9 10 WALL INBOX
+Point=8 7 FIREFLYl
+Point=2 7 OUTBOX
+Point=14 7 AMOEBA
+Point=8 5 BOULDER
+Line=8 1 8 5 DIAMOND
+Point=9 1 FIREFLYl
+Point=7 1 FIREFLYr
+[/objects]
+[/cave]
+
+[cave]
+Name=M
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange LightRed White White White
+DiamondsRequired=12 12 13 19 21
+DiamondValue=15 40
+CaveTime=240 230 220 210 210
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=117 237 8 144 19
+RandomFill=DIRT 200 DIRT 200 BOULDER 200 DIAMOND 15
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 14 38 20 DIRT
+Point=18 18 INBOX
+Point=21 18 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=N
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Green Purple White White White
+DiamondsRequired=12 16 20 25 30
+DiamondValue=10 15
+CaveTime=180 160 140 120 100
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=22 23 24 25 26
+RandomFill=DIRT 50 DIRT 50 DIRT 50 BOULDER 50
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=1 1 38 20 SPACE
+Rectangle=2 2 37 19 DIRT
+Rectangle=11 6 28 16 SPACE
+Rectangle=10 5 29 17 DIRT
+Rectangle=12 7 27 15 DIRT
+Raster=2 2 8 4 5 5 DIAMOND
+Line=9 1 30 1 FIREFLYd
+Line=14 6 25 6 FIREFLYd
+FillRect=18 16 21 20 DIRT
+Point=20 4 INBOX
+Point=35 14 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=O
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Black Purple White Cyan Yellow
+DiamondsRequired=34 32 44 50 63
+DiamondValue=5 10
+CaveTime=120 120 120 120 120
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandomFill=DIRT 200 DIRT 200 AMOEBA 200 BOULDER 150
+AmoebaTime=0 0 0 0 0
+SlimePermeabilityC64=248 248 248 248 248
+
+[objects]
+FillRect=1 9 38 20 SPACE
+Rectangle=2 1 37 9 SLIME
+Line=1 1 1 8 SPACE
+Line=38 1 38 8 SPACE
+Point=0 3 INBOX
+Point=39 3 OUTBOX
+Line=3 8 36 8 DIRT
+FillRect=3 1 36 2 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=P
+Author=Dustin
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Purple LightRed LightGreen White White
+DiamondsRequired=12 16 20 24 28
+DiamondValue=20 50
+CaveTime=210 180 150 120 96
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=2 2 38 20 SPACE
+Point=2 2 FIREFLYl
+Point=20 2 FIREFLYl
+Point=2 20 FIREFLYd
+Point=20 20 FIREFLYr
+Point=38 20 FIREFLYr
+Point=38 2 FIREFLYu
+Point=1 1 INBOX
+FillRect=3 3 37 19 STEELWALL
+Rectangle=5 5 17 17 DIRT
+Rectangle=7 7 15 15 DIRT
+Rectangle=9 9 13 13 DIRT
+Rectangle=23 5 35 17 DIRT
+Rectangle=25 7 33 15 DIRT
+Rectangle=27 9 31 13 DIRT
+Line=3 11 37 11 DIRT
+Line=11 5 11 17 DIRT
+Line=29 5 29 17 DIRT
+Line=20 5 20 17 DIRT
+Point=11 2 FIREFLYl
+Point=29 2 FIREFLYl
+Point=11 20 FIREFLYr
+Point=29 20 FIREFLYr
+Point=38 11 FIREFLYu
+Point=2 11 FIREFLYd
+Point=6 5 DIAMOND
+Point=8 7 DIAMOND
+Point=16 5 DIAMOND
+Point=20 5 DIAMOND
+Point=24 5 DIAMOND
+Point=14 7 DIAMOND
+Point=34 5 DIAMOND
+Point=26 7 DIAMOND
+Point=32 7 DIAMOND
+Point=10 9 DIAMOND
+Point=12 9 DIAMOND
+Point=28 9 DIAMOND
+Point=30 9 DIAMOND
+Point=10 13 DIAMOND
+Point=12 13 DIAMOND
+Point=28 13 DIAMOND
+Point=30 13 DIAMOND
+Point=32 15 DIAMOND
+Point=26 15 DIAMOND
+Point=14 15 DIAMOND
+Point=8 15 DIAMOND
+Point=6 17 DIAMOND
+Point=16 17 DIAMOND
+Point=20 17 DIAMOND
+Point=24 17 DIAMOND
+Point=34 17 DIAMOND
+Point=37 11 OUTBOX
+Line=11 11 11 11 DIAMOND
+Line=29 11 29 11 DIAMOND
+Line=11 12 11 12 STEELWALL
+Line=29 12 29 12 STEELWALL
+[/objects]
+[/cave]
+
+[cave]
+Name=BONUS LIFE
+Author=Dustin
+Intermission=true
+IntermissionProperties.instantlife=true
+Size=20 12 0 0 19 11
+Colors=Black Black Purple Cyan White White White
+DiamondsRequired=5 5 5 5 5
+DiamondValue=50 75
+CaveTime=32 30 28 26 24
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=9 9 BUTTERFLYl
+Point=9 7 FIREFLYu
+Point=10 8 FIREFLYd
+Point=11 9 FIREFLYu
+Point=8 10 FIREFLYd
+Line=4 1 15 1 BOULDER
+Line=4 2 15 2 DIRT
+Point=4 6 INBOX
+Point=16 9 OUTBOX
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]

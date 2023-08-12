@@ -1,0 +1,2416 @@
+[BDCFF]
+Version=0.5
+[game]
+Name=Rock Fort 2- Inside The Fort
+Author=Dustin Bachstein
+Date=2008-11-20
+Difficulty=easy (level 1) to very hard (level 5)
+Lives=5 99
+TitleScreen=iVBORw0KGgoAAAANSUhEUgAAAUAAAACoCAIAAAAekqCmAAAAA3NCSVQICAjb4U/gAAAIsUlEQVR42u3dP2zbVh7A8d9LO6XISA1eCnQzqMHIptsleHEz39AlJy3uJuGAbsp1MhBIoxcKBQ7d7qakwxnUXHjp9YKAgpdrDsEFBkqtaXGbbqBIkXyPEklRsv58P/AQm+Qj9cQffz+9R4UiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICyHE9ms9w/3o4cdPrAfLeahl1/T3qjK74v3dJbu7v9/m7eoyMNd7vKaEE53kxmA7HWCN1B89jf30fHfAJZTfEc4ugBBAWCvUbizQzd5Pt78DH86MjPJPtZ+foNpRNv01qrhefNvGtaTXG7BPAhZ2E5J4L3Stc1pO6REqVEKZloi87OCeA9NZm/qdHPaGJY6+T0KM776TjdG4uf+j69kNOT9F/GPemE/673ZJq6RJ8QwIei81363V1e6enDm6s/MnfFN21Y4sOYeSR5i+OrBXpAe9VB4Rpvwffm69haETTI370in9fSf3k/PN565LgC2P3GMOZ5f2c+cY1DLO3Y2Wk+iTOGVa1msTB2PMMHxcloS9myZA9ojcRb8O+rObZWLV1BdOJvwnm6/6f3gj1QbB44+klNQmbkT/0nPXyde8NECs2YBzZObxYajNGzd95rR7ke0LbytLfDydHyunMCpl24jHEccACn4rDQ/Q/Oqmpz9U6NAeysG72FXkg1PbAyOL1clwan6uhlqv+QAzj17hrznpMjpy1PmIalXnYAe9XkkHIBXLoHVgZn/CV4y4ugcsHr5iivcEgB7OQ46VORk3XmrdwwOrZ0KDqFrzIbDeDSPWAO4Iz4qTyAzS/2OKL3SOeBp+PEyEfgJD36ITfJ4c379ASFnObbsFOfD7e0io+XbvNWhNI9YDS+ko0PD3fFN90WMh2LqsmQAN5vk8zJfatZZj7mvZ/+y+dbCa3m813p0QI9oAX/Boou85j/uCe11rGkoqPIwPrkvoiIXbg6fbAZSLuCe7azbuSodzbTA/6GE6Ajs7b5kt06pmnh4yihh3I1Xl2d6vVh6i5LvcK8y7dhNMSS85Ix0qqG7dyzXboHtq0rftt0haoL9pVhEMtbOnairVPtKLQTzxVZS7MX6W0WqhfKzQNXOQqd/QnFW3v2qNi3nRmLPowAzhryjSfh7cwDL877pV/oX+dEL30jR2XzwF7xXeSMNGe9e3UoofdVR8bTFUNErau8N0vHb6AXkfoo/4dRuco3xHKrDb61N38jdOkeWGckrNiVukG2Os4MLJn3G6yY7Sx7Q//qbLD8v9RZ48bA8rdSluuBIhl4SUc5VRzbUWXgTw/mlby+lg/aEIs+mvWn/8lTfebhE2mI3EbpVImIXPYNUxQ//0V+yB4qqw1FGvLnljzWl/4u7svFLsKDlhcfkmu9W3W0T+RCso8h9P1L+fFxdsurFO6BW3n5Ivmqp8vGFGtDc+Pv4m+DUUP++sLUvUv8vqJJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKiQ483m1n2cSdSSsaGu6wdL/aLPLou2NPLd7qpdV7O38k1fXPb7/f4/f63g6ICNBXDOwPDLP3xwEVypRjYSwH5VT0ms8OiO3iO6IO/p5jmxZBQ7mdMpKlqkn6erLg6L5dUFTFYAVrivzKbCBb7bnf/Tc11/1rbny+02UYxNZ+Dk6Zk6T8PwCNZdxLohgLNq0fkJb97N8rN7dQY27qrQvjIOO1x5aVNRAHuer18EScNk4K2ajntKqdH8gSfW2XlX5HT+vD67PfMc6dSVUkqp7+70fOY8nz+HOmiml3zMS9d9ZseWRruxn62Xhk3HXOG+oqZkMlKxV2W3E2Fp2bU3PaWUqneGrVp0OMFG9Q6nFgG8Df77oYjcJZ7BGfvNbkeJ7lx/Nm43erRu0Mzw5k28nfBCIFZzMJvNZlGZGcRcpcdcdl9hvCsVhV3U1OS2I4lXVUs8+Xv65mbICUQA755EQokSTvMbLZcN13yk1yFc+0AA76KwcNbq4oQoCwa5qXt+ZpmWJtKcUkrVKn/gfIX7ipqyG8Hn/PBVkXIJ4H2QmgsK06zp9I2qy6BwHZwlHv81bL2aJMraDY7xVLivqKn5B4jB/HP+5NWyS8Ei7BmFJoAfuoIOsu48Ftq2yHTcM2ayaN1g+Kb2yk/n8XQCn457mxnjqXBfnbpKfYaYjnsrGlqEPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeEjhA+95HhhCPNwMIIABEMAoXE3Py+nUg4pja0R/ALAjUWt4LncqYIlfYFcD+Nd/XIhI4/rtx+D3//ytIXLx/b8/zmaz2ce3141w0ce31w36DditAJ6PQqfr5vB333U90i+w2x98o/hdTCsli2ziF9jBAPZ9PytO4xFM/AK7GMCeo41CRxZpmfgF9rfMJn6B/bHIvNxtCexx6iX7AgAAAAAAYE3p0eINDjs53qJZpocPFF8n3A1Wc1DhzE8wIt226VdgYxl4HrCx+Z+KQph0C2wtgON/CgJOu5vK8LUFrRQP19W/NOy7XS2m419sim1BwFNCo6jhzZtpWEmfnOa8Cgyalsh03FNKqdGkfBFut+OlttUccAsXAYwNZ/HzMyse7526CtQ7Ip266o3DC8J03FOq1houa20yii4CIiJ2gwgmgLEddnvtu58ntx0Rkbv7Kd1JAGMrNXfrajw1BTPlLwGM7Ts9scKS9/4uZwjX4mWvUP4eq0/pggdjPe33+yKNr/4YjCL5P3/dbl2LyOv/+m27JiLWHy5v+k9uv7xsWvENLy77Ty0R+fD3r7+sX/8g4nizti3y2y//ei0iMvzpl2+b1mci8viLVr//yTv3Jb0NVCHnnVjx1Xy3qz1URW8mWT4nlntO9jSS9h/kUYcDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKOD/WWFqduDUZxsAAAAASUVORK5CYII=
+Levels=5
+
+[cave]
+Name=Welcome To Rock Fort 2!
+Author=Dustin
+Intermission=true
+IntermissionProperties.rewardlife=false
+Story=Rockford has actually found this fortress that the rumours tell about! Reverentially, he watches the gigantic, stony monument standing in front of him; it is expected to hold such a big treasure that even Rockford probably can\342\200\231t imagine its extent. Somehow he feels paralysed; this view seems to hold him to the very point on which he stands. His thoughts concentrate on what awaits him inside, guarding such an amount of jewels... Very slowly, a feeling, not even noticeable at first, starts to creep up within him: angst. \nShould he really enter the fort? Should he really enter a world full of new danger that even he, Rockford the treasure seeker,  cannot estimate? He will be famous and glorious for even finding the fort and, consequently, proving its existence. Shouldn\342\200\231t he go back right now, sell the rest of his potion to an exorbitant price, be a man about town with villa, limousine and chic women around him and simply enjoy his life, richness and reputation in the world?\n\n...\n\n...\n\nDo I really have to tell you of his decision?\n\nThe decision of Rockford, the treasure seeker?\n\nNo?\n\nAlright; the next scene plays in the fort, right next to the powerful entrance door that Rockford has just slammed behind him. He now walks into complete darkness, ready to face everything that will be meeting him...\n\nHINT: This story is related to level 3, which is Rockford's adventure. There are two introductory levels and two quite difficult bonus levels. The replays from \"Rockford\" are a \"movie\" related to the story. Have a lot of fun with the game! :D
+Size=20 12 0 0 19 11
+Colors=Black Black Black Black Black Black Black
+DiamondsRequired=2 2 2 2 2
+DiamondValue=50 100
+CaveTime=20 20 20 20 20
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+RandSeed=-1 -1 -1 -1 -1
+RandomFill=DIRT 30 DIRT 30 DIAMOND 30 BOULDER 20
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=0 0 19 11 OUTBOX
+Point=9 5 INBOX
+[/objects]
+
+[replay]
+Level=2
+Player=Rockford
+Date=2007-12-05
+RecordedWith=GDash 20100212
+RandomSeed=506923845
+Score=236
+Success=true
+Checksum=-923714791
+Movements=.21 l4 .5 u2 .8 l3 .2 r6 .2 l5 .12 u3
+[/replay]
+[/cave]
+
+[cave]
+Name=Room A. Intruder
+Author=Dustin Bachstein
+Date=2008-11-20
+Intermission=false
+Story=Story (level 3)\n\n...when he suddenly notices the glow of diamonds and very well-known animals around him! There\342\200\231s a door (probably leading to the next room), but it will only open once Rockford has collected every single jewel. Well, that\342\200\231s not too hard of a task for Rockford and, just as he is feeling pleased with such a good start, he enters the door...\n
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Brown White Yellow Brown
+DiamondsRequired=5 7 10 11 18
+DiamondValue=20 0
+CaveTime=120 80 80 60 120
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+[Level=1,2]
+Maze=1 1 36 16 4 1 50 13 26 39 52 65 SPACE DIRT braid
+[/Level]
+[Level=3,4]
+Maze=1 1 37 17 3 1 50 13 26 39 52 65 SPACE DIRT braid
+[/Level]
+[Level=5]
+Maze=1 1 37 19 2 1 50 13 26 39 52 65 SPACE DIRT braid
+[/Level]
+FillRect=18 8 20 10 DIRT INBOX
+[Level=1]
+Point=11 14 DIAMOND
+[/Level]
+[Level=1]
+Point=10 9 DIAMOND
+[/Level]
+[Level=1]
+Point=24 15 DIAMOND
+[/Level]
+[Level=1]
+Point=33 14 DIAMOND
+[/Level]
+[Level=1]
+Point=35 9 DIAMOND
+[/Level]
+[Level=2]
+Point=3 14 DIAMOND
+[/Level]
+[Level=2]
+Point=9 15 DIAMOND
+[/Level]
+[Level=2]
+Point=8 9 DIAMOND
+[/Level]
+[Level=2]
+Point=16 4 DIAMOND
+[/Level]
+[Level=2]
+Point=24 9 DIAMOND
+[/Level]
+[Level=2]
+Point=34 9 DIAMOND
+[/Level]
+[Level=2]
+Point=31 4 DIAMOND
+[/Level]
+[Level=3]
+Point=3 3 DIAMOND
+[/Level]
+[Level=3]
+Point=7 7 DIAMOND
+[/Level]
+[Level=3]
+Point=7 11 DIAMOND
+[/Level]
+[Level=3]
+Point=15 11 DIAMOND
+[/Level]
+[Level=3]
+Point=22 7 DIAMOND
+[/Level]
+[Level=3]
+Point=26 11 DIAMOND
+[/Level]
+[Level=3]
+Point=31 11 DIAMOND
+[/Level]
+[Level=3]
+Point=31 3 DIAMOND
+[/Level]
+[Level=3]
+Point=33 15 DIAMOND
+[/Level]
+[Level=3]
+Point=7 16 DIAMOND
+[/Level]
+[Level=4]
+Point=3 11 DIAMOND
+[/Level]
+[Level=4]
+Point=6 15 DIAMOND
+[/Level]
+[Level=4]
+Point=7 3 DIAMOND
+[/Level]
+[Level=4]
+Point=15 3 DIAMOND
+[/Level]
+[Level=4]
+Point=16 11 DIAMOND
+[/Level]
+[Level=4]
+Point=21 15 DIAMOND
+[/Level]
+[Level=4]
+Point=27 15 DIAMOND
+[/Level]
+[Level=4]
+Point=31 16 DIAMOND
+[/Level]
+[Level=4]
+Point=31 11 DIAMOND
+[/Level]
+[Level=4]
+Point=27 3 DIAMOND
+[/Level]
+[Level=4]
+Point=35 3 DIAMOND
+[/Level]
+[Level=5]
+Point=3 5 DIAMOND
+[/Level]
+[Level=5]
+Point=2 11 DIAMOND
+[/Level]
+[Level=5]
+Point=3 17 DIAMOND
+[/Level]
+[Level=5]
+Point=8 14 DIAMOND
+[/Level]
+[Level=5]
+Point=16 11 DIAMOND
+[/Level]
+[Level=5]
+Point=13 8 DIAMOND
+[/Level]
+[Level=5]
+Point=11 5 DIAMOND
+[/Level]
+[Level=5]
+Point=14 5 DIAMOND
+[/Level]
+[Level=5]
+Point=24 14 DIAMOND
+[/Level]
+[Level=5]
+Point=14 18 DIAMOND
+[/Level]
+[Level=5]
+Point=21 18 DIAMOND
+[/Level]
+[Level=5]
+Point=23 17 DIAMOND
+[/Level]
+[Level=5]
+Point=25 5 DIAMOND
+[/Level]
+[Level=5]
+Point=30 2 DIAMOND
+[/Level]
+[Level=5]
+Point=36 2 DIAMOND
+[/Level]
+[Level=5]
+Point=33 8 DIAMOND
+[/Level]
+[Level=5]
+Point=32 14 DIAMOND
+[/Level]
+[Level=5]
+Point=29 18 DIAMOND
+[/Level]
+Add=0 1 DIAMOND FIREFLYl
+Point=19 20 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2007-12-06
+RecordedWith=GDash 20100212
+RandomSeed=845012522
+Score=245
+Success=true
+Checksum=1798873063
+Movements=.56 D .8 l4 d3 l .10 d2 .4 d2 .2 l3 .13 l2 r u2 .5 l3 d3 l4 u5 ur r3 l2 . u . r2 u2 .8 u l3 ul u .13 r .17 r2 .2 u2 .7 u .2 L .2 u2 .6 l3 d2 dl l ul u2 . d4 dr r8 ur u4 .25 l7 u .2 d5 dr r7 u5 r4 .2 d3 r4 .2 u2 . R . d5 r2 d r2 .4 u2 .2 u4 .4 d6 .4 l8 .5 r10 d4 .7 u3 r3 u2 .3 r3 .6 d5 l u4 .2 d2 dr r3 . l3 u4 .3 l .3 r3 u2 .3 L .2 u3 .4 l3 d3 dr r6 d13 l5 u l2 .15 l5 d2 l4 .2 d2 dl l2
+[/replay]
+[/cave]
+
+[cave]
+Name=Room B. Rockford
+Author=Dustin Bachstein
+Date=2008-11-20
+Intermission=false
+Story=Story (level 3)\n\n... and experiences the biggest shock of his life! His heart is on the verge of standing still; his blood dashes out of his face and into his legs. That\342\200\231s not because of the 17 fireflies in this room; It\342\200\231s because of the letters: \n\nROCKFORD\n\nstanding there, highly visible and threatening. How does the fort \342\200\234know\342\200\235 that he is here? Somebody (or something) must have been watching him from the moment that he had entered the fort, and it could come out and put up a fight at any time. After  having nearly run into a fly, Rockford slowly picks up his courage. Having to blast some of the stony letters, he collects the eight diamonds and hurries into the next room. But, all his senses are now set to the highest level of alert. Whatever is to come will come; and, when it does come, Rockford will have to be ready to fight it.\n
+Size=40 22 0 0 39 21
+Colors=Black Black Green Blue Red Cyan Gray1
+DiamondsRequired=8 8 8 8 8
+DiamondValue=40 0
+CaveTime=120 120 120 80 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=6 3 6 9 WALL
+Line=7 3 8 3 WALL
+Line=9 4 9 5 WALL
+Line=7 6 8 6 WALL
+Line=7 7 9 9 WALL
+Line=15 3 16 3 WALL
+Line=17 4 17 8 WALL
+Line=15 9 16 9 WALL
+Line=14 4 14 8 WALL
+Line=23 3 25 3 WALL
+Line=22 4 22 8 WALL
+Line=23 9 25 9 WALL
+Line=30 3 30 9 WALL
+Line=33 3 31 5 WALL
+Line=31 7 33 9 WALL
+Line=6 12 6 18 WALL
+Line=6 12 9 12 WALL
+Line=7 15 8 15 WALL
+Line=15 12 16 12 WALL
+Line=17 13 17 17 WALL
+Line=15 18 16 18 WALL
+Line=14 13 14 17 WALL
+Line=22 12 22 18 WALL
+Line=23 12 24 12 WALL
+Line=25 13 25 14 WALL
+Line=23 15 24 15 WALL
+Line=23 16 25 18 WALL
+Line=30 12 30 18 WALL
+Line=31 12 32 12 WALL
+Line=33 13 33 17 WALL
+Line=31 18 32 18 WALL
+Raster=9 3 2 1 8 2 BOULDER
+Raster=17 12 3 1 8 2 BOULDER
+Add=1 0 BOULDER DIRT
+Point=7 5 DIAMOND
+Point=15 8 DIAMOND
+Point=23 8 DIAMOND
+Point=31 4 DIAMOND
+Point=31 17 DIAMOND
+Point=23 14 DIAMOND
+Point=15 17 DIAMOND
+Point=7 14 DIAMOND
+Raster=5 3 4 2 8 9 FIREFLYl
+Point=1 1 INBOX
+Point=38 1 OUTBOX
+[Level=2,3,4,5]
+Point=38 20 FIREFLYl
+[/Level]
+[Level=3,4,5]
+Raster=5 9 4 2 8 9 FIREFLYd
+[/Level]
+[Level=5]
+Point=16 17 FIREFLYl
+[/Level]
+[Level=5]
+Point=32 17 FIREFLYl
+[/Level]
+[Level=5]
+Point=16 8 FIREFLYl
+[/Level]
+[Level=5]
+Point=1 20 FIREFLYl
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2007-12-06
+RecordedWith=GDash 20100212
+RandomSeed=964943197
+Score=365
+Success=true
+Checksum=1548924546
+Movements=.24 d2 .24 d r3 .27 l2 .2 l2 .9 r .8 r .7 d2 .3 d2 .4 d2 .12 d .2 d .2 d2 .4 d .3 d .5 d2 .19 d r3 .6 r3 .2 u5 l3 r5 d5 .7 l2 .14 r4 .2 r3 u .2 r .3 u3 .3 u2 .4 u r .2 r2 d4 dl l .14 l u ul l d2 .4 L .3 u3 .4 r4 d2 .8 d3 .4 r3 u r2 .3 dr r2 d dr r u3 .3 u4 .17 r3 .4 l4 .5 d l2 . D .33 r6 d4 .5 d2 dl l3 .3 l .5 r9 u .3 r2 . u3 . l . u3 .4 r3 .9 d4 .4 l2 .5 l4 D2 r3 .6 r3 .5 d3 .14 d l5 .2 l14 . l8 .4 l9 u13 . u3 .2 u3 r6 d r3 d .8 u3 r2 d3 l5 d r u ur2 u3 .10 r8 d2 . u3 .24 d5 dl l d2 l u4 ur r2 u4 .9 r9 .24 d7 l4 u5 r5 u2 ur r2 d3 . u4 .3 l2 .3 l2 .21 r11
+[/replay]
+[/cave]
+
+[cave]
+Name=Room C. Umbrellas
+Author=Dustin Bachstein
+Date=2008-11-20
+Intermission=false
+Story=Stroy (level 3)\n\nShould Rockford believe that he\342\200\231s safe? At first sight, this room doesn\342\200\231t look very dangerous - no flies or animals at all! But, Rockford soon realizes that he has to play a dangerous \342\200\234game\342\200\235 of dodgeball in order to get enough diamonds, and the seemingly pointless parts of slime will prove very useful too!
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Gray2 White White LightBlue
+DiamondsRequired=32 49 54 62 155
+DiamondValue=5 20
+CaveTime=180 180 180 150 250
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+RandSeed=0 0 0 0 0
+InitialFill=SPACE
+MagicWallTime=999 999 999 999 230
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+[Level=1,2,3,4]
+RandomFillC64=0 1 39 20 29 23 21 28 32 BOULDER DIAMOND 60
+[/Level]
+[Level=5]
+RandomFillC64=0 1 39 20 29 23 21 28 32 DIAMOND BOULDER 60
+[/Level]
+Rectangle=13 0 26 10 STEELWALL
+Line=1 10 38 10 STEELWALL
+FillRect=1 11 38 20 SPACE
+Raster=6 10 3 1 13 2 BOULDER
+Raster=6 11 3 1 13 2 DIRT
+[Level=1,2,3,4]
+Raster=6 12 3 1 13 2 SLIME
+[/Level]
+[Level=5]
+Raster=6 12 3 1 13 2 MAGICWALL
+[/Level]
+Point=1 20 INBOX
+Rectangle=0 0 39 21 STEELWALL
+Point=20 0 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2007-12-28
+RecordedWith=GDash 20100212
+RandomSeed=718797056
+Score=452
+Success=true
+Checksum=527104306
+Movements=.22 u2 .7 r u5 .3 u3 .16 d2 r15 . r14 .46 u2 .7 r5 .11 d4 .8 d3 .9 d3 .2 L . u4 .5 u2 .2 l .4 r .7 l2 .3 l .2 d3 L3 .2 r2 .5 r3 .4 l d3 D L7 .3 u2 .3 u l4 r3 .3 u .6 u2 l .13 d3 . L .2 u3 .5 l .4 l .13 l10 dl d6 .8 r3 .5 r2 .16 l ul u2 ur .10 u4 r9 d3 .2 u6 .3 l3 u2 . L .5 r . l2 u2 ul l2 r2 d2 r .2 r4 DR D L .3 u2 ul l3 d5 dl l11 .3 l .26 r3 d9 .7 L8 .3 u7 .10 d6 D . u2 . d3 L . u7 .3 d .3 l5 dl d6 l d dl l u7 ur r3 .3 d3 D3 . u .2 d2 l ul u .10 ul l .3 r2 .2 d . R .2 u4 ur r8 d5 r u6 .3 d .10 l12 .2 d .2 R .4 u3 .6 r3 d3 r2 d2 r d r u6 l5 u3 l2 r2 u3 r5 l5 . u3 . d9 dl l12 . l2 d9 D . R2 .2 u4 .3 d3 R6 u2 .3 d .2 l d2 . u5 r2 d2 l2 .4 l dl d4 . R . u7 r10 d6 r . D . u6 .3 l6 d4 l u4 .2 r6 d5 r u4 l2 d2 D L2 . u3 .3 l4 d2 R2 D L l3 .13 d3 R2 . u4 .2 r3 d .2 R .5 u .3 r5 .3 d dr r2 d3 r u6 ul l4 u4 .6 u . r4 .3 l3 .6 l5 r2 .2 d .2 l2 r .10 d .2 D .4 u6 .10 d5 r2 dr d4 l2 d3 .2 u ur r7 d2 r3 u4 ur r3 .2 u8 .3 r u3
+[/replay]
+[/cave]
+
+[cave]
+Name=Room D. Stony Amoeba
+Author=Dustin Bachstein
+Date=2008-11-29
+Intermission=false
+Story=Story (level 3)\n\nWhat\342\200\231s this? Are all the diamonds there for taking with no enemies present at all? The owner really seems to have exaggerated his \"feeling safe strategy\" a bit, hasn\342\200\231t he? Even the fact that Rockford has merely 20 seconds to leave the room cannot upset him. But, once he takes his first step, he simultaneously hears a strange sound behind him. Suddenly, he realizes where the problem is and, he\342\200\231s left with far less than 20 seconds now!
+Size=40 22 0 0 39 21
+Colors=Black Brown Brown Brown White Cyan Red
+DiamondsRequired=4 6 10 11 17
+DiamondValue=30 60
+CaveTime=20 20 20 20 20
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+RandSeed=30 13 40 10 0
+InitialFill=SPACE
+RandomFill=DIAMOND 30 DIRT 0 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+[Level=1]
+FillRect=1 1 38 10 STEELWALL
+[/Level]
+[Level=1]
+FillRect=19 11 38 20 STEELWALL
+[/Level]
+[Level=5]
+FillRect=1 10 34 11 STEELWALL
+[/Level]
+[Level=2]
+FillRect=1 1 38 5 STEELWALL
+[/Level]
+[Level=2]
+FillRect=34 6 38 20 STEELWALL
+[/Level]
+[Level=1]
+Point=18 11 OUTBOX
+[/Level]
+[Level=2]
+Point=33 6 OUTBOX
+[/Level]
+[Level=3,4]
+Point=38 1 OUTBOX
+[/Level]
+[Level=5]
+Point=1 1 OUTBOX
+[/Level]
+Add=0 1 DIAMOND DIRT
+Point=1 19 DIRT
+Point=1 20 EXPANDINGWALL
+Point=2 20 INBOX
+Rectangle=0 0 39 21 STEELWALL
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2007-12-31
+RecordedWith=GDash 20100212
+RandomSeed=514207536
+Score=270
+Checksum=1843764332
+Movements=.30 r2 . r2 u4 r12 u9 r7 ur2 r5 ur u4 r3 u4 r11 .13
+[/replay]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-01-01
+RecordedWith=GDash 20100212
+RandomSeed=623054120
+Score=516
+Success=true
+Checksum=1843764332
+Movements=.20 u4 ur r10 u3 ur r6 u2 ur r2 ur u3 ur r4 u3 ur r2 u ur r4 u4 r
+[/replay]
+[/cave]
+
+[cave]
+Name=Bonus Room Q. Mass Breakout
+Author=Dustin Bachstein
+Date=2008-11-29
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Story (level 3)\n\nHaving escaped what seemed to be a stony, vivid, and VERY angry giant, Rockford slams the door to the first bonus room behind him. Here, he can earn some bonus points by breaking through a magic wall and then throwing a boulder through it. Above all, though, he can take a breather!
+Size=20 12 0 0 19 11
+Colors=Black Black Purple Cyan White Green Blue
+DiamondsRequired=1 1 1 1 1
+DiamondValue=99 0
+CaveTime=25 25 25 25 25
+CaveScheduling=ms
+PALTiming=true
+FrameTime=100 100 100 100 100
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+MagicWallTime=2 2 2 2 2
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 10 18 10 FIREFLYl
+Line=1 9 18 9 MAGICWALL
+Point=18 8 FIREFLYl
+Raster=7 3 2 1 5 2 BOULDER
+Point=7 4 INBOX
+Point=12 4 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-01-01
+RecordedWith=GDash 20100212
+RandomSeed=831605433
+Score=114
+Success=true
+Checksum=-243060034
+Movements=.58 l4 . r8 .4 u2 ur r2 .4 d .3 l12 dl d7 r4 l5 u6 .55 r .4 r .61 r3
+[/replay]
+[/cave]
+
+[cave]
+Name=Romm E. Burning Wall
+Author=Dustin Bachstein
+Date=2008-12-07
+Intermission=false
+Story=Story (level 3)\n\nHas the fort\342\200\231s owner kept all his \342\200\234security administrators\342\200\235 for this room? There must be more than a hundred fireflies blocking the next door! How ever could Rockford pass them safely? The answer is to the left of Rockford, from which a strange bubbling sound can be heard...
+Size=40 22 0 0 39 21
+Colors=Black Black Yellow Gray1 LightRed Cyan Brown
+DiamondsRequired=4 4 4 4 4
+DiamondValue=80 0
+CaveTime=120 150 150 75 75
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=17 1 38 20 DIRT FIREFLYl
+Raster=1 1 2 2 37 19 DIAMOND
+Point=1 2 DIRT
+[Level=1]
+FillRect=19 3 36 18 DIRT
+[/Level]
+[Level=2]
+FillRect=21 5 34 16 DIRT
+[/Level]
+[Level=3,4]
+FillRect=22 6 33 15 DIRT
+[/Level]
+Point=1 10 AMOEBA
+Point=16 10 INBOX
+[Level=5]
+FillRect=24 8 31 13 DIRT
+[/Level]
+Point=28 10 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-01-14
+RecordedWith=GDash 20100212
+RandomSeed=171948337
+Score=509
+Success=true
+Checksum=-1118715322
+Movements=.23 l11 .19 d3 .4 r8 .3 d2 .5 d2 .4 l12 d3 .6 u3 r4 u13 .2 l4 u3 ur r5 .4 r8 .3 l8 .3 r2 d19 . r8 u15 l4 u5 .110 r4 .7 r4 .3 r4 .7 l2 .8 d8 r2 u3 l7 .10 u2 .7 l2 .2 r7 d4 dr r3 .3 r4 .7 l5 .4 u7 ur r11 d2 l5 .2 l2 d5 l2 .9 l4 .14 d2 .5 d2 .5 d2 .5 r3 .4 d .2 d .4 d3 .2 u3 .7 u3 .7 r3 .3 u3 .5 l2 u2 l3 u2 .5 l u .10 u .7 l3 r2 .2 u3 ur r8 .3 r6 d9 .2 d4 . d3 . d3 l9 ul u2 l4 ul u6 .5 r4 u2 r
+[/replay]
+[/cave]
+
+[cave]
+Name=Room F. Chain Reaction
+Author=Dustin Bachstein
+Date=2008-12-08
+Intermission=false
+Story=Story (level 3)\n\nRockford is surrounded by dozens and dozens of glittering treasures! Euphorically, he starts to grab as many as he can and then almost immediately finds himself in the very center of an apocalypse! First he hears some loud explosive sounds, and then it seems that ten-millions of flies are trying to catch him. Some of them are hit by falling rocks, and all this happens at such a speed that Rockford has nearly no time to react. While frantically trying to survive, he also must collect enough jewels before they get destroyed by explosions. And, when it\342\200\231s finally over, he finds that the exit door is guarded by a seemingly endless stream of fireflies that have survived...
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Purple LightRed Cyan Blue
+DiamondsRequired=111 50 50 60 25
+DiamondValue=5 8
+CaveTime=80 80 80 60 30
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 38 20 BOULDER FIREFLYl
+FillRect=3 3 36 18 BOULDER FIREFLYl
+[Level=1]
+FillRect=5 5 34 16 BOULDER DIAMOND
+[/Level]
+[Level=2,3,4,5]
+FillRect=5 5 34 16 BOULDER FIREFLYl
+[/Level]
+[Level=2,3,4]
+FillRect=7 7 32 14 BOULDER DIAMOND
+[/Level]
+[Level=5]
+FillRect=7 7 32 14 BOULDER FIREFLYl
+[/Level]
+[Level=5]
+FillRect=9 9 30 12 BOULDER DIAMOND
+[/Level]
+[Level=3,4]
+FillRect=9 9 12 12 FIREFLYl DIAMOND
+[/Level]
+[Level=3,4]
+FillRect=27 9 30 12 FIREFLYl DIAMOND
+[/Level]
+Point=19 11 INBOX
+Point=39 11 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-01-22
+RecordedWith=GDash 20100212
+RandomSeed=770889713
+Score=357
+Success=true
+Checksum=1601195909
+Movements=.15 l4 .3 r5 .23 r .5 r .8 l .3 l2 .3 l2 .18 l4 .3 r2 .3 r6 .7 d2 .2 l2 d3 dl l u l d2 l d l2 u ul3 l2 .2 u ur r d3 u4 r3 d4 dr r .16 u r2 d r6 .2 r2 . l6 u4 .5 r2 .11 u2 .4 u2 . l4 . l4 .2 l .2 d3 .3 d .5 l3 .9 r2 u4 .11 u2 .5 l .2 u2 .6 d3 .6 u2 .2 l3 .7 d .3 l .7 l3 .7 r7 .6 d2 .6 d2 .8 d2 .3 u2 .6 r2 ur u ur r3 .2 r4 .2 r3 . d2 r2 . d2 .3 r2 .5 r3 .6 r .2 u4 .2 r4
+[/replay]
+[/cave]
+
+[cave]
+Name=Room G. Homemade Prison
+Author=Dustin Bachstein
+Date=2008-12-11
+Intermission=false
+Story=Story (level 3)\n\nHaving left the flies behind, the next task Rockford has to solve is trapping an amoeba. This isn't for the first time, of course, but it turns out to be more tricky than usual. Above all, Rockford has to be careful not to trap himself along with the amoeba...
+Size=40 22 0 0 39 21
+Colors=Black Black Blue LightRed White Green Blue
+DiamondsRequired=75 75 75 120 120
+DiamondValue=3 6
+CaveTime=180 180 180 150 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=50 50 50 50 50
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Raster=1 2 2 18 37 1 HEXPANDINGWALL
+Raster=2 1 36 2 1 19 VEXPANDINGWALL
+Raster=1 1 2 2 37 19 EXPANDINGWALL
+Point=37 19 AMOEBA
+Point=3 3 INBOX
+[Level=1]
+Point=36 18 OUTBOX
+[/Level]
+[Level=2]
+Point=19 10 OUTBOX
+[/Level]
+[Level=3,4]
+Point=2 2 OUTBOX
+[/Level]
+Rectangle=0 0 39 21 STEELWALL
+[Level=5]
+Point=8 8 OUTBOX
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-01-31
+RecordedWith=GDash 20100212
+RandomSeed=556952799
+Score=81
+Checksum=1930809692
+Movements=.22 d3 .2 d10 .9 r7 . r22 .54 l2 u10 .9 u2 .34 r2 .3 d5 .5 d7 .7 d3 . u6 . u9 .50 l3 .13 l27 .7 r21 .4 u .2 r7 .44 r5 .5 d6 .6 d2 .4 d2 .459 r .10 L21 .8 R .14 d3 dr r4 .7 d4 l .7 u5 l .29 r .27
+[/replay]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-02
+RecordedWith=GDash 20100212
+RandomSeed=481091827
+Score=822
+Success=true
+Checksum=1930809692
+Movements=.50 d2 .4 l r27 .7 r3 .24 r .7 r .3 d14 . u2 . r .25 r .594 r .9 u .3 u .3 u .3 u .3 u .2 u3 .2 u3 .8 u3 .9 l .9 d .4 d13 .6 d .4 R .14 d .3 R .2 l u13 .10 u2 .5 u3 .9 l24 .4 l4 .4 l4 .12 d .4 r30 .5 r .3 d dl l32 u2
+[/replay]
+[/cave]
+
+[cave]
+Name=Treasure Chamber (?)
+Author=Dustin
+Intermission=true
+IntermissionProperties.rewardlife=false
+Story=Story (level 3)\n\nRockford is feeling that the treasure in the legend is coming nearer. Could it be behind the next door? There don't seem to be any more guardians, as there were so many of them in the rooms E and F. The previous room seemed to be a final trap by the fort\342\200\231s owner. Was that really all? Is Rockford really standing in front of the room with the biggest treasure he'll ever see? Nervous, he opens the door and...
+Size=20 12 0 0 19 11
+Colors=Black Black Brown Blue Yellow Yellow White
+DiamondsRequired=0 0 0 0 0
+DiamondValue=20 0
+CaveTime=15 15 15 15 15
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+RandSeed=-1 -1 -1 -1 -1
+RandomFill=DIRT 5 DIRT 5 DIRT 5 DIAMOND 5
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=4 5 INBOX
+Point=19 5 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-07
+RecordedWith=GDash 20100212
+RandomSeed=1065807400
+Score=110
+Success=true
+Checksum=1573139896
+Movements=.16 l3 r8 u r4 d2 r3 u3 .5 d2 r3
+[/replay]
+[/cave]
+
+[cave]
+Name=Room H. Path
+Author=Dustin Bachstein
+Date=2008-02-08
+Intermission=false
+Story=Story (level 3)\n\n...his doubts seem to have vanished! There are 116 diamonds to collect, far more than in any previous room! But, of course, Rockford has to be very careful again. He cannot collect every jewel, since he has to be able to create a path out of this room. Otherwise, he\342\200\231ll starve as one of the richest men in the world...\n
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Yellow Yellow Yellow Black
+DiamondsRequired=83 101 116 122 159
+DiamondValue=3 0
+CaveTime=120 120 150 150 210
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+[Level=1,2]
+RandomFillC64=0 1 39 20 1 2 15 200 8 BOULDER DIAMOND 32
+[/Level]
+[Level=3,4]
+RandomFillC64=0 1 39 20 1 2 15 200 8 BOULDER DIAMOND 64
+[/Level]
+[Level=5]
+RandomFillC64=0 1 39 20 1 2 15 200 8 BOULDER DIAMOND 128
+[/Level]
+FillRect=1 1 38 13 BOULDER
+FillRect=33 14 38 20 BOULDER
+Line=2 17 32 17 DIAMOND
+Point=1 17 INBOX
+Rectangle=0 0 39 21 STEELWALL
+Line=32 13 32 17 DIAMOND
+Line=1 3 1 12 DIAMOND
+[Level=1]
+Point=2 12 DIAMOND
+[/Level]
+[Level=1]
+Point=3 11 DIAMOND
+[/Level]
+[Level=1]
+Point=4 12 DIAMOND
+[/Level]
+[Level=1]
+Point=5 12 DIAMOND
+[/Level]
+[Level=1]
+Point=6 10 DIAMOND
+[/Level]
+[Level=1]
+Point=7 12 DIAMOND
+[/Level]
+[Level=1]
+Point=8 11 DIAMOND
+[/Level]
+[Level=1]
+Point=9 12 DIAMOND
+[/Level]
+[Level=1]
+Point=10 12 DIAMOND
+[/Level]
+[Level=1]
+Point=11 12 DIAMOND
+[/Level]
+[Level=1]
+Point=12 12 DIAMOND
+[/Level]
+[Level=1]
+Point=13 11 DIAMOND
+[/Level]
+[Level=1]
+Point=14 12 DIAMOND
+[/Level]
+[Level=1]
+Point=15 11 DIAMOND
+[/Level]
+[Level=1]
+Point=16 12 DIAMOND
+[/Level]
+[Level=1]
+Point=17 12 DIAMOND
+[/Level]
+[Level=1]
+Point=18 12 DIAMOND
+[/Level]
+[Level=1]
+Point=19 12 DIAMOND
+[/Level]
+[Level=1]
+Point=20 12 DIAMOND
+[/Level]
+[Level=1]
+Point=21 12 DIAMOND
+[/Level]
+[Level=1]
+Point=22 12 DIAMOND
+[/Level]
+[Level=1]
+Point=23 12 DIAMOND
+[/Level]
+[Level=1]
+Point=24 12 DIAMOND
+[/Level]
+[Level=1]
+Point=25 12 DIAMOND
+[/Level]
+[Level=1]
+Point=26 11 DIAMOND
+[/Level]
+[Level=1]
+Point=27 12 DIAMOND
+[/Level]
+[Level=1]
+Point=28 12 DIAMOND
+[/Level]
+[Level=1]
+Point=29 11 DIAMOND
+[/Level]
+[Level=1]
+Point=30 12 DIAMOND
+[/Level]
+[Level=1]
+Point=31 12 DIAMOND
+[/Level]
+[Level=2,3,4,5]
+Line=35 1 35 20 DIAMOND
+[/Level]
+[Level=2]
+Line=28 3 28 8 DIAMOND
+[/Level]
+[Level=2]
+Point=29 7 DIAMOND
+[/Level]
+[Level=2]
+Point=30 5 DIAMOND
+[/Level]
+[Level=2]
+Point=27 7 DIAMOND
+[/Level]
+[Level=2]
+Point=26 6 DIAMOND
+[/Level]
+[Level=2]
+Point=2 12 DIAMOND
+[/Level]
+[Level=2]
+Point=3 12 DIAMOND
+[/Level]
+[Level=2]
+Point=4 12 DIAMOND
+[/Level]
+[Level=2]
+Point=5 12 DIAMOND
+[/Level]
+[Level=2]
+Point=6 12 DIAMOND
+[/Level]
+[Level=2]
+Point=7 12 DIAMOND
+[/Level]
+[Level=2]
+Point=8 12 DIAMOND
+[/Level]
+[Level=2]
+Point=9 12 DIAMOND
+[/Level]
+[Level=2]
+Point=10 12 DIAMOND
+[/Level]
+[Level=2]
+Point=11 11 DIAMOND
+[/Level]
+[Level=2]
+Point=12 12 DIAMOND
+[/Level]
+[Level=2]
+Point=13 11 DIAMOND
+[/Level]
+[Level=2]
+Point=14 12 DIAMOND
+[/Level]
+[Level=2]
+Point=15 12 DIAMOND
+[/Level]
+[Level=2]
+Point=16 12 DIAMOND
+[/Level]
+[Level=2]
+Point=17 12 DIAMOND
+[/Level]
+[Level=2]
+Point=18 12 DIAMOND
+[/Level]
+[Level=2]
+Point=19 12 DIAMOND
+[/Level]
+[Level=2]
+Point=20 12 DIAMOND
+[/Level]
+[Level=2]
+Point=21 12 DIAMOND
+[/Level]
+[Level=2]
+Point=22 12 DIAMOND
+[/Level]
+[Level=2]
+Point=23 12 DIAMOND
+[/Level]
+[Level=2]
+Point=24 12 DIAMOND
+[/Level]
+[Level=2]
+Point=25 10 DIAMOND
+[/Level]
+[Level=2]
+Point=26 12 DIAMOND
+[/Level]
+[Level=2]
+Point=27 12 DIAMOND
+[/Level]
+[Level=2]
+Point=28 12 DIAMOND
+[/Level]
+[Level=2]
+Point=29 12 DIAMOND
+[/Level]
+[Level=2]
+Point=30 11 DIAMOND
+[/Level]
+[Level=2]
+Point=31 12 DIAMOND
+[/Level]
+[Level=3]
+Point=2 11 DIAMOND
+[/Level]
+[Level=3]
+Point=3 12 DIAMOND
+[/Level]
+[Level=3]
+Point=4 11 DIAMOND
+[/Level]
+[Level=3]
+Point=5 9 DIAMOND
+[/Level]
+[Level=3]
+Point=6 11 DIAMOND
+[/Level]
+[Level=3]
+Point=7 12 DIAMOND
+[/Level]
+[Level=3]
+Point=8 12 DIAMOND
+[/Level]
+[Level=3]
+Point=9 11 DIAMOND
+[/Level]
+[Level=3]
+Point=10 12 DIAMOND
+[/Level]
+[Level=3]
+Point=11 11 DIAMOND
+[/Level]
+[Level=3]
+Point=12 12 DIAMOND
+[/Level]
+[Level=3]
+Point=13 12 DIAMOND
+[/Level]
+[Level=3]
+Point=14 12 DIAMOND
+[/Level]
+[Level=3]
+Point=15 12 DIAMOND
+[/Level]
+[Level=3]
+Point=16 12 DIAMOND
+[/Level]
+[Level=3]
+Point=17 12 DIAMOND
+[/Level]
+[Level=3]
+Point=18 9 DIAMOND
+[/Level]
+[Level=3]
+Point=19 12 DIAMOND
+[/Level]
+[Level=3]
+Point=20 9 DIAMOND
+[/Level]
+[Level=3]
+Point=21 11 DIAMOND
+[/Level]
+[Level=3]
+Point=22 11 DIAMOND
+[/Level]
+[Level=3]
+Point=23 12 DIAMOND
+[/Level]
+[Level=3]
+Point=24 11 DIAMOND
+[/Level]
+[Level=3]
+Point=25 11 DIAMOND
+[/Level]
+[Level=3]
+Point=26 12 DIAMOND
+[/Level]
+[Level=3]
+Point=27 11 DIAMOND
+[/Level]
+[Level=3]
+Point=28 10 DIAMOND
+[/Level]
+[Level=3]
+Point=29 12 DIAMOND
+[/Level]
+[Level=3]
+Point=30 12 DIAMOND
+[/Level]
+[Level=3]
+Point=31 12 DIAMOND
+[/Level]
+[Level=4]
+Point=2 10 DIAMOND
+[/Level]
+[Level=4]
+Point=3 12 DIAMOND
+[/Level]
+[Level=4]
+Point=4 11 DIAMOND
+[/Level]
+[Level=4]
+Point=5 9 DIAMOND
+[/Level]
+[Level=4]
+Point=6 10 DIAMOND
+[/Level]
+[Level=4]
+Point=7 12 DIAMOND
+[/Level]
+[Level=4]
+Point=8 12 DIAMOND
+[/Level]
+[Level=4]
+Point=9 12 DIAMOND
+[/Level]
+[Level=4]
+Point=10 12 DIAMOND
+[/Level]
+[Level=4]
+Point=11 12 DIAMOND
+[/Level]
+[Level=4]
+Point=12 12 DIAMOND
+[/Level]
+[Level=4]
+Point=13 10 DIAMOND
+[/Level]
+[Level=4]
+Point=14 12 DIAMOND
+[/Level]
+[Level=4]
+Point=15 10 DIAMOND
+[/Level]
+[Level=4]
+Point=16 11 DIAMOND
+[/Level]
+[Level=4]
+Point=17 12 DIAMOND
+[/Level]
+[Level=4]
+Point=18 12 DIAMOND
+[/Level]
+[Level=4]
+Point=19 11 DIAMOND
+[/Level]
+[Level=4]
+Point=20 11 DIAMOND
+[/Level]
+[Level=4]
+Point=21 11 DIAMOND
+[/Level]
+[Level=4]
+Point=22 10 DIAMOND
+[/Level]
+[Level=4]
+Point=23 9 DIAMOND
+[/Level]
+[Level=4]
+Point=24 12 DIAMOND
+[/Level]
+[Level=4]
+Point=25 12 DIAMOND
+[/Level]
+[Level=4]
+Point=26 10 DIAMOND
+[/Level]
+[Level=4]
+Point=27 12 DIAMOND
+[/Level]
+[Level=4]
+Point=28 10 DIAMOND
+[/Level]
+[Level=4]
+Point=29 12 DIAMOND
+[/Level]
+[Level=4]
+Point=30 12 DIAMOND
+[/Level]
+[Level=4]
+Point=31 11 DIAMOND
+[/Level]
+[Level=5]
+Point=2 10 DIAMOND
+[/Level]
+[Level=5]
+Point=3 8 DIAMOND
+[/Level]
+[Level=5]
+Point=4 11 DIAMOND
+[/Level]
+[Level=5]
+Point=5 12 DIAMOND
+[/Level]
+[Level=5]
+Point=6 12 DIAMOND
+[/Level]
+[Level=5]
+Point=7 8 DIAMOND
+[/Level]
+[Level=5]
+Point=8 9 DIAMOND
+[/Level]
+[Level=5]
+Point=9 8 DIAMOND
+[/Level]
+[Level=5]
+Point=10 8 DIAMOND
+[/Level]
+[Level=5]
+Point=11 10 DIAMOND
+[/Level]
+[Level=5]
+Point=12 10 DIAMOND
+[/Level]
+[Level=5]
+Point=13 11 DIAMOND
+[/Level]
+[Level=5]
+Point=14 9 DIAMOND
+[/Level]
+[Level=5]
+Point=15 10 DIAMOND
+[/Level]
+[Level=5]
+Point=16 11 DIAMOND
+[/Level]
+[Level=5]
+Point=17 12 DIAMOND
+[/Level]
+[Level=5]
+Point=18 12 DIAMOND
+[/Level]
+[Level=5]
+Point=19 9 DIAMOND
+[/Level]
+[Level=5]
+Point=20 12 DIAMOND
+[/Level]
+[Level=5]
+Point=21 10 DIAMOND
+[/Level]
+[Level=5]
+Point=22 10 DIAMOND
+[/Level]
+[Level=5]
+Point=23 12 DIAMOND
+[/Level]
+[Level=5]
+Point=24 12 DIAMOND
+[/Level]
+[Level=5]
+Point=25 11 DIAMOND
+[/Level]
+[Level=5]
+Point=26 12 DIAMOND
+[/Level]
+[Level=5]
+Point=27 10 DIAMOND
+[/Level]
+[Level=5]
+Point=28 10 DIAMOND
+[/Level]
+[Level=5]
+Point=29 8 DIAMOND
+[/Level]
+[Level=5]
+Point=30 11 DIAMOND
+[/Level]
+[Level=5]
+Point=31 11 DIAMOND
+[/Level]
+[Level=5]
+Point=32 12 DIAMOND
+[/Level]
+[Level=5]
+FillRect=34 9 38 13 DIAMOND BOULDER
+[/Level]
+[Level=1]
+Point=26 0 OUTBOX
+[/Level]
+[Level=2,3,4,5]
+Point=35 21 OUTBOX
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-08
+RecordedWith=GDash 20100212
+RandomSeed=1041476745
+Score=693
+Success=true
+Checksum=-1110412417
+Movements=.14 r .2 D .3 r2 . R2 .3 ur u2 .2 L . d2 r3 .2 R . R .26 r3 .9 D .4 r6 . R .4 r .2 D .2 r .2 L2 .2 r d2 dr r .2 u .2 L .2 u r4 .16 u .2 L .2 d r .4 R .4 r .2 R .3 r .2 D .2 r4 .5 u4 l31 u12 .3 r u3 r33 d20
+[/replay]
+[/cave]
+
+[cave]
+Name=Bonus Room R. Maintenance
+Author=Dustin Bachstein
+Date=2008-12-15
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Story (level 3)\n\nRockford plows into the next bonus room, in which his main task is to discover how to get out without blasting away the door.
+Size=20 12 0 0 19 11
+Colors=Black Black Purple Cyan White Cyan Brown
+DiamondsRequired=1 1 1 1 1
+DiamondValue=50 0
+CaveTime=25 25 25 25 25
+CaveScheduling=ms
+PALTiming=true
+FrameTime=100 100 100 100 100
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=3 2 9 8 BOULDER FIREFLYl
+FillRect=5 4 7 6 BOULDER OUTBOX
+Point=1 10 INBOX
+Point=6 9 DIAMOND
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-09
+RecordedWith=GDash 20100212
+RandomSeed=325821229
+Checksum=-1814151185
+Movements=.18 u2 .66 u4 .4 u3 .3 r3 .5 r6 .21 d10 l2 .41
+[/replay]
+[/cave]
+
+[cave]
+Name=Room I. Chameleon
+Author=Dustin Bachstein
+Date=2008-12-16
+Intermission=false
+Story=Story (level 3)\n\nCan it really be true? Has Rockford really found the treasure he had been seeking for so long? The more Rockford thinks about it, the less he can believe it. The quest was so short! He didn\342\200\231t even have to face the owner of the fort, who had scared him immensely in the second room! Would he (or it) really give away his treasure without a final, desperate fight? It's then, that Rockford suddenly notes that blubbering sound again, even though it\342\200\231s very quiet and far away. He looks into the direction that the sound is coming from...\n\n...and suddenly realises what\342\200\231s going on! He looks into a long corridor, and the amoeba in it grows bigger and bigger; it\342\200\231ll soon block the whole corridor! Even though Rockford cannot see what is behind the amoeba, he starts to run impulsively to pass before it blocks the path for good. To make things more difficult, Rockford first has to break through a wall and collect the 20 diamonds hidden behind it before he can (hopefully) still make past the amoeba.\n
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Brown White Brown Blue
+DiamondsRequired=20 20 20 20 20
+DiamondValue=15 1
+CaveTime=80 80 80 50 50
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=80 80 80 80 12
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=1 1 INBOX
+Point=1 20 OUTBOX
+[Level=2,3,4]
+Line=35 1 35 20 WALL
+[/Level]
+[Level=5]
+Line=35 1 35 20 MAGICWALL
+[/Level]
+Line=38 1 38 20 DIAMOND
+[Level=2,3,4,5]
+Raster=4 4 6 1 6 2 BOULDER
+[/Level]
+[Level=2,3,4,5]
+Rectangle=2 2 6 6 SPACE
+[/Level]
+[Level=2,3,4,5]
+Rectangle=8 2 12 6 SPACE
+[/Level]
+[Level=2,3,4,5]
+Rectangle=14 2 18 6 SPACE
+[/Level]
+[Level=2,3,4,5]
+Rectangle=20 2 24 6 SPACE
+[/Level]
+[Level=2,3,4,5]
+Rectangle=26 2 30 6 SPACE
+[/Level]
+[Level=2]
+Raster=6 2 5 1 6 2 FIREFLYl
+[/Level]
+[Level=3,4,5]
+Raster=2 2 5 1 6 2 FIREFLYl
+[/Level]
+Rectangle=6 13 8 15 AMOEBA
+[Level=2,3,4,5]
+Line=2 9 12 9 WALL
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-09
+RecordedWith=GDash 20100212
+RandomSeed=162007361
+Score=300
+Checksum=-1470316935
+Movements=.18 d12 .5 u5 ur r16 .2 r5 . r6 . r3 .3 r .2 l3 .6 u3 l u .3 d l r2 dr d .2 l4 .11 l5 u r3 u3 ur r4 d6 r4 u4 .12 l2 dl d2 dr r7 u7 r dr d20 l ul u11 ul l20 d7 r d9 l2 u6 r ur u5 l3 u l12 d2 .9
+[/replay]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-09
+RecordedWith=GDash 20100212
+RandomSeed=588283724
+Score=300
+Checksum=-1470316935
+Movements=.20 d8 r3 u r27 u3 .5 d2 r7 . u3 .9 l3 d2 r7 u7 r2 d20 l2 u12 l7 d10 dl l16 d2 dl l6 r4 u11 l11 d6 .5 u2 .7
+[/replay]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-10
+RecordedWith=GDash 20100212
+RandomSeed=57558654
+Score=480
+Success=true
+Checksum=-1470316935
+Movements=.17 d4 dr r2 dl d3 r31 u3 .13 l2 .3 r2 d dr r d dr r u5 r2 d19 l2 u12 ul l19 dl d12 l14
+[/replay]
+[/cave]
+
+[cave]
+Name=Room J. Pacman
+Author=Dustin Bachstein
+Date=2008-12-21
+Intermission=false
+Story=Story (level 3)\n\nRockford has managed to get into the hidden part of the corridor, and what he sees now definitely makes him sure that there\342\200\231s still a lot more to discover in this fort! He stands in front of a narrow, snaky labyrinth in which he has to search completely to grab all the hidden diamonds and open the door in the very center of the maze. Also, he soon notes that he is not the only vivid being \342\200\234promenading\342\200\235 here; the maze is guarded by four fireflies which seem to wait for him to make a mistake so that they can catch him. Rockford is very sure of something now: The fort\342\200\231s owner would never have hidden and protected the passage behind the \"false treasure room\", H, that much if there wasn\342\200\231t a much much bigger treasure room still to come!
+Size=40 22 0 0 39 21
+Colors=Black Black Cyan LightBlue White White Blue
+DiamondsRequired=47 40 33 41 47
+DiamondValue=10 0
+CaveTime=120 150 150 110 150
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+RandSeed=23 34 16 17 42
+InitialFill=SPACE
+RandomFill=DIAMOND 30 DIRT 0 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Maze=1 1 38 20 1 1 50 78 91 104 117 130 STEELWALL NONE braid
+Point=19 11 INBOX
+Point=20 10 OUTBOX
+[Level=2,3,4,5]
+Point=1 1 FIREFLYr
+[/Level]
+[Level=2,3,4,5]
+Point=37 19 FIREFLYl
+[/Level]
+[Level=3,4,5]
+Point=1 19 FIREFLYl
+[/Level]
+[Level=3,4,5]
+Point=37 1 FIREFLYr
+[/Level]
+[Level=5]
+Point=19 1 FIREFLYr
+[/Level]
+[Level=5]
+Point=19 19 FIREFLYl
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-11
+RecordedWith=GDash 20100212
+RandomSeed=802870685
+Score=363
+Success=true
+Checksum=2126372731
+Movements=.16 l4 d5 . u4 l2 d .12 d3 l2 d2 .2 d2 r2 u2 ur r3 d2 l2 r4 . r3 .2 r2 . r2 .5 r5 u2 l2 r2 .3 d3 .5 u2 l2 u4 l2 u2 l2 d2 l4 u6 l2 d2 l2 u4 ur r4 dr d2 r2 u2 r2 d3 .3 u2 l2 u2 l6 u2 r8 d2 r2 d2 .15 r4 d2 dr r u3 .24 u ur r d6 l2 d2 dl l u2 l2 u2 l2 r2 d2 r2 d2 r2 . u2 r2 d6 l2 u2 l4 u2 l2 u2 l2 . l4 u2 .10 u3 .2 d2 r2 u2 . u3 .5 l8 .2 u2 l3 r2 l2 .2 l3 d2 .26 l2 .7 d2 l2 d2 r dr d2 l6 .11 u5 .3 d3 l2 d2 .5 d3 .15 r .4 r3 .8 l4 u4 r3 u2 .4 u2 .4 d7 dr r4 ur u2 r4 u4 r2 d2 .3 d5 .7 l4 d4 l2 u2 l8 u4 r2 u3 .3 d5 dr r5 u2 ul l u2 ur r u2 r2 u2 r4 l2 r4 l8 .2 l2 . r10 d2 dr r3 . l2 r7 .2 d2 r2 .2 d2 r2 .6 r2 d2 .3 r3 .2 d3 .3 r2 .6 l2 u2 l2 u2 l4 u2 l2 dl d2 l2 .3 u2 ul l4 .2 r5 d5 .14 u4 ul l5 d4 dr r u2 r2 d4 r6 d2 dr r .2 d4 .3 r3 .4 d2 l6 u2 r2 u2 l4 d3 . l4 d2 .2 l4 .3 u2 l2 d2 l2 .9 l4 ul u r3 u r2 u2 l3 dl d4 . u4 ur r .2 l2 .12 d4 dl l3 u2 r2 u4 r3 dr d2 r2 d2 dl l dl d2 dr r5 u2 r4 .6 d2 dr r u2 ur r2 .2 r2 .3 l5 . d3 .7 r4 .3 l4 u2 .4 r2 u2 l2 u4 .8 l6 d4 dl l d4 l4 u2 r2 u2 .2 d2 l2 d2 dr r2 u3 r u4 r2 u4 r6 d4 dr r d2 dr r u2 ur r2 dr d2 l2 d2 dr r4 ur u2 l2 u4 l2 u2 ul l5 u l
+[/replay]
+[/cave]
+
+[cave]
+Name=Room K. Hailstones
+Author=Dustin Bachstein
+Date=2008-12-22
+Intermission=false
+Story=Story (level 3)\n\nNo sooner has Rockford entered the next room when dozens of boulders fly past him! His only protection is the exit door right above him, but he\342\200\231ll soon have to leave this safe-haven in order to catch the diamonds which are also, in part, responsible for the bad \342\200\234weather\342\200\235 here. The diamonds are in big danger of getting buried by the rocks if Rockford isn\342\200\231t fast enough...
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Green White White Gray2
+DiamondsRequired=21 40 40 42 45
+DiamondValue=10 20
+CaveTime=160 160 160 160 120
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+RandSeed=2 3 4 5 7
+InitialFill=BOULDER
+RandomFill=DIAMOND 50 DIRT 0 DIRT 0 DIRT 0
+SlimePermeabilityC64=254 254 254 254 252
+
+[objects]
+Line=1 8 38 8 SLIME
+FillRect=1 9 38 20 SPACE
+[Level=1,2]
+Raster=5 13 5 1 7 2 STEELWALL
+[/Level]
+Point=19 14 INBOX
+Point=19 13 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-11
+RecordedWith=GDash 20100212
+RandomSeed=738933447
+Score=320
+Checksum=-1086658835
+Movements=.12 d .3 d6 .4 l2 r2 .4 u .2 d .2 l3 r3 u .23 r20 . l2 D l12 D dl l9 D dl l5 u ul l6 .2 r6 . d r10 d2 . u r3 .5 R3 u r17 l11 r d r10 l5 .2 l10 u l14 D dl l5 D r13 .2 r20 D .3 l8 r7 D l26 .2 r3 .2 r3 l3 r4 l6 u l3 D r31 d l .3 u l2 . l6 dl2 l .2 d r .2 D2 d2 . L .2 u l10 u ul l .2 l4 u ul l3 d2 .3 u l2 D L2 .4 r4 u r2 d r12 d2 l u3 .4 d r5 .2 u r9 .2 r3 l35 . D . r21 .2 d3 R D2 . l .6 l2 u l3 D r13 .3 r2 u ur r3 l12 .3 l d l11 . l2 u l5 r5 d2 . r2 . ur r . u2 r8 d l4 r12 d l u ur r4 l3 .2 r .2 l14 d .3 D . l2 ul2 l . u l4 d l . u l5 r9 . l4 D r14 .5 r2 D r5 u r2 D r5 l10 d l9 u l3 d .2 l4 .13
+[/replay]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-11
+RecordedWith=GDash 20100212
+RandomSeed=311297720
+Score=592
+Success=true
+Checksum=-1086658835
+Movements=.11 d8 l9 u l3 D dl l2 r12 D r22 l17 r3 DR dl l3 r4 D l10 D .2 l7 u l4 r8 .5 r6 d2 l u r5 u r15 d2 . u ul l12 u l L D l .2 D2 l18 D2 r6 D r26 . r3 R D .2 u .3 d l8 r2 .2 d dr r2 l12 u l16 . u .3 l2 d l u r20 .2 r6 .3 r3 d r .4 D .2 u l20 D .4 l12 D R r9 l9 D . r18 .2 r3 d2 r2 u2 r10 l13 d dl l D l6 u ul l3 . u l4 dl d l3 .2 r2 .2 l .3 D .3 ur r2 ur r2 u r2 dr d r29 l15 d . D . l3 . r3 l4 u ul l . r3 l4 d l2 u l5 u l6 r3 l5 r8 d r10 . r10 . ur r . u r .2 D . r3 l2 .2 D l11 d2 . u ul l3 . u r5 d r7 u r4 l3 .3 l11 r2 l4 d . D . l2 u l2 .2 l2 d dl u ul l4 . r10 .2 l5 D r3 .2 r8 l4 .2 ur r2 u r3 d r6 D . r2 .2 u r5 D r5 l12 r3 d l8 u .4 l12 d l . r5 u ur r4 u r6 .7 d2 r2 D L l ul u .43 u .3 d .15 l2 r2 .20 r2 d l u .4 l .45 r5 l5 .7 L3 .5 u .41 l7 r7 .37 l7 u l .2 l3 d2 .2 r . D .2 l2 D . l u l3 u l2 d .2 D . u . d dr r8 u r2 d r12 . r4 D r4 . u r2 d . D . r2 l15 u
+[/replay]
+[/cave]
+
+[cave]
+Name=Room L. Absorber
+Author=Dustin Bachstein
+Date=2008-12-22
+Intermission=false
+Story=Story (level 3)\n\nIt seems like the calm after the storm...but it turns out to be illusive.  An oversized magic wall, enthroned in the middle of the room, puts a damper on things by swallowing every boulder dropped onto it. In order to make it useful and get the ten needed diamonds from it, Rockford first has to \342\200\234beautify\342\200\235 the wall a bit- and he knows that this demands action!
+Size=40 22 0 0 39 21
+Colors=Black Black Yellow Red White Yellow Orange
+DiamondsRequired=10 10 10 15 10
+DiamondValue=20 40
+CaveTime=200 200 200 160 243
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+[Level=1,5]
+FillRect=5 8 34 10 MAGICWALL
+[/Level]
+[Level=2,3,4]
+FillRect=5 9 34 10 MAGICWALL
+[/Level]
+[Level=2]
+Raster=5 8 10 1 3 2 MAGICWALL
+[/Level]
+[Level=1,2,3,4]
+Raster=6 8 10 1 3 2 FIREFLYl
+[/Level]
+[Level=5]
+Raster=6 7 10 1 3 2 FIREFLYl
+[/Level]
+[Level=1,2,3,4]
+Line=5 2 34 2 BOULDER
+[/Level]
+[Level=5]
+Line=5 1 34 1 BOULDER
+[/Level]
+Add=0 1 BOULDER DIRT
+Point=1 1 INBOX
+Point=38 1 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-26
+RecordedWith=GDash 20100212
+RandomSeed=639842550
+Score=120
+Checksum=-431775769
+Movements=.22 d3 dr r2 .2 d .2 r14 .2 r2 .2 r3 .2 r5 . r4 .7 r5 d5 . d4 .4 d3 .11 l17 .2 l13 .4 l4 .2 l2 u14 .3 r3 l3 .2 r4 l2 .46 d .12 r5 .9 u .6 r .2 l .36 r2 l2 .11 d2 .2 l2 .4 u2 l u .2 u2 r4 .2 l2 .2 r2 .10 d3 r3 .8 l2 .4 l4 u2 .2 r6 . d .15 d .2 r7 .6 u l . r2 .21 d .4 l2 .4 u .2 r .3 d .7 l3 .3 u .4 d dr r2 .8 u3 l3 d .23 L17 .8 R2 .17 d2 r2 .6 r15 .7 l3 . l7 .4 r .7 u .4 r2 .2 l2 .7 u2 .14 l4 d3 r2 .3 u2 .28 d3 l3 u5 r3 d .9 L4 .8 l6 r3 .8 r2 .3 r .4 R5 r4 .6 l4 d6 r12 .3 r5 d3 .28 d3 .4 d4 . d2 l21 . l6 .8 r18 u8 r10 u5 l11 .3 d .2 l3 .3 r3 .5 r2 .52
+[/replay]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-02-28
+RecordedWith=GDash 20100212
+RandomSeed=798301034
+Score=723
+Success=true
+Checksum=-431775769
+Movements=.28 d3 .4 r6 .8 d r2 .43 d4 .5 u .3 u2 .6 u .6 r2 .5 r2 .8 r .19 l5 .10 u2 .18 d2 r4 .44 u .3 l4 u . L .6 R2 .32 d2 dl l .3 l .3 u2 . l2 u r3 .2 R5 r3 d3 .13 l2 u2 r . d2 . r9 .9 l4 .10 u3 .48 d2 dr r4 .2 l5 u2 .12 L R .2 u .2 l5 r3 d3 r11 l6 .19 u2 .57 d3 r4 . l4 u3 .25 R L .2 u .2 l11 . d r3 d r10 l5 .3 u2 .65 d3 r3 l3 u3 .40 L R .6 u .2 l2 L2 .6 d2 .3 r12 l6 .3 u .57 d2 r4 .4 l4 u2 L2 R .11 u .3 l .30 L3 .3 l d2 .4 r9 l3 .21 u .53 d2 r3 .4 l3 u2 . R L .2 u l2 L6 l d2 dr r8 l3 .13 u .24 d2 dr r2 .3 l3 u2 r L2 .4 l2 r u ul l4 d r8 dr d17 l35 ul u18 r10 .9 r27 u
+[/replay]
+[/cave]
+
+[cave]
+Name=Bonus Room S. Precision
+Author=Dustin Bachstein
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Story (level 3)\n\nThis is, by far, the hardest bonus room, a real dress rehearsal for the final spurt! Rockford has to show perfect timing by hitting seven fireflies and one butterfly at the exact right points! If he fails just once, there\342\200\231s no chance for success...
+Size=20 12 0 0 19 11
+Colors=Black Black Purple Cyan White Yellow Orange
+DiamondsRequired=13 13 13 13 13
+DiamondValue=50 100
+CaveTime=75 75 75 75 75
+CaveScheduling=ms
+PALTiming=true
+FrameTime=100 100 100 100 100
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=2 1 OUTBOX
+Point=4 1 BUTTERFLYd
+Raster=6 1 6 1 2 2 FIREFLYl
+Raster=2 2 8 1 2 2 BOULDER
+Raster=2 3 8 1 2 2 DIRT
+Raster=3 1 8 10 2 1 STEELWALL
+Line=17 8 17 10 SPACE
+Point=17 3 SPACE
+Raster=3 6 7 1 2 2 VEXPANDINGWALL
+Add=0 1 VEXPANDINGWALL SPACE
+Add=0 -1 VEXPANDINGWALL SPACE
+Raster=4 9 6 1 2 2 DIAMOND
+Raster=4 10 6 1 2 2 VEXPANDINGWALL
+Point=18 10 INBOX
+Point=18 9 FIREFLYl
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-04
+RecordedWith=GDash 20100212
+RandomSeed=885330242
+Checksum=997999022
+Movements=.28 l2 .3 u2 .7 r3 . d3 .18 l2 .4 u8 .4 r3 dr d6 dl l2 u4 l2 ul u2 .8 d2 dr r4 . d3 l2 .14 u .4 l .5 l .5 l3 u5 .8 d2 r4 dr d2 .20 l4 .4 l3 u4 .33 d2 dr r4 dr d2 .24 l5 .5 l3 .5 u5 .38 d2 r6 .7 r dr d2 .4 l10 u5 .76 d2 dr r5 d2 .5 l8 u5 .102 d2 r4 d2 l6 u5 . l2 ul u .169
+[/replay]
+[/cave]
+
+[cave]
+Name=Last Preparations
+Author=Dustin
+Intermission=true
+IntermissionProperties.rewardlife=false
+Story=Story (level 3)\n\nNo matter whether or not Rockford has done this exam successfully; he senses that the real treasure of this fort is becoming closer!  Of course, he also remembers the warning from room B. Nevertheless, he sets forth decidedly - just as we would expect from Rockford, the treasure seeker! But, the fort\342\200\231s owner isn\342\200\231t inactive either. In the last four rooms, Rockford will hardly have time to take a breather. From now on, every single step and movement must be right, and every mistake will be punished swiftly...
+Size=20 12 0 0 19 11
+Colors=Black Black Brown Blue LightRed White White
+DiamondsRequired=1 1 1 1 1
+DiamondValue=100 0
+CaveTime=10 10 10 10 10
+TimeValue=50 50 50 50 50
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=1 5 INBOX
+Point=19 5 OUTBOX
+Raster=2 3 5 1 4 2 FIREFLYu
+Raster=3 4 4 1 4 2 FIREFLYd
+Raster=-3 7 5 1 4 2 FIREFLYd
+Raster=4 6 4 1 4 2 FIREFLYu
+Line=17 6 17 9 STEELWALL
+Line=1 9 16 9 STEELWALL
+Point=18 5 DIAMOND
+Line=1 10 18 10 FIREFLYr
+Line=18 6 18 9 FIREFLYl
+Point=11 10 SPACE
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-09
+RecordedWith=GDash 20100212
+RandomSeed=749160665
+Checksum=-1227015976
+Movements=.12 r . r2 .16
+[/replay]
+[/cave]
+
+[cave]
+Name=Room M. Order And Chaos
+Author=Dustin Bachstein
+Date=2008-12-22
+Intermission=false
+Story=Stroy (level 3)\n\nRockford weakly remembers to have learned from his former physics teachers that the entropy in a closed system always rises - now he understands what they had meant! An amoeba, growing explosively, kills lots of fireflies, \342\200\234casually\342\200\235 freeing Rockford from his stony prison. Soon and sure enough, 200 rocks are falling down form the sky, upstaging Rockford clearly this time.  While dodging fireflies, explosions, rocks, and diamonds and trying to find his way through that slimy mass, Rockford must manage to get to the very bottom of the room as fast as possible. Here, he can get most of the sixty diamonds he needs to flee from this utter confusion!\n
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Red White Purple Blue
+DiamondsRequired=100 60 60 70 111
+DiamondValue=5 15
+CaveTime=75 75 60 60 60
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=100 100 100 100 100
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=1 1 38 20 DIAMOND
+[Level=2,3,4]
+Rectangle=2 2 37 19 BOULDER
+[/Level]
+[Level=5]
+Rectangle=2 2 37 19 DIAMOND
+[/Level]
+[Level=2,3,4,5]
+Rectangle=3 3 36 18 FIREFLYl
+[/Level]
+[Level=2]
+Rectangle=4 4 35 17 DIAMOND
+[/Level]
+[Level=3,4,5]
+Rectangle=4 4 35 17 BOULDER
+[/Level]
+FillRect=5 5 34 16 AMOEBA DIRT
+FillRect=7 7 32 14 FIREFLYl WALL
+FillRect=9 9 30 12 DIRT
+Point=19 11 INBOX
+Point=20 11 OUTBOX
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-09
+RecordedWith=GDash 20100212
+RandomSeed=668798654
+Score=486
+Success=true
+Checksum=-1175178724
+Movements=.64 u .5 r .3 r4 . r2 .2 r2 .3 l4 .3 u3 .2 r4 l2 .4 u r3 l2 d . u4 r3 l2 dl d3 l5 d2 l2 .3 r .3 u l2 r4 d6 l dl .3 u r3 d4 .2 d2 .2 r6 .2 r3 l2 .6 r u r3 u2 ur r d6 dl l .2 R5 . l35 u2 ur r dr d dr r l2 d2 r l3 u5 ur r5 u3 r .3 r u2 ur r4 u r2 .3 d2 r5 .2 r2 d
+[/replay]
+[/cave]
+
+[cave]
+Name=Room N. Action
+Author=Dustin Bachstein
+Date=2008-12-22
+Intermission=false
+Story=Story (level 3)\n\nEscaped the frying pan? Welcome to the fire!! Still under the influence of the hectic rush from the previous room, Rockford intends to take a little break. Immediately, though, he notes a firefly coming from on high which probably wants to say hello... Hurriedly, Rockford escapes to the bottom, sees a fork, intuitively goes the right way (not the right way, literally!), and watches the fly getting killed by a boulder. But, there's no time to relax, as the next one is already turning the corner. Fulgurously, Rockford realizes that his only chance to escape this second fly is by using the ability to safely touch an enemy from its left side while moving up. And still, that was not the last fly crossing his path in this narrow corridor with hardly any possibilities of getting out of the way. The whole nightmare lasted 30 seconds at most, but these 30 seconds had horrified Rockford more than anything he'd seen in this fort before then. Finally reaching the exit door, he has a few seconds to take a breather before he enters the next room...
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed Orange Gray2 Red
+DiamondsRequired=2 2 3 3 12
+DiamondValue=50 0
+CaveTime=20 30 30 30 45
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=STEELWALL
+Amoeba2Threshold=0.00114 0.00114 0.00114 0.00114 0.00114
+Amoeba2GrowthProb=0.00000 0.00000
+Effect=AMOEBA2BOULDEReffect AMOEBA2
+Effect=AMOEBA2DIAMONDeffect AMOEBA2
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=4 2 4 20 SPACE
+[Level=1]
+Line=2 20 4 20 DIRT
+[/Level]
+[Level=2,3,4,5]
+Line=2 20 6 20 DIRT
+[/Level]
+Point=4 4 FIREFLYl
+Point=4 3 BOULDER
+Line=5 4 8 4 SPACE
+Line=9 4 9 11 SPACE
+Line=9 13 16 20 SPACE
+Line=9 12 17 20 SPACE
+[Level=1]
+Point=16 20 FIREFLYl
+[/Level]
+Line=18 20 38 20 SPACE
+[Level=2,3,4,5]
+Point=15 18 FIREFLYu
+[/Level]
+[Level=1]
+Point=38 19 FIREFLYl
+[/Level]
+[Level=2,3,4,5]
+Point=35 20 FIREFLYl
+[/Level]
+[Level=1,2]
+Point=5 13 DIAMOND
+[/Level]
+[Level=1]
+Point=6 13 DIAMOND
+[/Level]
+[Level=3,4,5]
+Raster=3 13 2 1 2 2 DIRT
+[/Level]
+[Level=1,2,3,4]
+Point=4 20 INBOX
+[/Level]
+[Level=1]
+Point=4 1 OUTBOX
+[/Level]
+[Level=2,3,4,5]
+Point=33 19 DIRT
+[/Level]
+[Level=2,3,4,5]
+Point=33 18 DIAMOND
+[/Level]
+[Level=2,3,4,5]
+Point=37 20 AMOEBA2
+[/Level]
+[Level=2]
+Point=38 19 OUTBOX
+[/Level]
+[Level=3,4,5]
+Raster=1 20 2 1 6 1 HEXPANDINGWALL
+[/Level]
+[Level=3,4,5]
+Line=38 19 38 15 SPACE
+[/Level]
+[Level=3,4,5]
+Line=38 14 34 14 SPACE
+[/Level]
+[Level=3,4,5]
+Line=33 14 33 10 SPACE
+[/Level]
+[Level=3,4,5]
+Line=34 10 38 10 SPACE
+[/Level]
+[Level=3,4,5]
+Line=38 1 38 9 SPACE
+[/Level]
+[Level=3,4,5]
+Point=38 1 BOULDER
+[/Level]
+[Level=3,4,5]
+Line=37 2 38 2 DIRT
+[/Level]
+[Level=3,4,5]
+Point=37 4 WALL
+[/Level]
+[Level=3,4,5]
+Line=36 3 36 8 SPACE
+[/Level]
+[Level=3,4]
+Point=36 3 FIREFLYl
+[/Level]
+[Level=5]
+Point=36 7 FIREFLYl
+[/Level]
+[Level=3,4]
+Point=35 3 OUTBOX
+[/Level]
+[Level=5]
+Line=35 1 35 8 DIRT
+[/Level]
+[Level=5]
+Point=36 1 FIREFLYl
+[/Level]
+[Level=5]
+Point=34 1 DIRT
+[/Level]
+[Level=5]
+Rectangle=11 1 33 8 SPACE
+[/Level]
+[Level=5]
+Raster=11 3 1 3 2 2 FIREFLYd
+[/Level]
+[Level=5]
+Raster=11 1 11 1 2 2 FIREFLYl
+[/Level]
+[Level=5]
+Raster=33 1 1 4 2 2 FIREFLYu
+[/Level]
+[Level=5]
+Raster=12 8 8 1 2 2 FIREFLYr
+[/Level]
+[Level=5]
+Raster=21 2 2 2 10 4 DIAMOND
+[/Level]
+[Level=5]
+Raster=21 7 2 1 10 2 DIRT
+[/Level]
+[Level=5]
+Point=12 4 DIAMOND
+[/Level]
+[Level=5]
+Line=31 9 31 10 SPACE
+[/Level]
+[Level=5]
+Line=17 11 31 11 SPACE
+[/Level]
+[Level=5]
+Line=17 11 17 17 SPACE
+[/Level]
+[Level=5]
+Line=17 17 31 17 SPACE
+[/Level]
+[Level=5]
+Line=31 17 31 13 SPACE
+[/Level]
+[Level=5]
+Line=31 13 19 13 SPACE
+[/Level]
+[Level=5]
+Line=19 13 19 15 SPACE
+[/Level]
+[Level=5]
+Line=19 15 29 15 SPACE
+[/Level]
+[Level=5]
+Point=29 15 OUTBOX
+[/Level]
+[Level=5]
+Point=1 16 FIREFLYl
+[/Level]
+[Level=5]
+Point=2 16 BUTTERFLYd
+[/Level]
+[Level=5]
+Point=3 16 WALL
+[/Level]
+[Level=5]
+Point=4 1 BOULDER
+[/Level]
+[Level=5]
+Point=4 2 DIRT
+[/Level]
+[Level=5]
+Line=1 2 3 2 SPACE
+[/Level]
+[Level=5]
+Point=38 20 AMOEBA2
+[/Level]
+[Level=5]
+Point=3 7 SPACE
+[/Level]
+[Level=5]
+Point=4 19 INBOX
+[/Level]
+[Level=3,4,5]
+Point=35 11 DIAMOND
+[/Level]
+[Level=3,4,5]
+Point=37 11 DIAMOND
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-10
+RecordedWith=GDash 20100212
+RandomSeed=1058263586
+Score=165
+Success=true
+Checksum=527898030
+Movements=.14 l3 .6 r2 u2 .2 u5 r l d2 .3 u14 . d2 dr r4 d9 r d r d dr r d r3 d3 r dr r2 d dr r dr r d dr3 r d dr r16 u2 . d2 r7 l7 .4 r9 u6 ul l4 u4 r2 D r2 D r ur u8 .4 l2 .3 r .2 d6 .2 u4 l2 u l
+[/replay]
+[/cave]
+
+[cave]
+Name=Room O. Seven Exams
+Author=Dustin
+Date=2009-01-08
+Intermission=false
+Story=Story (level 3)\n\n...where the next life-threatening task occurs! Having avoided the firefly attacking him by the skin of his teeth, he finds himself in the first of seven small areas, each of them holding different dangers. This seems to be the last test of the fort\342\200\231s owner as to whether Rockford is really worthy to face him in the next and final room... He must work his way through all seven areas, and collect every diamond hidden inside them in order to exit this room.\n\t\nIn the first area, Rockford must steal a diamond from two looping flies.\n\t\nIn the second area, he must fool eight of them.\n\t\nIn the third area, he must avoid some looping flies, activate a magic wall, and then be fast in order to reach the next area in time before the wall deactivates.\n\t\nIn the fourth area, he must dodge a boulder.\n\t\nIn the fifth area, he must show precision in his boulder-dropping.\n\t\nIn the sixth area, he must release another fly and let it chase him.\n\t\nIn the seventh area, he must show his cleverness.\n\t\n
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Gray1 White White Red
+DiamondsRequired=7 7 13 13 15
+DiamondValue=50 0
+CaveTime=240 240 240 180 240
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=STEELWALL
+MagicWallTime=25 20 15 15 10
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 6 20 SPACE
+FillRect=8 1 18 9 SPACE
+FillRect=8 11 18 18 DIRT
+FillRect=20 1 30 9 SPACE
+FillRect=32 3 32 11 SPACE
+FillRect=34 1 38 8 SPACE
+Point=7 1 VEXPANDINGWALL
+Point=19 1 VEXPANDINGWALL
+Point=31 8 VEXPANDINGWALL
+[Level=1]
+Point=33 1 VEXPANDINGWALL
+[/Level]
+[Level=2,3,4,5]
+Point=33 2 VEXPANDINGWALL
+[/Level]
+Point=19 12 VEXPANDINGWALL
+Point=35 10 HEXPANDINGWALL
+Point=7 2 DIRT
+Point=19 2 DIRT
+Point=31 9 DIRT
+[Level=1]
+Point=33 2 DIRT
+[/Level]
+[Level=2,3,4,5]
+Point=33 1 DIRT
+[/Level]
+Point=34 10 DIRT
+Point=19 11 DIRT
+Point=1 20 INBOX
+[Level=1,2,3,4]
+Point=6 10 FIREFLYl
+[/Level]
+[Level=2,3,4,5]
+Point=2 1 FIREFLYl
+[/Level]
+Point=1 1 DIAMOND
+Point=1 2 DIRT
+[Level=5]
+Point=6 4 FIREFLYr
+[/Level]
+[Level=5]
+Line=4 1 1 4 BOULDER
+[/Level]
+[Level=3,4,5]
+Raster=6 1 1 2 2 2 STEELWALL
+[/Level]
+Line=10 3 17 3 STEELWALL
+Line=10 7 17 7 STEELWALL
+Raster=10 2 2 2 7 4 BOULDER
+[Level=1,2]
+Raster=11 2 2 1 5 2 BOULDER
+[/Level]
+[Level=3,4,5]
+Raster=11 2 2 1 5 2 DIAMOND
+[/Level]
+Raster=11 6 2 1 5 2 DIAMOND
+Line=11 1 12 2 FIREFLYl
+Line=11 5 12 6 FIREFLYl
+[Level=2,3,4,5]
+Raster=15 2 1 2 2 4 FIREFLYl
+[/Level]
+[Level=2,3,4,5]
+Raster=16 1 1 2 2 4 FIREFLYl
+[/Level]
+[Level=5]
+Line=8 3 8 9 STEELWALL
+[/Level]
+[Level=5]
+Point=8 1 STEELWALL
+[/Level]
+Line=21 2 22 2 STEELWALL
+Point=21 1 BOULDER
+Point=22 1 DIAMOND
+[Level=1]
+Raster=21 3 3 2 4 4 FIREFLYl
+[/Level]
+[Level=2]
+Raster=21 3 2 3 4 2 FIREFLYl
+[/Level]
+[Level=1,2]
+Point=23 5 FIREFLYl
+[/Level]
+[Level=3,4,5]
+Raster=21 3 3 3 2 2 FIREFLYl
+[/Level]
+[Level=2,3,4,5]
+Raster=29 1 1 4 2 2 FIREFLYl
+[/Level]
+Line=27 3 27 7 STEELWALL
+Point=32 1 BOULDER
+Point=32 2 DIRT
+Point=32 10 MAGICWALL
+[Level=1,2,3,4]
+Point=35 4 BOULDER
+[/Level]
+[Level=5]
+Point=35 2 BOULDER
+[/Level]
+[Level=3,4]
+Point=37 4 BOULDER
+[/Level]
+[Level=5]
+Point=37 2 BOULDER
+[/Level]
+[Level=1,2,3,4]
+Point=35 5 DIRT
+[/Level]
+[Level=5]
+Point=35 3 DIRT
+[/Level]
+[Level=3,4]
+Point=37 5 DIRT
+[/Level]
+[Level=5]
+Point=37 3 DIRT
+[/Level]
+[Level=1]
+Point=34 8 DIRT
+[/Level]
+Line=34 9 38 9 WALL
+[Level=3,4,5]
+Point=37 10 DIAMOND
+[/Level]
+Point=38 1 FIREFLYl
+[Level=3,4,5]
+Point=38 8 FIREFLYl
+[/Level]
+[Level=2,3,4,5]
+Point=33 9 DIRT
+[/Level]
+Line=38 12 30 12 SPACE
+Line=30 11 26 11 SPACE
+Line=25 11 25 13 SPACE
+Line=26 13 29 13 SPACE
+Line=29 14 37 14 SPACE
+Line=38 14 38 16 SPACE
+Line=37 16 27 16 SPACE
+Line=27 16 27 18 SPACE
+Line=28 18 36 18 SPACE
+Line=36 18 36 20 SPACE
+Line=35 20 26 20 SPACE
+[Level=2,3,4,5]
+Line=26 19 24 17 SPACE
+[/Level]
+[Level=1]
+Line=25 20 25 18 SPACE
+[/Level]
+[Level=1]
+Line=25 17 23 17 SPACE
+[/Level]
+[Level=2,3,4,5]
+Line=25 19 23 17 SPACE
+[/Level]
+Line=22 17 22 12 SPACE
+Line=22 11 20 11 SPACE
+Line=20 11 20 18 SPACE
+Raster=20 10 1 3 2 2 MAGICWALL
+Point=38 18 DIAMOND
+Point=37 18 DIRT
+[Level=2,3,4,5]
+Rectangle=37 19 38 20 VEXPANDINGWALL
+[/Level]
+Point=38 12 FIREFLYl
+[Level=1]
+Point=38 11 SPACE
+[/Level]
+Point=34 11 SPACE
+[Level=1,2]
+Point=35 12 DIRT
+[/Level]
+[Level=3,4,5]
+Point=36 12 DIRT
+[/Level]
+Point=22 11 BOULDER
+Point=22 12 DIRT
+[Level=1,2,3,4]
+Point=23 12 SPACE
+[/Level]
+[Level=5]
+Point=23 14 SPACE
+[/Level]
+[Level=1]
+Line=21 15 21 17 WALL
+[/Level]
+[Level=2,3,4,5]
+Point=21 15 WALL
+[/Level]
+[Level=3,4,5]
+Point=24 11 DIAMOND
+[/Level]
+[Level=3,4,5]
+Point=26 16 DIAMOND
+[/Level]
+Point=13 11 BOULDER
+Rectangle=9 12 10 13 SPACE
+[Level=2,3,4,5]
+Point=9 12 FIREFLYl
+[/Level]
+[Level=2,3,4,5]
+Line=16 19 14 19 SPACE
+[/Level]
+[Level=1]
+Line=14 19 16 19 WALL
+[/Level]
+[Level=2,3,4,5]
+Point=15 19 HEXPANDINGWALL
+[/Level]
+[Level=1,2,3,4]
+Point=16 20 SPACE
+[/Level]
+[Level=5]
+Line=8 20 23 20 FIREFLYl
+[/Level]
+Point=16 21 OUTBOX
+[Level=3,4,5]
+Point=14 14 DIAMOND
+[/Level]
+[Level=3,4,5]
+FillRect=15 14 18 18 SPACE
+[/Level]
+[Level=3,4,5]
+Line=16 13 18 13 SPACE
+[/Level]
+[Level=3,4,5]
+Line=17 12 18 12 SPACE
+[/Level]
+[Level=3,4,5]
+Point=18 11 SPACE
+[/Level]
+[Level=5]
+Point=14 13 DIAMOND
+[/Level]
+[Level=5]
+Point=13 14 SPACE
+[/Level]
+[Level=1]
+Point=10 12 FIREFLYl
+[/Level]
+[Level=5]
+Point=27 4 DIAMOND
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-10
+RecordedWith=GDash 20100212
+RandomSeed=1049496546
+Score=692
+Success=true
+Checksum=249022817
+Movements=.14 u6 ur r dr d2 dl l d2 .3 r2 .7 l .8 u .6 u2 .11 u .4 u .8 u2 .6 u .8 u .6 u2 .21 l .10 u .8 u .7 l .6 u2 .12 d3 .14 u4 d13 dr r2 d3 .10 d2 l3 r4 u14 .4 u .3 u .41 u2 ur .17 r2 d8 .47 r10 . u4 ul l d .4 l5 .4 u2 r2 .8 r5 u3 l2 d l5 u l2 d3 r4 .4 r5 u2 ur r2 .106 d8 .58 r8 .18 u8 ul l2 .2 l2 .3 l .34 l3 .6 d .17 d8 .6 r12 u8 . d7 dr r4 .6 l .6 u4 .5 u3 .13 u2 .3 r4 .3 d4 .3 d4 .2 u3 .37 L2 .14 R .14 d4 r d2 .3 u ul l2 d3 dl .8 r .7 l4 u l6 r .2 d dr r2 d .2 r4 d r3 .2 r6 d2 dl l11 r d2 . r8 .53 r .12 r .18 R .6 l .7 d2 l .10 r2 .2 u2 ul l8 u2 r9 .6 l9 d2 r9 d2 l10 u l u l u l2 .18 r2 d r d r d r10 u2 l9 u2 r11 u2 l9 u l4 u2 r5 d r4 .3 r .24 L l3 r3 .5 R l4 ul u l5 d2 r4 d r9 d2 l11 d2 r9 d2 dl l10 u ul u l2 u2 l2 u6 .4 r2 .10 l d3 l2 d4 .2 u3 r2 u4 l4 .11 d5 .7 d3 .23 u7 .3 l4 .26 d .8 l2 .20 u .2 r6 d6 .19 u6 ul l6 . D .2 r3 d .8 u l2 d2 .3 L .2 r2 .3 l6 .4 L11 l2 .2 L2 .2 r2 .4 l3 u2 l2 d2 r20 l3 u3 .8 r3 d2 r4 .5 u ur r2 .4 r3 .2 d4 .7 l3 u3 .23 r3 .3 l4 d r2 d4 .4 d3
+[/replay]
+[/cave]
+
+[cave]
+Name=The Final Door
+Author=Dustin
+Intermission=true
+Story=Story (level 3)\n\nReady for the final challenge? Behind this last door, Rockford is most likely awaited on by the fort\342\200\231s owner himself (or itself)! Who could it be? WHAT could it be? And, will Rockford have a chance to beat it at all? But, Rockford can\342\200\231t go back anymore, not now, having managed to have gotten so far.  He thinks about the unimaginable prosperities he will have, slowly opens the door...
+Size=20 12 0 0 19 11
+Colors=Black Black LightRed Gray1 White White White
+DiamondsRequired=1 1 1 1 1
+DiamondValue=20 0
+CaveTime=20 20 20 20 20
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=7 2 13 9 STEELWALL
+Point=7 5 OUTBOX
+Point=3 5 INBOX
+Point=16 5 DIAMOND
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-10
+RecordedWith=GDash 20100212
+RandomSeed=656498696
+Score=38
+Success=true
+Checksum=910179854
+Movements=.16 d2 .3 d3 dr r12 u5 .11 d5 .10 l10 .13 u5 .25 r
+[/replay]
+[/cave]
+
+[cave]
+Name=Room P. Overtaking Line
+Author=Dustin Bachstein
+Date=2009-01-10
+Intermission=false
+Story=Story (level 3)\n\n...and finds himself face-to-face with a small goblin, the look of whom reminds him strongly of one of the many many fireflies he\342\200\231s seen in his career!  But what\342\200\231s that? The fort\342\200\231s owner starts to flee from him! Is it really scared by the sight of Rockford that much? Rockford has a completely different suspicion: This must be a trick! He decides to follow the strange being as close as possible as not to lose track of it, and this turns out to be a very good idea! But this action is made difficult by the 82 diamonds lying beside the path, which Rockford has to collect all of and, thereby, lose valuable time and contact with the goblin...\n
+Size=40 22 0 0 39 21
+Colors=Black LightRed White Black Black Black Black
+DiamondsRequired=90 100 82 80 4
+DiamondValue=2 85
+CaveTime=60 60 60 60 60
+CaveScheduling=ms
+PALTiming=true
+FrameTime=150 150 150 133 133
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=STEELWALL
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+[Level=2,3,4]
+RandomFillC64=0 1 39 20 8 62 26 27 13 NONE DIAMOND 192
+[/Level]
+[Level=2]
+Add=-1 0 DIAMOND DIAMOND
+[/Level]
+[Level=2]
+Rectangle=0 0 39 21 STEELWALL
+[/Level]
+Raster=1 19 38 -1 1 3 SPACE
+Add=0 -1 SPACE STEELWALL
+[Level=1]
+Raster=5 14 30 3 1 3 DIAMOND
+[/Level]
+Line=38 17 38 18 SPACE
+Line=1 15 1 14 SPACE
+Point=3 19 INBOX
+Point=13 19 FIREFLYl
+[Level=5]
+Point=2 19 FIREFLYl
+[/Level]
+Maze=1 1 31 11 1 1 50 41 37 111 25 0 STEELWALL SPACE unicursal
+FillRect=32 1 38 11 STEELWALL
+Line=38 12 38 11 SPACE
+Line=37 11 32 11 SPACE
+Point=31 10 STEELWALL
+Line=38 9 32 9 SPACE
+Line=33 8 33 1 SPACE
+[Level=1,2,3,4]
+Line=35 1 35 7 SPACE
+[/Level]
+[Level=1,2,3,4]
+Line=37 7 37 1 SPACE
+[/Level]
+[Level=1,2,3,4]
+Point=34 1 SPACE
+[/Level]
+[Level=1,2,3,4]
+Point=36 7 SPACE
+[/Level]
+[Level=1,2,3,4]
+Point=38 1 SPACE
+[/Level]
+Rectangle=0 0 39 21 STEELWALL
+Point=34 9 DIAMOND
+Point=39 9 OUTBOX
+[Level=5]
+Line=35 9 38 9 DIAMOND
+[/Level]
+[Level=2,3,4]
+Line=1 20 3 20 STEELWALL
+[/Level]
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-10
+RecordedWith=GDash 20100212
+RandomSeed=534688654
+Score=285
+Success=true
+Checksum=-1676024602
+Movements=.18 r .4 D .2 r2 d r u r5 D r2 D dr r d r6 u r4 D r2 d r3 u r2 d r2 u r2 d r u3 l5 u l2 D l2 d l7 u l3 d l3 u l2 d l2 u l2 d l5 u l2 d l2 u4 ur r d r3 u r3 d l2 r8 u ur r2 d r3 u ur r D R r d dr r2 d l2 r11 u r u2 l13 u4 l2 d4 dl l21 u6 r8 u2 l8 u2 r10 d6 l8 d2 r18 u4 r6 d4 r2 u6 l14 d2 dr r3 d2 l6 u6 r18 d8 r6 .8 r2
+[/replay]
+[/cave]
+
+[cave]
+Name=Bonus Room T. Refill Station
+Author=Dustin Bachstein
+Date=2009-01-10
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Story (level 3)\n\nThere it is!! Dazzled by hundreds of glittering jewels, Rockford reverentially enters the legendary treasure chamber which he sought for so long! As a child, he had loved to read the famous stories about Dagobert Duck and, now he, too, can take a bath in what he - Rockford, the treasure seeker - always loved most in his life.  Overwhelming greed grabs him when he sees that the room even refills once when he\342\200\231s collected all the diamonds in it. Having collected all 357 jewels, he intends to leave the fort and the Big Mountain as soon as possible, his thoughts dominated by the glory and richness he would have.\n\nBut the story won't be finished for a long time yet!\n\nRockford will face new adventures and wonder if he has really reached everything that makes (his) life valuable...\n\nHe\342\200\231ll find his answer to that question - in Rock Fort 3!\n
+Size=20 12 0 0 19 11
+Colors=Black Black Purple Cyan White White White
+DiamondsRequired=350 350 350 350 350
+DiamondValue=5 100
+CaveTime=50 50 50 50 50
+CaveScheduling=ms
+PALTiming=true
+FrameTime=100 100 100 100 100
+HatchingDelay=8 8 8 8 8
+CaveDelay=0 0 0 0 0
+InitialFill=DIAMOND
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=1 1 INBOX
+Point=18 10 OUTBOX
+Point=18 1 AMOEBA
+Point=1 10 AMOEBA
+[/objects]
+
+[replay]
+Level=3
+Player=Rockford
+Date=2008-03-11
+RecordedWith=GDash 20100212
+RandomSeed=227266879
+Score=2186
+Success=true
+Checksum=-1607902577
+Movements=.16 r16 d2 l17 U2 .2 r17 d .3 l17 dl .3 r .3 l dl d .3 r18 .2 d .4 l18 d .3 r17 dr d .4 l17 dl d dr r15 .5 R .2 d2 l16 .28 u10 ur r15 dr d l14 d dr r13 d2 l17 L U2 .2 r16 dr d l17 d r17 d dl l16 d dr r16 l d dl l15 r15 . r2
+[/replay]
+[/cave]
+[/game]
+[/BDCFF]

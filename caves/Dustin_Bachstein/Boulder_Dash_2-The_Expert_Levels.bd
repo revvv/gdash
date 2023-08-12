@@ -1,0 +1,2131 @@
+[BDCFF]
+Version=0.5
+[game]
+[highscore]
+11553 demo
+4383 sndubach
+2459 sndubach
+2421 sndubach
+1440 sndubach
+781 sndubach
+495 sndubach
+400 sndubach
+380 sndubach
+[/highscore]
+Name=Boulder Dash 2- the expert levels
+Author=Dustin Bachstein, Peter Liepa with Chris Gray
+Date=2008
+WWW=http://www.boulder-dash.com/
+Levels=5
+
+[cave]
+[highscore]
+647 sndubach
+630 sndubach
+600 demo
+599 sndubach
+591 sndubach
+591 sndubach
+557 sndubach
+546 sndubach
+528 sndubach
+519 demo
+[/highscore]
+Name=Cave A. Intro
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Gray1 White White Orange
+DiamondsRequired=20 25 25 25 25
+DiamondValue=15 15
+CaveTime=100 95 90 90 90
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=15 28 24 25 19
+RandomFill=BOULDER 50 DIAMOND 5 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=25 25 25 25 25
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=19 1 19 11 WALL
+Line=1 11 19 11 WALL
+Line=3 6 16 6 DIRT
+Line=3 7 16 7 MAGICWALL
+Line=3 10 16 10 DIRT
+Line=33 1 33 16 STEELWALL
+Point=20 5 BOULDER
+FillRect=21 1 32 16 DIRT
+Line=33 16 14 16 STEELWALL
+FillRect=15 17 38 20 SPACE
+Raster=16 17 4 1 6 1 FIREFLYr
+Raster=18 17 4 4 6 1 DIRT
+Raster=22 1 6 3 2 2 MAGICWALL
+Raster=23 1 3 3 4 2 MAGICWALL
+Raster=22 2 3 1 4 1 MAGICWALL
+Point=28 4 MAGICWALL
+Point=32 4 MAGICWALL
+Point=22 4 MAGICWALL
+Line=23 5 24 5 DIRT
+Point=37 3 INBOX
+Point=5 18 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=515208705
+Score=600
+Success=true
+Checksum=-349579930
+Movements=.21 r dr d4 dl l d5 r2 d9 l4 dl d l7 .5 l11 .3 l2 u2 r d .2 u2 l u2 l .10 d3 r3 d2 .2 u3 l2 u5 r6 d2 r3 u l2 u ur r u5 l2 u3 .3 r5 d4 .13 d2 l5 d r2 u5 l .5 l5 d2 l13 u ur r11 u ul l12 d . u6 ur r3 u r3 dr d4 l4 u2 l2 . r5 d2 dr r6 u ul l3 u ur r3 u3 r2 l d4 dl l2 u2 l12 d6 r3 d r u r10 l d l4 u r9 d3 l7 d2 l7 u ul l dl d5 r .2 u4 .2 d4 r
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=549918882
+Score=630
+Success=true
+Checksum=779146244
+Movements=.29 l3 d5 dr r2 dr d12 l6 .3 l12 .5 l7 u3 r d3 r . u3 l2 u5 ur r4 d3 r4 u l3 ul u r3 . l2 u3 r u8 .4 r3 d4 l3 u ul l5 dl d l11 u ur r10 d r3 u2 ul l13 ul u2 .3 u .2 r2 u r3 .7 d2 dr r5 u2 l u3 ur r2 l2 r4 d .2 r d4 l3 u r u ul l . u2 ur r5 l d4 dl l12 u5 r d3 r3 ur u2 ul l4 d2 l2 d2 .3 u r8 u2 l3 dl d6 dr r3 l3 d .2 u ur r d2 r3 u r8 l3 dl d l2 . u r4 d .2 u r2 d dr r3 .8 u3 .8 r6 d5 .16 d2 l9 .4 u2 ul l4 d4 l5 d3 l
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=863268501
+Score=557
+Success=true
+Checksum=1792398394
+Movements=.17 l8 d7 dr r2 d11 dl l10 .6 l6 .9 l6 u3 l u .3 u .4 r2 u2 r2 .2 u . l2 r2 l4 r6 .8 u4 .7 u4 .6 u .9 r5 .2 l2 .8 l3 d3 l4 d dl l13 u ul l .3 r15 . u l15 u3 .6 r3 ur u2 r .3 l3 u2 l .2 r3 .2 d5 .2 l .4 r13 u l11 r11 u ul l8 u l2 u ur r2 . l5 d2 l2 d .4 r9 u2 r8 .8 d5 l3 r3 u4 l9 r3 d4 l d .5 d .5 u l2 d l2 u2 ul l2 dl d2 dr r l2 u ul l d2 l3 u2 l2 u .5 l u3 r19 .3 d4 r5 d7 .3 u2 l10 d dr r2 .3 l3 u l4 u l8 d7 .3 r4
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=703689519
+Score=519
+Success=true
+Checksum=-398404346
+Movements=.6 d17 dl l2 d7 r3 dr d10 l4 d dl l7 .4 l6 .10 l5 u3 l u2 .3 r4 u .3 u .2 d .2 L . r3 u4 .3 u3 .8 r4 .16 l4 d2 .2 l5 u ul l3 dl d l6 u l3 .2 d r7 u l5 u r12 d2 l3 .2 u l2 d l3 u3 .3 d r7 u3 l2 .6 u .3 l5 u r4 .11 u l4 u r3 .2 l6 d3 l5 u r4 u l4 u r4 l3 . d2 .21 l3 dl d r12 . u2 l2 d2 .4 r13 ur u2 ur r11 u2 r2 .19 d2 r .4 L3 .2 r2 . l24 r4 d2 dl l3 d l7 u .2 d dl l5 .4 r15 d3 l16 D .3 r dr d r5 u r2 d r3 u r2 d r6 dr d4 dl l u3 .5 l2 .3 d2 dl l2 d dl l3 dl d2 l2 .2 d4 r2 .2 l2 u3 l4 .12 d
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=875988583
+Score=591
+Success=true
+Checksum=282121382
+Movements=.21 l u2 l2 d7 r2 d r2 U2 . d5 l d6 dr r .8 l13 .9 l6 .6 d .5 l5 u2 l u r2 .2 l2 u2 r2 u r3 d l u2 r3 d2 r2 u l3 u r3 u l2 u r2 u l2 r .16 d2 l4 d5 .12 u3 r3 u3 . u8 .3 r2 .5 l dl d l2 u2 l2 .11 d4 r d4 l3 u2 ul l2 .4 r3 d .3 l2 u l2 d2 l11 u r ur u2 ur r7 d dl l8 U . r2 .3 u ul l4 r .3 r .2 u2 .7 r8 u3 l3 r d2 dl l3 u2 r2 dr r4 . d dl l2 u2 ur r3 d4 r5 l4 ul u r5 u l2 u r2 u l3 dl d2 r6 l2 d3 r4 u2 ul l21 r3 d6 l u ul l3 d dl l4 u l d dl l ul u2 l u3 l u2 .2 d l2 . r u3 ur r19 d2 r2 dr d3 r d4 l7 d dl l7 u l2 . d4 dl l4 u l .4 l d2 r4
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+685 sndubach
+666 sndubach
+661 sndubach
+640 sndubach
+616 sndubach
+575 demo
+534 sndubach
+502 sndubach
+496 demo
+404 sndubach
+[/highscore]
+Name=Cave B. Silos
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Green Purple White White Green
+DiamondsRequired=95 96 97 98 99
+DiamondValue=3 10
+CaveTime=160 160 160 160 160
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=51 67 55 59 69
+RandomFill=BOULDER 254 AMOEBA 127 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=25 25 25 25 25
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=1 15 30 15 STEELWALL
+FillRect=1 16 38 20 SPACE
+FillRect=1 0 7 15 STEELWALL
+FillRect=11 0 17 15 STEELWALL
+FillRect=21 0 27 15 STEELWALL
+FillRect=31 0 38 15 STEELWALL
+Raster=9 14 3 1 10 1 BOULDER
+Raster=9 15 3 1 10 1 DIRT
+Line=1 1 38 1 BOULDER
+Line=1 2 38 2 DIRT
+Line=1 3 38 3 DIRT
+Rectangle=2 1 3 15 SPACE
+Rectangle=36 1 37 15 SPACE
+Point=3 16 INBOX
+Point=38 16 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=155621193
+Score=575
+Success=true
+Checksum=243791265
+Movements=. u33 .4 r .2 u .2 r .4 l dl d14 r32 u5 ur u15 l .2 d l .3 r .2 d .7 l r u .2 l2 r2 dr d14 dl l7 u . d r2 l2 .102 u4 .9 L5 .2 d3 dl l9 u . d dl l9 u . d l6 u14 .16 u .2 r4 d2 l2 .2 r2 u ur r30 l2 d dl l5 d7 .2 D .2 u7 l22 u ul l2 d18 .8 r4 .3 R .12 u2 l2 d3 l2 u4 r4 .2 r8 .2 d l3 r3 .2 d3 l2 .2 R .24 u .2 R .4 l .30 D .3 l .12 u3 .4 r2 d2 r2 .10 u l3 r5 d2 . u3 .2 d2 r2 l2 .3 R3 .3 u r2 l2 .2 u r3 l2 u2 r10 d5 .2 l u l . r2 .10 l2 r2 u4 .4 d3 D L10 .3 u3 l3 L15 ul u2 . R D d2 dr r3 d3 dr r2 . R D2 .3 u r u r2 .2 l2 .7 l d3 R2 .2 u r2 l2 u3 r10 d5 . L2 . u3 .5 d l3 r3 u3 .3 d l3 r8 .18 u
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=788577678
+Score=616
+Success=true
+Checksum=-1746995892
+Movements=.14 u21 .5 r .4 R D .3 l .2 d14 dr r31 ur u14 .5 L2 .2 d3 . u2 .2 L . u l .3 L .2 r d14 l17 .11 l9 .4 r19 u .2 d r2 l3 .3 r .75 u2 .3 R .6 u .21 d3 dl l9 u .2 dl l2 d dl l9 u .5 d5 r2 . L10 .2 u4 .3 r d3 dl .4 L . r2 ur u .7 l4 . L . r3 .10 u3 .2 d3 D L .3 u l2 u ul l3 d2 dl l .7 d r .3 R2 l4 u4 r13 l4 u2 . R . u ul l u12 l2 d2 dl r13 l6 u ur r14 d l6 ul ur r4 u ur r10 l2 dl d r11 d16 l2 .27 l3 .2 d l2 .6 r13 .2 r4 .6 u l .7 l3 .12 u .3 L2 . R2 .5 u l .5 L2 .2 u .2 l3 d2 dr .9 D .3 u2 .7 r7 . d2 dl l2 u2 ur r .2 l8 dl d4 .2 u l2 . D .2 r .3 L6 .2 u .3 L11 . u3 .7 l7 d5 . u l2 .2 r4 .2 R D2 . l2 u4 .9 r3 D2 . l2 . r5 .4 L11 l u2 . R L2 d3 r19
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=200034754
+Score=685
+Success=true
+Checksum=2034365840
+Movements=.6 u27 .4 u .3 r .2 u2 .2 r .4 l2 d14 dr r32 u14 .3 l .3 r .6 d .148 u3 .5 d l37 .14 r4 .4 d dr r30 .3 d13 dl l6 u .5 d5 r2 .4 L3 .2 u3 .7 d2 .9 l .3 L4 . r3 .5 d .2 L2 .3 L .4 u l2 .2 r .8 L .6 u l2 .2 u2 l .2 d l .2 D2 . r5 u .3 l5 u2 L .2 d2 l2 d2 l2 d2 dl l5 u6 .2 d5 dr r .2 L8 . u4 .6 d3 D L . r2 .5 u3 .2 l3 .22 d .2 l .4 D .5 L .4 u .2 l2 d2 l2 .11 d .2 r .2 D .5 u2 .6 d2 l .3 u r2 u2 ur r2 d r d2 .2 u3 l12 u .13 dl l2 .3 dl l2 .2 d l2 d4 D R4 .2 u .5 u .9 d .2 r2 .6 L .2 r13 .12 l .10 l3 . D2 .2 r2 .5 u4 .3 l10 .2 d4 r2 .4 R .6 D .3 u2 ur r4 l .2 D .2 u r30
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=192991682
+Score=496
+Success=true
+Checksum=-1924139683
+Movements=.11 u22 .3 u .3 r .3 u .3 r .4 l dl d14 dr r32 u13 .6 l .3 u .2 l .3 r2 d14 dl l6 u .3 d r3 .11 l3 .6 l d3 r3 u3 l .116 u3 .4 L2 R8 .4 d6 r . L6 . r .3 L3 . u .29 l .4 L .5 r .12 u .12 d dl l .2 r .7 u2 l2 .2 D .3 l4 d3 .7 r .4 D R5 .2 u3 .6 d2 . R2 .2 u r2 u r3 d2 r d2 r .2 u .3 l ul u l u r3 .2 l2 .2 l6 d r2 .3 d2 l9 u3 .8 d5 dr r . L10 .2 u4 .11 l .4 d .3 d .35 D .9 r .17 u l2 .10 r .6 d l .5 D .9 l4 d3 dl l .5 u .5 r4 d r3 .10 l .4 u .4 L .3 u3 .12 d2 l2 . u . r3 l2 u2 r10 d4 . u l u ul l . u2 . L . r3 . l4 u2 . L . d2 l10 u .3 d5 dr r . L5 .2 u3 .2 r .2 d3 L7 . u .9 u .7 d2 .12 l .3 L .6 u l2 .2 r .6 u2 l2 .2 D .2 l3 d3 .4 r .2 D2 . l2 d2 dl l .2 u .2 r3 u4 .5 r10 dr d3 .2 u2 l2 r3 u2 .4 l3 .6 l17 r20 u15 l3 d dl l9 d dl .2 r3 d12 . u r2 dr d . u11 r9 u r7 d2 l5 u ur r5 d r2 u2 r3 .2 d r .2 l3 d dr r10 d4 dl d13 r
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=28269859
+Score=640
+Success=true
+Checksum=-1372654226
+Movements=u34 .3 r .2 u .2 r .3 l dl d14 r33 u14 .3 L d .157 d13 dl l6 u .2 d5 r2 . L12 .2 u3 .21 d .2 D .2 u .16 d .2 l .3 L .11 u2 ul l d dl l3 d2 .6 r3 .6 d r2 .7 l12 u5 .3 r9 . l4 D .3 u2 .2 R .5 U .9 d2 dl l9 u .2 d2 dr r2 d2 .7 l .4 L2 . u .4 d . L5 . u2 . r .4 d2 D L .4 l . u .2 l .2 L8 .2 u2 r3 d3 l .3 l2 D . u4 l .3 l8 .4 d3 .10 r3 . D .9 l3 .7 r3 u2 r d dr r2 . D . l2 .6 u .2 r3 l3 u .3 r2 .2 D R13 .2 l2 r3 u2 L . d2 dl l9 u .7 d l2 d4 D R4 .2 l .4 R2 .2 u .8 r .3 R . l2 .4 d . R2 . u .2 r .3 R4 .2 u .3 R6 . u2 .8 d2 D R6 u3 . r .4 d .2 r .4 D .4 r .2 D .3 r4 d2 .7 l2 .10 D .6 r2 u5 .16 l4 .5 l11 d2 r6 .8 D .3 u l4 r3 u2 r u12 l4 d l r7 u r5 d l4 u ur r13 d l6 u r6 d r8 .6 l3 r5 d13 R
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+1227 sndubach
+1065 demo
+989 demo
+941 demo
+932 sndubach
+747 sndubach
+729 sndubach
+[/highscore]
+Name=Cave C. Spiral
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Orange White White Purple
+DiamondsRequired=15 19 21 13 20
+DiamondValue=25 50
+CaveTime=200 150 150 150 150
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=40 168 11 125 113
+RandomFill=SPACE 120 BOULDER 50 FIREFLYl 15 DIAMOND 9
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=7 4 38 4 STEELWALL
+Line=7 4 7 15 STEELWALL
+Line=7 16 32 16 STEELWALL
+Line=32 16 32 9 STEELWALL
+Line=14 8 32 8 STEELWALL
+Line=14 8 14 12 STEELWALL
+Line=14 12 25 12 STEELWALL
+Point=37 3 INBOX
+Point=18 10 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=239250151
+Score=1065
+Success=true
+Checksum=1714476813
+Movements=.15 u8 ul l6 .6 L R r4 d2 l2 u3 l8 .4 L . d3 .3 u2 l7 d l6 d dl l2 .8 u l3 d3 l2 .2 d3 l2 d2 .5 d .2 r2 .3 d r .5 D2 .4 l2 .6 d5 .4 r d2 dr r10 dr d2 . u .3 l .2 d2 .2 u3 r6 .5 r3 dr d2 r2 .2 u2 ur r3 .5 r .2 d .4 r4 . D2 . u5 r u3 .5 l2 u3 .4 u2 ul l5 d2 dl l2 u2 l .10 L r2 dr d2 dl l .5 u3 l5 .4 l4 .13 l .6 L2 D d2 dl .2 u3 l4 .3 d .2 d .3 l3 d3 .5 d2 r3 .11 d2 .4 l2 .3 l .5 r .2 u2 r .3 r .2 d2 .5 R . u3 ur r .2 d3 r4 u r5 .6 r4 .4 r2 .5 r3 . D .3 u2 . l5 u l3 .3 u2 .11 r3 d r2 u l4 .2 L . d3 .9 u2 ul l4 d
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=665085446
+Score=747
+Success=true
+Checksum=811783672
+Movements=.9 l18 u2 l4 d D L8 .3 u l .4 L R r3 d3 .2 u2 l10 .2 d2 . l .3 L .2 u2 .4 r5 d3 .6 l3 .12 l14 ul u l u2 . l2 dl d3 dr r2 .8 d l .31 d2 r3 .6 d4 .3 d3 .12 d5 r2 .2 d l2 r3 l u ur r .3 l u l5 u .7 l4 .20 r10 d r7 . u2 r2 .3 r .2 d3 dr r4 u3 ur r6 d3 r4 .4 u l3 .3 u5 .15 u .33 R .2 d6 l .11 u3 .13 u r .6 u2 r3 .2 D . u8 .7 d5 l3 .5 U r4 d2 l5 .6 u5 l u .4 l .13 u ul l5 d2 dr r2 u l4 .2 u .2 l .3 L R r2 dr d2 . l3 u l6 .9 l .3 u l5 d .2 r dr d2 .3 dl d3 l .4 d3 .16 l .3 r2 .10 R l2 u2 . u2 r3 .4 d3 r3 d2 l u ur r6 d r .3 u2 ur r3 .3 d r2 .2 u3 l u ul l8
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=759943508
+Score=729
+Success=true
+Checksum=95017381
+Movements=.11 l15 r u r3 . l7 u .2 d l .2 r u ul l2 dl d2 l2 .2 r4 l5 u l3 d dr r .2 u l6 u ur r2 l6 d3 r6 l u ul l5 u .8 L r3 d3 .9 u3 l5 d3 l5 d4 l2 r3 .4 u .2 d3 l .5 d3 dr r .6 r d3 l2 .5 d5 r3 . D .2 l u2 l3 D .2 u2 ur r3 .4 d2 r2 .2 d3 r2 .3 u3 l7 .2 d3 .2 u8 .7 r5 dr d3 dr r .6 d r2 .2 d .4 r .5 u l6 d2 .2 u4 .3 l3 r5 d r7 d2 dr r5 .12 d dr r4 .36 r4 .5 R l4 u3 ur r7 d3 dr r2 u10 .17 d5 l2 .2 u2 .20 r4 .2 l4 d3 dl l9 .3 L .2 r10 u6 .7 r2 u2 r2 dr .4 d l4 dl d7 l14 r15 u8 .4 u4 ul l11 d3 r .2 l u2 ul l2 .4 l2 r9 d3 l .8 u2 ul l4 dl d2 l5 u l2 d2 dr r . l3 d3 .5 l .3 d3 dr r3 u2 r5 .6 r5 d .18 r4 l10 u2 l6 u2 .15 l .6 r3 d2 dr r13 u5 .6 l2 .4 l7 d
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=291752184
+Score=989
+Success=true
+Checksum=1931532360
+Movements=.11 u13 .11 l10 dl d2 l u2 ul l3 .5 l .5 L R r2 d3 l2 u2 l3 d2 l2 u3 l3 .5 l .4 L2 r3 d3 .5 u2 l3 d2 r l4 u r2 dr d2 .3 l2 u2 ul l3 d3 l4 d4 l d3 . r .2 d3 r .13 d4 r .2 d4 r4 u l3 u .2 r4 .8 r .3 r .8 D .2 l6 u .5 r8 d3 r2 u3 r6 .2 r2 d3 . u2 ur r6 .3 r3 d r2 .3 d2 .2 u3 ur r .3 u ul l2 .13 r2 .5 u3 L4 d4 l2 u3 . R5 .13 r2 .7 l2 u2 .3 d .2 r3 u l3 . r4 l4 u3 .5 u5 l3 d l2 u2 l2 .11 L .4 d3 .6 u2 ul l5 d2 l .2 u2 l6 d4 l .5 d4 r4 d dl l2 d2 r10 u l9 d l3 u .2 l3 ul u r16 .4 r4 d r2 .2 l2 u5 l8 d2 dl l2 u .2 l .3 r2
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=94022681
+Score=932
+Success=true
+Checksum=-1761355557
+Movements=.34 u l u2 l7 d2 r l3 ul u2 .10 r5 d3 . l6 r u2 l3 .3 l .2 d3 R . u r6 l2 u2 . r3 d3 l4 .14 u2 l4 . L . d3 .4 l . u l3 .3 l .2 u2 . L5 d3 l2 .6 u3 l2 .3 l .2 L .2 d2 r2 . l2 .7 u l3 .4 l2 u ur r l4 d2 l .6 d4 .5 D .5 l .9 D . u2 ur r3 .7 l2 d3 l2 .3 L2 .6 d .3 u5 .3 r .5 d5 .2 d4 .3 r3 d3 .5 d3 .3 l .7 l .3 D .5 l4 .4 d4 .4 R .2 u2 .2 r8 D .3 d2 dl l2 u ur r2 d r2 u r6 d r .2 l .3 r3 u r2 u r4 .2 r2 .3 D r3 .11 r .4 d3 .16 u3 .13 r3 .14 r12 .24 d2 r4 .14 u5 l u2 .5 u3 .8 r2 u2 .4 u2 ul l5 d l2 D .2 u l8 .3 l3 .4 l3 .3 l3 .3 d5 .5 d2 .3 l .3 d .3 d .3 l2 .3 D .2 r .4 r .10 R .28 d .4 R u3 l3 d u3 .2 r2 .2 l .2 u3 .3 l .4 r2 dr d6 .3 r .4 r .6 L l3 . r3 .3 R l7 u4 .8 r5 d2 r7 d2 dr r2 .2 u r5 .2 r2 . r2 u5 ul l5 d l2 u2 l5 d
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+456 demo
+453 sndubach
+440 demo
+437 sndubach
+398 demo
+334 sndubach
+[/highscore]
+Name=Cave D. Breakthrough
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Green Orange White White Green
+DiamondsRequired=58 60 62 63 64
+DiamondValue=5 8
+CaveTime=40 40 40 40 40
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=140 140 140 140 140
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=5 2 14 2 FIREFLYl
+Point=15 2 BOULDER
+Line=5 5 14 5 FIREFLYl
+Point=15 5 BOULDER
+Line=5 8 14 8 FIREFLYl
+Point=15 8 BOULDER
+Rectangle=22 1 23 20 AMOEBA
+Line=21 10 21 20 WALL
+FillRect=24 1 38 20 DIAMOND DIRT
+Rectangle=18 10 20 12 DIRT
+Point=19 11 INBOX
+Point=1 10 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=937679216
+Score=398
+Success=true
+Checksum=-1240150126
+Movements=.12 u19 r3 l d2 dl l d3 l2 .2 u l u ur r3 d3 dl l .48 r2 u3 r2 . l .3 u3 .4 r18 d19 dl l13 u14 .4 u2 l .3 r u2 ul l4 dl d9 r2 d3 l19 u3 .10 u
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=486245439
+Score=334
+Success=true
+Checksum=-1240150126
+Movements=.11 u19 . u ur r2 d3 l6 ur r4 .2 u l5 r4 d3 l2 .47 u6 .32 r2 .69 r19 d20 l14 ul u18 ul l22 dl d8
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=992513552
+Score=453
+Success=true
+Checksum=-1240150126
+Movements=u32 r3 l d3 dl l4 u r4 d4 l2 .38 u6 ur r20 d19 dl l13 u16 .4 L2 . u3 ul l22 dl d9
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=909174087
+Score=440
+Success=true
+Checksum=-1240150126
+Movements=.6 u22 l4 u r6 d3 l4 .35 u6 .6 r .2 d6 dr r2 .4 D .7 r u ur r .3 u5 ur r13 d20 l14 u14 ur r2 ur u5 l27 d8
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=336630582
+Score=437
+Success=true
+Checksum=-1240150126
+Movements=.21 l ul u8 r4 l4 d2 .5 u .2 l .3 l .3 u r5 d4 dl l3 .7 r d3 dl l2 .15 r3 u5 .4 d2 .4 u7 .11 r9 l4 d3 r2 d16 dr r13 u19 l36 dl d9
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+150 demo
+142 demo
+135 sndubach
+120 sndubach
+111 sndubach
+100 demo
+[/highscore]
+Name=Intermission 1
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 19 11
+Colors=Black Black LightBlue Red White White LightBlue
+DiamondsRequired=1 1 1 1 1
+DiamondValue=30 0
+CaveTime=20 20 20 20 20
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+PALTiming=true
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=19 0 39 21 STEELWALL
+FillRect=0 11 39 21 STEELWALL
+FillRect=5 2 11 8 BOULDER FIREFLYl
+Point=8 5 DIAMOND
+Point=3 3 INBOX
+Point=2 10 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=757414051
+Score=100
+Success=true
+Checksum=283646070
+Movements=u27 ur r7 dr d9 l4 .14 r .2 u .4 U l6 dl d
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=1047922038
+Score=120
+Success=true
+Checksum=283646070
+Movements=u27 ur r7 dr d9 l3 .17 u .3 U . l7 d
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=791019676
+Score=135
+Success=true
+Checksum=283646070
+Movements=u27 ur r7 dr d9 dl l2 .13 u .3 U .2 l7 D
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=383930646
+Score=142
+Success=true
+Checksum=283646070
+Movements=u27 ur r7 dr d9 l3 .19 u .3 U .2 l7 d
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=1016496351
+Score=111
+Success=true
+Checksum=283646070
+Movements=u27 r9 d9 l3 .14 u .5 l4 .42 d dr r3 .3 u l2 u l5 d2
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+561 sndubach
+488 demo
+481 sndubach
+470 demo
+441 sndubach
+440 demo
+430 sndubach
+342 sndubach
+[/highscore]
+Name=Cave E. Shower
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Gray2 White White Blue
+DiamondsRequired=10 12 14 16 18
+DiamondValue=20 40
+CaveTime=30 30 30 30 30
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=34 38 39 35 36
+RandomFill=BOULDER 255 DIAMOND 127 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=2 2 2 2 2
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=224 224 224 224 224
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 7 38 20 SPACE
+FillRect=20 1 38 20 DIRT
+Raster=1 5 19 3 1 2 SLIME
+Line=1 18 19 18 SLIME
+Line=1 20 19 20 MAGICWALL
+Point=3 17 INBOX
+Point=35 18 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=339605692
+Score=470
+Success=true
+Checksum=1368773854
+Movements=.23 R7 .9 L2 R3 L3 . L5 .15 U .4 l2 r4 l2 u ur r3 d r3 .7 l2 .2 r2 .6 l2 .2 r3 l3 u r .6 r4 d dr r21 d
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=177495861
+Score=342
+Success=true
+Checksum=-567225150
+Movements=.27 r3 .6 l2 .2 l3 .2 r2 .3 u2 r3 d2 dr r2 l3 r2 .3 r8 l .4 l3 .2 r3 .2 l3 .2 u r2 .7 r4 d r16 d
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=874296641
+Score=430
+Success=true
+Checksum=661443708
+Movements=. r24 .3 r2 .2 u r2 d2 . r . u2 l4 dl d2 l .3 L l2 .2 u r2 .5 l . r7 d2 .4 r7 .4 u l9 d dl .5 l .2 r3 u r5 dr d . u ul l4 d2 l7 r5 . l2 .2 r2 . l2 . r3 u r25 d2
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=732780172
+Score=440
+Success=true
+Checksum=-569650064
+Movements=.7 R20 L9 R5 L11 R6 r3 l3 r7 .6 r2 .5 l u l3 D .2 d2 r5 .2 l2 .6 l .2 u r .4 l2 d3 l6 r4 .4 u r .3 r . l2 . r7 d l4 r26 d
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=613248681
+Score=561
+Success=true
+Checksum=1019270296
+Movements=.21 u ur r .2 r2 d dr r4 l .2 u ul l2 d dl l .2 . l R r4 . u r5 d r .5 l .3 r4 l .2 r5 . .5 L3 . u l2 .4 d l3 .2 l5 . r6 .5 u l2 . l7 d l3 r2 .5 R r .4 l .3 r2 . l2 .3 r29 d
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+1345 demo
+1040 sndubach
+986 sndubach
+728 demo
+680 demo
+442 sndubach
+[/highscore]
+Name=Cave F. Gauntlet
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White White Brown
+DiamondsRequired=42 34 42 40 38
+DiamondValue=5 80
+CaveTime=200 180 180 180 180
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=14 15 16 17 19
+RandomFill=BOULDER 220 DIAMOND 80 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+FillRect=1 10 38 12 DIRT WALL
+FillRect=1 1 15 20 DIRT
+FillRect=25 1 38 20 DIRT
+Line=14 2 14 19 WALL
+Line=26 2 26 19 WALL
+Point=1 2 INBOX
+Point=2 5 OUTBOX
+FillRect=4 1 8 20 SPACE
+Line=3 2 3 20 STEELWALL
+Line=9 1 9 19 STEELWALL
+Raster=5 3 3 6 1 3 STEELWALL
+Raster=6 2 1 3 1 6 FIREFLYl
+Raster=6 7 1 3 1 6 FIREFLYr
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=91618024
+Score=1345
+Success=true
+Checksum=2060706120
+Movements=.26 u r3 d2 .3 d3 .2 d3 .3 d3 .3 d3 .3 d5 r11 u3 r .2 dr r2 d r2 .9 l3 D .3 u2 .6 d .2 R D2 . u4 r2 .2 d3 r .4 r .3 R D2 .2 u2 r2 . D . l2 r4 D .2 l2 .2 r3 dr d7 l3 L2 .3 u .3 R5 .10 u .8 ul l .2 u ul .4 l2 .2 D .3 r7 u2 r4 u5 .10 u .2 l2 .2 L7 .3 r3 u2 .3 L4 .8 d3 .6 d2 dl l8 d2 l2 u6 r . R .2 l .3 u ur r . d2 l .4 u r ur2 r2 . u .5 d .3 r3 .5 R .7 L11 .4 u6 ul l3 d2 r d l ul u3 ur r4 d3 l d2 r l3 .9 r2 u3 r4 d2 .3 D2 L .3 u2 r2 .3 d7 l5 u .4 d l5 u4 r5 d .2 u6 l10 d20 .13 l2 u2 .2 u3 .2 u3 .3 u3 .4 u3 .3 u4 ul l3 u2 l3 d4 dr
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=395357634
+Score=1040
+Success=true
+Checksum=-612966326
+Movements=.24 u r3 d2 .4 d3 .3 d3 .3 d3 .3 d3 .3 d5 dr r10 .3 u2 .8 u .4 R .18 u .3 d4 dr .3 u .5 L4 .4 d r2 .14 r .3 L3 .4 r .10 u .3 R8 .4 u l2 .9 D .7 u r2 u2 ur r4 u ul l3 u ul l d2 l2 u r7 ur ul l9 d . u2 ur r9 u l10 u3 .21 d3 r9 ur u4 .4 u4 l .14 r u2 ul l2 .6 d3 l .4 r3 . d4 l2 .2 L5 D2 .5 r2 .9 l u3 .4 r2 d2 . u6 l7 d2 .2 u3 r3 d3 l . D2 . r5 d6 .8 l4 .2 L4 .6 l u2 l2 .23 L2 .4 u .7 u .6 L .5 u r5 ur u2 l8 d l ul u4 ul l4 d20 .12 l2 u2 .2 u3 .3 u3 .3 u3 .3 u3 .3 u5 l7 d5 r .3 u
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=589612794
+Score=986
+Success=true
+Checksum=940892762
+Movements=.26 u r3 d2 .3 d3 .3 d3 .4 d3 .2 d3 .3 d5 dr r10 .38 r2 .6 R .5 L .8 u .3 r .16 u .9 u r .19 r .15 d3 r2 .13 u .14 d r2 .10 r .9 u .3 l u r2 u2 .13 d . l .2 D .2 u l2 .3 r3 u2 .2 l7 D2 . r2 d2 .3 L D .3 u2 ur r4 u2 l10 d2 dr r11 u5 .4 l u .5 l2 .3 D .3 r .9 l .2 D .5 r4 .6 u3 .5 L12 .6 u .11 l5 .10 L .7 r7 l3 . D2 . r3 d3 .2 L .7 l2 .2 r3 .11 u2 l4 d dr r3 .7 d4 .14 l5 .9 l .12 u2 ur u3 ur r2 .17 u .3 l5 .15 l .6 l .4 L .3 r .3 L9 .7 d .4 d .8 D2 .2 u4 l u2 ul l5 d19 .15 l2 u2 .3 u3 .3 u3 .3 u3 .3 u3 .3 u4 ul l3 u ul l2 d4 dr
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=243313244
+Score=728
+Success=true
+Checksum=760798870
+Movements=.21 u .4 r3 d2 .3 d3 .3 d3 .3 d3 .3 d3 .4 d5 r12 .3 R .14 u ur r .18 d r .5 u .2 L .11 d r .15 r .38 u ul l ul u .12 r3 .12 d2 dr r2 .7 u .4 L .4 L3 .3 u .3 d .2 L8 .4 u l2 r u2 .3 d l9 d .4 D .2 u2 r10 d . u2 l10 u r10 u l9 ul u r10 .2 d5 .4 u6 .7 d l10 u4 .24 u4 r .7 R5 .13 U .5 dr r2 .2 d r2 .5 D .4 l3 .5 u4 r6 d .2 ur r2 . u2 .2 l6 d9 r2 .5 u .21 l .2 u2 l .35 u3 .6 r4 l4 .8 r5 d .5 D .8 u3 .7 r4 d .9 d4 dr r .9 u2 .3 l2 .4 L .14 r2 d7 dl l3 .22 r4 u2 . L .2 u2 .25 l3 d2 l2 .20 u .14 d l .12 l .12 l .7 u2 l .2 u .2 r2 .2 d .3 u .2 r7 . l .4 d3 .2 u9 l9 d20 .5 l2 u2 .3 u3 .2 u3 .4 u2 .3 u4 .2 u5 l6 d4
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=118291163
+Score=442
+Success=true
+Checksum=1412162018
+Movements=.20 u3 .17 r3 d2 .2 d3 .2 d3 .3 d3 .3 d3 .3 d5 r11 .54 l3 .14 u9 . u11 r6 D .3 r2 D2 .2 d2 .2 D2 . u .2 d dr r2 u3 r4 d8 .4 d6 . d6 .4 l2 .2 u6 L . .2 ul l2 . u l2 r3 d8 .35 l4 .44 l .3 . L . .5 r .10 u .11 .10 L .7 L .2 .18 u ul l .7 .10 .12 .11 .5 .6 .2 .3 R .11 u2 .6 r .7 u l2 u ul l .2 r4 .3 u ul l3 . u l3 d .4 r14 dr d7 r2 u2 .13 u17 l13 dl d20 .35 r4 .7 l12 .10 r3 .6 u2 r .95 ur r .3 u r .18 r2 . .5 D .2 . l6 u4 l dl d4 .2 u2 r8 u2 ur r2 d7 l .3 u3 r u2 l3 u3 ur r2 l10 u3 .6 u3 .31 u3 r .2 l ul u2 .12 d4 r3 . R . .2 l4 .11 d5 .21 r .3 u3 l u3 .42 d4 r .3 u4 r4 .4 d5 l2 .2 .6 R . .5 u3 .4 r4 .4 .12 D .2 .2 r .7 d4 r2 ur u9 ul l13 dl d19 .16 l2 ul u .2 r u4 .2 u3 .3 u3 .3 u3 .3 u5 l7 d4 r
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+620 demo
+498 sndubach
+440 demo
+416 demo
+414 sndubach
+363 sndubach
+[/highscore]
+Name=Cave G. Jail
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Purple White White LightRed
+DiamondsRequired=12 13 13 12 15
+DiamondValue=20 50
+CaveTime=150 140 130 120 120
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=14 230 3 197 124
+RandomFill=SPACE 120 BOULDER 50 FIREFLYl 15 DIAMOND 9
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Raster=2 2 9 5 4 4 WALL
+Raster=3 2 9 5 4 4 WALL
+Add=0 1 FIREFLYl BOULDER
+FillRect=11 4 23 13 WALL SPACE
+Line=11 5 25 5 BOULDER
+Line=11 6 25 6 DIRT
+Raster=11 5 5 8 3 1 WALL
+Rectangle=0 0 39 21 STEELWALL
+Point=9 11 INBOX
+Point=12 11 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=519451173
+Score=620
+Success=true
+Checksum=-187306438
+Movements=.26 l .2 R4 .4 u2 l2 .16 r3 u3 .6 u3 .11 d4 .2 r l u2 .3 r . u2 l u2 l2 .5 r7 d2 dr r l3 d2 dr r3 .6 u2 .11 d2 dl l4 u3 ur r8 .6 r8 .4 D .2 l r5 d7 l5 d .2 u l2 d3 l2 .2 u5 .36 r .8 l . d4 l3 u5 .29 r2 l2 .6 d4 r3 u2 r3 .6 r d4 r .8 d4 r3 .7 u l3 u6 l5 d l6 u5 .20 r2 l2 .6 d4 dr r6 u r3 d4 r4 d3 .5 r d4 .2 L2 . u4 l3 d l5 d3 l2 d l .2 u2 r2 u3 l .5 l . r7 u3 l3 u2 l11 u6 .20 r2 .3 l2 .3 r2 . d4 r8 u7 L2 .2 u3 r7 .2 r3 . l2 d6 r3 d r2 d r2 d4 .3 l d4 .5 u2 ul l17 .4 l4 d2 r2 D2 .2 u2 ur r7 u3 ur u3 l12 .14 l2
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=710556675
+Score=498
+Success=true
+Checksum=767684021
+Movements=.24 d2 dl l4 u ul .5 d l2 .8 u r2 .11 r3 .4 d2 .2 r2 .2 d .19 d r5 d3 .4 d2 l3 u3 ul l .2 r2 l4 u3 ur r8 .4 ur r3 u ur r5 .3 u2 .4 u2 .11 d7 .2 u5 .6 u3 .18 u2 .4 d8 .3 r .3 d4 l .3 u2 .7 u ul l2 .4 u r2 .2 l .4 u .5 r2 .8 u4 .3 u3 .18 u3 .2 r .7 l .7 d8 .5 d l8 r5 .6 l9 r12 u7 l3 u3 .3 r2 l2 .7 d4 r3 d5 l16 .6 u .2 dr d r15 u5 l6 u6 .9 r2 .2 l2 .3 d9 . l d2 dl l8 .8 u6 .7 d2 dl l2 u2 .3 d3 dr r3 d3 dr r7 u4 l2 u4 .5 u2 .10 r .2 l .7 d6 r2 d3 l10 d3 .2 l2 d2 l .3 r u4 ur r3 u4 .7 l5 u3 .6 u3 .7 L . u4 r .2 d3 r8 u2 ur r4 .15 r2 d2 .2 r3 .8 r5 .3 r u2 .3 d2 l4 d5 r9 .5 r3 .6 d3 . r d2 dl l .5 r2 .10 l .2 d3 . u3 ul l3 d3 . R .6 u3 ur r4 u3 l .4 u6 . L2 .2 r d8 dl l5 d4 .8 u5 l8 d8 .3 r6 d dr r2 d4 .3 u4 l5 d3 l3 u4 l u5 ul l5 d l4 .11 l2
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=785197019
+Score=414
+Success=true
+Checksum=1367141819
+Movements=.7 r17 . d2 .2 l .5 l .3 r .2 u2 . r .6 l .3 u3 .3 r2 .5 u3 .15 u7 .27 l u8 l3 .5 r10 .4 r5 d2 dr r3 .8 d r4 .6 r .4 d4 l4 .23 d2 .3 l . r .2 u .2 r3 l4 u4 .20 r2 .7 l2 .4 d r4 u r2 . u3 l .2 r5 .11 d5 r4 u3 ul l3 d3 l3 u ur r2 .15 r2 l11 d2 dl l2 u4 .25 r2 .4 l .7 d2 r11 .9 d4 dl .5 d l2 d3 .3 r3 .14 d .3 r2 .8 u3 .3 u3 l .2 l2 .5 r2 u2 l5 u3 l4 u ur r2 .2 l3 u l3 d dl l2 ul u6 .12 r2 . l2 .7 d5 r4 u2 r3 d2 r2 .3 d3 r2 .2 d2 r2 .9 r5 . d r2 .2 dl l2 .2 r3 .2 l .3 u2 .2 l d dl l7 u4 l4 u l3 d l6 u6 .25 r l2 .9 d5 r7 u ur r2 .2 l4 . d3 .7 d3 r3 .7 d4 l3 .2 r u r2 .2 l5 r u4 ul l2 d dr r .2 u l3 d3 l3 .4 d2 .2 l2 .2 d2 l2 .3 u .3 l7 u2 .4 r4 .2 u3 .27 d3 r3 .3 d3 r2 u ur r2 .6 l u4 r9 u4 l9
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=872355528
+Score=416
+Success=true
+Checksum=-1464471773
+Movements=.22 l7 .4 r .3 d2 dl l2 . d .5 d3 dr r u .3 r5 d3 r3 d r2 u4 .2 l3 d dr r6 .2 d dr r2 d r6 l2 . r8 .2 d dr r2 u r6 . d l4 r u ul l8 u2 ur r2 . u .2 r3 d l2 r3 d l . r u2 l u3 l .2 r d2 l4 u2 .3 d r d dr r3 .9 d dl l3 .3 l u5 r .4 l2 .35 u6 r2 .3 l .4 d2 l3 . u2 . d9 .8 u4 l3 .35 r6 dr d5 dl l2 .2 u6 ul l3 u5 .13 r l2 .8 d3 dr r3 d3 r4 d .4 r3 .5 D l5 u2 ur r3 d r4 u r2 l8 . d2 r4 l9 u3 l5 ul u4 .16 r2 . l .8 d4 r6 u5 r4 .6 r5 .3 u r2 .4 l11 .16 d8 r4 d5 .5 u2 ul l4 . D .2 l5 .2 l7 .4 l .3 l .2 r15 u5 l10 u6 .5 r3 .6 l dl d5 .5 r .2 u2 .2 d5 r d2 .5 l3 u .8 r3 u .13 l u3 .5 u3 .2 d9 l5 u l3 .8 u5 .2 l2 .3 r3 u3 l2 u r .3 d8 r8 u4 l4
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=473516273
+Score=363
+Success=true
+Checksum=1955524020
+Movements=.9 .13 u4 .5 u3 L . .31 d5 l8 d3 r2 .8 r .4 d3 .2 r . . D L ul u2 l2 ul u3 r8 u4 .5 l .9 u3 .3 u l3 d8 l5 .6 d3 r3 .2 d3 . r2 d .3 r2 .14 d2 .23 r d3 r l3 r3 u2 l4 .7 r .3 l2 u4 ur r8 .3 . D .2 l . r3 d2 .4 r d2 r .9 r .4 r .9 .6 .3 d .5 .4 R u5 r4 .3 l2 .5 r2 .9 u3 .6 u3 .9 u2 .7 d5 .9 d3 .10 l6 L r5 .4 r .2 u3 . u3 .2 u3 r2 .12 l2 .21 d6 l3 ul u2 .24 u5 . r . l2 .5 d4 r4 u5 r4 .9 u2 .7 l4 u2 ul l3 r4 d4 r7 .7 u ur r5 d4 l2 .4 d2 .4 r .3 l .3 r .2 d .3 l9 d2 l2 u2 r7 .2 D2 l11 ul u3 l3 u2 .18 r2 l2 .5 d4 dr r2 .4 r3 . l6 d4 .13 u2 . r2 .3 l2 d3 .4 u3 .3 l3 u2 .91 u4 r . l3 .4 d5 dr r2 d2 dl2 d2 l dl d3 dl l .2 r9 u r7 l2 d2 l2 u3 l4 u5 l6 d l6
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+640 demo
+615 sndubach
+580 sndubach
+518 demo
+496 demo
+459 sndubach
+[/highscore]
+Name=Cave H. Ring Around The Rosy
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Green Brown Cyan Cyan Green
+DiamondsRequired=70 75 80 82 85
+DiamondValue=5 10
+CaveTime=80 80 80 80 80
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=120 120 120 120 120
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=2 2 13 9 SPACE
+Raster=4 9 5 1 2 1 BUTTERFLYl
+Raster=13 2 1 4 1 2 BUTTERFLYd
+Raster=3 2 5 1 2 1 BUTTERFLYr
+Line=20 1 20 15 WALL
+Line=25 1 34 1 AMOEBA
+Point=1 1 INBOX
+Point=19 4 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=441206257
+Score=640
+Success=true
+Checksum=-1755596713
+Movements=.38 r3 d6 r12 d11 dr r16 .6 r u15 .2 d12 l3 .4 D . u13 .8 d12 .7 d .3 l3 . D .2 u12 .2 d12 .3 l3 .3 D . u11 . d10 dl l .5 l .3 D .2 u3 .10 u5 .8 u3 .11 u2 .14 l .6 d .3 d .6 d3 r6 u r4 u2 ur r3 .2 r2 d5 dl l3 d3 r3 u2 .2 d4 .5 d .5 D .3 l3 u3 r3 . l6 u4 l5 d l2 d r4 d4 l3 u3 .2 d4 l r7 u2 r3 d2 l4 d r5 l5 d r3 .4 r .3 d .3 r .3 l7 u2 l4 r d r5 d r7 u r4 .6 u8 l4 . r2 d4 l2 d5 l13 .2 u3 l2 u12
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=857325664
+Score=459
+Success=true
+Checksum=-1755596713
+Movements=.37 r3 d6 dr r12 d10 dr r15 .4 r2 u14 .2 d12 .4 u .2 l3 . D .2 u10 .2 d9 .3 l3 .2 D .3 u10 .9 d10 .3 l3 .5 D2 .2 u10 .3 d9 .4 l3 .3 D .3 u5 .10 u5 .11 l2 .48 dr r3 d r3 d r2 .3 u3 . d r2 d2 dr r5 u3 r2 d2 dl l5 u2 r d3 dr2 d4 dr r2 .4 l4 u r3 d5 l2 u5 l d5 l3 u6 .8 l4 r4 d4 l .3 r5 d2 l4 u2 ul l .3 u4 l2 r .3 l .2 d r .4 d2 .5 d dr r6 u2 ul l6 d4 l3 u10 .3 d .3 R L .2 d7 dr r6 d2 dr r4 u7 l r2 dr d2 dl l2 d7 l15 u15
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=246498818
+Score=580
+Success=true
+Checksum=-1755596713
+Movements=.39 r3 d6 dr r13 d11 dr r14 ur u16 .5 d15 .4 d .3 l3 u15 .3 d12 .4 d .3 l3 .3 D .2 u11 .3 d10 l3 .3 D2 .2 u12 . d8 dl l .4 l .4 D .3 u5 . u4 .13 d4 .7 d2 .20 u4 .7 r4 .2 d3 r5 .6 u7 .2 L2 R .2 u ur r2 dr d3 l8 d3 l4 r9 d dl l7 d r8 d l8 d r7 d l6 d dr r5 d l6 d dr r8 u6 l4 d6 dl l3 .2 d dr r2 . l7 u5 .2 d2 dl l5 u6 .2 u2 .4 u4 r3
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=1039660428
+Score=518
+Success=true
+Checksum=-1755596713
+Movements=.39 r2 dr d6 r12 dr d11 r15 .6 r2 .4 u15 .2 d14 .3 d .3 l3 u13 .8 u2 .2 d13 .3 u .3 l3 .3 D .2 u10 .2 d9 .3 l3 .3 D .2 u10 .2 d10 .4 l3 .4 D .3 u4 .26 u4 .14 r9 u2 .4 l r3 u r2 .2 d4 l8 . d r6 d4 r2 .4 l5 u3 r3 d3 l3 . r4 d3 .9 D . u2 ul l3 d r .9 d .7 D . u7 l3 dl d8 dr r2 .2 u4 r4 d l2 d3 dr r3 .3 l4 . r3 dl l2 .3 r3 d l2 u ul l4 u4 l4 u2 l2 dl d6 r4 u9 ul l4 r5 d r3 . U2 l2 dl d6 l2 . d r7 d l9 u14
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=598764273
+Score=615
+Success=true
+Checksum=-1755596713
+Movements=.37 r3 d6 r14 d11 r16 u15 .2 d15 l3 u14 .2 d5 l2 ul u6 . d6 l3 ul u9 .2 d8 r3 dr d4 .3 d2 .2 .3 . l3 . r3 D . . l4 D . . u6 r4 u3 r5 u r2 .4 l . d8 dl l2 .36 d4 dr r3 .7 L21 . .9 l3 u6 r5 .17 l9 d4 dr r3 u2 l3 d2 r3 .2 l5 d dr r4 d l5 d r2 u ur r4 u6 .2 u4 .4 u l2 r3 u r2 u l2 dl d2 l6 u l2 u2 ul l dl d4 dr r dr d4 l .3 d4 .2 d2 .2 l8 u6 .2 u3 . u .2 u4 r3
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+124 demo
+123 sndubach
+116 demo
+114 sndubach
+105 demo
+[/highscore]
+Name=Intermission 2
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Gray3 White White Blue
+DiamondsRequired=6 6 6 6 6
+DiamondValue=10 0
+CaveTime=20 20 20 20 20
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+PALTiming=true
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=19 0 39 21 STEELWALL
+FillRect=0 11 39 21 STEELWALL
+FillRect=3 3 5 5 SPACE DIAMOND
+FillRect=8 3 10 5 SPACE DIAMOND
+FillRect=13 3 15 5 SPACE DIAMOND
+FillRect=3 7 5 9 SPACE DIAMOND
+FillRect=8 7 10 9 SPACE DIAMOND
+FillRect=13 7 15 9 SPACE DIAMOND
+Raster=5 3 3 1 5 1 FIREFLYl
+Raster=3 7 3 1 5 1 BUTTERFLYl
+Point=1 2 INBOX
+Point=18 10 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=123112051
+Score=105
+Success=true
+Checksum=1933381176
+Movements=.6 u21 ur r14 d4 l3 .8 l5 .12 l7 d4 .8 r4 .10 r5 .11 r8 d
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=160097868
+Score=114
+Success=true
+Checksum=1933381176
+Movements=.25 u2 ur r14 d4 dl l2 .8 l5 .11 l7 d4 .7 r4 .12 r5 .11 r7 dr d
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=723725557
+Score=116
+Success=true
+Checksum=1933381176
+Movements=.14 u14 r16 dr d4 .9 l5 .12 l5 .10 l7 d4 .8 r4 .11 r5 .12 r8 dr d
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=279403021
+Score=123
+Success=true
+Checksum=1933381176
+Movements=.11 u16 r17 d4 .11 l5 .11 l5 .11 l7 d4 .6 r4 .12 r5 .11 r8 .3 d
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+547 sndubach
+531 sndubach
+529 sndubach
+515 demo
+515 demo
+499 demo
+[/highscore]
+Name=Cave I. Fast Tricks
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Gray1 Orange White White Gray1
+DiamondsRequired=75 75 75 75 75
+DiamondValue=5 50
+CaveTime=80 75 70 65 60
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 1 38 20 SPACE
+Raster=3 2 17 5 2 4 DIAMOND
+Raster=4 2 17 5 2 4 DIRT
+Raster=3 3 34 5 1 4 STEELWALL
+Rectangle=12 1 13 8 SPACE
+Rectangle=28 1 29 8 SPACE
+Raster=4 1 1 5 1 4 FIREFLYl
+Raster=20 1 1 5 1 4 FIREFLYl
+Raster=36 1 1 5 1 4 FIREFLYl
+FillRect=17 9 22 20 SPACE
+Line=19 10 19 19 STEELWALL
+Raster=20 10 1 5 1 2 DIAMOND
+Raster=20 11 1 5 1 2 DIRT
+Point=19 9 FIREFLYl
+Point=1 13 INBOX
+Point=38 13 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=462049439
+Score=515
+Success=true
+Checksum=1861665902
+Movements=.4 d24 dr r15 u2 l14 u2 ur r13 u2 l14 u2 r14 u2 l14 u2 r9 u2 l9 u2 r9 u2 l11 dl d4 .3 d2 . d12 dr r12 .3 r6 u9 .12 r2 d8 dr r3 d r15 u2 l14 u2 r14 u2 l14 u2 ur r13 u2 l15 u2 r6 u2 ul l13 .2 u3 r14 u2 l11 .10 l4 d2 dr r11 d3 .20 u2 . r4 d4 r8 u2 l7 u2 r7 u2 ul l7 d2 dr r9 d .11 d4 .3 d4
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=826357490
+Score=547
+Success=true
+Checksum=1861665902
+Movements=.14 d14 r18 u4 r u11 l2 d9 l15 u2 ur r13 u2 l14 u2 ur r13 u2 l14 u2 r9 u2 l9 u2 r9 u2 l11 d16 .6 d2 dr r17 .3 r18 u2 l14 ul u ur r6 u r8 u2 ul l13 u2 ur r13 u2 l14 .3 u3 r5 u2 l14 .3 u2 ur r13 u2 l11 .12 l4 d2 dr r8 dr d2 r3 .12 l4 .2 u3 r4 d3 .9 r3 d2 dr r7 u2 ul l6 .2 u3 r7 u2 l4 .3 l4 d2 dr r8 d5 .5 d4
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=830893134
+Score=531
+Success=true
+Checksum=1861665902
+Movements=.14 d14 dr r18 u9 .5 u2 l2 d9 l15 u2 ur r13 u2 ul l13 u2 ur r13 u2 l14 u2 ur r8 u2 ul l8 u2 ur r8 u2 l11 d11 .6 d7 dr r17 .3 r18 u2 ul l13 u2 ur r13 u2 l14 u2 ur r14 u ul l2 u ul l13 u2 ur r4 u2 l11 .6 l3 u2 ur r13 u2 ul l12 .11 l2 d2 r13 dr d2 .8 l5 .3 u2 .2 r4 d3 .10 r3 d2 r8 u2 ul l6 ul u2 r8 u2 ul l7 d2 dr r3 .2 r5 d9
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=713531927
+Score=499
+Success=true
+Checksum=1861665902
+Movements=.2 d26 dr r18 u12 l2 dl d10 l14 u3 r14 u2 ul l13 ul u ur r5 u ur r8 u2 ul l13 u2 r9 u2 l9 u2 r9 u2 l11 d7 .12 d11 dr r13 .8 r22 u2 l14 u3 r14 u2 ul l13 u2 ur r13 u2 l14 u2 .5 r5 u2 ul l13 u2 ur r13 u2 l13 .3 l2 dl d dr r3 d r13 d3 .8 l4 u2 ur r4 dr d4 dr r8 u2 l7 u2 ur r6 ur u ul l2 u l8 d2 dr r8 d .6 d3 .4 d5
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=170721117
+Score=529
+Success=true
+Checksum=1861665902
+Movements=. d27 r16 u2 l14 u2 ur r13 u2 l14 u2 ur r13 u2 l14 u2 r9 u2 l9 u2 r9 u2 l11 d6 .3 d12 r14 .5 r22 u2 ul l16 u4 ur r4 u2 l2 r4 d2 dr r8 l4 u2 r2 .3 r3 u2 l13 .7 l4 d3 . u5 r8 u2 l14 u2 ur r13 u2 l12 .6 l3 d2 dr r11 d3 . r4 d2 dr r7 u2 l7 u2 ur r6 u2 l6 r7 u2 .3 d12
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+759 sndubach
+741 sndubach
+736 demo
+728 demo
+630 demo
+612 sndubach
+[/highscore]
+Name=Cave J. Mixed Doubles
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Orange White White Blue
+DiamondsRequired=54 63 72 72 72
+DiamondValue=5 10
+CaveTime=120 120 120 100 80
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=5 6 8 9 10
+RandomFill=BOULDER 1 DIRT 0 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Raster=3 3 4 2 7 9 FIREFLYl
+Raster=4 3 4 2 7 9 BUTTERFLYd
+Raster=3 4 4 2 7 9 BOULDER
+Raster=4 4 4 2 7 9 BOULDER
+Point=7 10 INBOX
+Point=30 15 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=44523413
+Score=630
+Success=true
+Checksum=-395658963
+Movements=.21 l6 d5 r3 .2 l .2 u2 . r3 d4 l2 ul u2 .5 r4 .2 d l5 d r3 d l2 . u3 r5 . ur r2 .4 u r2 .3 l2 .2 u .2 r3 dr d5 l2 u2 .3 d2 dl l .3 u3 .6 r4 . l4 dl d2 r3 l2 r4 u4 r4 l u r4 d4 l3 u2 .5 l3 .4 r4 d l3 d r4 u3 ur r4 l u r4 d4 l3 u2 .4 r4 . d4 l7 . u2 r4 d l2 d r3 u10 .7 u3 .5 u .2 l3 u r3 d4 l2 ul u2 .5 l4 .2 d2 r7 l4 d r2 l2 ul u3 ul l2 .2 u .2 l2 .3 u r3 d4 l3 u2 .5 l3 .2 r4 d dl l2 d r5 l3 r11 d4 .3 d2 r2
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=1012818958
+Score=741
+Success=true
+Checksum=-1487488791
+Movements=.12 d14 l4 u ur r3 d3 dl l3 u .8 l4 .3 r3 d2 dl l2 . r3 u3 r8 l u r4 d5 l3 u3 .5 l4 .5 d3 r5 u2 .4 d2 l2 u4 r8 l u ur r3 d4 l3 u2 .6 l3 .3 r4 d2 l3 . r6 u3 r4 l u ur r3 d4 l3 u2 .5 l3 .3 r4 d l2 d r4 ur u9 .6 u3 .3 l5 u2 r3 d4 l3 u3 .6 r2 .4 l3 d r4 d l4 u3 l6 u r3 dr d3 l3 u .8 l3 .3 r4 d2 l3 .2 r3 u3 l9 u ur r2 dr d4 l3 u2 .7 l4 .2 r5 d l2 d dr r21 d6 .2 l2
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=649745228
+Score=759
+Success=true
+Checksum=-1723680535
+Movements=.18 d8 l4 u r4 d4 l4 u3 .6 r4 .2 l5 d r2 d l2 r4 u3 r5 l u r3 d4 l3 u3 .6 r3 .2 l4 d r2 d dl l r4 u2 ur r3 .3 u .3 r .7 l .2 u2 . r3 d5 l3 u2 .8 r3 .2 l4 d r2 d l2 r4 u4 r5 l u r4 d6 l4 u5 .5 r3 .2 l4 d4 l2 .2 r4 u2 .2 d2 l3 u5 r5 u8 .13 u .3 l3 u ur r2 d4 dl l2 u3 .5 r3 .3 l4 d r2 d l3 .3 u3 .2 l5 u r4 d4 l4 u2 .5 r4 . l4 dl d r2 dl l2 .3 r3 . d l2 .3 u3 .3 l6 u r4 d4 dl l3 u3 .5 r3 .2 l4 d r2 d dl l .3 u3 l6 u r4 d4 l4 u3 .5 r3 .2 l4 d r2 d dl l .2 r20 .2 r9 d6 .19 l
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=588623033
+Score=728
+Success=true
+Checksum=278247793
+Movements=.13 u12 l4 u ur r3 d4 l3 u2 .5 l4 .2 r4 d dl l d r3 u2 .8 u .2 r5 l u .2 r3 d4 l3 u2 .7 r3 .3 l4 d r2 d l3 u3 r10 l .2 u .2 r3 d4 l3 u3 .4 r3 .3 l4 d r2 d l2 .2 u3 r9 l .2 u .3 r3 d4 l3 u3 .5 r3 .2 l4 d r2 dr l3 .2 d r4 .2 d6 l3 ul u .9 r4 d4 l3 u2 .13 r3 .3 l4 d r2 d l2 u3 .2 l6 u r3 dr d4 l3 u2 .5 l4 .2 r5 d l dl d r2 .2 u3 l9 u ur r2 d4 l3 u3 .6 r3 .3 l4 d r2 d l3 .2 u3 l5 u r3 d4 l3 u3 .4 r4 .2 l4 dl d r2 d l2 r27 ur u3
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=538999209
+Score=612
+Success=true
+Checksum=835303725
+Movements=.4 d22 l4 u ur r3 d4 l4 u3 .7 r3 .2 l4 d r2 d l2 r4 u2 r5 l u r u r3 d5 l4 u3 .8 r3 .3 l4 d2 dr r2 .2 l2 . u4 r8 l u r3 d4 l3 u2 .6 r3 .2 l4 d r2 d l2 r3 u3 ur r5 l u .2 r3 d4 l3 u2 .5 r3 .2 l4 d r2 d l2 r4 u10 .4 u2 .3 l3 u r3 d4 l3 u3 .6 r3 .2 l4 d r2 d l2 u3 l6 u r3 d4 l3 u2 .6 r3 .2 l4 d r2 d l2 u3 l6 u r3 d4 l3 u2 .8 r3 . l5 d r2 d l2 u3 l6 u r3 d4 l3 u3 .6 r3 . l5 d r2 d l3 r30 d5 .3 d .2 l
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+747 sndubach
+673 demo
+673 sndubach
+610 demo
+594 sndubach
+593 demo
+[/highscore]
+Name=Cave K. Snake
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Orange LightBlue White White Orange
+DiamondsRequired=27 26 29 31 33
+DiamondValue=15 30
+CaveTime=60 60 60 60 60
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=15 18 19 36 73
+RandomFill=DIAMOND 15 DIRT 0 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=2 2 2 2 2
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+Line=1 1 25 1 FIREFLYl
+Line=1 2 38 2 DIRT
+Point=10 2 BOULDER
+FillRect=9 3 11 5 WALL SPACE
+Line=9 3 11 3 DIRT
+Add=0 1 DIAMOND MAGICWALL
+Point=10 3 INBOX
+Point=35 18 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=566532094
+Score=610
+Success=true
+Checksum=-671039489
+Movements=.4 r20 d4 l6 u2 r u2 ul l3 d4 l2 d l d3 r4 d3 l4 d5 r6 u4 r4 d3 r3 u4 l2 u2 r6 d2 l d5 r5 u2 l2 u6 l u2 .5 r5 u2 l5 u3 ur r11 d r3 .2 l4 r3 d3 r5 d3 l10 d l2 d .4 D .3 l2 d2 dr r d4 r11 u l
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=344895334
+Score=594
+Success=true
+Checksum=-675627179
+Movements=.2 r25 d dr d3 l3 u l6 d2 dl l2 u3 ur l3 d3 l2 d dl l d8 dr r3 d3 .3 r5 u3 l u2 ur r4 d r2 u5 r3 .3 u4 r4 u3 r14 .2 d2 r d4 l15 d4 . r8 u r3 dr d3 r3 d2 l17 dl d3 dr r8 d3 r7 .2 u2 .3 r l2
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=1003966008
+Score=673
+Success=true
+Checksum=1181663316
+Movements=.15 l15 d2 dr r6 d2 l2 d l5 d2 dr r7 d3 l5 u l2 d4 l d3 dr r10 u l2 .3 u3 r4 d4 dr r3 u3 l ul u2 r3 d r2 u4 l4 u ul l4 u2 ur r2 .3 u3 r8 d r3 d3 dr r4 u3 r4 d2 .2 u r4 d3 l5 r dr d2 .3 l3 d2 dr r5 d2 dl l6 d r d2 dr d3 dr r3 u l2
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=522265594
+Score=593
+Success=true
+Checksum=1337573630
+Movements=.17 r8 d4 l6 u3 l5 u l2 dl d5 r5 d dr r2 d3 dl l3 u2 ul l3 d7 r4 .5 r d dr r u ur r11 u2 l2 u l3 u3 ur r4 d r d3 r d6 r3 u9 ul l3 u4 .3 R . l u2 r5 d4 r5 d r2 u3 r7 d6 l9 dl d5 r11 d2 dl l11 .3 u8 .7 l2 d7 dl l3 dl d2 dl l7 u5 ul l5 .2 l3 d4 r l2 u6 r11 u2 .4 u2 ur r4 .5 r5 .3 u2 ur r3 u r3 .3 d3 r5 .3 r dr d5 r2 .4 l3 .2 d4
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=504686840
+Score=747
+Success=true
+Checksum=2034745768
+Movements=.48 l6 d2 l2 dl d2 r9 u r2 u2 r2 u r3 d5 l6 d2 r5 d3 l3 d2 l2 . ul l u ul .3 ul l2 u l7 d6 r3 u3 . l r3 dr2 d dr r . l3 r7 u r3 d3 dr r5 u5 l6 u3 r4 u4 l2 u4 r15 d2 dl l8 d3 r2 d2 dr r2 u r5 d r d3 l2 u2 ul l dl d3 l6 d2 r7 d2 . u r3 d3 l2 u
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+819 sndubach
+738 sndubach
+705 demo
+656 sndubach
+630 demo
+[/highscore]
+Name=Cave L. Gridlock
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White White Brown
+DiamondsRequired=34 32 26 34 42
+DiamondValue=15 0
+CaveTime=150 150 150 150 150
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=11 15 45 36 32
+RandomFill=BOULDER 90 DIAMOND 20 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Raster=1 6 36 3 1 6 WALL
+Raster=6 1 6 18 6 1 WALL
+Raster=3 6 6 3 6 6 SPACE
+Raster=6 3 6 3 6 6 SPACE
+Line=38 1 38 20 DIRT
+Line=1 20 38 20 DIRT
+Point=21 3 INBOX
+Point=37 6 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=436274025
+Score=705
+Success=true
+Checksum=-1001584326
+Movements=.17 l14 u l3 u .2 d3 dr r3 l2 .6 u l6 d4 l2 r4 d2 .5 d3 l2 .7 d2 l2 dl d4 .17 r2 d3 r3 u ul l .3 r2 d r15 u .5 d l r20 .10 l20 . u r3 l5 .3 l2 d2 l5 u r4 l20 .3 l4 .3 r5 u2 .3 d3 r u2 r2 .7 l2 .2 D2 L .4 r2 . l12 r4 u2 r2 .2 l3 u2 ul l3 dl d l u2 ur r2 u l2 ul u3 . r3 d2 dr r5 d l2 .15 u2 ur r u ul l3 r2 u2 .4 r .3 R l3 u r4 u l4 u r4 u l2 u4 .3 d2 .2 u2 ul l5 u l3 .4 r2 dr d r5 d6 r5 L2 .5 r .6 d r3 u3 . L .6 d6 .4 u2 r2 d2 dr r3 .5 ul u3 r2 .3 d r2 .4 d2 .8 R .2 u r4 D2 .2 l4 d r6 l d2 r2 .3 l3 d3 .5 u3 r3 d2 r3 d2 r d3 l4 u ul l20 .3 r8 . u2 l .2 r2 u2 l2 r2 .12 r .2 u3 r .2 d r3 .3 l4 .4 d2 l d3 r6 u2 .2 d2 dr r5 .10 l6 u9 .12 d6 r l ul u4 r u4 .8 l . r6 u r .3 l d l4 u3 .5 u2 .3 R .3 u l .3 r2 u r u2 . l2 d9 dr r .2 l . d3 l d3 r2 d2 r3 . u r3 d2 r3 u l3 u r3 u l4 u r4 l2 u2 r .10 l u5 .6 u5 L2 .5 d8 r5 u3 ul
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=981754750
+Score=738
+Success=true
+Checksum=-1181545134
+Movements=.22 d4 l dl d2 r2 .4 r2 .2 l .2 r2 d .9 l3 .12 u .8 r2 d3 l .3 u r .7 u .5 u2 l u4 .5 l4 d3 . u3 .4 l3 r2 . d2 . l2 .3 d3 l2 d4 r2 .4 ur r2 .2 ur r .2 u .2 r2 .2 d .3 l3 . r .3 d2 .17 d2 dr r2 .5 r d r2 .3 l12 . r .3 d3 l3 d2 r4 u r4 .4 d l3 r8 u r2 .2 d r2 u r5 d dl l3 u l15 d2 l11 .4 l7 ul u ur r17 .2 l12 r10 . l7 u5 r3 .4 l . d2 dl l3 .6 u r4 u2 ul l4 .4 r2 u3 .5 L .3 u l .3 u2 r2 l u .3 d3 . u5 ul u2 .4 r2 .6 d r3 u3 .4 d3 l4 d12 r3 d2 r5 d3 .3 l d2 dr r5 u2 .3 L . d2 dl l5 u2 l . r3 u l4 r4 u ul l2 u2 r2 u .3 d l .2 u3 r2 .5 u l2 u ur2 u2 ul l u2 .2 L2 . d3 dr r .3 d dr r .3 d2 r dr d3 dl l2 .2 r4 d2 r4 .3 d3 .3 u .12 d3 r11 .2 l6 u2 r2 u ul l2 d l .4 r3 ur u4 r . d l4 u r l2 .12 r2 ur u2 . l u9 .3 d4 .5 u5 .2 r5 D .2 l7 .2 r d5 r d9 r3 d r3 .2 u2 . L l .2 d3 r .3 d r4 u r2 .2 d3 r3 .3 u l2 ul u2 .2 r4 d l2 u2 r2 l2 u5 .8 d .3 d6 r5 u9 .8 l
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=973155138
+Score=656
+Success=true
+Checksum=-217446314
+Movements=.45 l .6 l7 . r .2 d3 .2 u2 .9 r2 .3 u2 .3 d2 dr r10 .2 d .3 u l2 . r4 d3 . u3 r3 .5 d .3 r2 ur u2 r2 .3 d4 r2 u2 ur r3 d17 dl l2 u ur r2 l2 d dl l32 ul u r15 d .2 u r20 . l33 .5 u2 .3 R .2 u2 r2 .2 u l2 u r2 .2 l3 u r3 .22 l2 u3 .6 u2 r u .3 u3 .3 l d7 r2 d2 r3 .2 d3 .6 r3 .2 d3 r3 u ur r2 .3 u2 .3 l .2 u .2 L .11 r .10 d3 dl l5 u2 r2 .2 u2 l4 u r4 u2 l4 d r2 u3 r3 .14 l2 d5 r .2 u ul l2 d2 .2 u4 r2 u4 .3 d2 l2 r4 u ul l3 r4 u ul l u r2 ur ul l3 u ur r3 .8 l u3 l u3 .6 r2 u3 .3 d2 r4 u2 l2 d3 l4 d12 .3 r5 d4 . r dr d2 .3 l .3 d3 r9 .4 r3 .3 u2 .6 l2 r2 .4 d2 l6 .5 u3 r2 .8 l3 .3 u2 l2 .5 r2 .8 d3 l r3 ur u2 l2 u2 r3 d3 .3 u3 ul l u3 l .4 u r3 .2 u .3 l2 .4 d7 r3 d r5 u2 .9 l .5 d4 .3 r3 .2 l u l2 u3 l .2 d2 r4 u2 l2 u3 .4 d4 dr r3 .2 U .6 l4 u8 .6 L .2 d7 r2 d r4 ur2 r2 . u ur r2 .2 l ul u6 l2 .2 d .3 r6 u3
+[/replay]
+
+[replay]
+Level=4
+Player=demo
+Date=2009-11-09
+RecordedWith=GDash 20090503
+RandomSeed=117567413
+Score=630
+Success=true
+Checksum=1495141074
+Movements=.22 u r2 dr d2 dl l2 d dl l . u r2 .6 l2 u ul l2 .2 d2 .4 u2 .10 d l2 d l2 .2 u2 .2 R2 .2 l2 u2 .2 l2 .28 d6 l3 .4 d7 .5 u l4 .6 d2 dl .7 d3 l2 .6 u2 .3 d3 .13 u3 . r . l2 .2 r3 .4 d2 .6 d2 dl .9 d2 l3 .3 d r3 u r4 d dl l2 r16 .15 u .16 R .29 r d dr r4 .3 l u ul l2 .19 r5 d r10 u l6 r4 R D l9 .5 u ul l2 . ul l2 . u l2 u r .9 l2 . u ul l d3 . l4 r u r3 l4 u ul l2 u ul l2 .40 d3 r .41 d2 dl l11 u2 .12 u r .2 u3 l u4 .4 r2 l2 u r3 u l2 r3 .2 l ul u4 L6 .2 d15 .2 r3 l3 u2 ur r4 d .2 r .3 d .7 r3 u3 .2 d2 l3 u r3 u2 l2 . D2 . u3 .9 d5 .5 r3 .23 r d2 r3 u2 r4 .10 l dl d3 . u3 l3 u ur r3 .10 l2 u4 .9 d6 r5 u2 .2 d4 r3 u r2 .4 d .2 r .3 d .3 r3 .12 l2 .3 u l u2 r3 u l4 d dl l3 .2 r u ur r . u ul l ul u2 . ur u4 .8 d6 dr r5 u6 .3 r2 .3 l3 u ul l . u r2 .4 u2 ul l .2 r2 .2 d10 r2 d dr r .3 d2 dr r4 .9 l2 dl d dr r2 .2 l2 d2 r5 u ur r .2 l u r .10 d2 dl l4 u3 r2 l3 u r2 u ul l2 u ur r3 .10 l ul u4 .6 d8 l .3 R3 l2 u4 r2 u6 .3 u .3 u3 .2 u3 .2 d8 r4 u3
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=942175071
+Score=819
+Success=true
+Checksum=-1515057570
+Movements=.11 l13 r12 .16 r3 d4 dl l2 r3 . d2 .3 r5 d4 l2 .4 r d7 l4 u ur r2 l3 dl d l5 u ur r3 l4 d l6 .3 u r4 l5 d l3 u .7 d dl l3 .8 r2 u2 l2 d l3 .3 u r3 D .2 l4 d l5 .7 l3 . .2 L . .3 u .3 d r2 u ur r7 .8 l15 .6 r5 .11 r5 u4 .5 d4 dr r2 .4 l16 r4 u6 l2 dl d l2 . d l . . L15 l2 u2 .3 d .2 l2 d3 l3 u r2 u ul l ul u2 ur r4 .2 l3 u3 r u3 r .4 u2 r u ul l u3 .5 u3 l r2 .3 d2 l d2 r2 .2 l u2 .2 r4 u2 r2 d2 r .2 l6 . d5 l dl d3 r d8 r3 d2 r4 d4 r5 u3 . ur u2 l2 u2 .3 r2 .11 d .3 r2 . u2 .2 l2 d3 dr r2 . l7 . r3 u4 l4 d2 dl l3 u2 r4 u2 l2 u4 r2 u4 l2 u2 .6 d10 r5 .2 d r3 .3 u l4 .3 r2 .2 u ur r .13 l3 d3 .2 u4 l r4 l2 u5 .3 l2 u2 .3 d r4 d3 l u4 r l4 .18 r2 u4 .3 d10 r2 d3 r2 .4 r .3 d3 .4 l2 . r4 .5 l u l2 .5 r .2 u3 r2 d dl l3 u ur r .28 d r3 . dr r2 d dr r .3 dr r2 .3 r3 . dr r2 .3 dr r2 .2 d r3 .12 d3 l6 r9 . l2 u3 l3 d .6 r3 R .8 dl d2 l4 .2 r23 .3 l4 u2 r2 u ul l3 .2 d .2 u2 r2 . l7 u r3 u l2 u2 . L . .2 r2 . l3 u l .2 r2 . u2 .5 u3 r2 .6 l .2 u3 r2 .2 l .3 d3 l .3 d10 r11 u6 .3 u4 l u4 .3 d2
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+98 sndubach
+95 sndubach
+90 demo
+[/highscore]
+Name=Intermission 3
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Orange White White Blue
+DiamondsRequired=2 2 2 2 2
+DiamondValue=25 60
+CaveTime=20 20 20 20 20
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+InitialFill=SPACE
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=19 0 39 21 STEELWALL
+FillRect=0 11 39 21 STEELWALL
+Line=3 1 11 9 FIREFLYl
+Line=13 7 17 3 FIREFLYl
+Raster=2 1 9 10 2 1 DIRT
+Point=14 5 DIAMOND
+Point=16 5 DIAMOND
+Point=1 2 INBOX
+Point=18 5 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=1002014664
+Score=90
+Success=true
+Checksum=235342766
+Movements=.14 u9 . R .2 d3 .11 r2 d2 .4 R2 . d4 r2 u9 U R .3 d3 .6 r2 d2 .5 R .2 d4 r2 .2 u6 .2 r5 d r4
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=415513733
+Score=98
+Success=true
+Checksum=235342766
+Movements=.24 u2 . R .3 d3 .8 r2 d2 .3 R . d3 .3 r2 .2 u8 . R .2 d2 .4 d .3 r2 d2 .4 R .2 d3 .2 r3 u8 r4 d4 r4
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=798838492
+Score=95
+Success=true
+Checksum=235342766
+Movements=.22 .3 R .3 d3 .5 .2 R2 . r2 .2 d2 .2 . R . d3 r2 .2 u9 U R .2 d3 .5 r2 .3 d2 .2 R . . d4 r2 .2 u10 . R . . d3 .3 r2 d4 .5 u3 r7
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+1251 sndubach
+1025 demo
+1008 sndubach
+644 sndubach
+632 sndubach
+392 sndubach
+[/highscore]
+Name=Cave M. Combination
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Blue LightRed White White Blue
+DiamondsRequired=50 70 80 85 90
+DiamondValue=2 10
+CaveTime=180 180 200 250 250
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=51 14 35 18 12
+RandomFill=BOULDER 255 DIAMOND 127 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 16 38 20 BOULDER
+Raster=2 1 19 9 2 2 STEELWALL
+Raster=2 2 19 9 2 2 DIRT
+Line=1 18 38 18 SLIME
+Rectangle=1 19 38 20 DIRT
+Rectangle=37 1 38 20 DIRT
+Point=2 19 INBOX
+Point=2 13 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=656993089
+Score=1025
+Success=true
+Checksum=-1538646331
+Movements=.23 d dr r10 l u ur r .19 d2 r4 .4 u r2 .3 d2 r3 .26 u .26 d r4 .6 u .2 r3 .4 d .2 r4 .3 u r4 u12 .3 d5 l5 u5 .3 d4 dr r2 . L .2 r2 . u2 l3 D2 . u .2 d r3 .4 u2 l3 u2 l2 u2 l2 u3 .3 l6 . D .3 u .2 d l4 u .2 d5 .8 r4 . D .2 u2 .2 dr r2 . dr r2 .4 d l2 . r ur u4 l3 . r15 dr d13 .3 u .4 l7 . D .2 l .2 R3 .3 l5 . D .2 l2 .2 D .2 l .2 R3 .3 l .3 D .2 l .2 R17 .2 L .4 l2 .4 L .4 l3 .3 D .2 l2 .2 D . l .4 R7 .3 L7 .4 l .2 D2 . l .3 R15 L8 .5 L .9 l .3 D .11 l .3 R24 . L .4 l .3 D .2 l2 .2 D .3 l2 .2 D .3 l2 .2 D .3 u3 .2 d r3 d
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=14637647
+Score=632
+Success=true
+Checksum=-1398595761
+Movements=.43 r2 .6 d .6 u .2 r2 .17 L11 .3 d .2 r .3 u .15 r .16 r2 .14 d2 .6 r5 .2 l .3 u .19 r .3 d r .15 r2 .6 u .3 r .5 r .7 d2 .3 r5 .36 u2 .7 r2 .3 D .22 r .25 d .8 r2 .4 u2 .2 r2 .7 d r7 u6 .7 l3 .2 D .2 u2 .2 dr r2 .4 dr r2 .2 d r3 .5 u2 .7 d2 .5 l3 r4 u2 .4 l2 ul u2 r3 .5 l3 r3 u4 ul l .4 l .2 d3 .26 l4 .4 d2 l2 .6 r .3 u3 .15 L .5 r .7 l4 .2 r2 .3 D .3 u .7 d dr r .6 u2 .2 l2 u4 .3 l2 d4 .2 l2 .2 D2 . r .3 L4 .2 r .2 u2 ul l3 .5 l3 r6 .3 d2 .2 u4 l2 u .2 d5 .2 u3 l2 .2 D .2 U .4 r17 d13 .4 u .3 l6 .2 L .3 l3 .3 D .18 l5 .3 L .3 l2 .4 R8 .8 R5 . L4 .11 l2 .5 L .4 l3 .3 D .2 l .3 L2 .4 l3 .2 D2 .2 l .3 R12 .8 l .5 l .13 L .4 l .5 D .6 l .4 R17 .4 L .13 l .11 l .3 R5 .5 l2 .3 R7 .6 l2 .3 R7 .4 l .4 D .3 u2 r
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=316465813
+Score=392
+Success=true
+Checksum=944447287
+Movements=.101 r2 .10 d .2 r3 .9 u2 .8 r5 .4 d2 .4 r8 .19 r2 .2 l2 .4 u .2 r2 .22 L .16 L .42 r2 .27 L8 .4 d2 .10 r6 .2 l2 .11 u2 .12 r2 .43 d .3 r2 .7 u2 .2 L2 .42 L3 .33 d2 . r2 .14 u2 .2 L2 .16 L2 .3 L3 .21 L .12 d .4 r4 .3 u13 .7 u4 .6 u .2 l3 .2 D .3 l6 d4 .4 u .15 l2 .3 D .3 l .13 l3 u2 .3 r4 . D .2 l4 d7 .9 u4 .19 d3 .4 r3 .3 L .8 l .2 l2 .2 l .3 l .5 l2 .2 l .3 l .3 l .3 l .5 L10 .2 r .2 l7 r .2 d3 .2 u4 l6 .2 D .2 r2 u2 l4 . D .2 U2 .2 r21 d4 l3 u .2 d r3 dr d9 .30 u .3 l3 .3 D .2 r4 .6 l2 .3 L .7 l .2 u3 . l3 .3 R8 .7 L .4 l2 .3 R9 .4 l2 .3 R6 .4 L .4 l2 .3 R11 .3 L .5 l2 .4 L .10 l4 .12 R6 .5 r .3 D .4 l5 .3 R5 .10 l4 .19 l .4 u .11 d l .13 r5 .13 u5 .24 d4 l2 .6 u2 .2 d l .28 l .4 u2 .3 r .13 r .3 R .3 l .4 R18 .3 r u2 r2 .3 D .3 r2 .2 D2 .4 u2 .2 d l4 .7 l3 .33 l .18 d4 dl l3 d
+[/replay]
+
+[replay]
+Level=4
+Player=sndubach
+Date=2009-11-15
+RecordedWith=GDash 20090503
+RandomSeed=1067190545
+Score=644
+Success=true
+Checksum=-1283055693
+Movements=.28 r .3 D .3 r .5 r .21 r .4 L23 .2 d . r .3 u .2 r .42 r2 .4 d .2 r .2 u2 .6 r .21 L .24 L7 .3 d .10 r3 .6 l .4 u .7 r2 .17 L2 .5 r .5 r2 .9 d dr r5 .5 r .3 u .3 r2 .9 d2 . r4 .4 l .8 l .4 u .11 r .4 r .11 r2 .12 L3 .2 d dr r3 u5 .6 u .3 l3 .2 r3 u6 .11 d2 .2 l3 u .2 d r4 .2 u2 .4 l2 .2 r d .3 r u5 l3 r3 .6 d4 .8 l3 .2 D .3 l .3 L .4 l .3 D .5 r12 .3 r u5 l3 .7 d .4 l5 .10 l2 .6 R7 r6 .4 R10 d4 . u l2 u .2 d r2 .3 u2 .8 l3 .10 l .3 r9 R2 .2 ur u2 l6 u . d3 . u l2 u2 .5 d3 .11 l3 .15 l2 .5 r4 u ur r2 u r18 d7 r d7 .2 u2 .5 l2 .12 l .3 D .3 l4 .18 u .4 d l .15 R3 .4 l .3 D .2 u .2 d l3 .14 l3 .12 u5 .22 d3 dl l .36 D .11 u6 .97 d6 l .14 R11 .5 l u3 .2 d2 dl l2 .28 l .4 u5 .26 R L2 .4 d4 l2 .7 u .4 d l2 .19 u3 .3 r2 .9 l2 .3 u8 .4 u .2 u r4 d7 .3 u3 .5 r6 d4 r2 .3 D2 .3 r2 .10 D .10 r2 .3 D2 .2 l3 .2 R6 . l2 ul u2 .3 d2 .6 l4 u .3 d r13 .4 r u6 r10 l8 .20 l4 u2 ul l5 d5 . u5 l4 d2 r .3 l .4 d6 .4 u4 .2 l2 u2 .2 dr r3 . d r2 .21 d5 .23 u .3 l2 .5 u3 .5 R .7 r2 .3 d6 .3 l2 .4 D .5 l2 .12 l3 .10 R5 .3 l ul u2 .6 R5 .22 d
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=840062540
+Score=1251
+Success=true
+Checksum=1616388021
+Movements=.12 l11 D . . r3 .15 d .4 r .2 u . r .2 . D .2 r8 .5 d . r .2 u2 r .7 .8 L3 .2 .5 . D . .14 r2 .16 d2 r .7 u .5 r .4 .3 L .2 .9 d .19 r2 .3 u .6 r4 .2 d . r .2 u . r .2 D2 L25 .24 d r10 l5 U l3 . r30 l24 r7 l25 . u .15 d r .4 r26 l .7 u r4 .3 u3 l3 r3 u2 l3 r3 u6 .6 l3 . D . r2 u2 l6 u3 . d3 l . L3 l r8 dr d7 l2 . u l2 .2 D . .2 l4 . D . . l .2 . R11 r5 u4 l2 . D . r2 d4 .9 l2 .7 . D .8 l2 u .2 d l3 .3 .2 R11 . .2 l .5 . . l .2 . R17 .4 l3 d2 dl l .3 u .2 d l2 .7 l .3 r4 u .2 d3 dl l4 .3 R14 . .2 l5 u2 ur .41 l2 .6 r4 .41 u2 .3 d3 l3 .3 r4 .7 D2 . .5 u5 .8 r2 .2 . D . .2 u .3 l5 .3 dl l .3 l2 .4 dl l2 .3 d dl l .4 u2 .3 r2 .2 l2 .2 l2 . .2 D .12 u .6 d l3 .7 r3 L11 l u4 l3 u2 ur r5 d3 .2 u r2 l ul u2 r4 .3 u2 r4 .3 d8 .7 l3 L5 . .2 r5 .3 r3 .7 l3 . . D .2 u2 r4 .4 D . .4 l2 u2 .6 r2 . . D . l3 u2 r u2 ur r3 d2 .3 u ul l7 d2 l4 u2 l6 d10 .6 l2 . . D .2 l .4 l . .2 D . . u .2 r
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+855 demo
+749 sndubach
+696 sndubach
+510 sndubach
+468 sndubach
+[/highscore]
+Name=Cave N. Tree
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Orange White White Brown
+DiamondsRequired=21 21 21 21 21
+DiamondValue=20 1
+CaveTime=120 100 80 60 40
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=19 14 13 12 11
+RandomFill=BOULDER 60 DIRT 0 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 SPACE
+Rectangle=2 2 37 13 DIRT
+FillRect=1 14 38 20 SPACE
+Raster=1 19 9 1 2 1 FIREFLYl
+Raster=1 20 19 1 2 1 FIREFLYl
+FillRect=19 14 21 20 DIRT SPACE
+Raster=5 2 7 3 5 4 DIAMOND
+Point=20 17 INBOX
+Point=20 19 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=70411467
+Score=855
+Success=true
+Checksum=-1039155911
+Movements=.25 u7 .4 l3 d dr r .6 r .2 d3 .2 u4 l6 u4 r .2 d2 l5 d2 l5 r4 u r2 u3 l4 u3 l2 r7 d r5 d2 dr r4 d2 r3 u r8 .2 u r2 d r2 u4 l2 d2 dl l3 u2 l5 u2 ur r9 u2 ul l4 d2 l3 .5 u l2 .3 U .2 d2 l5 r2 u3 l u2 .3 l d2 l5 u .2 U .2 l2 dl d2 l2 u3 .2 d3 l5 u2 .7 U . d8 r4 d4 r7 d4 dr r3
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=753756830
+Score=696
+Success=true
+Checksum=1746714117
+Movements=.5 u23 r5 . l u2 r6 d3 .3 u5 r5 d5 dl l3 u3 l7 d l4 u3 .2 d3 l5 d .3 u4 .10 l .2 D .2 r2 .4 l5 d5 l4 u ul u6 .75 u2 ur r5 l4 d5 dr r5 . u r2 .9 u4 r5 l d2 r3 .5 D .7 u .3 r3 .2 d r2 .16 r2 .7 dr r2 .23 l2 .14 u l2 d3 r11 .4 u2 .10 u2 .2 d2 l4 u2 ul r4 d5 r2 d4 l3 .4 d3 l7 d3 .12 r d2 .4 l7
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=728002869
+Score=749
+Success=true
+Checksum=-1323975639
+Movements=.13 u15 l3 d l2 . u .2 l3 r3 u .2 l5 d l2 u2 ul l .4 u ur r2 .2 d2 l .2 u3 l5 d4 .3 u5 r8 d2 r4 .4 l2 d3 r7 u4 l r5 dr d4 dr r4 .6 r5 u4 l5 u2 .5 u2 r8 .2 d3 l8 d2 dl l4 u4 .5 U . d3 l4 ul u3 .2 U2 .3 l5 U .2 d3 l4 ul u3 .3 u ul l4 d8 .4 d2 dr r5 d3 dr r3 dr d4 r4
+[/replay]
+
+[replay]
+Level=4
+Player=sndubach
+Date=2009-11-15
+RecordedWith=GDash 20090503
+RandomSeed=895496275
+Score=468
+Success=true
+Checksum=1603714769
+Movements=.11 u14 r u3 l .2 d2 l2 u2 l9 d4 l2 u .2 l .17 r u2 . L2 . u3 . l3 d2 .2 r d2 .2 u4 r5 d3 dr r2 u3 r3 d3 r4 u2 ur r3 .2 l2 d4 r3 .2 d r3 u ur r3 .2 D2 . ul u2 l u3 ur r4 d5 dr r4 u l u2 ur u2 .3 u2 .2 r .4 u .2 l2 .4 u .27 u l9 dl d3 l5 u2 .4 U .2 l5 .2 U .2 d2 l2 u2 .3 l3 .11 U .2 l4 .2 u l2 r10 dr d7 r3 d2 .2 r5 d .10 d .7 r .15 D .6 r4 .2 d r4 .2 d3 .5 u2 r2 .4 l3 . r2 .4 u ul l2 r5 d3 dl l5 dl d2 .4 l5 ul u ul l3 u ul l3 d3 dr r2
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=539597574
+Score=510
+Success=true
+Checksum=348635105
+Movements=.4 u25 .2 u3 r u2 ur r3 d2 r5 .3 r2 u l2 u3 . d r5 u . d4 . u7 .2 . U . l3 .8 u l7 r2 d5 l2 u2 ul l2 .4 dl l2 . d l2 u3 r . . U .2 d l2 u ul l2 u l2 .2 U . d7 dl l u ul l u l2 .2 d2 .2 u6 .10 r3 d3 .2 l2 r2 .7 d l ul u2 l3 u3 .2 l4 . .2 U . . l2 d3 r4 d4 l2 .3 d3 dr r5 d4 r5 d2 r4
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+901 sndubach
+670 demo
+594 sndubach
+465 sndubach
+456 sndubach
+[/highscore]
+Name=Cave O. Cocoons
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black LightBlue LightRed White White LightBlue
+DiamondsRequired=36 36 36 36 37
+DiamondValue=10 10
+CaveTime=120 100 80 60 120
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=10 10 10 10 10
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=3 6 9 12 DIRT SPACE
+Point=4 8 BUTTERFLYd
+Point=6 5 BOULDER
+FillRect=12 6 18 15 WALL DIRT
+Line=12 16 18 16 WALL
+FillRect=13 7 17 11 SPACE
+Line=13 6 17 6 DIRT
+Raster=12 6 4 1 2 1 HEXPANDINGWALL
+Point=13 8 BUTTERFLYd
+Point=15 7 DIRT
+Point=15 6 BOULDER
+FillRect=19 8 28 16 SPACE
+FillRect=21 9 27 15 DIRT SPACE
+Line=20 9 27 9 WALL
+Point=22 11 BUTTERFLYd
+Point=24 1 BOULDER
+Point=24 3 BOULDER
+FillRect=30 6 36 12 DIRT SPACE
+Point=31 8 BUTTERFLYd
+Point=30 7 BOULDER
+Line=30 12 36 12 MAGICWALL
+Line=30 13 36 13 MAGICWALL
+Point=3 18 INBOX
+Point=38 3 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=963772191
+Score=670
+Success=true
+Checksum=-1689142757
+Movements=.11 u16 l u8 r5 d r u ul l2 d r19 .10 d r .5 l3 d4 r7 d l2 dl r3 . d2 l2 u2 .3 d2 r2 u8 r4 d6 r2 . D .3 u4 l2 .8 d4 r3 d l2 d dr r2 u8 r3 .4 r4 d4 . u5 .15 d4 dr r2 dr d .10 d .3 L . d6 l8 u6 l u2 .2 r4 u r u5 .5 r3 .6 d4 l4 d dr r d dl l2 .3 r5 .5 r .4 d3 .33 u4 .2 R .2 u .10 r3 u2 .3 l3 d3 .13 u ur r2 d l14 r2 dr d3 dl l d5 .3 l2 dl d4 r4 .2 u3 .4 l4 d2 r6 l4 d dr r10 u17
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=781646273
+Score=594
+Success=true
+Checksum=-1689142757
+Movements=.8 u19 l u8 r5 d r u ul l2 d dr r31 d dr r2 .3 l3 dl d4 r3 d2 l3 . r3 d l2 .3 u7 r6 d6 r2 . d2 .4 u6 l2 .9 d5 r3 .3 d l2 d r2 .4 R . u5 r u4 .3 r7 .4 d4 .2 u4 .16 r4 d6 .17 L .3 u3 l5 r .9 l .2 d . R10 r u5 .15 u .45 l2 .9 d4 r3 d2 l2 d r4 l3 . r5 u .3 r .2 u r3 .2 u l7 d3 .2 r3 . u2 ur r2 d l12 r2 dr d6 l5 dl d9 r4 .3 u3 .7 l5 d r6 d l dl d r11 u17
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=610393840
+Score=465
+Success=true
+Checksum=-1689142757
+Movements=.15 u11 l u9 ur r4 d r .3 u . l5 . d r8 u ur r2 d2 .15 l7 d3 dr r5 d2 l3 r4 u6 r3 .10 d6 r2 .4 D .2 u4 l2 .8 d4 r3 d l2 d r3 . u8 r2 .5 r .22 d4 .2 r4 .4 u5 .2 d4 l4 dl d2 r2 l3 u2 .2 r4 u r u5 .5 l4 .5 d3 r5 d l2 .3 d r2 .2 D .2 l2 . D .3 r6 .3 u .8 r dr d l8 ul u2 l6 dl d9 .11 d5 dr r8 ur u2 .4 d2 .20 u4 ul l4 .4 d2 .6 u2 .19 l2 . r7 d2 .2 L .3 d .3 l .46 r4 . l4 dl d r2 d dl l r11 u17
+[/replay]
+
+[replay]
+Level=4
+Player=sndubach
+Date=2009-11-15
+RecordedWith=GDash 20090503
+RandomSeed=420154488
+Score=456
+Success=true
+Checksum=-1689142757
+Movements=.11 l11 u14 r5 d r u l3 d r9 .2 d r .3 l4 d4 dr r5 d l2 d dr r2 u7 r2 .4 r d6 r2 .2 D .8 u4 . l3 .7 d4 r4 d l3 dl dr r3 . d l3 r3 u8 r3 .18 r4 d3 .2 u4 .2 d4 l4 dl d dr .4 r .4 d r2 l2 u2 ur r3 u r u5 .7 l3 dl d4 r9 . l4 d .2 D . r2 d2 .2 u2 r6 l2 dl d6 .5 u4 r3 l10 . r dr d3 l5 dl d8 r5 .6 u3 .11 l5 dl d r6 dr dl l d dr r3 d2 l4 r3 l r8 ur u17
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=271390868
+Score=901
+Success=true
+Checksum=-1689142757
+Movements=u24 . ul u11 r5 . r u l3 d .2 r3 d l u l2 d r13 .4 d .3 .3 R2 .8 d4 r2 d l3 d r3 u7 r4 .4 d6 r2 . D .9 u4 l3 .2 d5 r6 l3 d r3 u7 ur r3 . u r3 d r4 u2 l2 d4 dl l2 d2 r2 l2 u2 r5 u .11 r3 l7 d2 r d6 l2 . r5 u3 .10 r d4 r10 u4 . .5 L D d4 l8 u4 r3 u2 .3 l2 .3 u2 . r .5 d2 .2 l .13 r3 l6 d r2 .2 d2 l2 d3 l d l .2 u5 r .3 r2 u4 .2 u7 l6 r5 d4 l7 u4 ur r28 .3 d11 .4 d2 r3 l3 u13 r4 d10 l d4 r9 u12
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+1514 sndubach
+800 demo
+730 sndubach
+436 sndubach
+408 sndubach
+[/highscore]
+Name=Cave P. Spelunking
+Selectable=false
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed White White Brown
+DiamondsRequired=20 28 34 26 30
+DiamondValue=10 40
+CaveTime=200 200 200 240 240
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+RandSeed=14 15 16 17 18
+RandomFill=SPACE 189 BOULDER 179 DIAMOND 19 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=1 1 38 20 DIRT
+Point=3 2 INBOX
+Point=20 11 OUTBOX
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=150063374
+Score=800
+Success=true
+Checksum=968566162
+Movements=.8 d16 r u3 r10 d2 . u3 r11 d r3 u r7 D r4 d5 l2 .3 d r dr d13 dl l9 .31 l6 .19 l .3 u2 .2 L .2 d2 l3 .28 u2 .8 r2 .3 l .3 u .4 R .10 u .3 l .7 D .8 d .3 L .5 u .2 l .6 u .3 R .2 l2 .2 r4 u r2 l2 u3 .11 d3 .4 d2 l4 u2 .6 d r2 u2 r4 .4 r2 l4 .5 r3 u ul .4 d2 l3 u l2 . u2 r2 .5 d .3 L .6 ul l2 u5 .9 u6 .4 d3 .3 d7 .3 r2 .3 d3 r3 .3 r6 .7 u5 l .15 r d3 l2 .32 L8 l3 .3 r3 u l .8 d l3 .6 u6 .2 u4 r3 d2 .4 r2 . d6 dr .10 u4 .2 R .7 u .2 R . l ul u3 l4 d3 r d7 r2 d dr
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=322521763
+Score=730
+Success=true
+Checksum=-628678156
+Movements=.8 u3 .10 u r .4 r .2 d5 l . D .2 l u2 .3 u2 r2 . u2 r2 .2 d .2 r .2 d .3 D .2 u3 r7 d2 .2 u2 ur r2 . D .2 l14 .9 r25 .4 l d2 r d2 dr .7 dr r2 .17 u2 r3 u4 .4 ul u2 r3 dr d18 dl l3 .24 d l3 u .58 u .5 r4 .3 l u2 l d2 dl l3 .13 r4 .3 u l3 .5 u2 r2 .20 u .5 r2 .10 l2 .4 u r3 u ur u3 .17 d3 . l2 .2 u6 .3 r u2 ur2 u3 .3 l .3 D .3 l5 u ur r3 u2 ul l8 u3 l11 .3 l7 .2 l7 .5 d9 dr r .9 d2 dl l .8 u2 .2 R .6 d9 dr r2 .15 r7 .6 u2 .10 d .4 L2 .9 u .17 u .11 u l .5 L .16 r .7 d .4 L .6 r2 .4 d r2 .4 d2 r4 .11 u .4 R .11 d r4 u3 .65 l3 .21 d .6 l .3 d .3 l .3 u .6 r .21 u .4 L10 .5 r3 .7 u2 .4 l .5 u2 .3 L .10 d .3 r2 . l3 .12 r .14 r .10 u .8 R2 .19 u .42 l .13 r .11 r .3 r2 .2 r .3 r .3 r .3 r2 .2 r2 .2 r .3 r .7 r .10 R3 .4 l .17 R6 .9 l .12 u r .8 r .17 R .7 u .9 u .12 r .4 D .3 l .8 u2 .4 l5 u2 .2 L .3 d2 l3 .3 U .2 r3 .3 u2 .2 d3 r4 dr d3 l
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=682536699
+Score=408
+Success=true
+Checksum=1659446306
+Movements=.23 l2 .2 d19 r4 .9 u .4 l6 . r2 .4 U .4 d r3 .6 u .7 d r3 .5 u .3 d r3 .21 u .20 dr r .10 d r2 .19 R .6 u2 .2 r .21 u2 .3 l3 . D2 .4 r2 .17 l .3 u .3 r .15 l .2 u .2 r2 .12 D .18 u .6 d .3 R .4 u .17 R .3 L .20 u .12 l .45 R2 .15 l3 .3 d2 dl l .8 l .3 r2 .2 u .2 l .3 u .2 r3 u r3 .3 l5 u .2 L .2 d .2 r4 u2 r .3 u4 .4 l2 u ul l .2 D .2 r2 .6 u2 .9 d3 .2 r2 d6 .4 l .2 d . l3 dl d2 .6 l .3 d .3 l2 .30 D .20 l2 .19 l .3 D .14 r .3 D .4 l .16 l2 .8 d2 .4 d .2 l2 .7 r u3 r2 .13 u2 .24 l .3 u2 .19 l6 .2 d2 .2 u3 r2 u ul l u .4 r2 .3 l u r5 . D2 . u4 ur r6 u3 r10 .5 D .21 r5 .2 l dl d5 .2 u3 .4 d .2 R .3 u2 r7 D . r4 d8 dl .9 d3 r .3 d8 dl l .12 u .3 d l5 .21 l3 .97 l .4 u .3 d l .5 l .4 u .3 d l5 .25 L .7 u .2 r .18 u2 .51 d .3 R2 .10 u .3 R .14 u l2 .14 u2 r .11 d r3 .6 d .3 r .2 d2 .6 r3 .10 l u ul l ul u2 .3 d .2 r2 .2 u l3 u .5 r3 .5 r .2 d2 .2 r .2 d2 .2 r .3 D .4 u4 l2 u2 .4 d2 .2 r .3 u2 l .16 u2 r .8 d .16 r .11 r3 .2 D2 .8 l2 u2 l23 d2 dl l2 u2 .11 r
+[/replay]
+
+[replay]
+Level=4
+Player=sndubach
+Date=2009-11-15
+RecordedWith=GDash 20090503
+RandomSeed=1022657469
+Score=436
+Success=true
+Checksum=998514848
+Movements=.22 u l2 dl d7 dr .2 l . d .29 d3 dr .19 d l2 .8 d6 dr r .34 r .3 u .3 U .7 d2 dr r .9 r .5 u .3 dr r3 .2 d r4 u .18 u .3 d2 r2 ur u .14 r .11 R .3 l .2 u l5 u r2 .7 l2 .3 ur r2 .4 l3 u r2 .8 u .3 l2 u ul l6 . d .3 u r .4 l2 u ur r .4 l2 u2 .14 d3 . r3 .6 d2 .8 r3 .4 d3 .37 u6 .3 d4 l .4 R3 .3 l .21 u . r .2 u .3 R4 .4 l u l2 .33 u ur r .3 u ur r2 .3 d .2 R .5 u2 .13 ul u r2 u3 . l4 ul u5 r7 d .3 u .3 r5 .5 r d3 . r d5 R2 . u6 r8 .2 d4 .2 u3 r11 . d19 l7 u3 .12 r .9 l d3 l4 u .2 dl l2 .2 dl l2 .2 d l3 .59 u2 .3 R8 .4 d2 dl l .26 u .3 d l .10 l2 .11 l .8 l .34 l3 .2 u .3 r .13 R .57 l .31 u .7 l .4 L .15 u2 .14 r .2 r .2 r .11 R7 .2 r3 d2 .2 R .2 u ur r2 .2 u r2 .3 d . r .2 d2 . r2 .8 d2 .4 R2 .19 u .2 l2 .3 r5 .5 u .2 l2 .13 u .4 R .16 u .10 d .7 R .28 l .12 l .9 u .8 R5 .4 l3 .3 d3 l2 .2 u2 r3 .10 l3 u r2 .8 l3 u3 .11 u2 .9 u2 .2 l5 u ul l .4 r .2 u5 ur r5 d4 r3 d3 .4 d .7 L .3 d2 .5 l .9 u l2 .2 d .7 l .5 L . r6 D .3 l2 .3 u r3 .6 r .7 l2 u3 .3 d2 dr r .16 R2 .12 u .4 R .6 u l u5 r9 .2 d4 dl .2 r2 d6 .7 l .6 D .4 r3 .2 u3 .2 l5 u r5 u6 l24 .2 d5 r .2 d2 . r .2 d5 .3 d3 .10 r4 .12 u .3 l .27 u2 .8 r .12 u
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=187609528
+Score=1514
+Success=true
+Checksum=-1723193884
+Movements=.17 r8 d2 D .3 u . . R .2 u2 r3 d4 r . R . . u r u2 l u2 .2 r3 D . r4 .12 r9 d2 .2 u2 r6 D .2 r .2 d3 D . .2 u2 r3 d3 l u2 r2 d11 l3 u .3 d2 dr r3 . d5 l3 .13 l10 u .12 dl l .9 . U . .42 u5 r .3 d .2 r l2 .2 u .3 r4 .6 r2 .26 d .2 r .2 D . .3 l .7 .3 L . .10 u2 UL L . .2 r u3 .15 d .2 r . u .2 l .3 r6 u9 l26 .6 l12 .3 d7 dr r .3 d l2 .5 d11 r4 u .2 d r2 u .3 d r4 .12 u3 R . .12 d3 r7 .21 l4 .13 r2 . . R . .3 l u3 .11 d .2 l2 .3 d .2 L . .6 u2 r .13 u .15 u .2 .2 L . .7 l3 . u .2 l .3 u .3 l6 . d .3 .2 L . .2 u .3 r .3 r .2 d2 .2 l5 .2 d2 .3 u .5 r2 .3 d .3 r .3 r .3 d .2 .2 R . .26 u .12 l .15 r9 . l2 .78 u5 r2 .17 r2 .2 d
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+127 sndubach
+106 sndubach
+94 sndubach
+82 sndubach
+60 demo
+[/highscore]
+Name=Intermission 4
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Charset=Original
+Fontset=Original, BD2
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Orange White White Blue
+DiamondsRequired=1 1 1 1 1
+DiamondValue=10 20
+CaveTime=20 20 20 20 20
+TimeValue=5 6 7 8 9
+CaveScheduling=bd2
+FrameTime=200 200 200 200 200
+CaveDelay=6 6 6 6 6
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=19 0 39 21 STEELWALL
+FillRect=0 11 39 21 STEELWALL
+FillRect=6 5 8 7 SPACE BOULDER
+FillRect=10 2 12 4 SPACE DIAMOND
+Point=12 2 FIREFLYl
+Point=2 1 INBOX
+FillRect=10 8 12 10 FIREFLYl OUTBOX
+Line=12 8 12 10 STEELWALL
+[/objects]
+
+[replay]
+Player=demo
+Date=2009-09-30
+RecordedWith=GDash 20090503
+RandomSeed=493193485
+Score=60
+Success=true
+Checksum=157159309
+Movements=.20 d7 dr r8 u2 .8 u .13 r4 l6 d6 r3 u2 .3 l3 u3 r6 .3 d4
+[/replay]
+
+[replay]
+Level=2
+Player=sndubach
+Date=2009-10-01
+RecordedWith=GDash 20090503
+RandomSeed=203158856
+Score=82
+Success=true
+Checksum=157159309
+Movements=.16 d11 dr r8 u2 .5 r4 u l6 d6 r3 u2 .5 l2 u3 ur r4 d4
+[/replay]
+
+[replay]
+Level=3
+Player=sndubach
+Date=2009-10-17
+RecordedWith=GDash 20090503
+RandomSeed=932193892
+Score=94
+Success=true
+Checksum=157159309
+Movements=.14 d13 r13 u .2 r3 . u2 l5 dl d6 r4 u2 .6 l2 u4 r5 d .2 d4
+[/replay]
+
+[replay]
+Level=4
+Player=sndubach
+Date=2009-11-15
+RecordedWith=GDash 20090503
+RandomSeed=656447165
+Score=106
+Success=true
+Checksum=157159309
+Movements=.19 d8 r8 . u r4 .4 u ul l3 .3 l2 dl d5 dr r3 u2 .5 l ul u2 ur r4 .7 d3
+[/replay]
+
+[replay]
+Level=5
+Player=sndubach
+Date=2010-01-09
+RecordedWith=GDash 20090503
+RandomSeed=366783619
+Score=127
+Success=true
+Checksum=157159309
+Movements=.11 d16 r8 u ur r3 .5 u2 l5 d6 r2 .2 u2 .3 l2 ul u3 r6 d4
+[/replay]
+[/cave]
+[/game]
+[/BDCFF]

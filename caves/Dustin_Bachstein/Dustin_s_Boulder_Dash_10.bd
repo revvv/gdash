@@ -1,0 +1,985 @@
+[BDCFF]
+Version=0.5
+[game]
+Name=Dustin's Boulder Dash 10
+Author=Dustin
+Date=2017-11-06
+Lives=5 99
+TitleScreen=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
+Levels=5
+
+[cave]
+[highscore]
+190 Dustin
+149 Dustin
+120 Dustin
+118 Dustin
+[/highscore]
+Name=Welcome to Dustin's BD 10!
+Author=Dustin
+Date=2019-01-05
+Intermission=true
+IntermissionProperties.rewardlife=false
+Story=Hi BD fans!\nWelcome to my latest classical Boulder Dash game! As every game of the series, it contains 16 caves and 4 intermissions on five difficulty levels, just like the very first Boulder Dash games by Peter Liepa! The five difficulty levels differ in random seed, number of needed diamonds, time limit and cave speed. \nLevel 1 is ideal to learn how each cave works in general and get the basic ideas how to solve it. Levels 2 and 3 introduce some techniques that weren't needed on level 1. Sometimes a way is blocked and you need a little detour, sometimes you must take some risks to get enough diamonds, and so on!\nLevels 4 and 5 were a real challenge for myself when I tested the caves! Sometimes I found random seeds which made the cave a lot harder than before, or the risks you have to take in order to get enough diamonds are close to insane! So everyone who manages to beat level 5 with five initial lives and without a game over is an official DBD pro! ;)\nIn this little intro you will earn the first few points to begin with, and then the real adventure starts!\nHave a lot of fun with this game - I definitely had fun creating it! :)\nCheers, Dustin
+Size=20 12 0 0 19 11
+Colors=Black Black Brown Green White White White
+DiamondsRequired=0 0 0 0 0
+DiamondValue=10 0
+CaveTime=32 30 28 26 24
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=3 3 3 7 BOULDER
+Line=3 7 5 7 BOULDER
+Line=7 3 7 6 BOULDER
+Line=9 3 9 6 BOULDER
+Point=8 7 BOULDER
+Point=11 7 OUTBOX
+[Level=1]
+Line=13 5 15 3 DIAMOND
+[/Level]
+[Level=1]
+Line=15 3 15 7 DIAMOND
+[/Level]
+[Level=2]
+Line=13 3 14 3 DIAMOND
+[/Level]
+[Level=2]
+Line=15 4 13 6 DIAMOND
+[/Level]
+[Level=2]
+Line=14 7 15 7 DIAMOND
+[/Level]
+[Level=3]
+Raster=13 3 2 3 1 2 DIAMOND
+[/Level]
+[Level=3]
+Raster=15 4 1 2 2 2 DIAMOND
+[/Level]
+[Level=4]
+Line=13 3 13 5 DIAMOND
+[/Level]
+[Level=4]
+Line=15 3 15 7 DIAMOND
+[/Level]
+[Level=4]
+Line=13 5 15 5 DIAMOND
+[/Level]
+[Level=5]
+Line=13 3 15 3 DIAMOND
+[/Level]
+[Level=5]
+Line=13 4 13 5 DIAMOND
+[/Level]
+[Level=5]
+Line=14 5 15 6 DIAMOND
+[/Level]
+[Level=5]
+Line=13 7 14 7 DIAMOND
+[/Level]
+Point=1 1 INBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+380 Dustin
+380 Dustin
+378 Dustin
+374 Dustin
+368 Dustin
+320 Dustin
+[/highscore]
+Name=Alternative
+Author=Dustin
+Date=2017-08-03
+Intermission=false
+Story=Two possible routes - try them out and see where they lead you!
+Size=40 22 0 0 39 21
+Colors=Black Black Blue LightRed White White White
+DiamondsRequired=0 0 0 0 0
+DiamondValue=10 0
+CaveTime=150 120 100 90 80
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=60 52 3 118 24
+RandomFill=DIRT 90 DIRT 90 BOULDER 80 DIAMOND 12
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=7 6 32 6 WALL
+Line=1 11 14 11 WALL
+Line=25 11 38 11 WALL
+Line=5 16 34 16 WALL
+Rectangle=20 7 19 15 WALL
+Point=19 2 INBOX
+Point=20 2 OUTBOX
+[/objects]
+
+[replay]
+Player=Dustin
+Date=2019-01-07
+RecordedWith=GDash 20100212
+RandomSeed=120146897
+Score=380
+Success=true
+Checksum=-1379008024
+Movements=.4 l22 d2 l2 u3 l3 d3 l3 u3 ul l3 L d2 l2 d l3 d3 dr d3 r2 u3 r3 d2 r d r6 u3 r4 d4 l3 d l4 d3 l4 u3 ul l3 d2 r d3 l2 d3 u2 r3 d r2 u2 ur r2 d r7 u l r4 d3 r6 u r4 d r4 u3 r2 u5 R d2 l7 u l4 u r l5 r3 u3 r2 ur u2 r3 dr d3 r3 u4 r4 u2 l u3 R d2 l5 d2 l u3 l5 u r l5 d2 l3 u
+[/replay]
+[/cave]
+
+[cave]
+[highscore]
+491 Dustin
+490 Dustin
+342 Dustin
+291 Dustin
+[/highscore]
+Name=Blocked Rooms
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=A very familiar second cave for every BD fan - but this time, first of all, Rockford has to gain access to some of the rooms!
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Purple White White White
+DiamondsRequired=14 8 7 11 10
+DiamondValue=30 0
+CaveTime=180 150 150 150 150
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=12 12 12 12 12
+RandSeed=119 17 162 117 246
+RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 FIREFLYl 2
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=1 6 38 6 WALL
+Line=1 13 38 13 WALL
+Line=8 1 8 20 WALL
+Line=16 1 16 20 WALL
+Line=24 1 24 20 WALL
+Line=32 1 32 20 WALL
+Line=1 3 38 3 SPACE
+Line=1 9 38 9 SPACE
+Line=1 16 38 16 SPACE
+Line=20 1 20 20 SPACE
+Point=18 19 INBOX
+Point=18 20 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+799 Dustin
+766 Dustin
+693 Dustin
+485 Dustin
+[/highscore]
+Name=Circulation
+Author=Dustin
+Date=2017-11-06
+Intermission=false
+Story=First dodge, then crush!\n\nHINT: The higher levels may demand some trail-and-error to figure out how to get enough diamonds!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #60a621 #160c7f #3dceb1 #257f0c #214ba6
+DiamondsRequired=80 90 100 110 120
+DiamondValue=3 10
+CaveTime=150 120 100 80 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Raster=2 2 7 4 6 6 FIREFLYr
+Raster=4 2 6 4 6 6 BUTTERFLYl
+Raster=4 4 6 3 6 6 FIREFLYl
+Raster=2 4 7 3 6 6 BUTTERFLYr
+Point=21 18 INBOX
+Line=1 1 38 1 BOULDER
+Line=1 2 38 2 DIRT
+FillRect=1 1 3 20 STEELWALL
+Point=21 0 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+790 Dustin
+600 Dustin
+526 Dustin
+410 Dustin
+[/highscore]
+Name=Diamond Road
+Author=Dustin
+Date=2017-12-31
+Intermission=false
+Story=How many off-road diamonds can you get? Rockford must not miss a single one!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #0c7f2c #215aa6 #cdcb3d #21a64b #2b0c7f
+DiamondsRequired=64 70 69 81 80
+DiamondValue=5 0
+CaveTime=120 120 120 120 120
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=4 10 14 100 6
+InitialFill=BOULDER
+RandomFill=DIAMOND 64 DIRT 0 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 12 38 12 DIAMOND
+Point=1 12 INBOX
+Point=39 12 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+177 Dustin
+107 Dustin
+82 Dustin
+46 Dustin
+[/highscore]
+Name=Quiz
+Author=Dustin
+Date=2018-12-30
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Can you guess what the question is and find out the correct answer?\n\nHINT: You can make things a lot easier if you pause the game - however, this counts as cheating! ;)
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #8e4c98 #b2713c #87cc89 #3cb261 #4c5e98
+DiamondsRequired=1 1 1 1 1
+DiamondValue=2 0
+CaveTime=48 45 42 39 36
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=15 0 1 5 14
+InitialFill=SPACE
+RandomFill=BUTTERFLYd 128 FIREFLYl 64 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 17 5 DIRT
+FillRect=1 8 18 10 WALL
+Line=1 1 1 5 WALL
+Line=2 2 3 3 WALL
+Line=4 2 5 1 WALL
+Line=5 2 5 5 WALL
+Rectangle=7 1 9 5 WALL
+Line=11 1 11 5 WALL
+Line=13 4 13 5 WALL
+Point=12 1 WALL
+Point=13 2 WALL
+Point=12 3 WALL
+Line=15 1 15 5 WALL
+Line=16 1 17 1 WALL
+Line=16 3 17 3 WALL
+Line=16 5 17 5 WALL
+Line=18 1 18 10 STEELWALL
+Line=5 10 13 10 DIRT
+Point=9 10 INBOX
+Line=8 9 10 9 BOULDER
+Point=5 10 DIAMOND
+Point=13 10 DIAMOND
+Point=2 9 FIREFLYl
+Point=16 9 BUTTERFLYd
+Point=4 10 STEELWALL
+Point=14 10 STEELWALL
+[Level=1,2,3,4]
+Point=4 10 OUTBOX
+[/Level]
+[Level=5]
+Point=14 10 OUTBOX
+[/Level]
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+492 Dustin
+395 Dustin
+340 Dustin
+266 Dustin
+[/highscore]
+Name=Entombed Treasures
+Author=Dustin
+Date=2017-11-09
+Intermission=false
+Story=While collecting all of the buried treasures, Rockford must be careful not to get stuck himself!
+Size=40 22 0 0 39 21
+Colors=Black Black Red Cyan White White White
+DiamondsRequired=6 8 16 11 12
+DiamondValue=30 0
+CaveTime=120 120 120 120 120
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=4 3 0 1 6
+RandomFill=BOULDER 120 DIAMOND 5 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=19 2 INBOX
+Point=20 2 OUTBOX
+Line=1 1 38 1 DIRT
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+620 Dustin
+618 Dustin
+610 Dustin
+376 Dustin
+[/highscore]
+Name=Furious
+Author=Dustin
+Date=2018-05-31
+Intermission=false
+Story=This amoeba is about to destroy itself - but you need it!\n\nREMARK: To a certain degree, this cave is dependant on chance - however, you can maximize your chances with speed and skill!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #6d9698 #b27f32 #77cc66 #4cb232 #6d7698
+DiamondsRequired=5 6 7 8 9
+DiamondValue=50 80
+CaveTime=80 75 70 65 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Raster=4 4 6 3 6 6 AMOEBA
+Point=10 10 INBOX
+Point=28 10 OUTBOX
+Line=16 10 22 10 SPACE
+Point=22 10 BUTTERFLYd
+Add=-1 -1 AMOEBA FIREFLYl
+Add=1 1 AMOEBA FIREFLYl
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+732 Dustin
+644 Dustin
+529 Dustin
+[/highscore]
+Name=Glowing Thicket
+Author=Dustin
+Date=2017-11-06
+Intermission=false
+Story=Two things glow in the thicket - one is valuable, one is hostile!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #1b197f #6ca610 #3dcca2 #35a610 #19347f
+DiamondsRequired=30 40 50 60 70
+DiamondValue=5 20
+CaveTime=240 240 240 240 240
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=7 12 2 5 10
+RandomFill=SPACE 150 BOULDER 100 DIAMOND 50 FIREFLYl 20
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=5 5 INBOX
+Point=39 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+285 Dustin
+252 Dustin
+99 Dustin
+[/highscore]
+Name=Hurry Potter
+Author=Dustin
+Date=2017-12-11
+Intermission=false
+Story=The name hides two properties of this cave!
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Green White White White
+DiamondsRequired=1 3 3 6 5
+DiamondValue=80 0
+CaveTime=30 30 30 30 30
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=224 53 231 192 71
+RandomFill=SPACE 80 BOULDER 50 FIREFLYl 2 DIRT 0
+MagicWallTime=10 10 10 10 10
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=4 4 10 10 WALL
+Line=35 4 29 10 WALL
+Line=11 11 28 11 MAGICWALL
+Point=18 5 INBOX
+Point=19 17 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+312 Dustin
+258 Dustin
+214 Dustin
+[/highscore]
+Name=Riddleflies
+Author=Dustin
+Date=2018-11-04
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Before you start the action, you need an answer to the question: How can you possibly get enough diamonds without smashing the exit?
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #93a5b2 #1a9855 #66ccc6 #33981a #9394b2
+DiamondsRequired=15 15 15 15 15
+DiamondValue=10 0
+CaveTime=80 75 70 65 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 8 18 10 WALL
+Point=1 9 BUTTERFLYd
+Point=18 9 BUTTERFLYd
+Point=1 8 SPACE
+Point=18 8 SPACE
+Point=1 6 BOULDER
+Point=18 6 BOULDER
+Line=9 3 10 3 DIAMOND
+Point=9 6 INBOX
+Point=10 6 STEELWALL
+Point=19 8 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+522 Dustin
+516 Dustin
+496 Dustin
+[/highscore]
+Name=Intermission Run
+Author=Dustin
+Date=2018-06-02
+Intermission=false
+Story=Pure nostalgia!
+Size=40 22 0 0 39 21
+Colors=Black Black Red Gray2 White White White
+DiamondsRequired=42 42 42 42 42
+DiamondValue=10 0
+CaveTime=150 111 80 70 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+MagicWallTime=3 3 3 3 3
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 12 38 20 SPACE
+FillRect=19 1 20 20 STEELWALL
+Line=1 11 37 11 STEELWALL
+Point=1 2 INBOX
+Line=1 1 9 9 BOULDER
+Line=10 9 18 1 BOULDER
+Line=1 4 7 10 BOULDER
+Line=12 10 18 4 BOULDER
+Line=1 3 8 10 DIAMOND
+Line=11 10 18 3 DIAMOND
+Line=2 1 9 8 FIREFLYl
+Line=19 2 20 2 DIRT
+FillRect=31 1 33 2 BOULDER
+FillRect=31 4 33 10 SPACE
+Line=31 4 33 4 MAGICWALL
+Line=31 8 33 8 MAGICWALL
+Line=28 5 30 7 BOULDER
+Point=30 12 BOULDER
+Point=30 13 DIRT
+Point=30 20 BUTTERFLYu
+FillRect=18 20 15 17 FIREFLYl
+Line=1 20 14 20 DIAMOND
+Line=19 15 20 15 DIRT
+Point=8 12 OUTBOX
+Line=19 1 20 1 VEXPANDINGWALL
+Line=19 14 20 14 VEXPANDINGWALL
+Point=37 11 HEXPANDINGWALL
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+1361 Dustin
+912 Dustin
+535 Dustin
+[/highscore]
+Name=Jewel Snapper
+Author=Dustin
+Date=2018-10-11
+Intermission=false
+Story=Once Rockford has figured out how this cave works, timing is everything!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #19667f #9b0f8b #87b738 #309b0f #192f7f
+DiamondsRequired=7 22 40 45 60
+DiamondValue=10 30
+CaveTime=96 90 84 78 72
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=BOULDER
+RandomFill=DIAMOND 64 DIRT 0 DIRT 0 DIRT 0
+MagicWallTime=1 1 1 1 1
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 20 38 20 MAGICWALL
+Line=1 19 38 19 SPACE
+Point=20 18 INBOX
+Line=21 14 34 1 WALL
+Line=19 14 6 1 WALL
+Line=21 15 21 18 WALL
+Point=20 19 OUTBOX
+Line=18 19 19 19 WALL
+Line=19 17 19 18 DIAMOND
+Point=18 18 WALL
+Line=20 16 20 17 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+525 Dustin
+216 Dustin
+97 Dustin
+[/highscore]
+Name=Kaput!
+Author=Dustin
+Date=2018-07-03
+Intermission=false
+Story=Do you have enough diamonds or do you need to sacrifice them to get even more?\n\nREMARK: This cave may look ridiculous on level 1 - but you'll get the idea behind it once you try the higher levels!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #94b2a8 #195598 #66c2cc #199819 #949bb2
+DiamondsRequired=1 2 3 4 5
+DiamondValue=90 90
+CaveTime=10 30 150 180 240
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=11 10 22 10 STEELWALL
+Line=17 1 17 9 STEELWALL
+Point=19 1 BOULDER
+Line=20 1 21 1 DIAMOND
+Point=23 10 SLIME
+Line=25 1 25 8 STEELWALL
+Line=25 9 25 20 BOULDER
+Line=24 10 24 18 STEELWALL
+Line=23 11 23 19 FIREFLYl
+Point=23 13 SPACE
+Point=23 14 SLIME
+Point=23 17 SPACE
+Point=23 18 SLIME
+Point=23 20 SPACE
+Line=22 11 22 20 STEELWALL
+Point=22 10 DIRT
+Point=22 11 OUTBOX
+FillRect=12 1 16 9 SPACE
+Point=15 9 OUTBOX
+Point=17 9 BOULDER
+Point=16 1 DIAMOND
+Point=16 2 DIRT
+Point=14 5 INBOX
+Point=14 9 FIREFLYl
+Line=11 1 11 9 STEELWALL
+Raster=31 1 1 3 2 2 DIAMOND
+Line=30 1 30 5 STEELWALL
+Line=32 1 32 5 STEELWALL
+FillRect=29 7 33 9 SPACE WALL
+Point=31 7 FIREFLYl
+FillRect=29 10 33 12 SPACE WALL
+Point=31 10 FIREFLYl
+Point=31 8 OUTBOX
+Point=31 13 SLIME
+Point=31 14 FIREFLYl
+Point=31 15 SPACE
+Line=30 14 30 15 WALL
+Line=32 14 32 15 WALL
+Line=26 16 38 16 WALL
+Line=26 10 26 15 STEELWALL
+Line=21 11 21 20 STEELWALL
+Line=21 19 22 19 DIRT
+FillRect=1 1 10 10 SPACE WALL
+Line=3 2 3 8 DIRT
+Line=3 8 8 8 DIRT
+Line=8 7 8 3 DIRT
+Line=5 3 7 3 DIRT
+Line=5 6 5 4 DIRT
+Point=6 5 OUTBOX
+Point=4 1 FIREFLYl
+Point=1 10 FIREFLYd
+Point=7 10 FIREFLYr
+Point=10 1 FIREFLYu
+Point=1 4 FIREFLYd
+Point=6 6 DIAMOND
+Point=10 7 FIREFLYu
+Line=3 20 14 20 WALL
+Line=2 13 2 19 STEELWALL
+Line=3 13 11 13 STEELWALL
+FillRect=3 17 14 19 STEELWALL
+Line=11 11 11 12 STEELWALL
+Point=4 19 FIREFLYl
+Point=7 19 FIREFLYl
+Point=10 19 FIREFLYl
+Point=13 19 FIREFLYl
+Point=14 19 OUTBOX
+Point=4 18 SPACE
+Point=7 18 SPACE
+Point=10 18 SPACE
+Point=13 18 SPACE
+Point=4 17 SLIME
+Point=7 17 SLIME
+Point=10 17 SLIME
+Point=13 17 SLIME
+Point=4 15 DIAMOND
+Point=7 15 DIAMOND
+Point=10 15 DIAMOND
+Point=13 15 DIAMOND
+Line=5 3 5 6 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+685 Dustin
+501 Dustin
+490 Dustin
+[/highscore]
+Name=Lockin' All Seven Doors
+Author=Dustin
+Date=2018-06-25
+Intermission=false
+Story=While singing an old classic, Bob Dylan aka Rockford is disturbed by a bubbling noise, so try and silence it!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #4c9868 #33b21f #bfcca8 #1fb23a #4f4c98
+DiamondsRequired=60 60 60 60 60
+DiamondValue=5 1
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=STEELWALL
+AmoebaTime=120 120 120 120 120
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=9 6 31 16 STEELWALL SPACE
+Rectangle=17 11 23 13 AMOEBA
+Point=20 12 OUTBOX
+Line=13 5 13 6 SPACE
+Line=20 5 20 6 SPACE
+Line=27 5 27 6 SPACE
+Line=31 8 32 8 SPACE
+Line=31 12 32 12 SPACE
+Line=8 8 9 8 SPACE
+Line=8 12 9 12 SPACE
+Point=13 4 DIRT
+Point=20 4 DIRT
+Point=27 4 DIRT
+Point=33 8 DIRT
+Point=33 12 DIRT
+Point=7 12 DIRT
+Point=7 8 DIRT
+FillRect=1 1 6 20 SPACE
+FillRect=7 17 38 20 SPACE
+FillRect=34 1 38 16 SPACE
+FillRect=7 1 33 3 SPACE
+Point=20 3 BUTTERFLYr
+Point=34 3 BUTTERFLYr
+Point=34 17 BUTTERFLYd
+Point=20 17 BUTTERFLYl
+Point=6 17 BUTTERFLYl
+Point=6 3 BUTTERFLYu
+Point=20 19 INBOX
+Point=10 10 STEELWALL
+Point=30 10 STEELWALL
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+195 Dustin
+190 Dustin
+186 Dustin
+[/highscore]
+Name=Slimy Symmetry
+Author=Dustin
+Date=2018-06-07
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=This one demands some knowledge about BD physics!
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #984e32 #599cb2 #bc89cc #6bb259 #324898
+DiamondsRequired=6 6 6 6 6
+DiamondValue=30 0
+CaveTime=16 15 14 13 12
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+MagicWallTime=3 3 3 3 3
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Raster=1 1 18 4 1 2 DIAMOND
+Raster=1 2 18 4 1 2 SLIME
+Line=1 9 18 9 SPACE
+Line=1 10 18 10 MAGICWALL
+Point=8 7 INBOX
+Point=11 7 OUTBOX
+Line=1 1 1 8 SPACE
+Line=18 1 18 8 SPACE
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+833 Dustin
+789 Dustin
+532 Dustin
+[/highscore]
+Name=Magic Square 4
+Author=Dustin
+Date=2017-11-10
+Intermission=false
+Story=Yet another magic square in Dustin's BD - but first, Rockford needs to persuade some non-cooperative fireflies to help him open it!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #6b4c98 #b27147 #7acc9c #67b247 #4c5698
+DiamondsRequired=12 18 24 32 42
+DiamondValue=10 25
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=26 3 36 18 SPACE
+Raster=28 3 2 1 5 2 FIREFLYl
+Raster=26 6 1 3 2 5 FIREFLYd
+Raster=29 18 2 1 5 2 FIREFLYr
+Raster=36 5 1 3 2 5 FIREFLYu
+Point=22 10 INBOX
+Raster=1 6 18 3 1 6 WALL
+Point=1 20 OUTBOX
+Raster=6 1 3 18 6 1 WALL
+Line=8 8 10 10 DIAMOND
+Line=10 8 8 10 DIAMOND
+FillRect=2 2 4 4 DIAMOND DIRT
+Point=14 14 DIAMOND
+Point=16 16 DIAMOND
+FillRect=8 14 10 16 DIAMOND
+Raster=2 14 2 2 2 2 DIAMOND
+Line=2 8 4 10 DIAMOND
+Line=14 8 14 10 DIAMOND
+Line=16 8 16 10 DIAMOND
+Point=15 8 DIAMOND
+Point=9 3 DIAMOND
+Line=14 2 14 4 DIAMOND
+Line=16 2 16 4 DIAMOND
+Raster=7 1 3 3 6 6 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+324 Dustin
+316 Dustin
+265 Dustin
+[/highscore]
+Name=New Funnel
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=How to escape the good old funnel?
+Size=40 22 0 0 39 21
+Colors=Black Black Orange LightBlue White White White
+DiamondsRequired=15 20 20 25 30
+DiamondValue=10 20
+CaveTime=120 120 120 120 201
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=12 6 3 1 0
+RandSeed=1 29 45 61 68
+RandomFill=SPACE 100 BOULDER 80 DIRT 0 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=8 8 8 8 8
+MagicWallTime=8 8 8 8 8
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIAMONDBIRTH5 0.00000
+Effect=ACIDEffect ACID
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=1 1 11 11 WALL
+Line=15 11 25 1 WALL
+Line=12 12 14 12 DIRT
+Line=12 13 14 13 MAGICWALL
+Point=20 1 INBOX
+FillRect=26 2 38 15 DIRT
+Point=31 9 OUTBOX
+Line=27 3 27 7 MAGICWALL
+Line=29 4 29 6 MAGICWALL
+Line=31 3 31 7 MAGICWALL
+Line=32 3 33 4 MAGICWALL
+Line=33 6 32 7 MAGICWALL
+Line=35 3 35 7 MAGICWALL
+Line=37 4 37 6 MAGICWALL
+Point=28 3 MAGICWALL
+Point=28 7 MAGICWALL
+Point=32 5 MAGICWALL
+Point=36 3 MAGICWALL
+Point=36 7 MAGICWALL
+Line=30 10 30 14 MAGICWALL
+Line=28 12 29 11 MAGICWALL
+Line=32 11 32 13 MAGICWALL
+Line=34 11 34 13 MAGICWALL
+Point=33 10 MAGICWALL
+Point=33 14 MAGICWALL
+FillRect=20 16 20 16 DIRT
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+339 Dustin
+307 Dustin
+278 Dustin
+[/highscore]
+Name=One Direction
+Author=Dustin
+Date=2018-10-17
+Intermission=false
+Story=A firefly which seems to be afraid of Rockford - but what if it just wants to take a run-up?
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #a36bb2 #98853d #66ccb6 #3d9849 #6b6fb2
+DiamondsRequired=3 3 3 3 3
+DiamondValue=85 0
+CaveTime=60 60 60 60 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=STEELWALL
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Maze=2 2 38 20 2 1 50 2 4 0 3 1 STEELWALL SPACE unicursal
+Point=36 17 DIAMOND
+Point=36 2 DIAMOND
+Point=1 2 DIAMOND
+Point=3 17 STEELWALL
+Point=4 17 INBOX
+Point=5 17 FIREFLYl
+Line=2 18 2 20 SPACE
+Line=3 20 13 20 SPACE
+Point=1 20 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+736 Dustin
+534 Dustin
+504 Dustin
+[/highscore]
+Name=Push
+Author=Dustin
+Date=2018-11-12
+Intermission=false
+Story=Free the platforms for the diamonds to come - however, this turns out to be a dangerous mission!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #577f19 #af6f11 #43e061 #11af16 #191b7f
+DiamondsRequired=10 14 16 18 18
+DiamondValue=30 75
+CaveTime=75 70 65 60 55
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=BOULDER
+RandomFill=DIAMOND 0 DIRT 0 DIRT 0 DIRT 0
+MagicWallTime=1 1 1 1 1
+SlimePermeabilityC64=248 248 248 248 248
+
+[objects]
+Line=1 9 38 9 SLIME
+FillRect=1 10 38 20 SPACE
+Raster=4 17 7 1 5 2 STEELWALL
+Point=19 17 OUTBOX
+Point=19 19 INBOX
+Line=1 20 38 20 MAGICWALL
+Raster=4 16 7 1 5 2 BOULDER
+Raster=4 1 7 8 5 1 DIAMOND
+Line=1 1 38 1 VEXPANDINGWALL
+[/objects]
+[/cave]
+
+[cave]
+[highscore]
+207 Dustin
+190 Dustin
+[/highscore]
+Name=Thirty Diamonds
+Author=Dustin
+Date=2018-12-30
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Peter Liepa's intermission - but not his solution!
+Size=20 12 0 0 19 11
+Colors=Black Black Red LightGreen White White White
+DiamondsRequired=30 30 30 30 30
+DiamondValue=5 0
+CaveTime=48 45 42 39 36
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=3 3 5 5 SPACE
+FillRect=8 3 10 5 SPACE
+FillRect=13 3 15 5 SPACE
+FillRect=3 7 5 9 SPACE
+FillRect=8 7 10 9 SPACE
+FillRect=13 7 15 9 SPACE
+Point=1 2 INBOX
+Point=18 10 OUTBOX
+Raster=4 4 3 2 5 4 DIAMOND
+Point=5 3 FIREFLYl
+Point=10 3 FIREFLYl
+Point=15 3 FIREFLYl
+Point=3 7 BUTTERFLYd
+Point=8 7 BUTTERFLYd
+Point=13 7 BUTTERFLYd
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]

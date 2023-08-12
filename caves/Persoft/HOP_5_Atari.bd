@@ -1,0 +1,418 @@
+[BDCFF]
+Version=0.5
+
+[game]
+Name=HOP 5
+Author=Persoft
+Levels=5
+
+[cave]
+Name=Cave 01
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=77 77 77 77 77
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=3 5
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W......................................W
+W.rrrrrr.....rrrrrr......rrrrrr........W
+W.rddddr.....rddddr.....r..............W
+W.rdddddr....rdddddr....r..............W
+W.rdddddr....rdddddr....r..............W
+W.rdddddr....rdddddr....r..............W
+W.rrrrrr.....rdddddr.....rrrrr.........W
+W.rdddddr.P..rdddddr..........r........W
+W.rdddddr....rdddddr..........r........W
+W.rdddddr....rdddddr..........r........W
+W.rddddr.....rddddr...........r........W
+W.rrrrrr..r..rrrrrr..r..rrrrrr.rrrrrr..W
+W.......................rrrrrr.rrrrrr..W
+W.......................rrrrrr.rrrrrr..W
+W.......................rrrrrr.rrrrrr..W
+W.r.r.rrr.rrr...........rrrrrr.rrrrrr..W
+W.r.r.rdr.rdr...........rrrrrr.rrrrrr..W
+W.rrr.rdr.rrr...........rrrrrr.rrrrrr..W
+W.r.r.rdr.r.............rrrrrr.rrrrrr..W
+W.r.r.rrr.r.............rrrrrrXrrrrrr..W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 02
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                  ccccccccccccccccccccW
+W wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwcW
+W wr...........aa.......rr...........wcW
+W w....................r...........r.wcW
+W w..................................wcW
+W w.............r....................wcW
+W w.....................r........r...wcW
+W w...............r..................wcW
+W w...Q......................... ..r.wcW
+W w... .................r....... ....wcW
+W wr.. ..................r...... ....wcW
+W w... ......................... ....wcW
+W w... ......................... ....wcW
+W w... ......................... ....wcW
+W w... .....xwx              ... ....wcW
+W w... .........................Q....wcW
+W w.r...........r.....r..............wcW
+W w..........r......P................wcW
+W wwwwwwwwwwwwwwwwww.wwwwwwwwwwwwwwwwwcW
+W                   XccccccccccccccccccW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 03
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=50 50 50 50 50
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=3 10
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=40 40 40 40 40
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+X..............QQQQQQQQQQQQQQQ.........W
+WrrrrrrrrrrrrrrMMMMMMMMMMMMMMMMMM......W
+Wrrrrrrrrrrrrrrrrr..............M......W
+WdrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrM......W
+WMdrrrrrrrrrrrdrrrrrrrrrrrrrrrrM.......W
+W.MdrrrrrrrrrrdrrrrrrrrrrrrrrrM........W
+W..MdrrrrrrrdrdrrrrrrrrrrrrrrM.........W
+W...Mdrrrrrrdrdrrr.........rM..........W
+W....MdrrrrrdrrrrrrrrrrrrrrM...........W
+W.....Mdrdrrdrdrrr.......rM............W
+W......MdrdrdrdrrrrrrrrrrM.............W
+W.......MdrddrdrrrrrrrrrM..............W
+W........MdrdrdrrrrrrrrM...............W
+W.........MdrddrrrrrrrM................W
+W..........Mdrr..rrrrM.................W
+W...........Mdr..rrrM..................W
+W............Md...rM...................W
+W.............M...M....................W
+W......................................W
+W...............W....................P.W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 04
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=5 5 5 5 5
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wa..r....r.......rW.               Q.F.W
+W...r...d......d..W. ................ .W
+W...r.....r...r...W.                . .W
+W...r....r........W................ . .W
+W...r.............W.                . .W
+W...r.......dd...rW. ................ .W
+Wrrrr.............W.                . .W
+W.................Wd............... . .W
+W.................Wd                . .W
+W.................W. ................ .W
+W.................W.                  .W
+WWWWWWWWWWWWWWWWW.P.WWWWWWWWWWWWWWWWWWWW
+X....r...wr.......W..........w...w.....W
+W.www....w........W........w...w.w..c..W
+W.w.w....w........W.wwwwwwwwwwww.w.. ..W
+W.wWw....w........W............w.w.. ..W
+W.w.w....w .......W.wwwwwwwwwwww.w.. ..W
+W.w.w....w .......W.......w......w.. ..W
+W.www....w .......W.wwwwwwwwwwww.w.. ..W
+W........wQ.......W............w.... ..W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 05
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=1 1 1 1 1
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=99 10
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+X........wwwwwwwwa.............rxQ.....W
+W........waawawaw.........P.....xQ.....W
+W.d......waww w w........W.W....xQ.....W
+W........waww w w.......W...W...xQ.....W
+W........waww w w......W.....W..xQ.....W
+W........waww w w.....W.W...WW..xQ.....W
+W........w ww w w....W...W.W.W.dwQ.....W
+W........w ww w w....WWWWWW..W..wQ.....W
+W........w ww w w....W...W..W...wQ.....W
+W........w ww w w....W.W.W.W....wQQQQQ.W
+W........w ww w w....W...WW.....wQQQQQ.W
+Wwwwwwwwwwwwwwwww....WWWWW......xQQQQQ.W
+Wwwwwwwwwwwwwwwww...............xQQQQQ.W
+Wwwwwwwwwwwwwwwww...............xQQQQQ.W
+Wwwwwwwwwwwwwwwww...............xQQQQQ.W
+W.........................d.....xQQQQQ.W
+WQ                ..............xQQQQQ.W
+W.....................d...d.....xQQQQQ.W
+Wc      ........................xQQQQQ.W
+W...............................xQQQQQ.W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 06
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=2 2 2 2 2
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=99 99
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WXWWWWWWWWWWWWWWWWWW                   W
+W                  Wd                  W
+WWWWWWWWWWWWWWWWWW WWWWWWWWWWWWWWWWW W W
+W                                    W W
+W WWWWWWWWWWWWWWWWW WWWWWWWWW WWWWWW W W
+W                                    W W
+WWWWWWWWWWWWWWWWWWW WWWWWWWWWWWWWWWWWW W
+WQ                                     W
+W WWWWWWWWWWWWWWWWW WWWWWWWWWWWWWWWWWW W
+W                  PW                W W
+WWWWWWWWWWWWWWWWW WWWWWWWWWWWWWWWWWW W W
+W                                    W W
+W WWWWWWWWWWWWWWWWWWWW WWWWWWWWWWWWW W W
+W   W                                W W
+W W W WWWWWWWW WWWWWWWWWWWWWWWWWWWWWWW W
+W W W          W                       W
+W W W WWWWWW W W WWWWWWWWWWWWWWWWWWWWW W
+W Wd         W W                    dW W
+W WWWWWWWWWWWW WWWWWWWWWWWWWWWWWWWWWWW W
+W                  Q                   W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 07
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atari72 Atari72
+DiamondsRequired=1 1 1 1 1
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=50 99
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=3 3 3 3 3
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WPx.................r................xHW
+W.x........QQQQQQQQQQQQQQQQQQQQ......x.W
+W.x........QQQQQQQQQQQQQQQQQQQQ......x.W
+W..........QQQQQQQQQQQQQQQQQQQQ........W
+W..........QQQQQQQQQQQQQQQQQQQQ........W
+W..........QQQQQQQQQQQQQQQQQQQQ........W
+W..........QQQQQQQQQQQQQQQQQQQQ........W
+W..........QQQQQQQQQQQQQQQQQQQQ........W
+W..........QQQQQQQQQQQQQQQQQQQQ........W
+W..........QQQQQQQQQQQQQQQQQQQQ........W
+W.......   QQQQQQQQQQQQQQQQQQQQ........W
+W..........ssssssssssssssssssss........W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W......................................W
+W.xddxdx.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.W
+W.xdd..........................x.x.x.x.W
+WWxddxWxWxWxWxWxWxWx.xWxWxWxWxWxWxWxWxWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 08
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Atari00 Atari00 Ataria4 Atari46 Atari0c Atarid4 Atarid4
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=bd2ckatari
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=99 99
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+XcwcwcwcwccW..........a........WrrrrrrrW
+WcwcwcwcwccW...................W       W
+WcwcwcwcwccW...................W       W
+WcwcwcwcwccW...................W       W
+WcwcwcwcwccW..........P........WQQQQQQQW
+WcwcwcwcwccW...................WQQQQQQQW
+WcwcwcwcwccW...................WQQQQQQQW
+WcwcwcwcwccW...................WQQQQQQQW
+WcwcwcwcwccW...................WQQQQQQQW
+WcwcwcwcwccW.........w.w.......WQQQQQQQW
+WcwcwcwcwccW.........w.w.......W       W
+WcwcwcwcwccW.........w.w.......WcccccccW
+WcwcwcwcwccW.........w.w.......W       W
+WcwcwcwcwccW.........w.w.......W       W
+WcwcwcwcwccW   ......w.w.......W       W
+WcwcwcwcwccW .d......w.w.......W       W
+WcwcwcwcwccW ........w.w.......W       W
+W          W ........w.w.......W       W
+W .........W ..wwwwwww.wwwwwwwwW       W
+W            ..........................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+[/game]
+[/BDCFF]
