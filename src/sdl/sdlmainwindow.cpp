@@ -63,10 +63,13 @@ static void calculate_full_cave_scaling_factor_for_monitor() {
     gd_debug("SDL screen size: %u x %u", dm.w, dm.h);
     int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
     int h = GAME_RENDERER_SCREEN_SIZE_MAX_Y * 16;
+    gd_debug("Cave size: %u x %u", w, h);
     double ratioW = (double) dm.w / (double) w;
     double ratioH = (double) dm.h / (double) h;
     double ratio = std::min(ratioW, ratioH);
-    double r = std::round(ratio);
+    // ratio = x * DOUBLE_INCREMENT + y
+    double x = std::round(ratio / DOUBLE_INCREMENT);
+    double r = x * DOUBLE_INCREMENT;
     if (r > ratio)
         r -= DOUBLE_INCREMENT;
     int newWidth = (int) (w * r);
