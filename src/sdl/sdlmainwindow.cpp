@@ -53,12 +53,12 @@ public:
 static double full_cave_scaling_factor = 2.0;
 
 // NOTE: needs to be called after SDL_Init()
-static void calculate_full_cave_scaling_factor_for_monitor() {
+static double calculate_full_cave_scaling_factor_for_monitor() {
     SDL_DisplayMode dm;
     int res = SDL_GetCurrentDisplayMode(0, &dm);
     if (res < 0) {
         gd_message("SDL: cannot detect screen size: %d %s)", res, SDL_GetError());
-        return;
+        return full_cave_scaling_factor;
     }
     gd_debug("SDL screen size: %u x %u", dm.w, dm.h);
     int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
@@ -75,7 +75,7 @@ static void calculate_full_cave_scaling_factor_for_monitor() {
     int newWidth = (int) (w * r);
     int newHeight = (int) (h * r);
     gd_debug("SDL upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
-    full_cave_scaling_factor = r;
+    return r;
 }
 
 SDLApp::SDLApp(Screen &screenref)
@@ -174,7 +174,7 @@ static void run_the_app(SDLApp &the_app, NextAction &na, bool opengl) {
     if (!SDL_WasInit(SDL_INIT_TIMER))
         SDL_Init(SDL_INIT_TIMER);
 
-    calculate_full_cave_scaling_factor_for_monitor();
+    full_cave_scaling_factor = calculate_full_cave_scaling_factor_for_monitor();
 
     /* if screen reports we can use it for timing, measure the number of
      * milliseconds each refresh takes */
