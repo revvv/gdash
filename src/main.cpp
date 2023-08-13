@@ -178,7 +178,7 @@ int main(int argc, char *argv[]) {
         } else {
             /* export-fork: load BD1 by default */
             try {
-                caveset = load_caveset_from_file("caves/various/Boulder_Dash_1.bd");
+                caveset = load_caveset_from_file("caves/First_Star_Software/Boulder_Dash_1.bd");
                 load_highscore(caveset);
             } catch (std::exception &e) {
                 gd_warning("BD1 not found, loading 'Afl Posocopi' instead");
