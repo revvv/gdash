@@ -352,7 +352,7 @@ bool SettingsWindow::do_settings_dialog(Setting *settings, PixbufFactory &pf) {
                 break;
 
             case TypeDouble:
-                widget = gtk_spin_button_new_with_range(settings[i].min, settings[i].max, DOUBLE_INCREMENT);
+                widget = gtk_spin_button_new_with_range(settings[i].min, settings[i].max, DOUBLE_STEP);
                 gtk_spin_button_set_digits(GTK_SPIN_BUTTON(widget), 3);
                 gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), *(double *)settings[i].var);
                 g_signal_connect(G_OBJECT(widget), "value-changed", G_CALLBACK(SettingsWindow::double_change), &settings[i]);

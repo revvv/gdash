@@ -51,11 +51,11 @@ static double calculate_full_cave_scaling_factor_for_monitor() {
     double ratioW = (double) monitor.width / (double) w;
     double ratioH = (double) monitor.height / (double) h;
     double ratio = std::min(ratioW, ratioH);
-    // ratio = x * DOUBLE_INCREMENT + y
-    double x = std::round(ratio / DOUBLE_INCREMENT);
-    double r = x * DOUBLE_INCREMENT;
+    // ratio = x * DOUBLE_STEP + y
+    double x = std::round(ratio / DOUBLE_STEP);
+    double r = x * DOUBLE_STEP;
     if (r > ratio)
-        r -= DOUBLE_INCREMENT;
+        r -= DOUBLE_STEP;
     int newWidth = (int) (w * r);
     int newHeight = (int) (h * r);
     gd_debug("GTK upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);

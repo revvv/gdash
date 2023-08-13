@@ -23,7 +23,7 @@
 #ifndef SETTINGS_HPP_INCLUDED
 #define SETTINGS_HPP_INCLUDED
 
-#define DOUBLE_INCREMENT 0.125
+#define DOUBLE_STEP 0.125
 
 #include "config.h"
 
