@@ -231,6 +231,9 @@ int FontManager::blittext_internal(int x, int y, char const *text, bool widefont
             case 0x00BB:
                 c = '>';
                 break; /* RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK */
+            case 0x00DF:
+                c = 'B';
+                break; /* ß / sharp s: not available in C64 font */
             case 0x2010:
                 c = '-';
                 break; /* hyphen */
