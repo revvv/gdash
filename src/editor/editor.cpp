@@ -1706,6 +1706,18 @@ icon_view_reorder_caves() {
         }
         caveset->caves = std::move(newcaves);
         caveset->edited = TRUE;
+
+        // update edited_cave_idx, otherwise not correct after drag and drop
+        if (edited_cave_idx != -1) {
+            for (int n = 0; n < (int)cave_indices.size(); ++n) {
+                if (edited_cave_idx == cave_indices[n]) {
+                    edited_cave_idx = n;
+                    gd_debug("reorder caves: selection updated: %d -> %d", cave_indices[n], n);
+                    g_hash_table_remove_all(cave_pixbufs);
+                    break;
+                }
+            }
+        }
     }
 }
 
