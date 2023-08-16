@@ -175,8 +175,6 @@ static void run_the_app(SDLApp &the_app, NextAction &na, bool opengl) {
         SDL_Init(SDL_INIT_TIMER);
 
     full_cave_scaling_factor = calculate_full_cave_scaling_factor_for_monitor();
-    if (gd_full_cave_view)
-        the_app.screen->set_properties(full_cave_scaling_factor, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
 
     /* if screen reports we can use it for timing, measure the number of
      * milliseconds each refresh takes */
