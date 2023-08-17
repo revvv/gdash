@@ -45,6 +45,7 @@ extern int gd_pal_emu_scanline_shade;
 extern bool gd_fine_scroll;
 extern bool gd_particle_effects;
 extern bool gd_full_cave_view;
+extern double gd_full_cave_scaling_factor;
 extern bool gd_show_story;
 extern bool gd_show_name_of_game;
 extern int gd_status_bar_colors;

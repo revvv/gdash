@@ -59,6 +59,7 @@ static double calculate_full_cave_scaling_factor_for_monitor() {
     int newWidth = (int) (w * r);
     int newHeight = (int) (h * r);
     gd_debug("GTK upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
+    gd_full_cave_scaling_factor = r;
     return r;
 }
 

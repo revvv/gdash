@@ -105,6 +105,7 @@ int gd_pal_emu_scanline_shade = 80;
 bool gd_fine_scroll = true;
 bool gd_particle_effects = true;
 bool gd_full_cave_view = false;
+double gd_full_cave_scaling_factor = 2.0;
 bool gd_show_story = true;
 bool gd_show_name_of_game = true;
 int gd_status_bar_colors = GD_STATUS_BAR_ORIGINAL;
@@ -457,6 +458,7 @@ void gd_settings_init() {
     settings_bools["fine_scroll"] = &gd_fine_scroll;
     settings_bools["particle_effects"] = &gd_particle_effects;
     settings_bools["full_cave_view"] = &gd_full_cave_view;
+    settings_doubles["full_cave_scaling_factor"] = &gd_full_cave_scaling_factor;
     settings_bools["show_story"] = &gd_show_story;
     settings_bools["show_name_of_game"] = &gd_show_name_of_game;
     settings_integers["pal_emu_scanline_shade"] = &gd_pal_emu_scanline_shade;

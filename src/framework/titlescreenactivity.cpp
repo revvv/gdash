@@ -26,6 +26,7 @@
 #include <glib/gi18n.h>
 
 #include "framework/titlescreenactivity.hpp"
+#include "framework/gameactivity.hpp"
 #include "framework/app.hpp"
 
 #include "misc/logger.hpp"
@@ -76,10 +77,15 @@ void TitleScreenActivity::clear_animation() {
     animation.clear();
 }
 
+#define CELL_RENDERER_CELL_SIZE 16
 
 void TitleScreenActivity::shown_event() {
-    int scale = app->screen->get_pixmap_scale();
-    app->screen->set_size(scale * 320, scale * 200, gd_fullscreen);
+    double scale = app->screen->get_pixmap_scale();
+    int cell_size = CELL_RENDERER_CELL_SIZE * scale;
+    if (gd_full_cave_view)
+        app->screen->set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_X, cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_Y, gd_fullscreen);
+    else
+        app->screen->set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_X, cell_size * GAME_RENDERER_SCREEN_SIZE_Y, gd_fullscreen);
 
     /* render title screen animation in memory pixmap */
     render_animation();
