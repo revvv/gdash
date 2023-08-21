@@ -1,23 +1,24 @@
 [BDCFF]
 Version=0.5
+
 [mapcodes]
 Length=1
-"=DIAMOND
-)=ACID
+(=ACID
 !=FALLINGWALL
-%=DIAMONDRELEASEKEY
-$=TRAPPEDDIAMOND
-#=CLOCK
-+=SWEET
-'=WAITINGBOULDER
-(=BITERu
-*=BOMB
+$=DIAMONDRELEASEKEY
+#=TRAPPEDDIAMOND
+"=CLOCK
+*=SWEET
+%=WAITINGBOULDER
+'=BITERu
+)=BOMB
 [/mapcodes]
+
 [game]
 Name=CWS Boulder 2
-Levels=5
 TitleScreen=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
 TitleScreenScroll=iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAF5JREFUGNNjVBBu/c/AwMCw/8Y3BgYGBoaGNDcGZMACY6BLwAAjAwPDfwYGBgYF4VYGBgYGBns7G1QT4gMPMuADLOgCBw8dYUB2EwsunTA3YSh48LYawjjUil0BupsASxIVmIoCm4gAAAAASUVORK5CYII=
+Levels=5
 
 [cave]
 Name=Dash 2 cave 01
@@ -25,16 +26,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Green LightRed White White Green
 DiamondsRequired=5 5 5 5 5
-DiamondValue=10 20
 CaveTime=40 40 40 40 40
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=2 2 2 2 2
+DiamondValue=10 20
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -56,18 +57,18 @@ X......................................W
 W.!!!!!.........!!!!!........!!!!!.....W
 W.!!!!!.........!!!!!........!!!!!.....W
 W.!!!!!..!!!!!..!!!!!..!!!!..!!!!!.....W
-W.!!"!!..!!!!!..!!"!!..!!!!..!!"!!.....W
-W.!!!!!..!!!!!..!!!!!..!!#!..!!!!!..!!!W
-W.!!!!!..!!#!!..!!!!!..!!!!..!!!!!..!!!W
+W.!!d!!..!!!!!..!!d!!..!!!!..!!d!!.....W
+W.!!!!!..!!!!!..!!!!!..!!"!..!!!!!..!!!W
+W.!!!!!..!!"!!..!!!!!..!!!!..!!!!!..!!!W
 W.!!!!!..!!!!!..!!!!!..!!!!..!!!!!..!!!W
-W........!!!!!.........!!!!.........!#!W
+W........!!!!!.........!!!!.........!"!W
 W........!!!!!......................!!!W
 W...................................!!!W
 W................!!!!!!!!..............W
 W!!!!!!..........!!!!!!!!...!!!!!!!....W
 W!!!!!!.!!!......!!!!!!!!...!!!!!!!....W
-W!!"!!!.!!!.!!!..!!!!#!!!...!!!"!!!....W
-W!!!!!!.!#!.!"!..!!!!!!!!...!!!!!!!....W
+W!!d!!!.!!!.!!!..!!!!"!!!...!!!d!!!....W
+W!!!!!!.!"!.!d!..!!!!!!!!...!!!!!!!....W
 W!!!!!!.!!!.!!!..!!!!!!!!...!!!!!!!....W
 W.......!!!......!!!!!!!!...!!!!!!!....W
 W......................................W
@@ -82,16 +83,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Red Blue Yellow Yellow Red
 DiamondsRequired=60 60 60 60 60
-DiamondValue=5 10
 CaveTime=100 100 100 100 100
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=7 7 7 7 7
+DiamondValue=5 10
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -140,16 +141,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Blue Orange White White Blue
 DiamondsRequired=64 64 64 64 64
-DiamondValue=5 8
 CaveTime=180 180 180 180 180
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=8 8 8 8 8
+DiamondValue=5 8
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -174,17 +175,17 @@ W .................................... W
 W .................................... W
 W .................................... W
 W ..........WWWWWWWWWWWWWWWW.......... W
-W ..........$..............$.......... W
+W ..........#..............#.......... W
 W ..........W..............W.......... W
 W ..........W......aa......W.......... W
 W ..........W......aa......W.......... W
 W ..........W..............W.......... W
-W ..........$..............$.......... W
+W ..........#..............#.......... W
 W ..........WWWWWWWWWWWWWWWW.......... W
 W .................................... W
 W .................................... W
 W .................................... W
-W ..........QQQQQQQ%QQQQQQQQ.......... W
+W ..........QQQQQQQ$QQQQQQQQ.......... W
 W .................................... W
 W .................................... W
 W B B B B B B B B B B B B B B B B B B BW
@@ -199,16 +200,16 @@ Intermission=true
 Size=40 22 0 0 19 11
 Colors=Black Black LightBlue Red Green Green LightBlue
 DiamondsRequired=5 5 5 5 5
-DiamondValue=10 20
 CaveTime=20 20 20 20 20
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=1 1 1 1 1
+DiamondValue=10 20
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -256,16 +257,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Green Orange White White Green
 DiamondsRequired=90 90 90 90 90
-DiamondValue=2 6
 CaveTime=175 175 175 175 175
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=5 5 5 5 5
+DiamondValue=2 6
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -311,16 +312,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Blue Gray2 White White Blue
 DiamondsRequired=25 25 25 25 25
-DiamondValue=2 4
 CaveTime=75 75 75 75 75
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=3 3 3 3 3
+DiamondValue=2 4
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -368,24 +369,24 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Yellow Orange White White Yellow
 DiamondsRequired=99 99 99 99 99
-DiamondValue=3 5
 CaveTime=200 200 200 200 200
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=6 6 6 6 6
+DiamondValue=3 5
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
 AmoebaThreshold=0.2841 0.2841 0.2841 0.2841 0.2841
 AmoebaTime=135 135 135 135 135
-AmoebaGrowthProb=0.0156 0.0625
 Effect=AMOEBABOULDEReffect BOULDERBIRTH1
 Effect=AMOEBADIAMONDeffect DIAMONDBIRTH1
+AmoebaGrowthProb=0.0156 0.0625
 MagicWallTime=0 0 0 0 0
 MagicWallProperties.waitforhatching=true
 MagicWallProperties.convertamoeba=false
@@ -399,25 +400,25 @@ ShortExplosions=false
 [map]
 XPWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 W........r.rr......r...a..........rr..QW
-W.".....r..rr...rr..r"....r.."......r..W
-Wr.............rr.r.r....."."....r.r...W
-W.r.".....r.r......r.......r......r....W
-W.r........."..."...rr....r.rrr.....r..W
-W.."r.....rr.........."..".....r.....".W
-W.."r.r....rr..r..."r....r..r..r.......W
-W............".....r"r.....r.r......r..W
+W.d.....r..rr...rr..rd....r..d......r..W
+Wr.............rr.r.r.....d.d....r.r...W
+W.r.d.....r.r......r.......r......r....W
+W.r.........d...d...rr....r.rrr.....r..W
+W..dr.....rr..........d..d.....r.....d.W
+W..dr.r....rr..r...dr....r..r..r.......W
+W............d.....rdr.....r.r......r..W
 W...r..r.............r...r.r.r......r..W
 W.....r.....rr.r......r...r.r........r.W
-Wr..r.........r.....r.....r...."...r.r.W
+Wr..r.........r.....r.....r....d...r.r.W
 W...r.......r.....r.rr......rr......r..W
-W...r.r........"........r............r.W
-W..".r.r.....r..............."r.....r..W
+W...r.r........d........r............r.W
+W..d.r.r.....r...............dr.....r..W
 W....r....r.rr.......r....r.......r.r..W
-W...r........".....rr"r...."r.r...."...W
-W...rrr....r.......r.".......r..."r.rrrW
-Wwwwwwwwwwr.......r.rr"...r...wwwwwwwwwW
-WQQQQQQQQw........rr.r.....r".$bbbbbbbbW
-W%QQQQQQQw..".".....".rrr.r...wbbbbbbbbW
+W...r........d.....rrdr....dr.r....d...W
+W...rrr....r.......r.d.......r...dr.rrrW
+Wwwwwwwwwwr.......r.rrd...r...wwwwwwwwwW
+WQQQQQQQQw........rr.r.....rd.#bbbbbbbbW
+W$QQQQQQQw..d.d.....d.rrr.r...wbbbbbbbbW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -429,23 +430,23 @@ Intermission=true
 Size=40 22 0 0 19 11
 Colors=Black Black LightBlue Purple Yellow Yellow LightBlue
 DiamondsRequired=18 18 18 18 18
-DiamondValue=4 8
 CaveTime=35 35 35 35 35
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=4 4 4 4 4
+DiamondValue=4 8
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
-MagicWallTime=0 0 0 0 0
+MagicWallTime=1 1 1 1 1
 MagicWallProperties.waitforhatching=true
-MagicWallProperties.convertamoeba=false
 MagicWallProperties=BUTTERFLYr DIAMONDf
+MagicWallProperties.convertamoeba=false
 SlimePermeabilityC64=0 0 0 0 0
 AcidProperties=DIRT 0.0000
 MagicWallProperties.sound=false
@@ -456,7 +457,7 @@ ShortExplosions=false
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 X..................W...................W
-W..""""....r.r.r.r.W...................W
+W..dddd....r.r.r.r.W...................W
 W..................W...................W
 W..MMMM.... . . . .W...................W
 W.......... . . . .W...................W
@@ -485,25 +486,25 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black LightBlue Gray2 White White LightBlue
 DiamondsRequired=99 99 99 99 99
-DiamondValue=2 4
 CaveTime=175 175 175 175 175
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=5 5 5 5 5
+DiamondValue=2 4
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
 AmoebaThreshold=0.2523 0.2523 0.2523 0.2523 0.2523
 AmoebaTime=100 100 100 100 100
-AmoebaGrowthProb=0.0156 0.1250
 Effect=AMOEBABOULDEReffect BOULDERBIRTH1
 Effect=AMOEBADIAMONDeffect DIAMONDBIRTH1
-MagicWallTime=0 0 0 0 0
+AmoebaGrowthProb=0.0156 0.1250
+MagicWallTime=1 1 1 1 1
 MagicWallProperties.waitforhatching=true
 MagicWallProperties.convertamoeba=false
 SlimePermeabilityC64=0 0 0 0 0
@@ -545,16 +546,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray1 Brown Yellow Yellow Gray1
 DiamondsRequired=36 36 36 36 36
-DiamondValue=2 4
 CaveTime=65 65 65 65 65
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=4 4 4 4 4
+DiamondValue=2 4
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -570,26 +571,26 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W.r...Wr.r.rWr.......'.'....''.....rr.rW
-Wr..r.Wr...rW............'.....r'......W
+W.r...Wr.r.rWr.......%.%....%%.....rr.rW
+Wr..r.Wr...rW............%.....r%......W
 Wr.W..W..W.rW..W.r..................W.rW
-W..W.rW.rW.rW.rW...'..rrrrrrr....'''W.rW
-W.rW..W.rW..WrrW...'..rrrrrrr....'..W..W
-W.rWr.Wr.Wr.W.rW..'...rrrrrrr.....'.Wr.W
-W.rW..Wr.W..W.rW'...............'...Wr.W
-W..W..Wr.Wr.W..W'.....sssssss.......Wr.W
-W.rW.rW..W..W..W..................'.W..W
-Wr.W..W.rW..W..W..'...MMMMMMM...'...W.rW
-W..Wr.W.rW.rWrrW...'..       ..r..'.W..W
-Wr.W..Wr.W..W.rW'.....       .......Wr.W
-W..W.rW..W..W.rW...'..       .'....'Wr.W
-W.rW..W..W..W.rW.'....       ......'W..W
-W.rW.rWr.W.rW..W..'...bbbbbbb...'..'W.rW
-W..W.rWrrW.rW.rW'..'..MMMMMMM....''.W.rW
-W.rW..W.rW..W.rW'...................W.rW
-W..W..W..Wr.W..W''..............'...W.rW
-W.rWr...rWr....W....'...'.'.....'...W..W
-W.rWrrr..W..rr.W'....''.....'.....''Wr.X
+W..W.rW.rW.rW.rW...%..rrrrrrr....%%%W.rW
+W.rW..W.rW..WrrW...%..rrrrrrr....%..W..W
+W.rWr.Wr.Wr.W.rW..%...rrrrrrr.....%.Wr.W
+W.rW..Wr.W..W.rW%...............%...Wr.W
+W..W..Wr.Wr.W..W%.....sssssss.......Wr.W
+W.rW.rW..W..W..W..................%.W..W
+Wr.W..W.rW..W..W..%...MMMMMMM...%...W.rW
+W..Wr.W.rW.rWrrW...%..       ..r..%.W..W
+Wr.W..Wr.W..W.rW%.....       .......Wr.W
+W..W.rW..W..W.rW...%..       .%....%Wr.W
+W.rW..W..W..W.rW.%....       ......%W..W
+W.rW.rWr.W.rW..W..%...bbbbbbb...%..%W.rW
+W..W.rWrrW.rW.rW%..%..MMMMMMM....%%.W.rW
+W.rW..W.rW..W.rW%...................W.rW
+W..W..W..Wr.W..W%%..............%...W.rW
+W.rWr...rWr....W....%...%.%.....%...W..W
+W.rWrrr..W..rr.W%....%%.....%.....%%Wr.X
 WPWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -600,16 +601,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black LightBlue LightRed White White LightBlue
 DiamondsRequired=50 50 50 50 50
-DiamondValue=3 6
 CaveTime=135 135 135 135 135
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=8 8 8 8 8
+DiamondValue=3 6
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -657,16 +658,16 @@ Intermission=true
 Size=40 22 0 0 19 11
 Colors=Black Black Green Gray1 Yellow Yellow Green
 DiamondsRequired=80 80 80 80 80
-DiamondValue=2 4
 CaveTime=20 20 20 20 20
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=3 3 3 3 3
+DiamondValue=2 4
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -684,16 +685,16 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W"""""""""""""""""(P...................W
-W""""""""""""""""""W...................W
-W""""""""""""""""""W...................W
-W""""""""""""""""""W...................W
-W""""""""""""""""""W...................W
-W""""""""""""""""""W...................W
-W""""""""""""""""""W...................W
-W""""""""""""""""""W...................W
-W""""""""""""""""""W...................W
-X""""""""""""""""""W...................W
+Wddddddddddddddddd'P...................W
+WddddddddddddddddddW...................W
+WddddddddddddddddddW...................W
+WddddddddddddddddddW...................W
+WddddddddddddddddddW...................W
+WddddddddddddddddddW...................W
+WddddddddddddddddddW...................W
+WddddddddddddddddddW...................W
+WddddddddddddddddddW...................W
+XddddddddddddddddddW...................W
 WWWWWWWWWWWWWWWWWWWW...................W
 W......................................W
 W......................................W
@@ -714,23 +715,23 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Green Orange Blue Blue Green
 DiamondsRequired=64 64 64 64 64
-DiamondValue=2 4
 CaveTime=120 120 120 120 120
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=6 6 6 6 6
+DiamondValue=2 4
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
 AmoebaThreshold=0.0682 0.0682 0.0682 0.0682 0.0682
 AmoebaTime=120 120 120 120 120
-AmoebaGrowthProb=0.0156 0.0156
 Effect=AMOEBABOULDEReffect AMOEBA
+AmoebaGrowthProb=0.0156 0.0156
 MagicWallTime=0 0 0 0 0
 MagicWallProperties.waitforhatching=true
 SlimePermeabilityC64=0 0 0 0 0
@@ -772,16 +773,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Blue Orange Cyan Cyan Blue
 DiamondsRequired=100 100 100 100 100
-DiamondValue=2 4
 CaveTime=125 125 125 125 125
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=5 5 5 5 5
+DiamondValue=2 4
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -799,26 +800,26 @@ ShortExplosions=false
 
 [map]
 WXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W"""""""""""W"r"rrr"rr"r"rrWQ    Q    QW
-W"""""""""""Wr"r""""""rr""rW...........W
-W"""""""""""Wr"rr"rr"rrr"r"Wr..........W
-W"""""""""""W"r""""rr""rrrrW.."rrrrrr..W
-W"""""""""""Wrrrrr""rr""r"rW.."""rr"r..W
-W"""""""""""W"rr"rrr""r""r"W.."rrrrrr..W
-W"""""""""""W"""r""rr"rrrr"W..rrr"r"r..W
-W"""""""""""Wrr""r"r"""r"r"W..r"rrrrr..W
-W"""""""""""Wr""r"rrr"r"""rW..rrr"r"r..W
-W"""")))""""W"r""r"""rrr"rrW..rrrrr"r..W
-W"""")))""""Wrr"rr"rrr"r"rrW..r"r"r"r..W
-W"""")))""""WssssssssssssssW..rrrrrrr..W
-W"""""""""""v..............v..rrrrrrr..W
-W"""""""""""w..............w..r"rr""r..W
-W"""""""""""w..............w..rrrr"rr..W
-W"""""""""""w..............w..rr"rr"r..W
-W"""""""""""w..............w..r"rr"rr..W
-W"""""""""""w..............w..rrrrrrr..W
-W"""""""""""v..............v...........W
-W"""""""""""v..............v...........P
+WdddddddddddWdrdrrrdrrdrdrrWQ    Q    QW
+WdddddddddddWrdrddddddrrddrW...........W
+WdddddddddddWrdrrdrrdrrrdrdWr..........W
+WdddddddddddWdrddddrrddrrrrW..drrrrrr..W
+WdddddddddddWrrrrrddrrddrdrW..dddrrdr..W
+WdddddddddddWdrrdrrrddrddrdW..drrrrrr..W
+WdddddddddddWdddrddrrdrrrrdW..rrrdrdr..W
+WdddddddddddWrrddrdrdddrdrdW..rdrrrrr..W
+WdddddddddddWrddrdrrrdrdddrW..rrrdrdr..W
+Wdddd(((ddddWdrddrdddrrrdrrW..rrrrrdr..W
+Wdddd(((ddddWrrdrrdrrrdrdrrW..rdrdrdr..W
+Wdddd(((ddddWssssssssssssssW..rrrrrrr..W
+Wdddddddddddv..............v..rrrrrrr..W
+Wdddddddddddw..............w..rdrrddr..W
+Wdddddddddddw..............w..rrrrdrr..W
+Wdddddddddddw..............w..rrdrrdr..W
+Wdddddddddddw..............w..rdrrdrr..W
+Wdddddddddddw..............w..rrrrrrr..W
+Wdddddddddddv..............v...........W
+Wdddddddddddv..............v...........P
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -829,16 +830,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 Orange Cyan Cyan Gray2
 DiamondsRequired=40 40 40 40 40
-DiamondValue=6 10
 CaveTime=200 200 200 200 200
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=8 8 8 8 8
+DiamondValue=6 10
 BonusTime=20 20 20 20 20
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -855,13 +856,13 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-WX"W  bW  QW  bW  QW  bW  QW  bW  QW  bW
-W""W   W   W   W   W   W   W   W   W   W
-W""Wr..W*.#Wr..W*.#Wr..W*.#Wr..W*.#Wr..W
-W""W...W*..W...W*..W...W*..W...W*..W...W
-W""W...W...W...W...W...W...W...W...W...W
-W""W...W...W...W...W...W...W...W...W...W
-W""W...W...W...W...W...W...W...W...W...W
+WXdW  bW  QW  bW  QW  bW  QW  bW  QW  bW
+WddW   W   W   W   W   W   W   W   W   W
+WddWr..W)."Wr..W)."Wr..W)."Wr..W)."Wr..W
+WddW...W)..W...W)..W...W)..W...W)..W...W
+WddW...W...W...W...W...W...W...W...W...W
+WddW...W...W...W...W...W...W...W...W...W
+WddW...W...W...W...W...W...W...W...W...W
 WwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwW
 WrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrW
 W......................................W
@@ -874,7 +875,7 @@ W.....................................QW
 W.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 W.....................................QW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW W
-W*....................................QW
+W)....................................QW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -886,16 +887,16 @@ Intermission=true
 Size=40 22 0 0 19 11
 Colors=Black Black Gray2 Red Yellow Yellow Gray2
 DiamondsRequired=6 6 6 6 6
-DiamondValue=10 15
 CaveTime=30 30 30 30 30
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=3 3 3 3 3
+DiamondValue=10 15
 BonusTime=0 0 0 0 0
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=0 0 0 0 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -920,7 +921,7 @@ W............MMMMM.W...................W
 W.......    .......W...................W
 W.......QQQQ.......W...................W
 W.......QQQQ.......W...................W
-WP......QQQQ......+W...................W
+WP......QQQQ......*W...................W
 WWWWWWWWWWWWWWWWWWXW...................W
 W......................................W
 W......................................W
@@ -941,16 +942,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Red Gray1 White White Red
 DiamondsRequired=15 15 15 15 15
-DiamondValue=20 60
 CaveTime=80 80 80 80 80
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=7 7 7 7 7
+DiamondValue=20 60
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -966,26 +967,26 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-WP." .  r......r..r.....rr..r.r......r"W
-Wr..... ....r....r.r.. ..". r....r.rrrrW
-W. .. . r.r..." .r.r. ...."....r......rW
+WP.d .  r......r..r.....rr..r.r......rdW
+Wr..... ....r....r.r.. ..d. r....r.rrrrW
+W. .. . r.r...d .r.r. ....d....r......rW
 W.r....Q..r.rr...rrr.r.rr.r.rr r.......W
 Wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww.r..rW
-W.......r.......r.r.".rr.r.rr...rr....rW
+W.......r.......r.r.d.rr.r.rr...rr....rW
 Wr..r.. ...rr................r.rr......W
-W.r ...r..rr..rr..r. .r.r.."........r..W
-W..r.... ..rr."r..r. .r..r.r........rr.W
+W.r ...r..rr..rr..r. .r.r..d........r..W
+W..r.... ..rr.dr..r. .r..r.r........rr.W
 Wrrr..wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwW
-W"....r.   ....rrr.r...rrr...rr....r...W
-W"r ...r r.rr ."...r...r......rr......rW
+Wd....r.   ....rrr.r...rrr...rr....r...W
+Wdr ...r r.rr .d...r...r......rr......rW
 W.r r...Q........r...r.rr. ..r.r..rrr.rW
 W........r......rrrrr..r.rrrr.r.....r..W
 Wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..r..W
-W"r. ...r.rr...r........      ..r..r. rW
-X.r..r.r. ...rr. r.. .r. .r..."..r.....W
+Wdr. ...r.rr...r........      ..r..r. rW
+X.r..r.r. ...rr. r.. .r. .r...d..r.....W
 W..... ....r..r..r... .r .r..r.r...r.r.W
-Wr........r. .r..."..... rr..r.....r.. W
-Wrr"rrr..r"...r.  . ... Q.r..r.r.r..r.rW
+Wr........r. .r...d..... rr..r.....r.. W
+Wrrdrrr..rd...r.  . ... Q.r..r.r.r..r.rW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -996,16 +997,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Red Orange White White Red
 DiamondsRequired=85 85 85 85 85
-DiamondValue=6 12
 CaveTime=150 150 150 150 150
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=6 6 6 6 6
+DiamondValue=6 12
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1052,16 +1053,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Orange Gray1 White White Orange
 DiamondsRequired=38 38 38 38 38
-DiamondValue=15 20
 CaveTime=100 100 100 100 100
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=8 8 8 8 8
+DiamondValue=15 20
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1077,26 +1078,26 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W.....r.".rW.. ........r....W......."..W
-W "".......W."..............W.."..r....W
-W."..r.rr..W.... .........r.W..... .r..W
-W"."... ...w..r.....r.......w".".. .r..W
-W... "...."w"..."..r...r..."w..........W
-W..........W..."............W ...r...r.W
-W.r.r.. ...W...r............W."..r.....W
-W".......".W.......r.r..r.r.Wr.........W
+W.....r.d.rW.. ........r....W.......d..W
+W dd.......W.d..............W..d..r....W
+W.d..r.rr..W.... .........r.W..... .r..W
+Wd.d... ...w..r.....r.......wd.d.. .r..W
+W... d....dwd...d..r...r...dw..........W
+W..........W...d............W ...r...r.W
+W.r.r.. ...W...r............W.d..r.....W
+Wd.......d.W.......r.r..r.r.Wr.........W
 W..........w.....rr..r......w....... .rW
-Wr....."...w. ..........."..w..."......W
-Wr..."...."W.r. "....r.. ...W......"...W
-W..........W...r...........rW....r...".W
-W..........W"...............W..........W
-W...r.r. r.w. ......"..r....wr.... ....W
-W....."....w..........r.r...w....r..r..W
-W.r.."r..".W.r. ..r.........W..........W
-W......r...W........".".....W.r..r.r...W
+Wr.....d...w. ...........d..w...d......W
+Wr...d....dW.r. d....r.. ...W......d...W
+W..........W...r...........rW....r...d.W
+W..........Wd...............W..........W
+W...r.r. r.w. ......d..r....wr.... ....W
+W.....d....w..........r.r...w....r..r..W
+W.r..dr..d.W.r. ..r.........W..........W
+W......r...W........d.d.....W.r..r.r...W
 Wr....r....W..... .r... ..r.W......r...W
 W....rr..r.w...... .........w......rr..W
-W"r........wQ     .XP.     Qw". .. ..".W
+Wdr........wQ     .XP.     Qwd. .. ..d.W
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -1107,16 +1108,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black LightRed Gray2 White White LightRed
 DiamondsRequired=99 99 99 99 99
-DiamondValue=5 10
 CaveTime=166 166 166 166 166
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=7 7 7 7 7
+DiamondValue=5 10
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1164,16 +1165,16 @@ Intermission=true
 Size=40 22 0 0 19 11
 Colors=Black Black Orange Brown Green Green Orange
 DiamondsRequired=50 50 50 50 50
-DiamondValue=10 20
 CaveTime=40 40 40 40 40
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=6 6 6 6 6
+DiamondValue=10 20
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1220,16 +1221,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray1 Gray2 Yellow Yellow Gray1
 DiamondsRequired=75 75 75 75 75
-DiamondValue=8 12
 CaveTime=80 80 80 80 80
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=9 9 9 9 9
+DiamondValue=8 12
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1245,26 +1246,26 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-WPr"rrr."r.rrr"rr."..r.""r..r.rrr.r".rrW
-W".r"rr"""r"r".""..r.rr"..""rrrr"rr"rr.W
-W""""""rr..r...r..r"r"""rr..r"".".r"rrrW
-Wr"rr"rr""..rrrrrr"...rrrr.rrrr."r".r..W
-W""rr""""r""r..""."."".r..".r.rrr.rrr.rW
-Wr.rrrrrrr.".rrr"""r.""""r"."rrr.."r".rW
-W""r"r"""r""rrrrrrr."rrrrrr""r"r.r.."rrW
-W"rr.""rrr.r"rrrr""r.rrr.rrr."r.rr.r""rW
-W"rr".rr.r""r"rr"r"r""rrr.""".r"r"r.r.rW
-W.""".r.."r"r"r"rrrr"r.rr"""""r...".r.rW
-W.r.r.r"""".rrrr"."r".rr""r.rrr"rrr".r"W
-W"rr""r.r"r"rr"r"rr..."r.r.r.".r.".r.rrW
-W"rr"rr.""rrrr"""rr.rr..".r""""."."rrr.W
-Wrr""rr"."rrr""r""rr.rrr"r."...r.rrrr..W
-Wrr"rrr""rr"r"rrrr"r.."r"."r".r."r.".rrW
-W.r"r.rrrrr"rr"".."r.rrrr."""."."...rr.W
-Wr".rr""rrrrrrr"rr"""r""".rr"r"""rr.rr"W
-Wr..r."".r.r.r.".rr"rr"r"rr"rrrrr"r.r.rW
-Wr""".."r"rr.".rr"r""""r"""".rr"rrr""""W
-W"rr"".""r.r.""r."""r"rrr.rr.rrrr"..rr"X
+WPrdrrr.dr.rrrdrr.d..r.ddr..r.rrr.rd.rrW
+Wd.rdrrdddrdrd.dd..r.rrd..ddrrrrdrrdrr.W
+Wddddddrr..r...r..rdrdddrr..rdd.d.rdrrrW
+Wrdrrdrrdd..rrrrrrd...rrrr.rrrr.drd.r..W
+Wddrrddddrddr..dd.d.dd.r..d.r.rrr.rrr.rW
+Wr.rrrrrrr.d.rrrdddr.ddddrd.drrr..drd.rW
+Wddrdrdddrddrrrrrrr.drrrrrrddrdr.r..drrW
+Wdrr.ddrrr.rdrrrrddr.rrr.rrr.dr.rr.rddrW
+Wdrrd.rr.rddrdrrdrdrddrrr.ddd.rdrdr.r.rW
+W.ddd.r..drdrdrdrrrrdr.rrdddddr...d.r.rW
+W.r.r.rdddd.rrrrd.drd.rrddr.rrrdrrrd.rdW
+Wdrrddr.rdrdrrdrdrr...dr.r.r.d.r.d.r.rrW
+Wdrrdrr.ddrrrrdddrr.rr..d.rdddd.d.drrr.W
+Wrrddrrd.drrrddrddrr.rrrdr.d...r.rrrr..W
+Wrrdrrrddrrdrdrrrrdr..drd.drd.r.dr.d.rrW
+W.rdr.rrrrrdrrdd..dr.rrrr.ddd.d.d...rr.W
+Wrd.rrddrrrrrrrdrrdddrddd.rrdrdddrr.rrdW
+Wr..r.dd.r.r.r.d.rrdrrdrdrrdrrrrrdr.r.rW
+Wrddd..drdrr.d.rrdrddddrdddd.rrdrrrddddW
+Wdrrdd.ddr.r.ddr.dddrdrrr.rr.rrrrd..rrdX
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -1275,16 +1276,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Blue Orange White White Blue
 DiamondsRequired=95 95 95 95 95
-DiamondValue=6 12
 CaveTime=135 135 135 135 135
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=7 7 7 7 7
+DiamondValue=6 12
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1331,16 +1332,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Purple LightBlue Yellow Yellow Purple
 DiamondsRequired=50 50 50 50 50
-DiamondValue=5 7
 CaveTime=130 130 130 130 130
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=6 6 6 6 6
+DiamondValue=5 7
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1386,16 +1387,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray1 Red Green Green Gray1
 DiamondsRequired=55 55 55 55 55
-DiamondValue=5 8
 CaveTime=125 125 125 125 125
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=6 6 6 6 6
+DiamondValue=5 8
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1442,16 +1443,16 @@ Intermission=true
 Size=40 22 0 0 19 11
 Colors=Black Black LightBlue Gray2 Yellow Yellow LightBlue
 DiamondsRequired=6 6 6 6 6
-DiamondValue=30 60
 CaveTime=26 26 26 26 26
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=4 4 4 4 4
+DiamondValue=30 60
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1471,7 +1472,7 @@ W         b        WWWWWWWWWWWWWWWWWWWWW
 W ................ WWWWWWWWWWWWWWWWWWWWW
 W ................ WWWWWWWWWWWWWWWWWWWWW
 W ................ WWWWWWWWWWWWWWWWWWWWW
-W ........"....... WWWWWWWWWWWWWWWWWWWWW
+W ........d....... WWWWWWWWWWWWWWWWWWWWW
 W ........P....... WWWWWWWWWWWWWWWWWWWWW
 W ................ WWWWWWWWWWWWWWWWWWWWW
 W ................ WWWWWWWWWWWWWWWWWWWWW
@@ -1497,16 +1498,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Purple LightRed Yellow Yellow Purple
 DiamondsRequired=80 80 80 80 80
-DiamondValue=4 8
 CaveTime=150 150 150 150 150
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=7 7 7 7 7
+DiamondValue=4 8
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1552,16 +1553,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Green Gray1 White White Green
 DiamondsRequired=75 75 75 75 75
-DiamondValue=4 6
 CaveTime=150 150 150 150 150
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=6 6 6 6 6
+DiamondValue=4 6
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1608,16 +1609,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray1 Orange White White Gray1
 DiamondsRequired=50 50 50 50 50
-DiamondValue=5 10
 CaveTime=110 110 110 110 110
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=8 8 8 8 8
+DiamondValue=5 10
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1663,16 +1664,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black LightBlue Orange White White LightBlue
 DiamondsRequired=75 75 75 75 75
-DiamondValue=4 6
 CaveTime=200 200 200 200 200
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=8 8 8 8 8
+DiamondValue=4 6
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1688,26 +1689,26 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-WP.....x.b.....Q.........".b...."b..x..W
-Wx....".".rx""r.b......."."."......br..W
-Wx.....".x."...b.......r...x...x...."..W
-W...".x...".x.........Q.".b...bx....Q".W
-W..x.".....".".r.............Q......"rxW
-W.x"......"..."."...xb.................W
-W.."....r""Q."."....r.........."x.x....W
-Wr"...x.r....r............b....."x.".".W
-W".xr...."b......b.b....".......b.b".."W
-W"..Q...b.........xrx...........Q.."...W
-W"rb......xr."x..".....Q.....x...b..x..W
-W...Q"b...............b....rb.".b"x..Q.W
-W..b.x.Q".."..r....".b.r.....x....x"..xW
-W.."..".b.".........Q."....."......""..W
-W..xb"xx"..".r.r...x.rx"...b....."..b..W
-W."...b.xr......r........".."x..."x.Q..W
-W........r..".."rQ..r..b"........."....W
-W....b......b.x.x...rr....rr....rQ.".r.W
-W.."...x."x.r...r..x.".x."."...".."..."W
-W....""...."b.".....xr......b..b.b...x.X
+WP.....x.b.....Q.........d.b....db..x..W
+Wx....d.d.rxddr.b.......d.d.d......br..W
+Wx.....d.x.d...b.......r...x...x....d..W
+W...d.x...d.x.........Q.d.b...bx....Qd.W
+W..x.d.....d.d.r.............Q......drxW
+W.xd......d...d.d...xb.................W
+W..d....rddQ.d.d....r..........dx.x....W
+Wrd...x.r....r............b.....dx.d.d.W
+Wd.xr....db......b.b....d.......b.bd..dW
+Wd..Q...b.........xrx...........Q..d...W
+Wdrb......xr.dx..d.....Q.....x...b..x..W
+W...Qdb...............b....rb.d.bdx..Q.W
+W..b.x.Qd..d..r....d.b.r.....x....xd..xW
+W..d..d.b.d.........Q.d.....d......dd..W
+W..xbdxxd..d.r.r...x.rxd...b.....d..b..W
+W.d...b.xr......r........d..dx...dx.Q..W
+W........r..d..drQ..r..bd.........d....W
+W....b......b.x.x...rr....rr....rQ.d.r.W
+W..d...x.dx.r...r..x.d.x.d.d...d..d...dW
+W....dd....db.d.....xr......b..b.b...x.X
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 [/map]
 [/cave]
@@ -1719,16 +1720,16 @@ Intermission=true
 Size=40 22 0 0 19 11
 Colors=Black Black Gray2 Orange Yellow Yellow Gray2
 DiamondsRequired=14 14 14 14 14
-DiamondValue=30 70
 CaveTime=25 25 25 25 25
 CaveScheduling=plck
 PALTiming=true
 FrameTime=200 200 200 200 200
 CaveDelay=10 10 10 10 10
+DiamondValue=30 70
 BonusTime=10 10 10 10 10
 DummyProperties.diamondcollector=true
-DummyProperties.destructable=false
 DummyProperties.penalty=true
+DummyProperties.destructable=false
 PenaltyTime=10 10 10 10 10
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -1744,16 +1745,16 @@ ShortExplosions=false
 
 [map]
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W................."WWWWWWWWWWWWWWWWWWWWW
-W.Q. . ..... . .Q."WWWWWWWWWWWWWWWWWWWWW
-W. . . ..... . . ."WWWWWWWWWWWWWWWWWWWWW
-W. " . ..... . " ."WWWWWWWWWWWWWWWWWWWWW
-W. .Q. ..P.. .Q. ."WWWWWWWWWWWWWWWWWWWWW
-W. . . ..X.. . . ."WWWWWWWWWWWWWWWWWWWWW
-W. . " ..... " . ."WWWWWWWWWWWWWWWWWWWWW
-W. . .Q.....Q. . ."WWWWWWWWWWWWWWWWWWWWW
-W. . . ..... . . ."WWWWWWWWWWWWWWWWWWWWW
-W................."WWWWWWWWWWWWWWWWWWWWW
+W.................dWWWWWWWWWWWWWWWWWWWWW
+W.Q. . ..... . .Q.dWWWWWWWWWWWWWWWWWWWWW
+W. . . ..... . . .dWWWWWWWWWWWWWWWWWWWWW
+W. d . ..... . d .dWWWWWWWWWWWWWWWWWWWWW
+W. .Q. ..P.. .Q. .dWWWWWWWWWWWWWWWWWWWWW
+W. . . ..X.. . . .dWWWWWWWWWWWWWWWWWWWWW
+W. . d ..... d . .dWWWWWWWWWWWWWWWWWWWWW
+W. . .Q.....Q. . .dWWWWWWWWWWWWWWWWWWWWW
+W. . . ..... . . .dWWWWWWWWWWWWWWWWWWWWW
+W.................dWWWWWWWWWWWWWWWWWWWWW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
