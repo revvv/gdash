@@ -13,7 +13,7 @@ Alchemystics_CAVES = Alchemystics/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemy
 Alchemystics_DATA = $(Alchemystics_CAVES)
 
 Alex_Zopdir = $(pkgdatadir)/caves/Alex_Zop
-Alex_Zop_CAVES = Alex_Zop/Alex_Zop.gds Alex_Zop/Nahost_91.gds Alex_Zop/Rockford_in_Nimmerland_2.gds Alex_Zop/Rocky_Rockano_in_Lolli_Land_01.gds
+Alex_Zop_CAVES = Alex_Zop/Alex_Zop.gds Alex_Zop/Nahost_91.gds Alex_Zop/Rockford_in_Nimmerland_2.gds Alex_Zop/Rockford_in_Nimmerland_2_fixed.bd Alex_Zop/Rocki_Rockano_in_Lolli_Land_01.gds Alex_Zop/Rocki_Rockano_in_Lolli_Land_01_fixed.bd
 Alex_Zop_DATA = $(Alex_Zop_CAVES)
 
 American_Actiondir = $(pkgdatadir)/caves/American_Action
@@ -21,7 +21,7 @@ American_Action_CAVES = American_Action/Boulder_Dash_3.bd
 American_Action_DATA = $(American_Action_CAVES)
 
 Arno_Weberdir = $(pkgdatadir)/caves/Arno_Weber
-Arno_Weber_CAVES = Arno_Weber/Arno_Dash_01.bd Arno_Weber/Arno_Dash_02.bd Arno_Weber/Arno_Dash_03.bd Arno_Weber/Arno_Dash_04.bd Arno_Weber/Arno_Dash_05.bd Arno_Weber/Arno_Dash_06.bd Arno_Weber/Arno_Dash_07.bd Arno_Weber/Arno_Dash_08.bd Arno_Weber/Arno_Dash_09.bd Arno_Weber/Arno_Dash_10.bd Arno_Weber/Arno_Dash_11.bd Arno_Weber/Arno_Dash_12.bd Arno_Weber/Arno_Dash_13.bd Arno_Weber/Arno_Dash_14.bd Arno_Weber/Arno_Dash_15.bd Arno_Weber/Arno_Dash_16.bd Arno_Weber/Arno_Dash_17.bd Arno_Weber/Arno_Dash_18.bd Arno_Weber/Arno_Dash_19.bd Arno_Weber/Arno_Dash_20.bd Arno_Weber/Arno_Dash_21.bd Arno_Weber/Exploding_Dash.bd Arno_Weber/Exploding_Dash_II.bd Arno_Weber/Future_Dash.bd Arno_Weber/Santas_Bd_Party.bd
+Arno_Weber_CAVES = Arno_Weber/Arno_Dash_01.bd Arno_Weber/Arno_Dash_02.bd Arno_Weber/Arno_Dash_03.bd Arno_Weber/Arno_Dash_04.bd Arno_Weber/Arno_Dash_05.bd Arno_Weber/Arno_Dash_06.bd Arno_Weber/Arno_Dash_07.bd Arno_Weber/Arno_Dash_08.bd Arno_Weber/Arno_Dash_09.bd Arno_Weber/Arno_Dash_10.bd Arno_Weber/Arno_Dash_11.bd Arno_Weber/Arno_Dash_12.bd Arno_Weber/Arno_Dash_13.bd Arno_Weber/Arno_Dash_14.bd Arno_Weber/Arno_Dash_15.bd Arno_Weber/Arno_Dash_16.bd Arno_Weber/Arno_Dash_17.bd Arno_Weber/Arno_Dash_18.bd Arno_Weber/Arno_Dash_19.bd Arno_Weber/Arno_Dash_20.bd Arno_Weber/Arno_Dash_21.bd Arno_Weber/Arno_Dash_21_remake.bd Arno_Weber/Exploding_Dash.bd Arno_Weber/Exploding_Dash_II.bd Arno_Weber/Future_Dash.bd Arno_Weber/Santas_Bd_Party.bd
 Arno_Weber_DATA = $(Arno_Weber_CAVES)
 
 Atarakushidir = $(pkgdatadir)/caves/Atarakushi
@@ -85,7 +85,7 @@ Cup_CAVES = Cup/Cup_Dash_4.gds
 Cup_DATA = $(Cup_CAVES)
 
 CWSdir = $(pkgdatadir)/caves/CWS
-CWS_CAVES = CWS/CWS_Boulder.gds CWS/CWS_Boulder_2.bd
+CWS_CAVES = CWS/CWS_Boulder.gds CWS/CWS_Boulder_2.bd CWS/CWS_Boulder_2.gds CWS/CWS_Boulder_2_Fixed.bd CWS/CWS_Boulder_Dash_3.bd
 CWS_DATA = $(CWS_CAVES)
 
 Daniel_Tavernierdir = $(pkgdatadir)/caves/Daniel_Tavernier
@@ -120,9 +120,9 @@ Dr_Watsondir = $(pkgdatadir)/caves/Dr_Watson
 Dr_Watson_CAVES = Dr_Watson/Dr_Watson_4.gds Dr_Watson/Dr_Watson_4_No_One_Version.gds
 Dr_Watson_DATA = $(Dr_Watson_CAVES)
 
-Dustin_Bachsteindir = $(pkgdatadir)/caves/Dustin_Bachstein
-Dustin_Bachstein_CAVES = Dustin_Bachstein/BD1_Challenges.bd Dustin_Bachstein/BD2_Challenges.bd Dustin_Bachstein/BD3_Challenges.bd Dustin_Bachstein/Boulder_Dash-The_Expert_Levels.bd Dustin_Bachstein/Boulder_Dash_2-The_Expert_Levels.bd Dustin_Bachstein/Boulder_Dash_Alphabet.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_1.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_10.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_11.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_12.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_13.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_14.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_15_-_Expert_Remix.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_16_-_No1_Remix.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_17.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_18.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_19_-_Darkst00rm_Remix.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_2.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_20.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_21.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_3.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_4.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_5.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_6.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_7.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_8.bd Dustin_Bachstein/Dustin_s_Boulder_Dash_9.bd Dustin_Bachstein/Rockford_s_Tale.bd Dustin_Bachstein/Rock_Fort_1.brc Dustin_Bachstein/Rock_Fort_1_-_The_Long_Way.bd Dustin_Bachstein/Rock_Fort_2.brc Dustin_Bachstein/Rock_Fort_2_-_Inside_The_Fort.bd Dustin_Bachstein/Rock_Fort_3_-_Rockford_s_Dream.bd Dustin_Bachstein/Stage_Game.bd Dustin_Bachstein/What_Rockford_Left_Behind.bd
-Dustin_Bachstein_DATA = $(Dustin_Bachstein_CAVES)
+Dustindir = $(pkgdatadir)/caves/Dustin
+Dustin_CAVES = Dustin/BD1_Challenges.bd Dustin/BD2_Challenges.bd Dustin/BD3_Challenges.bd Dustin/Boulder_Dash-The_Expert_Levels.bd Dustin/Boulder_Dash_-_The_New_Elements.bd Dustin/Boulder_Dash_2-The_Expert_Levels.bd Dustin/Boulder_Dash_Alphabet.bd Dustin/Dustin_s_Boulder_Dash_1.bd Dustin/Dustin_s_Boulder_Dash_10.bd Dustin/Dustin_s_Boulder_Dash_11.bd Dustin/Dustin_s_Boulder_Dash_12.bd Dustin/Dustin_s_Boulder_Dash_13.bd Dustin/Dustin_s_Boulder_Dash_14.bd Dustin/Dustin_s_Boulder_Dash_15_-_Expert_Remix.bd Dustin/Dustin_s_Boulder_Dash_16_-_No1_Remix.bd Dustin/Dustin_s_Boulder_Dash_17.bd Dustin/Dustin_s_Boulder_Dash_18.bd Dustin/Dustin_s_Boulder_Dash_19_-_Darkst00rm_Remix.bd Dustin/Dustin_s_Boulder_Dash_2.bd Dustin/Dustin_s_Boulder_Dash_20.bd Dustin/Dustin_s_Boulder_Dash_21.bd Dustin/Dustin_s_Boulder_Dash_3.bd Dustin/Dustin_s_Boulder_Dash_4.bd Dustin/Dustin_s_Boulder_Dash_5.bd Dustin/Dustin_s_Boulder_Dash_6.bd Dustin/Dustin_s_Boulder_Dash_7.bd Dustin/Dustin_s_Boulder_Dash_8.bd Dustin/Dustin_s_Boulder_Dash_9.bd Dustin/Rockford_s_Tale.bd Dustin/Rock_Fort_1_-_The_Long_Way.bd Dustin/Rock_Fort_2_-_Inside_The_Fort.bd Dustin/Rock_Fort_3_-_Rockford_s_Dream.bd Dustin/Stage_Game.bd Dustin/What_Rockford_Left_Behind.bd
+Dustin_DATA = $(Dustin_CAVES)
 
 Eberhard_Baartzdir = $(pkgdatadir)/caves/Eberhard_Baartz
 Eberhard_Baartz_CAVES = Eberhard_Baartz/Boulder_Baartz_1.gds
@@ -141,7 +141,7 @@ FAJ_Soft_CAVES = FAJ_Soft/Boulder_Dash_12.gds
 FAJ_Soft_DATA = $(FAJ_Soft_CAVES)
 
 Falcon_Softdir = $(pkgdatadir)/caves/Falcon_Soft
-Falcon_Soft_CAVES = Falcon_Soft/Falcon_Dash-the_Big_Diamond.gds Falcon_Soft/Falcon_Dash-the_Dark_Cave.gds Falcon_Soft/Falcon_Dash-the_Legend_Continues.gds
+Falcon_Soft_CAVES = Falcon_Soft/Falcon_Dash-The_Big_Diamond.gds Falcon_Soft/Falcon_Dash-The_Dark_Cave.gds Falcon_Soft/Falcon_Dash-The_Legend_Continues.gds
 Falcon_Soft_DATA = $(Falcon_Soft_CAVES)
 
 Firefoxdir = $(pkgdatadir)/caves/Firefox
@@ -384,9 +384,9 @@ Subotaidir = $(pkgdatadir)/caves/Subotai
 Subotai_CAVES = Subotai/Richi_Dash_1.bd Subotai/Richi_Dash_2-The_Voodoo_Caves.bd
 Subotai_DATA = $(Subotai_CAVES)
 
-Super_boulderdir = $(pkgdatadir)/caves/Super_boulder
-Super_boulder_CAVES = Super_boulder/Super_Boulder_01.gds Super_boulder/Super_Boulder_02.gds Super_boulder/Super_Boulder_03.gds Super_boulder/Super_Boulder_04.gds Super_boulder/Super_Boulder_05.gds Super_boulder/Super_Boulder_06.gds Super_boulder/Super_Boulder_07.gds Super_boulder/Super_Boulder_08.gds Super_boulder/Super_Boulder_09.gds Super_boulder/Super_Boulder_10.gds Super_boulder/Super_Boulder_11.gds
-Super_boulder_DATA = $(Super_boulder_CAVES)
+Super_Boulderdir = $(pkgdatadir)/caves/Super_Boulder
+Super_Boulder_CAVES = Super_Boulder/Super_Boulder_01.gds Super_Boulder/Super_Boulder_02.gds Super_Boulder/Super_Boulder_03.gds Super_Boulder/Super_Boulder_04.gds Super_Boulder/Super_Boulder_05.gds Super_Boulder/Super_Boulder_06.gds Super_Boulder/Super_Boulder_07.gds Super_Boulder/Super_Boulder_08.gds Super_Boulder/Super_Boulder_09.gds Super_Boulder/Super_Boulder_10.gds Super_Boulder/Super_Boulder_11.gds
+Super_Boulder_DATA = $(Super_Boulder_CAVES)
 
 Tatter_Demaliondir = $(pkgdatadir)/caves/Tatter_Demalion
 Tatter_Demalion_CAVES = Tatter_Demalion/Demalion_Dash_01-Can_you_dig_it_sucka.gds Tatter_Demalion/Demalion_Dash_02-Yosh.gds Tatter_Demalion/Demalion_Dash_02-Yosh_Casual_Remix.gds Tatter_Demalion/Demalion_Dash_03-Conflict_Diamonds.gds Tatter_Demalion/Demalion_Dash_04-All_aboard.gds Tatter_Demalion/Demalion_Dash_05-Farrago.gds Tatter_Demalion/Demalion_Dash_06-Seimicity.gds Tatter_Demalion/Demalion_Dash_07-Basic_Bricks.gds Tatter_Demalion/Demalion_Dash_08-Born2Dash.gds Tatter_Demalion/Demalion_Dash_09-Elianation.gds Tatter_Demalion/Demalion_Dash_10-Fun_and_Games.gds Tatter_Demalion/Demalion_Dash_11-ACME.gds Tatter_Demalion/Demalion_Dash_12-Super_Rad.gds Tatter_Demalion/Demalion_Dash_13-Paradigm.gds Tatter_Demalion/Demalion_Dash_14-All_aboard_again.gds Tatter_Demalion/Demalion_Dash_15-Commodork.gds Tatter_Demalion/Demalion_Dash_16-Craters.gds Tatter_Demalion/Demalion_Dash_17-Lords_of_the_Underground.gds Tatter_Demalion/Demalion_Dash_18-Grave_Robber.gds Tatter_Demalion/Demalion_Dash_NoFX.gds
@@ -428,4 +428,4 @@ Witrodir = $(pkgdatadir)/caves/Witro
 Witro_CAVES = Witro/Witrodash_1.gds Witro/Witrodash_2.gds Witro/Witrodash_3.gds
 Witro_DATA = $(Witro_CAVES)
 
-EXTRA_DIST = create_makefile.sh $(Achim_Hofmann_CAVES) $(Alan_Bond_CAVES) $(Alchemystics_CAVES) $(Alex_Zop_CAVES) $(American_Action_CAVES) $(Arno_Weber_CAVES) $(Atarakushi_CAVES) $(Bert_Bogger_CAVES) $(Black_and_Hawk_CAVES) $(Blupi_CAVES) $(Bobosoft_CAVES) $(Boulderwilli_CAVES) $(Boulder_Dash_Community_CAVES) $(Boulder_Rush_cave_pack_CAVES) $(Burton_Bandit_CAVES) $(CCF_CAVES) $(Chaos_CAVES) $(Cheech_Und_Chongs_CAVES) $(Conrad_CAVES) $(CoolshakerUnionGangKG_CAVES) $(Cup_CAVES) $(CWS_CAVES) $(Daniel_Tavernier_CAVES) $(Dan_Warren_CAVES) $(Didi_CAVES) $(Dino_CAVES) $(Don_Pedro_CAVES) $(Dotterteam_CAVES) $(Dr_Guru_CAVES) $(Dr_Watson_CAVES) $(Dustin_Bachstein_CAVES) $(Eberhard_Baartz_CAVES) $(Eclips_CAVES) $(El_Swingi_CAVES) $(FAJ_Soft_CAVES) $(Falcon_Soft_CAVES) $(Firefox_CAVES) $(First_Star_Software_CAVES) $(Frust_CAVES) $(Gertrud_CAVES) $(Gert_van_den_Heuvel_CAVES) $(Gods_CAVES) $(Grant_Walker_CAVES) $(Hacker_CAVES) $(Heinz_Truepelmann_CAVES) $(HSG_CAVES) $(Iron_Soft_CAVES) $(Karlchen_Opossum_CAVES) $(Lanzelott_and_Matula_CAVES) $(Lord_Diego_CAVES) $(LTL_Soft_CAVES) $(Lukas_Shambis_CAVES) $(Madgame_CAVES) $(Mapasoft_CAVES) $(Marek_Roth_CAVES) $(Mario_Albrecht_CAVES) $(Matthias_Koth_CAVES) $(Matthias_Steiner_CAVES) $(Max_CAVES) $(MB_Soft_CAVES) $(Metalmorphosis_CAVES) $(Michael_and_Ingo_CAVES) $(MJMan_CAVES) $(MJR_CAVES) $(Mr_Joker_CAVES) $(Mr_Nobody_CAVES) $(Mr_Nonflex_CAVES) $(Mr_Rockford_CAVES) $(No_One_CAVES) $(No_One_Delight_CAVES) $(No_One_Prima_CAVES) $(Odo_CAVES) $(Olaf_Roth_CAVES) $(Orion_CAVES) $(Papis_CAVES) $(Persoft_CAVES) $(Pete_CAVES) $(Peter_T_CAVES) $(Phoenix_CAVES) $(Pierre_and_Olivier_CAVES) $(Posocopi_Waldkirch_CAVES) $(Profi_Boulder_disks_CAVES) $(Prof_Knibble_CAVES) $(Renate_CAVES) $(Rolf_Lange_CAVES) $(Rolf_Roth_CAVES) $(Ron_van_Schaik_CAVES) $(Rory_Agsten_CAVES) $(Schlonkel_CAVES) $(Scserbin_Zoltan_CAVES) $(Sendy_CAVES) $(Skeletor_CAVES) $(Spider_CAVES) $(Stormbringer_CAVES) $(Sub7_CAVES) $(Subotai_CAVES) $(Super_boulder_CAVES) $(Tatter_Demalion_CAVES) $(The_Blockheads_CAVES) $(The_Bremer_Town_Musicus_CAVES) $(The_Editor_CAVES) $(The_Softkiller_CAVES) $(Thomas_Mauritz_CAVES) $(Tropyx_CAVES) $(UnlimitedStar23_CAVES) $(various_CAVES) $(Witro_CAVES)
+EXTRA_DIST = create_makefile.sh $(Achim_Hofmann_CAVES) $(Alan_Bond_CAVES) $(Alchemystics_CAVES) $(Alex_Zop_CAVES) $(American_Action_CAVES) $(Arno_Weber_CAVES) $(Atarakushi_CAVES) $(Bert_Bogger_CAVES) $(Black_and_Hawk_CAVES) $(Blupi_CAVES) $(Bobosoft_CAVES) $(Boulderwilli_CAVES) $(Boulder_Dash_Community_CAVES) $(Boulder_Rush_cave_pack_CAVES) $(Burton_Bandit_CAVES) $(CCF_CAVES) $(Chaos_CAVES) $(Cheech_Und_Chongs_CAVES) $(Conrad_CAVES) $(CoolshakerUnionGangKG_CAVES) $(Cup_CAVES) $(CWS_CAVES) $(Daniel_Tavernier_CAVES) $(Dan_Warren_CAVES) $(Didi_CAVES) $(Dino_CAVES) $(Don_Pedro_CAVES) $(Dotterteam_CAVES) $(Dr_Guru_CAVES) $(Dr_Watson_CAVES) $(Dustin_CAVES) $(Eberhard_Baartz_CAVES) $(Eclips_CAVES) $(El_Swingi_CAVES) $(FAJ_Soft_CAVES) $(Falcon_Soft_CAVES) $(Firefox_CAVES) $(First_Star_Software_CAVES) $(Frust_CAVES) $(Gertrud_CAVES) $(Gert_van_den_Heuvel_CAVES) $(Gods_CAVES) $(Grant_Walker_CAVES) $(Hacker_CAVES) $(Heinz_Truepelmann_CAVES) $(HSG_CAVES) $(Iron_Soft_CAVES) $(Karlchen_Opossum_CAVES) $(Lanzelott_and_Matula_CAVES) $(Lord_Diego_CAVES) $(LTL_Soft_CAVES) $(Lukas_Shambis_CAVES) $(Madgame_CAVES) $(Mapasoft_CAVES) $(Marek_Roth_CAVES) $(Mario_Albrecht_CAVES) $(Matthias_Koth_CAVES) $(Matthias_Steiner_CAVES) $(Max_CAVES) $(MB_Soft_CAVES) $(Metalmorphosis_CAVES) $(Michael_and_Ingo_CAVES) $(MJMan_CAVES) $(MJR_CAVES) $(Mr_Joker_CAVES) $(Mr_Nobody_CAVES) $(Mr_Nonflex_CAVES) $(Mr_Rockford_CAVES) $(No_One_CAVES) $(No_One_Delight_CAVES) $(No_One_Prima_CAVES) $(Odo_CAVES) $(Olaf_Roth_CAVES) $(Orion_CAVES) $(Papis_CAVES) $(Persoft_CAVES) $(Pete_CAVES) $(Peter_T_CAVES) $(Phoenix_CAVES) $(Pierre_and_Olivier_CAVES) $(Posocopi_Waldkirch_CAVES) $(Profi_Boulder_disks_CAVES) $(Prof_Knibble_CAVES) $(Renate_CAVES) $(Rolf_Lange_CAVES) $(Rolf_Roth_CAVES) $(Ron_van_Schaik_CAVES) $(Rory_Agsten_CAVES) $(Schlonkel_CAVES) $(Scserbin_Zoltan_CAVES) $(Sendy_CAVES) $(Skeletor_CAVES) $(Spider_CAVES) $(Stormbringer_CAVES) $(Sub7_CAVES) $(Subotai_CAVES) $(Super_Boulder_CAVES) $(Tatter_Demalion_CAVES) $(The_Blockheads_CAVES) $(The_Bremer_Town_Musicus_CAVES) $(The_Editor_CAVES) $(The_Softkiller_CAVES) $(Thomas_Mauritz_CAVES) $(Tropyx_CAVES) $(UnlimitedStar23_CAVES) $(various_CAVES) $(Witro_CAVES)
