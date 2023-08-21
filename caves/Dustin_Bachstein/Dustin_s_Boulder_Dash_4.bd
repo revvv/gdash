@@ -1,5 +1,6 @@
 [BDCFF]
 Version=0.5
+
 [game]
 Name=Dustin's Boulder Dash 4 - RockFort Remix
 Author=Dustin Bachstein
@@ -10,37 +11,18 @@ TitleScreen=iVBORw0KGgoAAAANSUhEUgAAAUAAAACoCAYAAACR8DfxAAAABHNCSVQICAgIfAhkiAAA
 Levels=5
 
 [cave]
-[highscore]
-733 Dustin
-729 Dustin
-707 Dustin Bachstein
-605 sndubach
-585 Dustin Bachstein
-569 Dustin Bachstein
-520 Dustin Bachstein
-433 sndubach
-424 Dustin Bachstein
-415 Dustin Bachstein
-413 Dustin
-405 Dustin Bachstein
-404 Dustin Bachstein
-398 test
-389 Dustin Bachstein
-387 test
-315 Dustin Bachstein
-[/highscore]
 Name=A
 Author=Dustin (original: Peter Liepa)
 Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Orange Gray1 White White White
 DiamondsRequired=30 45 60 75 90
-DiamondValue=5 10
 CaveTime=240 240 240 180 180
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=5 10
 RandSeed=10 11 12 13 14
 RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 DIRT 0
 MagicWallTime=48 48 48 48 48
@@ -58,36 +40,18 @@ Point=38 16 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-366 test
-364 Dustin Bachstein
-361 Dustin Bachstein
-360 Dustin Bachstein
-358 Dustin
-342 Dustin
-342 sndubach
-330 Dustin Bachstein
-324 test
-304 Dustin
-304 Dustin Bachstein
-302 Dustin Bachstein
-301 Dustin Bachstein
-295 Dustin Bachstein
-235 Dustin Bachstein
-185 Dustin Bachstein
-[/highscore]
 Name=B
 Author=Dustin
 Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Green LightGreen Yellow White White
 DiamondsRequired=9 9 9 9 9
-DiamondValue=20 0
 CaveTime=180 150 120 90 60
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=20 0
 RandSeed=35 78 167 24 110
 RandomFill=BOULDER 30 DIRT 0 DIRT 0 DIRT 0
 SlimePermeabilityC64=0 0 0 0 0
@@ -106,28 +70,6 @@ Point=20 9 BUTTERFLYd
 [/cave]
 
 [cave]
-[highscore]
-669 Dustin Bachstein
-654 Dustin
-626 Dustin
-604 sndubach
-586 Dustin Bachstein
-568 sndubach
-566 sndubach
-515 Dustin Bachstein
-498 sndubach
-480 Dustin Bachstein
-460 Dustin
-457 Dustin Bachstein
-455 Dustin Bachstein
-449 Dustin Bachstein
-444 Dustin Bachstein
-443 Dustin Bachstein
-432 test
-421 dustin
-412 sndubach
-400 Dustin
-[/highscore]
 Name=C
 Author=Dustin Bachstein
 Date=2008-10-11
@@ -135,15 +77,16 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black LightRed Green White Cyan Gray1
 DiamondsRequired=31 38 39 36 36
-DiamondValue=10 99
 CaveTime=201 180 140 100 75
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 99
 RandSeed=82 140 104 133 148
 RandomFill=MAGICWALL 100 BOULDER 70 DIAMOND 15 DIRT 0
 MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -153,28 +96,6 @@ Point=37 2 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-608 sndubach
-538 Dustin Bachstein
-535 Dustin Bachstein
-535 Dustin
-532 Dustin Bachstein
-526 sndubach
-518 Dustin
-515 Dustin Bachstein
-494 sndubach
-490 Dustin Bachstein
-484 sndubach
-480 sndubach
-480 Dustin Bachstein
-449 Dustin Bachstein
-448 Dustin Bachstein
-448 Dustin
-445 Dustin Bachstein
-443 Dustin Bachstein
-441 test
-408 dustin
-[/highscore]
 Name=D
 Author=Dustin Bachstein
 Date=2008-10-11
@@ -182,12 +103,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black LightRed Green White Cyan Gray1
 DiamondsRequired=7 7 7 7 7
-DiamondValue=40 0
 CaveTime=240 210 180 140 110
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=40 0
 RandSeed=12 13 2 20 5
 RandomFill=BOULDER 60 DIRT 0 DIRT 0 DIRT 0
 SlimePermeabilityC64=0 0 0 0 0
@@ -202,36 +123,21 @@ Point=37 1 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-164 Dustin Bachstein
-158 Dustin
-149 demo
-134 Dustin Bachstein
-123 Dustin
-117 sndubach
-105 sndubach
-91 Dustin Bachstein
-82 sndubach
-80 Dustin Bachstein
-78 Dustin
-74 Dustin Bachstein
-73 Dustin Bachstein
-[/highscore]
 Name=BONUS LIFE
 Author=Dustin Bachstein
 Date=2008-10-19
 Selectable=false
-Intermission=true
 IntermissionProperties.instantlife=true
+Intermission=true
 Size=20 12 0 0 19 11
 Colors=Black Black Purple Cyan White Cyan Brown
 DiamondsRequired=0 0 0 0 0
-DiamondValue=3 0
 CaveTime=30 30 30 30 30
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=3 0
 RandSeed=-1 -1 -1 -1 -1
 RandomFill=DIAMOND 33 DIRT 0 DIRT 0 DIRT 0
 SlimePermeabilityC64=0 0 0 0 0
@@ -250,7 +156,7 @@ RecordedWith=GDash 20090503
 RandomSeed=25764331
 Score=82
 Success=true
-Checksum=482883907
+CheckSum=482883907
 Movements=.14 l ul u2 ul l5 ul u3 ur r9 d3 r5 .2 U2 .2 d l6 .3 d r6 d5 l16 u4 r3 .3 d .3 l .2 d .4 r2 ur u2 .3 r2 .3 d .5 d .3 r2 .3 u2
 [/replay]
 
@@ -262,7 +168,7 @@ RecordedWith=GDash 20090503
 RandomSeed=737274324
 Score=105
 Success=true
-Checksum=-1876280751
+CheckSum=-1876280751
 Movements=.19 u .3 l3 .3 u2 .4 r7 .4 d3 .9 l3 .2 d .4 r5 .9 u .3 r .3 d4 l3 .9 u2 ul l2 .8 d4 l5 .3 u2 .3 l3 .3 u .3 l2 u3 ur r3 dr d2 r3 . d dr r2 .3 u
 [/replay]
 
@@ -274,7 +180,7 @@ RecordedWith=GDash 20090503
 RandomSeed=993423074
 Score=117
 Success=true
-Checksum=-1989526959
+CheckSum=-1989526959
 Movements=.20 u3 .4 l6 .5 u .2 L .3 r16 d l .3 d .3 l5 d .7 l .3 d .3 r .3 d .3 r .3 d .3 r4 d .3 r2 . d .3 l2 d2 l15 u4 r3 .3 d2 .3 r5 .6 r .4 u2
 [/replay]
 
@@ -286,34 +192,12 @@ RecordedWith=GDash 20090503
 RandomSeed=29086980
 Score=149
 Success=true
-Checksum=518273617
+CheckSum=518273617
 Movements=.16 u2 .4 r2 .4 d2 .4 r5 u3 .5 r2 .2 U .6 d5 l5 .5 l .4 U2 .2 d r6 d3 l12 u l3 ul u4 r4 d4 r4 u2
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-543 sndubach
-531 sndubach
-510 demotest
-504 test
-434 Dustin Bachstein
-425 Dustin
-422 Dustin Bachstein
-416 Dustin
-410 Dustin Bachstein
-408 sndubach
-395 test
-380 Dustin Bachstein
-375 Dustin
-365 Dustin Bachstein
-362 Dustin Bachstein
-360 Dustin Bachstein
-352 Dustin
-344 Dustin Bachstein
-330 Dustin Bachstein
-246 sndubach
-[/highscore]
 Name=E
 Author=Dustin Bachstein
 Date=2008-12-07
@@ -321,12 +205,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Blue LightRed Purple Brown
 DiamondsRequired=4 4 4 4 4
-DiamondValue=60 0
 CaveTime=180 150 120 100 85
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=60 0
 InitialFill=SPACE
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
@@ -345,38 +229,18 @@ Point=28 10 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-640 Dustin Bachstein
-508 Dustin Bachstein
-465 sndubach
-452 Dustin Bachstein
-440 Dustin Bachstein
-397 Dustin
-392 Dustin Bachstein
-390 Dustin Bachstein
-375 Dustin Bachstein
-373 Dustin Bachstein
-368 test
-368 Dustin
-260 Dustin Bachstein
-249 test
-245 Dustin
-230 Dustin
-222 Dustin Bachstein
-222 Dustin Bachstein
-[/highscore]
 Name=F
 Author=Dustin
 Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray1 Brown White White White
 DiamondsRequired=5 10 10 10 9
-DiamondValue=20 50
 CaveTime=150 120 100 90 75
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=20 50
 RandSeed=12 13 14 15 23
 InitialFill=SPACE
 RandomFill=DIAMOND 15 FIREFLYl 10 DIRT 0 DIRT 0
@@ -391,28 +255,6 @@ Add=0 1 DIAMOND STEELWALL
 [/cave]
 
 [cave]
-[highscore]
-867 Dustin Bachstein
-790 Dustin
-780 Dustin Bachstein
-765 Dustin Bachstein
-735 test
-697 test
-656 Dustin Bachstein
-600 Dustin
-594 sndubach
-587 Dustin Bachstein
-555 Dustin
-516 test
-481 Dustin
-474 sndubach
-451 Dustin Bachstein
-450 Dustin Bachstein
-410 sndubach
-391 Dustin Bachstein
-348 sndubach
-303 Dustin Bachstein
-[/highscore]
 Name=G
 Author=Dustin Bachstein
 Date=2008-12-16
@@ -420,12 +262,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Blue White LightGreen Blue
 DiamondsRequired=10 15 20 25 30
-DiamondValue=15 30
 CaveTime=80 80 80 80 80
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=15 30
 RandSeed=17 20 23 26 29
 RandomFill=DIRT 49 DIRT 49 BOULDER 48 DIAMOND 24
 AmoebaProperties.immediately=false
@@ -442,28 +284,6 @@ Rectangle=6 13 8 15 AMOEBA
 [/cave]
 
 [cave]
-[highscore]
-709 Dustin
-698 Dustin Bachstein
-689 Dustin Bachstein
-683 Dustin Bachstein
-635 Dustin Bachstein
-620 Dustin Bachstein
-615 sndubach
-609 test
-565 Dustin Bachstein
-553 test
-550 Dustin Bachstein
-534 sndubach
-526 sndubach
-505 demotest
-485 test
-484 Dustin
-473 Dustin
-465 sndubach
-460 Dustin
-431 sndubach
-[/highscore]
 Name=H
 Author=Dustin Bachstein
 Date=2008-11-20
@@ -471,12 +291,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Blue White White LightBlue
 DiamondsRequired=48 53 48 65 60
-DiamondValue=5 20
 CaveTime=240 220 200 180 150
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=5 20
 RandSeed=70 75 80 85 90
 InitialFill=BOULDER
 RandomFill=DIAMOND 60 DIRT 0 DIRT 0 DIRT 0
@@ -495,31 +315,21 @@ Point=20 0 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-145 demo
-100 sndubach
-96 Dustin Bachstein
-88 Dustin
-87 Dustin Bachstein
-86 Dustin Bachstein
-86 Dustin Bachstein
-84 Dustin Bachstein
-[/highscore]
 Name=BONUS LIFE
 Author=Dustin Bachstein
 Date=2008-10-20
 Selectable=false
-Intermission=true
 IntermissionProperties.instantlife=true
+Intermission=true
 Size=20 12 0 0 19 11
 Colors=Black Black Purple Cyan White Cyan Gray1
 DiamondsRequired=2 2 2 2 2
-DiamondValue=40 0
 CaveTime=30 30 30 30 30
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=40 0
 MagicWallTime=20 20 20 20 20
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -552,7 +362,7 @@ RecordedWith=GDash 20090503
 RandomSeed=635270781
 Score=100
 Success=true
-Checksum=-526628914
+CheckSum=-526628914
 Movements=.22 U . d dl l6 u7 r4 ur u .3 r2 .12 l6 d8 dr r14 u7 l4 u .3 l2 .7 l12 .2 u2 .2 r6 d3 dr r l u2 ur r4 d2 l2 r6 u4 .8 d9 l7 u
 [/replay]
 
@@ -564,30 +374,12 @@ RecordedWith=GDash 20090503
 RandomSeed=827810918
 Score=145
 Success=true
-Checksum=-526628914
+CheckSum=-526628914
 Movements=.22 U . d dr r7 u7 l4 u l2 .6 r7 d8 dl l14 ul u7 r4 u .15 r2 .7 r4 d2 . L . u2 ul l4 d2 D R l5 d6 r8 U
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-336 Dustin
-330 Dustin
-304 Dustin Bachstein
-302 sndubach
-301 Dustin
-277 Dustin Bachstein
-272 sndubach
-269 Dustin
-261 Dustin Bachstein
-244 Dustin Bachstein
-238 sndubach
-238 Dustin Bachstein
-225 dustin
-224 test
-200 Dustin Bachstein
-175 sndubach
-[/highscore]
 Name=I
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -595,12 +387,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 LightGreen White Cyan Orange
 DiamondsRequired=1 1 1 1 1
-DiamondValue=100 1
 CaveTime=240 225 210 195 180
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=100 1
 RandSeed=12 194 0 199 44
 RandomFill=SPACE 120 BOULDER 60 FIREFLYl 9 DIRT 0
 SlimePermeabilityC64=0 0 0 0 0
@@ -617,26 +409,6 @@ Point=8 13 DIAMOND
 [/cave]
 
 [cave]
-[highscore]
-704 Dustin
-690 Dustin Bachstein
-684 Dustin
-670 test
-662 Dustin Bachstein
-655 Dustin
-629 sndubach
-624 Dustin Bachstein
-621 Dustin Bachstein
-613 sndubach
-610 sndubach
-606 Dustin Bachstein
-602 Dustin
-599 Dustin Bachstein
-599 Dustin Bachstein
-596 sndubach
-554 sndubach
-486 test
-[/highscore]
 Name=J
 Author=Dustin Bachstein
 Date=2008-12-21
@@ -644,12 +416,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Blue White White Blue
 DiamondsRequired=45 41 38 41 50
-DiamondValue=10 0
 CaveTime=240 210 180 150 120
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 0
 RandSeed=123 34 16 17 42
 InitialFill=SPACE
 RandomFill=DIAMOND 30 DIRT 0 DIRT 0 DIRT 0
@@ -667,39 +439,20 @@ Point=37 19 FIREFLYd
 [/cave]
 
 [cave]
-[highscore]
-640 sndubach
-628 Dustin
-592 Dustin Bachstein
-591 Dustin
-582 sndubach
-576 Dustin Bachstein
-575 Dustin Bachstein
-568 Dustin
-532 Dustin Bachstein
-525 Dustin
-520 sndubach
-519 Dustin Bachstein
-434 sndubach
-398 sndubach
-350 test
-331 Dustin Bachstein
-324 dustin
-[/highscore]
 Name=K
 Author=Dustin Bachstein
 Date=2008-10-16
-Intermission=false
 IntermissionProperties.instantlife=true
+Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 LightGreen White Cyan Brown
 DiamondsRequired=15 20 25 30 35
-DiamondValue=10 15
 CaveTime=240 180 180 150 150
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 15
 RandSeed=30 31 32 33 36
 RandomFill=BOULDER 40 SPACE 20 FIREFLYl 5 DIRT 0
 SlimePermeabilityC64=0 0 0 0 0
@@ -714,24 +467,6 @@ Add=0 1 FIREFLYl BOULDER
 [/cave]
 
 [cave]
-[highscore]
-455 Dustin Bachstein
-442 Dustin Bachstein
-442 Dustin
-441 Dustin Bachstein
-441 Dustin Bachstein
-440 Dustin
-439 Dustin Bachstein
-426 sndubach
-422 dustin
-410 sndubach
-381 Dustin
-372 sndubach
-370 Dustin
-352 Dustin Bachstein
-352 sndubach
-265 test
-[/highscore]
 Name=L
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -739,12 +474,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Red Purple LightBlue Gray3 Blue
 DiamondsRequired=6 7 8 8 8
-DiamondValue=30 90
 CaveTime=111 100 85 80 75
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=30 90
 RandSeed=99 139 105 177 223
 RandomFill=MAGICWALL 40 DIRT 0 DIRT 0 DIRT 0
 AmoebaProperties.immediately=false
@@ -766,34 +501,20 @@ Raster=2 20 3 1 18 2 DIAMOND
 [/cave]
 
 [cave]
-[highscore]
-500 Dustin Bachstein
-500 Dustin Bachstein
-140 Dustin
-140 Dustin Bachstein
-121 Dustin
-114 Dustin Bachstein
-114 Dustin
-107 Dustin Bachstein
-107 Dustin Bachstein
-107 Dustin Bachstein
-107 Dustin
-107 Dustin Bachstein
-[/highscore]
 Name=BONUS LIFE
 Author=Dustin
 Selectable=false
-Intermission=true
 IntermissionProperties.instantlife=true
+Intermission=true
 Size=20 12 0 0 19 11
 Colors=Black Black Brown Blue LightRed White White
 DiamondsRequired=1 1 1 1 1
-DiamondValue=100 0
 CaveTime=10 10 10 10 10
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=100 0
 InitialFill=SPACE
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -818,31 +539,12 @@ Player=Rockford
 Date=2008-03-09
 RecordedWith=GDash 20100212
 RandomSeed=749160665
-Checksum=-1227015976
+CheckSum=-1227015976
 Movements=.12 r . r2 .16
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-817 Dustin
-785 Dustin Bachstein
-694 Dustin
-692 Dustin
-685 Dustin Bachstein
-634 Dustin Bachstein
-617 Dustin Bachstein
-596 test
-591 Dustin Bachstein
-570 test
-526 sndubach
-520 Dustin
-511 Dustin Bachstein
-510 Dustin Bachstein
-507 sndubach
-448 sndubach
-368 sndubach
-[/highscore]
 Name=M
 Author=Dustin Bachstein
 Date=2008-12-22
@@ -850,12 +552,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Red White Purple Blue
 DiamondsRequired=30 40 50 60 70
-DiamondValue=5 15
 CaveTime=120 110 100 80 60
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=5 15
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
 AmoebaTime=100 100 100 100 100
@@ -875,34 +577,18 @@ Point=20 11 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-445 Dustin Bachstein
-445 Dustin Bachstein
-440 Dustin
-386 Dustin
-362 sndubach
-362 Dustin
-358 Dustin Bachstein
-339 Dustin Bachstein
-339 Dustin Bachstein
-339 Dustin Bachstein
-339 Dustin Bachstein
-339 Dustin
-339 Dustin Bachstein
-339 test
-[/highscore]
 Name=N
 Author=Dustin
 Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Green Gray1 Orange White White
 DiamondsRequired=32 32 32 32 32
-DiamondValue=10 0
 CaveTime=40 40 40 40 40
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 0
 InitialFill=FIREFLYl
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -917,24 +603,6 @@ Point=31 2 BOULDER
 [/cave]
 
 [cave]
-[highscore]
-721 Dustin
-657 sndubach
-657 Dustin
-652 Dustin
-638 sndubach
-615 sndubach
-553 Dustin Bachstein
-507 sndubach
-466 Dustin Bachstein
-460 Dustin Bachstein
-434 Dustin Bachstein
-389 Dustin Bachstein
-373 Dustin Bachstein
-358 dustin
-344 Dustin Bachstein
-300 test
-[/highscore]
 Name=O
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -942,12 +610,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 LightGreen White Cyan Orange
 DiamondsRequired=30 40 50 60 60
-DiamondValue=5 15
 CaveTime=300 300 300 300 300
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=5 15
 RandSeed=14 12 42 56 33
 RandomFill=SPACE 110 BOULDER 70 FIREFLYl 15 DIAMOND 10
 MagicWallTime=290 290 290 290 290
@@ -963,28 +631,6 @@ Point=20 10 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-422 Dustin
-396 sndubach
-396 Dustin Bachstein
-387 Dustin
-381 dustin
-378 Dustin Bachstein
-378 Dustin Bachstein
-374 sndubach
-374 Dustin
-373 Dustin Bachstein
-372 Dustin Bachstein
-370 test
-360 sndubach
-358 sndubach
-356 dustin
-348 sndubach
-328 sndubach
-325 Dustin Bachstein
-320 test
-304 sndubach
-[/highscore]
 Name=P
 Author=Dustin Bachstein
 Date=2008-10-07
@@ -992,12 +638,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Red LightRed Green White Cyan Brown
 DiamondsRequired=6 6 6 6 6
-DiamondValue=50 0
 CaveTime=85 70 60 50 40
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=50 0
 RandSeed=13 15 17 18 19
 RandomFill=FIREFLYl 25 DIRT 0 DIRT 0 DIRT 0
 SlimePermeabilityC64=0 0 0 0 0
@@ -1015,37 +661,20 @@ Point=20 11 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-268 test
-256 moi
-228 test
-225 Dustin Bachstein
-216 Rockford
-210 Dustin
-206 Dustin
-205 test
-204 Rockford
-199 Jenny
-193 Dustin
-183 Dustin Bachstein
-183 Dustin Bachstein
-182 Dustin Bachstein
-182 Dustin Bachstein
-[/highscore]
 Name=BONUS LIFE
 Author=Dustin
 Selectable=false
-Intermission=true
 IntermissionProperties.instantlife=true
+Intermission=true
 Size=20 12 0 0 19 11
 Colors=Black Black Blue Orange White White Orange
 DiamondsRequired=36 36 36 36 36
-DiamondValue=5 0
 CaveTime=60 60 60 60 60
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=5 0
 SlimePermeabilityC64=248 248 248 248 248
 SlimePredictableC64.seed=35 35 35 35 35
 
@@ -1071,34 +700,12 @@ RecordedWith=GDash 20100212
 RandomSeed=276058962
 Score=216
 Success=true
-Checksum=-1405793164
+CheckSum=-1405793164
 Movements=.13 l3 dl d5 dr r4 ur u5 ul l4 d5 dr r4 u5 ul l4 d5 dr r4 u5 l4 dl d5 dr r4 u5 ul l4 d5 dr r4 u5 l5 d5 dr r4 u6 l4 dl d5 dr r4 u5 ul l4 dl d5 dr r16 u9 ul l dl d4 .5 r3 dr d5 . u4 . l2 .9 d7 l2 .9 r .5 R .8 u .4 R6 .10 u .41 l .12 u .3 r3 .6 l2 .3 d .7 r .3 d .4 D .2 u5 l5 .7 d7 dr r3 .8 u3 ul l .5 d3 dr r .4 u r2 . u3 l5 d4 l .7 d l2 u5 l2 d
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-731 Dustin Bachstein
-729 Dustin Bachstein
-671 Dustin
-671 Dustin Bachstein
-609 Dustin Bachstein
-573 sndubach
-545 Dustin Bachstein
-516 sndubach
-502 Dustin Bachstein
-502 Dustin
-485 test
-480 demotest
-444 sndubach
-444 Dustin
-431 sndubach
-410 Dustin Bachstein
-408 test
-371 sndubach
-369 Dustin Bachstein
-250 test
-[/highscore]
 Name=Q
 Author=Dustin Bachstein
 Date=2008-11-29
@@ -1106,12 +713,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Brown Brown Brown White Cyan Red
 DiamondsRequired=6 8 10 12 14
-DiamondValue=30 60
 CaveTime=20 20 20 20 20
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=30 60
 RandSeed=11 10 9 8 7
 InitialFill=SPACE
 RandomFill=DIAMOND 30 DIRT 0 DIRT 0 DIRT 0
@@ -1128,22 +735,6 @@ Rectangle=0 0 39 21 STEELWALL
 [/cave]
 
 [cave]
-[highscore]
-770 Dustin Bachstein
-730 sndubach
-658 sndubach
-623 sndubach
-552 Dustin Bachstein
-540 sndubach
-524 Dustin
-454 Dustin Bachstein
-452 test
-420 dustin
-336 Dustin
-332 Dustin Bachstein
-270 Dustin Bachstein
-258 Dustin Bachstein
-[/highscore]
 Name=R
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -1151,12 +742,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Blue Purple Yellow White Gray1
 DiamondsRequired=6 15 24 33 42
-DiamondValue=10 20
 CaveTime=240 240 210 195 180
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 20
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1174,31 +765,18 @@ Rectangle=7 6 17 16 FIREFLYl
 [/cave]
 
 [cave]
-[highscore]
-860 Dustin Bachstein
-759 Dustin Bachstein
-620 Dustin
-564 Dustin Bachstein
-477 sndubach
-445 Dustin
-436 Dustin Bachstein
-273 Dustin Bachstein
-266 Dustin Bachstein
-260 test
-255 Dustin Bachstein
-[/highscore]
 Name=S
 Author=Dustin
 Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Yellow Gray2 Orange White LightBlue
 DiamondsRequired=27 36 45 54 63
-DiamondValue=5 20
 CaveTime=201 201 201 201 201
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=5 20
 InitialFill=SPACE
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -1257,25 +835,6 @@ Point=4 10 DIRT
 [/cave]
 
 [cave]
-[highscore]
-764 Dustin Bachstein
-618 test
-506 Dustin Bachstein
-489 sndubach
-478 test
-473 Dustin Bachstein
-460 Dustin
-458 sndubach
-453 sndubach
-426 Dustin Bachstein
-420 Dustin Bachstein
-353 Dustin Bachstein
-331 Dustin
-327 Dustin Bachstein
-271 Dustin Bachstein
-268 sndubach
-248 Dustin Bachstein
-[/highscore]
 Name=T
 Author=Dustin Bachstein
 Date=2008-12-08
@@ -1283,12 +842,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Blue LightRed Cyan Blue
 DiamondsRequired=30 40 50 60 70
-DiamondValue=5 8
 CaveTime=96 96 96 96 96
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=5 8
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1304,36 +863,22 @@ Point=32 0 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-370 Dustin Bachstein
-318 test
-314 moi
-282 test
-273 Jenny
-252 moi
-248 test
-246 Dustin
-238 Dustin Bachstein
-237 moi
-235 Dustin
-225 Dustin Bachstein
-[/highscore]
 Name=BONUS LIFE
 Author=Dustin (original: Peter Liepa)
 Selectable=false
-Intermission=true
 IntermissionProperties.instantlife=true
+Intermission=true
 Charset=Original
 Fontset=Original
 Size=20 12 0 0 19 11
 Colors=Black Black Blue Orange White White Blue
 DiamondsRequired=7 7 7 7 7
-DiamondValue=30 0
 CaveTime=60 60 60 60 60
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=30 0
 MagicWallTime=40 40 40 40 40
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -1354,27 +899,12 @@ Date=timeless
 RecordedWith=GDash 20100212
 RandomSeed=478511644
 Score=180
-Checksum=-1639434411
+CheckSum=-1639434411
 Movements=.15 d3 .7 d3 .3 r15 u3 l3 u ul l2 d3 .3 r21 u ul l3 dl .4 d .6 r11 . u4 r6 .2 d3 l5 . r4 l4 d .23 l .6 d5 . d2 . d2 .15 u5 .5 l7 . u .5 u .3 u . u .40
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-335 Dustin Bachstein
-320 Dustin Bachstein
-320 Dustin
-309 sndubach
-302 Dustin
-302 Dustin Bachstein
-301 Dustin Bachstein
-301 Dustin Bachstein
-296 test
-221 sndubach
-218 Dustin Bachstein
-216 sndubach
-195 sndubach
-[/highscore]
 Name=U
 Author=Dustin Bachstein
 Date=2009-01-10
@@ -1382,12 +912,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Red Brown LightRed Black Black
 DiamondsRequired=99 99 94 95 90
-DiamondValue=2 80
 CaveTime=80 75 70 65 60
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=2 80
 RandSeed=102 111 223 8 4
 InitialFill=STEELWALL
 RandomFill=DIAMOND 220 DIRT 0 DIRT 0 DIRT 0
@@ -1417,35 +947,21 @@ Point=39 9 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-1060 Dustin Bachstein
-706 Dustin Bachstein
-668 Dustin
-643 sndubach
-550 Dustin Bachstein
-427 Dustin Bachstein
-388 Dustin Bachstein
-333 test
-332 Dustin Bachstein
-329 Dustin
-317 Dustin Bachstein
-307 test
-289 Dustin Bachstein
-[/highscore]
 Name=V
 Author=Dustin
 Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Gray3 LightBlue White White
 DiamondsRequired=9 12 15 18 21
-DiamondValue=20 50
 CaveTime=180 180 180 180 180
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=20 50
 InitialFill=SPACE
 MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1459,22 +975,6 @@ Point=20 0 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-612 Dustin
-610 Dustin Bachstein
-546 sndubach
-514 Dustin Bachstein
-514 Dustin Bachstein
-514 Dustin Bachstein
-514 Dustin Bachstein
-508 Dustin
-507 sndubach
-492 sndubach
-464 sndubach
-435 dustin
-435 test
-395 Dustin Bachstein
-[/highscore]
 Name=W
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -1482,12 +982,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black White Cyan White Yellow Brown
 DiamondsRequired=30 30 30 30 30
-DiamondValue=10 0
 CaveTime=240 180 120 60 40
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1519,38 +1019,20 @@ Add=0 1 DIAMOND DIRT
 [/cave]
 
 [cave]
-[highscore]
-215 i
-195 Dustin Bachstein
-188 moi
-180 test
-146 moi
-146 test
-134 Dustin Bachstein
-133 Rockford
-132 Dustin
-122 moi
-122 Rockford
-118 Dustin Bachstein
-117 Dustin Bachstein
-116 Dustin Bachstein
-116 Dustin Bachstein
-114 Dustin
-[/highscore]
 Name=BONUS LIFE
 Author=Dustin
 Selectable=false
-Intermission=true
 IntermissionProperties.instantlife=true
+Intermission=true
 Size=20 12 0 0 19 11
 Colors=Black Black Blue Orange White White Orange
 DiamondsRequired=1 1 1 1 1
-DiamondValue=100 0
 CaveTime=30 30 30 30 30
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=100 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1571,28 +1053,12 @@ RecordedWith=GDash 20100212
 RandomSeed=712860786
 Score=133
 Success=true
-Checksum=932066700
+CheckSum=932066700
 Movements=.14 d2 .87 d .15 l9 .19 u2 ur r3 dr d6 l5 u4 .17 r2 d4 dl l8 .11 u9 r4 .2 l dl d10 r3
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-675 Dustin Bachstein
-662 sndubach
-630 test
-564 sndubach
-544 Dustin Bachstein
-540 test
-478 sndubach
-430 Dustin
-419 Dustin Bachstein
-418 Dustin Bachstein
-416 Dustin Bachstein
-411 Dustin Bachstein
-387 sndubach
-321 Dustin Bachstein
-[/highscore]
 Name=X
 Author=Dustin Bachstein
 Date=2008-12-22
@@ -1600,12 +1066,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Blue White White LightBlue
 DiamondsRequired=28 34 42 36 44
-DiamondValue=10 20
 CaveTime=210 195 180 165 150
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 20
 RandSeed=50 60 70 80 90
 InitialFill=BOULDER
 RandomFill=DIAMOND 50 DIRT 0 DIRT 0 DIRT 0
@@ -1620,29 +1086,18 @@ Point=19 13 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-778 Dustin
-681 Dustin Bachstein
-517 Dustin Bachstein
-400 Dustin Bachstein
-398 sndubach
-370 Dustin Bachstein
-355 test
-205 Dustin Bachstein
-124 Dustin Bachstein
-[/highscore]
 Name=Y
 Author=Dustin
 Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Green Red White White White
 DiamondsRequired=16 12 15 13 16
-DiamondValue=10 30
 CaveTime=320 270 220 180 150
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 30
 RandSeed=198 237 239 235 242
 RandomFill=DIRT 30 DIRT 30 BOULDER 30 DIAMOND 10
 MagicWallTime=20 20 20 20 20
@@ -1666,22 +1121,6 @@ Raster=4 19 4 1 8 2 FIREFLYl
 [/cave]
 
 [cave]
-[highscore]
-484 sndubach
-460 sndubach
-454 test
-450 Dustin Bachstein
-450 Dustin Bachstein
-434 Dustin Bachstein
-434 Dustin Bachstein
-434 Dustin Bachstein
-434 Dustin
-426 sndubach
-425 dustin
-418 sndubach
-410 sndubach
-402 Dustin Bachstein
-[/highscore]
 Name=Z
 Author=Dustin Bachstein
 Date=2008-10-15
@@ -1689,12 +1128,12 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 LightGreen White Cyan Brown
 DiamondsRequired=8 7 7 11 9
-DiamondValue=40 0
 CaveTime=150 95 80 60 45
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=40 0
 RandomFill=DIAMOND 13 DIRT 0 DIRT 0 DIRT 0
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -1712,28 +1151,21 @@ Raster=34 2 2 14 2 1 WALL
 [/cave]
 
 [cave]
-[highscore]
-290 Dustin Bachstein
-290 Dustin Bachstein
-186 Dustin Bachstein
-186 Dustin Bachstein
-182 Dustin Bachstein
-[/highscore]
 Name=BONUS LIFE
 Author=sndubach
 Date=2009-05-05
 Selectable=false
-Intermission=true
 IntermissionProperties.instantlife=true
+Intermission=true
 Size=20 12 0 0 19 11
 Colors=#000000 #000000 #a62c21 #537f0c #af3dcd #1c7f0c #2127a6
 DiamondsRequired=16 16 16 16 16
-DiamondValue=10 0
 CaveTime=30 30 30 30 30
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
+DiamondValue=10 0
 InitialFill=STEELWALL
 SlimePermeabilityC64=0 0 0 0 0
 

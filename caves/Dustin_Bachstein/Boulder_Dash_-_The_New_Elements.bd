@@ -1,7 +1,12 @@
 [BDCFF]
 Version=0.5
-
 [game]
+[highscore]
+4816 test
+4271 test
+563 test
+80 dbachstein
+[/highscore]
 Name=Boulder Dash- The New Elements
 Author=Dustin
 Lives=5 99
@@ -17,13 +22,13 @@ Story=Rockford wakes up and finds he is alone in his house!\n\nRockford: Wife? C
 Size=20 12 0 0 19 11
 Colors=#000000 #000000 #222bac #0c7f7b #ca41da #2b7f0c #2b22ac
 DiamondsRequired=8 8 8 8 8
+DiamondValue=10 0
 CaveTime=45 42 39 36 30
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -45,13 +50,13 @@ Story=Ashmiralda: Hello, it's me, Ashmiralda! You enter the first of the seven a
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 Cyan White White White
 DiamondsRequired=1 1 1 1 1
+DiamondValue=0 10
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=0 10
 SlimePermeabilityC64=0 0 0 0 0
 Effect=BOMBEXPLOSIONeffect SPACE
 
@@ -105,6 +110,11 @@ Point=37 5 SPACE
 [/cave]
 
 [cave]
+[highscore]
+901 dbachstein
+651 sndubach
+554 dbachstein
+[/highscore]
 Name=1-1: Nutcrackers
 Author=Dustin
 Selectable=false
@@ -113,13 +123,13 @@ Story=Ashmiralda: This should be easy for you if you paid attention in the train
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Brown Red White #67996f #463ab2
 DiamondsRequired=25 24 25 27 24
+DiamondValue=10 30
 CaveTime=225 210 195 180 150
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 30
 RandSeed=101 204 38 107 201
 RandomFill=DIAMOND 75 SPACE 70 BOULDER 50 NUT 12
 SlimePermeabilityC64=0 0 0 0 0
@@ -131,6 +141,11 @@ Point=20 1 OUTBOX
 [/cave]
 
 [cave]
+[highscore]
+854 dbachstein
+705 dbachstein
+682 sndubach
+[/highscore]
 Name=1-2: Bombola
 Author=Dustin
 Selectable=false
@@ -139,13 +154,13 @@ Story=Ashmiralda: You will need a lot of bombs to break through the walls and ge
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Orange Purple White White White
 DiamondsRequired=-2 -2 -2 -2 -2
+DiamondValue=10 90
 CaveTime=420 392 364 336 280
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 90
 RandSeed=37 118 108 127 136
 RandomFill=BOMB 150 WALL 142 BOULDER 60 DIAMOND 20
 SlimePermeabilityC64=0 0 0 0 0
@@ -159,6 +174,11 @@ Point=20 2 OUTBOX
 [/cave]
 
 [cave]
+[highscore]
+665 dbachstein
+612 dbachstein
+427 sndubach
+[/highscore]
 Name=1-3: Clinging
 Author=Dustin
 Selectable=false
@@ -167,13 +187,13 @@ Story=Ashmiralda: It is important to always keep active here!
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #5c0c7f #99762d #23b389 #2d992f #0c297f
 DiamondsRequired=-12 -12 -12 -12 -12
+DiamondValue=10 30
 CaveTime=150 140 130 120 100
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 30
 RandSeed=72 87 124 131 218
 InitialFill=SPACE
 RandomFill=DIRT 28 DIRT 28 DIRT 28 DIAMOND 28
@@ -192,6 +212,11 @@ Point=32 4 OUTBOX
 [/cave]
 
 [cave]
+[highscore]
+829 dbachstein
+556 dbachstein
+545 sndubach
+[/highscore]
 Name=1-4: Dodgy's Castle
 Author=Dustin
 Selectable=false
@@ -200,13 +225,13 @@ Story=Ashmiralda: This is the first fortress! You will need to find some keys he
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #e6e6fa #9d1f30 #ffffff #219d1f #0c2f7f
 DiamondsRequired=5 5 5 5 5
+DiamondValue=80 0
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=80 0
 InitialFill=SPACE
 SlimePermeabilityC64=0 0 0 0 0
 AltButterflyExplodeTo=KEY1
@@ -264,13 +289,13 @@ Story=Ashmiralda: Welcome to Spinnet's Area! In this area you will meet some mor
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 Cyan White White White
 DiamondsRequired=1 1 1 1 1
+DiamondValue=0 10
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=0 10
 SlimePermeabilityC64=0 0 0 0 0
 Effect=BOULDERbouncingeffect DIAMOND
 FireflyExplodeTo=DIAMONDBIRTH1
@@ -316,6 +341,11 @@ Line=1 14 8 20 DIAMOND
 [/cave]
 
 [cave]
+[highscore]
+961 dbachstein
+541 dbachstein
+472 test
+[/highscore]
 Name=2-1: Escape Tunnel
 Author=Dustin
 Selectable=false
@@ -324,13 +354,13 @@ Story=Ashmiralda: If the walls seem impervious, don't despair but try your stren
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #26407f #86a710 #29cf76 #3da710 #26397f
 DiamondsRequired=-3 -3 -3 -3 -3
+DiamondValue=10 30
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 30
 RandSeed=-1 -1 -1 -1 -1
 RandomFill=DIRT 150 DIAMOND 150 BOULDER 120 SPACE 50
 SlimePermeabilityC64=0 0 0 0 0
@@ -346,6 +376,11 @@ Rectangle=2 2 19 19 DIRT
 [/cave]
 
 [cave]
+[highscore]
+608 dbachstein
+562 brosis
+411 dbachstein
+[/highscore]
 Name=2-2: Role-play
 Author=Dustin
 Selectable=false
@@ -354,18 +389,18 @@ Story=Ashmiralda: In this part of Spinnet's area they love to change their roles
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #944c98 #b22069 #cca8a6 #42b220 #4c5a98
 DiamondsRequired=33 48 37 45 33
+DiamondValue=5 35
 CaveTime=225 210 195 180 150
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=5 35
 RandSeed=198 246 253 134 14
 RandomFill=SPACE 60 BUTTERFLYd 26 BOULDER 25 DIAMOND 8
 MagicWallTime=21 21 21 21 21
-MagicWallProperties=DIAMONDf BOULDERf
 MagicWallProperties.convertamoeba=false
+MagicWallProperties=DIAMONDf BOULDERf
 SlimePermeabilityC64=254 254 254 254 254
 SlimeProperties=DIAMOND BOULDERf BOULDER DIAMONDf NUT NUTf
 FireflyExplodeTo=DIAMONDBIRTH1
@@ -387,6 +422,11 @@ Point=39 2 OUTBOX
 [/cave]
 
 [cave]
+[highscore]
+509 dbachstein
+411 dbachstein
+356 sndubach
+[/highscore]
 Name=2-3: Bouldermonds
 Author=Dustin
 Selectable=false
@@ -395,13 +435,13 @@ Story=Ashmiralda: This is Spinnet's last trap before you can reach his castle! T
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #7f3f26 #4ba510 #c428cc #10a51f #26337f
 DiamondsRequired=21 19 17 21 13
+DiamondValue=10 12
 CaveTime=180 168 156 144 120
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 12
 RandSeed=128 7 14 23 198
 RandomFill=DIRT 180 SPACE 180 BOULDER 20 DIAMOND 5
 SlimePermeabilityC64=0 0 0 0 0
@@ -421,6 +461,10 @@ Point=14 4 SPACE
 [/cave]
 
 [cave]
+[highscore]
+1011 dbachstein
+645 dbachstein
+[/highscore]
 Name=2-4: Spinnet's Castle
 Author=Dustin
 Selectable=false
@@ -429,13 +473,13 @@ Story=Ashmiralda: Be very careful in Spinnet's castle! First you need the keys b
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Purple Red White #0c7f10 #2243ad
 DiamondsRequired=30 30 30 30 30
+DiamondValue=15 0
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=15 0
 InitialFill=SPACE
 SlimePermeabilityC64=0 0 0 0 0
 AltButterflyExplodeTo=KEY1
@@ -493,15 +537,15 @@ Story=Ashmiralda: Very well done! You beat Spinnet and now you enter the area of
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 Cyan White White White
 DiamondsRequired=1 1 1 1 1
+DiamondValue=0 10
 CaveTime=150 140 130 120 100
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=0 10
 SlimePermeabilityC64=0 0 0 0 0
-Gravitation=Right
+Gravitation=right
 
 [objects]
 Rectangle=0 0 17 9 STEELWALL
@@ -531,6 +575,10 @@ Point=24 7 STEELWALL
 [/cave]
 
 [cave]
+[highscore]
+477 dbachstein
+381 dbachstein
+[/highscore]
 Name=3-1: Westerly
 Author=Dustin
 Selectable=false
@@ -539,17 +587,17 @@ Story=Ashmiralda: Beware of the strong wind streaming here!
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Cyan Gray2 White #3ba010 #3c267f
 DiamondsRequired=40 35 36 37 42
+DiamondValue=10 20
 CaveTime=210 196 182 168 140
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 20
 RandSeed=13 26 39 52 65
 RandomFill=DIRT 125 SPACE 120 BOULDER 80 DIAMOND 20
 SlimePermeabilityC64=0 0 0 0 0
-Gravitation=Right
+Gravitation=right
 
 [objects]
 Point=33 15 OUTBOX
@@ -558,6 +606,14 @@ Point=33 6 INBOX
 [/cave]
 
 [cave]
+[highscore]
+598 test
+584 dbachstein
+524 test
+505 dbachstein
+414 sndubach
+145 sndubach
+[/highscore]
 Name=3-2: Sultanate
 Author=Dustin
 Selectable=false
@@ -566,13 +622,13 @@ Story=Ashmiralda: In this palace you have too little time to collect so many dia
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #417f19 #11b337 #e7e445 #11b334 #23197f
 DiamondsRequired=444 444 444 444 444
+DiamondValue=1 2
 CaveTime=44 41 38 36 30
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=176 165 154 143 121
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=1 2
 RandSeed=100 254 213 13 109
 InitialFill=DIAMONDBIRTH1
 RandomFill=DUMMY 10 DIRT 0 DIRT 0 DIRT 0
@@ -586,6 +642,10 @@ Point=20 11 OUTBOX
 [/cave]
 
 [cave]
+[highscore]
+513 dbachstein
+282 dbachstein
+[/highscore]
 Name=3-3: Transformations
 Author=Dustin
 Selectable=false
@@ -594,22 +654,22 @@ Story=Ashmiralda: The dragonflies in this area resemble a dragon whom nine new h
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #6e30b2 #99906f #cc668a #6f9973 #305ab2
 DiamondsRequired=15 15 15 15 15
+DiamondValue=5 10
 CaveTime=225 210 195 180 150
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=5 10
 RandSeed=5 1 2 3 4
 RandomFill=DIRT 80 SPACE 80 DRAGONFLYu 40 BOULDER 37
 AmoebaTime=150 150 150 150 150
-AmoebaGrowthProb=0.0000 1.0000
+AmoebaGrowthProb=0.00000 1.00000
 SlimePermeabilityC64=0 0 0 0 0
 FireflyExplodeTo=BOMBEXPLOSION1
+DragonflyExplodeTo=NITROEXPLOSION1
 Effect=BOMBEXPLOSIONeffect BUTTERFLYd
 Effect=NITROEXPLOSIONeffect FIREFLYl
-DragonflyExplodeTo=NITROEXPLOSION1
 
 [objects]
 Add=0 -1 DRAGONFLYu DIRT
@@ -620,6 +680,11 @@ Point=18 10 INBOX
 [/cave]
 
 [cave]
+[highscore]
+1045 dbachstein
+883 test
+859 dbachstein
+[/highscore]
 Name=3-4:  Dago's Castle
 Author=Dustin
 Selectable=false
@@ -628,13 +693,13 @@ Story=Ashmiralda: Dago tries to confuse you with his architecture: Remember the 
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #dae526 #267f41 #fdd9b9 #267f2d #1f3a9c
 DiamondsRequired=70 70 70 70 70
+DiamondValue=10 0
 CaveTime=360 336 312 288 240
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 0
 InitialBorder=SPACE
 InitialFill=SPACE
 SlimePermeabilityC64=0 0 0 0 0
@@ -683,20 +748,20 @@ Line=32 11 32 13 DIRT
 [cave]
 Name=World 4- Follow's Area
 Author=Dustin
-IntermissionProperties.instantlife=true
 Intermission=false
+IntermissionProperties.instantlife=true
 IntermissionProperties.rewardlife=false
 Story=Ashmiralda: Congratulations! You beat Dago and have advanced to Follow's area now. Sorry I was a bit lazy today, so there's no training for you... but take an extra life instead!
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 Cyan White White White
 DiamondsRequired=1 1 1 1 1
+DiamondValue=0 16
 CaveTime=30 28 26 24 20
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=0 16
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -720,6 +785,10 @@ Point=19 9 DIAMOND
 [/cave]
 
 [cave]
+[highscore]
+319 dbachstein
+310 test
+[/highscore]
 Name=4-1: Dragonflies
 Author=Dustin
 Selectable=false
@@ -728,13 +797,13 @@ Story=Ashmiralda: Remember the dragonflies? They just keep moving forward until 
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #7f0c4d #b56c36 #ec2f3c #56b536 #0c277f
 DiamondsRequired=10 10 10 10 10
+DiamondValue=20 50
 CaveTime=150 140 130 120 100
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=20 50
 RandSeed=128 64 32 19 8
 InitialFill=SPACE
 RandomFill=DIRT 24 DRAGONFLYd 24 DRAGONFLYl 22 STEELWALL 20
@@ -749,6 +818,10 @@ Point=20 10 OUTBOX
 [/cave]
 
 [cave]
+[highscore]
+416 test
+415 dbachstein
+[/highscore]
 Name=4-2: Beltway
 Author=Dustin
 Selectable=false
@@ -757,13 +830,13 @@ Story=Ashmiralda: Don't let the firefly touch a doll! Oh I'm sorry, we should ha
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #bb776d #3e31a2 #ffffff #33b23f #4c5d99
 DiamondsRequired=5 5 5 5 5
+DiamondValue=80 0
 CaveTime=45 42 39 36 30
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=80 0
 RandSeed=4 4 4 4 4
 RandomFill=DUMMY 16 DIRT 0 DIRT 0 DIRT 0
 DummyProperties.diamondcollector=true
@@ -801,6 +874,9 @@ Line=36 19 38 19 WALL
 [/cave]
 
 [cave]
+[highscore]
+521 dbachstein
+[/highscore]
 Name=4-3: Singin' in the Rain
 Author=Dustin
 Selectable=false
@@ -809,13 +885,13 @@ Story=Ashmiralda: Don't wait for the rain to stop, it won't! Just wait for a goo
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Yellow LightBlue White White Gray2
 DiamondsRequired=5 5 5 5 5
+DiamondValue=80 0
 CaveTime=150 140 130 120 100
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=80 0
 InitialFill=SPACE
 MagicWallTime=4 4 4 4 4
 SlimePermeabilityC64=224 224 224 224 224
@@ -842,6 +918,10 @@ Line=30 1 30 18 STEELWALL
 [/cave]
 
 [cave]
+[highscore]
+634 dbachstein
+623 test
+[/highscore]
 Name=4-4: Follow's castle
 Author=Dustin
 Selectable=false
@@ -850,13 +930,13 @@ Story=Ashmiralda: OK you've advanced so far, now listen! Follow won't make it ea
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Purple Orange White #59b233 #6f6c99
 DiamondsRequired=29 29 29 29 29
+DiamondValue=15 0
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 160 140 120 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=15 0
 InitialFill=SPACE
 MagicWallTime=8 8 8 8 8
 SlimePermeabilityC64=0 0 0 0 0
@@ -928,13 +1008,13 @@ Story=Ashmiralda: Very well done, you have beaten Follow and now you can enter t
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 Cyan White White White
 DiamondsRequired=1 1 1 1 1
+DiamondValue=0 10
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=0 10
 MagicWallTime=30 328 26 24 20
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -988,6 +1068,10 @@ Point=29 7 BUTTERFLYd
 [/cave]
 
 [cave]
+[highscore]
+441 dbachstein
+410 test
+[/highscore]
 Name=5-1: The Replicator
 Author=Dustin
 Selectable=false
@@ -996,13 +1080,13 @@ Story=Ashmiralda: As you might have noted in the training, the replicator regula
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Brown Red #a466cc #2f992e #837cb2
 DiamondsRequired=30 30 30 30 30
+DiamondValue=5 10
 CaveTime=450 420 390 360 300
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=5 10
 InitialFill=SPACE
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -1027,6 +1111,10 @@ Line=6 10 6 15 WALL
 [/cave]
 
 [cave]
+[highscore]
+435 test
+365 dbachstein
+[/highscore]
 Name=5-2: Mission: Impassable
 Author=sndubach
 Date=2009-12-06
@@ -1036,13 +1124,13 @@ Story=Ashmiralda: A good hint: Before you go and risk your life trying to escape
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #b23988 #689975 #ccb866 #689971 #393fb2
 DiamondsRequired=10 13 16 11 11
+DiamondValue=20 40
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=20 40
 RandSeed=55 85 73 97 45
 RandomFill=SPACE 75 FIREFLYl 34 BOULDER 33 DIAMOND 5
 SlimePermeabilityC64=0 0 0 0 0
@@ -1062,6 +1150,10 @@ RandomFillC64=1 1 11 20 14 13 12 11 10 NONE DIAMOND 32
 [/cave]
 
 [cave]
+[highscore]
+487 dbachstein
+473 test
+[/highscore]
 Name=5-3: Staircase
 Author=sndubach
 Date=2009-12-06
@@ -1071,13 +1163,13 @@ Story=Ashmiralda: You need a boulder in the lower half, so don't collect anythin
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #3451af #197f78 #16df2a #367f19 #3634af
 DiamondsRequired=16 19 17 20 16
+DiamondValue=15 80
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=15 80
 RandSeed=118 127 136 145 158
 RandomFill=DIRT 32 DIRT 32 DIAMOND 32 BOULDER 28
 MagicWallTime=4 4 4 4 4
@@ -1096,6 +1188,10 @@ Point=17 1 DIAMOND
 [/cave]
 
 [cave]
+[highscore]
+525 dbachstein
+524 test
+[/highscore]
 Name=5-4: Spinnetwo's Castle
 Author=Dustin
 Selectable=false
@@ -1104,15 +1200,16 @@ Story=Ashmiralda: Spinnetwo tries to keep you off his chamber by using lots of t
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #b2112f #7f1970 #e59244 #197f25 #1119b2
 DiamondsRequired=12 12 12 12 12
+DiamondValue=20 0
 CaveTime=420 392 364 336 280
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=20 0
 InitialFill=SPACE
-Amoeba2Threshold=0.0011 0.0011 0.0011 0.0011 0.0011
+Amoeba2Threshold=0.00114 0.00114 0.00114 0.00114 0.00114
+Amoeba2GrowthProb=0.03125 0.25000
 Effect=AMOEBA2BOULDEReffect AMOEBA2
 Effect=AMOEBA2DIAMONDeffect AMOEBA2
 SlimePermeabilityC64=0 0 0 0 0
@@ -1197,13 +1294,13 @@ Story=Ashmiralda: You have done well, very well, up to now! From now on, a furth
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 Cyan White White White
 DiamondsRequired=1 1 1 1 1
+DiamondValue=40 30
 CaveTime=30 28 26 24 20
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=40 30
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1227,6 +1324,10 @@ Point=19 9 DIAMOND
 [/cave]
 
 [cave]
+[highscore]
+476 test
+476 dbachstein
+[/highscore]
 Name=6-1: Sleeping Giant
 Author=sndubach
 Date=2009-12-15
@@ -1236,16 +1337,16 @@ Story=Ashmiralda: Your first task in this area is to trap a strange amoeba. I ma
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #aa1126 #7f7a19 #40d545 #217f19 #1141aa
 DiamondsRequired=45 45 45 45 45
+DiamondValue=10 0
 CaveTime=195 185 175 165 145
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 0
 AmoebaProperties.waitforhatching=true
 AmoebaTime=150 140 130 120 100
-AmoebaGrowthProb=0.0000 1.0000
+AmoebaGrowthProb=0.00000 1.00000
 SlimePermeabilityC64=0 0 0 0 0
 Effect=EXPLOSIONEffect DIAMONDBIRTH1
 Effect=DIAMONDBIRTHEffect BOMBEXPLOSION1
@@ -1276,10 +1377,14 @@ Point=34 10 OUTBOX
 [/cave]
 
 [cave]
+[highscore]
+1235 dbachstein
+655 test
+[/highscore]
 Name=6-2: Impossible? Cocoons
 Selectable=false
-IntermissionProperties.instantlife=true
 Intermission=false
+IntermissionProperties.instantlife=true
 IntermissionProperties.rewardlife=false
 Charset=Original
 Fontset=Original, BD2
@@ -1287,13 +1392,13 @@ Story=Ashmiralda: What you will see here may be well- known for you. Touchy, how
 Size=40 22 0 0 39 21
 Colors=Black Black LightBlue LightRed White White LightBlue
 DiamondsRequired=36 36 36 36 37
+DiamondValue=10 10
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=6 6 6 6 6
-TimeValue=1 1 1 1 1
-DiamondValue=10 10
 ActiveGuyIsFirst=false
 AmoebaProperties.immediately=false
 MagicWallTime=10 10 10 10 10
@@ -1331,6 +1436,10 @@ Point=15 16 INBOX
 [/cave]
 
 [cave]
+[highscore]
+319 test
+307 dbachstein
+[/highscore]
 Name=6-3: Bridge
 Author=Dustin
 Selectable=false
@@ -1339,13 +1448,13 @@ Story=Ashmiralda: Well done, you solved the difficult cocoon puzzle! In this cav
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #7f3d19 #1061a1 #48c33a #2aa110 #1e197f
 DiamondsRequired=13 13 13 13 13
+DiamondValue=10 0
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=10 0
 RandSeed=190 190 190 190 190
 RandomFill=SPACE 32 DIAMOND 20 FIREFLYl 16 BOULDER 15
 SlimePermeabilityC64=0 0 0 0 0
@@ -1361,6 +1470,10 @@ Point=31 18 BOULDER
 [/cave]
 
 [cave]
+[highscore]
+919 test
+893 dbachstein
+[/highscore]
 Name=6-4: Touchy's Castle
 Author=Dustin
 Selectable=false
@@ -1369,21 +1482,20 @@ Story=Ashmiralda: Touchy is hidden behind four closed doors, and you need to col
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #1f479c #7f2655 #25ba12 #367f26 #1f7b9c
 DiamondsRequired=50 50 50 50 50
+DiamondValue=12 0
 CaveTime=480 448 416 384 320
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=12 0
 InitialFill=STEELWALL
 BonusTime=5 5 5 5 5
 AmoebaTime=50 50 50 50 50
 MagicWallTime=0 0 0 0 0
-MagicWallProperties.zeroisinfinite=false
 MagicWallProperties.convertamoeba=false
-SlimePermeability=1.0000 1.0000 1.0000 1.0000 1.0000
-AcidProperties=DIRT 0.0476
+SlimePermeability=1.00000 1.00000 1.00000 1.00000 1.00000
+AcidProperties=DIRT 0.04760
 AltButterflyExplodeTo=KEY1
 Effect=BOMBEXPLOSIONeffect SPACE
 
@@ -1508,13 +1620,13 @@ Story=Ashiralda: Very well done, Rockford! You are.... AAAAAAAAAAAAAAAAH!!!\n\nR
 Size=40 22 0 0 39 21
 Colors=Black LightRed Black Black Black White White
 DiamondsRequired=38 38 38 38 38
+DiamondValue=2 0
 CaveTime=30 28 26 24 20
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=2 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1564,6 +1676,9 @@ Line=1 20 38 20 DIAMOND
 [/cave]
 
 [cave]
+[highscore]
+676 dbachstein
+[/highscore]
 Name=7-1: Protective Charm
 Author=sndubach
 Date=2009-10-07
@@ -1573,13 +1688,13 @@ Story=Rockford: Poor Ashmiralda- what has Shizzer done to him and my family? If 
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #4d2e99 #b27c90 #ccc966 #7cb288 #2e4899
 DiamondsRequired=8 8 8 8 8
+DiamondValue=50 0
 CaveTime=480 450 420 390 360
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=160 150 140 130 120
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=50 0
 InitialFill=SPACE
 SnapEffect=EXPLOSION1
 SlimePermeabilityC64=0 0 0 0 0
@@ -1662,13 +1777,13 @@ Story=Ashmiralda: Hello...\n\nRockford: Ashmiralda!\n\nAshmiralda: Terrible... h
 Size=40 22 0 0 39 21
 Colors=Black Black Black Black Black White White
 DiamondsRequired=1 1 1 1 1
+DiamondValue=20 5
 CaveTime=90 84 78 72 60
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=20 5
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1699,6 +1814,9 @@ Point=35 20 AMOEBA
 [/cave]
 
 [cave]
+[highscore]
+303 test
+[/highscore]
 Name=7-3: Nonstop
 Author=Dustin
 Selectable=false
@@ -1707,13 +1825,13 @@ Story=Ashmiralda: RUN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! OUCH!!!\n\nKing Shi
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #19297f #a033aa #15d5a9 #4daa33 #32197f
 DiamondsRequired=0 0 0 0 0
+DiamondValue=30 0
 CaveTime=6 6 6 6 5
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=70 70 70 70 55
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=30 0
 InitialFill=STEELWALL
 BonusTime=5 5 5 5 4
 SlimePermeabilityC64=0 0 0 0 0
@@ -1778,6 +1896,10 @@ Point=37 10 FIREFLYl
 [/cave]
 
 [cave]
+[highscore]
+366 test
+198 test
+[/highscore]
 Name=7-4-1: King Shizzer's Castle (Entrance Code)
 Author=Dustin
 Selectable=false
@@ -1786,13 +1908,13 @@ Story=Ashmiralda: Follow... the green lights...
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #3e31a2 #707cc9 #ccc9bb #68a941 #894036
 DiamondsRequired=1 1 1 1 1
+DiamondValue=99 0
 CaveTime=300 280 260 240 200
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=99 0
 AmoebaProperties.immediately=false
 AmoebaProperties.waitforhatching=true
 MagicWallTime=3 3 3 3 3
@@ -1843,13 +1965,13 @@ Story=King Shizzer: HARR! HARR! So here you are, you wimpy little man! Come and 
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 Red Blue White #41b245 #564c99
 DiamondsRequired=52 52 52 52 52
+DiamondValue=5 50
 CaveTime=600 560 520 480 400
+TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 140 130 120 100
 HatchingDelay=8 8 8 8 8
 CaveDelay=0 0 0 0 0
-TimeValue=1 1 1 1 1
-DiamondValue=5 50
 InitialFill=SPACE
 MagicWallTime=2 2 2 2 2
 SlimePermeabilityC64=0 0 0 0 0
@@ -1975,11 +2097,11 @@ Story=Rockford's done it! He beat King Shizzer in his dark castle and rescued hi
 Size=20 12 0 0 19 11
 Colors=Black White Green Green White White White
 DiamondsRequired=10 10 10 10 10
+DiamondValue=0 0
 CaveTime=999 999 999 999 999
 CaveScheduling=ms
 FrameTime=180 160 140 120 120
 CaveDelay=0 0 0 0 0
-DiamondValue=0 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]

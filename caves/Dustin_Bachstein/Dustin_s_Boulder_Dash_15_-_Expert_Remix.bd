@@ -1,5 +1,6 @@
 [BDCFF]
 Version=0.5
+
 [game]
 Name=Dustin's Boulder Dash 15 - Xpert Remix
 Author=Dustin
@@ -9,50 +10,28 @@ TitleScreen=iVBORw0KGgoAAAANSUhEUgAAAUAAAACoCAIAAAAekqCmAAAAA3NCSVQICAjb4U/gAAAg
 Levels=5
 
 [cave]
-[highscore]
-418 Dustin
-416 Dustin
-416 Dustin
-412 Dustin
-390 Dustin
-375 Dustin
-375 Dustin
-375 Dustin
-370 Dustin
-370 Dustin
-355 Dustin
-353 Dustin
-349 Dustin
-339 Dustin
-339 Dustin
-338 Dustin
-338 Dustin
-338 Dustin
-338 Dustin
-338 Dustin
-[/highscore]
 Name=Welcome to Dustin's BD 15!
-Intermission=false
 IntermissionProperties.instantlife=true
+Intermission=false
 IntermissionProperties.rewardlife=false
 Story=Hi BD fans!!\nThis game is a rather special one inside the Dustin's BD series - it's the first one that is NOT based on five levels! Instead, I just made all five levels identic so it makes no difference which level you choose. \n\nSo what is this game about? To explain this, I have to ***. About one year ago, I joined Krissz's BD site (which I can highly recommend to every BD fan!) There, Arno has rebuilt and uploaded lots of caves from other fans - including me! So I could watch how other players solved my caves, and also on Arno's YouTube channel, there are quite some videos where solutions of my caves are shown.\nNow comes the interesting part: in quite a few caves of mine, other players found ways to get more diamonds than I thought were possible (or, at least, humanly possible)! That's how the idea came up in me to make a game out of these very caves. So this games contains old caves from my games which are made a lot harder than originally because more diamonds are required.\n\nThe caves are divided in four chapters in rough order of increasing difficulty. While the first chapter should be quite doable for every advanced Boulder Dasher, the last chapter has caves which I myself could never solve, even after seeing the demos of the world's best BD players at Krissz's site / Arno's channel!\n\nThese caves are not necessarily meant to be played from first to last without a Game Over, but rather to explore what is all possible in BD! Also, I demoed all solutions of the first three chapters and also gave links to solutions of the fourth chapter, so you can watch how these caves work if you're out of ideas / patience!\n\nAs always, I wish you a lot of fun with this game - it was definitely fun for me to make this little expert compilation! :D\n\nP.S.: This intro cave is a little kind of speedrun, the only one in this game, just as a little warm-up... ;)
 Size=40 22 0 0 39 21
 Colors=Black Black Orange Gray1 White White White
 DiamondsRequired=12 12 12 12 12
-DiamondValue=10 90
 CaveTime=21 21 21 21 21
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=12 6 3 1 0
+TimeValue=1 1 1 1 1
+DiamondValue=10 90
 RandSeed=10 10 10 10 10
 RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 SPACE 0
 ActiveGuyIsFirst=false
 AmoebaTime=20 20 20 20 20
 MagicWallTime=20 20 20 20 20
 SlimePermeabilityC64=0 0 0 0 0
-AcidProperties=DUMMY 0.83140
 Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.8314
 BorderProperties.lineshift=true
 BorderProperties.objectwraparound=true
 
@@ -65,15 +44,6 @@ Point=38 16 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-413 Dustin
-291 Dustin
-108 Dustin
-107 Dustin
-86 Dustin
-77 Dustin
-64 Dustin
-[/highscore]
 Name=Chapter 1: Grab 'em all!
 Author=Dustin
 Intermission=false
@@ -81,11 +51,11 @@ Story=- Dustin's BD1, intermission T -\n\nSince the early Dustin's BD games, Roc
 Size=20 12 0 0 19 11
 Colors=Black Black Purple Cyan White White White
 DiamondsRequired=9 9 9 9 9
-DiamondValue=30 0
 CaveTime=60 60 60 60 60
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+DiamondValue=30 0
 InitialFill=SPACE
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -102,40 +72,19 @@ Point=16 9 OUTBOX
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-10-26
 RecordedWith=GDash 20100212
 RandomSeed=459067518
 Score=291
 Success=true
-Checksum=1251815728
+CheckSum=1251815728
 Movements=.16 u11 r8 u2 d3 dr d6 L4 . r2 u7 .4 u .28 r5 d5 l5 u3 l4 .16 u3 .59 d dl l3 .17 l2 u .19 d2 r6 u2 l4 .7 r2 dr d7 l3 D r2 d r3 u r6
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-1038 Dustin
-1010 Dustin
-938 Dustin
-928 Dustin
-910 Dustin
-894 Dustin
-880 Dustin
-845 Dustin
-818 Dustin
-776 Dustin
-749 Dustin
-662 Dustin
-650 Dustin
-602 Dustin
-556 Dustin
-543 Dustin
-543 Dustin
-541 Dustin
-497 Dustin
-487 Dustin
-[/highscore]
 Name=Cave 1-1: Hide for Xperts
 Author=Dustin
 Intermission=false
@@ -143,12 +92,12 @@ Story=- Dustin's BD1, cave D -\n\nEven on level 5, Rockford only had to collect 
 Size=40 22 0 0 39 21
 Colors=Black Black Cyan Blue White White White
 DiamondsRequired=45 45 45 45 45
-DiamondValue=10 0
 CaveTime=240 240 240 240 240
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=10 0
 RandSeed=222 222 222 222 222
 RandomFill=DIRT 50 BOULDER 50 DIAMOND 0 BUTTERFLYl 0
 SlimePermeabilityC64=0 0 0 0 0
@@ -173,25 +122,19 @@ Add=0 2 BUTTERFLYl BOULDER
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=180430418
 Score=507
 Success=true
-Checksum=-844769067
+CheckSum=-844769067
 Movements=.10 d21 l2 ul u l dl d dl l2 r4 u l4 u r7 l7 ul u6 .9 r2 .2 u2 .5 r2 u2 .2 l2 .2 r2 . d2 . l2 . d2 . l2 dl d6 r4 u l4 u5 r2 u2 r u2 l2 u4 .8 l ul u3 .3 d2 .4 r2 .2 d3 l u l .2 d2 r .24 R .2 l ul u7 r13 .2 d10 .4 d .2 l3 r u r2 .2 l4 u r3 .8 l4 u r5 u4 .6 d3 .2 l4 .11 r3 .4 u .15 l6 u2 .5 u2 .13 r .2 d2 l2 .2 u .2 d r .2 d .2 L . r9 .4 d r3 .4 u8 . l3 r3 d2 l3 r3 u3 r6 . r4 .4 r .7 d8 D .2 u2 .4 d . l dl d2 D .2 u2 l2 d dr r3 .2 u .2 l5 . D .2 r6 .2 u .9 l6 u3 .5 l2 .6 r .6 d3 r2 . L2 .3 u .2 r2 d2 L r3 u3 r4 .2 u3 .3 u2 . L .2 d3 .3 L .2 u3 .2 r2 .2 D .2 r2 .3 r .2 d2 .2 L .2 d3 .2 L .2 d3 .3 l5 r5 d11 l2 .13 l .4 u2 .2 r8 .7 l2 . d2 l2 u r2 .15 r l .16 d2 .11 l5 L .2 r .2 u .2 r2 .43 l3 .25 r5 u3 . d2 l6 u3 .28 ul u3 .2 d5 r4 .3 l4 . R2 .3 u5 l2 d5 R4 r17 . l3 .7 u r2 u2 l r4 l u l u l2 d4 .3 l2 d2 l2 .3 l4 .2 u r6 u .3 l6 r6 .8 r .2 u4 . d3 l . r .7 u .2 l2 d3 l5 d .4 l4 .11 r4 .3 r4 . u .2 l3 u .2 d2 .23 u .3 l2 .7 r .8 r2 .2 r4 u .3 l6 d l2 u2 .18 l2 .12 r d2 r2 . L2 R . D .2 u3 r3 u6 l
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-563 Dustin
-469 Dustin
-465 Dustin
-384 Dustin
-320 Dustin
-[/highscore]
 Name=Cave 1-2: Magiuc Square for Xperts
 Author=Dustin
 Intermission=false
@@ -199,12 +142,12 @@ Story=- Dustin's BD2, cave N -\n\n30 out of 45 diamonds were enough in Dustin's 
 Size=40 22 0 0 39 21
 Colors=Black Black Gray1 Red White White White
 DiamondsRequired=45 45 45 45 45
-DiamondValue=10 0
 CaveTime=222 222 222 222 222
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=10 0
 RandSeed=17 17 17 17 17
 RandomFill=DIRT 50 DIRT 50 DIRT 50 BOULDER 50
 SlimePermeabilityC64=0 0 0 0 0
@@ -269,21 +212,19 @@ Point=34 10 FIREFLYl
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=710242354
 Score=510
 Success=true
-Checksum=-627577776
+CheckSum=-627577776
 Movements=.12 u16 l3 L r3 d5 l d2 l2 u4 .6 l u3 l2 .2 d r2 l3 u2 r .10 r4 .2 d7 .7 d l d3 r d4 l u . U . r u .3 l4 u .7 ul u ul r2 u2 r2 .3 l3 .4 r3 d3 r .7 d3 l .2 u .2 l2 .6 d l3 . D .2 u2 . d2 r2 u3 .22 r4 .2 d2 r5 u r2 .7 l7 u5 .4 U d6 r5 .14 r .11 u5 .10 r2 .13 l3 u r u2 l2 u r2 l7 d2 dl l4 . u ul l U D2 . r2 ur u4 ur r u5 l u2 l3 r7 l4 d2 r5 d4 r4 u2 .27 l3 d8 r . d4 .2 u2 .3 d l .10 l2 u2 l u2 r4 d5 . u2 ur r4 D l5 d2 l4 u .4 l u4 r2 d . l4 u3 r9 d5 r3 d4 r2 d2 l4 r8 l4 u4 l u2 U r6 d3 r6 d r3 u l3 .7 r2 . u r .2 r .15 D l4 u2 . r2 .8 d5 . l3 .6 u2 .15 r6 d3 l .2 d l2 ur u4 l4 u r5 d l2 .6 d3 dr d2 l .3 L6 l u2 r3 .2 u3 U d4 l3 u3 .10 l5 .4 d2 dl l2 .10 u r u2 ur r2 .5 r .7 r6 u3 r2 u4 . d6 . u3 l2 d3 l7 u3 l4 .5 u2 r2 .2 d2 r2 u2 .15 r2 .17 u . r3 U l5 u . l u2 .16 l3 .11 r3 u2 ur r5 u2 l3 r5 l3 d2 dl l11 .4 L . d3 l .4 u3 l2 u2 . d4 r4 .3 d3 r2 .4 d2 l u .2 d l .40 l4 .4 L2 U .2 d2
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-712 Dustin
-[/highscore]
 Name=Cave 1-3: One-Way Doors for Xperts
 Author=dbachstein
 Date=2010-09-29
@@ -292,12 +233,12 @@ Story=- Dustin's BD3, cave B -\n\nIn Dustin's BD3, Rockford was so busy dodging 
 Size=40 22 0 0 39 21
 Colors=Black Black Brown Gray2 Cyan Cyan Brown
 DiamondsRequired=28 28 28 28 28
-DiamondValue=15 0
 CaveTime=111 111 111 111 111
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=15 0
 RandSeed=12 12 12 12 12
 RandomFill=SPACE 120 BOULDER 60 DIAMOND 24 FIREFLYl 12
 SlimePermeabilityC64=0 0 0 0 0
@@ -324,37 +265,19 @@ Rectangle=18 10 21 12 DIRT
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=1049509526
 Score=449
 Success=true
-Checksum=-581311340
+CheckSum=-581311340
 Movements=.6 u20 r5 l5 u4 .5 L u3 r u2 ur r2 . l3 d5 l6 u2 .4 u l6 .3 d3 .2 l3 u r2 .2 u3 .2 l5 u l r d2 r4 d4 .4 d dl l3 d3 r .2 d2 r .10 u .7 l2 d l u5 .15 r6 d3 . r .2 d .4 r4 u4 l6 d7 .3 r .3 d2 .2 r3 . d3 l .2 L r4 .2 l6 .5 r6 .2 l4 .3 u3 r2 .5 d3 .6 l4 L r6 u2 r3 u2 .3 d .2 r4 .3 D . u2 .5 l4 . r3 d4 r3 u r2 .7 R r l2 u2 l4 ul u r4 . d3 r4 .5 ur r2 .3 u r4 u l2 d3 r7 u l u6 .4 u2 .4 l u2 l2 .2 L . r3 .2 u2 .13 u3 l5 u l u2 .7 d3 r2 u3 .7 l2 . d6 . r7 u l2 u4 . r3 d4 r3 l11 u2 .4 l2 d2 . D .2 u2 .2 l3 d3 .2 l2 d5
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-743 Dustin
-599 Dustin
-581 Dustin
-521 Dustin
-509 Dustin
-491 Dustin
-488 Dustin
-445 Dustin
-423 Dustin
-423 Dustin
-405 Dustin
-390 Dustin
-390 Dustin
-384 Dustin
-378 Dustin
-360 Dustin
-308 Dustin
-[/highscore]
 Name=Cave 1-4: Trap Me for Xperts
 Author=Dustin
 Date=2013-10-29
@@ -363,12 +286,12 @@ Story=- Dustin's BD5, cave F -\n\nThis chapter ends with an amoeba which must be
 Size=40 22 0 0 39 21
 Colors=Black Black White Green Yellow Blue Blue
 DiamondsRequired=200 200 200 200 200
-DiamondValue=2 0
 CaveTime=120 120 120 120 120
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=2 0
 AmoebaTime=30 30 30 30 30
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -396,21 +319,19 @@ Point=6 16 EXPANDINGWALL
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-02
 RecordedWith=GDash 20100212
 RandomSeed=98631801
 Score=434
 Success=true
-Checksum=-135022371
+CheckSum=-135022371
 Movements=.8 l28 .2 d .2 L . d4 dl l2 u6 r3 u5 r20 .9 r2 .4 d5 .2 d7 . l .2 u4 .2 u .3 u .2 u .3 u .3 u .5 u .2 l .2 d .8 d .2 d .2 d .2 d .2 d .2 d .72 d3 .5 l .2 u12 . l18 d r17 d l16 dl d .2 D .2 r .2 D . r2 .15 d .2 L .2 r .2 u .2 r .2 d .7 r .2 u .5 r .2 d .2 r .2 u . r .3 d . r .2 u . r8 . d .2 l6 d r6 .2 d .2 l18 . d .2 r18 .2 d .2 l18 .2 d .4 d .5 r .2 u .6 dr .3 d .5 r .2 u . r .2 d .5 r .2 u .2 r .2 d .2 r .2 u .5 r .2 d2 . r .2 u . r8 dr .3 d2 l7
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-125 Dustin
-[/highscore]
 Name=Chapter 2: A Good Strategy!
 Author=Dustin
 Date=2015-12-27
@@ -420,11 +341,11 @@ Story=- New mini cave -\n\nAfter being warmed up, Rockford re-enters some caves 
 Size=20 12 0 0 19 11
 Colors=#000000 #000000 #367798 #b25962 #9ecc82 #59b25f #363f98
 DiamondsRequired=36 36 36 36 36
-DiamondValue=3 0
 CaveTime=120 120 120 120 120
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+DiamondValue=3 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -438,26 +359,19 @@ Point=1 2 FIREFLYl
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-10-26
 RecordedWith=GDash 20100212
 RandomSeed=530849545
 Score=125
 Success=true
-Checksum=2116631854
+CheckSum=2116631854
 Movements=.8 r18 ur u4 l4 .2 d .2 u .2 l .2 u4 r .8 d4 r5 .4 d3 .6 u2 . d3 .3 l3 .2 u4 r4 .14 l3 .2 d2 . L .2 u .2 l2 r .2 u .2 l2 .2 r2 d3 l .6 l3 .4 r3 .2 u .7 r . u .2 l2 r . u .2 l2 r2 d3 l .7 l3 .2 r3 .2 u .2 r .2 u .2 l2 r .2 u .2 l2 .3 r2 d3 l5 .7 r4 .2 u .2 l .14 u .10 l .6 u .6 r d3 l .6 l3 .5 r3 .6 u .2 r .6 u .12 l2 .2 u .11 r d3 l5 .7 r4 .2 u .2 l .17 u2 .2 d3 l .4 l2 .8 u .2 r2 .2 u .2 l2 .2 u .2 r12 . d2 .2 u .2 r dr d . l52 .26 u . l2 . D .2 r2 d .2 l3 . r .3 d .6 r12 d l11 r d dr r7 ur u .10 u3 l8 ul u5 l4 .5 L . r5 d9 l3 u l .2 D .3 u .23 r4 d dl l5
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-609 Dustin
-565 Dustin
-547 Dustin
-545 Dustin
-536 Dustin
-425 Dustin
-[/highscore]
 Name=Cave 2-1: Pyramids for Xperts
 Author=Dustin
 Intermission=false
@@ -465,12 +379,12 @@ Story=- Dustin's BD2, cave G -\n\nSome trail-and-erroring might be necessary to 
 Size=40 22 0 0 39 21
 Colors=Black Black Cyan Green Yellow Yellow Yellow
 DiamondsRequired=75 75 75 75 75
-DiamondValue=5 0
 CaveTime=180 180 180 180 180
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=5 0
 RandSeed=101 101 101 101 101
 InitialFill=BOULDER
 RandomFill=DIRT 128 DIRT 128 DIRT 128 DIAMOND 128
@@ -511,40 +425,19 @@ Point=21 10 OUTBOX
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=684162161
 Score=827
 Success=true
-Checksum=-286981920
+CheckSum=-286981920
 Movements=.11 d15 l9 u d9 l .8 r2 .2 D . r .5 L2 . u2 .22 l .11 L6 . u2 .5 l4 d4 R D .5 u .6 r .2 R .2 u l .9 l2 .5 d3 R .2 u r2 u . R . l2 .12 l dl d3 . R3 .2 ur r2 u r R10 .2 ur r2 u r2 u2 .2 d .2 r .2 R . l3 .2 l2 . r2 . u .9 r2 .4 r .2 R2 . l2 .19 r2 l d . u4 r4 dr d l5 r4 d r .3 d3 r d dr r11 l2 D2 . u3 l5 L r8 u4 ur r11 u4 .5 d11 r2 .2 L4 . r2 .4 l .2 L8 . u l L2 . r2 .16 l2 r2 u2 .3 l3 L6 . r3 .3 r .2 d4 . L8 . u l2 u3 .12 r2 .7 r d4 . L2 . u2 l2 L5 . u l L5 . r . u l2 L2 . r5 .5 d4 .4 L11 . u5 l3 .4 r3 .16 r2 .8 l2 d3 . L .2 u5 l7 d2 l6 d5 .2 ur r . r2 u r2 . D .2 u .6 u r3 .2 R .4 u .2 d2 l d l3 u8 l3 u
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-669 Dustin Bachstein
-654 Dustin
-626 Dustin
-604 sndubach
-586 Dustin Bachstein
-568 sndubach
-566 sndubach
-515 Dustin Bachstein
-498 sndubach
-480 Dustin Bachstein
-460 Dustin
-457 Dustin Bachstein
-455 Dustin Bachstein
-449 Dustin Bachstein
-444 Dustin Bachstein
-443 Dustin Bachstein
-432 test
-421 dustin
-412 sndubach
-400 Dustin
-[/highscore]
 Name=Cave 2-2: Magic Maze for Xperts
 Author=Dustin Bachstein
 Date=2008-10-11
@@ -553,15 +446,16 @@ Story=- Rock Fort 1, cave C -\n\nWith a clever idea, Rockford get get a few more
 Size=40 22 0 0 39 21
 Colors=Black Black LightRed Green White Cyan Gray1
 DiamondsRequired=34 34 34 34 34
-DiamondValue=10 95
 CaveTime=240 240 240 240 240
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=10 95
 RandSeed=218 218 218 218 218
 RandomFill=MAGICWALL 100 BOULDER 70 DIAMOND 15 DIRT 0
 MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -570,26 +464,19 @@ Point=37 2 OUTBOX
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=152342135
 Score=404
 Success=true
-Checksum=1944645278
+CheckSum=1944645278
 Movements=.6 r20 u ur r4 d r2 d3 r3 d3 r d r2 d2 r2 .2 l12 dl d4 l2 r3 .4 l d4 r2 .10 r2 d r2 .4 r3 l3 .48 u2 l4 u2 l2 u4 r3 .29 r3 d2 r d3 r .18 r d2 r2 . D .2 l u l .4 R3 .28 u l u2 .11 r2 . r .2 r .2 r .5 L10 .6 r d2 r2 d2 r2 d r3 l u2 l2 dl dr r2 .2 l d l2 u2 r2 l u l3 r u r . l dl l3 d l2 u2 .7 R .4 d2 r5 d3 r3 u r .4 dl d2 l2 u r2 u3 .39 d r2 u r u l .2 l2 d3 .2 u2 .13 l4 .15 u3 .4 l2 .20 u2 r u .7 d6 l5 u l2 . u4 .4 u .155 d .2 r5 .4 l2 .5 L3 .2 u . r2 d .2 l14 u2 r2 u2 .2 u .2 L .2 d4 dl l4 d3 .9 r d r2 .2 U .2 l3 .15 r2 d3 .6 u3 l2 u2 .9 d .2 l .2 r .3 u .23 r2 R . l2 .6 dr d3 r d2 l r2 d r d . u3 r3 u2 r4 l4 u4 l2 u4 .3 u l . r3 l3 u2 l .2 u l u r6 d2 r .2 D . l u2 l6 d l2 u l6 d4 r2 d2 r2 ul l3 u l3 u l u4 l7 d5 l2 d l u .5 r3 u5 l7 d2 R . d3 l2 d3 dr r .2 d3 r2 d2 r2 d3 .2 l d3 l u3 r3 d3 r2 u r2 d2 r3 u l3 u2 l u .8 r8 d r3 l3 u5 r13 u5 r3 u ul l2 .2 r3 u4 .4 d r2 .2 u2
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-537 Dustin
-489 Dustin
-473 Dustin
-314 Dustin
-300 Dustin
-292 Dustin
-[/highscore]
 Name=Cave 2-3: Suck for Xperts
 Author=Dustin
 Intermission=false
@@ -597,12 +484,12 @@ Story=- Dustin's BD2, cave O -\n\nBeside the general plan, Rockford also needs a
 Size=40 22 0 0 39 21
 Colors=Black Black Red Blue LightGreen White White
 DiamondsRequired=91 91 91 91 91
-DiamondValue=5 95
 CaveTime=40 40 40 40 40
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=5 95
 MagicWallTime=2 2 2 2 2
 SlimePermeabilityC64=0 0 0 0 0
 
@@ -617,37 +504,19 @@ Point=38 1 OUTBOX
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=479607817
 Score=473
 Success=true
-Checksum=1373391381
+CheckSum=1373391381
 Movements=.9 r17 d17 r u11 r4 d11 r2 u7 r4 d7 r u5 r4 d5 r u3 . r4 d3 r u3 r2 d3 r u2 r2 d2 r u r2 d r . r15 u3 ur2 u14
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-986 Dustin
-817 Dustin
-773 Dustin
-765 Dustin
-742 Dustin
-736 Dustin
-708 Dustin
-602 Dustin
-582 Dustin
-576 Dustin
-569 Dustin
-464 Dustin
-320 Dustin
-318 Dustin
-314 Dustin
-306 Dustin
-278 Dustin
-[/highscore]
 Name=Cave 2-4: The Lost Guards for Xperts
 Author=Dustin
 Date=2019-12-06
@@ -656,12 +525,12 @@ Story=- Dustin's BD13, cave E -\n\nTo squeeze every possible diamond out of this
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #b22464 #7d7998 #bb66cc #7f9879 #2e24b2
 DiamondsRequired=180 180 180 180 180
-DiamondValue=3 0
 CaveTime=300 300 300 300 300
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=3 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -710,32 +579,19 @@ Point=38 20 OUTBOX
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-10-31
 RecordedWith=GDash 20100212
 RandomSeed=966702208
 Score=569
 Success=true
-Checksum=-1456624293
+CheckSum=-1456624293
 Movements=.30 d4 .3 r2 d .8 l2 d .15 d4 .3 r2 d .8 l2 d .15 d7 dr .3 u4 .40 r .2 d2 .2 u2 .11 r3 .4 l4 .3 r d2 .3 r2 u r2 .3 d .2 L .2 d .7 l2 r2 .2 u .2 r2 .2 l .2 l .2 u2 .2 r2 .5 r3 .4 l5 d2 .7 r3 u r3 .2 d .2 l .2 d .2 L2 R L .6 u . u .2 d .2 r3 l2 .2 u2 .5 r5 .3 l5 d2 .6 r3 u r3 d .3 l .2 d .2 L4 .3 R .7 u .2 r3 l2 .2 u2 .2 r2 .4 r3 .4 l5 d2 .7 r3 u r3 d .2 l .2 d .2 L R L2 .2 r .2 u .2 r2 .2 l2 .2 u2 .12 r5 .3 l5 d2 .6 r3 u r3 d l .2 d .2 L R L .3 u .2 r3 l2 .2 u2 . r2 .6 r3 .3 l4 . r5 d2 l2 d r3 u l4 u l3 u2 .5 l8 .2 l5 .3 l6 .12 l11 u .52 u .17 u r2 .22 u3 r .65 d .11 r2 .4 l2 .6 r d3 r2 u2 r2 .6 l3 d2 r .13 l .2 u2 .4 r3 u .9 r3 .4 l4 .3 d2 .4 r3 u r2 .2 d .2 d .2 l .2 L UL .4 U .2 r .2 u .2 r2 . l2 .2 u2 .2 r2 .7 r3 .4 l5 d2 .4 r3 u r3 d l .2 d .2 L R2 L .3 r .5 u .2 r2 . l2 .2 u2 .2 r2 .24 r3 .3 l5 d2 .5 r3 u r3 d .2 l .2 d .2 L2 R . L .2 u .2 r3 l2 .2 u2 .2 r .3 r4 .3 l5 d2 .5 r4 u r2 d .6 l . d .3 L .2 R .13 u2 l2 r3 .6 u .2 r3 .10 r2 .4 l4 dl d2 r2 u r4 d l2 d r2 u2 .3 l5 u3 r .9 d2 .2 u .3 l3 .4 l7 .6 l5 . l6 .7 l4 .31 d3 l3 .2 u2 .5 l .2 u2 .25 l .65 u2 .15 u3 .7 r .5 d .12 r2 .4 l2 u3 .9 r d4 r2 d l2 d r2 u r2 l2 u2 .2 r2 .4 r3 .3 l5 d2 .4 r4 u r2 d2 l .2 U L .6 r .3 u2 l3 r3 u .3 d2 . r2 . l2 . u2 .2 r2 .3 r3 .4 l5 d2 .5 r3 u r3 d l .2 d .2 L2 R L .3 u .3 r3 l2 .3 u2 .5 r5 .3 l5 d2 .5 r3 u r3 d l .2 d .2 L2 R L .4 u .2 r3 l2 .2 u2 .2 r2 .4 r3 .3 l5 d2 .4 r3 u r3 d l .5 d .3 L R L .3 u .2 r3 l2 .2 u2 . r2 .3 r3 .4 l5 . r6 d .3 l2 d r2 d l2 .4 l2 . d .3 d .6 d3 .8 d2 .4 r3 d2 .4 d3 r dr d
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-203 Dustin
-152 Dustin
-152 Dustin
-150 Dustin
-148 Dustin
-146 Dustin
-145 Dustin
-143 Dustin
-142 Dustin
-140 Dustin
-138 Dustin
-104 Rockford
-[/highscore]
 Name=Chapter 3: Tricky Tricks!
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -744,11 +600,11 @@ Story=In the following caves, Rockford has to use the bag of tricks if he wants 
 Size=20 12 0 0 19 11
 Colors=Black Black Purple Cyan White White Gray1
 DiamondsRequired=2 2 2 2 2
-DiamondValue=80 0
 CaveTime=80 80 80 80 80
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+DiamondValue=80 0
 MagicWallTime=2 2 2 2 2
 MagicWallProperties.waitforhatching=true
 SlimePermeabilityC64=0 0 0 0 0
@@ -769,24 +625,19 @@ Point=9 10 SPACE
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-10-26
 RecordedWith=GDash 20100212
 RandomSeed=289768347
 Score=203
 Success=true
-Checksum=507853711
+CheckSum=507853711
 Movements=.25 d .2 l5 u r4 d l16 . d2 . l2 . d .7 R . u2 r3 .3 l2 .2 d6 l . d .2 R . u2 r3 .3 l3 . u4 l2 u2 l4 u r4 d l8 r3 d3 r2 d5 l .2 L r ur u5 l7 u3 . r4 .2 d l3 . u .3 l5 u l d .2 r6 .2 R3 r R10 .2 d2 r15 .4 l5 D r7 d5 L u9 l
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-620 Dustin
-579 Dustin
-579 Dustin
-353 Dustin
-[/highscore]
 Name=Cave 3-1: Stony Amoeba for Xperts
 Author=Dustin Bachstein
 Date=2008-11-29
@@ -795,11 +646,11 @@ Story=- Rock Fort 2, cave D -\n\nOnce Rockford has found the best path, he still
 Size=40 22 0 0 39 21
 Colors=Black Brown Brown Brown White Cyan Red
 DiamondsRequired=23 23 23 23 23
-DiamondValue=15 95
 CaveTime=20 20 20 20 20
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+DiamondValue=15 95
 RandSeed=111 111 111 111 111
 InitialFill=SPACE
 RandomFill=DIAMOND 30 DIRT 0 DIRT 0 DIRT 0
@@ -815,36 +666,19 @@ Rectangle=0 0 39 21 STEELWALL
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-08-02
 RecordedWith=GDash 20100212
 RandomSeed=1056585160
 Score=353
 Success=true
-Checksum=2020187546
+CheckSum=2020187546
 Movements=.9 r21 u7 r2 U r11 u5 r2 D r2 u2 r4 u2 r u r7 d dr .6 d .3 D .2 r u3 l u r2
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-721 Dustin
-657 Dustin
-657 sndubach
-652 Dustin
-638 sndubach
-615 sndubach
-553 Dustin Bachstein
-507 sndubach
-466 Dustin Bachstein
-460 Dustin Bachstein
-434 Dustin Bachstein
-389 Dustin Bachstein
-373 Dustin Bachstein
-358 dustin
-344 Dustin Bachstein
-300 test
-[/highscore]
 Name=Cave 3-2: Cross for Xperts
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -853,12 +687,12 @@ Story=- Rock Fort 1, cave H -\n\nBeside a good general strategy, Rockford also n
 Size=40 22 0 0 39 21
 Colors=Black Black Gray2 LightGreen White Cyan Orange
 DiamondsRequired=85 85 85 85 85
-DiamondValue=5 95
 CaveTime=300 300 300 300 300
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=5 95
 RandSeed=42 42 42 42 42
 RandomFill=SPACE 110 BOULDER 70 FIREFLYl 15 DIAMOND 10
 MagicWallTime=290 290 290 290 290
@@ -873,62 +707,41 @@ Point=20 10 OUTBOX
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=690790870
 Score=715
 Success=true
-Checksum=-142678788
+CheckSum=-142678788
 Movements=.12 d19 l . D .2 l .2 D .2 r5 u .7 l2 r2 d .11 u l3 .5 u .2 l2 .2 d2 .2 l2 u l2 .4 r2 u3 R . d l .2 d .2 l2 d . l2 .4 r .3 u .2 r .2 l3 .2 D . r7 d .5 l2 u l2 .2 u . R .2 l3 d2 l2 . d2 .2 l2 .19 u3 . r3 .12 l3 dl d2 r12 u2 l3 r6 u2 r6 .14 r2 l8 d2 l3 . d3 . l3 .3 D .44 l4 .2 r2 .2 d2 r d3 l6 .3 d l2 u l6 .3 d3 . d3 r d3 .2 L R .2 l .12 D .2 u2 .3 r3 d3 l .3 d3 r2 u r3 d r5 .2 u r2 .2 D .2 ul u .6 l . r3 .10 r .2 u .2 d2 .8 r .3 DR D .2 l .2 u .5 u2 .3 l .6 l . d2 l2 u r4 d2 r2 . u3 .17 l6 D r2 .14 r7 .17 l2 d2 r . D .2 l u r3 d l4 .3 r3 u2 . d3 l2 r5 R . l ul u2 .3 r2 u3 r . l d3 r2 d dr r u .2 l2 .2 r3 . u l13 . r3 . l3 .4 u4 .38 L .21 u .231 u2 .14 d3 r3 d l14 . u .3 r5 l3 d3 r d2 l3 d . u r2 d r D r3 u2 r8 .2 d2 r2 u2 r2 d2 r u3 l2 u r u r u3 l6 d5 dr r u r2 u r u2 l4 d r d3 l5 u r u l u3 r d3 r u l4 d3 l3 u r2 l u l3 u2 r5 u l6 d2 l4 u l4 d r4 d l2 d r2 l4 d l u3 l d4 l d l2 u4 r2 u l7 d3 l u l u2 r2 u2 l2 d dr r3 d4 r2 u4 r10 u4 .2 l2 d dr r8 u3 .4 l . u3 .2 l .2 L5 .2 r .2 d4 l3 u3 .5 r2 d2 .6 l3 u2 r4 d3 .7 l3 .3 d2 l2 u r3 .4 l3 d .10 L r4 .2 l6 u r u r2 .4 l5 r d2 r u3 l3 d3 l u l3 u r u2 l3 d4 r l2 u4 r u l u2 . d3 r7 u3 r3 d r7 .2 d3 r6 .2 r2 u r u r2 u2 r4 .20 d4 .40 l2 u2 l5 d3 L2 .3 u3 r4 d r3 . ur r2 .7 D2 .2 d . r2 .4 l3 d5 .3 r5 .2 l2 u2 l d l2 u3 r4 u r u r dr d2 l5 u3 . d l3 d3 r2 d3 l3 r2 u .2 l5 . D .2 u2 ur2 u r .2 l6 d2 r . l3 . r2 .2 l .2 u5 .4 l d . l u2 ur r d r2 u3 l2 d dl l2 . d6 l2 d3 .2 d2 r3 d4 r11 u r d r3 d r2 . D . l2 u l3 D l3 d l u l2 d l6 d r D dr r2 l3 u l2 d l u ul l ul2 l u ul3 dl d l4 r8 D l5 D l3 d l .2 L D . u2 l3 D .2 l u l2 . D . u4 r16 u3 ur r3 u2 .2 u .2 u2 r6 .2 r6 .2 u2 .9 R d7 l14 d2 r
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-426 Dustin
-422 Dustin
-420 Dustin
-420 Dustin
-406 Dustin
-400 Dustin
-400 Dustin
-398 Dustin
-395 Dustin
-392 Dustin
-382 Dustin
-380 Dustin
-375 Dustin
-374 Dustin
-373 Dustin
-372 Dustin
-372 Dustin
-371 Dustin
-370 Dustin
-370 Dustin
-[/highscore]
 Name=Cave 3-23 Rooms for Xperts
-Intermission=false
 IntermissionProperties.instantlife=true
+Intermission=false
 IntermissionProperties.rewardlife=false
 Story=- BD2 - the expert levels!, cave B -\n\nOne diamond is especially hard to collect - but Rockford would not be Rockford if he didn't find a way!
 Size=40 22 0 0 39 21
 Colors=Black Black LightRed Purple White White White
 DiamondsRequired=12 12 12 12 12
-DiamondValue=30 0
 CaveTime=180 180 180 180 180
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=12 6 3 1 0
+TimeValue=1 1 1 1 1
+DiamondValue=30 0
 RandSeed=13 13 13 13 13
 RandomFill=SPACE 60 BOULDER 50 DIAMOND 9 FIREFLYl 2
 ActiveGuyIsFirst=false
 AmoebaTime=20 20 20 20 20
 MagicWallTime=20 20 20 20 20
 SlimePermeabilityC64=0 0 0 0 0
-AcidProperties=DUMMY 0.00000
 Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.0000
 BorderProperties.lineshift=true
 BorderProperties.objectwraparound=true
 
@@ -948,31 +761,19 @@ Point=18 20 OUTBOX
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-01
 RecordedWith=GDash 20100212
 RandomSeed=1007480465
 Score=400
 Success=true
-Checksum=-1877350703
+CheckSum=-1877350703
 Movements=.10 r16 .2 D . u3 .8 l .5 r2 u5 .3 l .2 u r2 u r .30 l3 . d .2 dr d5 .2 u2 .9 u3 .6 l2 d2 .78 R .5 r2 . d5 .3 u .2 l6 . r6 u13 .2 r3 u l3 d r24 l3 D l2 d r4 u .2 l7 d13 l7 d4 .3 R u4 r7 u13 r10 .2 d2 .2 l .59 u5 .3 d3 l3 u l7 .3 d2 l ul u . u2 .4 l3 . d l5 .2 D . r2 . l4 u2 l3 dl d . r .2 r .2 d2 r2 u l5 .5 L2 . r2 .2 l2 .4 L . r2 .2 l2 .3 L2 R r2 .2 l2 .3 L2 R r21 .2 d2 . r2 .36 u5 .5 d4 r4 u2 .2 d2 l6 d3 r2 d r2 u2 r3 d5 . u3 l6 d l5 u l4 dl d9 .3 u .2 u .2 r7 .2 D . l3 r3 u r4 d r4 .2 l6 ul u2 .2 d3 . u3 l d2 l12 . d dl l3 u l2 u2 l4 .2 r .2 d6 l2 .2 L .7 L r2 u3 r u2 r3 d r13 u7 l8 d l3 u .2 l4 . r12 u6 l13 u ul l2 d3 r2 l2 u3 r3 d r13 d14 dl l2 r2 dr d3 l2
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-732 test
-540 test
-532 moi
-381 Jenny
-374 test
-276 sndubach
-240 Rockford
-235 test
-233 moi
-230 moi
-114 Rockford
-[/highscore]
 Name=Cave 3-4: Wand for Xperts
 Author=Dustin
 Intermission=false
@@ -980,12 +781,12 @@ Story=- Rock Fort 3, cave M -\n\nFormerly, Rockford was happy to even get one di
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #b28459 #209923 #bbcba0 #209942 #7159b2
 DiamondsRequired=10 10 10 10 10
-DiamondValue=30 50
 CaveTime=240 240 240 240 240
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=30 50
 RandSeed=177 177 177 177 177
 RandomFill=BOULDER 25 DIRT 0 DIRT 0 DIRT 0
 MagicWallTime=150 150 150 150 150
@@ -1002,22 +803,19 @@ Line=36 1 36 20 DIRT
 [/objects]
 
 [replay]
+Level=1
 Player=Dustin
 Date=2020-07-02
 RecordedWith=GDash 20100212
 RandomSeed=918110132
 Score=403
 Success=true
-Checksum=624804952
+CheckSum=624804952
 Movements=.18 l13 d3 r2 d4 . r5 d12 l11 .6 l3 .7 r3 .11 u .2 r4 .22 u5 ul l3 d l7 r7 u3 l6 ul u r d r6 d2 r5 .4 l .2 d5 dr r6 u r8 .3 d3 r6 u r .3 R .2 l d dl l5 u2 l8 d2 l7 u6 l4 d l8 .5 u3 .19 r6 d l6 .14 r11 d6 .5 u6 l7 . r6 .9 d .2 l9 .8 l9 r11 d5 l2 .2 u .12 l8 r3 .3 r .2 u .2 l5 d3 . u2 .2 r5 d r13 u r8 d2 r6 u r3 U l3 d l6 u2 l8 d l13 u .3 l4 .3 r .5 u2 .12 d . L2 .12 u4 l2 ul u5 .7 d8 r . d3 . u6 l u9 .9 r .5 l u3 .2 r .4 r4 u r d dl l30 dl d4 r2 u r2 d l21 r5 u r d2 l2 . r3 d l23 r10 u2 r d2 l35 d6 .3 r .2 d5 .2 l2 d2 dr r . L .2 u5 l u8 .2 r13 l60 . r .2 D .2 r2 d l16 r9 u r2 d l40 r11 u r2 d l49 u5 .6 d5 r11 u5 r6 l36 r2 .2 d5 l34 . d6 dr r d5 .2 l3 d r2 u9 l u4 ur r11 u4 ur r3 u2 .4 r2 .2 d
 [/replay]
 [/cave]
 
 [cave]
-[highscore]
-114 Dustin
-101 Dustin
-[/highscore]
 Name=Chapter 4: Insanity
 Author=Dustin
 Date=2014-09-04
@@ -1026,11 +824,11 @@ Story=Here's the very end for a player with my skills and patience! The followin
 Size=20 12 0 0 19 11
 Colors=#000000 #000000 #7f6919 #72b311 #45e749 #11b33d #36197f
 DiamondsRequired=10 10 10 10 10
-DiamondValue=5 0
 CaveTime=120 240 240 240 240
 CaveScheduling=ms
 FrameTime=150 150 140 130 120
 CaveDelay=0 0 0 0 0
+DiamondValue=5 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1052,22 +850,6 @@ Point=4 8 WALL
 [/cave]
 
 [cave]
-[highscore]
-770 Dustin Bachstein
-730 sndubach
-658 sndubach
-623 sndubach
-552 Dustin Bachstein
-540 sndubach
-524 Dustin
-454 Dustin Bachstein
-452 test
-420 dustin
-336 Dustin
-332 Dustin Bachstein
-270 Dustin Bachstein
-258 Dustin Bachstein
-[/highscore]
 Name=Cave 4-1: Deflection for Xperts
 Author=Dustin Bachstein
 Date=2008-10-19
@@ -1076,12 +858,12 @@ Story=When I made this cave more than ten years ago, I thought that 40 would be 
 Size=40 22 0 0 39 21
 Colors=Black Black Blue Purple Yellow White Gray1
 DiamondsRequired=72 72 72 72 72
-DiamondValue=5 0
 CaveTime=222 222 222 222 222
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=5 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
@@ -1096,41 +878,19 @@ Rectangle=7 6 17 16 FIREFLYl
 [/cave]
 
 [cave]
-[highscore]
-1352 Dustin
-1180 Dustin
-1010 Dustin
-1005 Dustin
-998 Dustin
-980 Dustin
-955 Dustin
-934 Dustin
-914 Dustin
-889 Dustin
-885 Dustin
-855 Dustin
-842 Dustin
-830 Dustin
-830 Dustin
-828 Dustin
-820 Dustin
-734 Dustin
-729 Dustin
-710 Dustin
-[/highscore]
 Name=Cave 4-2: Escape The Room for Xperts
-Intermission=false
 IntermissionProperties.instantlife=true
+Intermission=false
 IntermissionProperties.rewardlife=false
 Story=Escaping the room was already quite tricky, but now Rockford also wants to collect each and every diamond out of it! I wasn't even sure whether this is possible until Arno proved it was...\n\nSolution video on YouTube: \"Boulder Dash for Experts - Dustin's BD14 Cave P L5\" by BoulderDashFan
 Size=40 22 0 0 39 21
 Colors=Black Black Brown LightRed White Brown Brown
 DiamondsRequired=38 38 38 38 38
-DiamondValue=10 0
 CaveTime=300 300 300 300 300
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=9 8 7 6 6
+DiamondValue=10 0
 RandSeed=2 2 2 2 2
 RandomFill=SPACE 189 BOULDER 179 DIAMOND 19 SPACE 0
 ActiveGuyIsFirst=false
@@ -1150,50 +910,28 @@ Point=3 2 OUTBOX
 [/cave]
 
 [cave]
-[highscore]
-1170 Dustin
-1140 Dustin
-1072 Dustin
-959 Dustin
-944 Dustin
-917 Dustin
-783 Dustin
-720 Dustin
-714 Dustin
-712 Dustin
-706 Dustin
-705 Dustin
-692 Dustin
-690 Dustin
-684 Dustin
-680 Dustin
-642 Dustin
-620 Dustin
-605 Dustin
-603 Dustin
-[/highscore]
 Name=Cave 4-3: Poly-Parasitic Palace for Xperts
-Intermission=false
 IntermissionProperties.instantlife=true
+Intermission=false
 IntermissionProperties.rewardlife=false
 Story=- Dustin's BD13, cave J -\n\nIn Dustin's BD13, 28 out of 32 diamonds were required on level 5, and there's a relatively clean strategy to do it. However, things dramatically change when the remaining four diamonds must be taken, too - the world's best took an eternity to beat it, taking hundreds of attempts and developing brilliant startegies!\n\nSolution video on YouTube: \"Boulder Dash for Experts - Dustin's BD13 Cave J L5 (all diamonds!!)\" by BoulderDashFan
 Size=40 22 0 0 39 21
 Colors=Black Black Blue Orange White White White
 DiamondsRequired=32 32 32 32 32
-DiamondValue=20 0
 CaveTime=300 300 300 300 300
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=12 6 3 1 0
+TimeValue=1 1 1 1 1
+DiamondValue=20 0
 RandSeed=0 0 0 0 0
 RandomFill=SPACE 0 SPACE 0 SPACE 0 SPACE 0
 ActiveGuyIsFirst=false
 AmoebaTime=20 20 20 20 20
 MagicWallTime=20 20 20 20 20
 SlimePermeabilityC64=0 0 0 0 0
-AcidProperties=SPACE 0.00000
 Effect=ACIDEffect ACID
+AcidProperties=SPACE 0.0000
 BorderProperties.lineshift=true
 BorderProperties.objectwraparound=true
 
@@ -1234,9 +972,6 @@ Line=1 19 1 20 WALL
 [/cave]
 
 [cave]
-[highscore]
-271 Dustin
-[/highscore]
 Name=Cave 4-4: Kaizo Kingdoms for Xperts
 Author=Dustin
 Date=2019-08-06
@@ -1245,12 +980,12 @@ Story=- Dustin's BD11, cave K -\n\nThis is the hardest cave of the whole Dustin'
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #38267f #244cb6 #a817ec #24b652 #38267f
 DiamondsRequired=43 43 43 43 43
-DiamondValue=50 0
 CaveTime=300 300 300 300 300
-TimeValue=1 1 1 1 1
 CaveScheduling=ms
 FrameTime=150 150 150 150 150
 CaveDelay=0 0 0 0 0
+TimeValue=1 1 1 1 1
+DiamondValue=50 0
 SlimePermeabilityC64=0 0 0 0 0
 
 [objects]
