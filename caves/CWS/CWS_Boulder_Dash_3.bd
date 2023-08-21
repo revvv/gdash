@@ -1,0 +1,1028 @@
+[BDCFF]
+Version=0.5
+
+[game]
+Name=CWS Boulder Dash 3
+Author=CWS
+Date=2023-17-08
+TitleScreen=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
+TitleScreenScroll=iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAA3NCSVQICAjb4U/gAAAAWElEQVQI122NsQmAQBAE5+AasgCtxNSefMx8K9FUsACLWYMTPNEJd2HG+kESywRQKoEZLr2mQMLPvQHgANru+WycxR8exhBuK3D3PIyZ6Hmecs9KlT4VMy4YqB/G7LsfTAAAAABJRU5ErkJggg==
+Levels=5
+
+[cave]
+Name=Born From Acid
+Author=CWS
+Date=2023-08-13
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #894036 #77767b #ffffff #257f0c #231f9b
+DiamondsRequired=64 66 68 70 72
+CaveTime=99 98 97 96 95
+CaveScheduling=ms
+FrameTime=120 115 110 105 100
+CaveDelay=0 0 0 0 0
+DiamondValue=2 4
+RandomFill=DIRT2 60 BOULDER 40 SPACE 15 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIRT 0.0120
+Effect=EXPLOSIONEffect BUTTERFLYd
+
+[objects]
+Point=19 11 ACID
+Point=39 7 INBOX
+Point=1 21 OUTBOX
+FillRect=37 7 38 8 DIRT
+FillRect=1 19 2 20 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Nitro Exploding
+Author=CWS
+Date=2008-10-19
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black #000000 #1694e2 #e2095a #ffffff #ffffff #3e31a2
+DiamondsRequired=50 55 60 65 70
+CaveTime=100 95 90 85 80
+CaveScheduling=ms
+FrameTime=130 125 120 115 110
+CaveDelay=4 3 2 1 0
+DiamondValue=2 4
+RandomFill=DIAMOND 184 NITRO 152 BOULDER 105 DIRT2 80
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=0 1 INBOX
+Point=39 20 OUTBOX
+Point=38 20 DIRT
+Point=1 1 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Exploding First
+Author=CWS
+Date=2008-10-18
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black #000000 #868686 #ba6c18 #ffffff #09b609 #1e1e9c
+DiamondsRequired=150 152 154 156 160
+CaveTime=230 228 226 224 220
+CaveScheduling=ms
+FrameTime=140 135 130 125 120
+CaveDelay=3 2 1 1 0
+DiamondValue=2 3
+RandomFill=DIRT 29 DIRT 29 DIRT 29 BOULDER 29
+AmoebaTime=150 140 130 120 110
+Effect=AMOEBA2EXPLOSIONeffect DIAMOND
+Effect=AMOEBA2LOOKSLIKEeffect SLIME
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=1 0 INBOX
+Point=1 21 OUTBOX
+Point=12 10 AMOEBA
+Point=27 10 AMOEBA2
+Point=12 5 HEXPANDINGWALL
+Point=12 15 HEXPANDINGWALL
+Point=27 5 HEXPANDINGWALL
+Point=27 15 HEXPANDINGWALL
+FillRect=1 1 2 2 DIRT
+FillRect=1 19 2 20 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Skulls & Bones
+Author=CWS
+Date=2008-10-24
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black #000000 #3e31a2 #36c836 #ffffff #d0dc71 #3e31a2
+DiamondsRequired=90 92 94 96 98
+CaveTime=210 200 190 180 170
+CaveScheduling=ms
+FrameTime=160 155 150 145 140
+CaveDelay=4 3 2 1 0
+DiamondValue=2 4
+RandomFill=DIRT 170 DIRT 170 DIRT 170 BOULDER 170
+MagicWallTime=200 190 180 170 160
+MagicWallProperties=SKELETON SKELETON
+SlimePermeabilityC64=0 0 0 0 0
+SkeletonsWorthDiamonds=1
+
+[objects]
+Point=0 20 INBOX
+Point=39 20 OUTBOX
+Line=1 1 12 12 WALLSLOPEDUPRIGHT
+Line=1 2 11 12 WALLSLOPEDDOWNLEFT
+Line=28 12 38 2 WALLSLOPEDDOWNRIGHT
+Line=38 1 27 12 WALLSLOPEDUPLEFT
+Line=13 14 26 14 MAGICWALL
+FillRect=1 19 4 20 DIRT
+FillRect=11 13 12 15 DIRT
+FillRect=27 13 28 15 DIRT
+Line=13 13 26 13 DIRT
+Line=11 10 12 10 DIRT
+Line=12 11 13 11 DIRT
+Line=13 12 14 12 DIRT
+Line=26 12 25 12 DIRT
+Line=27 11 26 11 DIRT
+Line=28 10 27 10 DIRT
+Line=5 18 7 18 DIRT
+Line=8 17 11 17 DIRT
+Line=12 18 13 18 DIRT
+Line=13 19 15 19 DIRT
+Line=16 18 16 18 DIRT
+Line=17 17 18 17 DIRT
+Line=18 18 19 18 DIRT
+Line=19 19 22 19 DIRT
+FillRect=20 16 21 17 DIRT
+Line=22 18 23 18 DIRT
+Line=25 17 32 17 DIRT
+Line=29 18 29 18 DIRT
+Line=32 18 33 18 DIRT
+Line=33 19 37 19 DIRT
+Line=38 19 38 20 DIRT
+Line=24 17 25 18 DIRT
+Line=29 15 31 16 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=INT Nitro Acid
+Author=CWS
+Date=2008-10-25
+Selectable=false
+Intermission=true
+Size=20 12 0 0 19 11
+Colors=Black Black #e314bd #d39435 #ffffff #ffffff #865e3c
+DiamondsRequired=20 21 22 23 24
+CaveTime=30 29 28 27 26
+CaveScheduling=ms
+FrameTime=80 200 200 200 200
+CaveDelay=0 0 0 0 0
+DiamondValue=4 8
+RandomFill=DIRT 74 DIRT 74 DIRT 74 DIAMOND 50
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect NITRO
+AcidProperties=DIRT 0.1000
+
+[objects]
+Point=1 11 INBOX
+Point=18 11 OUTBOX
+Point=9 3 ACID
+[/objects]
+
+[replay]
+Level=1
+Player=CWS
+Date=2008-12-27
+RandomSeed=916665447
+Score=112
+Success=true
+CheckSum=882981813
+Movements=.36 u16 r7 d4 dl l dl d3 dr r2 .11 r3 dr d2 dl l4 . r5 .3 l4 .4 u2 .6 l3 u4 .3 r .4 d2 .3 l3 .2 r14 dr d5
+[/replay]
+[/cave]
+
+[cave]
+Name=Up Is Down
+Author=CWS
+Date=2008-10-25
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black #000000 #7373fb #ff7e7e #ffffff #f8e45c #3e31a2
+DiamondsRequired=100 102 104 106 108
+CaveTime=200 190 180 170 160
+CaveScheduling=ms
+FrameTime=140 135 130 125 120
+CaveDelay=4 3 2 1 0
+DiamondValue=2 4
+RandomFill=DIRT 101 DIRT 101 DIRT2 100 BOULDER 50
+AmoebaTime=190 190 190 190 190
+AmoebaGrowthProb=0.0156 0.2500
+Effect=AMOEBA2LOOKSLIKEeffect BLADDER
+SlimePermeabilityC64=0 0 0 0 0
+Effect=BOMBEXPLOSIONeffect SPACE
+Gravitation=Up
+
+[objects]
+Point=20 20 INBOX
+Point=39 1 OUTBOX
+FillRect=3 3 36 5 WALL BUTTERFLYu
+Point=20 19 AMOEBA
+Line=2 6 2 2 DIRT
+Line=37 6 37 2 DIRT
+Point=3 4 SPACE
+Point=36 4 SPACE
+[/objects]
+[/cave]
+
+[cave]
+Name=Going Nuts!
+Author=Clark Kent
+Date=2009-08-26
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black #000000 #c59214 #814810 #ffffff #9fcf36 #003e8d
+DiamondsRequired=40 42 44 48 50
+CaveTime=140 138 136 134 132
+CaveScheduling=ms
+FrameTime=130 125 120 115 110
+CaveDelay=0 0 0 0 0
+DiamondValue=5 10
+RandomFill=DIRT2 100 SPACE 40 NUT 32 BOULDER 29
+SlimePermeabilityC64=0 0 0 0 0
+Nut.whencrushed=A_BUTTERFLYu
+
+[objects]
+Point=39 1 INBOX
+Point=0 20 OUTBOX
+Line=3 16 36 16 WALL
+Line=3 5 36 5 WALL
+[/objects]
+[/cave]
+
+[cave]
+Name=Rotating
+Author=Clark Kent
+Date=2011-02-25
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black #000000 #7c70da #894036 #ffffff #7abfc7 #905f25
+DiamondsRequired=8 8 8 8 8
+CaveTime=200 195 190 185 180
+CaveScheduling=ms
+FrameTime=130 125 120 115 110
+CaveDelay=0 0 0 0 0
+DiamondValue=10 20
+RandSeed=0 2 3 3 4
+RandomFill=BOULDER 23 DIAMOND 11 SPACE 10 SPACE 0
+SlimePermeabilityC64=0 0 0 0 0
+SkeletonsForPot=0
+GravitationChangeDelay=1
+
+[objects]
+Point=0 1 INBOX
+Point=39 20 OUTBOX
+Line=37 2 37 20 STEELWALL
+Line=35 20 35 2 STEELWALL
+Line=36 2 36 20 SPACE
+Line=38 2 38 20 SPACE
+Point=38 19 DIAMOND
+Point=36 19 DIAMOND
+Line=18 1 18 19 STEELWALL
+Line=16 19 16 1 STEELWALL
+Line=14 1 14 19 STEELWALL
+Line=15 1 15 18 SPACE
+Line=17 18 17 1 SPACE
+Point=15 6 BOULDER
+Point=17 6 BOULDER
+Line=15 7 15 19 DIRT
+Line=17 19 17 7 DIRT
+Point=15 4 FIREFLYu
+Point=17 4 FIREFLYu
+Point=15 2 DIRT
+Point=17 2 DIRT
+Point=15 1 DIAMOND
+Point=17 1 DIAMOND
+Line=12 20 19 20 DIRT
+Line=34 1 38 1 DIRT
+Point=36 17 FIREFLYu
+Point=38 17 FIREFLYu
+Line=36 15 36 2 DIRT
+Line=38 15 38 2 DIRT
+Point=13 1 POT
+Point=13 19 POT
+Point=1 18 GRAVITY_SWITCH
+Point=1 14 GRAVITY_SWITCH
+Line=25 20 25 2 STEELWALL
+Line=23 2 23 20 STEELWALL
+Line=21 2 21 20 STEELWALL
+Line=22 2 22 15 DIRT
+Line=24 15 24 2 DIRT
+Line=22 16 22 19 SPACE
+Line=24 19 24 16 SPACE
+Point=24 17 FIREFLYu
+Point=22 17 FIREFLYu
+Point=22 19 DIAMOND
+Point=24 19 DIAMOND
+Line=20 1 26 1 DIRT
+Point=36 20 DIRT
+Point=38 20 DIRT
+Line=32 1 32 19 STEELWALL
+Line=30 19 30 1 STEELWALL
+Line=28 1 28 19 STEELWALL
+Line=29 1 29 18 SPACE
+Line=31 18 31 1 SPACE
+Point=29 6 BOULDER
+Point=31 6 BOULDER
+Line=29 7 29 19 DIRT
+Line=31 19 31 7 DIRT
+Point=29 4 FIREFLYu
+Point=31 4 FIREFLYu
+Point=29 2 DIRT
+Point=31 2 DIRT
+Point=29 1 DIAMOND
+Point=31 1 DIAMOND
+Line=27 20 33 20 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Around The Clock
+Author=CWS
+Date=2023-07-23
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #3e31a2 #905f25 #ffffff #46af11 #262f7f
+DiamondsRequired=26 27 28 28 28
+CaveTime=15 15 15 15 15
+CaveScheduling=ms
+FrameTime=120 120 120 120 120
+CaveDelay=0 0 0 0 0
+DiamondValue=8 12
+RandomFill=BOULDER 135 DIRT2 40 DIAMOND 16 CLOCK 3
+BonusTime=15 15 15 15 15
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=0 1 INBOX
+Point=1 0 OUTBOX
+FillRect=1 1 2 2 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=INT Think!
+Author=CWS
+Date=2023-07-21
+Selectable=false
+Intermission=true
+Size=20 12 0 0 19 11
+Colors=Black #000000 #3e31a2 #bb776d #d0dc71 #d0dc71 #3e31a2
+DiamondsRequired=10 10 10 10 10
+CaveTime=18 17 16 15 14
+CaveScheduling=ms
+FrameTime=110 105 100 95 90
+CaveDelay=0 0 0 0 0
+DiamondValue=10 15
+SlimePermeabilityC64=0 0 0 0 0
+Nut.whencrushed=DIAMONDRELEASEKEY
+
+[objects]
+Point=1 0 INBOX
+Point=8 5 OUTBOX
+FillRect=5 3 11 7 WALL SPACE
+Point=17 7 BUTTERFLYu
+Point=11 5 TRAPPEDDIAMOND
+Point=16 3 BOULDER
+Point=16 6 SPACE
+Point=17 3 BOULDER
+Point=16 7 NUT
+Point=17 6 SPACE
+[/objects]
+[/cave]
+
+[cave]
+Name=Destroy Me!
+Author=CWS
+Date=2023-07-09
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #307b1d #93440a #ffffff #8bb287 #644c99
+DiamondsRequired=90 95 100 105 110
+CaveTime=160 155 150 145 140
+CaveScheduling=ms
+FrameTime=110 108 106 104 100
+CaveDelay=0 0 0 0 0
+DiamondValue=5 10
+RandomFill=BOULDER 125 DIRT2 80 DIRT 0 DIRT 0
+AmoebaTime=100 100 100 100 100
+AmoebaGrowthProb=0.0300 0.1000
+Amoeba2GrowthProb=0.0300 0.1000
+MagicWallTime=10 10 10 10 10
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=19 0 INBOX
+Point=39 1 OUTBOX
+FillRect=12 6 27 15 STEELWALLDESTRUCTABLE DIRT
+Point=19 10 AMOEBA
+Line=38 2 38 19 FIREFLYu
+Line=1 2 1 19 BUTTERFLYu
+Point=38 1 SPACE
+Point=38 20 SPACE
+Point=1 20 SPACE
+Point=1 1 SPACE
+Line=2 1 2 19 STEELWALL
+Line=37 1 37 19 STEELWALL
+FillRect=33 19 37 20 DIRT
+FillRect=2 19 6 20 DIRT
+FillRect=18 1 20 2 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Rock'n'Roll
+Author=CWS
+Date=2023-07-21
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #239db2 #7b8299 #ffffff #7e997b #2d23b2
+DiamondsRequired=25 25 25 25 25
+CaveTime=120 115 110 105 100
+CaveScheduling=ms
+FrameTime=120 115 110 105 100
+CaveDelay=0 0 0 0 0
+DiamondValue=15 20
+RandomFill=BOULDER 165 DIAMOND 15 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+Effect=BOULDERbouncingeffect SPACE
+
+[objects]
+Point=39 20 INBOX
+Point=0 1 OUTBOX
+FillRect=37 19 38 20 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Sweet Diamonds
+Author=CWS
+Date=2023-08-13
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #68a941 #bb776d #ffffff #197f2d #3c11aa
+DiamondsRequired=5 5 5 5 5
+CaveTime=175 170 165 160 155
+CaveScheduling=ms
+FrameTime=120 115 110 105 100
+CaveDelay=0 0 0 0 0
+DiamondValue=50 100
+RandomFill=BOULDER 25 DIRT 0 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=0 20 INBOX
+Point=39 20 OUTBOX
+Line=35 3 35 20 STEELWALL
+Point=35 1 STEELWALL
+FillRect=36 1 37 19 SPACE
+Line=38 1 38 20 DIRT
+Point=37 18 MAGICWALL
+FillRect=4 3 12 9 WALL FIREFLYu
+Point=8 6 SWEET
+Point=8 9 DIRT
+Point=34 1 BOULDER
+Point=17 1 BOULDER
+Point=24 1 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=Firebutterflies
+Author=CWS
+Date=2023-07-30
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #c0bfbc #5e5c64 #ffffff #197f31 #3d33aa
+DiamondsRequired=75 76 77 78 80
+CaveTime=150 148 146 144 140
+CaveScheduling=ms
+FrameTime=120 115 110 105 100
+CaveDelay=0 0 0 0 0
+DiamondValue=2 4
+RandomFill=DIRT2 100 BOULDER 30 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+Effect=EXPLOSIONEffect BUTTERFLYd
+
+[objects]
+Point=0 20 INBOX
+Point=39 20 OUTBOX
+FillRect=1 1 3 20 DIRT
+FillRect=36 1 38 20 DIRT
+Line=5 20 6 20 DIRT
+Line=2 20 2 2 STEELWALL
+Line=4 1 4 19 STEELWALL
+Line=35 1 35 19 STEELWALL
+Line=37 20 37 2 STEELWALL
+Line=38 20 38 11 A_FIREFLYu
+Point=38 10 SPACE
+[/objects]
+[/cave]
+
+[cave]
+Name=INT Switch!
+Author=CWS
+Date=2023-07-23
+Selectable=false
+Intermission=true
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #1c71d8 #77767b #ffffff #2a7f19 #0f149b
+DiamondsRequired=4 4 4 6 6
+CaveTime=15 15 15 15 15
+CaveScheduling=ms
+FrameTime=100 100 100 90 90
+CaveDelay=0 0 0 0 0
+DiamondValue=10 20
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=5 1 18 10 SPACE
+Point=1 1 FIREFLYBUTTERFLYSWITCH
+Point=4 1 BOULDER
+Line=5 9 5 1 STEELWALL
+Line=7 2 7 10 STEELWALL
+Line=9 1 9 9 STEELWALL
+Line=11 10 11 2 STEELWALL
+Line=13 1 13 9 STEELWALL
+Line=15 10 15 2 STEELWALL
+Line=17 1 17 9 STEELWALL
+Point=1 10 INBOX
+Point=1 11 OUTBOX
+Point=9 10 BUTTERFLYl
+[/objects]
+[/cave]
+
+[cave]
+Name=Open Sesame
+Author=CWS
+Date=2023-07-23
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #a8b28d #c64600 #ffffff #359921 #928db2
+DiamondsRequired=150 152 154 156 160
+CaveTime=240 235 230 225 220
+CaveScheduling=ms
+FrameTime=120 120 115 115 110
+CaveDelay=0 0 0 0 0
+DiamondValue=2 4
+AmoebaGrowthProb=0.0156 0.0156
+MagicWallTime=1 1 1 1 1
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=39 20 INBOX
+Point=0 1 OUTBOX
+Point=1 18 FIREFLYu
+Point=1 16 FIREFLYu
+Point=1 14 FIREFLYu
+Point=1 12 FIREFLYu
+Point=1 10 FIREFLYu
+Point=1 8 FIREFLYu
+Point=1 6 FIREFLYu
+Point=1 3 MAGICWALL
+Point=2 6 SPACE
+Point=2 8 SPACE
+Point=2 10 SPACE
+Point=2 12 SPACE
+Point=2 14 SPACE
+Point=2 16 SPACE
+Point=2 18 SPACE
+FillRect=5 3 9 8 WALL AMOEBA
+FillRect=5 12 10 18 WALL AMOEBA
+FillRect=13 7 18 12 WALL AMOEBA
+FillRect=21 2 26 8 WALL AMOEBA
+FillRect=36 2 31 7 WALL AMOEBA
+FillRect=35 10 29 17 WALL AMOEBA
+FillRect=21 13 25 18 WALL AMOEBA
+Point=10 3 BOULDER
+Point=1 1 BOULDER
+Point=11 12 BOULDER
+Point=19 7 BOULDER
+Point=27 2 BOULDER
+Point=26 13 BOULDER
+Point=37 2 BOULDER
+Point=36 10 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=Random Nitro
+Author=CWS
+Date=2023-07-09
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black #000000 #8a46ae #808080 #ffffff #ffffff #894036
+DiamondsRequired=50 55 60 65 70
+CaveTime=120 115 110 105 100
+CaveScheduling=ms
+FrameTime=100 95 90 85 80
+CaveDelay=0 0 0 0 0
+DiamondValue=10 20
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=0 1 INBOX
+Point=39 20 OUTBOX
+RandomFill=2 1 37 20 -1 -1 -1 -1 -1 DIRT NITRO 120 DIAMOND 50 BUTTERFLYu 5 BOULDER 5 DIRT
+Line=1 21 38 21 DIRT
+Line=1 0 38 0 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Side By Side
+Author=CWS
+Date=2023-07-30
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #5dd815 #c64600 #ffffff #f6d32d #4223b2
+DiamondsRequired=99 100 101 102 103
+CaveTime=180 175 170 165 160
+CaveScheduling=ms
+FrameTime=140 135 130 125 120
+CaveDelay=0 0 0 0 0
+DiamondValue=2 4
+RandomFill=DIRT2 100 BOULDER 25 DIRT 0 DIRT 0
+AmoebaTime=60 60 60 60 60
+Effect=AMOEBABOULDEReffect FIREFLYl
+Effect=AMOEBADIAMONDeffect BUTTERFLYd
+AmoebaGrowthProb=0.0630 0.2500
+SlimePermeability=0.3000 0.3000 0.3000 0.3000 0.3000
+Effect=BOMBEXPLOSIONeffect SPACE
+
+[objects]
+Line=0 3 0 3 INBOX
+Line=26 20 26 20 OUTBOX
+Line=1 3 2 3 DIRT
+Line=1 2 38 2 SLIME
+Line=1 1 38 1 BOULDER
+Line=2 20 2 15 WALL
+Line=4 15 4 20 WALL
+Line=6 15 6 20 WALL
+Line=8 15 8 20 WALL
+Line=10 15 10 20 WALL
+Line=12 15 12 20 WALL
+FillRect=15 14 24 20 DIRT
+Line=3 14 3 20 DIRT
+Line=5 14 5 20 DIRT
+Line=7 14 7 20 DIRT
+Line=9 14 9 20 DIRT
+Line=11 14 11 20 DIRT
+Line=1 13 1 20 DIRT
+Line=13 19 13 14 DIRT
+Line=2 14 15 14 STEELWALL
+Line=14 15 14 20 STEELWALL
+Line=13 20 13 20 STEELWALL
+Line=37 20 37 15 WALL
+Line=35 15 35 20 WALL
+Line=33 20 33 15 WALL
+Line=31 15 31 20 WALL
+Line=29 20 29 15 WALL
+Line=27 15 27 20 WALL
+Line=28 20 28 14 DIRT
+Line=30 14 30 20 DIRT
+Line=32 20 32 14 DIRT
+Line=34 14 34 20 DIRT
+Line=36 20 36 14 DIRT
+Line=38 20 38 13 DIRT
+Line=26 14 26 19 DIRT
+Line=25 20 25 15 STEELWALL
+Line=24 14 37 14 STEELWALL
+Line=19 19 20 19 AMOEBA
+Point=1 20 BOMB
+Point=3 20 BOMB
+Point=5 20 BOMB
+Point=7 20 BOMB
+Point=9 20 BOMB
+Point=11 20 BOMB
+Point=28 20 BOMB
+Point=30 20 BOMB
+Point=32 20 BOMB
+Point=34 20 BOMB
+Point=36 20 BOMB
+Point=38 20 BOMB
+[/objects]
+[/cave]
+
+[cave]
+Name=Free Space
+Author=CWS
+Date=2023-07-31
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #2300ff #b0700f #ffffff #209930 #908eb2
+DiamondsRequired=200 210 220 230 240
+CaveTime=180 175 170 165 160
+CaveScheduling=ms
+FrameTime=135 130 125 120 115
+CaveDelay=0 0 0 0 0
+DiamondValue=2 4
+RandomFill=DIRT2 50 SPACE 20 DIRT 0 DIRT 0
+AmoebaTime=120 120 120 120 120
+MagicWallTime=10 10 10 10 10
+MagicWallProperties=BUTTERFLYd DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=0 1 INBOX
+Point=0 2 OUTBOX
+Line=20 2 20 19 STEELWALL
+Point=10 2 AMOEBA
+Line=22 9 37 9 MAGICWALL
+FillRect=21 1 38 8 DIRT
+FillRect=22 2 37 7 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=INT Bazooka!
+Author=CWS
+Date=2023-08-13
+Selectable=false
+Intermission=true
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #a31072 #7f5f19 #ffffff #2d7f19 #1039a3
+DiamondsRequired=6 7 8 9 9
+CaveTime=15 14 13 12 11
+CaveScheduling=ms
+FrameTime=100 95 90 85 80
+CaveDelay=0 0 0 0 0
+DiamondValue=50 100
+SlimePermeabilityC64=0 0 0 0 0
+FireflyExplodeTo=DIAMOND
+
+[objects]
+Point=0 1 INBOX
+Point=0 10 OUTBOX
+Point=2 5 ROCKET_LAUNCHER
+FillRect=11 3 15 8 WALL SPACE
+Point=14 4 FIREFLYd
+Point=17 3 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=Crack'em Up!
+Author=CWS
+Date=2023-07-09
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #3cb240 #916699 #ffffff #729966 #3c60b2
+DiamondsRequired=50 51 52 53 54
+CaveTime=160 155 150 145 140
+CaveScheduling=ms
+FrameTime=90 88 86 84 82
+CaveDelay=0 0 0 0 0
+DiamondValue=5 10
+RandomFill=DIRT2 150 BOULDER 90 DIAMOND 30 NUT 20
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=0 20 INBOX
+Point=39 1 OUTBOX
+Point=1 20 DIRT
+Point=1 19 DIRT2
+[/objects]
+[/cave]
+
+[cave]
+Name=Hurry Up!
+Author=CWS
+Date=2023-08-13
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #1a5fb4 #0c7f51 #ffffff #0c7f2f #3640b5
+DiamondsRequired=20 21 22 23 25
+CaveTime=100 98 96 94 90
+CaveScheduling=ms
+FrameTime=110 108 106 104 100
+CaveDelay=0 0 0 0 0
+DiamondValue=5 10
+SlimePermeabilityC64=240 240 240 240 240
+
+[objects]
+Point=0 1 INBOX
+Point=39 1 OUTBOX
+Line=18 19 21 19 LAVA
+Line=17 19 17 20 STEELWALL
+Line=18 20 21 20 STEELWALL
+Line=22 19 22 20 STEELWALL
+FillRect=17 14 22 18 SPACE
+FillRect=4 4 16 15 SPACE
+FillRect=23 4 35 15 SPACE
+Line=4 16 16 16 CONVEYORRIGHT
+Line=16 13 5 13 CONVEYORLEFT
+Line=4 10 15 10 CONVEYORRIGHT
+Line=16 7 5 7 CONVEYORLEFT
+Point=17 18 STEELWALLSLOPEDUPRIGHT
+Point=22 18 STEELWALLSLOPEDUPLEFT
+Line=6 1 9 4 WALL
+Line=11 4 14 1 WALL
+Line=7 1 13 1 DIAMOND
+Line=12 2 8 2 DIAMOND
+Line=9 3 11 3 DIAMOND
+Line=10 4 10 4 DIAMOND
+Line=25 1 28 4 WALL
+Line=30 4 33 1 WALL
+Line=26 1 32 1 DIAMOND
+Line=31 2 27 2 DIAMOND
+Line=28 3 30 3 DIAMOND
+Line=29 4 29 4 DIAMOND
+Line=23 16 35 16 CONVEYORLEFT
+Line=34 13 23 13 CONVEYORRIGHT
+Line=24 10 35 10 CONVEYORLEFT
+Line=34 7 23 7 CONVEYORRIGHT
+Line=7 3 3 3 WALL
+Line=3 4 3 16 WALL
+Line=36 16 36 4 WALL
+Line=36 3 32 3 WALL
+Point=3 17 SOKOBANBOX
+Point=36 17 SOKOBANBOX
+Point=10 5 SLIME
+Point=29 5 SLIME
+Point=4 13 SLIME
+Point=35 13 SLIME
+Point=4 7 SLIME
+Point=16 10 SLIME
+Point=23 10 SLIME
+Point=35 7 SLIME
+FillRect=17 2 22 13 WALL DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Lure Away
+Author=CWS
+Date=2023-08-19
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #197f5b #a52610 #ffffff #1aa510 #19367f
+DiamondsRequired=99 99 99 99 99
+CaveTime=150 145 140 135 140
+CaveScheduling=ms
+FrameTime=140 135 130 125 120
+CaveDelay=0 0 0 0 0
+DiamondValue=5 10
+RandomFill=BOULDER 13 BOULDER 0 DIRT 0 DIRT 0
+DummyProperties.diamondcollector=true
+SlimePermeabilityC64=224 224 224 224 224
+
+[objects]
+Point=0 20 INBOX
+Point=39 20 OUTBOX
+Line=1 1 9 9 STEELWALLSLOPEDUPRIGHT
+Line=11 9 19 1 STEELWALLSLOPEDUPLEFT
+Line=20 1 28 9 STEELWALLSLOPEDUPRIGHT
+Line=30 9 38 1 STEELWALLSLOPEDUPLEFT
+Line=9 10 9 17 STEELWALL
+Line=11 17 11 10 STEELWALL
+Line=28 10 28 17 STEELWALL
+Line=30 17 30 10 STEELWALL
+Point=9 20 STEELWALLSLOPEDUPLEFT
+Point=11 20 STEELWALLSLOPEDUPRIGHT
+Point=28 20 STEELWALLSLOPEDUPLEFT
+Point=30 20 STEELWALLSLOPEDUPRIGHT
+Point=10 10 SLIME
+Point=29 10 SLIME
+FloodFill=12 2 DIAMOND DIRT
+FloodFill=27 3 DIAMOND DIRT
+Line=10 12 10 17 FIREFLYr
+Line=29 12 29 17 FIREFLYr
+Point=10 20 DUMMY
+Point=29 20 DUMMY
+Point=10 18 SPACE
+Point=29 18 SPACE
+Point=10 11 DIRT
+Point=29 11 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Hidden Passage
+Author=CWS
+Date=2023-08-19
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #4c6e99 #b2897e #ffffff #86b27e #4c6499
+DiamondsRequired=250 245 240 235 230
+CaveTime=150 145 140 135 130
+CaveScheduling=ms
+FrameTime=100 95 90 85 80
+CaveDelay=0 0 0 0 0
+DiamondValue=2 4
+InitialBorder=GLUEDDIAMOND
+InitialFill=GLUEDDIAMOND
+RandomFill=BOULDER 5 DIRT 0 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=39 20 INBOX
+Point=0 1 OUTBOX
+Line=38 20 37 20 DIAMOND
+Line=37 21 37 16 DIAMOND
+Line=36 16 35 16 DIAMOND
+Line=35 17 33 17 DIAMOND
+Line=33 16 33 13 DIAMOND
+Line=34 13 39 13 DIAMOND
+Line=39 12 39 1 DIAMOND
+Line=38 1 36 1 DIAMOND
+Line=36 2 36 11 DIAMOND
+Line=35 11 33 11 DIAMOND
+Line=33 10 33 6 DIAMOND
+Line=32 6 32 3 DIAMOND
+Line=32 2 29 2 DIAMOND
+Line=29 3 29 11 DIAMOND
+Line=28 11 27 11 DIAMOND
+Line=27 12 27 14 DIAMOND
+Line=28 14 31 14 DIAMOND
+Line=31 15 31 21 DIAMOND
+Line=30 20 27 20 DIAMOND
+Line=27 19 27 17 DIAMOND
+Line=26 17 24 17 DIAMOND
+Line=24 15 24 0 DIAMOND
+Line=24 21 24 18 DIAMOND
+Line=23 19 18 19 DIAMOND
+Line=18 20 18 21 DIAMOND
+Line=23 1 21 1 DIAMOND
+Line=21 2 21 12 DIAMOND
+Line=21 13 17 13 DIAMOND
+Line=17 14 17 16 DIAMOND
+Line=17 17 14 17 DIAMOND
+Line=14 17 14 19 DIAMOND
+Line=14 19 17 19 DIAMOND
+Line=23 15 18 15 DIAMOND
+Line=16 13 14 13 DIAMOND
+Line=14 12 14 10 DIAMOND
+Line=15 10 19 10 DIAMOND
+Line=19 9 19 1 DIAMOND
+Line=18 1 17 1 DIAMOND
+Line=17 2 17 8 DIAMOND
+Line=16 8 11 8 DIAMOND
+Line=11 7 11 0 DIAMOND
+Line=10 1 7 1 DIAMOND
+Line=7 2 7 8 DIAMOND
+Line=8 8 8 10 DIAMOND
+Line=9 10 12 10 DIAMOND
+Line=12 11 12 20 DIAMOND
+Line=11 20 10 20 DIAMOND
+Line=10 19 10 12 DIAMOND
+Line=9 12 7 12 DIAMOND
+Line=7 13 7 16 DIAMOND
+Line=8 16 8 20 DIAMOND
+Line=7 20 0 20 DIAMOND
+Line=1 19 1 14 DIAMOND
+Line=2 14 2 12 DIAMOND
+Line=3 12 5 12 DIAMOND
+Line=5 11 5 1 DIAMOND
+Line=4 1 3 1 DIAMOND
+Line=3 2 3 8 DIAMOND
+Line=2 8 1 8 DIAMOND
+Line=1 7 1 1 DIAMOND
+Line=11 21 11 21 DIAMOND
+Point=18 21 ROCKET_LAUNCHER
+Point=37 0 ROCKET_LAUNCHER
+Point=11 0 ROCKET_LAUNCHER
+[/objects]
+[/cave]
+
+[cave]
+Name=INT Bombs Away
+Author=CWS
+Date=2023-08-20
+Selectable=false
+Intermission=true
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #1e9974 #9093b2 #ffffff #3cc93e #1e3f99
+DiamondsRequired=1 1 1 1 1
+CaveTime=30 29 28 27 26
+CaveScheduling=ms
+FrameTime=120 118 115 112 110
+CaveDelay=0 0 0 0 0
+DiamondValue=50 50
+SlimePermeabilityC64=0 0 0 0 0
+Effect=BOMBEXPLOSIONeffect SPACE
+
+[objects]
+Point=1 10 INBOX
+Line=6 10 6 9 STEELWALL
+Line=7 8 3 8 STEELWALL
+Line=3 6 6 6 STEELWALL
+Point=16 10 BOMB
+Point=6 7 WALL
+Line=3 7 4 7 SPACE
+Line=3 5 3 4 STEELWALL
+Line=4 4 8 4 STEELWALL
+Line=8 5 8 8 STEELWALL
+Point=4 5 BOMB
+Point=5 7 FIREFLYr
+Line=11 8 16 8 STEELWALL
+Line=16 7 16 5 STEELWALL
+Line=16 4 11 4 STEELWALL
+Line=11 5 11 5 STEELWALL
+Line=11 6 14 6 STEELWALL
+Point=14 7 WALL
+Line=11 7 13 7 SPACE
+Line=14 9 14 10 STEELWALL
+Point=13 7 FIREFLYr
+Point=12 5 DIAMOND
+Point=6 9 OUTBOX
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]
