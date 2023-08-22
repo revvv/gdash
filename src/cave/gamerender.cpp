@@ -309,6 +309,9 @@ void GameRenderer::drawcave() const {
     else
         yplus = 0;
 
+    if (gd_full_cave_view && game.played_cave->intermission)
+        yplus = 0; // align top
+
     /* if using particle effects, draw the background, as particles might have moved "out" of it.
      * we should only do this if the cave is smaller than the screen! that we well know from the xplus
      * and yplus variables set above. */
@@ -514,7 +517,7 @@ void GameRenderer::drawstatus_game() const {
         /* will draw 18 chars (*16 pixels) + 1+10+11+10 pixels inside. */
         /* the two spaces available between scores etc must be divided into
          * three "small" spaces. */
-        int x = (screen.get_width() - 20 * font_manager.get_font_width_wide()) / 2;
+        int x = (screen.get_width() - (18 * 16 + 1 + 10 + 11 + 10) * scale) / 2;
         int time_secs;
 
         /* cave time is rounded _UP_ to seconds. so at the exact moment when it changes from
