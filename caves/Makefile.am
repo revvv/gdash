@@ -13,7 +13,7 @@ Alchemystics_CAVES = Alchemystics/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemy
 Alchemystics_DATA = $(Alchemystics_CAVES)
 
 Alex_Zopdir = $(pkgdatadir)/caves/Alex_Zop
-Alex_Zop_CAVES = Alex_Zop/Alex_Zop.gds Alex_Zop/Nahost_91.gds Alex_Zop/Rockford_in_Nimmerland_2.gds Alex_Zop/Rockford_in_Nimmerland_2_fixed.bd Alex_Zop/Rocki_Rockano_in_Lolli_Land_01.gds Alex_Zop/Rocki_Rockano_in_Lolli_Land_01_fixed.bd
+Alex_Zop_CAVES = Alex_Zop/Alex_Zop.gds Alex_Zop/Nahost_91.gds Alex_Zop/Rockford_in_Nimmerland_2.bd Alex_Zop/Rocki_Rockano_in_Lolli_Land_01.bd
 Alex_Zop_DATA = $(Alex_Zop_CAVES)
 
 American_Actiondir = $(pkgdatadir)/caves/American_Action
@@ -21,7 +21,7 @@ American_Action_CAVES = American_Action/Boulder_Dash_3.bd
 American_Action_DATA = $(American_Action_CAVES)
 
 Arno_Weberdir = $(pkgdatadir)/caves/Arno_Weber
-Arno_Weber_CAVES = Arno_Weber/Arno_Dash_01.bd Arno_Weber/Arno_Dash_02.bd Arno_Weber/Arno_Dash_03.bd Arno_Weber/Arno_Dash_04.bd Arno_Weber/Arno_Dash_05.bd Arno_Weber/Arno_Dash_06.bd Arno_Weber/Arno_Dash_07.bd Arno_Weber/Arno_Dash_08.bd Arno_Weber/Arno_Dash_09.bd Arno_Weber/Arno_Dash_10.bd Arno_Weber/Arno_Dash_11.bd Arno_Weber/Arno_Dash_12.bd Arno_Weber/Arno_Dash_13.bd Arno_Weber/Arno_Dash_14.bd Arno_Weber/Arno_Dash_15.bd Arno_Weber/Arno_Dash_16.bd Arno_Weber/Arno_Dash_17.bd Arno_Weber/Arno_Dash_18.bd Arno_Weber/Arno_Dash_19.bd Arno_Weber/Arno_Dash_20.bd Arno_Weber/Arno_Dash_21.bd Arno_Weber/Arno_Dash_21_remake.bd Arno_Weber/Exploding_Dash.bd Arno_Weber/Exploding_Dash_II.bd Arno_Weber/Future_Dash.bd Arno_Weber/Santas_Bd_Party.bd
+Arno_Weber_CAVES = Arno_Weber/Arno_Dash_01.bd Arno_Weber/Arno_Dash_02.bd Arno_Weber/Arno_Dash_03.bd Arno_Weber/Arno_Dash_04.bd Arno_Weber/Arno_Dash_05.bd Arno_Weber/Arno_Dash_06.bd Arno_Weber/Arno_Dash_07.bd Arno_Weber/Arno_Dash_08.bd Arno_Weber/Arno_Dash_09.bd Arno_Weber/Arno_Dash_10.bd Arno_Weber/Arno_Dash_11.bd Arno_Weber/Arno_Dash_12.bd Arno_Weber/Arno_Dash_13.bd Arno_Weber/Arno_Dash_14.bd Arno_Weber/Arno_Dash_15.bd Arno_Weber/Arno_Dash_16.bd Arno_Weber/Arno_Dash_17.bd Arno_Weber/Arno_Dash_18.bd Arno_Weber/Arno_Dash_19.bd Arno_Weber/Arno_Dash_20.bd Arno_Weber/Arno_Dash_21.bd Arno_Weber/Exploding_Dash.bd Arno_Weber/Exploding_Dash_II.bd Arno_Weber/Future_Dash.bd Arno_Weber/Santas_Bd_Party.bd
 Arno_Weber_DATA = $(Arno_Weber_CAVES)
 
 Atarakushidir = $(pkgdatadir)/caves/Atarakushi
@@ -77,7 +77,7 @@ Conrad_CAVES = Conrad/Conrad_Dash.gds
 Conrad_DATA = $(Conrad_CAVES)
 
 CoolshakerUnionGangKGdir = $(pkgdatadir)/caves/CoolshakerUnionGangKG
-CoolshakerUnionGangKG_CAVES = CoolshakerUnionGangKG/Crazy_Dash_1.gds CoolshakerUnionGangKG/Quolder_Dash_1.gds CoolshakerUnionGangKG/Quolder_Dash_10.gds CoolshakerUnionGangKG/Quolder_Dash_11.gds CoolshakerUnionGangKG/Quolder_Dash_12.gds CoolshakerUnionGangKG/Quolder_Dash_13.gds CoolshakerUnionGangKG/Quolder_Dash_14.gds CoolshakerUnionGangKG/Quolder_Dash_15.gds CoolshakerUnionGangKG/Quolder_Dash_15_Fixed.gds CoolshakerUnionGangKG/Quolder_Dash_16.gds CoolshakerUnionGangKG/Quolder_Dash_16_Fixed.gds CoolshakerUnionGangKG/Quolder_Dash_17.gds CoolshakerUnionGangKG/Quolder_Dash_18.gds CoolshakerUnionGangKG/Quolder_Dash_19.gds CoolshakerUnionGangKG/Quolder_Dash_2.gds CoolshakerUnionGangKG/Quolder_Dash_20.gds CoolshakerUnionGangKG/Quolder_Dash_21.gds CoolshakerUnionGangKG/Quolder_Dash_22.gds CoolshakerUnionGangKG/Quolder_Dash_23.gds CoolshakerUnionGangKG/Quolder_Dash_24.gds CoolshakerUnionGangKG/Quolder_Dash_25.gds CoolshakerUnionGangKG/Quolder_Dash_25_Fixed.gds CoolshakerUnionGangKG/Quolder_Dash_26.gds CoolshakerUnionGangKG/Quolder_Dash_27.gds CoolshakerUnionGangKG/Quolder_Dash_28.gds CoolshakerUnionGangKG/Quolder_Dash_29.gds CoolshakerUnionGangKG/Quolder_Dash_3.gds CoolshakerUnionGangKG/Quolder_Dash_30.gds CoolshakerUnionGangKG/Quolder_Dash_31.gds CoolshakerUnionGangKG/Quolder_Dash_4.gds CoolshakerUnionGangKG/Quolder_Dash_5.gds CoolshakerUnionGangKG/Quolder_Dash_6.gds CoolshakerUnionGangKG/Quolder_Dash_7.gds CoolshakerUnionGangKG/Quolder_Dash_8.gds CoolshakerUnionGangKG/Quolder_Dash_9.gds CoolshakerUnionGangKG/Roulder_Dash_1.gds CoolshakerUnionGangKG/Roulder_Dash_2.gds CoolshakerUnionGangKG/Roulder_Dash_3.gds
+CoolshakerUnionGangKG_CAVES = CoolshakerUnionGangKG/Crazy_Dash_1.gds CoolshakerUnionGangKG/Quolder_Dash_1.gds CoolshakerUnionGangKG/Quolder_Dash_10.gds CoolshakerUnionGangKG/Quolder_Dash_11.gds CoolshakerUnionGangKG/Quolder_Dash_12.gds CoolshakerUnionGangKG/Quolder_Dash_13.gds CoolshakerUnionGangKG/Quolder_Dash_14.gds CoolshakerUnionGangKG/Quolder_Dash_15.gds CoolshakerUnionGangKG/Quolder_Dash_16.gds CoolshakerUnionGangKG/Quolder_Dash_17.gds CoolshakerUnionGangKG/Quolder_Dash_18.gds CoolshakerUnionGangKG/Quolder_Dash_19.gds CoolshakerUnionGangKG/Quolder_Dash_2.gds CoolshakerUnionGangKG/Quolder_Dash_20.gds CoolshakerUnionGangKG/Quolder_Dash_21.gds CoolshakerUnionGangKG/Quolder_Dash_22.gds CoolshakerUnionGangKG/Quolder_Dash_23.gds CoolshakerUnionGangKG/Quolder_Dash_24.gds CoolshakerUnionGangKG/Quolder_Dash_25.gds CoolshakerUnionGangKG/Quolder_Dash_26.gds CoolshakerUnionGangKG/Quolder_Dash_27.gds CoolshakerUnionGangKG/Quolder_Dash_28.gds CoolshakerUnionGangKG/Quolder_Dash_29.gds CoolshakerUnionGangKG/Quolder_Dash_3.gds CoolshakerUnionGangKG/Quolder_Dash_30.gds CoolshakerUnionGangKG/Quolder_Dash_31.gds CoolshakerUnionGangKG/Quolder_Dash_4.gds CoolshakerUnionGangKG/Quolder_Dash_5.gds CoolshakerUnionGangKG/Quolder_Dash_6.gds CoolshakerUnionGangKG/Quolder_Dash_7.gds CoolshakerUnionGangKG/Quolder_Dash_8.gds CoolshakerUnionGangKG/Quolder_Dash_9.gds CoolshakerUnionGangKG/Roulder_Dash_1.gds CoolshakerUnionGangKG/Roulder_Dash_2.gds CoolshakerUnionGangKG/Roulder_Dash_3.gds
 CoolshakerUnionGangKG_DATA = $(CoolshakerUnionGangKG_CAVES)
 
 Cupdir = $(pkgdatadir)/caves/Cup
@@ -85,7 +85,7 @@ Cup_CAVES = Cup/Cup_Dash_4.gds
 Cup_DATA = $(Cup_CAVES)
 
 CWSdir = $(pkgdatadir)/caves/CWS
-CWS_CAVES = CWS/CWS_Boulder.gds CWS/CWS_Boulder_2.bd CWS/CWS_Boulder_2.gds CWS/CWS_Boulder_2_Fixed.bd CWS/CWS_Boulder_Dash_3.bd
+CWS_CAVES = CWS/CWS_Boulder.gds CWS/CWS_Boulder_2.bd CWS/CWS_Boulder_Dash_3.bd
 CWS_DATA = $(CWS_CAVES)
 
 Daniel_Tavernierdir = $(pkgdatadir)/caves/Daniel_Tavernier
@@ -353,7 +353,7 @@ Rory_Agsten_CAVES = Rory_Agsten/RTA_Dash_1.bd Rory_Agsten/RTA_Dash_2.bd Rory_Ags
 Rory_Agsten_DATA = $(Rory_Agsten_CAVES)
 
 Schlonkeldir = $(pkgdatadir)/caves/Schlonkel
-Schlonkel_CAVES = Schlonkel/The_Lost_Caves_1.gds Schlonkel/The_Lost_Caves_10.gds Schlonkel/The_Lost_Caves_2.gds Schlonkel/The_Lost_Caves_3.gds Schlonkel/The_Lost_Caves_3_with_hidden.gds Schlonkel/The_Lost_Caves_4.gds Schlonkel/The_Lost_Caves_5.gds Schlonkel/The_Lost_Caves_6.gds Schlonkel/The_Lost_Caves_7.gds Schlonkel/The_Lost_Caves_8.gds Schlonkel/The_Lost_Caves_9.gds
+Schlonkel_CAVES = Schlonkel/The_Lost_Caves_1.gds Schlonkel/The_Lost_Caves_10.gds Schlonkel/The_Lost_Caves_2.gds Schlonkel/The_Lost_Caves_3.gds Schlonkel/The_Lost_Caves_4.gds Schlonkel/The_Lost_Caves_5.gds Schlonkel/The_Lost_Caves_6.gds Schlonkel/The_Lost_Caves_7.gds Schlonkel/The_Lost_Caves_8.gds Schlonkel/The_Lost_Caves_9.gds
 Schlonkel_DATA = $(Schlonkel_CAVES)
 
 Scserbin_Zoltandir = $(pkgdatadir)/caves/Scserbin_Zoltan
