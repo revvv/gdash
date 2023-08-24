@@ -1,0 +1,2749 @@
+[BDCFF]
+Version=0.5
+
+[mapcodes]
+Length=1
+)=BLADDERSPENDER
+*=EXPANDINGWALLSWITCH
+-=FIREFLYBUTTERFLYSWITCH
+,=BITERSWITCH
+"=ACID
+!=SOKOBANBOX
+%=DIAMONDRELEASEKEY
+$=TRAPPEDDIAMOND
+#=CLOCK
+(=BLADDER
+'=BITERu
+0=BITERl
++=BOMB
+[/mapcodes]
+
+[game]
+Name=Demalion Dash 04-All aboard
+Levels=5
+
+[cave]
+Name=Pregamepanic
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Green Blue Yellow Red White White Yellow
+DiamondsRequired=40 40 40 40 40
+CaveTime=75 75 75 75 75
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=13 20
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 0.0312
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=EXPANDINGWALLLOOKSLIKEeffect STEELWALL
+Effect=DIRTLOOKSLIKEeffect SOKOBANBOX
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWvWvWvWWWWWWWWvWWWWWWvWvvWWWWWWWWWWWWW
+W  d!... d      .! d d..!.dd    d d   dW
+W dd..!.  !! d!...    !..!..           W
+W !.!.    ...... d     d!...           W
+W ....  .!d !.!..!       d..           W
+W .!d     .....!....      .!           W
+W !.   d...!dd.!dd.!.!    ..           W
+W .!  dd!.!.  ..  ....    !.     !.    W
+W !.  ...!....!.!..!!...  .!  .! .. !. W
+W ..  !.....!.....!...!.  .!    !.!.   W
+W .!.....!dd...!..dd...!.... !!......!!W
+W   .!.!..  ..!..!  .!...!      !.!.  dW
+W     d ....dd..dd!...d       .! !. !. W
+W       !.!.      .!..           !.    W
+W         .!...!...!                   W
+W         !..!...!..        """""""""  W
+W           ..!...!         vXXXvXXXP  W
+W         d .!dd..          """""""""  W
+W         .!..  ..!.!              C   W
+W       !.....  .!....!                W
+Wdd  .!.....!.  ..!......!            dW
+WWWWWvWWWvWWWvWWvWWWvWWWvWWWWWWWWWWWWWvW
+[/map]
+[/cave]
+
+[cave]
+Name=Easy and  pen
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=LightRed Brown Black Cyan Green Green Black
+DiamondsRequired=99 99 99 99 99
+CaveTime=130 130 130 130 130
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=4 15
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=100 100 100 100 100
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.2500 0.0312
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWXWWWWWWWWWWWWWWWW
+W..................aaa.................W
+W......................................W
+W......................................W
+WC    C     C      C     C     C     C W
+W                                      W
+W   w         w          w     w       W
+W    w       w     w    w w     w      W
+W           wC    wow              w   W
+W                w   w              w  W
+W w    P   w    w     w       w        W
+W ww           wo     ow     w         W
+Wowxw     w                       w    W
+W wwxw   w    w         w        w     W
+W    o    o  w           w      w      W
+W                   .................. W
+W                   .  C  C  C  C  C . W
+W      w            .o.............. . W
+W w   w             .  C  C  C  C  C . W
+W w             w   .................. W
+W    o     o         o C  C  C  C  C C W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Demaliondash 4
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Red Black Gray2 Blue Blue Black
+DiamondsRequired=32 32 32 32 32
+CaveTime=85 85 85 85 85
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=8 15
+RandSeed=0 0 0 0 0
+BonusTime=8 8 8 8 8
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=25 25 25 25 25
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=85 85 85 85 85
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect BLADDERSPENDER
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W......................................W
+W.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW.W
+W.Wd.....d...o................d......W.W
+W.W..dw.........d......d.o........d..W.W
+W.W...wowww........x.....#..w......d.W.W
+W.W.d.w.x..d.w.w..w.w.w....x.wdw.o...W.W
+W.W.wwxdwww.wdwdw.w.wdx..x.w.w.wwx...W.W
+W.W.w.w.w..dw.x.wdxww.w.dwdw.x.x.wd.dW.W
+W.W.www.wwx.w.w.w.w.w.ww.w..w..w.w...W.W
+W.W.........d.........d..............W.W
+X.W.d.d..w.........w....cccccccCCCC..W.W
+W.W......w..w..wwwdx..d..c.C.....C.d.W.W
+W.W.....dw.x.wdw...w.....c..C...C....W.W
+W.Wd...www.w.w.wwx.www...c...C.C.d...W.W
+WPW....w.xdwwx...wdwdx...c....C......W.W
+WWWWWWWwww.w.w.wwwow.w..cccccccCCCC..W.W
+W....................................W.W
+W.W..................d.............d.W.W
+W.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW.W
+W......................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Five two three
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Blue Cyan Cyan Brown
+DiamondsRequired=88 88 88 88 88
+CaveTime=20 20 20 20 20
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=1 1 1 1 1
+TimeValue=1 1 1 1 1
+DiamondValue=5 50
+RandSeed=0 0 0 0 0
+BonusTime=8 8 8 8 8
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.5000 0.0312
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W $        $       $     $$   $      % W
+W   $  $$  $ $     $    $$  $  $ $ $ $$W
+W     $  $    $           $ $$ $$  $$  W
+W   $   ##$$$$  w wwwwww w  $  $ $   $ W
+W $        $   $  w'   w  $ $  $ $$$   W
+W          $ $$ w w ww w w  $$         W
+W   w wwwwww w    w  w w  $ w wwwwww$w$W
+W$    w'   w $  w w ww w w    w'   w   W
+W   w w ww w w    w w  w  $ w w ww w w W
+W #   w w  w $  w w ww w w   $w  w w   W
+W   w w ww w w    w    w $ $w w ww w w W
+W #   w  w w $  w wwwwww w    w  w w   W
+W   w w ww w w           $ $w w ww w w W
+W     w    w $     W          w    w   W
+W   w wwwwww w              w wwwwww w W
+W     $    $ $ W     W #               W
+W     $ $$ $  $   #wwwwwwwwww W        W
+W     $ P$    $ W  wWXWXXWXWw   W      W
+W     $ $$$$$ $    $        $     #    W
+W     $       $    wwwwwwwwww          W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=5 brick int.
+Intermission=true
+Size=40 22 0 0 19 11
+Colors=Cyan White LightGreen Yellow Yellow Yellow LightGreen
+DiamondsRequired=12 12 12 12 12
+CaveTime=30 30 30 30 30
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=2 2 2 2 2
+TimeValue=1 1 1 1 1
+DiamondValue=45 65
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=10 10 10 10 10
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaGrowthProb=0.5000 1.0000
+MagicWallTime=54 54 54 54 54
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=9 9 9 9 9
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect MAGICWALL
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWsssWWWWWWW
+WP..d....w.d......wWWWWWWWWWWW   WWWWWWW
+W.w.........w...w..WWWWW.       wWWWWWWW
+W..w.w..w..w.d.w..dWWWWW.      w    WWWW
+W.....d.w.w....w.wwWWWWW.     wr    WWWW
+W.w..ww....d.w.w...WWWWW.     w     WWWW
+Www..wdw.wwww..dw.wWWWWW.     ww    WWWW
+W...dw....d........WWWWW.    w  w   WWWW
+W....w..w..w.w...w.WWWWW.   w    w  WWWW
+W.w......ww.....wd.WWWWW.sssw     w WWWW
+Wdw....w.d...w.....WWWWW.   w       WWWW
+WWWWWWWWWXWWWWWWWWWWWWWW.  wWW     wWWWW
+WWWWWWWWWWWWWWWWWWWWWWWW. wWWW    w WWWW
+WWWWWWWWWWWWWWWWWWWWWWWWw  WWW   w  WWWW
+WWWWWWWWWWWWWWWWWWWWWWWW.w WWW  w   WWWW
+WWWWWWWWWWWWWWWWWWWWWWWW.  wWW w    WWWW
+WWWWWWWWWWWWWWWWWWWWWWWW  wWWW   w  WWWW
+WWWWWWWWWWWWWWWWWWWWWWWW wWWWWw  w  WWWW
+WWWWWWWWWWWWWWWWWWWWWWWWsWWWWW w w  WWWW
+WWWWWWWWWWWWWWWWWWWWWWWW WWWWW   w  WWWW
+WWWWWWWWWWWWWWWWWWWWWWWWMWWWWW  w   WWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW      WWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Collectagons
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightBlue Orange White White LightBlue
+DiamondsRequired=51 51 51 51 51
+CaveTime=95 95 95 95 95
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=9 25
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.1250 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect CLOCK
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.....d.W..........................d...W
+W.d....W...W..W.......W..W..Wrrrrrrrrr.W
+W.....Wd.W.dW.dW..d..Wd.Wd.W..d........W
+W....W..W.W..W..W...W..W..W..rrrrrrrrrrW
+W......W...W..W..W.W..W..W..r..........W
+W..W..W..W..W..W.dWd.W..W..r..rrrrrrrr.W
+WdW..W.....W.Wd.W.W.W.dW..r..r...r...r.W
+WW..W...X.....W.......Wd.r..r..r.r.d.r.W
+W..W..W....W..WWW...WWW....r...r.r.r.r.W
+WW.dW........W....P....W.rr..r.r.r.r.r.W
+W.W..W..W...Wd.WW.d.WW.dWd.....r.r.r.r.W
+W.dW..W....W..W.......W..W..r.dr.r.r.r.W
+W...Wd.W..W..W..W.W.W..W..W....r.r.r.r.W
+W...dW...Wd.W.dW..W..Wd.W.dW..rr.d.r...W
+W.d..W..W..W..W..WdW..W..W..W..r...r...W
+W...W..W..W..W..W...W..W..W..W.rrrrrrrrW
+W..Wd.Wd.W.dW.dW.....Wd.Wd.WdW..%......W
+W.W..W..W..W..W....d..W..W.W.WWWWWWWWW.W
+W...W..W..W..W.........W.W.W.WdddWdddW.W
+W............................$dWdddWd..W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Dots easyish
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Red Red Yellow LightBlue Yellow Yellow Yellow
+DiamondsRequired=16 16 16 16 16
+CaveTime=25 25 25 25 25
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=30 45
+RandSeed=0 0 0 0 0
+BonusTime=1 1 1 1 1
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 0.5000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect ACID
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW 
+W..............................d......W 
+W.W.W.W.W.W.W.W.W.WdW.W.W.W.W.W.W.W.W.W 
+W..........d.............Q............W 
+W.W.W.W.W.W.W.W.W.W.W.W.W.W.WdW.W.X.W.W 
+W........Q.......................Q....W 
+W.W.W.W.W.W.W.WdW.W.W.W.W.W.W.W.W.W.W.W 
+W......d.......Q...#....d..........#..W 
+W.W.W.W.W.W.W.W.W.W.W.W#W.W.W.WdW.W.W.W 
+W..............#......................W 
+W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W 
+W.........................#Q..d.......W 
+W.W.WdW.W.W.W.W.WdW.W.W.W.W.W.W.W.W.W.W 
+W......Q.....#........................W 
+W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W 
+W....................d.....d..........W 
+W.W.WdW.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W 
+W...........d.#Q.d.....P.........#....W 
+W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W 
+W............................d........W 
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW 
+                                        
+[/map]
+[/cave]
+
+[cave]
+Name=Jillschallenge
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Cyan Gray1 LightRed Green Yellow Yellow LightRed
+DiamondsRequired=25 25 25 25 25
+CaveTime=58 58 58 58 58
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=20 25
+RandSeed=0 0 0 0 0
+BonusTime=35 35 35 35 35
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=110 110 110 110 110
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.0625 0.0625
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W......................................W
+W....a......W............W.............W
+W.................W...............     W
+W.......W......................... ... W
+W..........................WP..... ... W
+W.........wwwwwwwwwww$wwwwwwwwwww. . .oW
+W.........Wo                    W. . . W
+W...W.....W                     W. . . W
+W..W......wwwWwWWwWww.wWwwWwwWwww. .#. W
+W.W.......WC                    W. . . W
+WW...W....wwwwwwwwwww.wWwwWwwWwww. ... W
+W.....W...W      C              W.o... W
+W......W..wwwWwWWwWww.wwwWwwXwwww. . . W
+W.........W             C       W. .o. W
+W.C    ...wwwwwwwwwww.wWwwWwwWwww. .#. W
+W. ... ...W                    CW. . . W
+W. .%. ...wwwWwWWwWwx.wwWwWwWwWww. . . W
+W. ... ........................... ... W
+W.    C...........................o... W
+W.................................     W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=The railyard
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Gray1 Black Orange Red Green Green Orange
+DiamondsRequired=105 105 105 105 105
+CaveTime=40 40 40 40 40
+CaveScheduling=plck
+PALTiming=true
+FrameTime=160 160 160 160 160
+CaveDelay=8 8 8 8 8
+TimeValue=1 1 1 1 1
+DiamondValue=4 40
+RandSeed=0 0 0 0 0
+BonusTime=20 20 20 20 20
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.0312 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+...WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW....
+...W...............................W....
+...W.W...r..rrr..W.%%%%%%%%%%%%%...Wd!..
+...W.Wrrr#rrrrrrrW.%%%%%!!!%%%%%...WWWW.
+.!.W.WWWWWWWWWWXWW.%%%%%!X!%%%%%.r.WdrW.
+...W.WWWWWWWWWWWWW.%%%%%!!!%%%%%...WrrW.
+...W..((.......((...((.......((....WW$W.
+...W$..............................W....
+...  ..............WWWWWWWWWWWWWWW.W....
+...W...dd.dddd.....W)))))))))))))W.WWWW.
+...W.wdddddddddddw.W)))))))))))))W.$..W.
+...W.wwwwwwwwwwwww.WWWWWWWWWWWWWWW.WW!W$
+.r.W.wwwwwwwwwwwww.WXWWWWWWWWWWWWW.W....
+...W..((.......((...((.........((..W....
+..!W.......r.............F.........W!!!.
+...W.$$$$$$$$$$$$$$$$$......ww*....WWWW.
+...W.$$$$$$$$$$$$$$$$$.wwwww*www*w.WP.W.
+...W.$$$$$$$$$$$$$$+$$..* w w w w..W..W.
+...W.$$$$$$$$$$$$$$#$$..w*,w-ww w..W$!W.
+..rW.$$$$$$$$$$$$$$$$$.wwww*ww*www.W   .
+...W..((...........((...((.....((..W   .
+...WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW....
+[/map]
+[/cave]
+
+[cave]
+Name=10 smotherint
+Intermission=true
+Size=40 22 0 0 19 11
+Colors=Red Blue LightGreen Gray1 Black Black LightGreen
+DiamondsRequired=99 99 99 99 99
+CaveTime=88 88 88 88 88
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=5 18
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=10 10 10 10 10
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=52 52 52 52 52
+AmoebaGrowthProb=0.1250 1.0000
+MagicWallTime=85 85 85 85 85
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=5 5 5 5 5
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect BITERu
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWXWWWWWWWWWWWWWWWWWWWWWWW
+W.CC.....CCC.......WWWWWWWWWWWWWWWWWWWWW
+W................Q.WWWWWWWWWWWWWWWWWWWWW
+W.Q....wwwww.......WWWWWWWWWWWWWWWWWWWWW
+W..CC........C.....WWWWWWWWWWWWWWWWWWWWW
+W..CC..a.....C...C.WWWWWWWWWWWWWWWWWWWWW
+W..CC....P...C.....WWWWWWWWWWWWWWWWWWWWW
+W..CC..wwwww.......WWWWWWWWWWWWWWWWWWWWW
+W.Q........w.....Q.WWWWWWWWWWWWWWWWWWWWW
+W......wwwww.......WWWWWWWWWWWWWWWWWWWWW
+WCCC...........CC..WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Imthegdbatman
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Gray1 Black LightBlue Red Yellow Yellow LightBlue
+DiamondsRequired=70 70 70 70 70
+CaveTime=150 150 150 150 150
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=10 15
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=100 100 100 100 100
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect IGNITEDBOMB1
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWXWWWWW
+WFWW.rrrrrrrrrrrrrrrrrr.......W..W.W..WW
+WWW..r................r........WW...WW.W
+WW...r................r........WWC CWW.W
+W....r.....P..........r...w....W. w W..W
+W....r.........a......r...w..w.w. w C..W
+W....rrrrrrrrrrrrrrrrrr..ww..w.w Cww  CW
+W.......................wwww.www.wwww. W
+W........w.......w.....wwwwwwwwwwwwwww W
+W........w..w.w..w.....wwwwwwwwwwwwwwwCW
+W.......ww..w.w..ww....wwwwwwwwwwwwwww W
+W......wwww.www.wwww....wwww.www.wwww  W
+W.....wwwwwwwwwwwwwww....ww..www..ww.C.W
+W.....wwwwwwwwwwwwwww.....w...w   w.. CW
+W.....wwwwwwwwwwwwwww.........w . .... W
+W......wwww.www.wwww..........  . C  C W
+W.......ww..www..ww......C  CC .W......W
+W........w...w...w....... .....WW..WWW.W
+W............w...........C C ..WW..W.W.W
+Ww.......................... .WW.W.WWW.W
+Www......................... WW.WWWW.WWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=:evileye:
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed LightBlue Cyan Cyan LightRed
+DiamondsRequired=160 160 160 160 160
+CaveTime=180 180 180 180 180
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=4 8
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=100 100 100 100 100
+Effect=AMOEBABOULDEReffect AMOEBA
+Effect=AMOEBADIAMONDeffect AMOEBA
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect SLIME
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WC  C   C  C   C  C  C  C  C  C C  C   W
+W wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww wCW
+W wC     C    C     C    C   C     C w W
+WCw                                  w W
+W w  ..............................  wCW
+WCw  ..............P...............  w X
+W w  ...........wwwrwww............  w W
+W w  ..........w . a . w...........  wCW
+WCw  .........w ..w w.. w..........  w W
+W w  ........w  ..a a..  w.........  w W
+W w  .........w ..w w.. w..........  wCW
+WCw  ..........w . a . w...........  w W
+W w  ...........wwrrrww............  w W
+WCw  .............w.w..............  wCW
+W w  ..............................  w W
+W w  ..............................  w W
+W w  C    C  C   C    C     C   C    wCW
+W w                                  w W
+WCwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww W
+W   CW C     C   C   C   C   C  C   C  W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Whut  the  hut
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Yellow Green Orange Gray1 Black Black Orange
+DiamondsRequired=60 60 60 60 60
+CaveTime=85 85 85 85 85
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=5 15
+RandSeed=0 0 0 0 0
+BonusTime=50 50 50 50 50
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=1 1 1 1 1
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect SPACE
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=80 80 80 80 80
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWW WWW WWWWWWWWrrrWWWWWWWW WWWW WWWW
+Wrrr               rrr              rrrW
+Wrrr           W   r!r C            rrrW
+Wrrr  MMMMMM   W    !        MMMMMMMrrrW
+Wrrr      C     r   w               rrrW
+Wrrr              wwWww   C         rrrW
+Wrrr       C     wwW%Www            rrrW
+Wrrr         r  wwWaaaWww  r    C   rrrW
+Wrrr  rr C     wwWaaaaaWww      C   rrrW
+Wrrr          wwW       Www      CC rrrW
+Wrrr         wwW.       .Www      CCrrrW
+Wwww        wwWw w  w  w wWww  r    MMMW
+W   w       WWCw w  P  w wCWW      M   W
+W    w     W$  w w     w w  $W         W
+W     w  CCW WCwCw     wCwCW W  MMMM   W
+W         CW W w w     w w W W         W
+W          W W w w     w w W W         W
+W   C MMMMMW WCCCw     wCCCW WMMMM     W
+W          W WWWWWWWXWWWWWWW WC        W
+W          W WWWWWWWWWWWWWWW W         W
+W          W   r         r  CW         W
+WWWWWW WWW WWWWWWWW # WWWWWWWW WWWW WWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Diagonals2wall
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=White Green Purple Black Red Red Purple
+DiamondsRequired=165 165 165 165 165
+CaveTime=180 180 180 180 180
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=4 4 4 4 4
+TimeValue=1 1 1 1 1
+DiamondValue=2 8
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=108 108 108 108 108
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.2500 0.2500
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W......................................W
+W..........wwwwwwwwwwwwwwwwwwwwwwwww...W
+W....WW.........................aaaw...W
+W...W..WW........................aaw...W
+W....W.W.WW.......................aw...W
+W..W.......WW......................w...W
+W....W.WX.W..WW....................w...W
+Wx.w....W...W..WW..................w...W
+W..xwwwwwwwwww   WW................w...W
+WxPwCCCCCCCCCw w wWWW..............w...W
+W..wCCCCCCCCCw w wWWWWW............w...W
+W  wCCCCCCCCCw w w..WWWWW..........w...W
+W. wCCCCCCCCCw w w....XWWWW........w...W
+W  wCCCCCCCCCw w w......WWWWW......w...W
+W .wCCCCCCCCCw w w........WWWWW........W
+W  wCCCCCCCCCw w w..........WWWWW......W
+W. wCCCCCCCCCw w w............WWWWW....W
+W  wCCCCCCCCCw w w................WWW..W
+W .wCCCCCCCCCw w w.....................W
+W   CCCCCCCCC  w ......................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=15 skull int.
+Intermission=true
+Size=40 22 0 0 19 11
+Colors=Blue Black Red Gray1 Green Green Red
+DiamondsRequired=12 12 12 12 12
+CaveTime=40 40 40 40 40
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=30 55
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=10 10 10 10 10
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaGrowthProb=0.1250 0.5000
+MagicWallTime=18 18 18 18 18
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W            ddddd.WWWWWWWWWWWWWWWWWWWWW
+W www...w...dwwwwwdWWWWWWWWWWWWWWWWWWWWW
+W w..r.rMrrrdwwwwwdWWWWWWWWWWWWWWWWWWWWW
+W www.r.M.r.wwwwwwwWWWWWWWWWWWWWWWWWWWWW
+W w..r.rM.r.w  w  wWWWWWWWWWWWWWWWWWWWWW
+W www...M.P.w  w  wWWWWWWWWWWWWWWWWWWWWW
+Wo..........wwwMwwwWWWWWWWWWWWWWWWWWWWWW
+W ....M.M.M..wwwww.WWWWWWWWWWWWWWWWWWWWW
+W .....MwM..dwdwdwd..d...d...d. Q   Q WW
+W       M..........WWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWHWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Butterexploder
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Brown Red LightBlue Blue Cyan Cyan LightBlue
+DiamondsRequired=55 55 55 55 55
+CaveTime=100 100 100 100 100
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=12 16
+RandSeed=0 0 0 0 0
+BonusTime=25 25 25 25 25
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=100 100 100 100 100
+Effect=AMOEBABOULDEReffect EXPLOSION0
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=130 130 130 130 130
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=BUTTERFLYr DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Waa.......................d..........aaW
+Wwwww......d......d...............wwwwwW
+W...ww..d..............w.........ww....W
+W......................................W
+W...........w.............M............W
+W......................................W
+W.................M....................W
+W.......M...............d.......w......W
+W...ww...........W.W.............ww....W
+Wwwww............W.W..............wwwwwW
+Wa...#...........W.W.............#....aW
+Wwwww............W.W...........M..wwwwwW
+W...ww......w..w.W.WM...w........ww....W
+W.....d..........W.W...................W
+W...............W...W..................W
+W..........M...W.....W.................W
+W..............W.....W.................W
+W...ww........W.......W..M......w.ww...W
+Wwwww.......WWW.......WWW..........wwwwW
+Wa..........WX........PWW.............aW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Wthnuthamoebix
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Gray1 Gray2 Green Blue Red Red Green
+DiamondsRequired=110 110 110 110 110
+CaveTime=140 140 140 140 140
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=3 8
+RandSeed=0 0 0 0 0
+BonusTime=3 3 3 3 3
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=130 130 130 130 130
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WXWXWXWXW.........w  C   C    C  WWX C W
+WWXWXWXWW#.#.#..w.ww"  WWWWW W.W . WoWoW
+WXWXWXWXW.F....w....ww C XWW W WCWCWCW W
+WWXWXWXWW#.#.#w......ww.  WWoW W W W WCW
+WXWXWXWXW..www........www  W W WoWoWCW W
+WWXWXWXWW#.w............www oWoW W W W W
+W$W$W$W$W.www.............w  W W W W W W
+WWWWWWWWW.w................wCWCWCW WoWoW
+WWWWWWWWWww......a....."..ww W W W W W W
+WWWWWWWWww........a.......w CW W W WCW W
+WW-W-W-Ww...".............ww WoWoWoW W W
+W(W(W(WWw.................ww WCWCWCWCWCW
+WW-W-W-Wwwww.............w   W WCW W WoW
+WWWWWWWWWWWww...........wwC oW W WWWCW W
+WWWWWWWWWWW.ww.........ww  C WWWo C oWCW
+WXXX000XXXW..ww........w.WWWWWWWWW.WWW.W
+WXWWWW0WWXW...ww.....w...  Po          W
+WXXX000WXXW.F..wwwwwww... WWWWWWWWWWWW W
+WWWX0WWWWXW.....ww....... WWWWWWWWWWWW W
+WXXX000XXXW..............              W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Leaking amoeba
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Purple LightBlue Red LightGreen Cyan Cyan Red
+DiamondsRequired=115 115 115 115 115
+CaveTime=175 175 175 175 175
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=4 10
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=135 135 135 135 135
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect AMOEBA
+AmoebaGrowthProb=0.1250 0.0312
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect FIREFLYBUTTERFLYSWITCH
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W  CC     Co C  CoC CQCC         C.r ..W
+W ............................... .W ..W
+Wo...............................o.Wo..W
+W ....wwwwwwwww.wwww wwwwwwwwww..C.Wo..W
+W .......   ww    ww wwwww   ww.. .Wo..W
+WC....wwwww wwww.www     w w ww.. .Wo..W
+Wo....w.Pww wwww.wwwwwww w w ww.. .WC..W
+W ....w.xww wwaaaawwwwww w w ww..C.Wo..W
+W ....w..ww   aaaa       w w ww..Q.Wo..W
+W ....wx.ww wwww wwwwwwwww w ww..C.W ..W
+W ....w..ww wwww wwww      w ww..o.Wo..W
+W ....w.xw  wwww ww wwwwww waww.. .W ..W
+WC....w..w wwwww ww  C  wwww.ww.. .W ..W
+W ....ww.w wwwww wwwwwwwwwwwwww.. .WC..W
+WQ............................... .W ..W
+WC...............................o.W ..W
+W ............................... .WoW.W
+W ............................... .WoW.W
+W ...............................C.WoX.W
+WCo      CQ  CQC           oCC  o .Wo .W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Oncebittentwys
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Blue Black Orange Gray2 Green Green Orange
+DiamondsRequired=32 32 32 32 32
+CaveTime=86 86 86 86 86
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=12 20
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W........r.$...........................W
+W.ww.....W.............................W
+X.wwwwwwwWWWW........$.................W
+W.www...wwwwW....W......W..............W
+W..$..w$  ' W$...W..........W..........W
+WWWWWWWrrrrrW....W.................d...W
+WrrrrrrWrrrrW....W..W.......d..........W
+WrrrrrrrWrWW.P...W..........d..........W
+W..dd....W.......W........d.....Wd.....W
+W.dd.....W..W....W....d..dd.......WWWWWW
+W.dd..WWWW.....W.W................W .. W
+Wddd.W...W.......W......W....$....W WW W
+Wd..W.W..W...WWWWW................. W. W
+Wdd...........W......W........W...W Wd W
+W....W....d....W..................W WW W
+W...WoW.........W.......W.....d...WoW.oW
+W....$.......d.$'W......W..WWW...dW WW W
+W.............. W..d..WdW.....W...W W. W
+W..............W......W.WWWW.d.W..W WW W
+W.....d...............W...........W%   W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=20 busy int.
+Intermission=true
+Size=40 22 0 0 19 11
+Colors=Purple White Gray3 Black Purple Purple Gray3
+DiamondsRequired=99 99 99 99 99
+CaveTime=88 88 88 88 88
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=5 18
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=10 10 10 10 10
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=52 52 52 52 52
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=85 85 85 85 85
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=5 5 5 5 5
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect GRAVESTONE
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWXWWWWWWWWWXWWWWWWWWWWWWWWWWWWWWWWW
+W         a       r oCCoCCCoCCCoCCoCCoCW
+X.. .. ..w....... sWWWWWWWWWWWWWWWWWWWCW
+W.. . .  w.        WCWWWWWWWWWWWWWWWWWoW
+W.a .  .  ...w.  ..WoWWWWWWWWWWWWWWWWWCW
+Ww. . ....a...  ..wWCWWWWWWWWWWWWWWWWWCW
+W.  .  ....     ...WCWWWWWWWWWWWWWWWWWoW
+W..   ...w..    ...XCWWWWWWWWWWWWWWWWWCW
+X.w. ...wwww    w..WoWWWWWWWWWWWWWWWWWCW
+W...    .       ...WCWWWWWWWWWWWWWWWWWCW
+W..M....PM....M....WoWWWWWWWWWWWWWWWWWoW
+WWWXWWWWWXWWWWXWWWWWCWWWWWWWWWWWWWWWWWCW
+W WWWWWWWWWWWWWWWWWWCWWWWWWWWWWWWWWWWWCW
+W                  WCWWWWWWWWWWWWWWWWWoW
+W W WWWWWWWWWWWWWW WoWWWWWWWWWWWWWWWWWCW
+W W W   W   W    W WCWWWWWWWWWWWWWWWWWCW
+W W WaW   W   WW W WCWWWWWWWWWWWWWWWWWCW
+W W WWWWWWWWWWWW W WoWWWWWWWWWWWWWWWWWoW
+W W              W WCWWWWWWWWWWWWWWWWWCW
+W WWWWWWWWWWWWWWWW WCWWWWWWWWWWWWWWWWWCW
+W                  WoCoCCoCCCoCCoCCoCCoW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Bd maze remake
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray3 Blue Purple Purple Gray3
+DiamondsRequired=35 35 35 35 35
+CaveTime=230 230 230 230 230
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=15 20
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=10 10 10 10 10
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=115 115 115 115 115
+AmoebaGrowthProb=0.5000 0.1250
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WXP.w         . . b              . . . W
+W...w.wwwwwwwww.w w.wwwwwwwwww.w w.www.W
+W ... .   b   w w . .        . . w w w W
+W .wwww w.wwwww.w w.wwwwwwwwww.w w wbw W
+W       . .   . . w w        w w w w w W
+W w.wwwww.wwwww.w w w w.wwwwww.w w w w W
+W . .   . .    .  w wb.d.    . . w w w W
+W w.wwwww.w wwrwwwrwrww.wwwwww.w w w w W
+W w w       w .   . . w w        w w w W
+W w w w.wwwww.wwwwa.w w w w.wwwwww.w w W
+W w wb.d.   r .    .  r w.. .    . . w W
+W w w w.wwwww.w w.wwwww.w w.wwwwww.w w W
+W w w w w   w   . .   w . w w        w W
+W w w w w w.wwwwrwrwwww.w w w w.wwwwww W
+W w w w w . .   . .       w w . .      W
+W w w w w w.wwwww.w w.wwwww.w w.wwwwwwwW
+W w.www.w w w    b  . .   .d. w wddd   W
+W . . . . w w w.wwwww.wwwww.w w.wwwwww.W
+W w.www.w w.www.    . .       . .    . W
+W . b     . . . .wwww.wwwwwwwww.wwwwww.W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Dicedthephkup
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Red Blue Green Orange Black Black Green
+DiamondsRequired=60 60 60 60 60
+CaveTime=180 180 180 180 180
+CaveScheduling=plck
+PALTiming=true
+FrameTime=160 160 160 160 160
+CaveDelay=8 8 8 8 8
+TimeValue=1 1 1 1 1
+DiamondValue=8 15
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=108 108 108 108 108
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.2500 0.0312
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect SOKOBANBOX
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWxPw  C C C Cw CCCC    w.WWWWWW
+W.... ......wCCC  CCCCw CCCCCCCCw .....W
+W.........  wCCC    CCw........Cw ww...W
+W....WW.... w.........w.........waaw...W
+W. .W..HW.......W.WX.W...W......waaw...W
+W....W.W.WW.x.w........W........w.aw...W
+W..W.......W..xwwwwwwwwww .....ww..w...W
+W....W.WX.W.xPwCC C C CCw ....ww...w...H
+Wx.w....W.....wCC   CC  w ....w....w...W
+W..xwwwwwwww  w.....   Cw ..w......w...W
+WxPwCCCCCCCC. w.........w .........w...W
+W..w....W.W.WW.. .WWWWW............w...W
+W  w..W.......WW....WWWWW.......... ...W
+W. w....W.W..W..WW....XWW..........w...W
+W  wx.w....W...W........WWW.W......w...W
+W .w..xwwwwwwwwww ... ....W..WW........W
+W  wxPwCC   CCCCw ......W.W............W
+W. w..w ...     w W ...........W..W....W
+W  w  w   .CC CCw ..WH..W.WX.W..WWWWW..W
+W .w. wC........w .W..WW...W...W.......W
+W   ...... .w....W.a.W..wwwwwwwww .....W
+WWWWWWWWWW.. wwwwwwwwww CCC.CCCCw WWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Bricking bars
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Blue Orange Black Gray3 Green Green Black
+DiamondsRequired=98 98 98 98 98
+CaveTime=135 135 135 135 135
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=5 15
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=115 115 115 115 115
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=5 5 5 5 5
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect FIREFLYl
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WC    C    C   C    C     C      C     W
+W ...................................C W
+W .                                 .. W
+W .                      ww         .  W
+WC.                  w   w          . WW
+W . ww  ww            w  ww      ww .  W
+W . ww  ww  ww       ww   w   w   w .. W
+X .  w  w   ww   P   ww  ww  ww  ww .  W
+WC. ww  ww  ww   ww  ww   w  w    w . WW
+W . ww  ww  ww   ww  ww  ww  ww  ww .  W
+W . ww   w  ww   ww  ww  w   ww  w  .. W
+W . ww  ww  ww   ww  ww  ww  ww  ww .C W
+W . ww  ww aww    w aww a w aww  ww . XW
+WC. ww  wwssww   wwsswwwMwwwMwwwwww .  W
+W .wwwwwwwwwwws swwwwww   w  wwwawww.. W
+W . wa  ww  ww   ww  ww  ww  ww  ww .  W
+W . ww  ww  ww   ww  ww  ww  ww  ww . WW
+WC.                                 .C W
+W .................................... W
+W       C  C     C     C     C     C   W
+WWWWWWWWWWWWWWWWWWWXWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Oldschoolmaze
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Purple Green Green LightRed
+DiamondsRequired=40 40 40 40 40
+CaveTime=75 75 75 75 75
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=11 20
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.0312 0.1250
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=EXPANDINGWALLLOOKSLIKEeffect STEELWALL
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+wwwwwwwwWwwwwwwwwwwwwWwwwwwXwwwwwwwwWwww
+x.d..dd........d..d..d........d.....d..w
+w.wwWwwwwwWwww.wwwwwwwwwww.w.wwwwwwwww.w
+w.x...w......W.wwwWwwwwwwwdW.wdwd..w.w.w
+w.w.wdw.wwxx.w.ww..d.......w.w.w.w.w.w.x
+x.W.x.w.Wd...w.wx.wwwwwwWwww.W.w.w.w.W.w
+w.w.w.wdw.wwwx.ww..d....dd...w.w.wdwdwdw
+wd..w...w..d.w.ww.wwwWwwwwwW.w.w.W.w.wdw
+Wdwwwwwwwwww.x....w...w..dw..w.xdw.w.xdw
+wdw.dddddd.w.wwwwwwdw.w.w.w.ww.wdw.w.w.w
+wdw.wwwwWw.w.W..d...w...w.wd.x.wdw.x.w.w
+w.w.w....w...w.wwwWwwwwww.ww.wdw.w.w.W.w
+w.x.w.ww.w.w.w....wP..d..dW..w.w.Wdw.w.x
+Wdwdw.Xd.wdW.wwwW.wwwwwwWww.ww.w.w.w.w.w
+w.wdx.w.ww.wd...d.wd..w...w....w.w.w...w
+w.wdw.w..w.w.wwwwww.w.w.x.ww.w.xdw.w.w.W
+w.xdwdwwww.x.W......W..dw....w.w.w.w.wdw
+w.w.W.Wwww.w.w.xwwwwwwwwwwWwww...w...x.w
+w.W.w...d..x.w..d.....d......wwwwwwwww.x
+Wdw.wwwwwwww.w.wwWwwwww.xwww...wd..W.d.w
+w....d....d.....d............wd..x...w.w
+wwwwwwwwwwwwwwwwwwwwwwWwwwwwwwwXwwwwwwww
+[/map]
+[/cave]
+
+[cave]
+Name=25 oct int.
+Intermission=true
+Size=40 22 0 0 19 11
+Colors=Yellow Yellow Green LightGreen Cyan Cyan Green
+DiamondsRequired=6 6 6 6 6
+CaveTime=20 20 20 20 20
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=30 70
+RandSeed=0 0 0 0 0
+BonusTime=5 5 5 5 5
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=27 27 27 27 27
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect BOULDER
+AmoebaGrowthProb=0.5000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W..................WWWWWWWWWWWWWWWWWWWWW
+W.W............WWW.WWWWWWWWWWWWWWWWWWWWW
+W.W.... .. ....WWW.WWWWWWWWWWWWWWWWWWWWW
+W.W....o..o....WWP.WWWWWWWWWWWWWWWWWWWWW
+X.W.. . .. . ..WWW.WWWWWWWWWWWWWWWWWWWWW
+W W..        ..WWW WWWWWWWWWWWWWWWWWWWWW
+W W.. ...... ..WWW WWWWWWWWWWWWWWWWWWWWW
+W W..o.dddd.o..WWW WWWWWWWWWWWWWWWWWWWWW
+WQW.. .dddd. ..WWWQWWWWWWWWWWWWWWWWWWWWW
+W W.. .dddd. ..WWW WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=The eyes re
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Blue Black Orange Red Cyan Cyan Orange
+DiamondsRequired=14 14 14 14 14
+CaveTime=85 85 85 85 85
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=35 85
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=75 75 75 75 75
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=EXPANDINGWALLLOOKSLIKEeffect FIREFLYl
+Effect=DIRTLOOKSLIKEeffect FIREFLYBUTTERFLYSWITCH
+EnemyDirectionProperties.startbackwards=true
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.................................rr...W
+W....WWWWWWWWWWWWWWWWW.................W
+W...*xxxxxxxxxxxxxxxxx*..............r.W
+W...W                 W...r.....x......W
+W...W   C    C    C   W................W
+W...W                 W................W
+W...w                 w.....r.x...xW...W
+W...W                 W.......x...xW.wwW
+W...W   C    C    C   W.......x...xW...W
+W...W                 W.......x...xWww.W
+W...wWWWW WWW WWWW WWWw.......x...xW.w.W
+W...      .             ......x...xW...W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW...WWWWWW
+W.................................     W
+W.xxxxxxxxxxxxxxxxxWWWWWWWWWWWW...WWWWWW
+W.x...x...xW.....x.....................W
+W.x.x.x.x.xWxx.x.x.xxxxxxxxxxxx....#.r.W
+W.x.x.x.x.xX.x.x.x.x...................W
+W.x.x.x.x.xW.x.x.x.xdxdx%xdxdx.....x...W
+W...x...xPxW.$.x...x...................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=night cruise
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightBlue Brown Blue Blue LightBlue
+DiamondsRequired=7 7 7 7 7
+CaveTime=50 50 50 50 50
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=4 4 4 4 4
+TimeValue=1 1 1 1 1
+DiamondValue=50 100
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.5000 0.1250
+MagicWallTime=15 15 15 15 15
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect ACID
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                                      W
+W w    r r r           W               W
+W ww  WWWWWW WWWW      W      WWWWWWW  W
+Wwwrw     WWWWW W      W     WW W WW   W
+WwM wMwww   WWWWWW    WWWW  WWWWWWW    W
+WwwMw w w     WWWWWW  PWWWW  $WWWW     W
+WwwM           WW WWWWWWWWWWWXW WW   M W
+W Mww w w       WWWWW(W(W(W(WWWWW    M W
+W w*wwwww        WWWWWWWWWWWWWWW     w W
+W  wMw             WWWWWWWWWWWW     ww W
+W..%wM..............................Mw.W
+W..ww*w..............w..............ww.W
+W...Mwww.....w......wMw......M.....w*M.W
+W...ww%wwMw.wMww...w*w%w....www.w.w*w..W
+W....wMw*wwwww%ww.wMwwMwwwwMww*MwwwM...W
+W.....wMwMwwMww*www*w.ww*w%ww.www%w....W
+W......w*%MwwdwwMw%w.d.wwMww.d.w.w...W.W
+W.......wwwwW...www.....www...W........W
+W.........w......w...W.................W
+Wd.....................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Pacmazing maze
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Cyan Yellow Yellow Purple
+DiamondsRequired=17 17 17 17 17
+CaveTime=3 3 3 3 3
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=2 2 2 2 2
+TimeValue=1 1 1 1 1
+DiamondValue=25 55
+RandSeed=0 0 0 0 0
+BonusTime=1 1 1 1 1
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.2500 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect SPACE
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWW W WWWWWWWWWWWWWWWW
+W.................WFW  WWFW...........WW
+W.#.#.#.#.d.#.#.#.WWWWqWWWW.#.#.#.d.#.WW
+W.....................................WW
+W.d.WWWWWWWWWWW.#.WWWo oWWW.d.W.#.W.#.WW
+W...........W(W...WWW   WWW...W...W...WW
+W.#.#.#.#.#.WWW.#.Wo     oW.#.W.d.W.#.WW
+W...........W(W...W       W...W.......WW
+W.#.W.#.W.#.WWW.#.W   o   W.#.W.#.#.d.WW
+W...W...W.........WWWW%WWWW...W.......WW
+W.#.W.#.W.#.d.#.#.WFWWWWWFW.#.WWWWWWWWWW
+W...W...W.........WW P$  WW...W.......WW
+W.#.W.#.WWWWWWWWWWWW WXW WW.#.W.#.#.d.WW
+W...W.................W...W...W.......WW
+W.d.W.#.#.#.d.#.d.#.#.W.d.W.d.W.d.W.#.WW
+W...W.................W...W...W...W...WW
+W.#.WWWWWWWWWWWWWWW.#.W.#.W.#.W.#.W.#.WW
+W.....................W...............WW
+W.#.#.#.d.#.#.d.#.d.#.W.#.#.#.#.#.d.#.WW
+W.....................W...............WW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Janesfunkytrak
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black LightBlue Black Blue White White Black
+DiamondsRequired=60 60 60 60 60
+CaveTime=75 75 75 75 75
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=8 20
+RandSeed=0 0 0 0 0
+BonusTime=8 8 8 8 8
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaThreshold=0.1591 0.1591 0.1591 0.1591 0.1591
+AmoebaTime=55 55 55 55 55
+Effect=AMOEBABOULDEReffect SWEET
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.2500 0.1250
+MagicWallTime=154 154 154 154 154
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=EXPANDINGWALLLOOKSLIKEeffect SPACE
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                                     xW
+W                            x         W
+W                           aaa        W
+W                            aa        W
+W                                      W
+W                                      W
+W                                      W
+W                                      W
+W     % % WWWW         wwwwwwwwww  """"W
+W  +WWWWWWX P  ! r rr! wwwWWWWw*w """""W
+W  WWWWW$$WWW  !rrrrr! wwwW--W*ww )))))W
+W  WWWWWWWWWWW !!!!!!! wwwWWWWwww  ))r)W
+W -x((   x (( x (( (( x ((  x (( x ((  W
+W..MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW
+W.....r...w-w-w-w-w-w-w-w-w-wrwd......dW
+W..r......wC   C   CC  C   Cw.w.d...rd.W
+W.........w ############### w.w...dd...W
+W.........wC   C   CC  C   Cw.w...dd...W
+W.........wWwWwWwWwWwWwWwWwWw.w.d....doW
+W..............................d......dW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=30 brail int.
+Intermission=true
+Size=40 22 0 0 19 11
+Colors=White Blue Cyan Yellow Blue Blue Cyan
+DiamondsRequired=22 22 22 22 22
+CaveTime=40 40 40 40 40
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=4 4 4 4 4
+TimeValue=1 1 1 1 1
+DiamondValue=10 65
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=10 10 10 10 10
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaGrowthProb=0.5000 0.5000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect DUMMY
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.....P.........P..WWWWWWWWWWWWWWWWWWWWW
+WP..cWW......WcW...WWWWWWWWWWWWWWWWWWWWW
+W...WXc...P..WXW...WWWWWWWWWWWWWWWWWWWWW
+W.P.WXW......cXc...WWWWWWWWWWWWWWWWWWWWW
+W...WWW.P..P.WWW...WWWWWWWWWWWWWWWWWWWWW
+WP..cXW......cXW..PWWWWWWWWWWWWWWWWWWWWW
+W...WXW......WXc...WWWWWWWWWWWWWWWWWWWWW
+W.P.WWc..P.P.cWW...WWWWWWWWWWWWWWWWWWWWW
+W..................WWWWWWWWWWWWWWWWWWWWW
+W.....P....P.......WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Dots mediumish
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=LightBlue LightBlue Green Black Green Green Green
+DiamondsRequired=15 15 15 15 15
+CaveTime=20 20 20 20 20
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=33 65
+RandSeed=0 0 0 0 0
+BonusTime=1 1 1 1 1
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect ACID
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW 
+W#................#...................W 
+W.W.W.W.W.W.W.W.W.W.W.W.W.W.W#W.W.W.W.W 
+W.d.......d............#..............W 
+W.W.WoW.W.W.W.W.W.W.W.W.W.WdW.W.WoW.W.W 
+W.............#......d................W 
+W.W#W.W.W.W.W.W.W.W.W.W.W.W.W.W.WdW#W.W 
+W......P..................#...........W 
+W.WdW.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.W 
+W............d.....#o.................W 
+W.W.W.W.W.W.W.W.W.W.W.W.W.W.W.WdW.W.W.W 
+W.......................#.............W 
+W.W.W.W.W.W.WoW.W.W.W.W.W.W.W.W.W.W.W#W 
+W...............d...........d.........W 
+W.WdW.W.X.W.W.W.W.W#W.W.W.W.W.W.W.W.W.W 
+W...#................d.........do.....W 
+W.W.W.W.W.W.W.W.W.W.W.W.W.W#W.W.W.W.W.W 
+W.....o...d.............#.........d...W 
+W.W.W.W.W.W.W.W#W.W.W.W.W.W.W.W.W.W#W.W 
+W..................#..................W 
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW 
+                                        
+[/map]
+[/cave]
+
+[cave]
+Name=Blow  the d  r
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=White Black Red Gray2 Black Black Red
+DiamondsRequired=125 125 125 125 125
+CaveTime=82 82 82 82 82
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=4 85
+RandSeed=0 0 0 0 0
+BonusTime=4 4 4 4 4
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=45 45 45 45 45
+Effect=AMOEBABOULDEReffect SWEET
+Effect=AMOEBADIAMONDeffect SWEET
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=EXPANDINGWALLLOOKSLIKEeffect STEELWALL
+Effect=DIRTLOOKSLIKEeffect BITERSWITCH
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW W
+W.............WFW............$rrrrrr$  W
+W..dd..dd.d.d.WdW.#.....r....WrrrrrrW  W
+W.ddd.d...d.d.WdW...r.....#..W.o..o.Wd W
+Wdd...d...d.d.WdW......#.....W..xx..W  W
+Wdd...ddd.ddddWdW........r...W..xx..W  W
+Wdd...d.d...d.WdW...#........W..xx..W dW
+W.ddd.d.d...d.WdW.r...r......W......W  W
+W..dd.ddd...d.W.W............W......W  W
+W$WWWWWWWWWWWWW.WWWWWWWWWWWW.Wxxx.xxW  W
+W............................WWWWrWWW  W
+W$xWWWWWWWWWWWW.WWWWWWWWWWWW.W......W  W
+W.ddddddddddddW.WddddddddddddW......W dX
+W WWWWWWWWWWWdW$W.d..d.....d.W......W  W
+WoWWWWWWWdddWdW.W.d...d...d..W......W  W
+W       WdWdddW.W.d....d.d...W......W  W
+W-WWW-WWWdWWWWW.W.d.....d....W.....aW  W
+Wdddddddddddddr.Wdddddddddddd.......W  W
+WWW-WWWWWWWWWWW.WWWWWWWWWWWWWW......W  W
+W((((((%(((((....r...r...rP..W......W  W
+Wd.................r...r...rdW......WddW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW W
+[/map]
+[/cave]
+
+[cave]
+Name=Aubreysdillema
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Gray1 Green Black Red Black Black Black
+DiamondsRequired=99 99 99 99 99
+CaveTime=115 115 115 115 115
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=4 8
+RandSeed=0 0 0 0 0
+BonusTime=75 75 75 75 75
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=125 125 125 125 125
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.5000 0.1250
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect ACID
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W   CW................r................W
+WCWWWW....w.. ........r....a...........W
+WC CCW...... . ...w...r.............w..W
+WWWW W.w..... ........rrrrrrrrrrr......W
+Wo  oW.................................W
+W WXWWWWWW....w.......    www    ......W
+WCC   C  W............   w   w   ......W
+WWWWWWWWoW........w...  w  .  w  ......W
+W  CCCC  W............ wW . .  w ..w...W
+WoWWWWWWWW............w  W .    w......W
+W.CCCCC oW...w.......w    W  ... w.....W
+WWWWWWWW W..........w. . .       .w..w.W
+WC CCCC  W... .....w.. . . W  .. ..w...W
+WCWWWWWWWW.. . ...w... . . PW    ...w..W
+WCW o Wo..... ...w.... . .   W . ....w.W
+WCW WCWoW.......w.....           .....wW
+WCW W WoW...w......... . . .. W  .. ...W
+WCWCWCWoW............. . .     W . . ..W
+W WCW W W...........w. . . ..   W.. ...W
+Wo CWC  W.............           .....#W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Pretty sparse
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Orange Yellow Yellow Blue
+DiamondsRequired=9 9 9 9 9
+CaveTime=48 48 48 48 48
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=40 160
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.5000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W......................................W
+W......................d...........d...W
+W...wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww...W
+W...w                              w...W
+W..dw WWWWWWWWWWWWWWWWWWWWWWWWWWWW wd..W
+W...w WooooooooooooooooooooooooooW w...W
+W...w WoXXXXXXXXXXXXXXXXXXXXXXXXoW w...W
+W...w WoXssssssssssssssssssssssXoW wdP.W
+W...w WoXswwwwwwwwwwwwwwwwwwwwsXoW w...W
+W...w WoXsw((((((((((((((((((wsXoW w...W
+Wd..w WoXswwwwwwwwwwwwwwwwwwwwsXoW w...W
+W...woWoXssssssssssssssssssssssXoW w...W
+W...w WoXXXXXXXXXXXXXXXXXXXXXXXXoW w...W
+W..dw WooooooooooooooooooooooooooW w.d.W
+W...w WWWWWWWWWWWWWWXWWWWWWWWWWWWW w...W
+W...w                              w..QW
+W...wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww...W
+W........d.............................W
+W........................d...o.........W
+W.................d....................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=35 bubble int.
+Intermission=true
+Size=40 22 0 0 19 11
+Colors=Black Black Brown Blue Green Green Brown
+DiamondsRequired=12 12 12 12 12
+CaveTime=20 20 20 20 20
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=40 65
+RandSeed=0 0 0 0 0
+BonusTime=10 10 10 10 10
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=10 10 10 10 10
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaGrowthProb=1.0000 0.1250
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect DUMMY
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WP................XWWWWWWWWWWWWWWWWWWWWW
+WWW..............WWWWWWWWWWWWWWWWWWWWWWW
+WW..((((((((((((..WWWWWWWWWWWWWWWWWWWWWW
+WW..(d(d(dd(d(((..WWWWWWWWWWWWWWWWWWWWWW
+WWW.(d(d(d(d((d(.WWWWWWWWWWWWWWWWWWWWWWW
+WWW.((d(dddd((((.WWWWWWWWWWWWWWWWWWWWWWW
+WW..(d(dd(d(d(d(..WWWWWWWWWWWWWWWWWWWWWW
+WW..((((((((((((..WWWWWWWWWWWWWWWWWWWWWW
+WWW..............WWWWWWWWWWWWWWWWWWWWWWW
+WW................WWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=skull buster
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Cyan White Brown Black Black White
+DiamondsRequired=110 110 110 110 110
+CaveTime=150 150 150 150 150
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=3 14
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=105 105 105 105 105
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.2500 0.5000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWXXXXXWWWWWWWWWWWWWW
+W   a"r a r" .     W       WCo C oC C CW
+W     rr rr  .     W wwwww WCWWWWWWWWWCW
+W    "wwPww" .     W w w w WCW  oC  CWCW
+W       .    .     W w . w WCWC"""""CWoW
+W........   "......W ww ww WCW "   "CWCW
+W       .  . .  .  W w " w WoW " " "oWCW
+W     "". "  . ".  W ww ww WCWC""" "CWCW
+W . W ""w    .  .  W w . w WCW     "CWCW
+W       . "  ....  W ww ww WCW""""""CWoW
+W  "    .    .W    W w . w WC W o   CWCW
+W.w.w..w.  . .    W         W CW    CWCW
+W    W  .    .   W           W CWWo CWCW
+W     " ..www...W             W  W   WCW
+W       .  W   W   .  . "  .   WCdW    W
+W.wwwww.. "   W    ".."...".    WrWWWWWW
+W       .    W       . . .      wrw    W
+W...wwww.    "       . " .       r     W
+W  .    .www."  WW    . "    WW WdW W  W
+W  .   W.    .  WoW    .    WoW WrW W  W
+W  .    .    "  WooWW     WWooW Wr  W  W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Clockindiamond
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Orange Brown Black Gray2 Blue Blue Black
+DiamondsRequired=200 200 200 200 200
+CaveTime=30 30 30 30 30
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=3 4
+RandSeed=0 0 0 0 0
+BonusTime=1 1 1 1 1
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.2500 0.5000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wddddd!ddddd!dddrddd#dddd#dd!dd#ddd#!ddW
+Wdd#rd#ddrd!!d!ddrd!dddddddr!ddddddrddrW
+Wdd#dddddrdd!ddddrd!dddddrd!r!!d!!d!d#rW
+Wdd!##dd!dd#!d!d#!rrddddddr#!dddd#dddddW
+Wdd!ddrrddd!dr!dddd#!d!!rdd!!#dd#dd!dddW
+Wd#ddd#ddddd#dddddddddddd!ddddddd!d!!!dW
+W!d!!rddd#!#!dddd#ddd!dddddddddddddddddW
+Wd#d!dddd!ddddd!d!#rdd!drddd!!d!d!#r!!dW
+W#dd!dd#dddd#dddddddrddddddddddddddddddW
+X!ddd##!#!d!!dddd!dr!ddr#!rrd#ddd!d#dddW
+Wrddddddd#ddrrddd!d!ddddd!dr!d!dd!r!!ddW
+Wdd#!dd#!rd!rdddddddddddddddddddddddddrW
+Wdd!d!d!!dddd!d#ddd!d!!dddd#dr!d#!d!dd!W
+Wddddddd#d#dddd!ddddddddd!ddd!!ddd!ddddW
+Wdddr#!d#r!dd!#!!dddd#!dddddddr!dd#dr##W
+Wdddd!ddddrdd!dddd#dd##d!#!d!!#d!d!dd!!W
+Wddrd#ddddddd!dd!ddddddd!dddddddddddd!#W
+Wd!dd!r!!!ddr#dd!dddd##r#d!dd!ddd!d!dddW
+Wddrddddddd!dddd#dd!dddd!d!!rd#dPdd!r!!W
+Wdd!dd!d!dr!!d!!dddd!dd!ddd!ddddddd!dd!W
+WWWWWWWWXWWWWWWWWWWWXWWWWWWXWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=One big skull
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Orange Black Gray1 Gray2 White White Gray1
+DiamondsRequired=220 220 220 220 220
+CaveTime=275 275 275 275 275
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+BonusTime=5 5 5 5 5
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=145 145 145 145 145
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect AMOEBA
+AmoebaGrowthProb=0.2500 0.5000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=BOMBEXPLOSIONeffect SPACE
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWXWWWWWWWWWWWWWWWWWW
+Wrrr..          .....r......       .rrrW
+W.ar..        ..rrwww.wwwwrr..     .ra.W
+W.ar...      .rrwww"CCCC"wwwr..    .ra.W
+W.ar..      .rrwCCoCCCCCCoCCwr..   .ra.W
+W.ar..     ...wCoCCoCCCCoCCoCwr..  .ra.W
+W.ar..     ..wCCoCCCooooCCCoCCw..  .ra.W
+W.ar..     .rwCwCoCCooooCCoCwCwr.  .ra.W
+W.ar..     ..wCwCCCoCCCCoCCCwCw..  .ra.W
+W.ar..      wwwwoC CCCCCC Cowwww   .ra.W
+W.ar..     "CCCCCw wCooCw wCCCCC"  .ra.W
+W.ar..     "wCoCw   wCCw   wCoCw"  .ra.W
+W.ar..     "oCCCCw woCCow wCCCCo"  .ra.W
+W.ar..      "wCCCCwCCwwCCwCCCCw"   .ra.W
+W.ar..        wCoCCCwP wCCCoCw     .ra.W
+W.ar..         wCCoCw  wCoCCw      .ra.W
+W.ar..          wCCCw..wCCCw       .ra.W
+W.ar..          wCCr....rCCw       .ra.W
+W.ar..          w"ww....ww"w       .ra.W
+W.ar..          ............       .ra.W
+Wrrr..                             .rrrW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Laimewaddetour
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Blue Black Orange Purple Green Green Orange
+DiamondsRequired=200 200 200 200 200
+CaveTime=50 50 50 50 50
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=3 8
+RandSeed=0 0 0 0 0
+BonusTime=60 60 60 60 60
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=205 205 205 205 205
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=1.0000 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W..........................W..........aW
+W......www.............(...W...........W
+W....wwwCww............%...W...........W
+W...wCCoCCww....(......(...r...........W
+W..wwCCCCoCw...........o..rr......(....W
+WPwCCCoCCCCCw.....wwww...Wrr...........W
+W$CoCCCCoCCCw....wwwwww..Wrrr..........W
+W.wCCoCCCCCCCw..www    w..W.W..........W
+W..wCCCoCCoCw...w #  # w..W.W$w.......wW
+W...wCCCCCCwww..        ..W.W..w.....w.W
+W....wwwwww..ww..      ...W.W...w...w..W
+W. ...ww.........W    ...W..W....w$w...W
+W. .....(........WWrrWW.W..W...........W
+W. ............WWW.WW.WW..W............W
+W. ...........W..........W.............W
+W.........rWWW..WW    WWWW........#....W
+W.(.....rrr....W.W .. W................W
+W.....(..rrWWWWX.Wo.. W........(....(..W
+W................$ .. Wr...............W
+W................W    r$...............W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Breaky urheart
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=LightRed Red Gray1 Purple White White Gray1
+DiamondsRequired=250 250 250 250 250
+CaveTime=170 170 170 170 170
+CaveScheduling=plck
+PALTiming=true
+FrameTime=100 100 100 100 100
+CaveDelay=5 5 5 5 5
+TimeValue=1 1 1 1 1
+DiamondValue=5 10
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=95 95 95 95 95
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.5000 0.2500
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect INBOX
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W aa  w    w            a a    wawwaaawW
+W wW  w  www wW   wwww  wxaaa     Wa   W
+Ww                         w  w   www  W
+Ww       w wwa     www....         w  wW
+W Ww  w  wxw aw w  wxwWP..wxw      W  wW
+Ww              w     ..w.         ww  W
+W  wWw    wwxwww  www w                W
+W          w   w w  w      www    wxw  W
+W  w w    w aa          w   w      ww  W
+W w ww  w wwww  w   w   w  wwxwW    w  W
+Ww  W     wxw       W w ww  www   w Ww W
+Ww www w  wwwwww    w       w  w     w W
+W      w w  ww      www     wwWw    w  W
+W wwwwwwwwwwww wwwwwwwwwwww wwww wwwww W
+W wooooooooooooooooowoooooooooooooooow W
+W wCCCCCCCCCCCCCCCCCwCCCCCCCCCCCCCCCCw W
+W wCCCCCCCCCCCCCCCCCwCCCCCCCCCCCCCCCCw W
+W wCCCCCCCCCCCCCCCCCwCCCCCCCCCCCCCCCCw W
+W .rrr.rr.rr.rr.rr.rr.rr.rrr.rr.rr.rr. W
+W .................................... W
+WWWWWWWWWWWWWWWWWWWWWXWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Quk qix
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Black Cyan Gray2 White White Cyan
+DiamondsRequired=25 25 25 25 25
+CaveTime=65 65 65 65 65
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=20 32
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=30 30 30 30 30
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.0156 0.1250
+MagicWallTime=80 80 80 80 80
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+Effect=DIRTLOOKSLIKEeffect MAGICWALL
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W..............Wr           W..........W
+W..............W            W..........W
+W.....a........WMMMMMMMMMMMMW......a...W
+W..............W000000000000W..........W
+W..............WWWWWWWWWWWWWW..........W
+W......................................W
+W..........oWWWWWWWWWWWWWWWWWWWWWo.....W
+W.......... W...................W .....W
+W.......... W.     C    C    C... .....W
+W.......... w. WWWWXWXXWXWWWW ..W .....W
+W.......... W.CW000000000000W ..W ....PW
+W.......... W. W000000000000WC..W .....W
+W.......... W. W000000000000W ..W .....W
+W.......... W. W000000000000W ..W .....W
+W.......... W. WWWWXWXXWXWWWW ..W .....W
+W.......... ..  C      C     C..w .....W
+W.......... W...................W .....W
+W..........oWWWWWWWWWWWWWWWWWWWWWo.....W
+W......................................W
+W......................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Walling  dtime
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Gray2 Black LightRed Gray1 Cyan Cyan LightRed
+DiamondsRequired=150 150 150 150 150
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=3 8
+RandSeed=0 0 0 0 0
+BonusTime=0 0 0 0 0
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+PenaltyTime=0 0 0 0 0
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+AmoebaTime=155 155 155 155 155
+Effect=AMOEBABOULDEReffect BOULDERBIRTH1
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH0
+AmoebaGrowthProb=0.1250 1.0000
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.zeroisinfinite=false
+MagicWallProperties.waitforhatching=true
+MagicWallProperties=SCANN_BOULDERf DIAMONDf
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+SlimeProperties=DIAMOND SCANN_DIAMONDf BOULDER SCANN_BOULDERf NUT NUTf
+AcidProperties=DIRT 0.0000
+Effect=BOULDERbouncingeffect SCANN_BOULDER
+Effect=DIAMONDfallingeffect SCANN_DIAMONDf
+MagicWallProperties.sound=false
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWXWWWWW
+W......................................W
+W.....................w.w.r............W
+W........r...........w...w.......wwww..W
+W.............r.....w..a..w.r....wCCw..W
+W..................wrrrrrrrw.....woww..W
+W.................w.rdrdrdr.w.r..wCCw..W
+W..............r....rrdrdrr......wwCw..W
+W.wwww..............rdrdrdr......wCow..W
+W.wCCw..............rrrrrrr......wCww..W
+W.wwCw...........................woCw..W
+W.woCw...........r...............wwCw..W
+W.wCww...........................wCCw..W
+W.wCCw.................P.........woww..W
+W.wwowwwwwwwwwwwwwwwwwwwwwwwwwwwwwCww..W
+W.wCCCoCCoCCoCCCoCCoCCCoCoCCoCCoCCoCw..W
+W.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..W
+W...................o..................W
+W.......o....................o.........W
+W..............o...................o...W
+W........................o.............W
+WWWWWWWWWWWWWWWXWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+[/game]
+[/BDCFF]
+; converted from .gds / check butterfly directions (issue 40)
