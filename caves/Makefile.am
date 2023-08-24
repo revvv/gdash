@@ -9,11 +9,11 @@ Alan_Bond_CAVES = Alan_Bond/Boulder_Brain.gds
 Alan_Bond_DATA = $(Alan_Bond_CAVES)
 
 Alchemysticsdir = $(pkgdatadir)/caves/Alchemystics
-Alchemystics_CAVES = Alchemystics/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemyst_Dig_1.bd Alchemystics/Alchemyst_Dig_2.bd Alchemystics/Alchemyst_Dig_3.bd Alchemystics/Alchemyst_Dig_4.bd Alchemystics/Alchemyst_Dig_5.bd
+Alchemystics_CAVES = Alchemystics/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemyst_Dangerdash_2.bd Alchemystics/Alchemyst_Dig_1.bd Alchemystics/Alchemyst_Dig_2.bd Alchemystics/Alchemyst_Dig_3.bd Alchemystics/Alchemyst_Dig_4.bd Alchemystics/Alchemyst_Dig_5.bd
 Alchemystics_DATA = $(Alchemystics_CAVES)
 
 Alex_Zopdir = $(pkgdatadir)/caves/Alex_Zop
-Alex_Zop_CAVES = Alex_Zop/Alex_Zop.gds Alex_Zop/Nahost_91.gds Alex_Zop/Rockford_in_Nimmerland_2.bd Alex_Zop/Rocki_Rockano_in_Lolli_Land_01.bd
+Alex_Zop_CAVES = Alex_Zop/Alex_Zop.gds Alex_Zop/Nahost_91.bd Alex_Zop/Rockford_in_Nimmerland_2.bd Alex_Zop/Rocki_Rockano_in_Lolli_Land_01.bd
 Alex_Zop_DATA = $(Alex_Zop_CAVES)
 
 American_Actiondir = $(pkgdatadir)/caves/American_Action
@@ -113,7 +113,7 @@ Dotterteam_CAVES = Dotterteam/Dotter_Dash_06.gds Dotterteam/Dotter_Dash_07_Atari
 Dotterteam_DATA = $(Dotterteam_CAVES)
 
 Dr_Gurudir = $(pkgdatadir)/caves/Dr_Guru
-Dr_Guru_CAVES = Dr_Guru/Brain_Delicacy.gds
+Dr_Guru_CAVES = Dr_Guru/Brain_Delicacy.bd
 Dr_Guru_DATA = $(Dr_Guru_CAVES)
 
 Dr_Watsondir = $(pkgdatadir)/caves/Dr_Watson
@@ -217,7 +217,7 @@ Mapasoft_CAVES = Mapasoft/Mapasoft_Atari.gds
 Mapasoft_DATA = $(Mapasoft_CAVES)
 
 Marek_Rothdir = $(pkgdatadir)/caves/Marek_Roth
-Marek_Roth_CAVES = Marek_Roth/Crazy_Dream_1.gds Marek_Roth/Crazy_Dream_2.gds Marek_Roth/Crazy_Dream_3.gds Marek_Roth/Crazy_Dream_4.gds Marek_Roth/Crazy_Dream_5.gds Marek_Roth/Crazy_Dream_6.gds Marek_Roth/Crazy_Dream_7.gds Marek_Roth/Crazy_Dream_8.gds Marek_Roth/Crazy_Dream_9.gds Marek_Roth/Deluxe_Caves_1.gds Marek_Roth/Deluxe_Caves_2.gds Marek_Roth/Deluxe_Caves_3.gds Marek_Roth/Deluxe_Caves_4.gds Marek_Roth/Deluxe_Dash_1.gds Marek_Roth/Deluxe_Dash_2.gds Marek_Roth/Deluxe_Dash_3.gds Marek_Roth/De_Luxe_Remix_I.gds Marek_Roth/De_Luxe_Remix_II.gds Marek_Roth/De_Luxe_Remix_III.gds Marek_Roth/De_Luxe_Remix_IV.gds Marek_Roth/De_Luxe_Remix_V.gds Marek_Roth/De_Luxe_Remix_VI.gds Marek_Roth/De_Luxe_Remix_VII.gds Marek_Roth/De_Luxe_Remix_VIII.gds Marek_Roth/Groessenwarnsinnig_Boulder_Dash.gds Marek_Roth/Labyrinth_Dash.gds Marek_Roth/Sensemann_Dash.gds Marek_Roth/Tutorial.bd Marek_Roth/Tutorial.gds
+Marek_Roth_CAVES = Marek_Roth/Crazy_Dream_1.gds Marek_Roth/Crazy_Dream_2.gds Marek_Roth/Crazy_Dream_3.gds Marek_Roth/Crazy_Dream_4.gds Marek_Roth/Crazy_Dream_5.gds Marek_Roth/Crazy_Dream_6.gds Marek_Roth/Crazy_Dream_7.gds Marek_Roth/Crazy_Dream_8.bd Marek_Roth/Crazy_Dream_9.bd Marek_Roth/Deluxe_Caves_1.gds Marek_Roth/Deluxe_Caves_2.gds Marek_Roth/Deluxe_Caves_3.gds Marek_Roth/Deluxe_Caves_4.gds Marek_Roth/Deluxe_Dash_1.gds Marek_Roth/Deluxe_Dash_2.gds Marek_Roth/Deluxe_Dash_3.gds Marek_Roth/De_Luxe_Remix_I.gds Marek_Roth/De_Luxe_Remix_II.gds Marek_Roth/De_Luxe_Remix_III.gds Marek_Roth/De_Luxe_Remix_IV.gds Marek_Roth/De_Luxe_Remix_V.gds Marek_Roth/De_Luxe_Remix_VI.gds Marek_Roth/De_Luxe_Remix_VII.gds Marek_Roth/De_Luxe_Remix_VIII.gds Marek_Roth/Groessenwarnsinnig_Boulder_Dash.gds Marek_Roth/Labyrinth_Dash.gds Marek_Roth/Sensemann_Dash.gds Marek_Roth/Tutorial.bd
 Marek_Roth_DATA = $(Marek_Roth_CAVES)
 
 Mario_Albrechtdir = $(pkgdatadir)/caves/Mario_Albrecht
@@ -353,7 +353,7 @@ Rory_Agsten_CAVES = Rory_Agsten/RTA_Dash_1.bd Rory_Agsten/RTA_Dash_2.bd Rory_Ags
 Rory_Agsten_DATA = $(Rory_Agsten_CAVES)
 
 Schlonkeldir = $(pkgdatadir)/caves/Schlonkel
-Schlonkel_CAVES = Schlonkel/The_Lost_Caves_1.gds Schlonkel/The_Lost_Caves_10.gds Schlonkel/The_Lost_Caves_2.gds Schlonkel/The_Lost_Caves_3.gds Schlonkel/The_Lost_Caves_4.gds Schlonkel/The_Lost_Caves_5.gds Schlonkel/The_Lost_Caves_6.gds Schlonkel/The_Lost_Caves_7.gds Schlonkel/The_Lost_Caves_8.gds Schlonkel/The_Lost_Caves_9.gds
+Schlonkel_CAVES = Schlonkel/The_Lost_Caves_1.gds Schlonkel/The_Lost_Caves_10.bd Schlonkel/The_Lost_Caves_2.bd Schlonkel/The_Lost_Caves_3.bd Schlonkel/The_Lost_Caves_4.bd Schlonkel/The_Lost_Caves_5.bd Schlonkel/The_Lost_Caves_6.bd Schlonkel/The_Lost_Caves_7.bd Schlonkel/The_Lost_Caves_8.bd Schlonkel/The_Lost_Caves_9.bd
 Schlonkel_DATA = $(Schlonkel_CAVES)
 
 Scserbin_Zoltandir = $(pkgdatadir)/caves/Scserbin_Zoltan
@@ -361,7 +361,7 @@ Scserbin_Zoltan_CAVES = Scserbin_Zoltan/Atlantis_12.gds Scserbin_Zoltan/Atlantis
 Scserbin_Zoltan_DATA = $(Scserbin_Zoltan_CAVES)
 
 Sendydir = $(pkgdatadir)/caves/Sendy
-Sendy_CAVES = Sendy/Crli_Caves.gds Sendy/Sendydash_1.bd Sendy/Sendydash_2.bd Sendy/Sendydash_3.gds
+Sendy_CAVES = Sendy/Crli_Caves.bd Sendy/Sendydash_1.bd Sendy/Sendydash_2.bd Sendy/Sendydash_3.gds
 Sendy_DATA = $(Sendy_CAVES)
 
 Skeletordir = $(pkgdatadir)/caves/Skeletor
@@ -389,7 +389,7 @@ Super_Boulder_CAVES = Super_Boulder/Super_Boulder_01.gds Super_Boulder/Super_Bou
 Super_Boulder_DATA = $(Super_Boulder_CAVES)
 
 Tatter_Demaliondir = $(pkgdatadir)/caves/Tatter_Demalion
-Tatter_Demalion_CAVES = Tatter_Demalion/Demalion_Dash_01-Can_you_dig_it_sucka.gds Tatter_Demalion/Demalion_Dash_02-Yosh.gds Tatter_Demalion/Demalion_Dash_02-Yosh_Casual_Remix.gds Tatter_Demalion/Demalion_Dash_03-Conflict_Diamonds.gds Tatter_Demalion/Demalion_Dash_04-All_aboard.gds Tatter_Demalion/Demalion_Dash_05-Farrago.gds Tatter_Demalion/Demalion_Dash_06-Seimicity.gds Tatter_Demalion/Demalion_Dash_07-Basic_Bricks.gds Tatter_Demalion/Demalion_Dash_08-Born2Dash.gds Tatter_Demalion/Demalion_Dash_09-Elianation.gds Tatter_Demalion/Demalion_Dash_10-Fun_and_Games.gds Tatter_Demalion/Demalion_Dash_11-ACME.gds Tatter_Demalion/Demalion_Dash_12-Super_Rad.gds Tatter_Demalion/Demalion_Dash_13-Paradigm.gds Tatter_Demalion/Demalion_Dash_14-All_aboard_again.gds Tatter_Demalion/Demalion_Dash_15-Commodork.gds Tatter_Demalion/Demalion_Dash_16-Craters.gds Tatter_Demalion/Demalion_Dash_17-Lords_of_the_Underground.gds Tatter_Demalion/Demalion_Dash_18-Grave_Robber.gds Tatter_Demalion/Demalion_Dash_NoFX.gds
+Tatter_Demalion_CAVES = Tatter_Demalion/Demalion_Dash_01-Can_you_dig_it_sucka.bd Tatter_Demalion/Demalion_Dash_02-Yosh.bd Tatter_Demalion/Demalion_Dash_02-Yosh_Casual_Remix.bd Tatter_Demalion/Demalion_Dash_03-Conflict_Diamonds.bd Tatter_Demalion/Demalion_Dash_04-All_aboard.bd Tatter_Demalion/Demalion_Dash_05-Farrago.bd Tatter_Demalion/Demalion_Dash_06-Seimicity.bd Tatter_Demalion/Demalion_Dash_07-Basic_Bricks.bd Tatter_Demalion/Demalion_Dash_08-Born2Dash.bd Tatter_Demalion/Demalion_Dash_09-Elianation.bd Tatter_Demalion/Demalion_Dash_10-Fun_and_Games.bd Tatter_Demalion/Demalion_Dash_11-ACME.bd Tatter_Demalion/Demalion_Dash_12-Super_Rad.bd Tatter_Demalion/Demalion_Dash_13-Paradigm.bd Tatter_Demalion/Demalion_Dash_14-All_aboard_again.bd Tatter_Demalion/Demalion_Dash_15-Commodork.bd Tatter_Demalion/Demalion_Dash_16-Craters.bd Tatter_Demalion/Demalion_Dash_17-Lords_of_the_Underground.bd Tatter_Demalion/Demalion_Dash_18-Grave_Robber.bd Tatter_Demalion/Demalion_Dash_NoFX.bd
 Tatter_Demalion_DATA = $(Tatter_Demalion_CAVES)
 
 The_Blockheadsdir = $(pkgdatadir)/caves/The_Blockheads
@@ -417,7 +417,7 @@ Tropyx_CAVES = Tropyx/Boulder_Dash_12.gds Tropyx/Boulder_Dash_2000.gds Tropyx/Fa
 Tropyx_DATA = $(Tropyx_CAVES)
 
 UnlimitedStar23dir = $(pkgdatadir)/caves/UnlimitedStar23
-UnlimitedStar23_CAVES = UnlimitedStar23/Boulderdash-ux-2.gds UnlimitedStar23/Boulderdash-ux-3.gds UnlimitedStar23/Boulderdash-ux.bd
+UnlimitedStar23_CAVES = UnlimitedStar23/Boulderdash-ux-2.bd UnlimitedStar23/Boulderdash-ux-3.bd UnlimitedStar23/Boulderdash-ux.bd
 UnlimitedStar23_DATA = $(UnlimitedStar23_CAVES)
 
 variousdir = $(pkgdatadir)/caves/various
