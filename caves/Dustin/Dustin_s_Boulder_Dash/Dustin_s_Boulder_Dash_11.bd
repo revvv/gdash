@@ -1,0 +1,2485 @@
+[BDCFF]
+Version=0.5
+[game]
+Name=Dustin's Boulder Dash 11
+Author=Dustin
+Date=2019-01-10
+Lives=5 99
+TitleScreen=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
+Levels=5
+
+[cave]
+Name=Amoeba's Amusement
+Author=Dustin
+Date=2019-01-15
+Intermission=false
+Story=Fireworks welcome Rockford, but there's no time to watch them!
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Gray1 White LightGreen White
+DiamondsRequired=5 5 13 9 14
+DiamondValue=25 50
+CaveTime=80 75 70 65 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandomFill=BOULDER 222 DIAMOND 30 DIRT 0 DIRT 0
+AmoebaTime=200 200 200 200 200
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=0 2 18 20 STEELWALL
+Line=1 1 18 1 AMOEBA
+FillRect=19 1 38 20 SPACE
+Line=19 2 37 2 STEELWALL
+Line=37 2 37 19 STEELWALL
+Line=20 19 37 19 STEELWALL
+Line=20 2 20 19 STEELWALL
+Line=38 2 38 19 FIREFLYu
+Line=19 20 38 20 FIREFLYr
+Line=19 3 19 19 FIREFLYd
+Line=22 4 22 8 DIRT
+Line=24 5 24 7 DIRT
+Point=23 4 DIRT
+Point=23 8 DIRT
+Line=27 4 27 8 DIRT
+Point=28 4 DIRT
+Point=29 5 DIRT
+Point=28 6 DIRT
+Point=29 7 DIRT
+Point=28 8 DIRT
+Line=32 4 32 8 DIRT
+Line=34 5 34 7 DIRT
+Point=33 4 DIRT
+Point=33 8 DIRT
+Line=26 11 26 15 DIRT
+Line=26 11 24 13 DIRT
+Line=31 11 31 15 DIRT
+Line=31 11 29 13 DIRT
+Line=1 11 17 11 WALL
+Line=9 3 9 19 WALL
+FillRect=8 10 10 12 DIRT AMOEBA
+Rectangle=1 3 8 10 DIRT
+Rectangle=10 3 17 10 DIRT
+Rectangle=10 12 17 19 DIRT
+Rectangle=1 12 8 19 DIRT
+Rectangle=1 3 17 19 DIRT
+Point=1 3 INBOX
+Point=0 1 OUTBOX
+Point=1 2 WALL
+[/objects]
+[/cave]
+
+[cave]
+Name=Be A Bee!
+Author=Dustin
+Date=2019-02-14
+Intermission=false
+Story=As a little warm-up, Rockford plays \"Steal the honey!\"
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #a66521 #247f0c #3dc2cd #2b7f0c #2123a6
+DiamondsRequired=10 15 20 22 15
+DiamondValue=20 30
+CaveTime=200 180 150 150 150
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandomFill=DIRT 12 DIRT 12 DIRT 12 DIAMOND 12
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 1 38 1 SPACE
+Line=17 6 22 6 BOULDER
+Line=23 7 25 9 BOULDER
+Line=24 10 22 12 BOULDER
+Line=17 12 22 12 BOULDER
+Line=16 7 14 9 BOULDER
+Line=15 10 17 12 BOULDER
+Line=23 5 25 3 BOULDER
+Line=24 2 23 1 BOULDER
+Line=16 5 14 3 BOULDER
+Line=15 2 16 1 BOULDER
+Line=25 3 30 3 BOULDER
+Line=32 1 30 3 BOULDER
+Line=30 3 33 6 BOULDER
+Line=33 6 30 9 BOULDER
+Line=25 9 30 9 BOULDER
+Line=33 6 38 6 BOULDER
+Line=30 9 33 12 BOULDER
+Line=33 12 38 12 BOULDER
+Line=22 12 25 15 BOULDER
+Line=25 15 30 15 BOULDER
+Line=30 15 33 12 BOULDER
+Line=30 15 33 18 BOULDER
+Line=33 18 38 18 BOULDER
+Line=33 18 31 20 BOULDER
+Line=25 15 22 18 BOULDER
+Line=22 18 24 20 BOULDER
+Line=17 12 14 15 BOULDER
+Line=14 15 17 18 BOULDER
+Line=17 18 22 18 BOULDER
+Line=17 18 15 20 BOULDER
+Line=14 3 9 3 BOULDER
+Line=9 3 6 6 BOULDER
+Line=6 6 9 9 BOULDER
+Line=9 9 14 9 BOULDER
+Line=9 3 7 1 BOULDER
+Line=6 6 1 6 BOULDER
+Line=9 9 6 12 BOULDER
+Line=6 12 1 12 BOULDER
+Line=6 12 9 15 BOULDER
+Line=9 15 14 15 BOULDER
+Line=9 15 6 18 BOULDER
+Line=6 18 1 18 BOULDER
+Line=6 18 8 20 BOULDER
+Point=19 9 INBOX
+Point=20 9 OUTBOX
+Raster=4 1 5 1 8 2 FIREFLYl
+[/objects]
+[/cave]
+
+[cave]
+Name=Clockwise Combination
+Intermission=false
+IntermissionProperties.instantlife=true
+IntermissionProperties.rewardlife=false
+Story=In 1985, Rockford successfully solved this puzzle - now he goes all the way back!
+Size=40 22 0 0 39 21
+Colors=Black Black Blue LightRed White Blue Blue
+DiamondsRequired=85 111 140 160 155
+DiamondValue=2 10
+CaveTime=240 240 240 240 240
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=9 8 7 6 6
+RandSeed=7 3 5 1 16
+RandomFill=BOULDER 255 DIAMOND 160 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=5 5 5 5 5
+MagicWallTime=5 5 5 5 5
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 16 38 20 BOULDER
+Raster=2 1 19 9 2 2 STEELWALL
+Raster=2 2 19 9 2 2 DIRT
+Line=1 18 38 18 SLIME
+Rectangle=1 19 38 20 DIRT
+Rectangle=37 1 38 20 DIRT
+Point=2 13 INBOX
+Point=2 19 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Dual Directions
+Author=Dustin
+Date=2019-01-26
+Intermission=false
+Story=The flies have tricked Rockford into a narrow dungeon and now try to catch him, but our treasure-seeker knows his basic enemies well enough to escape!
+Size=40 22 0 0 39 21
+Colors=Black Black Green Brown White White White
+DiamondsRequired=4 4 4 4 4
+DiamondValue=25 80
+CaveTime=30 30 30 30 30
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=STEELWALL
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=36 3 34 5 SPACE
+Line=30 1 30 5 DIRT
+Line=26 1 26 5 DIRT
+Line=22 1 22 5 DIRT
+Line=18 1 18 5 DIRT
+Line=33 3 2 3 SPACE
+Line=34 9 38 9 DIRT
+Line=34 13 38 13 DIRT
+Line=34 17 38 17 DIRT
+Line=36 6 36 19 SPACE
+Line=1 20 36 20 SPACE
+Point=35 19 SPACE
+Line=2 3 6 3 DIAMOND
+Point=4 3 INBOX
+Line=32 9 32 18 SPACE
+Point=23 20 FIREFLYr
+Point=5 20 FIREFLYr
+Line=1 9 1 20 SPACE
+Point=2 19 SPACE
+Line=2 9 32 9 SPACE
+Point=2 9 FIREFLYl
+Point=2 10 SPACE
+Point=20 9 FIREFLYl
+Point=32 14 FIREFLYu
+Point=31 10 SPACE
+Line=31 18 3 18 SPACE
+Point=31 17 SPACE
+Point=19 18 FIREFLYr
+Point=37 20 OUTBOX
+Raster=34 9 2 3 4 4 DIAMOND
+Line=1 1 1 5 SPACE
+Line=2 1 6 1 SPACE
+Line=2 5 6 5 SPACE
+Line=7 1 7 5 SPACE
+Point=4 17 SPACE
+Line=3 11 3 17 SPACE
+Point=3 17 FIREFLYd
+Line=4 11 29 11 SPACE
+Point=14 11 FIREFLYl
+Line=9 6 16 6 WALL
+Line=14 4 16 6 WALL
+Line=16 6 14 8 WALL
+Point=4 12 SPACE
+Line=30 11 30 16 FIREFLYl
+Line=29 16 6 16 BUTTERFLYd
+Line=5 16 5 14 FIREFLYl
+Line=5 13 7 13 BUTTERFLYd
+Line=7 14 9 14 FIREFLYl
+Line=9 13 11 13 BUTTERFLYd
+Line=11 14 13 14 FIREFLYl
+Line=13 13 15 13 BUTTERFLYd
+Line=15 14 17 14 FIREFLYl
+Line=17 13 19 13 BUTTERFLYd
+Line=19 14 21 14 FIREFLYl
+Line=21 13 23 13 BUTTERFLYd
+Line=23 14 25 14 FIREFLYl
+Line=25 13 27 13 BUTTERFLYd
+Point=27 14 FIREFLYu
+Point=28 14 BUTTERFLYr
+Line=9 1 16 1 FIREFLYl
+[Level=4,5]
+Point=23 20 BUTTERFLYr
+[/Level]
+[Level=4,5]
+Point=9 1 BUTTERFLYr
+[/Level]
+[Level=3]
+Point=5 20 BUTTERFLYr
+[/Level]
+[Level=3]
+Point=10 1 BUTTERFLYr
+[/Level]
+[Level=2,3,4,5]
+Point=20 9 BUTTERFLYl
+[/Level]
+[Level=2,3,4,5]
+Point=12 1 BUTTERFLYl
+[/Level]
+[Level=1,2,3]
+Point=32 14 BUTTERFLYu
+[/Level]
+[Level=1,2,3]
+Point=13 1 BUTTERFLYu
+[/Level]
+[Level=1,4,5]
+Point=19 18 BUTTERFLYr
+[/Level]
+[Level=1,4,5]
+Point=14 1 BUTTERFLYr
+[/Level]
+[Level=1,3,4,5]
+Point=3 17 BUTTERFLYd
+[/Level]
+[Level=1,3,4,5]
+Point=15 1 BUTTERFLYd
+[/Level]
+[Level=1]
+Point=14 11 BUTTERFLYl
+[/Level]
+[Level=1]
+Point=16 1 BUTTERFLYl
+[/Level]
+[Level=5]
+Line=9 1 16 1 GHOST
+[/Level]
+Line=9 16 11 16 FIREFLYl
+Line=15 16 17 16 FIREFLYl
+Line=21 16 23 16 FIREFLYl
+Line=27 16 29 16 FIREFLYl
+Line=30 16 30 14 BUTTERFLYd
+[/objects]
+[/cave]
+
+[cave]
+Name=Quadratic Quest
+Author=Dustin
+Date=2015-11-27
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Can Rockford figure out how to get all the diamonds and still free himself?
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #10a762 #26387f #9ecf29 #3f7f26 #3310a7
+DiamondsRequired=44 44 44 44 44
+DiamondValue=4 0
+CaveTime=80 75 70 65 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=BOULDER
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 10 18 10 STEELWALL
+Rectangle=5 1 13 9 DIAMOND
+Line=5 5 13 5 DIAMOND
+Line=9 2 9 8 DIAMOND
+Point=9 5 INBOX
+FillRect=1 1 4 9 STEELWALL
+FillRect=14 1 18 9 STEELWALL
+Point=14 1 OUTBOX
+Line=15 2 18 5 WALL
+Line=16 2 17 2 WALL
+Line=15 3 15 4 WALL
+[/objects]
+[/cave]
+
+[cave]
+Name=Eleven Enigmas
+Author=Dustin
+Date=2019-07-26
+Intermission=false
+Story=Eleven single diamonds to collect, each of them combined with a unique, independant puzzle. Or so it seems... ;D
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #982448 #9e59b2 #9ba2cc #6cb259 #242898
+DiamondsRequired=7 8 9 10 11
+DiamondValue=40 80
+CaveTime=240 240 240 240 240
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+MagicWallTime=5 5 5 5 5
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=32 15 39 21 STEELWALL DIRT
+Point=34 17 HEXPANDINGWALL
+Point=37 17 HEXPANDINGWALL
+Point=34 18 BOULDER
+Point=37 18 BOULDER
+Line=33 19 38 19 HEXPANDINGWALL
+Point=34 19 DIRT
+Point=37 19 DIRT
+Line=33 20 38 20 SPACE
+Point=35 20 BOULDER
+Point=36 20 DIAMOND
+Point=34 15 DIRT
+Point=37 15 DIRT
+Line=35 15 36 15 HEXPANDINGWALL
+Point=29 19 DIAMOND
+Point=27 18 FIREFLYl
+Line=27 20 29 20 STEELWALL
+Point=24 18 FIREFLYl
+FillRect=27 13 29 17 STEELWALL
+Line=22 13 22 20 STEELWALL
+FillRect=23 13 26 16 DIRT
+Line=24 13 25 13 HEXPANDINGWALL
+Point=24 15 BOULDER
+FillRect=12 7 8 3 DIRT BOULDER
+Rectangle=7 2 13 8 STEELWALL
+Point=26 11 INBOX
+Line=3 1 3 3 BOULDER
+Point=3 4 DIRT
+Point=3 5 MAGICWALL
+Point=3 6 FIREFLYl
+Line=2 2 2 7 STEELWALL
+Point=2 7 DIAMOND
+Line=4 1 4 4 STEELWALL
+Line=4 5 4 8 STEELWALL
+Line=1 8 3 8 STEELWALL
+Line=1 1 1 7 DIRT
+Point=2 1 DIRT
+Point=4 4 DIRT
+Point=4 2 DIRT
+Point=4 3 VEXPANDINGWALL
+Line=30 13 30 20 STEELWALL
+Point=10 5 DIAMOND
+FillRect=34 1 38 3 DIRT
+Point=34 4 FIREFLYl
+Rectangle=35 5 37 7 MAGICWALL
+Rectangle=35 9 37 11 MAGICWALL
+Point=36 2 DIAMOND
+Line=33 1 33 13 STEELWALL
+Line=34 13 38 13 STEELWALL
+Line=35 13 37 13 DIRT
+Point=38 12 BUTTERFLYd
+Point=10 8 DIRT
+Point=10 2 DIRT
+Point=11 2 HEXPANDINGWALL
+Point=9 8 HEXPANDINGWALL
+FillRect=6 15 11 21 STEELWALL DIRT
+Line=8 16 8 20 WALL
+Point=7 18 DIAMOND
+Line=11 18 11 20 DIRT
+Point=9 15 HEXPANDINGWALL
+Point=11 19 VEXPANDINGWALL
+Point=10 15 DIRT
+FillRect=0 11 3 21 STEELWALL DIRT
+Point=2 20 DIAMOND
+Point=2 17 BOULDER
+Point=2 16 BOULDER
+Point=1 14 BOULDER
+Point=1 12 BOULDER
+Point=1 13 BOULDER
+Point=2 11 DIRT
+Point=3 12 DIRT
+Point=1 11 HEXPANDINGWALL
+Point=3 13 VEXPANDINGWALL
+FillRect=27 2 31 9 STEELWALL
+Point=28 3 DIAMOND
+Line=30 3 30 5 BOULDER
+Line=29 3 29 5 DIRT
+Line=29 3 29 9 DIRT
+Point=27 8 VEXPANDINGWALL
+Line=27 7 28 7 DIRT
+Point=28 9 HEXPANDINGWALL
+FillRect=15 2 25 9 STEELWALL DIRT
+Raster=16 4 5 3 2 2 BOULDER
+Raster=17 5 4 2 2 2 BOULDER
+Point=20 8 DIAMOND
+Line=19 2 21 2 DIRT
+Point=20 2 HEXPANDINGWALL
+FillRect=5 10 11 13 STEELWALL DIRT
+Point=6 12 DIAMOND
+Line=7 11 7 12 BOULDER
+Point=10 10 DIRT
+Point=10 13 DIRT
+Point=9 13 HEXPANDINGWALL
+Point=9 10 HEXPANDINGWALL
+Raster=16 4 2 2 8 4 DIRT
+FillRect=14 11 20 19 STEELWALL SPACE
+FillRect=16 13 17 17 STEELWALL
+Point=16 13 DIAMOND
+Point=27 9 OUTBOX
+Point=18 13 BUTTERFLYu
+Point=19 16 BUTTERFLYd
+Line=16 19 18 19 DIRT
+Raster=34 13 3 1 2 2 HEXPANDINGWALL
+Raster=15 19 3 1 2 2 HEXPANDINGWALL
+Point=15 12 BOULDER
+Line=15 13 15 17 DIRT
+[/objects]
+[/cave]
+
+[cave]
+Name=Frightening Formation
+Author=Dustin
+Date=2019-09-01
+Intermission=false
+Story=The fireflies have gotten tired of spinning around in empty space and have united in groups to catch Rockford!\nREMARK This cave is highly inspired by Arno's articles about \"Dancing Fly Formations\", see section \"Tools, Fanstuff\" in the forum!
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Green White White White
+DiamondsRequired=3 4 5 6 7
+DiamondValue=50 90
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=1 7 38 7 STEELWALL
+Point=12 4 FIREFLYl
+Point=13 5 FIREFLYr
+Point=14 6 FIREFLYr
+Point=11 5 FIREFLYd
+Point=28 9 FIREFLYl
+Point=29 10 FIREFLYr
+Point=12 1 FIREFLYl
+Point=13 2 FIREFLYr
+Point=14 3 FIREFLYr
+Point=12 3 FIREFLYr
+Point=11 2 FIREFLYd
+Point=27 3 INBOX
+Line=5 7 7 7 HEXPANDINGWALL
+Point=6 7 DIRT
+Point=5 1 FIREFLYl
+Point=6 2 FIREFLYr
+Point=7 3 FIREFLYr
+Point=4 2 FIREFLYd
+Point=8 4 FIREFLYl
+Point=9 5 FIREFLYr
+Point=10 6 FIREFLYr
+Point=22 16 FIREFLYl
+Point=26 17 FIREFLYl
+Point=27 18 FIREFLYr
+FillRect=23 17 25 18 DIRT
+Point=16 20 DIAMOND
+Point=6 6 DIAMOND
+Line=1 15 5 15 STEELWALL
+FillRect=32 17 34 19 DIRT
+FillRect=35 17 37 19 WALL DIAMOND
+Point=34 17 BOULDER
+Line=19 13 38 13 STEELWALL
+Line=19 14 19 20 STEELWALL
+Line=19 16 19 19 VEXPANDINGWALL
+Line=19 18 19 17 DIRT
+Line=27 8 27 10 STEELWALL
+Point=38 12 DIAMOND
+Point=1 17 STEELWALL
+Point=1 19 STEELWALL
+Line=5 16 5 20 STEELWALL
+Point=4 16 STEELWALL
+Point=4 19 STEELWALL
+Point=5 18 DIRT
+Point=7 16 FIREFLYl
+Point=9 16 FIREFLYl
+Point=11 16 FIREFLYl
+Point=8 17 FIREFLYr
+Point=10 17 FIREFLYr
+Point=12 17 FIREFLYr
+Line=6 15 17 15 STEELWALL
+Line=17 16 17 20 STEELWALL
+Point=7 15 DIRT
+Line=6 16 6 17 STEELWALL
+Point=4 17 STEELWALL
+Point=1 18 STEELWALL
+Point=4 20 STEELWALL
+Point=1 20 FIREFLYu
+Point=1 16 FIREFLYu
+Point=4 18 FIREFLYd
+Point=16 15 DIRT
+Point=8 15 HEXPANDINGWALL
+Point=15 15 HEXPANDINGWALL
+Point=26 10 FIREFLYl
+Point=26 8 STEELWALL
+Point=26 9 HEXPANDINGWALL
+Line=24 9 25 9 DIRT
+Point=23 9 HEXPANDINGWALL
+Line=22 10 24 10 STEELWALL
+Point=22 9 STEELWALL
+FillRect=22 11 27 12 STEELWALL
+Line=24 10 24 12 DIRT
+Line=24 12 27 12 DIRT
+Point=27 11 SPACE
+FillRect=0 9 17 13 STEELWALL
+Point=20 11 OUTBOX
+Line=1 9 3 9 DIRT
+Point=2 9 HEXPANDINGWALL
+Point=3 10 FIREFLYl
+Point=2 10 SPACE
+Line=1 10 1 12 DIRT
+FillRect=5 10 16 12 SPACE
+Line=2 12 4 12 DIRT
+Point=5 10 FIREFLYl
+Point=6 11 FIREFLYr
+Point=38 6 DIAMOND
+Point=15 12 DIAMOND
+Point=16 12 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Gaussian Growth
+Author=Dustin
+Date=2019-01-25
+Intermission=false
+Story=This amoeba must help Rockford twice: creating diamonds and...?
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Brown Green Green White
+DiamondsRequired=30 60 90 120 150
+DiamondValue=3 6
+CaveTime=240 240 240 240 240
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=4 2 3 1 0
+RandomFill=BOULDER 40 DIRT 0 DIRT 0 DIRT 0
+AmoebaTime=75 75 75 75 75
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=33 17 38 20 DIRT
+Line=35 19 38 19 STEELWALL
+Point=38 20 OUTBOX
+Point=37 20 WALL
+Point=36 20 FIREFLYl
+Point=19 10 INBOX
+Point=3 18 AMOEBA
+Line=18 11 20 11 BOULDER
+Line=17 12 21 12 BOULDER
+Line=16 13 22 13 BOULDER
+Line=15 14 23 14 BOULDER
+Line=14 15 24 15 BOULDER
+Line=13 16 25 16 BOULDER
+Line=12 17 26 17 BOULDER
+Line=11 18 27 18 BOULDER
+Line=10 19 28 19 BOULDER
+Line=9 20 29 20 BOULDER
+Line=16 16 18 16 DIAMOND
+Line=15 17 15 19 DIAMOND
+Line=16 20 17 20 DIAMOND
+Line=18 18 18 19 DIAMOND
+Point=17 18 DIAMOND
+Line=20 17 20 19 DIAMOND
+Line=21 16 23 16 DIAMOND
+Line=21 20 22 20 DIAMOND
+Line=23 18 23 19 DIAMOND
+Point=22 18 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Hiscore Hunter
+Author=Dustin
+Date=2019-09-30
+Intermission=false
+Story=Rockford in a gambling hall - here, however, the payout is not based on sheer luck!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #6a985f #436ab2 #cc666b #68b243 #5f6a98
+DiamondsRequired=25 30 35 40 45
+DiamondValue=10 15
+CaveTime=180 150 120 100 90
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+MagicWallTime=1 1 1 1 1
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=7 2 DIAMOND
+Rectangle=3 4 10 14 STEELWALL
+Point=7 4 SLIME
+Line=7 5 7 8 SPACE
+Point=7 6 BUTTERFLYd
+Line=5 5 5 12 SPACE
+Line=9 8 9 10 SPACE
+Point=9 10 SLIME
+Line=4 14 9 14 SLIME
+FillRect=3 15 10 18 STEELWALL SPACE
+Line=3 15 10 15 SPACE
+Point=2 2 INBOX
+Point=8 7 STEELWALL
+Point=6 7 STEELWALL
+Point=5 12 BUTTERFLYd
+Point=5 10 SLIME
+Point=9 11 SPACE
+Point=9 12 BUTTERFLYd
+Point=5 8 SLIME
+Rectangle=12 4 18 11 STEELWALL
+Point=15 2 DIAMOND
+Point=15 4 SLIME
+Line=15 5 15 8 SPACE
+Line=14 8 16 8 SPACE
+Point=15 8 BUTTERFLYd
+Line=13 10 16 10 SPACE
+Line=13 5 13 10 SPACE
+Line=13 11 17 11 SLIME
+FillRect=12 12 18 15 STEELWALL SPACE
+Line=12 12 18 12 SPACE
+Rectangle=20 4 24 12 STEELWALL
+Point=22 2 DIAMOND
+Line=21 12 23 12 SLIME
+FillRect=20 13 24 16 STEELWALL SPACE
+Line=20 13 24 13 SPACE
+Point=22 4 SLIME
+Line=22 5 22 10 SPACE
+Point=22 6 BUTTERFLYd
+FillRect=26 4 30 13 STEELWALL SPACE
+FillRect=26 14 30 18 STEELWALL SPACE
+Line=26 14 30 14 SPACE
+Line=27 13 29 13 SLIME
+Point=28 4 SLIME
+Point=15 18 OUTBOX
+Point=28 2 DIAMOND
+Point=28 6 FIREFLYl
+Point=29 10 BUTTERFLYr
+Point=27 9 STEELWALL
+Point=29 9 STEELWALL
+Point=27 12 DIRT
+Point=29 12 DIRT
+Line=8 11 8 12 STEELWALL
+Point=14 5 STEELWALL
+Point=16 5 STEELWALL
+Point=22 9 FIREFLYu
+Point=21 5 DIAMOND
+Point=23 5 STEELWALL
+FillRect=32 4 36 15 STEELWALL DIRT
+Point=35 10 FIREFLYd
+Point=33 10 FIREFLYd
+Point=35 11 SPACE
+Point=33 11 SPACE
+Line=33 14 35 14 SLIME
+Point=34 11 WALL
+FillRect=32 15 36 19 STEELWALL SPACE
+Line=32 15 36 15 SPACE
+Point=34 2 DIAMOND
+Point=34 4 SLIME
+Line=33 13 35 13 SPACE
+Line=33 12 35 12 SLIME
+Line=34 5 34 9 SPACE
+Point=34 9 BUTTERFLYd
+Point=35 7 STEELWALL
+Point=33 7 STEELWALL
+Line=35 5 35 6 SPACE
+Line=17 5 17 10 SPACE
+[/objects]
+[/cave]
+
+[cave]
+Name=Rhythmic Run
+Author=Dustin
+Date=2016-06-24
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=One false step in the dance and - well, it wouldn't be too severe because it's an intermission! ;)
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #3631a5 #7f1958 #14cb93 #397f19 #3137a5
+DiamondsRequired=16 16 16 16 16
+DiamondValue=10 0
+CaveTime=10 10 10 10 10
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 18 3 SPACE STEELWALL
+Point=18 4 INBOX
+Point=8 1 FIREFLYl
+Point=10 1 FIREFLYl
+Point=12 1 FIREFLYl
+Point=15 1 FIREFLYl
+Point=17 1 FIREFLYl
+Point=18 2 FIREFLYu
+Point=16 3 FIREFLYr
+Point=14 3 FIREFLYr
+Point=11 3 FIREFLYr
+Point=9 3 FIREFLYr
+Point=7 3 FIREFLYr
+Point=4 3 FIREFLYr
+Point=2 3 FIREFLYr
+Point=1 2 FIREFLYd
+Point=3 1 FIREFLYl
+Point=5 1 FIREFLYl
+FillRect=1 5 18 10 STEELWALL
+Line=1 4 17 4 DIAMOND
+Point=1 4 OUTBOX
+Line=2 6 3 6 DIAMOND
+Line=2 8 3 8 DIAMOND
+Line=2 10 3 10 DIAMOND
+Point=4 7 DIAMOND
+Point=4 9 DIAMOND
+Point=6 8 DIAMOND
+Line=8 6 9 6 DIAMOND
+Line=8 8 9 8 DIAMOND
+Line=8 10 9 10 DIAMOND
+Point=10 7 DIAMOND
+Point=10 9 DIAMOND
+Point=12 8 DIAMOND
+Line=14 6 15 6 DIAMOND
+Line=16 7 14 9 DIAMOND
+Line=14 10 16 10 DIAMOND
+Point=18 8 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Immortal Intermissions
+Author=Dustin
+Date=2019-01-28
+Intermission=false
+Story=Back in 1985, Rockford didn't have to solve these tasks - but it's a different story now! \"Cheating\" is still possible, though...
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Blue Yellow White White
+DiamondsRequired=10 10 10 10 10
+DiamondValue=30 0
+CaveTime=150 120 100 80 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=5 2 11 8 BOULDER FIREFLYl
+Point=8 5 DIAMOND
+Point=3 4 INBOX
+Line=1 11 38 11 STEELWALL
+Line=19 1 19 20 STEELWALL
+Point=2 11 DIRT
+Point=1 11 HEXPANDINGWALL
+Raster=21 12 9 9 2 1 SPACE
+Point=23 12 FIREFLYl
+Point=25 14 FIREFLYl
+Point=27 16 FIREFLYl
+Point=29 18 FIREFLYl
+Point=31 20 FIREFLYl
+Point=33 18 FIREFLYl
+Point=35 16 FIREFLYl
+Point=37 14 FIREFLYl
+Line=20 1 20 20 STEELWALL
+FillRect=3 14 5 16 SPACE DIAMOND
+FillRect=8 14 10 16 SPACE DIAMOND
+FillRect=13 14 15 16 SPACE DIAMOND
+FillRect=3 18 5 20 SPACE DIAMOND
+FillRect=8 18 10 20 SPACE DIAMOND
+FillRect=13 18 15 20 SPACE DIAMOND
+Line=19 20 20 20 DIRT
+Line=19 19 20 19 VEXPANDINGWALL
+Point=5 14 FIREFLYl
+Point=10 14 FIREFLYl
+Point=15 14 FIREFLYl
+Point=3 18 BUTTERFLYd
+Point=8 18 BUTTERFLYd
+Point=13 18 BUTTERFLYd
+Point=38 11 DIRT
+Point=37 11 HEXPANDINGWALL
+FillRect=30 2 32 4 SPACE DIAMOND
+Point=32 2 FIREFLYl
+FillRect=26 5 28 7 SPACE BOULDER
+Rectangle=30 8 32 10 FIREFLYl
+Point=31 9 OUTBOX
+Line=32 8 32 10 STEELWALL
+Point=34 16 DIAMOND
+Point=36 16 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Jewel Jail
+Author=Dustin
+Date=2019-09-28
+Intermission=false
+Story=After a complete cave-in, Rockford must break out of his stony prison!
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Purple White White White
+DiamondsRequired=15 15 15 15 15
+DiamondValue=20 5
+CaveTime=60 60 60 60 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandSeed=11 3 21 4 23
+InitialFill=SPACE
+RandomFill=BOULDER 240 DIAMOND 100 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 11 38 20 SPACE
+Point=20 17 INBOX
+Point=39 10 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Kaizo Kingdoms
+Author=Dustin
+Date=2019-08-06
+Intermission=false
+Story=If Rockford has ever heard of the \"Kaizo Mario World\" series, he knows what awaits him here! \n
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #38267f #244cb6 #a817ec #24b652 #38267f
+DiamondsRequired=1 2 3 4 6
+DiamondValue=88 88
+CaveTime=240 240 240 240 240
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Rectangle=1 10 38 11 STEELWALL
+Rectangle=19 1 20 20 STEELWALL
+Rectangle=18 9 21 12 DIRT
+Point=19 10 INBOX
+Point=20 11 OUTBOX
+Point=18 13 BOULDER
+Point=19 14 DIAMOND
+FillRect=2 13 17 13 STEELWALL
+Point=16 13 FIREFLYr
+Point=15 13 SPACE
+Point=12 13 FIREFLYl
+Point=13 13 SPACE
+Point=9 13 SPACE
+Point=10 13 FIREFLYr
+Point=6 13 FIREFLYl
+Point=7 13 SPACE
+Point=3 13 SPACE
+Point=4 13 FIREFLYr
+FillRect=1 15 13 18 STEELWALL
+Line=2 16 13 16 DIRT
+Point=5 16 SPACE
+Point=5 15 FIREFLYl
+FillRect=15 14 17 19 STEELWALL
+Point=8 15 SPACE
+Point=8 16 FIREFLYr
+Point=11 15 FIREFLYl
+Point=11 16 SPACE
+Point=15 14 HEXPANDINGWALL
+Point=17 13 VEXPANDINGWALL
+Rectangle=12 17 13 18 SPACE
+Rectangle=9 17 10 18 SPACE
+Rectangle=6 17 7 18 SPACE
+Rectangle=3 17 4 18 SPACE
+Point=4 18 BUTTERFLYd
+Point=7 18 BUTTERFLYd
+Point=10 18 BUTTERFLYd
+Point=13 18 BUTTERFLYd
+Line=1 18 1 20 STEELWALL
+Line=2 20 13 20 STEELWALL
+Line=14 17 14 18 STEELWALL
+Line=2 17 2 18 DIRT
+Point=16 15 DIAMOND
+FillRect=21 12 38 20 BOULDER
+Line=29 12 29 15 DIRT
+Point=28 15 DIAMOND
+Line=30 15 32 15 DIRT
+Point=33 15 FIREFLYl
+Point=29 16 SPACE
+Point=29 17 FIREFLYl
+Point=30 19 FIREFLYu
+Point=30 20 SPACE
+Line=30 18 33 18 DIRT
+FillRect=21 12 23 20 DIRT
+Point=34 18 FIREFLYl
+Line=32 20 37 20 DIRT
+Point=38 20 FIREFLYl
+Point=36 18 DIRT
+Point=35 16 DIRT
+FillRect=1 1 15 9 SPACE
+Raster=2 2 5 3 3 3 STEELWALL
+Raster=2 1 5 3 3 3 FIREFLYl
+FillRect=7 4 9 6 DIRT DIAMOND
+Rectangle=22 0 37 7 STEELWALL
+Line=23 7 24 7 SPACE
+Point=23 8 STEELWALL
+Point=24 6 STEELWALL
+Line=23 1 23 5 BOULDER
+Line=25 5 28 5 SPACE
+Point=24 5 FIREFLYl
+Line=24 3 28 3 SPACE
+Point=28 3 FIREFLYr
+Line=24 1 30 1 SPACE
+Line=30 2 30 5 BOULDER
+Point=29 6 STEELWALL
+Point=31 6 STEELWALL
+Line=30 7 31 7 SPACE
+Point=30 8 STEELWALL
+Point=32 4 FIREFLYl
+Point=34 3 FIREFLYr
+Line=33 3 33 4 SPACE
+FillRect=31 1 32 2 BOULDER
+Point=30 4 DIAMOND
+Line=34 6 36 6 FIREFLYl
+Line=36 1 36 5 BOULDER
+Point=37 2 DIRT
+Point=38 1 BOULDER
+Point=38 9 STEELWALL
+Point=32 7 WALL
+Point=35 4 SPACE
+Point=17 15 WALL
+Point=37 20 DIAMOND
+Point=14 18 BOULDER
+Line=16 17 16 19 SPACE
+Point=16 19 FIREFLYd
+Point=15 17 SPACE
+FillRect=1 4 3 6 DIRT DIAMOND
+Point=36 3 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Last Is Least
+Author=Dustin
+Date=2019-03-04
+Intermission=false
+Story=If Rockford had come into this cave two minutes later... he wouldn't have found anything valuable any more!
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Gray2 White White Blue
+DiamondsRequired=30 35 40 45 45
+DiamondValue=10 30
+CaveTime=120 110 100 90 80
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandomFill=BOULDER 60 DIRT 0 DIRT 0 DIRT 0
+MagicWallTime=42 39 36 33 30
+SlimePermeabilityC64=254 254 254 254 254
+
+[objects]
+FillRect=12 1 38 20 SPACE
+FillRect=14 1 25 6 DIRT
+Line=14 1 25 1 BOULDER
+Line=16 1 16 6 WALL
+Line=23 1 23 6 WALL
+Line=17 6 22 6 SLIME
+FillRect=17 1 22 5 DIAMOND
+Point=20 15 INBOX
+Point=33 2 OUTBOX
+Line=38 1 38 10 DIAMOND
+Line=38 11 38 20 FIREFLYl
+Line=37 1 37 19 STEELWALL
+Line=37 1 37 3 DIRT
+Point=37 2 VEXPANDINGWALL
+Line=36 5 36 20 FIREFLYl
+Point=35 5 FIREFLYl
+Line=35 6 35 20 STEELWALL
+Line=33 5 33 19 STEELWALL
+Line=34 5 34 20 FIREFLYl
+Point=33 20 FIREFLYl
+Line=32 5 32 20 FIREFLYl
+Line=31 6 31 20 STEELWALL
+Point=31 5 FIREFLYl
+Line=30 5 30 19 FIREFLYl
+Line=29 4 36 4 STEELWALL
+Line=29 5 29 20 STEELWALL
+Point=37 20 FIREFLYl
+Line=11 1 11 20 DIRT
+Line=12 20 28 20 MAGICWALL
+FillRect=4 3 7 6 DIRT SPACE
+Point=5 5 FIREFLYl
+Line=2 16 9 16 MAGICWALL
+Point=38 11 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=Sixfold Snaper
+Author=Dustin
+Date=2019-09-16
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=Every jewel must be snapped, otherwise you'll just be trapped!  And good timing Rockford shows, otherwise the exit blows!
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #0c7f22 #3385aa #c6d42a #33aa50 #0c317f
+DiamondsRequired=6 6 6 6 6
+DiamondValue=50 0
+CaveTime=48 45 42 39 36
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=WALL
+MagicWallTime=2 2 2 2 2
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=18 3 INBOX
+Point=18 2 EXPANDINGWALL
+Line=9 1 9 2 BOULDER
+Line=9 3 17 3 DIRT
+Point=14 3 DIAMOND
+Point=9 5 SPACE
+Point=9 6 FIREFLYl
+Point=9 4 MAGICWALL
+Line=4 1 8 1 DIRT
+Point=9 3 DIAMOND
+Line=13 3 13 2 BOULDER
+Line=14 2 14 1 BOULDER
+Line=12 1 12 2 DIRT
+Line=15 1 15 2 DIRT
+Point=13 1 DIRT
+Point=11 1 DIAMOND
+Point=6 2 DIAMOND
+Line=2 2 4 2 DIRT
+Point=4 3 VEXPANDINGWALL
+Line=2 3 2 7 DIRT
+Point=1 7 DIAMOND
+Line=3 7 10 7 DIRT
+Line=9 8 9 9 DIRT
+Point=8 5 OUTBOX
+Point=3 5 DIAMOND
+Point=3 6 BOULDER
+Point=1 2 BOULDER
+Point=6 6 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=Math Marathon
+Author=Dustin
+Date=2019-09-16
+Intermission=false
+Story=After more than thirty years of treasure-seeking, it's high time for Rockford to refresh his math skills!\nREMARK This marathon has three parts.\n\nREMARK I'll give the solutions to all math puzzles in a comment on the Game Base on Arno's homepage!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #b2362e #987098 #bdcc66 #709870 #2e49b2
+DiamondsRequired=1 1 1 1 1
+DiamondValue=88 0
+CaveTime=80 75 70 65 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+MagicWallTime=10 10 10 10 10
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 38 7 SPACE
+FillRect=1 15 38 20 SPACE
+[Level=1]
+Line=6 2 7 2 WALL
+[/Level]
+[Level=1]
+Line=8 3 6 5 WALL
+[/Level]
+[Level=1]
+Line=6 6 8 6 WALL
+[/Level]
+[Level=1]
+Line=10 4 12 4 WALL
+[/Level]
+[Level=1]
+Line=11 3 11 5 WALL
+[/Level]
+[Level=1]
+Line=14 2 15 2 WALL
+[/Level]
+[Level=1]
+Line=14 4 15 4 WALL
+[/Level]
+[Level=1]
+Line=14 6 15 6 WALL
+[/Level]
+[Level=1]
+Point=16 3 WALL
+[/Level]
+[Level=1]
+Point=16 5 WALL
+[/Level]
+[Level=1]
+Line=18 2 18 4 WALL
+[/Level]
+[Level=1]
+Line=20 2 20 6 WALL
+[/Level]
+[Level=1]
+Point=19 4 WALL
+[/Level]
+[Level=1]
+Line=22 3 24 3 WALL
+[/Level]
+[Level=1]
+Line=22 5 24 5 WALL
+[/Level]
+[Level=1]
+Line=26 2 28 2 WALL
+[/Level]
+[Level=1]
+Line=30 3 30 5 WALL
+[/Level]
+FillRect=17 16 19 20 SPACE
+[Level=1]
+Point=31 6 WALL
+[/Level]
+Point=18 16 BOULDER
+Point=18 17 OUTBOX
+Point=17 18 WALL
+Point=19 18 WALL
+Line=16 16 16 19 STEELWALL
+Line=20 16 20 19 STEELWALL
+Line=5 18 5 20 WALL
+Line=6 16 6 17 WALL
+Line=4 16 4 17 WALL
+Line=22 16 22 20 WALL
+Line=23 17 25 19 WALL
+Line=26 16 26 20 WALL
+Line=28 17 28 19 WALL
+Line=30 17 30 19 WALL
+Point=29 16 WALL
+Point=29 20 WALL
+Line=8 16 8 20 WALL
+Line=9 16 10 16 WALL
+Line=9 18 10 18 WALL
+Line=9 20 10 20 WALL
+Line=13 16 14 16 WALL
+Line=12 17 14 19 WALL
+Line=12 20 13 20 WALL
+Point=18 11 INBOX
+[Level=1]
+Point=19 18 MAGICWALL
+[/Level]
+[Level=4]
+Line=21 4 23 4 WALL
+[/Level]
+[Level=4]
+Line=14 4 15 4 WALL
+[/Level]
+[Level=4]
+Line=15 2 14 3 WALL
+[/Level]
+[Level=4]
+Point=14 1 WALL
+[/Level]
+[Level=4]
+Line=27 2 25 4 WALL
+[/Level]
+[Level=4]
+Line=17 3 19 3 WALL
+[/Level]
+[Level=4]
+Line=17 5 19 5 WALL
+[/Level]
+[Level=4]
+Line=27 2 27 6 WALL
+[/Level]
+[Level=4]
+Point=12 2 WALL
+[/Level]
+[Level=4]
+Line=12 4 12 6 WALL
+[/Level]
+[Level=4]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=3]
+Line=15 2 16 2 WALL
+[/Level]
+[Level=3]
+Line=15 4 16 4 WALL
+[/Level]
+[Level=3]
+Line=15 6 16 6 WALL
+[/Level]
+[Level=3]
+Raster=17 3 1 2 2 2 WALL
+[/Level]
+[Level=3]
+Line=11 4 13 2 WALL
+[/Level]
+[Level=3]
+Line=13 2 13 6 WALL
+[/Level]
+[Level=3]
+Line=7 2 7 4 WALL
+[/Level]
+[Level=3]
+Line=9 2 9 6 WALL
+[/Level]
+[Level=3]
+Point=8 4 WALL
+[/Level]
+[Level=3]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=5]
+Line=22 3 24 3 WALL
+[/Level]
+[Level=5]
+Line=22 5 24 5 WALL
+[/Level]
+[Level=5]
+Line=14 4 16 4 WALL
+[/Level]
+[Level=5]
+Line=15 3 15 5 WALL
+[/Level]
+[Level=5]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=2]
+Line=14 4 14 3 MAGICWALL
+[/Level]
+[Level=2]
+Line=15 4 16 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=14 6 15 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=21 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=18 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=14 2 16 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=20 3 20 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=22 3 22 5 MAGICWALL
+[/Level]
+[Level=2]
+Point=21 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=24 3 26 3 MAGICWALL
+[/Level]
+[Level=2]
+Line=24 5 26 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=28 2 30 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=28 3 28 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=29 4 30 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=28 6 29 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=19 18 MAGICWALL
+[/Level]
+[Level=1]
+Line=4 2 4 6 WALL
+[/Level]
+[Level=1]
+Line=4 2 2 4 WALL
+[/Level]
+[Level=1]
+Point=26 3 WALL
+[/Level]
+[Level=1]
+Line=26 4 27 4 WALL
+[/Level]
+[Level=1]
+Line=26 6 27 6 WALL
+[/Level]
+[Level=1]
+Point=28 5 WALL
+[/Level]
+[Level=1]
+Line=31 2 32 2 WALL
+[/Level]
+[Level=1]
+Line=31 4 32 5 WALL
+[/Level]
+[Level=5]
+Line=2 4 4 4 WALL
+[/Level]
+[Level=5]
+Line=4 3 3 2 WALL
+[/Level]
+[Level=5]
+Line=2 3 2 5 WALL
+[/Level]
+[Level=5]
+Line=3 6 4 6 WALL
+[/Level]
+[Level=5]
+Point=6 1 WALL
+[/Level]
+[Level=5]
+Line=6 3 6 4 WALL
+[/Level]
+[Level=5]
+Line=8 2 12 2 WALL
+[/Level]
+[Level=5]
+Line=9 3 9 4 WALL
+[/Level]
+[Level=5]
+Line=11 3 11 4 WALL
+[/Level]
+[Level=5]
+Line=18 4 20 2 WALL
+[/Level]
+[Level=5]
+Line=20 2 20 6 WALL
+[/Level]
+[Level=5]
+Line=26 3 26 5 WALL
+[/Level]
+[Level=5]
+Line=28 3 28 5 WALL
+[/Level]
+[Level=5]
+Point=27 2 WALL
+[/Level]
+[Level=5]
+Point=27 6 WALL
+[/Level]
+[Level=3]
+Line=20 1 19 3 WALL
+[/Level]
+[Level=3]
+Line=23 5 25 5 WALL
+[/Level]
+[Level=3]
+Line=23 3 25 3 WALL
+[/Level]
+[Level=3]
+Line=21 2 21 3 WALL
+[/Level]
+[Level=3]
+Line=29 2 27 4 WALL
+[/Level]
+[Level=3]
+Line=29 2 29 6 WALL
+[/Level]
+[Level=3]
+Point=20 4 WALL
+[/Level]
+[/objects]
+[/cave]
+
+[cave]
+Name=Math Marathon Part 2
+Author=Dustin
+Date=2019-09-16
+Selectable=false
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #b2362e #987098 #bdcc66 #709870 #2e49b2
+DiamondsRequired=1 1 1 1 1
+DiamondValue=88 0
+CaveTime=80 75 70 65 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+MagicWallTime=10 10 10 10 10
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 38 7 SPACE
+FillRect=1 15 38 20 SPACE
+[Level=1]
+Line=2 2 3 2 WALL
+[/Level]
+[Level=1]
+Line=4 3 2 5 WALL
+[/Level]
+[Level=1]
+Line=2 6 4 6 WALL
+[/Level]
+[Level=1]
+Line=6 4 8 4 WALL
+[/Level]
+[Level=1]
+Line=7 3 7 5 WALL
+[/Level]
+[Level=1]
+Line=10 2 11 2 WALL
+[/Level]
+[Level=1]
+Line=10 4 11 4 WALL
+[/Level]
+[Level=1]
+Line=10 6 11 6 WALL
+[/Level]
+[Level=1]
+Point=12 3 WALL
+[/Level]
+[Level=1]
+Point=12 5 WALL
+[/Level]
+[Level=1]
+Line=18 2 18 4 WALL
+[/Level]
+[Level=1]
+Line=20 2 20 6 WALL
+[/Level]
+[Level=1]
+Point=19 4 WALL
+[/Level]
+[Level=1]
+Line=22 3 24 3 WALL
+[/Level]
+[Level=1]
+Line=22 5 24 5 WALL
+[/Level]
+[Level=1]
+Line=26 2 27 2 WALL
+[/Level]
+[Level=1]
+Line=28 3 26 5 WALL
+[/Level]
+[Level=1]
+Line=26 6 28 6 WALL
+[/Level]
+[Level=1]
+Line=30 3 30 5 WALL
+[/Level]
+[Level=1]
+Line=32 3 32 5 WALL
+[/Level]
+[Level=1]
+Point=31 2 WALL
+[/Level]
+FillRect=17 16 19 20 SPACE
+[Level=1]
+Point=31 6 WALL
+[/Level]
+Point=18 16 BOULDER
+Point=18 17 OUTBOX
+Point=17 18 WALL
+Point=19 18 WALL
+Line=16 16 16 19 STEELWALL
+Line=20 16 20 19 STEELWALL
+Line=5 18 5 20 WALL
+Line=6 16 6 17 WALL
+Line=4 16 4 17 WALL
+Line=22 16 22 20 WALL
+Line=23 17 25 19 WALL
+Line=26 16 26 20 WALL
+Line=28 17 28 19 WALL
+Line=30 17 30 19 WALL
+Point=29 16 WALL
+Point=29 20 WALL
+Line=8 16 8 20 WALL
+Line=9 16 10 16 WALL
+Line=9 18 10 18 WALL
+Line=9 20 10 20 WALL
+Line=13 16 14 16 WALL
+Line=12 17 14 19 WALL
+Line=12 20 13 20 WALL
+Point=18 11 INBOX
+[Level=1]
+Point=19 18 MAGICWALL
+[/Level]
+[Level=4]
+Line=2 2 2 4 WALL
+[/Level]
+[Level=4]
+Line=4 2 4 6 WALL
+[/Level]
+[Level=4]
+Point=3 4 WALL
+[/Level]
+[Level=4]
+Line=6 3 6 5 WALL
+[/Level]
+[Level=4]
+Line=8 3 8 5 WALL
+[/Level]
+[Level=4]
+Point=7 2 WALL
+[/Level]
+[Level=4]
+Point=7 6 WALL
+[/Level]
+[Level=4]
+Line=10 4 12 4 WALL
+[/Level]
+[Level=4]
+Line=14 2 15 2 WALL
+[/Level]
+[Level=4]
+Line=14 4 15 4 WALL
+[/Level]
+[Level=4]
+Line=14 6 15 6 WALL
+[/Level]
+[Level=4]
+Point=16 3 WALL
+[/Level]
+[Level=4]
+Point=16 5 WALL
+[/Level]
+[Level=4]
+Line=18 2 19 2 WALL
+[/Level]
+[Level=4]
+Line=20 3 18 5 WALL
+[/Level]
+[Level=4]
+Line=18 6 20 6 WALL
+[/Level]
+[Level=4]
+Point=22 3 WALL
+[/Level]
+[Level=4]
+Point=22 5 WALL
+[/Level]
+[Level=4]
+Line=24 2 25 2 WALL
+[/Level]
+[Level=4]
+Line=26 3 24 5 WALL
+[/Level]
+[Level=4]
+Line=24 6 26 6 WALL
+[/Level]
+[Level=4]
+Line=28 3 30 3 WALL
+[/Level]
+[Level=4]
+Line=28 5 30 5 WALL
+[/Level]
+[Level=4]
+Line=32 2 32 4 WALL
+[/Level]
+[Level=4]
+Line=34 2 34 6 WALL
+[/Level]
+[Level=4]
+Point=33 4 WALL
+[/Level]
+[Level=4]
+Point=36 6 WALL
+[/Level]
+[Level=4]
+Line=36 2 36 4 WALL
+[/Level]
+[Level=4]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=3]
+Line=7 4 7 6 WALL
+[/Level]
+[Level=3]
+Line=9 4 9 6 WALL
+[/Level]
+[Level=3]
+Line=6 3 10 3 WALL
+[/Level]
+[Level=3]
+Line=13 3 15 3 WALL
+[/Level]
+[Level=3]
+Line=13 5 15 5 WALL
+[/Level]
+[Level=3]
+Line=18 2 19 2 WALL
+[/Level]
+[Level=3]
+Line=18 4 19 4 WALL
+[/Level]
+[Level=3]
+Line=18 6 19 6 WALL
+[/Level]
+[Level=3]
+Raster=20 3 1 2 2 2 WALL
+[/Level]
+[Level=3]
+Point=22 6 WALL
+[/Level]
+[Level=3]
+Line=24 4 26 2 WALL
+[/Level]
+[Level=3]
+Line=26 2 26 6 WALL
+[/Level]
+[Level=3]
+Line=28 2 28 4 WALL
+[/Level]
+[Level=3]
+Line=30 2 30 6 WALL
+[/Level]
+[Level=3]
+Point=29 4 WALL
+[/Level]
+[Level=3]
+Point=19 18 MAGICWALL
+[/Level]
+[Level=5]
+Point=3 2 WALL
+[/Level]
+[Level=5]
+Point=1 6 WALL
+[/Level]
+[Level=5]
+Line=2 3 2 5 WALL
+[/Level]
+[Level=5]
+Line=5 2 6 2 WALL
+[/Level]
+[Level=5]
+Line=7 3 5 5 WALL
+[/Level]
+[Level=5]
+Line=5 6 7 6 WALL
+[/Level]
+[Level=5]
+Line=9 4 11 6 WALL
+[/Level]
+[Level=5]
+Line=9 6 11 4 WALL
+[/Level]
+[Level=5]
+Line=13 5 14 4 WALL
+[/Level]
+[Level=5]
+Line=13 5 14 6 WALL
+[/Level]
+[Level=5]
+Line=15 2 15 6 WALL
+[/Level]
+[Level=5]
+Line=17 4 19 6 WALL
+[/Level]
+[Level=5]
+Line=17 6 19 4 WALL
+[/Level]
+[Level=5]
+Line=21 4 23 4 WALL
+[/Level]
+[Level=5]
+Line=21 6 23 6 WALL
+[/Level]
+[Level=5]
+Line=25 4 27 6 WALL
+[/Level]
+[Level=5]
+Line=25 6 27 4 WALL
+[/Level]
+[Level=1]
+Point=15 4 WALL
+[/Level]
+[Level=5]
+Line=30 3 29 4 WALL
+[/Level]
+[Level=5]
+Line=29 5 30 5 WALL
+[/Level]
+[Level=5]
+Point=29 2 WALL
+[/Level]
+[Level=5]
+Line=32 5 34 5 WALL
+[/Level]
+[Level=5]
+Line=33 4 33 6 WALL
+[/Level]
+[Level=5]
+Line=37 4 36 5 WALL
+[/Level]
+[Level=5]
+Point=37 6 WALL
+[/Level]
+[Level=5]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=2]
+Line=6 2 7 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=6 4 7 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=6 6 7 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=8 3 MAGICWALL
+[/Level]
+[Level=2]
+Point=8 5 MAGICWALL
+[/Level]
+[Level=2]
+Point=10 1 MAGICWALL
+[/Level]
+[Level=2]
+Line=11 2 10 3 MAGICWALL
+[/Level]
+[Level=2]
+Line=10 4 11 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=13 4 15 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=14 3 14 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=17 2 17 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=19 2 19 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=18 4 MAGICWALL
+[/Level]
+[Level=2]
+Point=21 1 MAGICWALL
+[/Level]
+[Level=2]
+Line=22 2 21 3 MAGICWALL
+[/Level]
+[Level=2]
+Line=21 4 22 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=24 3 26 3 MAGICWALL
+[/Level]
+[Level=2]
+Line=24 5 26 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=28 2 30 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=28 3 28 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=29 4 30 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=28 6 29 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=32 1 MAGICWALL
+[/Level]
+[Level=2]
+Line=33 2 32 3 MAGICWALL
+[/Level]
+[Level=2]
+Line=32 4 33 4 MAGICWALL
+[/Level]
+[Level=2]
+Point=17 18 MAGICWALL
+[/Level]
+[/objects]
+[/cave]
+
+[cave]
+Name=Math Marathon Part 3
+Author=Dustin
+Date=2019-09-16
+Selectable=false
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #b2362e #987098 #bdcc66 #709870 #2e49b2
+DiamondsRequired=1 1 1 1 1
+DiamondValue=88 0
+CaveTime=80 75 70 65 60
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+MagicWallTime=10 10 10 10 10
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=1 1 38 7 SPACE
+FillRect=1 15 38 20 SPACE
+[Level=1]
+Line=2 2 3 2 WALL
+[/Level]
+[Level=1]
+Line=12 2 10 4 WALL
+[/Level]
+[Level=1]
+Line=17 4 18 5 WALL
+[/Level]
+[Level=1]
+Line=6 4 8 4 WALL
+[/Level]
+[Level=1]
+Line=7 3 7 5 WALL
+[/Level]
+[Level=1]
+Line=12 2 12 6 WALL
+[/Level]
+[Level=1]
+Line=2 4 3 4 WALL
+[/Level]
+[Level=1]
+Line=2 6 3 6 WALL
+[/Level]
+[Level=1]
+Point=4 3 WALL
+[/Level]
+[Level=1]
+Point=4 5 WALL
+[/Level]
+[Level=1]
+Line=16 4 16 3 WALL
+[/Level]
+[Level=1]
+Line=16 2 18 2 WALL
+[/Level]
+[Level=1]
+Point=26 5 WALL
+[/Level]
+[Level=1]
+Line=20 3 22 3 WALL
+[/Level]
+[Level=1]
+Line=20 5 22 5 WALL
+[/Level]
+[Level=1]
+Line=16 6 17 6 WALL
+[/Level]
+[Level=1]
+Line=32 2 30 4 WALL
+[/Level]
+[Level=1]
+Line=24 4 25 4 WALL
+[/Level]
+[Level=1]
+Line=24 2 25 2 WALL
+[/Level]
+[Level=1]
+Line=32 2 32 6 WALL
+[/Level]
+[Level=1]
+Point=26 3 WALL
+[/Level]
+FillRect=17 16 19 20 SPACE
+[Level=1]
+Point=28 4 WALL
+[/Level]
+Point=18 16 BOULDER
+Point=18 17 OUTBOX
+Point=17 18 WALL
+Point=19 18 WALL
+Line=16 16 16 19 STEELWALL
+Line=20 16 20 19 STEELWALL
+Line=5 18 5 20 WALL
+Line=6 16 6 17 WALL
+Line=4 16 4 17 WALL
+Line=22 16 22 20 WALL
+Line=23 17 25 19 WALL
+Line=26 16 26 20 WALL
+Line=28 17 28 19 WALL
+Line=30 17 30 19 WALL
+Point=29 16 WALL
+Point=29 20 WALL
+Line=8 16 8 20 WALL
+Line=9 16 10 16 WALL
+Line=9 18 10 18 WALL
+Line=9 20 10 20 WALL
+Line=13 16 14 16 WALL
+Line=12 17 14 19 WALL
+Line=12 20 13 20 WALL
+Point=18 11 INBOX
+[Level=1]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=4]
+Line=15 4 16 4 WALL
+[/Level]
+[Level=4]
+Line=27 2 29 2 WALL
+[/Level]
+[Level=4]
+Line=4 2 4 6 WALL
+[/Level]
+[Level=4]
+Line=11 2 10 3 WALL
+[/Level]
+[Level=4]
+Point=13 4 WALL
+[/Level]
+[Level=4]
+Point=10 1 WALL
+[/Level]
+[Level=4]
+Line=10 4 11 4 WALL
+[/Level]
+[Level=4]
+Point=7 4 WALL
+[/Level]
+[Level=4]
+Line=16 2 15 1 WALL
+[/Level]
+[Level=4]
+Line=6 3 6 5 WALL
+[/Level]
+[Level=4]
+Line=27 4 27 2 WALL
+[/Level]
+[Level=4]
+Point=15 3 WALL
+[/Level]
+[Level=4]
+Point=18 4 WALL
+[/Level]
+[Level=4]
+Line=24 3 22 3 WALL
+[/Level]
+[Level=4]
+Line=22 5 24 5 WALL
+[/Level]
+[Level=4]
+Line=8 2 7 2 WALL
+[/Level]
+[Level=4]
+Line=2 4 4 2 WALL
+[/Level]
+[Level=4]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=3]
+Line=4 1 4 6 WALL
+[/Level]
+[Level=3]
+Line=6 3 6 5 WALL
+[/Level]
+[Level=3]
+Line=5 1 9 1 WALL
+[/Level]
+[Level=3]
+Line=25 4 27 4 WALL
+[/Level]
+[Level=3]
+Line=25 6 27 6 WALL
+[/Level]
+[Level=3]
+Point=11 4 WALL
+[/Level]
+[Level=3]
+Line=2 5 4 7 WALL
+[/Level]
+[Level=3]
+Line=31 3 31 7 WALL
+[/Level]
+[Level=3]
+Line=29 3 29 5 WALL
+[/Level]
+[Level=3]
+Line=8 3 8 7 WALL
+[/Level]
+[Level=3]
+Point=7 5 WALL
+[/Level]
+[Level=3]
+Point=17 18 MAGICWALL
+[/Level]
+[Level=5]
+Point=2 2 WALL
+[/Level]
+[Level=5]
+Point=2 6 WALL
+[/Level]
+[Level=5]
+Line=2 3 2 5 WALL
+[/Level]
+[Level=5]
+Line=3 2 4 2 WALL
+[/Level]
+[Level=5]
+Line=6 3 6 5 WALL
+[/Level]
+[Level=5]
+Line=15 2 17 2 WALL
+[/Level]
+[Level=5]
+Line=9 5 9 3 WALL
+[/Level]
+[Level=5]
+Line=11 3 11 5 WALL
+[/Level]
+[Level=5]
+Line=16 4 17 5 WALL
+[/Level]
+[Level=5]
+Line=15 4 15 3 WALL
+[/Level]
+[Level=5]
+Line=22 3 24 3 WALL
+[/Level]
+[Level=5]
+Line=22 5 24 5 WALL
+[/Level]
+[Level=5]
+Line=20 3 20 5 WALL
+[/Level]
+[Level=5]
+Line=27 6 27 4 WALL
+[/Level]
+[Level=1]
+Point=14 6 WALL
+[/Level]
+[Level=5]
+Line=30 3 26 3 WALL
+[/Level]
+[Level=5]
+Line=15 6 16 6 WALL
+[/Level]
+[Level=5]
+Point=4 3 WALL
+[/Level]
+[Level=5]
+Line=29 4 29 6 WALL
+[/Level]
+[Level=5]
+Point=13 6 WALL
+[/Level]
+[Level=5]
+Point=19 18 MAGICWALL
+[/Level]
+[Level=2]
+Line=5 2 6 2 WALL
+[/Level]
+[Level=2]
+Line=5 4 6 4 WALL
+[/Level]
+[Level=2]
+Line=5 6 6 6 WALL
+[/Level]
+[Level=2]
+Point=7 3 MAGICWALL
+[/Level]
+[Level=2]
+Point=7 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=13 4 14 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=21 3 21 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=16 2 16 4 MAGICWALL
+[/Level]
+[Level=2]
+Line=18 2 18 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=17 4 MAGICWALL
+[/Level]
+[Level=2]
+Point=20 6 MAGICWALL
+[/Level]
+[Level=2]
+Line=23 3 25 3 MAGICWALL
+[/Level]
+[Level=2]
+Line=23 5 25 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=34 2 35 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=32 2 32 6 MAGICWALL
+[/Level]
+[Level=2]
+Line=30 4 32 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=27 4 28 4 MAGICWALL
+[/Level]
+[Level=2]
+Point=20 2 MAGICWALL
+[/Level]
+[Level=2]
+Line=36 3 34 5 MAGICWALL
+[/Level]
+[Level=2]
+Line=34 6 36 6 MAGICWALL
+[/Level]
+[Level=2]
+Point=19 18 MAGICWALL
+[/Level]
+[Level=2]
+Line=2 4 3 4 WALL
+[/Level]
+[Level=2]
+Line=11 3 11 5 WALL
+[/Level]
+[Level=2]
+Point=12 6 WALL
+[/Level]
+[Level=2]
+Point=12 2 WALL
+[/Level]
+[Level=2]
+Point=9 4 WALL
+[/Level]
+[Level=1]
+Line=24 6 25 6 WALL
+[/Level]
+[Level=1]
+Point=34 6 WALL
+[/Level]
+[Level=1]
+Line=36 2 38 2 WALL
+[/Level]
+[Level=1]
+Line=36 3 36 4 WALL
+[/Level]
+[Level=1]
+Line=37 4 38 5 WALL
+[/Level]
+[Level=1]
+Line=36 6 37 6 WALL
+[/Level]
+[Level=3]
+Point=11 6 WALL
+[/Level]
+[Level=3]
+Line=14 4 14 6 WALL
+[/Level]
+[Level=3]
+Line=16 4 16 6 WALL
+[/Level]
+[Level=3]
+Point=15 3 WALL
+[/Level]
+[Level=3]
+Point=15 7 WALL
+[/Level]
+[Level=3]
+Point=18 7 WALL
+[/Level]
+[Level=3]
+Line=20 3 22 3 WALL
+[/Level]
+[Level=3]
+Line=20 4 20 5 WALL
+[/Level]
+[Level=3]
+Line=21 5 22 6 WALL
+[/Level]
+[Level=3]
+Line=20 7 21 7 WALL
+[/Level]
+[Level=3]
+Point=30 5 WALL
+[/Level]
+[Level=5]
+Point=7 2 WALL
+[/Level]
+[Level=5]
+Point=7 6 WALL
+[/Level]
+[Level=5]
+Point=10 2 WALL
+[/Level]
+[Level=5]
+Point=10 6 WALL
+[/Level]
+[Level=5]
+Point=19 2 WALL
+[/Level]
+[Level=5]
+Point=19 6 WALL
+[/Level]
+[Level=4]
+Line=7 6 8 5 WALL
+[/Level]
+[Level=4]
+Line=18 1 19 1 WALL
+[/Level]
+[Level=4]
+Line=18 2 19 3 WALL
+[/Level]
+[Level=4]
+Line=28 4 29 5 WALL
+[/Level]
+[Level=4]
+Line=27 6 28 6 WALL
+[/Level]
+[Level=4]
+Line=31 4 33 2 WALL
+[/Level]
+[Level=4]
+Line=33 2 33 6 WALL
+[/Level]
+[Level=4]
+Line=35 2 36 2 WALL
+[/Level]
+[Level=4]
+Line=37 3 35 5 WALL
+[/Level]
+[Level=4]
+Line=35 6 37 6 WALL
+[/Level]
+[/objects]
+[/cave]
+
+[cave]
+Name=Nocturnal Noise
+Author=Dustin
+Date=2019-08-03
+Intermission=false
+Story=It's close to midnight and Rockford is on his way home whan an amoeba blocks him! And then with a BANG he is freed but it turns out that his enemy was also the only light source...\n\nHINT - Rockford starts in the north-west and exits in the south-east of the screen.
+Size=40 22 0 0 39 21
+Colors=Black Black Black Black Black LightGreen White
+DiamondsRequired=0 0 0 0 0
+DiamondValue=5 0
+CaveTime=120 85 70 70 70
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Maze=4 1 16 10 2 1 50 21 0 2 13 3 STEELWALL AMOEBA braid
+FillRect=1 2 3 10 STEELWALL
+Point=1 1 INBOX
+Line=2 1 3 1 AMOEBA
+FillRect=17 1 19 9 STEELWALL
+Line=17 10 18 10 AMOEBA
+Point=19 10 OUTBOX
+Rectangle=0 0 20 11 STEELWALL
+Add=0 11 AMOEBA DIAMOND
+Line=21 2 37 2 STEELWALL
+Line=37 2 37 20 STEELWALL
+Line=21 1 38 1 SPACE
+Line=38 1 38 20 SPACE
+Point=38 20 AMOEBA
+Point=21 2 SPACE
+Line=21 3 36 3 SPACE
+Line=21 4 36 4 STEELWALL
+Point=36 3 FIREFLYl
+[/objects]
+[/cave]
+
+[cave]
+Name=Overseized Obstacle
+Author=Dustin
+Date=2019-09-22
+Intermission=false
+Story=Blasting walls is the easiest thing in the world, you say? But what if they're bigger than usual?!
+Size=40 22 0 0 39 21
+Colors=#000000 #000000 #a01094 #307f26 #2676c1 #277f26 #3910a0
+DiamondsRequired=5 10 10 15 15
+DiamondValue=40 80
+CaveTime=240 240 240 240 240
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+RandomFill=DIAMOND 40 BOULDER 30 DIRT 0 DIRT 0
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+FillRect=8 15 28 20 DIRT
+FillRect=31 1 38 20 DIRT
+FillRect=5 1 7 20 WALL
+FillRect=19 1 20 20 WALL
+FillRect=29 1 30 20 WALL
+Line=30 1 31 1 BOULDER
+Line=30 6 31 6 BOULDER
+Line=30 11 31 11 BOULDER
+Line=32 20 37 20 SPACE
+Line=32 18 37 18 SPACE
+Line=32 16 37 16 SPACE
+Raster=32 16 1 3 2 2 FIREFLYl
+Raster=37 16 1 3 2 2 FIREFLYr
+Line=22 20 27 20 SPACE
+Point=22 20 FIREFLYl
+Point=27 20 FIREFLYr
+Line=22 18 27 18 SPACE
+Point=22 18 FIREFLYl
+Point=27 18 FIREFLYr
+Point=22 16 FIREFLYr
+Point=26 16 FIREFLYr
+Point=23 16 SPACE
+Point=27 16 SPACE
+Line=9 20 17 20 SPACE
+Point=9 20 FIREFLYl
+Point=15 20 FIREFLYl
+Point=14 20 FIREFLYr
+Line=9 18 14 18 SPACE
+Line=9 16 14 16 SPACE
+Point=9 16 FIREFLYl
+Point=9 18 FIREFLYl
+Point=16 16 FIREFLYl
+Point=16 18 FIREFLYl
+Point=14 16 FIREFLYr
+Point=14 18 FIREFLYr
+Point=17 16 SPACE
+Point=17 18 SPACE
+Point=34 2 INBOX
+Point=35 2 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Puzzling Partners
+Author=Dustin
+Date=2019-03-19
+Intermission=false
+Story=Rockford can't do much here alone - so he asks Scrooge McDuck for help! What do you say? This guy doesn't look like Scroogey at all? Well...er...that's just the old graphics! He is it, just believe me ;D
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Orange Yellow White White
+DiamondsRequired=18 27 36 42 45
+DiamondValue=10 20
+CaveTime=240 225 210 195 180
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+MagicWallTime=2 2 2 2 2
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Point=18 12 BOULDER
+Point=18 13 DIRT
+Rectangle=17 14 19 17 WALL
+Rectangle=16 14 20 18 STEELWALL
+Point=18 14 MAGICWALL
+Line=17 18 19 18 WALL
+Point=18 18 SPACE
+Point=18 20 MAGICWALL
+Point=18 16 BUTTERFLYd
+Point=7 16 INBOX
+Point=9 16 INBOX
+FillRect=1 14 3 20 STEELWALL BOULDER
+Point=1 18 OUTBOX
+Line=1 20 3 20 DIRT
+Point=3 18 SPACE
+FillRect=33 11 35 13 STEELWALL BUTTERFLYd
+Point=34 13 BOULDER
+Point=34 14 DIRT
+Point=34 20 BOULDER
+Point=34 17 WALL
+Rectangle=29 11 39 21 STEELWALL
+Rectangle=14 10 22 21 STEELWALL
+Line=15 10 21 10 DIRT
+Raster=16 10 3 1 2 2 HEXPANDINGWALL
+Line=30 11 32 11 DIRT
+Line=36 11 38 11 DIRT
+Point=31 11 HEXPANDINGWALL
+Point=37 11 HEXPANDINGWALL
+Rectangle=0 0 9 10 STEELWALL
+Line=2 10 8 10 HEXPANDINGWALL
+Line=1 2 4 2 STEELWALL
+Point=3 6 DIRT
+Point=6 6 DIRT
+Point=3 5 BOULDER
+Point=6 5 BOULDER
+FillRect=29 0 39 4 STEELWALL DIRT
+Point=34 4 DIRT
+Point=33 4 HEXPANDINGWALL
+Line=30 1 32 3 DIAMOND
+Line=32 3 34 1 DIAMOND
+Line=34 1 36 3 DIAMOND
+Line=36 3 38 1 DIAMOND
+Line=9 5 9 7 VEXPANDINGWALL
+Point=9 6 DIRT
+Line=16 3 16 6 STEELWALL
+Line=18 3 18 6 STEELWALL
+Line=20 3 20 6 STEELWALL
+Rectangle=12 0 22 7 STEELWALL
+Line=13 6 15 6 WALL
+FillRect=13 3 15 5 DIRT BUTTERFLYd
+Point=14 5 SPACE
+Point=20 2 BOULDER
+Line=21 3 21 6 STEELWALL
+Line=13 7 19 7 DIRT
+Raster=16 7 3 1 2 2 HEXPANDINGWALL
+Line=1 1 2 1 FIREFLYl
+Point=4 1 DIAMOND
+Line=1 9 8 9 DIAMOND
+Point=7 6 STEELWALL
+[/objects]
+[/cave]
+
+[cave]
+Name=Triangle Tricks
+Author=Dustin
+Date=2015-11-29
+Selectable=false
+Intermission=true
+IntermissionProperties.instantlife=true
+Story=The Magic Wall does its usual job, while there are no enemies anywhere - could it be any easier? Well...yes, definitely!
+Size=20 12 0 0 19 11
+Colors=#000000 #000000 #879879 #25b2af #66cc80 #46b225 #797b98
+DiamondsRequired=11 11 11 11 11
+DiamondValue=25 0
+CaveTime=32 30 28 26 24
+CaveScheduling=ms
+FrameTime=160 150 140 130 120
+CaveDelay=0 0 0 0 0
+InitialFill=SPACE
+SlimePermeabilityC64=0 0 0 0 0
+
+[objects]
+Line=8 7 10 7 MAGICWALL
+Line=8 6 10 6 DIAMOND
+Line=8 3 6 1 WALL
+Line=10 3 12 1 WALL
+Line=7 1 9 3 BOULDER
+Line=11 1 9 3 BOULDER
+Line=8 1 10 1 DIAMOND
+Point=9 2 DIAMOND
+Point=9 4 DIRT
+Point=9 9 INBOX
+Point=9 1 OUTBOX
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]
