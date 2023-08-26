@@ -1,0 +1,76 @@
+[BDCFF]
+Version=0.5
+
+[mapcodes]
+Length=1
+!=GLUEDDIAMOND
+$=DIAMONDRELEASEKEY
+#=TRAPPEDDIAMOND
+%=BITERu
+"=BOMB
+[/mapcodes]
+
+[game]
+Name=In The Future
+Levels=5
+
+[cave]
+Name=Level 1
+Intermission=false
+Size=40 22 0 0 39 21
+Colors=Black Blue Purple Cyan White Purple Purple
+DiamondsRequired=40 40 40 40 40
+CaveTime=300 300 300 300 300
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=10 50
+RandSeed=0 0 0 0 0
+DiagonalMovement=true
+BonusTime=50 50 50 50 50
+DummyProperties.diamondcollector=true
+DummyProperties.penalty=true
+AmoebaProperties.immediately=false
+AmoebaProperties.waitforhatching=true
+Effect=AMOEBADIAMONDeffect DIAMONDBIRTH1
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.waitforhatching=true
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BiterProperties=0 FIREFLYl
+Effect=BOMBEXPLOSIONeffect EXPLOSION1
+Effect=DIRTLOOKSLIKEeffect DIRT2
+EnemyDirectionProperties.changeathatching=true
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+ShortExplosions=false
+
+[map]
+WPWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.W..W.W.W.W....w   ww w w w w   w.....W
+W.W.W.W.W.W....w wBw   w w w ww ww.....W
+W.W.WWWWWWW....www wB  wwwBw w w w.....W
+W.W.......WW...w w w  Bw w wBwB  w.....W
+W.WWWWWWW..WW..wBw Bww wBw w w  Bw.....W
+W.......WW..W..........................W
+W.WWWWW..WW.W...rrrrrrrrrrrrrrrrrrrr...W
+W.Wd.!WW..W.W..........................W
+W.W.d.dWW.W.W..........................W
+W..!.!.dW.W.WWWWWWWWWWWWWWWWWWWWWWWWWWW"
+WWWWWWW#W.W...WW$QQQQQQQWB            BW
+W    B  W.WWWW.WWQQQQQQQW ............ W
+W WWWWWWW....WW.WQQQQQQQW .Q   Q   Q . W
+W W.......WW..W.WQQQQQQQW . ........ . W
+W W.WWWWWWW W.W.WQQQQQQQW . .d!d!d!. . W
+X W.W"Q     W.W.WQQQQQQQW . .!d!d!d.Q. W
+W W.WWWWWWW W.W.WQQQQQQQW .Q........ . W
+W W.Wd      W.W.WQQQQQQQW .   Q   Q  . W
+W WWWWWWWWWWW.W.Ww......W ............ W
+W  B        #...W%w.....WB            BW
+WWWWWWWWWWWWWWWWWWWWWWWW"WWWWWWWWWWWWWWW
+[/map]
+[/cave]
+[/game]
+[/BDCFF]
