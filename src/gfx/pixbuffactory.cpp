@@ -41,9 +41,9 @@ static_assert(G_N_ELEMENTS(gd_scaling_names) == GD_SCALING_MAX + 1); /* +1 is th
 /* scales a pixbuf with the appropriate scaling type. */
 std::unique_ptr<Pixbuf> PixbufFactory::create_scaled(const Pixbuf &src, double scaling_factor, GdScalingType scaling_type, bool pal_emulation) const {
 
-    // XXX WORKAROUND title screen needs integer scaling_factor (cause unknown)
-    if (src.get_width() != src.get_height()) {
-        scaling_factor = (int) scaling_factor;
+    // scale title screen with user scaling factor
+    if (gd_full_cave_view && src.get_width() >= 100 && src.get_height() >= 100) {
+        scaling_factor = gd_cell_scale_factor_game;
     }
 
     std::unique_ptr<Pixbuf> scaled = this->create(src.get_width() * scaling_factor, src.get_height() * scaling_factor);
