@@ -68,6 +68,7 @@ public:
     GdBool lineshift;                       ///< true is line shifting emulation, false is perfect borders emulation
     GdBool border_scan_first_and_last;  ///< if true, scans the first and last line of the border. false for plck
     GdBool wraparound_objects;          ///< if this is true, object drawing (cave rendering) will wraparound as well.
+    GdBool border_fix;                  ///< if true, delay wrapped objects . false for no delay
 
     GdInt max_time;         ///< the maximum time in seconds. if above, it overflows
 

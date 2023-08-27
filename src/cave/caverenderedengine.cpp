@@ -680,6 +680,104 @@ inline void CaveRendered::store(int x, int y, GdElementEnum element, bool disabl
         return;
     }
     cell = scanned_pair(element);
+
+    // fix: screen wrapped boulder should not kill player instantly
+    if (border_fix) {
+        //gd_message("XXX x=%d y=%d e1=%d e2=%d gravity=%d", x, y, element, cell, gravity);
+        if (y == map.height() && gravity == MV_DOWN) {
+            // y = out of bounds, but because of screen wrap it's the first line again
+            switch (element) {
+            case O_STONE_F:
+            case O_MEGA_STONE_F:
+            case O_DIAMOND_F:
+            case O_NUT_F:
+                cell = GdElementEnum(element - 1); // replace falling element with it's predecessor
+                break;
+            default:
+                break;
+            }
+        }
+        else if (y == map.height() && gravity == MV_UP) {
+            switch (element) {
+            case O_FLYING_STONE_F:
+            case O_FLYING_DIAMOND_F:
+                cell = GdElementEnum(element - 1);
+                break;
+            default:
+                break;
+            }
+        }
+        else if (x == map.width() && gravity == MV_RIGHT) {
+            switch (element) {
+            case O_STONE_F:
+            case O_MEGA_STONE_F:
+            case O_DIAMOND_F:
+            case O_NUT_F:
+                cell = GdElementEnum(element - 1);
+                break;
+            default:
+                break;
+            }
+        }
+        else if (x == map.width() && gravity == MV_LEFT) {
+            switch (element) {
+            case O_FLYING_STONE_F:
+            case O_FLYING_DIAMOND_F:
+                cell = GdElementEnum(element - 1);
+                break;
+            default:
+                break;
+            }
+        }
+        // NOTE: Now follow the cases where the player runs away from a boulder
+        //       and there is no space between player and boulder.
+        //       Once the player does a screen wrap, he will get his additional space!
+        else if (y == 0 && gravity == MV_DOWN) {
+            switch (element) {
+            case O_FLYING_STONE_F:
+            case O_FLYING_DIAMOND_F:
+                cell = GdElementEnum(element - 1);
+                break;
+            default:
+                break;
+            }
+        }
+        else if (y == 0 && gravity == MV_UP) {
+            switch (element) {
+            case O_STONE_F:
+            case O_MEGA_STONE_F:
+            case O_DIAMOND_F:
+            case O_NUT_F:
+                cell = GdElementEnum(element - 1);
+                break;
+            default:
+                break;
+            }
+        }
+        else if (x == 0 && gravity == MV_RIGHT) {
+            switch (element) {
+            case O_FLYING_STONE_F:
+            case O_FLYING_DIAMOND_F:
+                cell = GdElementEnum(element - 1);
+                break;
+            default:
+                break;
+            }
+        }
+        else if (x == 0 && gravity == MV_LEFT) {
+            switch (element) {
+            case O_STONE_F:
+            case O_MEGA_STONE_F:
+            case O_DIAMOND_F:
+            case O_NUT_F:
+                cell = GdElementEnum(element - 1);
+                break;
+            default:
+                break;
+            }
+        }
+    }
+
 }
 
 
