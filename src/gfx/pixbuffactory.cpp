@@ -29,6 +29,7 @@
 #include "misc/autogfreeptr.hpp"
 #include "gfx/pixbuf.hpp"
 #include "gfx/pixbufmanip.hpp"
+#include "settings.hpp"
 
 /* scale2x is not translated: the license says that we should call it in its original name. */
 // TRANSLATORS: you can translate "nearest neighbor" to "nearest" if the resulting
@@ -41,7 +42,7 @@ static_assert(G_N_ELEMENTS(gd_scaling_names) == GD_SCALING_MAX + 1); /* +1 is th
 /* scales a pixbuf with the appropriate scaling type. */
 std::unique_ptr<Pixbuf> PixbufFactory::create_scaled(const Pixbuf &src, double scaling_factor, GdScalingType scaling_type, bool pal_emulation) const {
 
-    // scale title screen with user scaling factor
+    // title screen: use user-definde scaling factor
     if (gd_full_cave_view && src.get_width() >= 100 && src.get_height() >= 100) {
         scaling_factor = gd_cell_scale_factor_game;
     }
