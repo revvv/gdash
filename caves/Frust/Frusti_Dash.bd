@@ -1,0 +1,729 @@
+[BDCFF]
+Version=0.5
+
+[game]
+Name=Frusti Dash
+Levels=5
+
+[cave]
+Name=Cave A
+Description=Fixed for GDash: "Scan first and last row" disabled
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Red White White White
+DiamondsRequired=99 99 99 99 99
+CaveTime=180 180 180 180 180
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=5 8
+RandSeed=10 10 10 10 10
+RandomFill=WALL 60 WALL 50 SPACE 0 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[objects]
+Line=0 0 39 0 AMOEBA
+Point=7 5 INBOX
+FillRect=10 8 14 12 BUTTERFLYd
+Point=37 20 OUTBOX
+Point=15 12 BOULDER
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave B
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Green Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=180 180 180 180 180
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=5 8
+RandSeed=10 10 10 10 10
+RandomFill=DIRT 60 DIRT 50 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 5 38 14 BUTTERFLYd
+FillRect=1 1 38 4 BOULDER
+Point=38 20 INBOX
+Point=37 21 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave C
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Red Green White White White
+DiamondsRequired=99 99 99 99 99
+CaveTime=250 250 250 250 250
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=4 7
+RandSeed=10 10 10 10 10
+RandomFill=BOULDER 181 DIAMOND 63 DIAMOND 49 FIREFLYl 5
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=17 17 INBOX
+Point=2 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave D
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Gray2 Red Red Red
+DiamondsRequired=99 99 99 99 99
+CaveTime=200 200 200 200 200
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=5 7
+RandSeed=12 12 12 12 12
+RandomFill=BOULDER 64 BUTTERFLYd 13 DIAMOND 2 SPACE 1
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DIRT 1.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=1 1 INBOX
+Point=4 1 OUTBOX
+Point=22 14 AMOEBA
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 1
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Orange Gray1 White White White
+DiamondsRequired=70 70 70 70 70
+CaveTime=20 20 20 20 20
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=10 15
+RandSeed=255 255 255 255 255
+RandomFill=SPACE 255 SPACE 255 SPACE 255 SPACE 255
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=0 0 19 11 STEELWALL
+FillRect=1 1 4 5 INBOX
+FillRect=7 5 11 9 BUTTERFLYd
+Point=18 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave E
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Yellow Orange Red Red Red
+DiamondsRequired=99 99 99 99 99
+CaveTime=120 120 120 120 120
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=3 5
+RandSeed=255 255 255 255 255
+RandomFill=FIREFLYl 255 FIREFLYl 255 FIREFLYl 255 FIREFLYl 255
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+FillRect=1 8 38 15 DIAMOND
+Point=3 14 INBOX
+Point=10 20 OUTBOX
+Line=9 19 11 19 FIREFLYl
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave F
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Green Gray1 Blue Blue Blue
+DiamondsRequired=99 99 99 99 99
+CaveTime=160 160 160 160 160
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=5 9
+RandSeed=10 10 10 10 10
+RandomFill=DIRT 60 DIRT 50 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+AcidProperties=DUMMY 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=38 18 INBOX
+Point=39 18 OUTBOX
+Line=1 11 26 11 BOULDER
+Line=8 5 23 5 AMOEBA
+Line=1 20 38 20 BUTTERFLYd
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave G
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray2 Red Yellow Yellow Yellow
+DiamondsRequired=50 50 50 50 50
+CaveTime=160 160 160 160 160
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=10 250
+RandSeed=78 78 78 78 77
+RandomFill=DIAMOND 127 BOULDER 111 DIRT 1 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=16 14 INBOX
+Point=38 20 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave H
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Gray1 White White White
+DiamondsRequired=56 56 56 56 56
+CaveTime=250 250 250 250 250
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=20 250
+RandSeed=10 10 10 10 10
+RandomFill=BOULDER 61 FIREFLYl 3 SPACE 2 WALL 1
+ActiveGuyIsFirst=false
+AmoebaTime=255 255 255 255 255
+MagicWallTime=255 255 255 255 255
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=HIDDENOUTBOXopen 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Line=2 1 17 16 WALL
+Line=38 1 23 16 WALL
+Point=8 1 INBOX
+Line=18 17 22 17 MAGICWALL
+Point=36 21 OUTBOX
+Line=21 12 21 13 DIAMOND
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 2
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Blue Gray1 White White White
+DiamondsRequired=15 15 15 15 15
+CaveTime=36 36 36 36 36
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=15 99
+RandSeed=15 15 15 15 15
+RandomFill=BOULDER 112 MAGICWALL 64 DIAMOND 16 OUTBOX 1
+ActiveGuyIsFirst=false
+AmoebaTime=255 255 255 255 255
+MagicWallTime=255 255 255 255 255
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=2 2 INBOX
+Rectangle=0 0 19 11 STEELWALL
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave I
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Green White White White
+DiamondsRequired=75 75 75 75 75
+CaveTime=160 160 160 160 160
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=15 250
+RandSeed=12 12 12 12 11
+RandomFill=BOULDER 96 FIREFLYl 16 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=2 2 INBOX
+Line=17 7 19 7 MAGICWALL
+Line=17 7 17 11 MAGICWALL
+Line=17 9 19 9 MAGICWALL
+Line=21 7 23 7 MAGICWALL
+Line=21 7 21 11 MAGICWALL
+Line=21 9 23 9 MAGICWALL
+Line=22 10 23 11 MAGICWALL
+Line=23 7 23 8 MAGICWALL
+Line=25 7 25 11 MAGICWALL
+Line=27 7 27 11 MAGICWALL
+Line=25 11 27 11 MAGICWALL
+Line=29 7 31 7 MAGICWALL
+Line=29 7 29 9 MAGICWALL
+Line=29 9 31 9 MAGICWALL
+Line=31 9 31 11 MAGICWALL
+Line=29 11 31 11 MAGICWALL
+Line=33 7 35 7 MAGICWALL
+Line=34 7 34 11 MAGICWALL
+FillRect=19 14 23 19 WALL AMOEBA
+Point=21 16 FIREFLYl
+Point=1 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave J
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Red LightBlue White White White
+DiamondsRequired=95 95 95 95 95
+CaveTime=200 200 200 200 200
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=10 20
+RandSeed=11 11 11 11 11
+RandomFill=BOULDER 176 DIAMOND 50 DIRT 3 DIRT 3
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=2 2 INBOX
+Point=1 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave K
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Green White White White
+DiamondsRequired=99 99 99 99 99
+CaveTime=200 200 200 200 200
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=5 10
+RandSeed=10 10 10 10 10
+RandomFill=BOULDER 112 DIRT 50 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=2 2 INBOX
+Point=10 20 AMOEBA
+Point=1 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave L
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Gray1 Blue Blue Blue
+DiamondsRequired=99 99 99 99 99
+CaveTime=160 160 160 160 160
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=6 10
+RandSeed=10 10 10 10 10
+RandomFill=DIRT 60 DIRT 50 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=37 20 INBOX
+FillRect=4 4 15 15 BUTTERFLYd
+Point=38 20 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 3
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black White Blue Green Green Green
+DiamondsRequired=80 80 80 80 80
+CaveTime=72 72 72 72 72
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=10 15
+RandSeed=13 13 13 13 13
+RandomFill=DIAMOND 240 DIAMOND 112 BOULDER 96 BOULDER 80
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=0 0 19 11 STEELWALL
+Point=2 2 INBOX
+Point=18 11 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave M
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue Orange Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=250 250 250 250 250
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=5 10
+RandSeed=10 10 10 10 10
+RandomFill=BOULDER 76 DIRT 2 DIRT 1 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=2 2 INBOX
+Point=24 20 AMOEBA
+Point=1 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave N
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray1 Green Yellow Yellow Yellow
+DiamondsRequired=40 40 40 40 40
+CaveTime=200 200 200 200 200
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=30 8
+RandSeed=10 10 10 10 10
+RandomFill=DIRT 60 DIRT 50 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=15 15 15 15 15
+MagicWallTime=15 15 15 15 15
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=38 16 INBOX
+Point=10 1 AMOEBA
+Line=1 17 38 17 MAGICWALL
+Point=13 11 BUTTERFLYd
+Point=38 20 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave O
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown LightRed Yellow Yellow Yellow
+DiamondsRequired=99 99 99 99 99
+CaveTime=250 250 250 250 250
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=5 9
+RandSeed=10 10 10 10 10
+RandomFill=DIRT 60 DIRT 50 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=1 1 INBOX
+Point=0 2 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Cave P
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Red Gray2 Blue Blue Blue
+DiamondsRequired=99 99 99 99 99
+CaveTime=250 250 250 250 250
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=10 15
+RandSeed=10 10 10 10 10
+RandomFill=BOULDER 60 DIRT 50 DIRT 9 DIRT 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DUMMY 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Point=1 20 INBOX
+Point=38 1 OUTBOX
+[/objects]
+[/cave]
+
+[cave]
+Name=Intermission 4
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Black Brown Green Red Red Red
+DiamondsRequired=46 46 46 46 46
+CaveTime=80 80 80 80 80
+CaveScheduling=bd1
+PALTiming=true
+FrameTime=180 160 140 120 120
+CaveDelay=12 6 3 1 0
+DiamondValue=10 250
+RandSeed=13 13 13 13 13
+RandomFill=BOULDER 80 SPACE 2 SPACE 1 SPACE 0
+ActiveGuyIsFirst=false
+AmoebaTime=20 20 20 20 20
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+MagicWallProperties.breakscan=true
+SlimePermeabilityC64=0 0 0 0 0
+Effect=ACIDEffect ACID
+AcidProperties=DIRT 0.0000
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+
+[objects]
+Rectangle=0 0 19 11 STEELWALL
+Point=1 1 INBOX
+Point=12 1 OUTBOX
+[/objects]
+[/cave]
+[/game]
+[/BDCFF]
