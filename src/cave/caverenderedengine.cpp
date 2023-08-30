@@ -27,7 +27,6 @@
 
 #include "cave/caverendered.hpp"
 #include "cave/elementproperties.hpp"
-#include "misc/logger.hpp"
 #include "settings.hpp"
 
 
@@ -693,7 +692,8 @@ inline void CaveRendered::store(int x, int y, GdDirectionEnum dir, GdElementEnum
 inline void CaveRendered::move(int x, int y, GdDirectionEnum dir, GdElementEnum element) {
 
     // fix: screen wrapped boulder should not kill player instantly
-    if (border_fix) {
+    //if (border_fix) // fix seems OK, so always active
+    {
         //gd_message("XXX x=%d y=%d e=%d current=%d dir=%d gravity=%d xd=%d yd=%d", x, y, element, get(x, y), dir, gravity, x + gd_dx[dir], y + gd_dy[dir]);
         if (y + gd_dy[dir] == map.height() && dir == MV_DOWN) {
             // height is out of bounds, but because of screen wrap it's the first line again
@@ -704,13 +704,14 @@ inline void CaveRendered::move(int x, int y, GdDirectionEnum dir, GdElementEnum 
             case O_NUT:
             case O_FLYING_STONE:
             case O_FLYING_DIAMOND:
-                store(x, y, GdElementEnum(get(x, y) + 2)); // replace element with its falling variant
-                return;
+                store(x, y, element); // falling element
+                return; // do not move element
             default:
                 break;
             }
         }
         else if (x + gd_dx[dir] == map.width() && dir == MV_RIGHT) {
+            // width is out of bounds, but because of screen wrap it's the first column again
             switch (get(x, y)) {
             case O_STONE:
             case O_MEGA_STONE:
@@ -718,8 +719,8 @@ inline void CaveRendered::move(int x, int y, GdDirectionEnum dir, GdElementEnum 
             case O_NUT:
             case O_FLYING_STONE:
             case O_FLYING_DIAMOND:
-                store(x, y, GdElementEnum(get(x, y) + 2));
-                return;
+                store(x, y, element); // falling element
+                return; // do not move element
             default:
                 break;
             }
