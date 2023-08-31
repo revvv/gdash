@@ -8,6 +8,10 @@ Achim_Hofmanndir = $(pkgdatadir)/caves/Achim_Hofmann
 Achim_Hofmann_CAVES = Achim_Hofmann/Achim_Hofmann.gds Achim_Hofmann/In_The_Future.bd
 Achim_Hofmann_DATA = $(Achim_Hofmann_CAVES)
 
+Add_and_TKRdir = $(pkgdatadir)/caves/Add_and_TKR
+Add_and_TKR_CAVES = Add_and_TKR/Boulderdash_A.gds Add_and_TKR/Boulderdash_B.gds Add_and_TKR/Boulderdash_C.gds Add_and_TKR/Boulderdash_D.gds Add_and_TKR/Boulderdash_E.gds
+Add_and_TKR_DATA = $(Add_and_TKR_CAVES)
+
 AGB_Softdir = $(pkgdatadir)/caves/AGB_Soft
 AGB_Soft_CAVES = AGB_Soft/Padajici_Balvany_Atari.gds AGB_Soft/Polish_Boulderdash.gds
 AGB_Soft_DATA = $(AGB_Soft_CAVES)
@@ -37,12 +41,16 @@ American_Action_CAVES = American_Action/Boulder_Dash_3.bd
 American_Action_DATA = $(American_Action_CAVES)
 
 Arno_Weberdir = $(pkgdatadir)/caves/Arno_Weber
-Arno_Weber_CAVES = Arno_Weber/Exploding_Dash.bd Arno_Weber/Exploding_Dash_II.bd Arno_Weber/Future_Dash.bd Arno_Weber/Santas_BD_Party.bd
+Arno_Weber_CAVES = Arno_Weber/Exploding_Dash.bd Arno_Weber/Exploding_Dash_II.bd Arno_Weber/Future_Dash.bd Arno_Weber/Santa's_BD_Party.bd
 Arno_Weber_DATA = $(Arno_Weber_CAVES)
 
 Arno_Weber_Arno_Dashdir = $(pkgdatadir)/caves/Arno_Weber_Arno_Dash
 Arno_Weber_Arno_Dash_CAVES = Arno_Weber/Arno_Dash/Arno_Dash_01.bd Arno_Weber/Arno_Dash/Arno_Dash_02.bd Arno_Weber/Arno_Dash/Arno_Dash_03.bd Arno_Weber/Arno_Dash/Arno_Dash_04.bd Arno_Weber/Arno_Dash/Arno_Dash_05.bd Arno_Weber/Arno_Dash/Arno_Dash_06.bd Arno_Weber/Arno_Dash/Arno_Dash_07.bd Arno_Weber/Arno_Dash/Arno_Dash_08.bd Arno_Weber/Arno_Dash/Arno_Dash_09.bd Arno_Weber/Arno_Dash/Arno_Dash_10.bd Arno_Weber/Arno_Dash/Arno_Dash_11.bd Arno_Weber/Arno_Dash/Arno_Dash_12.bd Arno_Weber/Arno_Dash/Arno_Dash_13.bd Arno_Weber/Arno_Dash/Arno_Dash_14.bd Arno_Weber/Arno_Dash/Arno_Dash_15.bd Arno_Weber/Arno_Dash/Arno_Dash_16.bd Arno_Weber/Arno_Dash/Arno_Dash_17.bd Arno_Weber/Arno_Dash/Arno_Dash_18.bd Arno_Weber/Arno_Dash/Arno_Dash_19.bd Arno_Weber/Arno_Dash/Arno_Dash_20.bd Arno_Weber/Arno_Dash/Arno_Dash_21.bd
 Arno_Weber_Arno_Dash_DATA = $(Arno_Weber_Arno_Dash_CAVES)
+
+Artisdir = $(pkgdatadir)/caves/Artis
+Artis_CAVES = Artis/Boulder_Dash_Caves.gds
+Artis_DATA = $(Artis_CAVES)
 
 Atarakushidir = $(pkgdatadir)/caves/Atarakushi
 Atarakushi_CAVES = Atarakushi/Ataraxy_Dash_001.bd
@@ -85,7 +93,7 @@ Burton_Bandit_CAVES = Burton_Bandit/Bandit_Boulderdash_01.gds Burton_Bandit/Band
 Burton_Bandit_DATA = $(Burton_Bandit_CAVES)
 
 CCFdir = $(pkgdatadir)/caves/CCF
-CCF_CAVES = CCF/Pac_Boulder.gds CCF/Trap_Boulder_1.gds CCF/Trap_Boulder_3.gds CCF/Trap_Boulder_4.gds
+CCF_CAVES = CCF/Pac_Boulder.gds
 CCF_DATA = $(CCF_CAVES)
 
 Chaosdir = $(pkgdatadir)/caves/Chaos
@@ -137,11 +145,11 @@ Dino_CAVES = Dino/Water_Dash_01.gds Dino/Water_Dash_02.gds Dino/Water_Dash_03.gd
 Dino_DATA = $(Dino_CAVES)
 
 Don_Pedrodir = $(pkgdatadir)/caves/Don_Pedro
-Don_Pedro_CAVES = Don_Pedro/Boulderdash_IX.gds Don_Pedro/Boulderdash_V.gds Don_Pedro/Boulderdash_VI.gds Don_Pedro/Boulderdash_VII.gds Don_Pedro/Boulderdash_VIII.gds Don_Pedro/Boulderdash_X.gds Don_Pedro/Boulderdash_XI.gds Don_Pedro/Masters_Boulder_Dash.gds
+Don_Pedro_CAVES = Don_Pedro/Boulderdash_IX.gds Don_Pedro/Boulderdash_V.gds Don_Pedro/Boulderdash_VI.gds Don_Pedro/Boulderdash_VII.gds Don_Pedro/Boulderdash_VIII.gds Don_Pedro/Boulderdash_X.bd Don_Pedro/Boulderdash_X.gds Don_Pedro/Boulderdash_XI.gds
 Don_Pedro_DATA = $(Don_Pedro_CAVES)
 
 Dotterteamdir = $(pkgdatadir)/caves/Dotterteam
-Dotterteam_CAVES = Dotterteam/Dotter_Dash_06.gds Dotterteam/Dotter_Dash_07.gds Dotterteam/Dotter_Dash_07_Atari.bd
+Dotterteam_CAVES = Dotterteam/Dotter_Dash_06.gds Dotterteam/Dotter_Dash_07.gds
 Dotterteam_DATA = $(Dotterteam_CAVES)
 
 Dr_Gurudir = $(pkgdatadir)/caves/Dr_Guru
@@ -193,7 +201,7 @@ First_Star_Software_CAVES = First_Star_Software/Boulder_Dash_1.bd First_Star_Sof
 First_Star_Software_DATA = $(First_Star_Software_CAVES)
 
 Frustdir = $(pkgdatadir)/caves/Frust
-Frust_CAVES = Frust/Frusti_Dash.gds
+Frust_CAVES = Frust/Frusti_Dash.bd Frust/Frusti_Dash.gds
 Frust_DATA = $(Frust_CAVES)
 
 Gertruddir = $(pkgdatadir)/caves/Gertrud
@@ -232,6 +240,10 @@ HSGdir = $(pkgdatadir)/caves/HSG
 HSG_CAVES = HSG/Hooligandash.gds HSG/Hooligandash_III.gds
 HSG_DATA = $(HSG_CAVES)
 
+Incubusdir = $(pkgdatadir)/caves/Incubus
+Incubus_CAVES = Incubus/Final_Game_1.gds Incubus/Final_Game_2.gds Incubus/Final_Game_3.gds Incubus/Final_Game_4.gds Incubus/Final_Game_5.gds Incubus/Final_Game_6.gds Incubus/RSD_Boulder_Dash.gds
+Incubus_DATA = $(Incubus_CAVES)
+
 Iron_Softdir = $(pkgdatadir)/caves/Iron_Soft
 Iron_Soft_CAVES = Iron_Soft/Iron_Soft_1_Atari.gds Iron_Soft/Iron_Soft_2_Atari.gds Iron_Soft/Iron_Soft_3_Atari.gds Iron_Soft/Iron_Soft_4_Atari.gds
 Iron_Soft_DATA = $(Iron_Soft_CAVES)
@@ -256,13 +268,21 @@ Karlchen_and_Opossum_Ossi_Dashdir = $(pkgdatadir)/caves/Karlchen_and_Opossum_Oss
 Karlchen_and_Opossum_Ossi_Dash_CAVES = Karlchen_and_Opossum/Ossi_Dash/Ossi_Dash_1.gds Karlchen_and_Opossum/Ossi_Dash/Ossi_Dash_2.gds
 Karlchen_and_Opossum_Ossi_Dash_DATA = $(Karlchen_and_Opossum_Ossi_Dash_CAVES)
 
+Kayle_Geertsdir = $(pkgdatadir)/caves/Kayle_Geerts
+Kayle_Geerts_CAVES = Kayle_Geerts/Diamond_Rush_1.gds Kayle_Geerts/Diamond_Rush_2.gds Kayle_Geerts/Diamond_Rush_3.gds Kayle_Geerts/Diamond_Rush_4.gds Kayle_Geerts/Diamond_Rush_5.gds
+Kayle_Geerts_DATA = $(Kayle_Geerts_CAVES)
+
+KKdir = $(pkgdatadir)/caves/KK
+KK_CAVES = KK/Boulder_Dash_KK26.gds KK/Boulder_Dash_KK27.gds KK/Boulder_Dash_KK29.gds KK/Boulder_Dash_KK31.gds KK/Boulder_Dash_KK33.gds KK/Boulder_Dash_KK34.gds KK/Boulder_Dash_KK35.gds KK/Boulder_Dash_KK36.gds KK/Boulder_Dash_KK37.gds KK/Boulder_Dash_KK38.gds KK/Boulder_Dash_KK39.gds KK/Boulder_Dash_KK40.gds
+KK_DATA = $(KK_CAVES)
+
 Lanzelott_and_Matuladir = $(pkgdatadir)/caves/Lanzelott_and_Matula
 Lanzelott_and_Matula_CAVES = Lanzelott_and_Matula/Fraggle_Dash_I.gds
 Lanzelott_and_Matula_DATA = $(Lanzelott_and_Matula_CAVES)
 
-Load_n_Rundir = $(pkgdatadir)/caves/Load_n_Run
-Load_n_Run_CAVES = Load_n_Run/Rocky.gds
-Load_n_Run_DATA = $(Load_n_Run_CAVES)
+Logic_De_Luxedir = $(pkgdatadir)/caves/Logic_De_Luxe
+Logic_De_Luxe_CAVES = Logic_De_Luxe/LPS_Caves_GodsBoulder_1_2.gds
+Logic_De_Luxe_DATA = $(Logic_De_Luxe_CAVES)
 
 Lord_Diegodir = $(pkgdatadir)/caves/Lord_Diego
 Lord_Diego_CAVES = Lord_Diego/Diego_Dash_01.gds Lord_Diego/Diego_Dash_02.gds Lord_Diego/Diego_Dash_03.gds Lord_Diego/Diego_Dash_04.gds Lord_Diego/Diego_Dash_05.gds Lord_Diego/Diego_Dash_06.gds Lord_Diego/Diego_Dash_07.gds Lord_Diego/Diego_Dash_08.gds Lord_Diego/Diego_Dash_09.gds Lord_Diego/Diego_Dash_10.gds Lord_Diego/Diego_Dash_11.gds Lord_Diego/Diego_Dash_12.gds Lord_Diego/Diego_Dash_13.gds Lord_Diego/Diego_Dash_14.gds Lord_Diego/Diego_Dash_15.gds Lord_Diego/Diego_Dash_16.gds Lord_Diego/Diego_Dash_17.gds Lord_Diego/Diego_Dash_18.gds Lord_Diego/Diego_Dash_19.gds Lord_Diego/Diego_Dash_23.gds Lord_Diego/Diego_Dash_Remix_01.gds
@@ -357,7 +377,7 @@ Mr_Rockford_CAVES = Mr_Rockford/Boulder_Dash_XII.gds Mr_Rockford/Boulder_Dash_XI
 Mr_Rockford_DATA = $(Mr_Rockford_CAVES)
 
 No_Onedir = $(pkgdatadir)/caves/No_One
-No_One_CAVES = No_One/Boulderdash_Beginner.gds No_One/Boulder_Change.gds No_One/Eat_Boulder_1.gds No_One/Eat_Boulder_3.gds No_One/NoPowerDash_1.bd No_One/Son_Of_Rockford.gds
+No_One_CAVES = No_One/Boulderdash_Beginner.gds No_One/Boulder_Change.gds No_One/Eat_Boulder_1.gds No_One/Eat_Boulder_3.gds No_One/Final_Boulderdash.gds No_One/NoPowerDash_1.bd No_One/Son_Of_Rockford.gds No_One/Surprise_Boulderdash.gds No_One/Work_Boulder.gds
 No_One_DATA = $(No_One_CAVES)
 
 No_One_Delightdir = $(pkgdatadir)/caves/No_One_Delight
@@ -413,7 +433,7 @@ Peter_Metsemakers_CAVES = Peter_Metsemakers/Metsemakers_Dash_1.brc
 Peter_Metsemakers_DATA = $(Peter_Metsemakers_CAVES)
 
 Peter_Traunigdir = $(pkgdatadir)/caves/Peter_Traunig
-Peter_Traunig_CAVES = Peter_Traunig/Austria_Dash_01.gds Peter_Traunig/Austria_Dash_02.gds
+Peter_Traunig_CAVES = Peter_Traunig/Austria_Dash_01.gds Peter_Traunig/Austria_Dash_02.gds Peter_Traunig/Exotic_Dash_01.gds
 Peter_Traunig_DATA = $(Peter_Traunig_CAVES)
 
 Phoenixdir = $(pkgdatadir)/caves/Phoenix
@@ -429,7 +449,7 @@ Posocopi_Waldkirch_CAVES = Posocopi_Waldkirch/AFL_Posocopi.gds Posocopi_Waldkirc
 Posocopi_Waldkirch_DATA = $(Posocopi_Waldkirch_CAVES)
 
 Prof_Knibbledir = $(pkgdatadir)/caves/Prof_Knibble
-Prof_Knibble_CAVES = Prof_Knibble/Best_Of_Knibble.gds Prof_Knibble/Boulderdash_Visit.bd Prof_Knibble/Boulder_Dash_Quicky.bd Prof_Knibble/Cash_Dash.gds Prof_Knibble/Knibble_Power_1.gds Prof_Knibble/Knibble_Revival.gds Prof_Knibble/Mrs_Rockford.gds Prof_Knibble/New_Boulder_Dash_1.gds
+Prof_Knibble_CAVES = Prof_Knibble/Best_Of_Knibble.gds Prof_Knibble/Boulderdash_Visit.bd Prof_Knibble/Boulder_Dash_Cribble.gds Prof_Knibble/Boulder_Dash_Quicky.bd Prof_Knibble/Cash_Dash.gds Prof_Knibble/Knibble_Power_1.gds Prof_Knibble/Knibble_Revival.gds Prof_Knibble/Mrs_Rockford.gds Prof_Knibble/New_Boulder_Dash_1.gds
 Prof_Knibble_DATA = $(Prof_Knibble_CAVES)
 
 Prof_Knibble_Boulder_Dash_Heavydir = $(pkgdatadir)/caves/Prof_Knibble_Boulder_Dash_Heavy
@@ -456,8 +476,12 @@ Renatedir = $(pkgdatadir)/caves/Renate
 Renate_CAVES = Renate/Tululu_Dash.gds
 Renate_DATA = $(Renate_CAVES)
 
+Replica_Copy_Crewdir = $(pkgdatadir)/caves/Replica_Copy_Crew
+Replica_Copy_Crew_CAVES = Replica_Copy_Crew/Boulder.gds
+Replica_Copy_Crew_DATA = $(Replica_Copy_Crew_CAVES)
+
 Rockforddir = $(pkgdatadir)/caves/Rockford
-Rockford_CAVES = Rockford/Professional_Boulder_Dash.gds Rockford/Thomas_Boulder.gds Rockford/Two_Boulder_Games-Mix_One.gds Rockford/Two_Boulder_Games-Mix_Two.gds
+Rockford_CAVES = Rockford/Elf_Boulder_Dash_Games.gds Rockford/Thomas_Boulder.gds Rockford/Two_Boulder_Games-Mix_One.gds Rockford/Two_Boulder_Games-Mix_Two.gds
 Rockford_DATA = $(Rockford_CAVES)
 
 Rockford_Gerd_Boulderdir = $(pkgdatadir)/caves/Rockford_Gerd_Boulder
@@ -465,7 +489,7 @@ Rockford_Gerd_Boulder_CAVES = Rockford/Gerd_Boulder/Gerd_Boulder_1.gds Rockford/
 Rockford_Gerd_Boulder_DATA = $(Rockford_Gerd_Boulder_CAVES)
 
 Rockford_Profi_Boulderdir = $(pkgdatadir)/caves/Rockford_Profi_Boulder
-Rockford_Profi_Boulder_CAVES = Rockford/Profi_Boulder/Profi_Boulder_001.gds Rockford/Profi_Boulder/Profi_Boulder_002.gds Rockford/Profi_Boulder/Profi_Boulder_003.gds Rockford/Profi_Boulder/Profi_Boulder_004.gds Rockford/Profi_Boulder/Profi_Boulder_005.gds Rockford/Profi_Boulder/Profi_Boulder_006.gds Rockford/Profi_Boulder/Profi_Boulder_007.gds Rockford/Profi_Boulder/Profi_Boulder_008.gds Rockford/Profi_Boulder/Profi_Boulder_009.gds Rockford/Profi_Boulder/Profi_Boulder_010.gds Rockford/Profi_Boulder/Profi_Boulder_011.gds Rockford/Profi_Boulder/Profi_Boulder_012.gds Rockford/Profi_Boulder/Profi_Boulder_013.gds Rockford/Profi_Boulder/Profi_Boulder_014.gds Rockford/Profi_Boulder/Profi_Boulder_015.gds Rockford/Profi_Boulder/Profi_Boulder_016.gds Rockford/Profi_Boulder/Profi_Boulder_017.gds Rockford/Profi_Boulder/Profi_Boulder_018.gds Rockford/Profi_Boulder/Profi_Boulder_019.gds Rockford/Profi_Boulder/Profi_Boulder_022.gds Rockford/Profi_Boulder/Profi_Boulder_023.gds Rockford/Profi_Boulder/Profi_Boulder_024.gds Rockford/Profi_Boulder/Profi_Boulder_025.gds Rockford/Profi_Boulder/Profi_Boulder_026.gds Rockford/Profi_Boulder/Profi_Boulder_027.gds Rockford/Profi_Boulder/Profi_Boulder_028.gds Rockford/Profi_Boulder/Profi_Boulder_029.gds Rockford/Profi_Boulder/Profi_Boulder_030.gds Rockford/Profi_Boulder/Profi_Boulder_031.gds Rockford/Profi_Boulder/Profi_Boulder_032.gds Rockford/Profi_Boulder/Profi_Boulder_033.gds Rockford/Profi_Boulder/Profi_Boulder_034.gds Rockford/Profi_Boulder/Profi_Boulder_035.gds Rockford/Profi_Boulder/Profi_Boulder_036.gds Rockford/Profi_Boulder/Profi_Boulder_037.gds Rockford/Profi_Boulder/Profi_Boulder_038.gds Rockford/Profi_Boulder/Profi_Boulder_039.gds Rockford/Profi_Boulder/Profi_Boulder_040.gds Rockford/Profi_Boulder/Profi_Boulder_041.gds Rockford/Profi_Boulder/Profi_Boulder_042.gds Rockford/Profi_Boulder/Profi_Boulder_043.gds Rockford/Profi_Boulder/Profi_Boulder_044.gds Rockford/Profi_Boulder/Profi_Boulder_045.gds Rockford/Profi_Boulder/Profi_Boulder_046.gds Rockford/Profi_Boulder/Profi_Boulder_047.gds Rockford/Profi_Boulder/Profi_Boulder_048.gds Rockford/Profi_Boulder/Profi_Boulder_049.gds Rockford/Profi_Boulder/Profi_Boulder_050.gds Rockford/Profi_Boulder/Profi_Boulder_051.gds Rockford/Profi_Boulder/Profi_Boulder_052.gds Rockford/Profi_Boulder/Profi_Boulder_053.gds Rockford/Profi_Boulder/Profi_Boulder_057.gds Rockford/Profi_Boulder/Profi_Boulder_058.gds Rockford/Profi_Boulder/Profi_Boulder_059.gds Rockford/Profi_Boulder/Profi_Boulder_060.gds Rockford/Profi_Boulder/Profi_Boulder_061.gds Rockford/Profi_Boulder/Profi_Boulder_062.gds Rockford/Profi_Boulder/Profi_Boulder_063.gds Rockford/Profi_Boulder/Profi_Boulder_064.gds Rockford/Profi_Boulder/Profi_Boulder_065.gds Rockford/Profi_Boulder/Profi_Boulder_066.gds Rockford/Profi_Boulder/Profi_Boulder_067.gds Rockford/Profi_Boulder/Profi_Boulder_068.gds Rockford/Profi_Boulder/Profi_Boulder_069.gds Rockford/Profi_Boulder/Profi_Boulder_070.gds Rockford/Profi_Boulder/Profi_Boulder_071.gds Rockford/Profi_Boulder/Profi_Boulder_072.gds Rockford/Profi_Boulder/Profi_Boulder_073.gds Rockford/Profi_Boulder/Profi_Boulder_074.gds Rockford/Profi_Boulder/Profi_Boulder_075.gds Rockford/Profi_Boulder/Profi_Boulder_076.gds Rockford/Profi_Boulder/Profi_Boulder_077.gds Rockford/Profi_Boulder/Profi_Boulder_078.gds Rockford/Profi_Boulder/Profi_Boulder_079.gds Rockford/Profi_Boulder/Profi_Boulder_080.gds Rockford/Profi_Boulder/Profi_Boulder_081.gds Rockford/Profi_Boulder/Profi_Boulder_082.gds Rockford/Profi_Boulder/Profi_Boulder_083.gds Rockford/Profi_Boulder/Profi_Boulder_084.gds Rockford/Profi_Boulder/Profi_Boulder_085.gds Rockford/Profi_Boulder/Profi_Boulder_086.gds Rockford/Profi_Boulder/Profi_Boulder_087.gds Rockford/Profi_Boulder/Profi_Boulder_088.gds Rockford/Profi_Boulder/Profi_Boulder_089.gds Rockford/Profi_Boulder/Profi_Boulder_090.gds Rockford/Profi_Boulder/Profi_Boulder_091.gds Rockford/Profi_Boulder/Profi_Boulder_092.gds Rockford/Profi_Boulder/Profi_Boulder_093.gds Rockford/Profi_Boulder/Profi_Boulder_094.gds Rockford/Profi_Boulder/Profi_Boulder_095.gds Rockford/Profi_Boulder/Profi_Boulder_096.gds Rockford/Profi_Boulder/Profi_Boulder_097.gds Rockford/Profi_Boulder/Profi_Boulder_098.gds Rockford/Profi_Boulder/Profi_Boulder_099.gds Rockford/Profi_Boulder/Profi_Boulder_100.gds Rockford/Profi_Boulder/Profi_Boulder_101.gds Rockford/Profi_Boulder/Profi_Boulder_102.gds Rockford/Profi_Boulder/Profi_Boulder_103.gds Rockford/Profi_Boulder/Profi_Boulder_104.gds Rockford/Profi_Boulder/Profi_Boulder_105.gds Rockford/Profi_Boulder/Profi_Boulder_106.gds Rockford/Profi_Boulder/Profi_Boulder_107.gds Rockford/Profi_Boulder/Profi_Boulder_108.gds Rockford/Profi_Boulder/Profi_Boulder_109.gds Rockford/Profi_Boulder/Profi_Boulder_110.gds Rockford/Profi_Boulder/Profi_Boulder_111.gds Rockford/Profi_Boulder/Profi_Boulder_112.gds Rockford/Profi_Boulder/Profi_Boulder_113.gds Rockford/Profi_Boulder/Profi_Boulder_114.gds Rockford/Profi_Boulder/Profi_Boulder_115.gds Rockford/Profi_Boulder/Profi_Boulder_116.gds Rockford/Profi_Boulder/Profi_Boulder_117.gds Rockford/Profi_Boulder/Profi_Boulder_118.gds Rockford/Profi_Boulder/Profi_Boulder_119.gds
+Rockford_Profi_Boulder_CAVES = Rockford/Profi_Boulder/Profi_Boulder_001.gds Rockford/Profi_Boulder/Profi_Boulder_002.gds Rockford/Profi_Boulder/Profi_Boulder_003.gds Rockford/Profi_Boulder/Profi_Boulder_004.gds Rockford/Profi_Boulder/Profi_Boulder_005.gds Rockford/Profi_Boulder/Profi_Boulder_006.gds Rockford/Profi_Boulder/Profi_Boulder_007.gds Rockford/Profi_Boulder/Profi_Boulder_008.gds Rockford/Profi_Boulder/Profi_Boulder_009.gds Rockford/Profi_Boulder/Profi_Boulder_010.gds Rockford/Profi_Boulder/Profi_Boulder_011.gds Rockford/Profi_Boulder/Profi_Boulder_012.gds Rockford/Profi_Boulder/Profi_Boulder_013.gds Rockford/Profi_Boulder/Profi_Boulder_014.gds Rockford/Profi_Boulder/Profi_Boulder_015.gds Rockford/Profi_Boulder/Profi_Boulder_016.gds Rockford/Profi_Boulder/Profi_Boulder_017.gds Rockford/Profi_Boulder/Profi_Boulder_018.gds Rockford/Profi_Boulder/Profi_Boulder_019.gds Rockford/Profi_Boulder/Profi_Boulder_020.gds Rockford/Profi_Boulder/Profi_Boulder_021.gds Rockford/Profi_Boulder/Profi_Boulder_022.gds Rockford/Profi_Boulder/Profi_Boulder_023.gds Rockford/Profi_Boulder/Profi_Boulder_024.gds Rockford/Profi_Boulder/Profi_Boulder_025.gds Rockford/Profi_Boulder/Profi_Boulder_026.gds Rockford/Profi_Boulder/Profi_Boulder_027.gds Rockford/Profi_Boulder/Profi_Boulder_028.gds Rockford/Profi_Boulder/Profi_Boulder_029.gds Rockford/Profi_Boulder/Profi_Boulder_030.gds Rockford/Profi_Boulder/Profi_Boulder_031.gds Rockford/Profi_Boulder/Profi_Boulder_032.gds Rockford/Profi_Boulder/Profi_Boulder_033.gds Rockford/Profi_Boulder/Profi_Boulder_034.gds Rockford/Profi_Boulder/Profi_Boulder_035.gds Rockford/Profi_Boulder/Profi_Boulder_036.gds Rockford/Profi_Boulder/Profi_Boulder_037.gds Rockford/Profi_Boulder/Profi_Boulder_038.gds Rockford/Profi_Boulder/Profi_Boulder_039.gds Rockford/Profi_Boulder/Profi_Boulder_040.gds Rockford/Profi_Boulder/Profi_Boulder_041.gds Rockford/Profi_Boulder/Profi_Boulder_042.gds Rockford/Profi_Boulder/Profi_Boulder_043.gds Rockford/Profi_Boulder/Profi_Boulder_044.gds Rockford/Profi_Boulder/Profi_Boulder_045.gds Rockford/Profi_Boulder/Profi_Boulder_046.gds Rockford/Profi_Boulder/Profi_Boulder_047.gds Rockford/Profi_Boulder/Profi_Boulder_048.gds Rockford/Profi_Boulder/Profi_Boulder_049.gds Rockford/Profi_Boulder/Profi_Boulder_050.gds Rockford/Profi_Boulder/Profi_Boulder_051.gds Rockford/Profi_Boulder/Profi_Boulder_052.gds Rockford/Profi_Boulder/Profi_Boulder_053.gds Rockford/Profi_Boulder/Profi_Boulder_057.gds Rockford/Profi_Boulder/Profi_Boulder_058.gds Rockford/Profi_Boulder/Profi_Boulder_059.gds Rockford/Profi_Boulder/Profi_Boulder_060.gds Rockford/Profi_Boulder/Profi_Boulder_061.gds Rockford/Profi_Boulder/Profi_Boulder_062.gds Rockford/Profi_Boulder/Profi_Boulder_063.gds Rockford/Profi_Boulder/Profi_Boulder_064.gds Rockford/Profi_Boulder/Profi_Boulder_065.gds Rockford/Profi_Boulder/Profi_Boulder_066.gds Rockford/Profi_Boulder/Profi_Boulder_067.gds Rockford/Profi_Boulder/Profi_Boulder_068.gds Rockford/Profi_Boulder/Profi_Boulder_069.gds Rockford/Profi_Boulder/Profi_Boulder_070.gds Rockford/Profi_Boulder/Profi_Boulder_071.gds Rockford/Profi_Boulder/Profi_Boulder_072.gds Rockford/Profi_Boulder/Profi_Boulder_073.gds Rockford/Profi_Boulder/Profi_Boulder_074.gds Rockford/Profi_Boulder/Profi_Boulder_075.gds Rockford/Profi_Boulder/Profi_Boulder_076.gds Rockford/Profi_Boulder/Profi_Boulder_077.gds Rockford/Profi_Boulder/Profi_Boulder_078.gds Rockford/Profi_Boulder/Profi_Boulder_079.gds Rockford/Profi_Boulder/Profi_Boulder_080.gds Rockford/Profi_Boulder/Profi_Boulder_081.gds Rockford/Profi_Boulder/Profi_Boulder_082.gds Rockford/Profi_Boulder/Profi_Boulder_083.gds Rockford/Profi_Boulder/Profi_Boulder_084.gds Rockford/Profi_Boulder/Profi_Boulder_085.gds Rockford/Profi_Boulder/Profi_Boulder_086.gds Rockford/Profi_Boulder/Profi_Boulder_087.gds Rockford/Profi_Boulder/Profi_Boulder_088.gds Rockford/Profi_Boulder/Profi_Boulder_089.gds Rockford/Profi_Boulder/Profi_Boulder_090.gds Rockford/Profi_Boulder/Profi_Boulder_091.gds Rockford/Profi_Boulder/Profi_Boulder_092.gds Rockford/Profi_Boulder/Profi_Boulder_093.gds Rockford/Profi_Boulder/Profi_Boulder_094.gds Rockford/Profi_Boulder/Profi_Boulder_095.gds Rockford/Profi_Boulder/Profi_Boulder_096.gds Rockford/Profi_Boulder/Profi_Boulder_097.gds Rockford/Profi_Boulder/Profi_Boulder_098.gds Rockford/Profi_Boulder/Profi_Boulder_099.gds Rockford/Profi_Boulder/Profi_Boulder_100.gds Rockford/Profi_Boulder/Profi_Boulder_101.gds Rockford/Profi_Boulder/Profi_Boulder_102.gds Rockford/Profi_Boulder/Profi_Boulder_103.gds Rockford/Profi_Boulder/Profi_Boulder_104.gds Rockford/Profi_Boulder/Profi_Boulder_105.gds Rockford/Profi_Boulder/Profi_Boulder_106.gds Rockford/Profi_Boulder/Profi_Boulder_107.gds Rockford/Profi_Boulder/Profi_Boulder_108.gds Rockford/Profi_Boulder/Profi_Boulder_109.gds Rockford/Profi_Boulder/Profi_Boulder_110.gds Rockford/Profi_Boulder/Profi_Boulder_111.gds Rockford/Profi_Boulder/Profi_Boulder_112.gds Rockford/Profi_Boulder/Profi_Boulder_113.gds Rockford/Profi_Boulder/Profi_Boulder_114.gds Rockford/Profi_Boulder/Profi_Boulder_115.gds Rockford/Profi_Boulder/Profi_Boulder_116.gds Rockford/Profi_Boulder/Profi_Boulder_117.gds Rockford/Profi_Boulder/Profi_Boulder_118.gds Rockford/Profi_Boulder/Profi_Boulder_119.gds
 Rockford_Profi_Boulder_DATA = $(Rockford_Profi_Boulder_CAVES)
 
 Rockford_Rockforddir = $(pkgdatadir)/caves/Rockford_Rockford
@@ -513,7 +537,7 @@ Ron_van_Schaik_Forkidz_Dash_CAVES = Ron_van_Schaik/Forkidz_Dash/Forkidz_Dash_01.
 Ron_van_Schaik_Forkidz_Dash_DATA = $(Ron_van_Schaik_Forkidz_Dash_CAVES)
 
 Ron_van_Schaik_Schaik_Dashdir = $(pkgdatadir)/caves/Ron_van_Schaik_Schaik_Dash
-Ron_van_Schaik_Schaik_Dash_CAVES = Ron_van_Schaik/Schaik_Dash/Schaik_Dash_01.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_02.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_03.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_04.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_05.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_06.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_07.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_08.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_09.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_10.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_11.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_12.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_13.gds Ron_van_Schaik/Schaik_Dash/Schaik_Dash_14.gds
+Ron_van_Schaik_Schaik_Dash_CAVES = Ron_van_Schaik/Schaik_Dash/Schaikdash_01.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_02.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_03.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_04.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_05.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_06.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_07.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_08.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_09.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_10.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_11.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_12.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_13.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_14.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_15.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_16.gds
 Ron_van_Schaik_Schaik_Dash_DATA = $(Ron_van_Schaik_Schaik_Dash_CAVES)
 
 Ron_van_Schaik_Schaik_Mixdir = $(pkgdatadir)/caves/Ron_van_Schaik_Schaik_Mix
@@ -524,16 +548,16 @@ Rory_Agstendir = $(pkgdatadir)/caves/Rory_Agsten
 Rory_Agsten_CAVES = Rory_Agsten/RTA_Dash_1.bd Rory_Agsten/RTA_Dash_2.bd Rory_Agsten/RTA_Dash_3.bd Rory_Agsten/RTA_Dash_4.bd Rory_Agsten/RTA_Dash_5.bd Rory_Agsten/RTA_Dash_6.bd Rory_Agsten/RTA_Dash_7.bd Rory_Agsten/RTA_Dash_8L.bd
 Rory_Agsten_DATA = $(Rory_Agsten_CAVES)
 
-Sarahdir = $(pkgdatadir)/caves/Sarah
-Sarah_CAVES = Sarah/Geil.gds
-Sarah_DATA = $(Sarah_CAVES)
+Sarah_Rothdir = $(pkgdatadir)/caves/Sarah_Roth
+Sarah_Roth_CAVES = Sarah_Roth/Geil.gds
+Sarah_Roth_DATA = $(Sarah_Roth_CAVES)
 
 Schlonkeldir = $(pkgdatadir)/caves/Schlonkel
-Schlonkel_CAVES = Schlonkel/The_Lost_Caves_1.gds Schlonkel/The_Lost_Caves_10.bd Schlonkel/The_Lost_Caves_2.bd Schlonkel/The_Lost_Caves_3.bd Schlonkel/The_Lost_Caves_4.bd Schlonkel/The_Lost_Caves_5.bd Schlonkel/The_Lost_Caves_6.bd Schlonkel/The_Lost_Caves_7.bd Schlonkel/The_Lost_Caves_8.bd Schlonkel/The_Lost_Caves_9.bd
+Schlonkel_CAVES = Schlonkel/The_Lost_Caves_01.gds Schlonkel/The_Lost_Caves_02.bd Schlonkel/The_Lost_Caves_03.bd Schlonkel/The_Lost_Caves_04.bd Schlonkel/The_Lost_Caves_05.bd Schlonkel/The_Lost_Caves_06.bd Schlonkel/The_Lost_Caves_07.bd Schlonkel/The_Lost_Caves_08.bd Schlonkel/The_Lost_Caves_09.bd Schlonkel/The_Lost_Caves_10.bd Schlonkel/The_Lost_Caves_11.gds Schlonkel/The_Lost_Caves_12.gds Schlonkel/The_Lost_Caves_13.gds
 Schlonkel_DATA = $(Schlonkel_CAVES)
 
 Scserbin_Zoltandir = $(pkgdatadir)/caves/Scserbin_Zoltan
-Scserbin_Zoltan_CAVES = Scserbin_Zoltan/Arkanoid_001.gds Scserbin_Zoltan/Auto_001.gds Scserbin_Zoltan/Auto_Dash.zip Scserbin_Zoltan/Bee_001.gds Scserbin_Zoltan/Bee_001_Atari.bd Scserbin_Zoltan/Bee_Dash.zip Scserbin_Zoltan/Birds_001.gds Scserbin_Zoltan/Birds_001_Atari.bd Scserbin_Zoltan/Cat_001.gds Scserbin_Zoltan/Dig_Dug_001.gds Scserbin_Zoltan/Dig_Dug_001_Atari.bd Scserbin_Zoltan/Fire_Ant_001.gds Scserbin_Zoltan/Fire_Ant_001_Atari.bd Scserbin_Zoltan/Fire_Ant_Dash.zip Scserbin_Zoltan/Invasion_001.gds Scserbin_Zoltan/Invasion_Dash.zip Scserbin_Zoltan/Mikulas_001.gds Scserbin_Zoltan/Mushroom_001.gds Scserbin_Zoltan/Mushroom_Dash.zip Scserbin_Zoltan/Ninja_001_Atari.bd Scserbin_Zoltan/Ninja_Dash.gds Scserbin_Zoltan/Nucleal_001.gds Scserbin_Zoltan/Nucleal_Dash.zip Scserbin_Zoltan/Pacman_001_Atari.bd Scserbin_Zoltan/Pinocchio_Dash.zip Scserbin_Zoltan/Polip_001.gds Scserbin_Zoltan/Robot_001.gds Scserbin_Zoltan/Rocker_001.gds Scserbin_Zoltan/Skateboard_Dash.zip Scserbin_Zoltan/Tank_War_2_001.gds Scserbin_Zoltan/Terminator_001.gds Scserbin_Zoltan/Thief_001.gds Scserbin_Zoltan/Thief_001_Atari.bd
+Scserbin_Zoltan_CAVES = Scserbin_Zoltan/Arkanoid_001.gds Scserbin_Zoltan/Auto_001.gds Scserbin_Zoltan/Auto_Dash.zip Scserbin_Zoltan/Bee_001.gds Scserbin_Zoltan/Bee_Dash.zip Scserbin_Zoltan/Birds_001.gds Scserbin_Zoltan/Cat_001.gds Scserbin_Zoltan/Dig_Dug_001.gds Scserbin_Zoltan/Dinosaurus_001.gds Scserbin_Zoltan/Fire_Ant_001.gds Scserbin_Zoltan/Fire_Ant_Dash.zip Scserbin_Zoltan/Invasion_001.gds Scserbin_Zoltan/Invasion_Dash.zip Scserbin_Zoltan/Mikulas_001.gds Scserbin_Zoltan/Mushroom_001.gds Scserbin_Zoltan/Mushroom_Dash.zip Scserbin_Zoltan/Ninja_Dash.gds Scserbin_Zoltan/Nucleal_001.gds Scserbin_Zoltan/Nucleal_Dash.zip Scserbin_Zoltan/Pacman_001.gds Scserbin_Zoltan/Pinocchio_Dash.zip Scserbin_Zoltan/Polip_001.gds Scserbin_Zoltan/Robot_001.gds Scserbin_Zoltan/Rocker_001.gds Scserbin_Zoltan/Skateboard_Dash.zip Scserbin_Zoltan/Tank_War_2_001.gds Scserbin_Zoltan/Terminator_001.gds Scserbin_Zoltan/Thief_001.gds
 Scserbin_Zoltan_DATA = $(Scserbin_Zoltan_CAVES)
 
 Scserbin_Zoltan_Atlantisdir = $(pkgdatadir)/caves/Scserbin_Zoltan_Atlantis
@@ -576,9 +600,17 @@ Sendydir = $(pkgdatadir)/caves/Sendy
 Sendy_CAVES = Sendy/Crli_Caves.bd Sendy/Sendydash_1.bd Sendy/Sendydash_2.bd Sendy/Sendydash_3.gds
 Sendy_DATA = $(Sendy_CAVES)
 
+Sijben_Softdir = $(pkgdatadir)/caves/Sijben_Soft
+Sijben_Soft_CAVES = Sijben_Soft/Professional_Boulder_Dash.gds
+Sijben_Soft_DATA = $(Sijben_Soft_CAVES)
+
 Skeletordir = $(pkgdatadir)/caves/Skeletor
-Skeletor_CAVES = Skeletor/Mega_Boulder_1.gds Skeletor/Mega_Boulder_2.gds Skeletor/Mega_Boulder_3.gds Skeletor/Mega_Boulder_4.gds Skeletor/Mega_Boulder_5.gds Skeletor/Mega_Boulder_6.gds Skeletor/Mega_Boulder_Mix.gds
+Skeletor_CAVES = Skeletor/Mega_Boulder_Mix.gds Skeletor/True_Boulder_1.gds
 Skeletor_DATA = $(Skeletor_CAVES)
+
+Skeletor_Mega_Boulderdir = $(pkgdatadir)/caves/Skeletor_Mega_Boulder
+Skeletor_Mega_Boulder_CAVES = Skeletor/Mega_Boulder/Mega_Boulder_1.gds Skeletor/Mega_Boulder/Mega_Boulder_2.gds Skeletor/Mega_Boulder/Mega_Boulder_3.gds Skeletor/Mega_Boulder/Mega_Boulder_4.gds Skeletor/Mega_Boulder/Mega_Boulder_5.gds Skeletor/Mega_Boulder/Mega_Boulder_6.gds
+Skeletor_Mega_Boulder_DATA = $(Skeletor_Mega_Boulder_CAVES)
 
 Spiderdir = $(pkgdatadir)/caves/Spider
 Spider_CAVES =
@@ -617,7 +649,7 @@ Tatter_Demalion_CAVES = Tatter_Demalion/Demalion_Dash_01-Can_you_dig_it_sucka.bd
 Tatter_Demalion_DATA = $(Tatter_Demalion_CAVES)
 
 The_Blockheadsdir = $(pkgdatadir)/caves/The_Blockheads
-The_Blockheads_CAVES = The_Blockheads/AFL_Boulder_Dash.gds The_Blockheads/Atlantis_Boulder.gds The_Blockheads/Emerald_Dash_2.bd The_Blockheads/NoPowerDash_3.bd The_Blockheads/RCC_Boulder_Dash.gds The_Blockheads/Waldwatzdash_3.bd
+The_Blockheads_CAVES = The_Blockheads/AFL_Boulderdash.gds The_Blockheads/Atlantis_Boulder.gds The_Blockheads/Emerald_Dash_2.bd The_Blockheads/NoPowerDash_3.bd The_Blockheads/RCC_Boulder_Dash.gds The_Blockheads/Waldwatzdash_3.bd
 The_Blockheads_DATA = $(The_Blockheads_CAVES)
 
 The_Blockheads_Boulderdashdir = $(pkgdatadir)/caves/The_Blockheads_Boulderdash
@@ -625,8 +657,12 @@ The_Blockheads_Boulderdash_CAVES = The_Blockheads/Boulderdash/Boulderdash_12.gds
 The_Blockheads_Boulderdash_DATA = $(The_Blockheads_Boulderdash_CAVES)
 
 The_Blockheads_Boulderheaddir = $(pkgdatadir)/caves/The_Blockheads_Boulderhead
-The_Blockheads_Boulderhead_CAVES = The_Blockheads/Boulderhead/Boulderhead_1.gds The_Blockheads/Boulderhead/Boulderhead_2.gds The_Blockheads/Boulderhead/Boulderhead_3.gds The_Blockheads/Boulderhead/Boulderhead_4.gds The_Blockheads/Boulderhead/Boulderhead_5.gds The_Blockheads/Boulderhead/Boulderhead_6.gds The_Blockheads/Boulderhead/Boulder_Head_1.gds
+The_Blockheads_Boulderhead_CAVES = The_Blockheads/Boulderhead/Boulderhead_1.gds The_Blockheads/Boulderhead/Boulderhead_2.gds The_Blockheads/Boulderhead/Boulderhead_3.gds The_Blockheads/Boulderhead/Boulderhead_4.gds The_Blockheads/Boulderhead/Boulderhead_5.gds The_Blockheads/Boulderhead/Boulderhead_6.gds The_Blockheads/Boulderhead/Boulderhead_7.gds The_Blockheads/Boulderhead/Boulderhead_8.gds The_Blockheads/Boulderhead/Boulder_Head_1.gds
 The_Blockheads_Boulderhead_DATA = $(The_Blockheads_Boulderhead_CAVES)
+
+The_Blockheads_Trap_Boulderdir = $(pkgdatadir)/caves/The_Blockheads_Trap_Boulder
+The_Blockheads_Trap_Boulder_CAVES = The_Blockheads/Trap_Boulder/Trap_Boulder_1.gds The_Blockheads/Trap_Boulder/Trap_Boulder_3.gds The_Blockheads/Trap_Boulder/Trap_Boulder_4.gds
+The_Blockheads_Trap_Boulder_DATA = $(The_Blockheads_Trap_Boulder_CAVES)
 
 The_Bremer_Town_Musicusdir = $(pkgdatadir)/caves/The_Bremer_Town_Musicus
 The_Bremer_Town_Musicus_CAVES = The_Bremer_Town_Musicus/Three_Boulder_Dash_Games_A.gds The_Bremer_Town_Musicus/Three_Boulder_Dash_Games_B.gds The_Bremer_Town_Musicus/Three_Boulder_Dash_Games_C.gds
@@ -637,7 +673,7 @@ The_Editor_CAVES = The_Editor/Blunder_Bash.gds
 The_Editor_DATA = $(The_Editor_CAVES)
 
 The_Softkillerdir = $(pkgdatadir)/caves/The_Softkiller
-The_Softkiller_CAVES = The_Softkiller/Boulder_Dash_13.bd The_Softkiller/Boulder_Dash_VII.gds
+The_Softkiller_CAVES = The_Softkiller/Boulder_Dash_13.bd The_Softkiller/Boulder_Dash_VII.gds The_Softkiller/My_First_Dash.gds
 The_Softkiller_DATA = $(The_Softkiller_CAVES)
 
 The_Softkiller_Bingodir = $(pkgdatadir)/caves/The_Softkiller_Bingo
@@ -661,11 +697,19 @@ UStar23_CAVES = UStar23/Boulderdash-UX-2.bd UStar23/Boulderdash-UX-3.bd UStar23/
 UStar23_DATA = $(UStar23_CAVES)
 
 variousdir = $(pkgdatadir)/caves/various
-various_CAVES = various/Boulder_Dash_20_Atari.bd various/Boulder_Dash_3_Atari.gds various/Boulder_Dash_8_Atari.gds various/Boulder_Dash_9_1.gds various/Boulder_Dash_9_2.gds various/Boulder_Dash_9_3.gds various/Boulder_Dash_9_4.gds various/Boulder_Dash_9_5.gds various/Boulder_Dash_9_6.gds various/Boulder_Dash_9_7.gds various/Boulder_Dash_9_8.gds various/Boulder_Dash_9_9.gds various/Boulder_Dash_Pro.gds various/LPS_GodsBoulder_1_2.gds various/Unknown_Boulderdash_12.gds
+various_CAVES = various/Boulder_Dash_20_Atari.bd various/Boulder_Dash_3_Atari.gds various/Boulder_Dash_8_Atari.gds various/Boulder_Dash_9_1.gds various/Boulder_Dash_9_2.gds various/Boulder_Dash_9_3.gds various/Boulder_Dash_9_4.gds various/Boulder_Dash_9_5.gds various/Boulder_Dash_9_6.gds various/Boulder_Dash_9_7.gds various/Boulder_Dash_9_8.gds various/Boulder_Dash_9_9.gds various/Boulder_Dash_Pro.gds various/Boulder_Games_2.gds various/CS_Boulder_2.gds various/Kit_Caves!.gds various/Super_Dash_I.gds various/Ten_Boulders.gds various/Unknown_Boulderdash_12.gds
 various_DATA = $(various_CAVES)
 
 Witrodir = $(pkgdatadir)/caves/Witro
 Witro_CAVES = Witro/Witrodash_1.gds Witro/Witrodash_2.gds Witro/Witrodash_3.gds
 Witro_DATA = $(Witro_CAVES)
 
-EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) $(Achim_Hofmann_CAVES) $(AGB_Soft_CAVES) $(Alan_Bond_CAVES) $(Alchemystics_CAVES) $(Alchemystics_Alchemyst_Dangerdash_CAVES) $(Alchemystics_Alchemyst_Dig_CAVES) $(Alex_Zop_CAVES) $(American_Action_CAVES) $(Arno_Weber_CAVES) $(Arno_Weber_Arno_Dash_CAVES) $(Atarakushi_CAVES) $(Bert_Bogger_CAVES) $(Black_and_Hawk_CAVES) $(Blupi_CAVES) $(Bobosoft_CAVES) $(Boulderwilli_CAVES) $(Boulderwilli_Marathon_Dash_CAVES) $(Boulder_Dash_Community_CAVES) $(Boulder_Rush_cave_pack_CAVES) $(Burton_Bandit_CAVES) $(CCF_CAVES) $(Chaos_CAVES) $(Cheech_and_Chongs_CAVES) $(Conrad_CAVES) $(Coolshaker_Union_Gang_KG_CAVES) $(Coolshaker_Union_Gang_KG_Quolder_Dash_CAVES) $(Coolshaker_Union_Gang_KG_Roulder_Dash_CAVES) $(Cup_CAVES) $(CWS_CAVES) $(Daniel_Tavernier_CAVES) $(Dan_Warren_CAVES) $(Didi_CAVES) $(Dino_CAVES) $(Don_Pedro_CAVES) $(Dotterteam_CAVES) $(Dr_Guru_CAVES) $(Dr_Watson_CAVES) $(Dustin_CAVES) $(Dustin_Dustin_s_Boulder_Dash_CAVES) $(Eberhard_Baartz_CAVES) $(Eclips_CAVES) $(El_Swingi_CAVES) $(FAJ_Soft_CAVES) $(Falcon_Soft_CAVES) $(Firefox_CAVES) $(Firefox_Firefox_CAVES) $(First_Star_Software_CAVES) $(Frust_CAVES) $(Gertrud_CAVES) $(Gertrud_Gertrud_s_Game_CAVES) $(Gertrud_Rodex_CAVES) $(Gert_van_den_Heuvel_CAVES) $(Gods_CAVES) $(Grant_Walker_CAVES) $(Hacker_CAVES) $(Heinz_Trumpelmann_CAVES) $(HSG_CAVES) $(Iron_Soft_CAVES) $(Jason_Sabourin_CAVES) $(Karlchen_and_Opossum_CAVES) $(Karlchen_and_Opossum_Frettchendash_CAVES) $(Karlchen_and_Opossum_Melmac_Dash_CAVES) $(Karlchen_and_Opossum_Ossi_Dash_CAVES) $(Lanzelott_and_Matula_CAVES) $(Load_n_Run_CAVES) $(Lord_Diego_CAVES) $(LTL_Soft_CAVES) $(Lukas_Shambis_CAVES) $(Madgame_CAVES) $(Mapasoft_CAVES) $(Marek_Roth_CAVES) $(Marek_Roth_Crazy_Dream_CAVES) $(Marek_Roth_Deluxe_Caves_CAVES) $(Marek_Roth_Deluxe_Dash_CAVES) $(Marek_Roth_De_Luxe_Remix_CAVES) $(Mario_Albrecht_CAVES) $(Matthias_Koth_CAVES) $(Matthias_Steiner_CAVES) $(Max_CAVES) $(MB_Soft_CAVES) $(Metalmorphosis_CAVES) $(Michael_and_Ingo_CAVES) $(MJMan_CAVES) $(MJR_CAVES) $(Mr_Joker_CAVES) $(Mr_Nobody_CAVES) $(Mr_Nonflex_CAVES) $(Mr_Rockford_CAVES) $(No_One_CAVES) $(No_One_Delight_CAVES) $(No_One_Final_Boulder_CAVES) $(No_One_No_One_s_Boulder_CAVES) $(No_One_Prima_Boulderdash_CAVES) $(Odo_CAVES) $(Olaf_Roth_CAVES) $(Olaf_Roth_Cool_Dash_CAVES) $(Olaf_Roth_Giga_Boulder_CAVES) $(Orion_CAVES) $(Papis_CAVES) $(Persoft_CAVES) $(Pete_CAVES) $(Peter_Metsemakers_CAVES) $(Peter_Traunig_CAVES) $(Phoenix_CAVES) $(Pierre_and_Olivier_CAVES) $(Posocopi_Waldkirch_CAVES) $(Prof_Knibble_CAVES) $(Prof_Knibble_Boulder_Dash_Heavy_CAVES) $(Prof_Knibble_Boulder_Dash_Week_CAVES) $(Prof_Knibble_Knibble_Dash_CAVES) $(Prof_Knibble_Knibble_Eat_CAVES) $(Radek_Buchta_and_Nudel_CAVES) $(Renate_CAVES) $(Rockford_CAVES) $(Rockford_Gerd_Boulder_CAVES) $(Rockford_Profi_Boulder_CAVES) $(Rockford_Rockford_CAVES) $(Rockford_Super_Boulder_CAVES) $(Rolf_Lange_CAVES) $(Rolf_Lange_Rolodash_CAVES) $(Rolf_Roth_CAVES) $(Rolf_Roth_Nordseepower_CAVES) $(Rolf_Roth_Schlicktown_CAVES) $(Rolf_Roth_Stone_Age_CAVES) $(Rolf_Roth_Waterkant_Dash_CAVES) $(Ron_van_Schaik_CAVES) $(Ron_van_Schaik_Forkidz_Dash_CAVES) $(Ron_van_Schaik_Schaik_Dash_CAVES) $(Ron_van_Schaik_Schaik_Mix_CAVES) $(Rory_Agsten_CAVES) $(Sarah_CAVES) $(Schlonkel_CAVES) $(Scserbin_Zoltan_CAVES) $(Scserbin_Zoltan_Atlantis_CAVES) $(Scserbin_Zoltan_Auto_Dash_CAVES) $(Scserbin_Zoltan_Batman_CAVES) $(Scserbin_Zoltan_Dig_Dug_Dash_CAVES) $(Scserbin_Zoltan_Golden_Boulder_Who_Dares_Wins_CAVES) $(Scserbin_Zoltan_Ninja_Dash_CAVES) $(Scserbin_Zoltan_Quasimodo_CAVES) $(Scserbin_Zoltan_Robot_Dash_CAVES) $(Scserbin_Zoltan_Tank_War_CAVES) $(Sendy_CAVES) $(Skeletor_CAVES) $(Spider_CAVES) $(Spider_Bouldi_Dash_CAVES) $(Spider_Steel_Dash_CAVES) $(Stormbringer_CAVES) $(Stormbringer_Crazy_Dash_CAVES) $(Stormbringer_Stormdash_CAVES) $(Sub7_CAVES) $(Subotai_CAVES) $(Tatter_Demalion_CAVES) $(The_Blockheads_CAVES) $(The_Blockheads_Boulderdash_CAVES) $(The_Blockheads_Boulderhead_CAVES) $(The_Bremer_Town_Musicus_CAVES) $(The_Editor_CAVES) $(The_Softkiller_CAVES) $(The_Softkiller_Bingo_CAVES) $(The_Softkiller_Helena_CAVES) $(Thomas_Mauritz_CAVES) $(Tropyx_CAVES) $(UStar23_CAVES) $(various_CAVES) $(Witro_CAVES)
+Yakuzadir = $(pkgdatadir)/caves/Yakuza
+Yakuza_CAVES = Yakuza/Boulder_Plus.gds
+Yakuza_DATA = $(Yakuza_CAVES)
+
+Zombie_Crackersdir = $(pkgdatadir)/caves/Zombie_Crackers
+Zombie_Crackers_CAVES = Zombie_Crackers/Masters_Boulder_Dash.gds
+Zombie_Crackers_DATA = $(Zombie_Crackers_CAVES)
+
+EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) $(Achim_Hofmann_CAVES) $(Add_and_TKR_CAVES) $(AGB_Soft_CAVES) $(Alan_Bond_CAVES) $(Alchemystics_CAVES) $(Alchemystics_Alchemyst_Dangerdash_CAVES) $(Alchemystics_Alchemyst_Dig_CAVES) $(Alex_Zop_CAVES) $(American_Action_CAVES) $(Arno_Weber_CAVES) $(Arno_Weber_Arno_Dash_CAVES) $(Artis_CAVES) $(Atarakushi_CAVES) $(Bert_Bogger_CAVES) $(Black_and_Hawk_CAVES) $(Blupi_CAVES) $(Bobosoft_CAVES) $(Boulderwilli_CAVES) $(Boulderwilli_Marathon_Dash_CAVES) $(Boulder_Dash_Community_CAVES) $(Boulder_Rush_cave_pack_CAVES) $(Burton_Bandit_CAVES) $(CCF_CAVES) $(Chaos_CAVES) $(Cheech_and_Chongs_CAVES) $(Conrad_CAVES) $(Coolshaker_Union_Gang_KG_CAVES) $(Coolshaker_Union_Gang_KG_Quolder_Dash_CAVES) $(Coolshaker_Union_Gang_KG_Roulder_Dash_CAVES) $(Cup_CAVES) $(CWS_CAVES) $(Daniel_Tavernier_CAVES) $(Dan_Warren_CAVES) $(Didi_CAVES) $(Dino_CAVES) $(Don_Pedro_CAVES) $(Dotterteam_CAVES) $(Dr_Guru_CAVES) $(Dr_Watson_CAVES) $(Dustin_CAVES) $(Dustin_Dustin_s_Boulder_Dash_CAVES) $(Eberhard_Baartz_CAVES) $(Eclips_CAVES) $(El_Swingi_CAVES) $(FAJ_Soft_CAVES) $(Falcon_Soft_CAVES) $(Firefox_CAVES) $(Firefox_Firefox_CAVES) $(First_Star_Software_CAVES) $(Frust_CAVES) $(Gertrud_CAVES) $(Gertrud_Gertrud_s_Game_CAVES) $(Gertrud_Rodex_CAVES) $(Gert_van_den_Heuvel_CAVES) $(Gods_CAVES) $(Grant_Walker_CAVES) $(Hacker_CAVES) $(Heinz_Trumpelmann_CAVES) $(HSG_CAVES) $(Incubus_CAVES) $(Iron_Soft_CAVES) $(Jason_Sabourin_CAVES) $(Karlchen_and_Opossum_CAVES) $(Karlchen_and_Opossum_Frettchendash_CAVES) $(Karlchen_and_Opossum_Melmac_Dash_CAVES) $(Karlchen_and_Opossum_Ossi_Dash_CAVES) $(Kayle_Geerts_CAVES) $(KK_CAVES) $(Lanzelott_and_Matula_CAVES) $(Logic_De_Luxe_CAVES) $(Lord_Diego_CAVES) $(LTL_Soft_CAVES) $(Lukas_Shambis_CAVES) $(Madgame_CAVES) $(Mapasoft_CAVES) $(Marek_Roth_CAVES) $(Marek_Roth_Crazy_Dream_CAVES) $(Marek_Roth_Deluxe_Caves_CAVES) $(Marek_Roth_Deluxe_Dash_CAVES) $(Marek_Roth_De_Luxe_Remix_CAVES) $(Mario_Albrecht_CAVES) $(Matthias_Koth_CAVES) $(Matthias_Steiner_CAVES) $(Max_CAVES) $(MB_Soft_CAVES) $(Metalmorphosis_CAVES) $(Michael_and_Ingo_CAVES) $(MJMan_CAVES) $(MJR_CAVES) $(Mr_Joker_CAVES) $(Mr_Nobody_CAVES) $(Mr_Nonflex_CAVES) $(Mr_Rockford_CAVES) $(No_One_CAVES) $(No_One_Delight_CAVES) $(No_One_Final_Boulder_CAVES) $(No_One_No_One_s_Boulder_CAVES) $(No_One_Prima_Boulderdash_CAVES) $(Odo_CAVES) $(Olaf_Roth_CAVES) $(Olaf_Roth_Cool_Dash_CAVES) $(Olaf_Roth_Giga_Boulder_CAVES) $(Orion_CAVES) $(Papis_CAVES) $(Persoft_CAVES) $(Pete_CAVES) $(Peter_Metsemakers_CAVES) $(Peter_Traunig_CAVES) $(Phoenix_CAVES) $(Pierre_and_Olivier_CAVES) $(Posocopi_Waldkirch_CAVES) $(Prof_Knibble_CAVES) $(Prof_Knibble_Boulder_Dash_Heavy_CAVES) $(Prof_Knibble_Boulder_Dash_Week_CAVES) $(Prof_Knibble_Knibble_Dash_CAVES) $(Prof_Knibble_Knibble_Eat_CAVES) $(Radek_Buchta_and_Nudel_CAVES) $(Renate_CAVES) $(Replica_Copy_Crew_CAVES) $(Rockford_CAVES) $(Rockford_Gerd_Boulder_CAVES) $(Rockford_Profi_Boulder_CAVES) $(Rockford_Rockford_CAVES) $(Rockford_Super_Boulder_CAVES) $(Rolf_Lange_CAVES) $(Rolf_Lange_Rolodash_CAVES) $(Rolf_Roth_CAVES) $(Rolf_Roth_Nordseepower_CAVES) $(Rolf_Roth_Schlicktown_CAVES) $(Rolf_Roth_Stone_Age_CAVES) $(Rolf_Roth_Waterkant_Dash_CAVES) $(Ron_van_Schaik_CAVES) $(Ron_van_Schaik_Forkidz_Dash_CAVES) $(Ron_van_Schaik_Schaik_Dash_CAVES) $(Ron_van_Schaik_Schaik_Mix_CAVES) $(Rory_Agsten_CAVES) $(Sarah_Roth_CAVES) $(Schlonkel_CAVES) $(Scserbin_Zoltan_CAVES) $(Scserbin_Zoltan_Atlantis_CAVES) $(Scserbin_Zoltan_Auto_Dash_CAVES) $(Scserbin_Zoltan_Batman_CAVES) $(Scserbin_Zoltan_Dig_Dug_Dash_CAVES) $(Scserbin_Zoltan_Golden_Boulder_Who_Dares_Wins_CAVES) $(Scserbin_Zoltan_Ninja_Dash_CAVES) $(Scserbin_Zoltan_Quasimodo_CAVES) $(Scserbin_Zoltan_Robot_Dash_CAVES) $(Scserbin_Zoltan_Tank_War_CAVES) $(Sendy_CAVES) $(Sijben_Soft_CAVES) $(Skeletor_CAVES) $(Skeletor_Mega_Boulder_CAVES) $(Spider_CAVES) $(Spider_Bouldi_Dash_CAVES) $(Spider_Steel_Dash_CAVES) $(Stormbringer_CAVES) $(Stormbringer_Crazy_Dash_CAVES) $(Stormbringer_Stormdash_CAVES) $(Sub7_CAVES) $(Subotai_CAVES) $(Tatter_Demalion_CAVES) $(The_Blockheads_CAVES) $(The_Blockheads_Boulderdash_CAVES) $(The_Blockheads_Boulderhead_CAVES) $(The_Blockheads_Trap_Boulder_CAVES) $(The_Bremer_Town_Musicus_CAVES) $(The_Editor_CAVES) $(The_Softkiller_CAVES) $(The_Softkiller_Bingo_CAVES) $(The_Softkiller_Helena_CAVES) $(Thomas_Mauritz_CAVES) $(Tropyx_CAVES) $(UStar23_CAVES) $(various_CAVES) $(Witro_CAVES) $(Yakuza_CAVES) $(Zombie_Crackers_CAVES)
