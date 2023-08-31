@@ -252,7 +252,7 @@ Setting *gd_get_game_settings_array() {
         { TypeBoolean, N_("Fine scrolling"), &gd_fine_scroll, true, NULL, N_("If fine scrolling is turned off, scrolling and cave animation is limited to a lower frame rate, and consumes much less CPU. On some hardware, it might actually look better than fine scrolling. Not all graphics engines support fine scrolling.") },
         { TypeBoolean, N_("Particle effects"), &gd_particle_effects, true, NULL, N_("Particle effects during play. This requires a lot of CPU power.") },
         { TypeBoolean, N_("Full cave view"), &gd_full_cave_view, true, NULL, N_("Show the whole cave on the screen without scrolling.") },
-        { TypeBoolean, N_("OpenGL: Center full screen"), &gd_open_gl_center, true, NULL, N_("OpenGL: Center full screen") },
+        { TypeBoolean, N_("OpenGL: Center full screen"), &gd_open_gl_center, true, NULL, N_("If this option is activated, the display fills the entire screen under OpenGL. To preserve the aspect ratio it is recommended to increase the scaling factor.") },
 
 #ifdef HAVE_SDL
         { TypePage, N_("OpenGL settings") },
