@@ -493,12 +493,11 @@ void GameRenderer::drawstatus_game() const {
     bool first_line = drawstatus_firstline(true);
 
     int y = first_line ? statusbar_y2 : statusbar_mid;
-    int scale = screen.get_pixmap_scale();
 
     if (status_bar_alternate) {
         /* ALTERNATIVE STATUS BAR BY PRESSING SHIFT */
         /* this will output a total of 20 chars */
-        int x = (screen.get_width() - 20 * 16 * scale) / 2;
+        int x = (screen.get_width() - 20 * font_manager.get_font_width_wide()) / 2;
 
         x = font_manager.blittext(x, y, cols.default_color, "%c%02d ", GD_PLAYER_CHAR, gd_clamp(game.player_lives, 0, 99)); /* max 99 in %2d */
         /* color numbers are not the same as key numbers! c3->k1, c2->k2, c1->k3 */
@@ -513,11 +512,12 @@ void GameRenderer::drawstatus_game() const {
         }
         x = font_manager.blittext(x, y, cols.diamond_collected, "%c%02d", GD_SKELETON_CHAR, gd_clamp(int(game.played_cave->skeletons_collected), 0, 99));
     } else {
+        int scale = screen.get_pixmap_scale();
         /* NORMAL STATUS BAR */
         /* will draw 18 chars (*16 pixels) + 1+10+11+10 pixels inside. */
         /* the two spaces available between scores etc must be divided into
          * three "small" spaces. */
-        int x = (screen.get_width() - (18 * 16 + 1 + 10 + 11 + 10) * scale) / 2;
+        int x = (screen.get_width() - 20 * font_manager.get_font_width_wide()) / 2;
         int time_secs;
 
         /* cave time is rounded _UP_ to seconds. so at the exact moment when it changes from
