@@ -704,6 +704,8 @@ inline void CaveRendered::move(int x, int y, GdDirectionEnum dir, GdElementEnum 
             case O_NUT:
             case O_FLYING_STONE:
             case O_FLYING_DIAMOND:
+            case O_FALLING_WALL:
+            case O_NITRO_PACK:
                 store(x, y, element); // falling element
                 return; // do not move element
             default:
@@ -719,6 +721,8 @@ inline void CaveRendered::move(int x, int y, GdDirectionEnum dir, GdElementEnum 
             case O_NUT:
             case O_FLYING_STONE:
             case O_FLYING_DIAMOND:
+            case O_FALLING_WALL:
+            case O_NITRO_PACK:
                 store(x, y, element); // falling element
                 return; // do not move element
             default:
