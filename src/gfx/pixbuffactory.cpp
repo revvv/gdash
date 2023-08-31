@@ -22,11 +22,14 @@
  */
 
 #include <glib/gi18n.h>
+#include <cmath>
 #include <stdexcept>
 #include <memory>
 
+#include "cave/gamerender.hpp"
 #include "gfx/pixbuffactory.hpp"
 #include "misc/autogfreeptr.hpp"
+#include "misc/logger.hpp"
 #include "gfx/pixbuf.hpp"
 #include "gfx/pixbufmanip.hpp"
 #include "settings.hpp"
@@ -42,9 +45,26 @@ static_assert(G_N_ELEMENTS(gd_scaling_names) == GD_SCALING_MAX + 1); /* +1 is th
 /* scales a pixbuf with the appropriate scaling type. */
 std::unique_ptr<Pixbuf> PixbufFactory::create_scaled(const Pixbuf &src, double scaling_factor, GdScalingType scaling_type, bool pal_emulation) const {
 
-    // title screen: use user-definde scaling factor
+    // title screen: calculate scaling factor
     if (gd_full_cave_view && src.get_width() >= 100 && src.get_height() >= 100) {
-        scaling_factor = gd_cell_scale_factor_game;
+        int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
+        int h = (GAME_RENDERER_SCREEN_SIZE_MAX_Y - 3) * 16; // three lines for game and cave title
+        // estimate monitor size
+        int monitor_width = w * scaling_factor;
+        int monitor_height = h * scaling_factor;
+        double ratioW = (double) monitor_width / (double) src.get_width();
+        double ratioH = (double) monitor_height / (double) src.get_height();
+        double ratio = std::min(ratioW, ratioH);
+        // ratio = x * DOUBLE_STEP + y
+        double x = std::round(ratio / DOUBLE_STEP);
+        double r = x * DOUBLE_STEP;
+        if (r > ratio)
+            r -= DOUBLE_STEP;
+        int newWidth = (int) (src.get_width() * r);
+        int newHeight = (int) (src.get_height() * r);
+        gd_debug("title_screen: %u x %u max_size: %u x %u upscaled: %u x %u ratio=%f -> %f",
+                src.get_width(), src.get_height(), monitor_width, monitor_height, newWidth, newHeight, ratio, r);
+        scaling_factor = r;
     }
 
     std::unique_ptr<Pixbuf> scaled = this->create(src.get_width() * scaling_factor, src.get_height() * scaling_factor);
