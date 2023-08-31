@@ -451,7 +451,7 @@ const helpdata editorhelp[] = {
     },
     {NULL, NULL, NULL, O_NONE, N_("To select a draw element, you can middle-click any time on the cave map to pick one you already use. Use Ctrl together with middle-click to pick a fill element.")},
 
-    {GTK_STOCK_PROPERTIES, N_("Cave properties"), NULL, O_NONE, N_("To view cave properties, select Edit|Cave properties from the menu. A dialog will pop up with many different options. Those are not explained here; most of the settings also have a long explanation, which shows up if you point to them with your mouse.")},
+    {GTK_STOCK_PROPERTIES, N_("Cave properties"), NULL, O_NONE, N_("To view cave properties, select Edit|Cave|Cave properties from the menu. A dialog will pop up with many different options. Those are not explained here; most of the settings also have a long explanation, which shows up if you point to them with your mouse.")},
     {
         GD_ICON_RANDOM_FILL, N_("More on random cave data"), NULL, O_NONE,
         N_("The elements which fill the cave initially are not really random. "
