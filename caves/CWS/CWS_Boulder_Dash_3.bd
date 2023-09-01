@@ -174,6 +174,17 @@ Point=1 11 INBOX
 Point=18 11 OUTBOX
 Point=9 3 ACID
 [/objects]
+
+[replay]
+Level=1
+Player=CWS
+Date=2008-12-27
+RandomSeed=916665447
+Score=112
+Success=true
+CheckSum=882981813
+Movements=.36 u16 r7 d4 dl l dl d3 dr r2 .11 r3 dr d2 dl l4 . r5 .3 l4 .4 u2 .6 l3 u4 .3 r .4 d2 .3 l3 .2 r14 dr d5
+[/replay]
 [/cave]
 
 [cave]
@@ -202,8 +213,8 @@ Point=20 20 INBOX
 Point=39 1 OUTBOX
 FillRect=3 3 36 5 WALL BUTTERFLYu
 Point=20 19 AMOEBA
-Line=2 6 2 2 DIRT
-Line=37 6 37 2 DIRT
+FillRect=37 2 38 6 DIRT
+FillRect=2 2 1 6 DIRT
 Point=3 4 SPACE
 Point=36 4 SPACE
 [/objects]
@@ -363,8 +374,8 @@ Nut.whencrushed=DIAMONDRELEASEKEY
 
 [objects]
 Point=1 0 INBOX
-Point=8 5 OUTBOX
 FillRect=5 3 11 7 WALL SPACE
+Point=8 5 OUTBOX
 Point=17 7 BUTTERFLYu
 Point=11 5 TRAPPEDDIAMOND
 Point=16 3 BOULDER
@@ -390,6 +401,7 @@ CaveDelay=0 0 0 0 0
 DiamondValue=5 10
 RandomFill=BOULDER 125 DIRT2 80 DIRT 0 DIRT 0
 AmoebaTime=100 100 100 100 100
+Effect=AMOEBADIAMONDeffect SPACE
 AmoebaGrowthProb=0.0300 0.1000
 Amoeba2GrowthProb=0.0300 0.1000
 MagicWallTime=10 10 10 10 10
@@ -479,7 +491,7 @@ Intermission=false
 Size=40 22 0 0 39 21
 Colors=#000000 #000000 #c0bfbc #5e5c64 #ffffff #197f31 #3d33aa
 DiamondsRequired=75 76 77 78 80
-CaveTime=150 148 146 144 140
+CaveTime=200 198 196 194 190
 CaveScheduling=ms
 FrameTime=120 115 110 105 100
 CaveDelay=0 0 0 0 0
@@ -734,7 +746,7 @@ FrameTime=100 95 90 85 80
 CaveDelay=0 0 0 0 0
 DiamondValue=50 100
 SlimePermeabilityC64=0 0 0 0 0
-FireflyExplodeTo=DIAMOND
+FireflyExplodeTo=DIAMONDBIRTH1
 
 [objects]
 Point=0 1 INBOX
