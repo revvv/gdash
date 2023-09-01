@@ -201,6 +201,69 @@ void SDLOGLScreen::text(GMarkupParseContext *context, const gchar *text, gsize t
 }
 
 
+static void log_OpenGL_flags(SDL_Window* window) {
+    gd_debug("SDL Window enabled flags:");
+    int flags = SDL_GetWindowFlags(window);
+    gd_debug("    SDL_WINDOW_FULLSCREEN    [%c]", (flags & SDL_WINDOW_FULLSCREEN) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_OPENGL        [%c]", (flags & SDL_WINDOW_OPENGL) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_SHOWN         [%c]", (flags & SDL_WINDOW_SHOWN) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_HIDDEN        [%c]", (flags & SDL_WINDOW_HIDDEN) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_BORDERLESS    [%c]", (flags & SDL_WINDOW_BORDERLESS) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_RESIZABLE     [%c]", (flags & SDL_WINDOW_RESIZABLE) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_MINIMIZED     [%c]", (flags & SDL_WINDOW_MINIMIZED) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_MAXIMIZED     [%c]", (flags & SDL_WINDOW_MAXIMIZED) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_INPUT_GRABBED [%c]", (flags & SDL_WINDOW_INPUT_GRABBED) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_INPUT_FOCUS   [%c]", (flags & SDL_WINDOW_INPUT_FOCUS) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_MOUSE_FOCUS   [%c]", (flags & SDL_WINDOW_MOUSE_FOCUS) ? 'X' : ' ');
+    gd_debug("    SDL_WINDOW_FOREIGN       [%c]", (flags & SDL_WINDOW_FOREIGN) ? 'X' : ' ');
+
+    SDL_RendererInfo* rend_info = (SDL_RendererInfo *) malloc(sizeof(SDL_RendererInfo));
+    if (!rend_info) {
+        gd_debug("Couldn't allocate memory for the renderer info data structure");
+        return;
+    }
+
+    gd_debug("Available 2D rendering drivers:");
+    for (int i = 0; i < SDL_GetNumRenderDrivers(); i++) {
+        if (SDL_GetRenderDriverInfo(i, rend_info) < 0) {
+            gd_debug("Couldn't get SDL 2D render driver %d information: %s", i, SDL_GetError());
+            continue;
+        }
+        gd_debug("%2d: %s", i, rend_info->name);
+        gd_debug("    SDL_RENDERER_SOFTWARE     [%c]", (rend_info->flags & SDL_RENDERER_SOFTWARE) ? 'X' : ' ');
+        gd_debug("    SDL_RENDERER_ACCELERATED  [%c]", (rend_info->flags & SDL_RENDERER_ACCELERATED) ? 'X' : ' ');
+        gd_debug("    SDL_RENDERER_PRESENTVSYNC [%c]", (rend_info->flags & SDL_RENDERER_PRESENTVSYNC) ? 'X' : ' ');
+    }
+    gd_debug("CurrentVideoDriver: %s", SDL_GetCurrentVideoDriver());
+    free(rend_info);
+}
+
+void select_renderer(SDL_Window* window, int index) {
+    if (index == -1)
+        return;
+
+    SDL_RendererInfo* rend_info = (SDL_RendererInfo *) malloc(sizeof(SDL_RendererInfo));
+    if (!rend_info) {
+        gd_warning("Couldn't allocate memory for the renderer info data structure");
+        return;
+    }
+
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, index, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if (renderer != NULL) {
+        if (SDL_GetRendererInfo(renderer, rend_info) < 0) {
+            gd_debug("Couldn't get SDL 2D renderer %d information: %s", index, SDL_GetError());
+            free(rend_info);
+            return;
+        }
+        gd_debug("Renderer: %d, %s", index, rend_info->name);
+        gd_debug("    SDL_RENDERER_SOFTWARE     [%c]", (rend_info->flags & SDL_RENDERER_SOFTWARE) ? 'X' : ' ');
+        gd_debug("    SDL_RENDERER_ACCELERATED  [%c]", (rend_info->flags & SDL_RENDERER_ACCELERATED) ? 'X' : ' ');
+        gd_debug("    SDL_RENDERER_PRESENTVSYNC [%c]", (rend_info->flags & SDL_RENDERER_PRESENTVSYNC) ? 'X' : ' ');
+    } else
+        gd_warning("Couldn't create renderer: %i");
+    free(rend_info);
+}
+
 void SDLOGLScreen::configure_size() {
     texture.reset();
     shaders.clear();
@@ -233,6 +296,9 @@ void SDLOGLScreen::configure_size() {
     if (!window)
         throw ScreenConfigureException("cannot initialize sdl video");
     context.reset(SDL_GL_CreateContext(window.get()));
+
+    log_OpenGL_flags(window.get());
+    select_renderer(window.get(), gd_opengl_renderer);
 
     /* do not show mouse cursor */
     SDL_ShowCursor(SDL_DISABLE);
@@ -269,7 +335,7 @@ void SDLOGLScreen::configure_size() {
     /* opengl view initialization */
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    if (!gd_open_gl_center)
+    if (!gd_opengl_center)
         glViewport(0, 0, w * oglscaling, h * oglscaling);
     glOrtho(0.0, w * oglscaling, h * oglscaling, 0.0, 0.0, 1.0);
     glMatrixMode(GL_MODELVIEW);
