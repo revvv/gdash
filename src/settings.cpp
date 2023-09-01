@@ -106,7 +106,7 @@ bool gd_fine_scroll = true;
 bool gd_particle_effects = true;
 bool gd_full_cave_view = false;
 double gd_full_cave_scaling_factor = 2.0;
-bool gd_opengl_center;
+bool gd_opengl_center = false;
 int gd_opengl_renderer = -1;
 bool gd_show_story = true;
 bool gd_show_name_of_game = true;
@@ -745,7 +745,6 @@ GOptionContext *gd_option_context_new() {
     GOptionEntry const entries[] = {
         {"license", 'L', 0, G_OPTION_ARG_NONE, &gd_param_license, N_("Show license and quit")},
         {"debug", 'v', 0, G_OPTION_ARG_NONE, &gd_param_debug, N_("Show some debug messages")},
-        {"default-settings", 0, 0, G_OPTION_ARG_NONE, &gd_param_load_default_settings, N_("Load default settings")},
         {G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &gd_param_cavenames, N_("Cave names")},
         {NULL}
     };
