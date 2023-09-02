@@ -106,8 +106,6 @@ bool gd_fine_scroll = true;
 bool gd_particle_effects = true;
 bool gd_full_cave_view = false;
 double gd_full_cave_scaling_factor = 2.0;
-bool gd_opengl_center = false;
-int gd_opengl_renderer = -1;
 bool gd_show_story = true;
 bool gd_show_name_of_game = true;
 int gd_status_bar_colors = GD_STATUS_BAR_ORIGINAL;
@@ -171,6 +169,8 @@ int gd_sdl_key_suicide = SDLK_s;
 int gd_sdl_key_fast_forward = SDLK_f;
 int gd_sdl_key_status_bar = SDLK_LSHIFT;
 int gd_sdl_key_restart_level = SDLK_ESCAPE;
+bool gd_opengl_renderer = false;
+bool gd_opengl_center = false;
 std::string gd_shader;
 int shader_pal_radial_distortion = 10;
 int shader_pal_random_scanline_displace = 50;
@@ -253,11 +253,11 @@ Setting *gd_get_game_settings_array() {
         { TypeBoolean, N_("Fine scrolling"), &gd_fine_scroll, true, NULL, N_("If fine scrolling is turned off, scrolling and cave animation is limited to a lower frame rate, and consumes much less CPU. On some hardware, it might actually look better than fine scrolling. Not all graphics engines support fine scrolling.") },
         { TypeBoolean, N_("Particle effects"), &gd_particle_effects, true, NULL, N_("Particle effects during play. This requires a lot of CPU power.") },
         { TypeBoolean, N_("Full cave view"), &gd_full_cave_view, true, NULL, N_("Show the whole cave on the screen without scrolling.") },
-        { TypeBoolean, N_("OpenGL: Center full screen"), &gd_opengl_center, true, NULL, N_("If this option is activated, the display fills the entire screen under OpenGL. To preserve the aspect ratio it is recommended to increase the scaling factor.") },
-        { TypeInteger, N_("OpenGL: Renderer"), &gd_opengl_renderer, true, NULL, N_("Renderer number. WARNING: May lock you out! -1 = default"), -1, 9 },
 
 #ifdef HAVE_SDL
         { TypePage, N_("OpenGL settings") },
+        { TypeBoolean, N_("Force OpenGL Renderer"), &gd_opengl_renderer, true, NULL, N_("If this option is activated, the \"opengl\" renderer is used, otherwise the default renderer.") },
+        { TypeBoolean, N_("Center full screen"), &gd_opengl_center, true, NULL, N_("If this option is activated, the display fills the entire screen. To preserve the aspect ratio it is recommended to increase the scaling factor.") },
         { TypeShader,  N_("Shader"), NULL, true, NULL, N_("The shader which adds a graphical effect to the screen. Only effective if the OpenGL engine is used. If your video card is older, it might not support shaders. The GDash TV shader can be configured with the settings below."), 0, 0, &gd_shader },
         { TypePercent, N_("Radial distortion"), &shader_pal_radial_distortion, false, NULL, N_("With radial distortion, the screen won't be flat, but it will look like as if it's projected on a sphere.") },
         { TypePercent, N_("Random scanline displacement"), &shader_pal_random_scanline_displace, false, NULL, N_("Increasing this setting causes the the image to be unstable horizontally.") },
@@ -463,8 +463,6 @@ void gd_settings_init() {
     settings_bools["particle_effects"] = &gd_particle_effects;
     settings_bools["full_cave_view"] = &gd_full_cave_view;
     settings_doubles["full_cave_scaling_factor"] = &gd_full_cave_scaling_factor;
-    settings_bools["open_glcenter"] = &gd_opengl_center;
-    settings_integers["opengl_renderer"] = &gd_opengl_renderer;
     settings_bools["show_story"] = &gd_show_story;
     settings_bools["show_name_of_game"] = &gd_show_name_of_game;
     settings_integers["pal_emu_scanline_shade"] = &gd_pal_emu_scanline_shade;
@@ -518,6 +516,9 @@ void gd_settings_init() {
     settings_integers["sdl2_key_fast_forward"] = &gd_sdl_key_fast_forward;
     settings_integers["sdl2_key_status_bar"] = &gd_sdl_key_status_bar;
     settings_integers["sdl2_key_restart_level"] = &gd_sdl_key_restart_level;
+    settings_bools["opengl_renderer"] = &gd_opengl_renderer;
+    settings_bools["open_glcenter"] = &gd_opengl_center;
+
     settings_strings["shader"] = &gd_shader;
 
     settings_integers["shader_pal_radial_distortion"] = &shader_pal_radial_distortion;

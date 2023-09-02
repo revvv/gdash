@@ -29,6 +29,7 @@
 #include "settings.hpp"
 #include "misc/printf.hpp"
 #include "misc/logger.hpp"
+#include "misc/util.hpp"
 
 /* we define our own version of these function pointers, as the sdl headers
  * might not define it (for example, on the mac) depending on their version. */
@@ -219,14 +220,14 @@ static void log_OpenGL_flags(SDL_Window* window) {
 
     SDL_RendererInfo* rend_info = (SDL_RendererInfo *) malloc(sizeof(SDL_RendererInfo));
     if (!rend_info) {
-        gd_debug("Couldn't allocate memory for the renderer info data structure");
+        gd_warning("Couldn't allocate memory for the renderer info data structure");
         return;
     }
 
     gd_debug("Available 2D rendering drivers:");
     for (int i = 0; i < SDL_GetNumRenderDrivers(); i++) {
         if (SDL_GetRenderDriverInfo(i, rend_info) < 0) {
-            gd_debug("Couldn't get SDL 2D render driver %d information: %s", i, SDL_GetError());
+            gd_warning("Couldn't get SDL 2D render driver %d information: %s", i, SDL_GetError());
             continue;
         }
         gd_debug("%2d: %s", i, rend_info->name);
@@ -238,7 +239,30 @@ static void log_OpenGL_flags(SDL_Window* window) {
     free(rend_info);
 }
 
-void select_renderer(SDL_Window* window, int index) {
+
+static int find_opengl_renderer() {
+    SDL_RendererInfo* rend_info = (SDL_RendererInfo *) malloc(sizeof(SDL_RendererInfo));
+    if (!rend_info) {
+        gd_warning("Couldn't allocate memory for the renderer info data structure");
+        return -1;
+    }
+    for (int i = 0; i < SDL_GetNumRenderDrivers(); i++) {
+        if (SDL_GetRenderDriverInfo(i, rend_info) < 0) {
+            gd_warning("Couldn't get SDL 2D render driver %d information: %s", i, SDL_GetError());
+            continue;
+        }
+        if (gd_str_equal(rend_info->name, "opengl")) {
+            free(rend_info);
+            return i;
+        }
+    }
+    free(rend_info);
+    return -1;
+}
+
+
+static void create_opengl_renderer(SDL_Window* window) {
+    int index = find_opengl_renderer();
     if (index == -1)
         return;
 
@@ -251,18 +275,19 @@ void select_renderer(SDL_Window* window, int index) {
     SDL_Renderer* renderer = SDL_CreateRenderer(window, index, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (renderer != NULL) {
         if (SDL_GetRendererInfo(renderer, rend_info) < 0) {
-            gd_debug("Couldn't get SDL 2D renderer %d information: %s", index, SDL_GetError());
+            gd_warning("Couldn't get SDL 2D renderer %d information: %s", index, SDL_GetError());
             free(rend_info);
             return;
         }
-        gd_debug("Renderer: %d, %s", index, rend_info->name);
-        gd_debug("    SDL_RENDERER_SOFTWARE     [%c]", (rend_info->flags & SDL_RENDERER_SOFTWARE) ? 'X' : ' ');
-        gd_debug("    SDL_RENDERER_ACCELERATED  [%c]", (rend_info->flags & SDL_RENDERER_ACCELERATED) ? 'X' : ' ');
-        gd_debug("    SDL_RENDERER_PRESENTVSYNC [%c]", (rend_info->flags & SDL_RENDERER_PRESENTVSYNC) ? 'X' : ' ');
+        gd_message("Renderer: %d=%s", index, rend_info->name);
+        gd_message("    SDL_RENDERER_SOFTWARE     [%c]", (rend_info->flags & SDL_RENDERER_SOFTWARE) ? 'X' : ' ');
+        gd_message("    SDL_RENDERER_ACCELERATED  [%c]", (rend_info->flags & SDL_RENDERER_ACCELERATED) ? 'X' : ' ');
+        gd_message("    SDL_RENDERER_PRESENTVSYNC [%c]", (rend_info->flags & SDL_RENDERER_PRESENTVSYNC) ? 'X' : ' ');
     } else
-        gd_warning("Couldn't create renderer: %i");
+        gd_warning("Couldn't create renderer: %d=opengl", index);
     free(rend_info);
 }
+
 
 void SDLOGLScreen::configure_size() {
     texture.reset();
@@ -297,8 +322,10 @@ void SDLOGLScreen::configure_size() {
         throw ScreenConfigureException("cannot initialize sdl video");
     context.reset(SDL_GL_CreateContext(window.get()));
 
-    log_OpenGL_flags(window.get());
-    select_renderer(window.get(), gd_opengl_renderer);
+    if (gd_param_debug)
+        log_OpenGL_flags(window.get());
+    if (gd_opengl_renderer)
+        create_opengl_renderer(window.get());
 
     /* do not show mouse cursor */
     SDL_ShowCursor(SDL_DISABLE);

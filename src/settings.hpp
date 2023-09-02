@@ -46,8 +46,6 @@ extern bool gd_fine_scroll;
 extern bool gd_particle_effects;
 extern bool gd_full_cave_view;
 extern double gd_full_cave_scaling_factor;
-extern bool gd_opengl_center;
-extern int gd_opengl_renderer;
 extern bool gd_show_story;
 extern bool gd_show_name_of_game;
 extern int gd_status_bar_colors;
@@ -130,6 +128,8 @@ extern bool gd_classic_sound;
 extern int gd_sound_chunks_volume_percent;
 extern int gd_sound_music_volume_percent;
 
+extern bool gd_opengl_renderer;
+extern bool gd_opengl_center;
 extern std::string gd_shader;
 extern int shader_pal_radial_distortion;
 extern int shader_pal_chroma_to_luma_strength;
