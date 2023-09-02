@@ -104,7 +104,6 @@ int main(int argc, char *argv[]) {
 #ifdef HAVE_GTK
         {"save-docs", 0, 0, G_OPTION_ARG_INT, &save_doc_lang, N_("Save documentation in HTML, in the given language identified by an integer.")},
 #endif
-        {"default-settings", 0, 0, G_OPTION_ARG_NONE, &gd_param_load_default_settings, N_("Load default settings")},
         {"quit", 'q', 0, G_OPTION_ARG_NONE, &quit, N_("Batch mode: quit after specified tasks")},
         {NULL}
     };
@@ -114,15 +113,6 @@ int main(int argc, char *argv[]) {
 #ifdef HAVE_GTK
     g_option_context_add_group(context, gtk_get_option_group(FALSE));   /* add gtk parameters */
 #endif
-
-    Logger global_logger;
-
-    gd_settings_init();
-    gd_settings_init_dirs();
-    if (!gd_param_load_default_settings)
-        gd_load_settings();
-    gd_settings_set_locale();
-    gd_settings_init_translation();
     g_option_context_parse(context, &argc, &argv, &error);
     g_option_context_free(context);
     if (error) {
@@ -139,6 +129,15 @@ int main(int argc, char *argv[]) {
             g_print("%s\n", wrapped_license[i].c_str());
         return 0;
     }
+
+    Logger global_logger;
+
+    gd_settings_init();
+    gd_settings_init_dirs();
+    if (!gd_param_load_default_settings)
+        gd_load_settings();
+    gd_settings_set_locale();
+    gd_settings_init_translation();
 
 #ifdef HAVE_GTK
     /* init gtk and set gtk default icon */
