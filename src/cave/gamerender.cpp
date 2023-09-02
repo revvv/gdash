@@ -356,11 +356,11 @@ void GameRenderer::drawcave() const {
     }
 
     /* writing the scrolling parameters to the screen */
-    /*
-    std::string s = Printf("ms=%2d fps=%2d sm=%4.2f sx=%4.2f sy=%4.2f", scroll_ms, 1000/scroll_ms, scroll_speed_normal, scroll_speed_x, scroll_speed_y);
-    font_manager.blittext_n(1, screen.get_height()-font_manager.get_line_height()+1, GD_GDASH_BLACK, s.c_str());
-    font_manager.blittext_n(0, screen.get_height()-font_manager.get_line_height(), GD_GDASH_WHITE, s.c_str());
-    */
+    if (gd_show_fps) {
+        std::string s = Printf("ms=%2d fps=%2d sm=%4.2f sx=%4.2f sy=%4.2f", scroll_ms, 1000/scroll_ms, scroll_speed_normal, scroll_speed_x, scroll_speed_y);
+        font_manager.blittext_n(1, screen.get_height()-font_manager.get_line_height()+1, GD_GDASH_BLACK, s.c_str());
+        font_manager.blittext_n(0, screen.get_height()-font_manager.get_line_height(), GD_GDASH_WHITE, s.c_str());
+    }
 
     /* restore clipping to whole screen */
     screen.remove_clip_rect();
