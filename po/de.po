@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-08-31 13:31+0200\n"
+"POT-Creation-Date: 2023-09-02 15:35+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -53,7 +53,7 @@ msgid "Click here to set the key for action: %s"
 msgstr "Klicken Sie hier, um die Taste einzustellen für die Aktion: %s"
 
 #. TRANSLATORS: Default (builtin) theme, shader, etc.
-#: src/gtk/gtkuisettings.cpp:262 src/settings.cpp:372
+#: src/gtk/gtkuisettings.cpp:262 src/settings.cpp:376
 msgid "[Default]"
 msgstr "[Voreinstellung]"
 
@@ -3921,7 +3921,7 @@ msgstr ""
 "die Gravitation. Diese Option stellt die Anzahl der darauf zu wartenden "
 "Sekunden ein."
 
-#: src/cave/cavestored.cpp:276 src/settings.cpp:285 src/settings.cpp:286
+#: src/cave/cavestored.cpp:276 src/settings.cpp:289 src/settings.cpp:290
 msgid "Sound"
 msgstr "Ton"
 
@@ -6142,7 +6142,7 @@ msgid "Unable to read file."
 msgstr "Die Datei kann nicht gelesen werden."
 
 #. TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-#: src/framework/titlescreenactivity.cpp:136 src/settings.cpp:227
+#: src/framework/titlescreenactivity.cpp:136 src/settings.cpp:229
 msgid "Game"
 msgstr "Spiel"
 
@@ -6531,31 +6531,31 @@ msgstr "Kursor:auswählen J:springen ESC:beenden"
 msgid "System default"
 msgstr "System-Standardwert"
 
-#: src/settings.cpp:228
+#: src/settings.cpp:230
 msgid "Language"
 msgstr "Sprache"
 
-#: src/settings.cpp:228
+#: src/settings.cpp:230
 msgid ""
 "The language of the application. Changing this setting requires a restart!"
 msgstr ""
 "Die Sprache des Programms. Das Ändern dieser Einstellung erfordert einen "
 "Neustart!"
 
-#: src/settings.cpp:229
+#: src/settings.cpp:231
 msgid "All caves selectable"
 msgstr "Alle Höhlen auswählbar"
 
-#: src/settings.cpp:229
+#: src/settings.cpp:231
 msgid "All caves and intermissions can be selected at game start."
 msgstr ""
 "Alle Höhlen und Zwischenspiele können beim Spielstart ausgewählt werden."
 
-#: src/settings.cpp:230
+#: src/settings.cpp:232
 msgid "Import as all selectable"
 msgstr "Als alles auswählbar importieren"
 
-#: src/settings.cpp:230
+#: src/settings.cpp:232
 msgid ""
 "Original, C64 games are imported not with A, E, I, M caves selectable, but "
 "all caves (ABCD, EFGH... excluding intermissions). This does not affect "
@@ -6566,11 +6566,11 @@ msgstr ""
 "Zwischenspiele) freigeschalten. Diese Funktion beeinflusst nicht BDCFF-"
 "Höhlen."
 
-#: src/settings.cpp:231
+#: src/settings.cpp:233
 msgid "Use BDCFF highscore"
 msgstr "Verwende BDCFF Highscore"
 
-#: src/settings.cpp:231
+#: src/settings.cpp:233
 msgid ""
 "Use BDCFF highscores. GDash saves highscores in its own configuration "
 "directory and also in the *.bd files. However, it prefers loading them from "
@@ -6583,50 +6583,50 @@ msgstr ""
 "schreibgeschützt sein könnten. Sie können diese Option aktivieren, um GDash "
 "die Highscores von den *.bd-Dateien laden zu lassen."
 
-#: src/settings.cpp:232
+#: src/settings.cpp:234
 msgid "Show story"
 msgstr "Geschichte anzeigen"
 
-#: src/settings.cpp:232
+#: src/settings.cpp:234
 msgid ""
 "If the cave has a story, it will be shown when the cave is first started."
 msgstr ""
 "Enthält die Höhle eine Geschichte, wird sie beim ersten Start der Höhle "
 "angezeigt."
 
-#: src/settings.cpp:233
+#: src/settings.cpp:235
 msgid "Game name at uncover"
 msgstr "Spielname beim Aufdecken"
 
-#: src/settings.cpp:233
+#: src/settings.cpp:235
 msgid "Show the name of the game when uncovering a cave."
 msgstr "Zeigt den Namen des Spiels während des Aufdeckens der Höhle."
 
-#: src/settings.cpp:234
+#: src/settings.cpp:236
 msgid "No invisible outbox"
 msgstr "Kein unsichtbarer Ausgang"
 
-#: src/settings.cpp:234
+#: src/settings.cpp:236
 msgid "Show invisible outboxes as visible (blinking) ones."
 msgstr "Zeigt unsichtbare Ausgänge als sichtbare, blinkende Ausgänge an."
 
-#: src/settings.cpp:236
+#: src/settings.cpp:238
 msgid "Theme and colors"
 msgstr "Thema und Farben"
 
-#: src/settings.cpp:237
+#: src/settings.cpp:239
 msgid "Theme"
 msgstr "Thema"
 
-#: src/settings.cpp:237
+#: src/settings.cpp:239
 msgid "Graphics theme used inside the game."
 msgstr "Verwendetes Grafik-Thema für die Anzeige des Spiels."
 
-#: src/settings.cpp:238
+#: src/settings.cpp:240
 msgid "Status bar colors"
 msgstr "Farben der Statuszeile"
 
-#: src/settings.cpp:238
+#: src/settings.cpp:240
 msgid ""
 "Preferred status bar color scheme. Only affects the colors, not the status "
 "bar layout."
@@ -6634,72 +6634,72 @@ msgstr ""
 "Die bevorzugten Farben der Statuszeile. Beeinflußt nur die Farben, nicht den "
 "Aufbau der Statuszeile."
 
-#: src/settings.cpp:239
+#: src/settings.cpp:241
 msgid "  C64 palette"
 msgstr "  C64-Palette"
 
-#: src/settings.cpp:239
+#: src/settings.cpp:241
 msgid "The color palette for games imported from C64 files."
 msgstr "Die Farbpalette für importierte C64-Spiele."
 
-#: src/settings.cpp:240
+#: src/settings.cpp:242
 msgid "  C64DTV palette"
 msgstr "  C64DTV-Palette"
 
-#: src/settings.cpp:240
+#: src/settings.cpp:242
 msgid "The color palette for imported C64 DTV games."
 msgstr "Die Farbpalette für importierte C64DTV-Spiele."
 
-#: src/settings.cpp:241
+#: src/settings.cpp:243
 msgid "  Atari palette"
 msgstr "  Atari-Palette"
 
-#: src/settings.cpp:241
+#: src/settings.cpp:243
 msgid "The color palette for imported Atari games."
 msgstr "Die Farbpalette für importierte Atari-Spiele."
 
-#: src/settings.cpp:242
+#: src/settings.cpp:244
 msgid "  Preferred palette"
 msgstr "  Bevorzugte Palette"
 
-#: src/settings.cpp:242
+#: src/settings.cpp:244
 msgid "New caves and random colored caves use this palette."
 msgstr "Neue Höhlen und zufällig eingefärbte Höhlen benützen diese Palette."
 
-#: src/settings.cpp:243
+#: src/settings.cpp:245
 msgid "Alternate vertical animation"
 msgstr "Alternative vertikale Animation"
 
-#: src/settings.cpp:243
+#: src/settings.cpp:245
 msgid "Alternate vertical animation for the player."
 msgstr "Alternative vertikale Animation für den Spieler."
 
-#: src/settings.cpp:245
+#: src/settings.cpp:247
 msgid "Game graphics"
 msgstr "Spielgrafiken"
 
 #. TRANSLATORS: here "engine" = "graphics engine"
-#: src/settings.cpp:247
+#: src/settings.cpp:249
 msgid "Engine"
 msgstr "Engine"
 
-#: src/settings.cpp:247
+#: src/settings.cpp:249
 msgid "Graphics engine which used for drawing."
 msgstr "Grafik-Engine, die zur Grafikausgabe verwendet wird."
 
-#: src/settings.cpp:248 src/settings.cpp:275
+#: src/settings.cpp:250 src/settings.cpp:279
 msgid "Scaling factor"
 msgstr "Skalierungsfaktor"
 
-#: src/settings.cpp:248 src/settings.cpp:275
+#: src/settings.cpp:250 src/settings.cpp:279
 msgid "Scaling size."
 msgstr "Skalierungsgröße."
 
-#: src/settings.cpp:249 src/settings.cpp:276
+#: src/settings.cpp:251 src/settings.cpp:280
 msgid "  Scaling type"
 msgstr "  Skalierungstyp"
 
-#: src/settings.cpp:249
+#: src/settings.cpp:251
 msgid ""
 "Software scaling method used. This setting is only effective for the GTK+ "
 "and the SDL engines. If you use the OpenGL engine, you can configure its "
@@ -6710,11 +6710,11 @@ msgstr ""
 "Engine, kann man die Skalierungsmethode durch das Auswählen eines Shader-"
 "Effekts einstellen."
 
-#: src/settings.cpp:250 src/settings.cpp:277
+#: src/settings.cpp:252 src/settings.cpp:281
 msgid "  Software PAL emu"
 msgstr "  PAL-Emu. per Software"
 
-#: src/settings.cpp:250
+#: src/settings.cpp:252
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV. Only effective for the GTK+ and the SDL engines."
@@ -6723,11 +6723,11 @@ msgstr ""
 "Farbe, leichte Farbstörungen wie auf einem Fernseher.). Funktioniert nur mit "
 "der GTK+ und SDL-Engine."
 
-#: src/settings.cpp:251
+#: src/settings.cpp:253
 msgid "  PAL scanline shade"
 msgstr "  PAL Scanline-Schatten"
 
-#: src/settings.cpp:251
+#: src/settings.cpp:253
 msgid ""
 "Darker rows for PAL emulation. Only effective for the GTK+ and the SDL "
 "engines."
@@ -6735,11 +6735,11 @@ msgstr ""
 "Dunkle Zeilen für die PAL-Emulation. Funktioniert nur mit der GTK+ und SDL-"
 "Engine."
 
-#: src/settings.cpp:252
+#: src/settings.cpp:254
 msgid "Fine scrolling"
 msgstr "Feines Scrolling"
 
-#: src/settings.cpp:252
+#: src/settings.cpp:254
 msgid ""
 "If fine scrolling is turned off, scrolling and cave animation is limited to "
 "a lower frame rate, and consumes much less CPU. On some hardware, it might "
@@ -6751,46 +6751,65 @@ msgstr ""
 "Rechenleistung. Mit mancher Hardware sieht das Ergebnis besser als mit "
 "feinem Scrolling aus. Nicht jede Grafik-Engine unterstützt feines Scrolling."
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "Particle effects"
 msgstr "Partikel-Effekte"
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "Particle effects during play. This requires a lot of CPU power."
 msgstr ""
 "Partikel-Effekte während des Spielens. Benötigen sehr viel Rechenleistung."
 
-#: src/settings.cpp:254
+#: src/settings.cpp:256
 msgid "Full cave view"
 msgstr "Komplette Höhlenansicht"
 
-#: src/settings.cpp:254
+#: src/settings.cpp:256
 msgid "Show the whole cave on the screen without scrolling."
 msgstr "Zeigt die komplette Höhle ohne Scrolling an."
 
-#: src/settings.cpp:255
-msgid "OpenGL: Center full screen"
-msgstr "OpenGL: Vollbild zentrieren"
+#: src/settings.cpp:257
+msgid "Show fps"
+msgstr "Zeige fps an"
 
-#: src/settings.cpp:255
-msgid ""
-"If this option is activated, the display fills the entire screen under "
-"OpenGL. To preserve the aspect ratio it is recommended to increase the "
-"scaling factor."
-msgstr ""
-"Wird diese Option aktiviert, füllt die Anzeige unter OpenGL den gesamten "
-"Bildschirm. Um das Seitenverhältnis beizubehalten, wird empfohlen, den "
-"Skalierungsfaktor zu erhöhen."
+#: src/settings.cpp:257
+msgid "Show frames per second and other developer info."
+msgstr "Zeige \"frames per second\" und andere Entwickler-Infos an."
 
-#: src/settings.cpp:258
+#: src/settings.cpp:260
 msgid "OpenGL settings"
 msgstr "OpenGL-Eigenschaften"
 
-#: src/settings.cpp:259
+#: src/settings.cpp:261
+msgid "Force OpenGL Renderer"
+msgstr "Erzwinge OpenGL Renderer"
+
+#: src/settings.cpp:261
+msgid ""
+"If this option is activated, the \"opengl\" renderer is used, otherwise the "
+"default renderer."
+msgstr ""
+"Wird diese Option aktiviert, wird der \"opengl\" Renderer benutzt. Ansonsten "
+"der Standard-Renderer."
+
+#: src/settings.cpp:262
+msgid "Center full screen"
+msgstr "Vollbild zentrieren"
+
+#: src/settings.cpp:262
+msgid ""
+"If this option is activated, the display fills the entire screen. To "
+"preserve the aspect ratio it is recommended to increase the scaling factor."
+msgstr ""
+"Wird diese Option aktiviert, füllt die Anzeige den gesamten Bildschirm. Um "
+"das Seitenverhältnis beizubehalten, wird empfohlen, den Skalierungsfaktor zu "
+"erhöhen."
+
+#: src/settings.cpp:263
 msgid "Shader"
 msgstr "Shader-Effekt"
 
-#: src/settings.cpp:259
+#: src/settings.cpp:263
 msgid ""
 "The shader which adds a graphical effect to the screen. Only effective if "
 "the OpenGL engine is used. If your video card is older, it might not support "
@@ -6801,11 +6820,11 @@ msgstr ""
 "möglicherweise keine Shader-Effekte. Der 'GDash-TV' Shader-Effekt kann mit "
 "den unterhalb aufgelisteten Optionen individuell konfiguriert werden."
 
-#: src/settings.cpp:260
+#: src/settings.cpp:264
 msgid "Radial distortion"
 msgstr "Radiale Verzerrung"
 
-#: src/settings.cpp:260
+#: src/settings.cpp:264
 msgid ""
 "With radial distortion, the screen won't be flat, but it will look like as "
 "if it's projected on a sphere."
@@ -6813,103 +6832,103 @@ msgstr ""
 "Mit der radialen Verzerrung wirkt der Bildschirm nicht flach, sondern als ob "
 "das Bild auf eine Kugel projiziert werden würde."
 
-#: src/settings.cpp:261
+#: src/settings.cpp:265
 msgid "Random scanline displacement"
 msgstr "Zufälliger Scanlineversatz"
 
-#: src/settings.cpp:261
+#: src/settings.cpp:265
 msgid ""
 "Increasing this setting causes the the image to be unstable horizontally."
 msgstr "Die Erhöhung dieses Werts verursacht ein horizontal instabiles Bild."
 
-#: src/settings.cpp:262
+#: src/settings.cpp:266
 msgid "Luma X blur"
 msgstr "Leuchtkraftunschärfe X"
 
-#: src/settings.cpp:262
+#: src/settings.cpp:266
 msgid "Horizontal blur of luminosity."
 msgstr "Horizontale Unschärfe der Leuchtkraft."
 
-#: src/settings.cpp:263
+#: src/settings.cpp:267
 msgid "Chroma X blur"
 msgstr "Farbsättigungsunschärfe X"
 
-#: src/settings.cpp:263
+#: src/settings.cpp:267
 msgid "Slight horizontal blur of colors."
 msgstr "Leichte horizontale Unscharfzeichung der Farben."
 
-#: src/settings.cpp:264
+#: src/settings.cpp:268
 msgid "Chroma Y blur"
 msgstr "Farbsättigungsunschärfe Y"
 
-#: src/settings.cpp:264
+#: src/settings.cpp:268
 msgid "Vertical blur of colors, to imitate a PAL TV signal."
 msgstr ""
 "Vertikale Unscharfzeichnung der Farben. Diese Einstellung ahmt das PAL-TV-"
 "Signal nach."
 
-#: src/settings.cpp:265
+#: src/settings.cpp:269
 msgid "Chroma to luma"
 msgstr "Farbsättigung nach Leuchtkraft"
 
-#: src/settings.cpp:265
+#: src/settings.cpp:269
 msgid "Sudden changes in colors can cause patterns to appear on the image."
 msgstr ""
 "Plötzliche Änderungen der Farben können Störungsmuster im Bild erzeugen."
 
-#: src/settings.cpp:266
+#: src/settings.cpp:270
 msgid "Luma to chroma"
 msgstr "Leuchtkraft nach Farbsättigung"
 
-#: src/settings.cpp:266
+#: src/settings.cpp:270
 msgid ""
 "Sudden changes in luminosity can cause false colors to appear on the image."
 msgstr ""
 "Plötzliche Änderungen der Leuchtkraft können Falschfarben im Bild erzeugen."
 
-#: src/settings.cpp:267
+#: src/settings.cpp:271
 msgid "Random Y"
 msgstr "Zufällig Y"
 
-#: src/settings.cpp:267
+#: src/settings.cpp:271
 msgid "Noise level of luminosity."
 msgstr "Rauschpegel der Leuchtkraft."
 
-#: src/settings.cpp:268
+#: src/settings.cpp:272
 msgid "Random UV"
 msgstr "Zufällig UV"
 
-#: src/settings.cpp:268
+#: src/settings.cpp:272
 msgid "Noise level of colors."
 msgstr "Rauschpegel der Farben."
 
-#: src/settings.cpp:269
+#: src/settings.cpp:273
 msgid "Scanline shade"
 msgstr "Scanline-Schatten"
 
-#: src/settings.cpp:269
+#: src/settings.cpp:273
 msgid "Darkened horizontal rows to emulate a TV screen."
 msgstr "Dunkle, horizontale Linien, um einen TV-Bildschirm nachzuahmen."
 
-#: src/settings.cpp:270
+#: src/settings.cpp:274
 msgid "Phosphor shade"
 msgstr "Phosphor-Schatten"
 
-#: src/settings.cpp:270
+#: src/settings.cpp:274
 msgid "Red, green and blue subpixels of a TV screen can be emulated."
 msgstr ""
 "Es können rote, grüne und blaue Teilpunkte eines TV-Bildschirms emuliert "
 "werden."
 
-#: src/settings.cpp:274
+#: src/settings.cpp:278
 msgid "Editor settings"
 msgstr "Editor"
 
-#: src/settings.cpp:276
+#: src/settings.cpp:280
 msgid "Scaling method."
 msgstr "Skalierungsmethode."
 
-#: src/settings.cpp:277
+#: src/settings.cpp:281
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV."
@@ -6917,40 +6936,40 @@ msgstr ""
 "Verwendet PAL-emulierte Grafiken (z. B. jede zweite Zeile in einer dunkleren "
 "Farbe, leichte Farbstörungen wie auf einem Fernseher.)"
 
-#: src/settings.cpp:278 src/editor/editor.cpp:3386
+#: src/settings.cpp:282 src/editor/editor.cpp:3386
 msgid "Animated view"
 msgstr "Animierte Ansicht"
 
-#: src/settings.cpp:278
+#: src/settings.cpp:282
 msgid "Show simplified view of cave in the editor."
 msgstr ""
 "Deaktiviert man diese Option, wird eine vereinfachte Ansicht der Höhle ohne "
 "Animationen im Editor angezeigt."
 
-#: src/settings.cpp:279
+#: src/settings.cpp:283
 msgid "Colored objects"
 msgstr "Eingefärbte Objekte"
 
-#: src/settings.cpp:279
+#: src/settings.cpp:283
 msgid ""
 "Cave objects are colored, to make them different from random cave elements."
 msgstr ""
 "Höhlenobjekte sind eingefärbt, um Sie von zufälligen Höhlenelementen "
 "unterscheiden zu können."
 
-#: src/settings.cpp:280
+#: src/settings.cpp:284
 msgid "Object list"
 msgstr "Objekt-Liste"
 
-#: src/settings.cpp:280
+#: src/settings.cpp:284
 msgid "Show objects list sidebar in the editor."
 msgstr "Zeigt die 'Objekt-Liste'-Seitenleiste im Editor."
 
-#: src/settings.cpp:281
+#: src/settings.cpp:285
 msgid "Fast uncover in test"
 msgstr "Schnelles Aufdecken im Testmodus"
 
-#: src/settings.cpp:281
+#: src/settings.cpp:285
 msgid ""
 "Fast uncovering and covering of cave in editor cave test, to reduce waiting "
 "time."
@@ -6958,23 +6977,23 @@ msgstr ""
 "Schnelles Auf- und Zudecken der Höhle im Testmodus des Editors, um die "
 "Wartezeit zu reduzieren."
 
-#: src/settings.cpp:286
+#: src/settings.cpp:290
 msgid "Play sounds and music in the program."
 msgstr "Verwendet Töne und Musik im Spiel."
 
-#: src/settings.cpp:287
+#: src/settings.cpp:291
 msgid "Classic sounds only"
 msgstr "Nur klassische Spielgeräusche"
 
-#: src/settings.cpp:287
+#: src/settings.cpp:291
 msgid "Play only classic sounds taken from the original game."
 msgstr "Spielt nur klassische Spielgeräusche des Originalspiels ab."
 
-#: src/settings.cpp:288
+#: src/settings.cpp:292
 msgid "Stereo sounds"
 msgstr "Stereo-Geräusche"
 
-#: src/settings.cpp:288
+#: src/settings.cpp:292
 msgid ""
 "If you enable stereo sounds, you will hear the direction of sounds in the "
 "caves."
@@ -6982,89 +7001,89 @@ msgstr ""
 "Werden die Stereo-Geräusche aktiviert, kann man die Richtung, aus der die "
 "Geräusche in der Höhle kommen, hören."
 
-#: src/settings.cpp:289
+#: src/settings.cpp:293
 msgid "16-bit mixing"
 msgstr "16-bit-Mischung"
 
-#: src/settings.cpp:289
+#: src/settings.cpp:293
 msgid ""
 "Use 16-bit mixing of sounds. Try changing this setting if sound is clicky."
 msgstr ""
 "Verwendet die 16-bit-Mischung der Geräusche. Versuchen Sie die Einstellungen "
 "zu ändern, falls die Geräusche Tonstörungen verursachen."
 
-#: src/settings.cpp:290
+#: src/settings.cpp:294
 msgid "44kHz mixing"
 msgstr "44kHz-Mischung"
 
-#: src/settings.cpp:290
+#: src/settings.cpp:294
 msgid ""
 "Use 44kHz mixing of sounds. Try changing this setting if sound is clicky."
 msgstr ""
 "Verwendet die 44kHz-Mischung der Geräusche. Versuchen Sie die Einstellungen "
 "zu ändern, falls die Geräusche Tonstörungen verursachen."
 
-#: src/settings.cpp:307 src/settings.cpp:335
+#: src/settings.cpp:311 src/settings.cpp:339
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: src/settings.cpp:312 src/settings.cpp:340
+#: src/settings.cpp:316 src/settings.cpp:344
 msgid "Key left"
 msgstr "Taste links"
 
-#: src/settings.cpp:313 src/settings.cpp:341
+#: src/settings.cpp:317 src/settings.cpp:345
 msgid "Key right"
 msgstr "Taste rechts"
 
-#: src/settings.cpp:314 src/settings.cpp:342
+#: src/settings.cpp:318 src/settings.cpp:346
 msgid "Key up"
 msgstr "Taste rauf"
 
-#: src/settings.cpp:315 src/settings.cpp:343
+#: src/settings.cpp:319 src/settings.cpp:347
 msgid "Key down"
 msgstr "Taste runter"
 
-#: src/settings.cpp:316 src/settings.cpp:344
+#: src/settings.cpp:320 src/settings.cpp:348
 msgid "Key snap"
 msgstr "Taste schnappen"
 
-#: src/settings.cpp:317 src/settings.cpp:345
+#: src/settings.cpp:321 src/settings.cpp:349
 msgid "Key snap (alt.)"
 msgstr "Taste schnappen (alt.)"
 
-#: src/settings.cpp:318 src/settings.cpp:346
+#: src/settings.cpp:322 src/settings.cpp:350
 msgid "Key suicide"
 msgstr "Taste Selbstmord"
 
-#: src/settings.cpp:319 src/settings.cpp:347
+#: src/settings.cpp:323 src/settings.cpp:351
 msgid "Key fast forward"
 msgstr "Taste schnell vorwärts"
 
-#: src/settings.cpp:320 src/settings.cpp:348
+#: src/settings.cpp:324 src/settings.cpp:352
 msgid "Key status bar"
 msgstr "Taste Statuszeile"
 
-#: src/settings.cpp:321 src/settings.cpp:349
+#: src/settings.cpp:325 src/settings.cpp:353
 msgid "Key restart level"
 msgstr "Taste Level wiederholen"
 
-#: src/settings.cpp:743
+#: src/settings.cpp:750
 msgid "Show license and quit"
 msgstr "Zeige Lizenz und beende"
 
-#: src/settings.cpp:744
+#: src/settings.cpp:751
 msgid "Show some debug messages"
 msgstr "Anzeige des Fehlerprotokolls"
 
-#: src/settings.cpp:745
+#: src/settings.cpp:752
 msgid "Load default settings"
 msgstr "Voreinstellungen laden"
 
-#: src/settings.cpp:746
+#: src/settings.cpp:753
 msgid "Cave names"
 msgstr "Höhlen-Namen"
 
-#: src/settings.cpp:749
+#: src/settings.cpp:756
 msgid "[FILE NAME]"
 msgstr "[DATEINAME]"
 
@@ -8286,6 +8305,3 @@ msgstr "Nächstgelegener Nachbar"
 
 #~ msgid "Replays Help"
 #~ msgstr "Wiederholungen Hilfe"
-
-#~ msgid "50 frames per second scrolling."
-#~ msgstr "Feines Scrolling mit 50 Bilder pro Sekunde."
