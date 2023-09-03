@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-02 15:35+0200\n"
+"POT-Creation-Date: 2023-09-03 17:03+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -2149,6 +2149,23 @@ msgid ""
 "FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS "
 "IN THE SOFTWARE."
 msgstr ""
+"Permission is hereby granted, free of charge, to any person obtaining a copy "
+"of this software and associated documentation files (the \"Software\"), to "
+"deal in the Software without restriction, including without limitation the "
+"rights to use, copy, modify, merge, publish, distribute, sublicense, and/or "
+"sell copies of the Software, and to permit persons to whom the Software is "
+"furnished to do so, subject to the following conditions:\n"
+"\n"
+"The above copyright notice and this permission notice shall be included in "
+"all copies or substantial portions of the Software.\n"
+"\n"
+"THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR "
+"IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, "
+"FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE "
+"AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER "
+"LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING "
+"FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS "
+"IN THE SOFTWARE."
 
 #: src/misc/about.cpp:76
 msgid ""
@@ -2164,67 +2181,71 @@ msgstr ""
 msgid "translator-credits"
 msgstr "cirix <cirix@fw.hu>"
 
-#: src/main.cpp:92
+#: src/main.cpp:93
+msgid "same as --help but translated"
+msgstr "ugyanaz, mint a --help, de lefordítva"
+
+#: src/main.cpp:94
 msgid "Start editor"
 msgstr "Pályaszerkesztő elindítása"
 
-#: src/main.cpp:93
+#: src/main.cpp:95
 msgid "Save caveset in a HTML gallery"
 msgstr "Játék pályáinak mentése egy HTML galériában"
 
-#: src/main.cpp:94
+#: src/main.cpp:96
 msgid "Save caveset as BDCFF plain text"
 msgstr "Játék pályáinak mentése egy BDCFF fájlban"
 
-#: src/main.cpp:95
+#: src/main.cpp:97
 msgid "Link stylesheet from file to a HTML gallery, eg. \"../style.css\""
 msgstr ""
 "A megadott nevű stíluslap linkelése a HTML galériához, pl. \"../style.css\""
 
-#: src/main.cpp:96
+#: src/main.cpp:98
 msgid "Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\""
 msgstr ""
 "A megadott nevű ikon linkelése a HTML galériához, pl. \"../favicon.ico\""
 
-#: src/main.cpp:97
+#: src/main.cpp:99
 msgid "Save image of first cave to PNG"
 msgstr "Az első pálya képének mentése egy PNG fájlba"
 
-#: src/main.cpp:98
+#: src/main.cpp:100
 msgid "Set PNG image size. Default is 128x96, set to 0x0 for unscaled"
 msgstr "PNG kép méretének állítása. Alap 128x96, az eredeti mérethez 0x0"
 
-#: src/main.cpp:100
+#: src/main.cpp:102
 msgid "Save caveset in a BDCFF file"
 msgstr "Játék pályáinak mentése egy BDCFF fájlban"
 
-#: src/main.cpp:101
+#: src/main.cpp:103
 msgid ""
 "Save imported binary data to a GDS file. An input file name is required."
 msgstr ""
 "A bináris fájlból importált pályák mentése egy GDS fájlba. Egy bemeneti "
 "fájlnév is szükséges."
 
-#: src/main.cpp:102
+#: src/main.cpp:104
 msgid "Save caveset in CrLi files"
 msgstr "Játék pályáinak mentése CrLi fájlokban"
 
-#: src/main.cpp:103
+#: src/main.cpp:105
 msgid "Save caveset in flattened format"
 msgstr "A pálya lapítása egyetlen térképpé"
 
-#: src/main.cpp:105
+#: src/main.cpp:107
 msgid ""
 "Save documentation in HTML, in the given language identified by an integer."
 msgstr ""
 "Dokumentáció mentése HTML fájlba, a paraméterben adott egész számmal jelölt "
 "nyelven."
 
-#: src/main.cpp:107
+#: src/main.cpp:109
 msgid "Batch mode: quit after specified tasks"
 msgstr "Kötegelt üzemmód: a megadott műveletek után kilépés"
 
-#: src/main.cpp:212
+#: src/main.cpp:220
 #, c-format
 msgid "Invalid image size: %s"
 msgstr "%s: hibás képméret"
@@ -6473,46 +6494,28 @@ msgid "Show the whole cave on the screen without scrolling."
 msgstr "A teljes pálya megjelenítése a képernyőn görgetés nélkül."
 
 #: src/settings.cpp:257
-msgid "Show fps"
-msgstr "Fps megjelenítése"
+msgid "Overlay screen status info"
+msgstr "Fedőképernyő állapotinformációi"
 
 #: src/settings.cpp:257
-msgid "Show frames per second and other developer info."
-msgstr "\"fps\" és egyéb fejlesztői adatok megjelenítése."
+msgid ""
+"Displays the time between drawing two frames in milliseconds, frames per "
+"second and scroll rate. This can be helpful to check the performance of the "
+"game on the system in use."
+msgstr ""
+"Megjeleníti a két képkocka rajzolása közötti időt ezredmásodpercben, "
+"képkocka per második és görgetési sebesség. Ez hasznos lehet a teljesítmény "
+"ellenőrzéséhez játék a használt rendszeren."
 
 #: src/settings.cpp:260
 msgid "OpenGL settings"
 msgstr "OpenGL beállítások"
 
 #: src/settings.cpp:261
-msgid "Force OpenGL Renderer"
-msgstr "OpenGL renderer kényszerítése"
-
-#: src/settings.cpp:261
-msgid ""
-"If this option is activated, the \"opengl\" renderer is used, otherwise the "
-"default renderer."
-msgstr ""
-"Ha ez az opció be van kapcsolva, akkor az \"opengl\" renderer kerül "
-"használatba, egyébként az alapértelmezett renderer."
-
-#: src/settings.cpp:262
-msgid "Center full screen"
-msgstr "Teljes képernyő középre"
-
-#: src/settings.cpp:262
-msgid ""
-"If this option is activated, the display fills the entire screen. To "
-"preserve the aspect ratio it is recommended to increase the scaling factor."
-msgstr ""
-"Ha ez az opció be van kapcsolva, a kijelző a teljes képernyőt kitölti. A "
-"képarány megőrzése érdekében a méretezési tényező növelése javasolt."
-
-#: src/settings.cpp:263
 msgid "Shader"
 msgstr "Shader program"
 
-#: src/settings.cpp:263
+#: src/settings.cpp:261
 msgid ""
 "The shader which adds a graphical effect to the screen. Only effective if "
 "the OpenGL engine is used. If your video card is older, it might not support "
@@ -6523,11 +6526,11 @@ msgstr ""
 "grafikus hardverrel a shader programok nem használhatóak. A GDash saját TV "
 "shader programja a lenti beállításokkal finomhangolható."
 
-#: src/settings.cpp:264
+#: src/settings.cpp:262
 msgid "Radial distortion"
 msgstr "Gömbi torzítás"
 
-#: src/settings.cpp:264
+#: src/settings.cpp:262
 msgid ""
 "With radial distortion, the screen won't be flat, but it will look like as "
 "if it's projected on a sphere."
@@ -6535,90 +6538,116 @@ msgstr ""
 "Gömbi torzításnál a képernyő úgy néz ki, mintha nem sík lenne, hanem egy "
 "gömb belsejében jelenne meg a kép."
 
-#: src/settings.cpp:265
+#: src/settings.cpp:263
 msgid "Random scanline displacement"
 msgstr "Véletlenszerű eltolás"
 
-#: src/settings.cpp:265
+#: src/settings.cpp:263
 msgid ""
 "Increasing this setting causes the the image to be unstable horizontally."
 msgstr "Ezt a számot növelve a kép vízszintesen instabillá válik."
 
-#: src/settings.cpp:266
+#: src/settings.cpp:264
 msgid "Luma X blur"
 msgstr "Fényesség X elmosása"
 
-#: src/settings.cpp:266
+#: src/settings.cpp:264
 msgid "Horizontal blur of luminosity."
 msgstr "A képpontok fényességének elmosása vízszintesen."
 
-#: src/settings.cpp:267
+#: src/settings.cpp:265
 msgid "Chroma X blur"
 msgstr "Színek X elmosása"
 
-#: src/settings.cpp:267
+#: src/settings.cpp:265
 msgid "Slight horizontal blur of colors."
 msgstr "A képpontok színének elmosása vízszintesen."
 
-#: src/settings.cpp:268
+#: src/settings.cpp:266
 msgid "Chroma Y blur"
 msgstr "Színek Y elmosása"
 
-#: src/settings.cpp:268
+#: src/settings.cpp:266
 msgid "Vertical blur of colors, to imitate a PAL TV signal."
 msgstr ""
 "A képpontok fényességének elmosása függőlegesen, a PAL tévé jelet utánozva."
 
-#: src/settings.cpp:269
+#: src/settings.cpp:267
 msgid "Chroma to luma"
 msgstr "Színből fényesség"
 
-#: src/settings.cpp:269
+#: src/settings.cpp:267
 msgid "Sudden changes in colors can cause patterns to appear on the image."
 msgstr "A színek erős kontrasztja mintázatokat hozhat létre a képen."
 
-#: src/settings.cpp:270
+#: src/settings.cpp:268
 msgid "Luma to chroma"
 msgstr "Fényességből szín"
 
-#: src/settings.cpp:270
+#: src/settings.cpp:268
 msgid ""
 "Sudden changes in luminosity can cause false colors to appear on the image."
 msgstr ""
 "A fényességek erős kontrasztja hamis színek megjelenését eredményezheti."
 
-#: src/settings.cpp:271
+#: src/settings.cpp:269
 msgid "Random Y"
 msgstr "Véletlen Y"
 
-#: src/settings.cpp:271
+#: src/settings.cpp:269
 msgid "Noise level of luminosity."
 msgstr "A fényességben megjelenő zaj."
 
-#: src/settings.cpp:272
+#: src/settings.cpp:270
 msgid "Random UV"
 msgstr "Véletlen UV"
 
-#: src/settings.cpp:272
+#: src/settings.cpp:270
 msgid "Noise level of colors."
 msgstr "A színekben megjelenő zaj."
 
-#: src/settings.cpp:273
+#: src/settings.cpp:271
 msgid "Scanline shade"
 msgstr "Pászta árnyalás"
 
-#: src/settings.cpp:273
+#: src/settings.cpp:271
 msgid "Darkened horizontal rows to emulate a TV screen."
 msgstr "Sötétebb sorok vízszintesen a TV emulációhoz."
 
-#: src/settings.cpp:274
+#: src/settings.cpp:272
 msgid "Phosphor shade"
 msgstr "Foszfor árnyalás"
 
-#: src/settings.cpp:274
+#: src/settings.cpp:272
 msgid "Red, green and blue subpixels of a TV screen can be emulated."
 msgstr ""
 "A régi TV képernyők vörös, zöld és kék világító foszforpöttyeinek utánzása."
+
+#: src/settings.cpp:273
+msgid "Force OpenGL Renderer"
+msgstr "OpenGL renderer kényszerítése"
+
+#: src/settings.cpp:273
+msgid ""
+"If this option is activated, the \"opengl\" renderer is used, otherwise the "
+"default renderer. This option may have influence on the frame rate of the "
+"game."
+msgstr ""
+"Ha ez az opció be van kapcsolva, akkor az \"opengl\" renderer kerül "
+"használatba, egyébként az alapértelmezett renderer. Ez az opció hatással "
+"lehet a játék képkockasebességére."
+
+#: src/settings.cpp:274
+msgid "Center full screen"
+msgstr "Teljes képernyő középre"
+
+#: src/settings.cpp:274
+msgid ""
+"If this option is activated, the display fills the entire screen. The "
+"scaling factor may influence the aspect ratio."
+msgstr ""
+"Ha ez az opció be van kapcsolva, a kijelző a teljes képernyőt kitölti. A "
+"méretezési tényező befolyásolhatja a képarányt."
 
 #: src/settings.cpp:278
 msgid "Editor settings"

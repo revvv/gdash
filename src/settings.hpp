@@ -129,8 +129,6 @@ extern bool gd_classic_sound;
 extern int gd_sound_chunks_volume_percent;
 extern int gd_sound_music_volume_percent;
 
-extern bool gd_opengl_renderer;
-extern bool gd_opengl_center;
 extern std::string gd_shader;
 extern int shader_pal_radial_distortion;
 extern int shader_pal_chroma_to_luma_strength;
@@ -143,6 +141,8 @@ extern int shader_pal_random_uv;
 extern int shader_pal_luma_x_blur;
 extern int shader_pal_chroma_x_blur;
 extern int shader_pal_chroma_y_blur;
+extern bool gd_opengl_renderer;
+extern bool gd_opengl_center;
 #endif    /* if gd_sound */
 
 

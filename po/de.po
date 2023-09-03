@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-02 15:35+0200\n"
+"POT-Creation-Date: 2023-09-03 17:03+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -2327,70 +2327,74 @@ msgstr ""
 msgid "translator-credits"
 msgstr "CWS"
 
-#: src/main.cpp:92
+#: src/main.cpp:93
+msgid "same as --help but translated"
+msgstr "indetisch mit --help jedoch übersetzt"
+
+#: src/main.cpp:94
 msgid "Start editor"
 msgstr "Starte Editor"
 
-#: src/main.cpp:93
+#: src/main.cpp:95
 msgid "Save caveset in a HTML gallery"
 msgstr "Speichere Höhlensatz in einer HTML Gallerie"
 
-#: src/main.cpp:94
+#: src/main.cpp:96
 msgid "Save caveset as BDCFF plain text"
 msgstr "Speichere Höhlensatz in eine BDCFF-Datei"
 
-#: src/main.cpp:95
+#: src/main.cpp:97
 msgid "Link stylesheet from file to a HTML gallery, eg. \"../style.css\""
 msgstr ""
 "Verknüpfe die Formatforlage der Datei mit einer HTML Galerie (z. B. \"../"
 "style.css\")"
 
-#: src/main.cpp:96
+#: src/main.cpp:98
 msgid "Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\""
 msgstr ""
 "Verknüpfe das Iconkürzel mit einer HTML Galerie (z. B. \"../favicon.ico\")"
 
-#: src/main.cpp:97
+#: src/main.cpp:99
 msgid "Save image of first cave to PNG"
 msgstr "Speichere das Bild der ersten Höhle als PNG"
 
-#: src/main.cpp:98
+#: src/main.cpp:100
 msgid "Set PNG image size. Default is 128x96, set to 0x0 for unscaled"
 msgstr ""
 "Definiere PNG-Bildgröße. Voreingestellt ist 128x96, verwende 0x0 für keine "
 "Skalierung"
 
-#: src/main.cpp:100
+#: src/main.cpp:102
 msgid "Save caveset in a BDCFF file"
 msgstr "Speichere Höhlensatz in eine BDCFF-Datei"
 
-#: src/main.cpp:101
+#: src/main.cpp:103
 msgid ""
 "Save imported binary data to a GDS file. An input file name is required."
 msgstr ""
 "Speichere importierte Binärdaten in eine GDS-Datei. Ein Eingabedateiname ist "
 "erforderlich."
 
-#: src/main.cpp:102
+#: src/main.cpp:104
 msgid "Save caveset in CrLi files"
 msgstr "Speichere Höhlensatz in CrLi Dateien"
 
-#: src/main.cpp:103
+#: src/main.cpp:105
 msgid "Save caveset in flattened format"
 msgstr "Speichere Höhlensatz als Karte"
 
-#: src/main.cpp:105
+#: src/main.cpp:107
 msgid ""
 "Save documentation in HTML, in the given language identified by an integer."
 msgstr ""
 "Speichere die Dokumentation als HTML, in der angegebenen, von einer Ganzzahl "
 "erkannten Sprache."
 
-#: src/main.cpp:107
+#: src/main.cpp:109
 msgid "Batch mode: quit after specified tasks"
 msgstr "Stapelmodus: nach angegebenen Aufgaben beenden"
 
-#: src/main.cpp:212
+#: src/main.cpp:220
 #, c-format
 msgid "Invalid image size: %s"
 msgstr "Ungültige Bildgröße: %s"
@@ -6769,47 +6773,29 @@ msgid "Show the whole cave on the screen without scrolling."
 msgstr "Zeigt die komplette Höhle ohne Scrolling an."
 
 #: src/settings.cpp:257
-msgid "Show fps"
-msgstr "Zeige fps an"
+msgid "Overlay screen status info"
+msgstr "Bildstatus Infos anzeigen"
 
 #: src/settings.cpp:257
-msgid "Show frames per second and other developer info."
-msgstr "Zeige \"frames per second\" und andere Entwickler-Infos an."
+msgid ""
+"Displays the time between drawing two frames in milliseconds, frames per "
+"second and scroll rate. This can be helpful to check the performance of the "
+"game on the system in use."
+msgstr ""
+"Zeigt die Zeit für das Zeichnen zwischen zwei Bildern in Millisekunden, die "
+"Bilder pro Sekunde und den Faktor der Scrollgeschwindigkeit an. Diese "
+"Informationen können dafür hilfreich sein, die Leistung des Spiels auf dem "
+"verwendeten System zu prüfen."
 
 #: src/settings.cpp:260
 msgid "OpenGL settings"
 msgstr "OpenGL-Eigenschaften"
 
 #: src/settings.cpp:261
-msgid "Force OpenGL Renderer"
-msgstr "Erzwinge OpenGL Renderer"
-
-#: src/settings.cpp:261
-msgid ""
-"If this option is activated, the \"opengl\" renderer is used, otherwise the "
-"default renderer."
-msgstr ""
-"Wird diese Option aktiviert, wird der \"opengl\" Renderer benutzt. Ansonsten "
-"der Standard-Renderer."
-
-#: src/settings.cpp:262
-msgid "Center full screen"
-msgstr "Vollbild zentrieren"
-
-#: src/settings.cpp:262
-msgid ""
-"If this option is activated, the display fills the entire screen. To "
-"preserve the aspect ratio it is recommended to increase the scaling factor."
-msgstr ""
-"Wird diese Option aktiviert, füllt die Anzeige den gesamten Bildschirm. Um "
-"das Seitenverhältnis beizubehalten, wird empfohlen, den Skalierungsfaktor zu "
-"erhöhen."
-
-#: src/settings.cpp:263
 msgid "Shader"
 msgstr "Shader-Effekt"
 
-#: src/settings.cpp:263
+#: src/settings.cpp:261
 msgid ""
 "The shader which adds a graphical effect to the screen. Only effective if "
 "the OpenGL engine is used. If your video card is older, it might not support "
@@ -6820,11 +6806,11 @@ msgstr ""
 "möglicherweise keine Shader-Effekte. Der 'GDash-TV' Shader-Effekt kann mit "
 "den unterhalb aufgelisteten Optionen individuell konfiguriert werden."
 
-#: src/settings.cpp:264
+#: src/settings.cpp:262
 msgid "Radial distortion"
 msgstr "Radiale Verzerrung"
 
-#: src/settings.cpp:264
+#: src/settings.cpp:262
 msgid ""
 "With radial distortion, the screen won't be flat, but it will look like as "
 "if it's projected on a sphere."
@@ -6832,93 +6818,119 @@ msgstr ""
 "Mit der radialen Verzerrung wirkt der Bildschirm nicht flach, sondern als ob "
 "das Bild auf eine Kugel projiziert werden würde."
 
-#: src/settings.cpp:265
+#: src/settings.cpp:263
 msgid "Random scanline displacement"
 msgstr "Zufälliger Scanlineversatz"
 
-#: src/settings.cpp:265
+#: src/settings.cpp:263
 msgid ""
 "Increasing this setting causes the the image to be unstable horizontally."
 msgstr "Die Erhöhung dieses Werts verursacht ein horizontal instabiles Bild."
 
-#: src/settings.cpp:266
+#: src/settings.cpp:264
 msgid "Luma X blur"
 msgstr "Leuchtkraftunschärfe X"
 
-#: src/settings.cpp:266
+#: src/settings.cpp:264
 msgid "Horizontal blur of luminosity."
 msgstr "Horizontale Unschärfe der Leuchtkraft."
 
-#: src/settings.cpp:267
+#: src/settings.cpp:265
 msgid "Chroma X blur"
 msgstr "Farbsättigungsunschärfe X"
 
-#: src/settings.cpp:267
+#: src/settings.cpp:265
 msgid "Slight horizontal blur of colors."
 msgstr "Leichte horizontale Unscharfzeichung der Farben."
 
-#: src/settings.cpp:268
+#: src/settings.cpp:266
 msgid "Chroma Y blur"
 msgstr "Farbsättigungsunschärfe Y"
 
-#: src/settings.cpp:268
+#: src/settings.cpp:266
 msgid "Vertical blur of colors, to imitate a PAL TV signal."
 msgstr ""
 "Vertikale Unscharfzeichnung der Farben. Diese Einstellung ahmt das PAL-TV-"
 "Signal nach."
 
-#: src/settings.cpp:269
+#: src/settings.cpp:267
 msgid "Chroma to luma"
 msgstr "Farbsättigung nach Leuchtkraft"
 
-#: src/settings.cpp:269
+#: src/settings.cpp:267
 msgid "Sudden changes in colors can cause patterns to appear on the image."
 msgstr ""
 "Plötzliche Änderungen der Farben können Störungsmuster im Bild erzeugen."
 
-#: src/settings.cpp:270
+#: src/settings.cpp:268
 msgid "Luma to chroma"
 msgstr "Leuchtkraft nach Farbsättigung"
 
-#: src/settings.cpp:270
+#: src/settings.cpp:268
 msgid ""
 "Sudden changes in luminosity can cause false colors to appear on the image."
 msgstr ""
 "Plötzliche Änderungen der Leuchtkraft können Falschfarben im Bild erzeugen."
 
-#: src/settings.cpp:271
+#: src/settings.cpp:269
 msgid "Random Y"
 msgstr "Zufällig Y"
 
-#: src/settings.cpp:271
+#: src/settings.cpp:269
 msgid "Noise level of luminosity."
 msgstr "Rauschpegel der Leuchtkraft."
 
-#: src/settings.cpp:272
+#: src/settings.cpp:270
 msgid "Random UV"
 msgstr "Zufällig UV"
 
-#: src/settings.cpp:272
+#: src/settings.cpp:270
 msgid "Noise level of colors."
 msgstr "Rauschpegel der Farben."
 
-#: src/settings.cpp:273
+#: src/settings.cpp:271
 msgid "Scanline shade"
 msgstr "Scanline-Schatten"
 
-#: src/settings.cpp:273
+#: src/settings.cpp:271
 msgid "Darkened horizontal rows to emulate a TV screen."
 msgstr "Dunkle, horizontale Linien, um einen TV-Bildschirm nachzuahmen."
 
-#: src/settings.cpp:274
+#: src/settings.cpp:272
 msgid "Phosphor shade"
 msgstr "Phosphor-Schatten"
 
-#: src/settings.cpp:274
+#: src/settings.cpp:272
 msgid "Red, green and blue subpixels of a TV screen can be emulated."
 msgstr ""
 "Es können rote, grüne und blaue Teilpunkte eines TV-Bildschirms emuliert "
 "werden."
+
+#: src/settings.cpp:273
+msgid "Force OpenGL Renderer"
+msgstr "Erzwinge OpenGL Renderer"
+
+#: src/settings.cpp:273
+msgid ""
+"If this option is activated, the \"opengl\" renderer is used, otherwise the "
+"default renderer. This option may have influence on the frame rate of the "
+"game."
+msgstr ""
+"Wird diese Option aktiviert, wird der \"opengl\" Renderer benutzt, ansonsten "
+"der Standard-Renderer. Diese Option hat möglicherweise Einfluß auf die "
+"Bildrate des Spiels."
+
+#: src/settings.cpp:274
+msgid "Center full screen"
+msgstr "Vollbild zentrieren"
+
+#: src/settings.cpp:274
+msgid ""
+"If this option is activated, the display fills the entire screen. The "
+"scaling factor may influence the aspect ratio."
+msgstr ""
+"Wird diese Option aktiviert, füllt die Anzeige den gesamten Bildschirm. Der "
+"Skalierungsfaktor hat eventuell Einfluß auf das Seitenverhältnis."
 
 #: src/settings.cpp:278
 msgid "Editor settings"

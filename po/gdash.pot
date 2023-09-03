@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gdash export-1.9.2-fork\n"
+"Project-Id-Version: gdash export-1.9.3-fork\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-02 15:35+0200\n"
+"POT-Creation-Date: 2023-09-03 17:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1673,61 +1673,65 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: src/main.cpp:92
-msgid "Start editor"
-msgstr ""
-
 #: src/main.cpp:93
-msgid "Save caveset in a HTML gallery"
+msgid "same as --help but translated"
 msgstr ""
 
 #: src/main.cpp:94
-msgid "Save caveset as BDCFF plain text"
+msgid "Start editor"
 msgstr ""
 
 #: src/main.cpp:95
-msgid "Link stylesheet from file to a HTML gallery, eg. \"../style.css\""
+msgid "Save caveset in a HTML gallery"
 msgstr ""
 
 #: src/main.cpp:96
-msgid "Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\""
+msgid "Save caveset as BDCFF plain text"
 msgstr ""
 
 #: src/main.cpp:97
-msgid "Save image of first cave to PNG"
+msgid "Link stylesheet from file to a HTML gallery, eg. \"../style.css\""
 msgstr ""
 
 #: src/main.cpp:98
-msgid "Set PNG image size. Default is 128x96, set to 0x0 for unscaled"
+msgid "Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\""
+msgstr ""
+
+#: src/main.cpp:99
+msgid "Save image of first cave to PNG"
 msgstr ""
 
 #: src/main.cpp:100
+msgid "Set PNG image size. Default is 128x96, set to 0x0 for unscaled"
+msgstr ""
+
+#: src/main.cpp:102
 msgid "Save caveset in a BDCFF file"
 msgstr ""
 
-#: src/main.cpp:101
+#: src/main.cpp:103
 msgid ""
 "Save imported binary data to a GDS file. An input file name is required."
 msgstr ""
 
-#: src/main.cpp:102
+#: src/main.cpp:104
 msgid "Save caveset in CrLi files"
 msgstr ""
 
-#: src/main.cpp:103
+#: src/main.cpp:105
 msgid "Save caveset in flattened format"
 msgstr ""
 
-#: src/main.cpp:105
+#: src/main.cpp:107
 msgid ""
 "Save documentation in HTML, in the given language identified by an integer."
 msgstr ""
 
-#: src/main.cpp:107
+#: src/main.cpp:109
 msgid "Batch mode: quit after specified tasks"
 msgstr ""
 
-#: src/main.cpp:212
+#: src/main.cpp:220
 #, c-format
 msgid "Invalid image size: %s"
 msgstr ""
@@ -5706,11 +5710,14 @@ msgid "Show the whole cave on the screen without scrolling."
 msgstr ""
 
 #: src/settings.cpp:257
-msgid "Show fps"
+msgid "Overlay screen status info"
 msgstr ""
 
 #: src/settings.cpp:257
-msgid "Show frames per second and other developer info."
+msgid ""
+"Displays the time between drawing two frames in milliseconds, frames per "
+"second and scroll rate. This can be helpful to check the performance of the "
+"game on the system in use."
 msgstr ""
 
 #: src/settings.cpp:260
@@ -5718,126 +5725,127 @@ msgid "OpenGL settings"
 msgstr ""
 
 #: src/settings.cpp:261
-msgid "Force OpenGL Renderer"
-msgstr ""
-
-#: src/settings.cpp:261
-msgid ""
-"If this option is activated, the \"opengl\" renderer is used, otherwise the "
-"default renderer."
-msgstr ""
-
-#: src/settings.cpp:262
-msgid "Center full screen"
-msgstr ""
-
-#: src/settings.cpp:262
-msgid ""
-"If this option is activated, the display fills the entire screen. To "
-"preserve the aspect ratio it is recommended to increase the scaling factor."
-msgstr ""
-
-#: src/settings.cpp:263
 msgid "Shader"
 msgstr ""
 
-#: src/settings.cpp:263
+#: src/settings.cpp:261
 msgid ""
 "The shader which adds a graphical effect to the screen. Only effective if "
 "the OpenGL engine is used. If your video card is older, it might not support "
 "shaders. The GDash TV shader can be configured with the settings below."
 msgstr ""
 
-#: src/settings.cpp:264
+#: src/settings.cpp:262
 msgid "Radial distortion"
 msgstr ""
 
-#: src/settings.cpp:264
+#: src/settings.cpp:262
 msgid ""
 "With radial distortion, the screen won't be flat, but it will look like as "
 "if it's projected on a sphere."
 msgstr ""
 
-#: src/settings.cpp:265
+#: src/settings.cpp:263
 msgid "Random scanline displacement"
 msgstr ""
 
-#: src/settings.cpp:265
+#: src/settings.cpp:263
 msgid ""
 "Increasing this setting causes the the image to be unstable horizontally."
 msgstr ""
 
-#: src/settings.cpp:266
+#: src/settings.cpp:264
 msgid "Luma X blur"
 msgstr ""
 
-#: src/settings.cpp:266
+#: src/settings.cpp:264
 msgid "Horizontal blur of luminosity."
 msgstr ""
 
-#: src/settings.cpp:267
+#: src/settings.cpp:265
 msgid "Chroma X blur"
 msgstr ""
 
-#: src/settings.cpp:267
+#: src/settings.cpp:265
 msgid "Slight horizontal blur of colors."
 msgstr ""
 
-#: src/settings.cpp:268
+#: src/settings.cpp:266
 msgid "Chroma Y blur"
 msgstr ""
 
-#: src/settings.cpp:268
+#: src/settings.cpp:266
 msgid "Vertical blur of colors, to imitate a PAL TV signal."
 msgstr ""
 
-#: src/settings.cpp:269
+#: src/settings.cpp:267
 msgid "Chroma to luma"
 msgstr ""
 
-#: src/settings.cpp:269
+#: src/settings.cpp:267
 msgid "Sudden changes in colors can cause patterns to appear on the image."
 msgstr ""
 
-#: src/settings.cpp:270
+#: src/settings.cpp:268
 msgid "Luma to chroma"
 msgstr ""
 
-#: src/settings.cpp:270
+#: src/settings.cpp:268
 msgid ""
 "Sudden changes in luminosity can cause false colors to appear on the image."
 msgstr ""
 
-#: src/settings.cpp:271
+#: src/settings.cpp:269
 msgid "Random Y"
 msgstr ""
 
-#: src/settings.cpp:271
+#: src/settings.cpp:269
 msgid "Noise level of luminosity."
 msgstr ""
 
-#: src/settings.cpp:272
+#: src/settings.cpp:270
 msgid "Random UV"
 msgstr ""
 
-#: src/settings.cpp:272
+#: src/settings.cpp:270
 msgid "Noise level of colors."
 msgstr ""
 
-#: src/settings.cpp:273
+#: src/settings.cpp:271
 msgid "Scanline shade"
 msgstr ""
 
-#: src/settings.cpp:273
+#: src/settings.cpp:271
 msgid "Darkened horizontal rows to emulate a TV screen."
 msgstr ""
 
-#: src/settings.cpp:274
+#: src/settings.cpp:272
 msgid "Phosphor shade"
 msgstr ""
 
-#: src/settings.cpp:274
+#: src/settings.cpp:272
 msgid "Red, green and blue subpixels of a TV screen can be emulated."
+msgstr ""
+
+#: src/settings.cpp:273
+msgid "Force OpenGL Renderer"
+msgstr ""
+
+#: src/settings.cpp:273
+msgid ""
+"If this option is activated, the \"opengl\" renderer is used, otherwise the "
+"default renderer. This option may have influence on the frame rate of the "
+"game."
+msgstr ""
+
+#: src/settings.cpp:274
+msgid "Center full screen"
+msgstr ""
+
+#: src/settings.cpp:274
+msgid ""
+"If this option is activated, the display fills the entire screen. The "
+"scaling factor may influence the aspect ratio."
 msgstr ""
 
 #: src/settings.cpp:278
