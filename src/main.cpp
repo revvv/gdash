@@ -114,7 +114,6 @@ int main(int argc, char *argv[]) {
     g_option_context_add_group(context, gtk_get_option_group(FALSE));   /* add gtk parameters */
 #endif
     g_option_context_parse(context, &argc, &argv, &error);
-    g_option_context_free(context);
     if (error) {
         gd_warning(error->message);
         g_error_free(error);
@@ -138,6 +137,14 @@ int main(int argc, char *argv[]) {
         gd_load_settings();
     gd_settings_set_locale();
     gd_settings_init_translation();
+
+    /* translated --help */
+    if (gd_param_help_localized) {
+        // needs to be after gd_settings_set_locale()
+        g_print(g_option_context_get_help(context, TRUE, NULL));
+        return 0;
+    }
+    g_option_context_free(context);
 
 #ifdef HAVE_GTK
     /* init gtk and set gtk default icon */

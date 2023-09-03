@@ -208,6 +208,7 @@ std::vector<std::string> gd_sound_dirs, gd_themes_dirs, gd_fonts_dirs, gd_shader
 
 /* command line parameters */
 int gd_param_license = 0;
+int gd_param_help_localized = 0;
 char **gd_param_cavenames = NULL;
 gboolean gd_param_debug = FALSE;
 gboolean gd_param_load_default_settings = FALSE;
@@ -747,6 +748,7 @@ void gd_save_settings() {
 
 GOptionContext *gd_option_context_new() {
     GOptionEntry const entries[] = {
+        {"help-localized", 0, 0, G_OPTION_ARG_NONE, &gd_param_help_localized, N_("same as --help but translated")},
         {"license", 'L', 0, G_OPTION_ARG_NONE, &gd_param_license, N_("Show license and quit")},
         {"debug", 'v', 0, G_OPTION_ARG_NONE, &gd_param_debug, N_("Show some debug messages")},
         {"default-settings", 0, 0, G_OPTION_ARG_NONE, &gd_param_load_default_settings, N_("Load default settings")},

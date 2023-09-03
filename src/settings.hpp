@@ -148,6 +148,7 @@ extern bool gd_opengl_center;
 
 /* command line parameters */
 extern int gd_param_license;
+extern int gd_param_help_localized;
 extern char **gd_param_cavenames;
 extern gboolean gd_param_debug;
 extern gboolean gd_param_load_default_settings;
