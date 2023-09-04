@@ -515,7 +515,7 @@ void gd_dialog_add_hint(GtkDialog *dialog, const char *hint) {
 
 
 void gd_show_about_info() {
-    gtk_show_about_dialog(guess_active_toplevel(), "program-name", "GDash", "license", About::license, "wrap-license", TRUE, "copyright", About::copyright, "authors", About::authors, "version", PACKAGE_VERSION, "comments", _(About::comments), "translator-credits", _(About::translator_credits), "website", About::website, "artists", About::artists, "documenters", About::documenters, NULL);
+    gtk_show_about_dialog(guess_active_toplevel(), "program-name", "GDash", "license", _(About::license), "wrap-license", TRUE, "copyright", About::copyright, "authors", About::authors, "version", PACKAGE_VERSION, "comments", _(About::comments), "translator-credits", _(About::translator_credits), "website", About::website, "artists", About::artists, "documenters", About::documenters, NULL);
 }
 
 
