@@ -2073,23 +2073,10 @@ static void
 element_statistics_cb(GtkWidget *widget, gpointer data) {
     g_return_if_fail(edited_cave_idx != -1);
     
-    enum { numeq = 4 };
-    struct {
-        GdElementEnum what[numeq];
-        int num;
-    } numwhat[] = {
-        { { O_SPACE, O_NONE, O_NONE, O_NONE }, 0 },
-        { { O_DIRT, O_DIRT2, O_NONE, O_NONE }, 0 },
-        { { O_STONE, O_STONE_F, O_FLYING_STONE, O_FLYING_STONE_F }, 0 },
-        { { O_DIAMOND, O_DIAMOND_F, O_FLYING_DIAMOND, O_FLYING_DIAMOND_F }, 0 },
-        { { O_FIREFLY_1, O_FIREFLY_2, O_FIREFLY_3, O_FIREFLY_4 }, 0 },
-        { { O_ALT_FIREFLY_1, O_ALT_FIREFLY_2, O_ALT_FIREFLY_3, O_ALT_FIREFLY_4 }, 0 },
-        { { O_BUTTER_1, O_BUTTER_2, O_BUTTER_3, O_BUTTER_4 }, 0 },
-        { { O_ALT_BUTTER_1, O_ALT_BUTTER_2, O_ALT_BUTTER_3, O_ALT_BUTTER_4 }, 0 },
-        { { O_STONEFLY_1, O_STONEFLY_2, O_STONEFLY_3, O_STONEFLY_4 }, 0 },
-        { { O_AMOEBA, O_AMOEBA_2, O_NONE, O_NONE }, 0 },
-        { { O_NONE } },
-    };
+    int max_index = O_NUT_CRACK_4;
+    int count[max_index];
+    for (int i = 0; i < max_index; i++)
+        count[i] = 0;
     
     int size = (rendered_cave->y2 - rendered_cave->y1 + 1) * (rendered_cave->x2 - rendered_cave->x1 + 1);
     /* go through visible area of cave */
@@ -2097,15 +2084,26 @@ element_statistics_cb(GtkWidget *widget, gpointer data) {
         for (int x = rendered_cave->x1; x <= rendered_cave->x2; ++x) {
             GdElementEnum thiselem = rendered_cave->map(x, y);
             /* check if one of the elements to be counted */
-            for (int i = 0; numwhat[i].what[0] != O_NONE; ++i) {
-                if (std::count(numwhat[i].what, numwhat[i].what + numeq, thiselem) > 0) {
-                    numwhat[i].num++;
-                    continue;
+            for (int i = 0; i < max_index; i++) {
+                if (thiselem == i) {
+                    count[i] = count[i] + 1;
                 }
             }
         }
     }
     
+    // optional: sum up objects with same name (for example: O_FIREFLY_1 and O_FIREFLY_2 count as firefly)
+    for (int i = 0; i < max_index; i++) {
+        for (int j = i + 1; j < max_index; j++) {
+            if (count[j] == 0)
+                continue;
+            if (visible_name_no_attribute(GdElementEnum(i)) == visible_name_no_attribute(GdElementEnum(j))) {
+                count[i] = count[i] + count[j];
+                count[j] = 0;
+            }
+        }
+    }
+
     // TRANSLATORS: Title text capitalization in English
     GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Element Statistics"), GTK_WINDOW(gd_editor_window),
                                                      GtkDialogFlags(0), GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
@@ -2118,10 +2116,12 @@ element_statistics_cb(GtkWidget *widget, gpointer data) {
     gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(_("<b>Size of visible area</b>")), 0, row, 1, 1);
     gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%d", size).c_str()), 1, row, 1, 1);
     row++;
-    for (int i = 0; numwhat[i].what[0] != O_NONE; ++i) {
-        gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(Printf("<b>%ms</b>", visible_name_no_attribute(numwhat[i].what[0])).c_str()), 0, row, 1, 1);
-        gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%d", numwhat[i].num).c_str()), 1, row, 1, 1);
-        gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%4.2f%%", 100.0 * numwhat[i].num / size).c_str()), 2, row, 1, 1);
+    for (int i = 0; i < max_index; i++) {
+        if (count[i] == 0)
+            continue;
+        gtk_grid_attach(GTK_GRID(grid), gd_label_new_leftaligned(Printf("<b>%ms</b>", visible_name_no_attribute(GdElementEnum(i))).c_str()), 0, row, 1, 1);
+        gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%d", count[i]).c_str()), 1, row, 1, 1);
+        gtk_grid_attach(GTK_GRID(grid), gd_label_new_rightaligned(Printf("%4.2f%%", 100.0 * count[i] / size).c_str()), 2, row, 1, 1);
         row++;
     }
     gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), grid);
