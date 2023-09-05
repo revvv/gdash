@@ -4,6 +4,10 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 
 * New command line options for bulk export (*the reason for the fork's name...*)
 * Full cave view [#21](https://github.com/revvv/gdash-export-CrLi/issues/21)
+* You can now activate the OpenGL renderer for super smooth scrolling #25
+* Improved snapshot feature for Twitch #23
+* Show all elements in element statistics #31
+* New command line argument `--help-localized`
 * Fixed: Screen wrapped boulder does not kill player instantly [#42](https://github.com/revvv/gdash-export-CrLi/issues/42)
 * Fixed replay feature (fire was not recorded) [#18](https://github.com/revvv/gdash-export-CrLi/issues/18)
 * New feature *"Milling time 0 is infinite"* [#12](https://github.com/revvv/gdash-export-CrLi/issues/12)
@@ -16,7 +20,7 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 * Updated caves, fixed caves, added caves by [renyxadarox](https://github.com/renyxadarox), [Dustin974](https://github.com/Dustin974), [cwscws](https://github.com/cwscws)
 * New [BD3 theme](https://github.com/revvv/gdash-export-CrLi/blob/master/include/c64_gfx_bd3.png) (gfx by [cwscws](https://github.com/cwscws))
 * New shaders [#10](https://github.com/revvv/gdash-export-CrLi/issues/10)
-* GTK fixes (*esp. for Mac: Drag-and-drop [#15](https://github.com/revvv/gdash-export-CrLi/issues/15) [#17](https://github.com/revvv/gdash-export-CrLi/issues/17), stuck key [#6](https://github.com/revvv/gdash-export-CrLi/issues/6)*)
+* GTK fixes (*esp. for Mac: Drag-and-drop [#15](https://github.com/revvv/gdash-export-CrLi/issues/15) [#17](https://github.com/revvv/gdash-export-CrLi/issues/17) [cave list](Fix drag and drop bugs in cave list), stuck key [#6](https://github.com/revvv/gdash-export-CrLi/issues/6)*)
 * Test game uses GTK/SDL/OpenGL as configured [#8](https://github.com/revvv/gdash-export-CrLi/issues/8)
 * 64 bit ZIP distribution for **Windows, Linux and Mac**
 * CrLi now also exports teleporters
