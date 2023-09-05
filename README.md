@@ -20,7 +20,7 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 * Updated caves, fixed caves, added caves by [renyxadarox](https://github.com/renyxadarox), [Dustin974](https://github.com/Dustin974), [cwscws](https://github.com/cwscws)
 * New [BD3 theme](https://github.com/revvv/gdash-export-CrLi/blob/master/include/c64_gfx_bd3.png) (gfx by [cwscws](https://github.com/cwscws))
 * New shaders [#10](https://github.com/revvv/gdash-export-CrLi/issues/10)
-* GTK fixes (*esp. for Mac: Drag-and-drop [#15](https://github.com/revvv/gdash-export-CrLi/issues/15) [#17](https://github.com/revvv/gdash-export-CrLi/issues/17) [cave list](Fix drag and drop bugs in cave list), stuck key [#6](https://github.com/revvv/gdash-export-CrLi/issues/6)*)
+* GTK fixes (*esp. for Mac: Drag-and-drop [#15](https://github.com/revvv/gdash-export-CrLi/issues/15) [#17](https://github.com/revvv/gdash-export-CrLi/issues/17) [cave list](https://github.com/revvv/gdash-export-CrLi/commit/1c528dc19f3d7377c5c9f201e04a4d2790be35cb), stuck key [#6](https://github.com/revvv/gdash-export-CrLi/issues/6)*)
 * Test game uses GTK/SDL/OpenGL as configured [#8](https://github.com/revvv/gdash-export-CrLi/issues/8)
 * 64 bit ZIP distribution for **Windows, Linux and Mac**
 * CrLi now also exports teleporters
