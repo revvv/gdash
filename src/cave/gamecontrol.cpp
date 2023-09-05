@@ -245,6 +245,7 @@ bool GameControl::save_snapshot() const {
         return false;
 
     snapshot_cave = std::make_unique<CaveRendered>(*played_cave);
+    snapshot_cave->score = player_score; // NOTE: played_cave->score is always 0
     return true;
 }
 
@@ -258,6 +259,7 @@ bool GameControl::load_snapshot() {
     /* overwrite this object with a snapshot game */
     //*this = GameControl(TYPE_SNAPSHOT); // triggers uncover mosaic and as side effect entering outbox will end the game instead of loading next cave!
     played_cave = std::make_unique<CaveRendered>(*snapshot_cave);
+    player_score = snapshot_cave->score;
 
     /* success */
     return true;
