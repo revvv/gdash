@@ -180,8 +180,9 @@ am__installdirs = "$(DESTDIR)$(AGB_Softdir)" \
 	"$(DESTDIR)$(El_Swingidir)" "$(DESTDIR)$(FAJ_Softdir)" \
 	"$(DESTDIR)$(Falcon_Softdir)" "$(DESTDIR)$(Firefoxdir)" \
 	"$(DESTDIR)$(Firefox_Firefoxdir)" \
-	"$(DESTDIR)$(First_Star_Softwaredir)" "$(DESTDIR)$(Frustdir)" \
-	"$(DESTDIR)$(Gert_van_den_Heuveldir)" \
+	"$(DESTDIR)$(First_Star_Softwaredir)" \
+	"$(DESTDIR)$(Fokmansdir)" "$(DESTDIR)$(Frustdir)" \
+	"$(DESTDIR)$(GBSdir)" "$(DESTDIR)$(Gert_van_den_Heuveldir)" \
 	"$(DESTDIR)$(Gertruddir)" \
 	"$(DESTDIR)$(Gertrud_Gertrud_s_Gamedir)" \
 	"$(DESTDIR)$(Gertrud_Rodexdir)" "$(DESTDIR)$(Godsdir)" \
@@ -196,6 +197,8 @@ am__installdirs = "$(DESTDIR)$(AGB_Softdir)" \
 	"$(DESTDIR)$(Kayle_Geertsdir)" "$(DESTDIR)$(LTL_Softdir)" \
 	"$(DESTDIR)$(Lanzelott_and_Matuladir)" \
 	"$(DESTDIR)$(Logic_De_Luxedir)" "$(DESTDIR)$(Lord_Diegodir)" \
+	"$(DESTDIR)$(Lord_Diego_Diegodashdir)" \
+	"$(DESTDIR)$(Lord_Diego_Neverendingdashdir)" \
 	"$(DESTDIR)$(Lukas_Shambisdir)" "$(DESTDIR)$(MB_Softdir)" \
 	"$(DESTDIR)$(MJMandir)" "$(DESTDIR)$(MJRdir)" \
 	"$(DESTDIR)$(Madgamedir)" "$(DESTDIR)$(Mapasoftdir)" \
@@ -218,8 +221,8 @@ am__installdirs = "$(DESTDIR)$(AGB_Softdir)" \
 	"$(DESTDIR)$(Ododir)" "$(DESTDIR)$(Olaf_Rothdir)" \
 	"$(DESTDIR)$(Olaf_Roth_Cool_Dashdir)" \
 	"$(DESTDIR)$(Olaf_Roth_Giga_Boulderdir)" \
-	"$(DESTDIR)$(Oriondir)" "$(DESTDIR)$(Papisdir)" \
-	"$(DESTDIR)$(Persoftdir)" "$(DESTDIR)$(Petedir)" \
+	"$(DESTDIR)$(Oriondir)" "$(DESTDIR)$(PETEdir)" \
+	"$(DESTDIR)$(Papisdir)" "$(DESTDIR)$(Persoftdir)" \
 	"$(DESTDIR)$(Peter_Metsemakersdir)" \
 	"$(DESTDIR)$(Peter_Traunigdir)" "$(DESTDIR)$(Phoenixdir)" \
 	"$(DESTDIR)$(Pierre_and_Olivierdir)" \
@@ -229,6 +232,7 @@ am__installdirs = "$(DESTDIR)$(AGB_Softdir)" \
 	"$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Weekdir)" \
 	"$(DESTDIR)$(Prof_Knibble_Knibble_Dashdir)" \
 	"$(DESTDIR)$(Prof_Knibble_Knibble_Eatdir)" \
+	"$(DESTDIR)$(ROLEdir)" \
 	"$(DESTDIR)$(Radek_Buchta_and_Nudeldir)" \
 	"$(DESTDIR)$(Renatedir)" "$(DESTDIR)$(Replica_Copy_Crewdir)" \
 	"$(DESTDIR)$(Rockforddir)" \
@@ -245,8 +249,8 @@ am__installdirs = "$(DESTDIR)$(AGB_Softdir)" \
 	"$(DESTDIR)$(Rolf_Roth_Waterkant_Dashdir)" \
 	"$(DESTDIR)$(Ron_van_Schaikdir)" \
 	"$(DESTDIR)$(Ron_van_Schaik_Forkidz_Dashdir)" \
-	"$(DESTDIR)$(Ron_van_Schaik_Schaik_Dashdir)" \
 	"$(DESTDIR)$(Ron_van_Schaik_Schaik_Mixdir)" \
+	"$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)" \
 	"$(DESTDIR)$(Rory_Agstendir)" "$(DESTDIR)$(Sarah_Rothdir)" \
 	"$(DESTDIR)$(Schlonkeldir)" "$(DESTDIR)$(Scserbin_Zoltandir)" \
 	"$(DESTDIR)$(Scserbin_Zoltan_Atlantisdir)" \
@@ -261,7 +265,8 @@ am__installdirs = "$(DESTDIR)$(AGB_Softdir)" \
 	"$(DESTDIR)$(Sendydir)" "$(DESTDIR)$(Sijben_Softdir)" \
 	"$(DESTDIR)$(Skeletordir)" \
 	"$(DESTDIR)$(Skeletor_Mega_Boulderdir)" \
-	"$(DESTDIR)$(Spiderdir)" "$(DESTDIR)$(Spider_Bouldi_Dashdir)" \
+	"$(DESTDIR)$(Sparkdir)" "$(DESTDIR)$(Spiderdir)" \
+	"$(DESTDIR)$(Spider_Bouldi_Dashdir)" \
 	"$(DESTDIR)$(Spider_Steel_Dashdir)" \
 	"$(DESTDIR)$(Stormbringerdir)" \
 	"$(DESTDIR)$(Stormbringer_Crazy_Dashdir)" \
@@ -273,7 +278,8 @@ am__installdirs = "$(DESTDIR)$(AGB_Softdir)" \
 	"$(DESTDIR)$(The_Blockheads_Boulderheaddir)" \
 	"$(DESTDIR)$(The_Blockheads_Trap_Boulderdir)" \
 	"$(DESTDIR)$(The_Bremer_Town_Musicusdir)" \
-	"$(DESTDIR)$(The_Editordir)" "$(DESTDIR)$(The_Softkillerdir)" \
+	"$(DESTDIR)$(The_Cobra_Boysdir)" "$(DESTDIR)$(The_Editordir)" \
+	"$(DESTDIR)$(The_Softkillerdir)" \
 	"$(DESTDIR)$(The_Softkiller_Bingodir)" \
 	"$(DESTDIR)$(The_Softkiller_Helenadir)" \
 	"$(DESTDIR)$(Thomas_Mauritzdir)" "$(DESTDIR)$(Tropyxdir)" \
@@ -301,8 +307,8 @@ DATA = $(AGB_Soft_DATA) $(Achim_Haertel_DATA) $(Achim_Hofmann_DATA) \
 	$(Dustin_Dustin_s_Boulder_Dash_DATA) $(Eberhard_Baartz_DATA) \
 	$(Eclips_DATA) $(El_Swingi_DATA) $(FAJ_Soft_DATA) \
 	$(Falcon_Soft_DATA) $(Firefox_DATA) $(Firefox_Firefox_DATA) \
-	$(First_Star_Software_DATA) $(Frust_DATA) \
-	$(Gert_van_den_Heuvel_DATA) $(Gertrud_DATA) \
+	$(First_Star_Software_DATA) $(Fokmans_DATA) $(Frust_DATA) \
+	$(GBS_DATA) $(Gert_van_den_Heuvel_DATA) $(Gertrud_DATA) \
 	$(Gertrud_Gertrud_s_Game_DATA) $(Gertrud_Rodex_DATA) \
 	$(Gods_DATA) $(Grant_Walker_DATA) $(HSG_DATA) $(Hacker_DATA) \
 	$(Heinz_Trumpelmann_DATA) $(Incubus_DATA) $(Iron_Soft_DATA) \
@@ -311,7 +317,9 @@ DATA = $(AGB_Soft_DATA) $(Achim_Haertel_DATA) $(Achim_Hofmann_DATA) \
 	$(Karlchen_and_Opossum_Melmac_Dash_DATA) \
 	$(Karlchen_and_Opossum_Ossi_Dash_DATA) $(Kayle_Geerts_DATA) \
 	$(LTL_Soft_DATA) $(Lanzelott_and_Matula_DATA) \
-	$(Logic_De_Luxe_DATA) $(Lord_Diego_DATA) $(Lukas_Shambis_DATA) \
+	$(Logic_De_Luxe_DATA) $(Lord_Diego_DATA) \
+	$(Lord_Diego_Diegodash_DATA) \
+	$(Lord_Diego_Neverendingdash_DATA) $(Lukas_Shambis_DATA) \
 	$(MB_Soft_DATA) $(MJMan_DATA) $(MJR_DATA) $(Madgame_DATA) \
 	$(Mapasoft_DATA) $(Marek_Roth_DATA) \
 	$(Marek_Roth_Crazy_Dream_DATA) \
@@ -325,14 +333,14 @@ DATA = $(AGB_Soft_DATA) $(Achim_Haertel_DATA) $(Achim_Hofmann_DATA) \
 	$(No_One_No_One_s_Boulder_DATA) \
 	$(No_One_Prima_Boulderdash_DATA) $(Odo_DATA) $(Olaf_Roth_DATA) \
 	$(Olaf_Roth_Cool_Dash_DATA) $(Olaf_Roth_Giga_Boulder_DATA) \
-	$(Orion_DATA) $(Papis_DATA) $(Persoft_DATA) $(Pete_DATA) \
+	$(Orion_DATA) $(PETE_DATA) $(Papis_DATA) $(Persoft_DATA) \
 	$(Peter_Metsemakers_DATA) $(Peter_Traunig_DATA) \
 	$(Phoenix_DATA) $(Pierre_and_Olivier_DATA) \
 	$(Posocopi_Waldkirch_DATA) $(Prof_Knibble_DATA) \
 	$(Prof_Knibble_Boulder_Dash_Heavy_DATA) \
 	$(Prof_Knibble_Boulder_Dash_Week_DATA) \
 	$(Prof_Knibble_Knibble_Dash_DATA) \
-	$(Prof_Knibble_Knibble_Eat_DATA) \
+	$(Prof_Knibble_Knibble_Eat_DATA) $(ROLE_DATA) \
 	$(Radek_Buchta_and_Nudel_DATA) $(Renate_DATA) \
 	$(Replica_Copy_Crew_DATA) $(Rockford_DATA) \
 	$(Rockford_Gerd_Boulder_DATA) $(Rockford_Profi_Boulder_DATA) \
@@ -342,8 +350,8 @@ DATA = $(AGB_Soft_DATA) $(Achim_Haertel_DATA) $(Achim_Hofmann_DATA) \
 	$(Rolf_Roth_Schlicktown_DATA) $(Rolf_Roth_Stone_Age_DATA) \
 	$(Rolf_Roth_Waterkant_Dash_DATA) $(Ron_van_Schaik_DATA) \
 	$(Ron_van_Schaik_Forkidz_Dash_DATA) \
-	$(Ron_van_Schaik_Schaik_Dash_DATA) \
-	$(Ron_van_Schaik_Schaik_Mix_DATA) $(Rory_Agsten_DATA) \
+	$(Ron_van_Schaik_Schaik_Mix_DATA) \
+	$(Ron_van_Schaik_Schaikdash_DATA) $(Rory_Agsten_DATA) \
 	$(Sarah_Roth_DATA) $(Schlonkel_DATA) $(Scserbin_Zoltan_DATA) \
 	$(Scserbin_Zoltan_Atlantis_DATA) \
 	$(Scserbin_Zoltan_Auto_Dash_DATA) \
@@ -355,7 +363,7 @@ DATA = $(AGB_Soft_DATA) $(Achim_Haertel_DATA) $(Achim_Hofmann_DATA) \
 	$(Scserbin_Zoltan_Robot_Dash_DATA) \
 	$(Scserbin_Zoltan_Tank_War_DATA) $(Sendy_DATA) \
 	$(Sijben_Soft_DATA) $(Skeletor_DATA) \
-	$(Skeletor_Mega_Boulder_DATA) $(Spider_DATA) \
+	$(Skeletor_Mega_Boulder_DATA) $(Spark_DATA) $(Spider_DATA) \
 	$(Spider_Bouldi_Dash_DATA) $(Spider_Steel_Dash_DATA) \
 	$(Stormbringer_DATA) $(Stormbringer_Crazy_Dash_DATA) \
 	$(Stormbringer_Stormdash_DATA) $(Sub7_DATA) $(Subotai_DATA) \
@@ -363,11 +371,12 @@ DATA = $(AGB_Soft_DATA) $(Achim_Haertel_DATA) $(Achim_Hofmann_DATA) \
 	$(The_Blockheads_Boulderdash_DATA) \
 	$(The_Blockheads_Boulderhead_DATA) \
 	$(The_Blockheads_Trap_Boulder_DATA) \
-	$(The_Bremer_Town_Musicus_DATA) $(The_Editor_DATA) \
-	$(The_Softkiller_DATA) $(The_Softkiller_Bingo_DATA) \
-	$(The_Softkiller_Helena_DATA) $(Thomas_Mauritz_DATA) \
-	$(Tropyx_DATA) $(UStar23_DATA) $(Witro_DATA) $(Yakuza_DATA) \
-	$(Zombie_Crackers_DATA) $(various_DATA)
+	$(The_Bremer_Town_Musicus_DATA) $(The_Cobra_Boys_DATA) \
+	$(The_Editor_DATA) $(The_Softkiller_DATA) \
+	$(The_Softkiller_Bingo_DATA) $(The_Softkiller_Helena_DATA) \
+	$(Thomas_Mauritz_DATA) $(Tropyx_DATA) $(UStar23_DATA) \
+	$(Witro_DATA) $(Yakuza_DATA) $(Zombie_Crackers_DATA) \
+	$(various_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/mkinstalldirs
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -562,7 +571,7 @@ Bobosoftdir = $(pkgdatadir)/caves/Bobosoft
 Bobosoft_CAVES = Bobosoft/Bobo1_Atari.bd Bobosoft/Bobo3_Atari.bd Bobosoft/Bobo4_Atari.bd
 Bobosoft_DATA = $(Bobosoft_CAVES)
 Boulderwillidir = $(pkgdatadir)/caves/Boulderwilli
-Boulderwilli_CAVES = Boulderwilli/Babydash.gds Boulderwilli/Blue_Diamonds.gds Boulderwilli/Children_1.gds Boulderwilli/Midnight_Dash.gds Boulderwilli/Moonlight_2.gds Boulderwilli/Moonlight_3.gds
+Boulderwilli_CAVES = Boulderwilli/Babydash.gds Boulderwilli/Blue_Diamonds.gds Boulderwilli/Children_1.gds Boulderwilli/Midnightdash_2_L1.gds Boulderwilli/Midnightdash_2_L2.gds Boulderwilli/Midnightdash_2_L3.gds Boulderwilli/Midnightdash_2_L4.gds Boulderwilli/Midnightdash_2_L5.gds Boulderwilli/Midnight_Dash.gds Boulderwilli/Moonlight_2.gds Boulderwilli/Moonlight_3.gds
 Boulderwilli_DATA = $(Boulderwilli_CAVES)
 Boulderwilli_Marathon_Dashdir = $(pkgdatadir)/caves/Boulderwilli_Marathon_Dash
 Boulderwilli_Marathon_Dash_CAVES = Boulderwilli/Marathon_Dash/Marathon_Dash_Part_1.gds Boulderwilli/Marathon_Dash/Marathon_Dash_Part_2.gds Boulderwilli/Marathon_Dash/Marathon_Dash_Part_3.gds Boulderwilli/Marathon_Dash/Marathon_Dash_Part_4.gds Boulderwilli/Marathon_Dash/Marathon_Dash_Part_5.gds
@@ -697,7 +706,7 @@ Dididir = $(pkgdatadir)/caves/Didi
 Didi_CAVES = Didi/Dididash_1.gds Didi/Dididash_2.gds
 Didi_DATA = $(Didi_CAVES)
 Dinodir = $(pkgdatadir)/caves/Dino
-Dino_CAVES = Dino/Water_Dash_01.gds Dino/Water_Dash_02.gds Dino/Water_Dash_03.gds Dino/Water_Dash_04.gds Dino/Water_Dash_05.gds Dino/Water_Eat_1.gds
+Dino_CAVES = Dino/Water_Dash_01.gds Dino/Water_Dash_02.gds Dino/Water_Dash_03.gds Dino/Water_Dash_04.gds Dino/Water_Dash_05.gds Dino/Water_Dash_06.gds Dino/Water_Eat_1.gds
 Dino_DATA = $(Dino_CAVES)
 Don_Pedrodir = $(pkgdatadir)/caves/Don_Pedro
 Don_Pedro_CAVES = Don_Pedro/Boulderdash_IX.gds Don_Pedro/Boulderdash_V.gds Don_Pedro/Boulderdash_VI.gds Don_Pedro/Boulderdash_VII.gds Don_Pedro/Boulderdash_VIII.gds Don_Pedro/Boulderdash_X.bd Don_Pedro/Boulderdash_X.gds Don_Pedro/Boulderdash_XI.gds
@@ -790,9 +799,15 @@ Firefox_Firefox_DATA = $(Firefox_Firefox_CAVES)
 First_Star_Softwaredir = $(pkgdatadir)/caves/First_Star_Software
 First_Star_Software_CAVES = First_Star_Software/Boulder_Dash_1.bd First_Star_Software/Boulder_Dash_1.gds First_Star_Software/Boulder_Dash_1_Atari.bd First_Star_Software/Boulder_Dash_1_Atari.gds First_Star_Software/Boulder_Dash_2.bd First_Star_Software/Boulder_Dash_2.gds First_Star_Software/Boulder_Dash_2_Atari.bd First_Star_Software/Boulder_Dash_2_Atari.gds First_Star_Software/Boulder_Dash_4.bd First_Star_Software/Construction_Kit.gds First_Star_Software/Construction_Kit_Examples.gds
 First_Star_Software_DATA = $(First_Star_Software_CAVES)
+Fokmansdir = $(pkgdatadir)/caves/Fokmans
+Fokmans_CAVES = Fokmans/Boulder_Dash_20_Atari.bd
+Fokmans_DATA = $(Fokmans_CAVES)
 Frustdir = $(pkgdatadir)/caves/Frust
 Frust_CAVES = Frust/Frusti_Dash.bd Frust/Frusti_Dash.gds
 Frust_DATA = $(Frust_CAVES)
+GBSdir = $(pkgdatadir)/caves/GBS
+GBS_CAVES = GBS/Wodka_Boulderdash_1.gds
+GBS_DATA = $(GBS_CAVES)
 Gertruddir = $(pkgdatadir)/caves/Gertrud
 Gertrud_CAVES = 
 Gertrud_DATA = $(Gertrud_CAVES)
@@ -875,8 +890,14 @@ Logic_De_Luxedir = $(pkgdatadir)/caves/Logic_De_Luxe
 Logic_De_Luxe_CAVES = Logic_De_Luxe/LPS_Caves_GodsBoulder_1_2.gds
 Logic_De_Luxe_DATA = $(Logic_De_Luxe_CAVES)
 Lord_Diegodir = $(pkgdatadir)/caves/Lord_Diego
-Lord_Diego_CAVES = Lord_Diego/Diego_Dash_01.gds Lord_Diego/Diego_Dash_02.gds Lord_Diego/Diego_Dash_03.gds Lord_Diego/Diego_Dash_04.gds Lord_Diego/Diego_Dash_05.gds Lord_Diego/Diego_Dash_06.gds Lord_Diego/Diego_Dash_07.gds Lord_Diego/Diego_Dash_08.gds Lord_Diego/Diego_Dash_09.gds Lord_Diego/Diego_Dash_10.gds Lord_Diego/Diego_Dash_11.gds Lord_Diego/Diego_Dash_12.gds Lord_Diego/Diego_Dash_13.gds Lord_Diego/Diego_Dash_14.gds Lord_Diego/Diego_Dash_15.gds Lord_Diego/Diego_Dash_16.gds Lord_Diego/Diego_Dash_17.gds Lord_Diego/Diego_Dash_18.gds Lord_Diego/Diego_Dash_19.gds Lord_Diego/Diego_Dash_23.gds Lord_Diego/Diego_Dash_Remix_01.gds
+Lord_Diego_CAVES = Lord_Diego/Diego_Dash_Remix_01.gds Lord_Diego/Test_Dash_01.gds
 Lord_Diego_DATA = $(Lord_Diego_CAVES)
+Lord_Diego_Diegodashdir = $(pkgdatadir)/caves/Lord_Diego_Diegodash
+Lord_Diego_Diegodash_CAVES = Lord_Diego/Diegodash/Diegodash_01.gds Lord_Diego/Diegodash/Diegodash_02.gds Lord_Diego/Diegodash/Diegodash_03.gds Lord_Diego/Diegodash/Diegodash_04.gds Lord_Diego/Diegodash/Diegodash_05.gds Lord_Diego/Diegodash/Diegodash_06.gds Lord_Diego/Diegodash/Diegodash_07.gds Lord_Diego/Diegodash/Diegodash_08.gds Lord_Diego/Diegodash/Diegodash_09.gds Lord_Diego/Diegodash/Diegodash_10.gds Lord_Diego/Diegodash/Diegodash_11.gds Lord_Diego/Diegodash/Diegodash_12.gds Lord_Diego/Diegodash/Diegodash_13.gds Lord_Diego/Diegodash/Diegodash_14.gds Lord_Diego/Diegodash/Diegodash_15.gds Lord_Diego/Diegodash/Diegodash_16.gds Lord_Diego/Diegodash/Diegodash_17.gds Lord_Diego/Diegodash/Diegodash_18.gds Lord_Diego/Diegodash/Diegodash_19.gds Lord_Diego/Diegodash/Diegodash_23.gds
+Lord_Diego_Diegodash_DATA = $(Lord_Diego_Diegodash_CAVES)
+Lord_Diego_Neverendingdashdir = $(pkgdatadir)/caves/Lord_Diego_Neverendingdash
+Lord_Diego_Neverendingdash_CAVES = Lord_Diego/Neverendingdash/Neverendingdash_01.gds Lord_Diego/Neverendingdash/Neverendingdash_02.gds Lord_Diego/Neverendingdash/Neverendingdash_03.gds Lord_Diego/Neverendingdash/Neverendingdash_04.gds Lord_Diego/Neverendingdash/Neverendingdash_05.gds
+Lord_Diego_Neverendingdash_DATA = $(Lord_Diego_Neverendingdash_CAVES)
 LTL_Softdir = $(pkgdatadir)/caves/LTL_Soft
 LTL_Soft_CAVES = LTL_Soft/LTL_Soft_1_Atari.bd LTL_Soft/LTL_Soft_2_Atari.bd
 LTL_Soft_DATA = $(LTL_Soft_CAVES)
@@ -944,7 +965,7 @@ Mr_Rockforddir = $(pkgdatadir)/caves/Mr_Rockford
 Mr_Rockford_CAVES = Mr_Rockford/Boulder_Dash_XII.gds Mr_Rockford/Boulder_Dash_XIII.gds
 Mr_Rockford_DATA = $(Mr_Rockford_CAVES)
 No_Onedir = $(pkgdatadir)/caves/No_One
-No_One_CAVES = No_One/Boulderdash_Beginner.gds No_One/Boulder_Change.gds No_One/Eat_Boulder_1.gds No_One/Eat_Boulder_3.gds No_One/Final_Boulderdash.gds No_One/NoPowerDash_1.bd No_One/Son_Of_Rockford.gds No_One/Surprise_Boulderdash.gds No_One/Work_Boulder.gds
+No_One_CAVES = No_One/Boulderdash_Beginner.gds No_One/Boulder_Change_1.gds No_One/Boulder_Change_2.gds No_One/Eat_Boulder_1.gds No_One/Eat_Boulder_3.gds No_One/Final_Boulderdash.gds No_One/NoPowerDash_1.bd No_One/Son_Of_Rockford.gds No_One/Surprise_Boulderdash.gds No_One/Work_Boulder.gds
 No_One_DATA = $(No_One_CAVES)
 No_One_Delightdir = $(pkgdatadir)/caves/No_One_Delight
 No_One_Delight_CAVES = No_One/Delight/Delight_01.gds \
@@ -1070,7 +1091,7 @@ No_One_Prima_Boulderdash_CAVES =  \
 	No_One/Prima_Boulderdash/Prima_Boulderdash_42.gds
 No_One_Prima_Boulderdash_DATA = $(No_One_Prima_Boulderdash_CAVES)
 Ododir = $(pkgdatadir)/caves/Odo
-Odo_CAVES = Odo/The_Lost_Levels_1.gds Odo/The_Lost_Levels_3.gds
+Odo_CAVES = Odo/The_Lost_Levels_1.gds Odo/The_Lost_Levels_2.gds Odo/The_Lost_Levels_3.gds
 Odo_DATA = $(Odo_CAVES)
 Olaf_Rothdir = $(pkgdatadir)/caves/Olaf_Roth
 Olaf_Roth_CAVES = Olaf_Roth/Bilder_Dash.gds Olaf_Roth/Cool_Eat.gds Olaf_Roth/Easter_Dash.gds Olaf_Roth/Terminator_Dash.gds
@@ -1085,14 +1106,14 @@ Oriondir = $(pkgdatadir)/caves/Orion
 Orion_CAVES = Orion/Orion_Dash_1.gds
 Orion_DATA = $(Orion_CAVES)
 Papisdir = $(pkgdatadir)/caves/Papis
-Papis_CAVES = Papis/Boulder_Dash_12.gds Papis/Boulder_Dash_13.gds Papis/Boulder_Dash_14.gds Papis/Boulder_Dash_15.gds Papis/Boulder_Dash_38.gds Papis/Boulder_Dash_39.gds
+Papis_CAVES = Papis/Boulder_Dash_05.gds Papis/Boulder_Dash_09.gds Papis/Boulder_Dash_12.gds Papis/Boulder_Dash_13.gds Papis/Boulder_Dash_14.gds Papis/Boulder_Dash_15.gds Papis/Boulder_Dash_18.gds Papis/Boulder_Dash_19.gds Papis/Boulder_Dash_20.gds Papis/Boulder_Dash_21.gds Papis/Boulder_Dash_22.gds Papis/Boulder_Dash_23.gds Papis/Boulder_Dash_24.gds Papis/Boulder_Dash_25.gds Papis/Boulder_Dash_26.gds Papis/Boulder_Dash_27.gds Papis/Boulder_Dash_28.gds Papis/Boulder_Dash_29.gds Papis/Boulder_Dash_30.gds Papis/Boulder_Dash_31.gds Papis/Boulder_Dash_32.gds Papis/Boulder_Dash_33.gds Papis/Boulder_Dash_34.gds Papis/Boulder_Dash_35.gds Papis/Boulder_Dash_36.gds Papis/Boulder_Dash_37.gds Papis/Boulder_Dash_38.gds Papis/Boulder_Dash_39.gds Papis/Boulder_Dash_40.gds
 Papis_DATA = $(Papis_CAVES)
 Persoftdir = $(pkgdatadir)/caves/Persoft
 Persoft_CAVES = Persoft/HOP_1_Atari.bd Persoft/HOP_2_Atari.bd Persoft/HOP_3_Atari.bd Persoft/HOP_4_Atari.bd Persoft/HOP_5_Atari.bd
 Persoft_DATA = $(Persoft_CAVES)
-Petedir = $(pkgdatadir)/caves/Pete
-Pete_CAVES = Pete/Pete_Dash_1.gds Pete/Pete_Dash_2.gds Pete/Pete_Dash_3.gds Pete/Pete_Dash_4.gds Pete/Pete_Dash_5.gds Pete/Pete_Dash_8.gds Pete/Pete_Dash_9.gds Pete/Pete_Dash_Beginner.gds
-Pete_DATA = $(Pete_CAVES)
+PETEdir = $(pkgdatadir)/caves/PETE
+PETE_CAVES = PETE/PETE_Dash_1.gds PETE/PETE_Dash_2.gds PETE/PETE_Dash_3.gds PETE/PETE_Dash_4.gds PETE/PETE_Dash_5.gds PETE/PETE_Dash_8.gds PETE/PETE_Dash_9.gds PETE/PETE_Dash_Beginner.gds
+PETE_DATA = $(PETE_CAVES)
 Peter_Metsemakersdir = $(pkgdatadir)/caves/Peter_Metsemakers
 Peter_Metsemakers_CAVES = Peter_Metsemakers/Metsemakers_Dash_1.brc
 Peter_Metsemakers_DATA = $(Peter_Metsemakers_CAVES)
@@ -1288,6 +1309,9 @@ Rockford_Rockford_DATA = $(Rockford_Rockford_CAVES)
 Rockford_Super_Boulderdir = $(pkgdatadir)/caves/Rockford_Super_Boulder
 Rockford_Super_Boulder_CAVES = Rockford/Super_Boulder/Super_Boulder_01.gds Rockford/Super_Boulder/Super_Boulder_02.gds Rockford/Super_Boulder/Super_Boulder_03.gds Rockford/Super_Boulder/Super_Boulder_04.gds Rockford/Super_Boulder/Super_Boulder_05.gds Rockford/Super_Boulder/Super_Boulder_06.gds Rockford/Super_Boulder/Super_Boulder_07.gds Rockford/Super_Boulder/Super_Boulder_08.gds Rockford/Super_Boulder/Super_Boulder_09.gds Rockford/Super_Boulder/Super_Boulder_10.gds Rockford/Super_Boulder/Super_Boulder_11.gds
 Rockford_Super_Boulder_DATA = $(Rockford_Super_Boulder_CAVES)
+ROLEdir = $(pkgdatadir)/caves/ROLE
+ROLE_CAVES = ROLE/Boulder_Dash_Junior.gds ROLE/Boulder_Dash_Junior_II.gds ROLE/Boulder_Dash_Junior_III.gds ROLE/Boulder_Dash_Junior_IV-Harlequin_Stage.gds ROLE/Boulder_Dash_Junior_V-Guinea_Pigs.gds ROLE/Boulder_Dash_Junior_VI-Untested_Area.gds ROLE/Boulder_Dash_Junior_VII-One_Diamond_Hidden_Exit.gds ROLE/Boulder_Dash_Junior_VIII-The_Scarab_School_Trip.gds ROLE/Boulder_Dash_Senior.gds
+ROLE_DATA = $(ROLE_CAVES)
 Rolf_Langedir = $(pkgdatadir)/caves/Rolf_Lange
 Rolf_Lange_CAVES = Rolf_Lange/Oldiedash.gds
 Rolf_Lange_DATA = $(Rolf_Lange_CAVES)
@@ -1345,9 +1369,9 @@ Ron_van_Schaik_DATA = $(Ron_van_Schaik_CAVES)
 Ron_van_Schaik_Forkidz_Dashdir = $(pkgdatadir)/caves/Ron_van_Schaik_Forkidz_Dash
 Ron_van_Schaik_Forkidz_Dash_CAVES = Ron_van_Schaik/Forkidz_Dash/Forkidz_Dash_01.gds Ron_van_Schaik/Forkidz_Dash/Forkidz_Dash_02.gds
 Ron_van_Schaik_Forkidz_Dash_DATA = $(Ron_van_Schaik_Forkidz_Dash_CAVES)
-Ron_van_Schaik_Schaik_Dashdir = $(pkgdatadir)/caves/Ron_van_Schaik_Schaik_Dash
-Ron_van_Schaik_Schaik_Dash_CAVES = Ron_van_Schaik/Schaik_Dash/Schaikdash_01.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_02.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_03.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_04.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_05.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_06.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_07.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_08.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_09.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_10.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_11.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_12.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_13.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_14.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_15.gds Ron_van_Schaik/Schaik_Dash/Schaikdash_16.gds
-Ron_van_Schaik_Schaik_Dash_DATA = $(Ron_van_Schaik_Schaik_Dash_CAVES)
+Ron_van_Schaik_Schaikdashdir = $(pkgdatadir)/caves/Ron_van_Schaik_Schaikdash
+Ron_van_Schaik_Schaikdash_CAVES = Ron_van_Schaik/Schaikdash/Schaikdash_01.gds Ron_van_Schaik/Schaikdash/Schaikdash_02.gds Ron_van_Schaik/Schaikdash/Schaikdash_03.gds Ron_van_Schaik/Schaikdash/Schaikdash_04.gds Ron_van_Schaik/Schaikdash/Schaikdash_05.gds Ron_van_Schaik/Schaikdash/Schaikdash_06.gds Ron_van_Schaik/Schaikdash/Schaikdash_07.gds Ron_van_Schaik/Schaikdash/Schaikdash_08.gds Ron_van_Schaik/Schaikdash/Schaikdash_09.gds Ron_van_Schaik/Schaikdash/Schaikdash_10.gds Ron_van_Schaik/Schaikdash/Schaikdash_11.gds Ron_van_Schaik/Schaikdash/Schaikdash_12.gds Ron_van_Schaik/Schaikdash/Schaikdash_13.gds Ron_van_Schaik/Schaikdash/Schaikdash_14.gds Ron_van_Schaik/Schaikdash/Schaikdash_15.gds Ron_van_Schaik/Schaikdash/Schaikdash_16.gds
+Ron_van_Schaik_Schaikdash_DATA = $(Ron_van_Schaik_Schaikdash_CAVES)
 Ron_van_Schaik_Schaik_Mixdir = $(pkgdatadir)/caves/Ron_van_Schaik_Schaik_Mix
 Ron_van_Schaik_Schaik_Mix_CAVES = Ron_van_Schaik/Schaik_Mix/Schaik_Mix_A.gds Ron_van_Schaik/Schaik_Mix/Schaik_Mix_B.gds Ron_van_Schaik/Schaik_Mix/Schaik_Mix_C.gds
 Ron_van_Schaik_Schaik_Mix_DATA = $(Ron_van_Schaik_Schaik_Mix_CAVES)
@@ -1877,6 +1901,9 @@ Skeletor_DATA = $(Skeletor_CAVES)
 Skeletor_Mega_Boulderdir = $(pkgdatadir)/caves/Skeletor_Mega_Boulder
 Skeletor_Mega_Boulder_CAVES = Skeletor/Mega_Boulder/Mega_Boulder_1.gds Skeletor/Mega_Boulder/Mega_Boulder_2.gds Skeletor/Mega_Boulder/Mega_Boulder_3.gds Skeletor/Mega_Boulder/Mega_Boulder_4.gds Skeletor/Mega_Boulder/Mega_Boulder_5.gds Skeletor/Mega_Boulder/Mega_Boulder_6.gds
 Skeletor_Mega_Boulder_DATA = $(Skeletor_Mega_Boulder_CAVES)
+Sparkdir = $(pkgdatadir)/caves/Spark
+Spark_CAVES = Spark/Spark_Boulder_Dash.gds
+Spark_DATA = $(Spark_CAVES)
 Spiderdir = $(pkgdatadir)/caves/Spider
 Spider_CAVES = 
 Spider_DATA = $(Spider_CAVES)
@@ -1905,7 +1932,7 @@ Tatter_Demaliondir = $(pkgdatadir)/caves/Tatter_Demalion
 Tatter_Demalion_CAVES = Tatter_Demalion/Demalion_Dash_01-Can_you_dig_it_sucka.bd Tatter_Demalion/Demalion_Dash_02-Yosh.bd Tatter_Demalion/Demalion_Dash_02-Yosh_Casual_Remix.bd Tatter_Demalion/Demalion_Dash_03-Conflict_Diamonds.bd Tatter_Demalion/Demalion_Dash_04-All_aboard.bd Tatter_Demalion/Demalion_Dash_05-Farrago.bd Tatter_Demalion/Demalion_Dash_06-Seimicity.bd Tatter_Demalion/Demalion_Dash_07-Basic_Bricks.bd Tatter_Demalion/Demalion_Dash_08-Born2Dash.bd Tatter_Demalion/Demalion_Dash_09-Elianation.bd Tatter_Demalion/Demalion_Dash_10-Fun_and_Games.bd Tatter_Demalion/Demalion_Dash_11-ACME.bd Tatter_Demalion/Demalion_Dash_12-Super_Rad.bd Tatter_Demalion/Demalion_Dash_13-Paradigm.bd Tatter_Demalion/Demalion_Dash_14-All_aboard_again.bd Tatter_Demalion/Demalion_Dash_15-Commodork.bd Tatter_Demalion/Demalion_Dash_16-Craters.bd Tatter_Demalion/Demalion_Dash_17-Lords_of_the_Underground.bd Tatter_Demalion/Demalion_Dash_18-Grave_Robber.bd Tatter_Demalion/Demalion_Dash_NoFX.bd
 Tatter_Demalion_DATA = $(Tatter_Demalion_CAVES)
 The_Blockheadsdir = $(pkgdatadir)/caves/The_Blockheads
-The_Blockheads_CAVES = The_Blockheads/AFL_Boulderdash.gds The_Blockheads/Atlantis_Boulder.gds The_Blockheads/Emerald_Dash_2.bd The_Blockheads/NoPowerDash_3.bd The_Blockheads/RCC_Boulder_Dash.gds The_Blockheads/Waldwatzdash_3.bd
+The_Blockheads_CAVES = The_Blockheads/AFL_Boulderdash.gds The_Blockheads/Atlantis_Boulder.gds The_Blockheads/Emerald_Dash_2.bd The_Blockheads/NoPowerDash_3.bd The_Blockheads/RCC_Boulder_Dash.gds The_Blockheads/Waldwatzdash_3.bd The_Blockheads/Witrodash_1_Remix.gds The_Blockheads/Witrodash_2_Remix.gds
 The_Blockheads_DATA = $(The_Blockheads_CAVES)
 The_Blockheads_Boulderdashdir = $(pkgdatadir)/caves/The_Blockheads_Boulderdash
 The_Blockheads_Boulderdash_CAVES =  \
@@ -1942,6 +1969,9 @@ The_Blockheads_Trap_Boulder_DATA = $(The_Blockheads_Trap_Boulder_CAVES)
 The_Bremer_Town_Musicusdir = $(pkgdatadir)/caves/The_Bremer_Town_Musicus
 The_Bremer_Town_Musicus_CAVES = The_Bremer_Town_Musicus/Three_Boulder_Dash_Games_A.gds The_Bremer_Town_Musicus/Three_Boulder_Dash_Games_B.gds The_Bremer_Town_Musicus/Three_Boulder_Dash_Games_C.gds
 The_Bremer_Town_Musicus_DATA = $(The_Bremer_Town_Musicus_CAVES)
+The_Cobra_Boysdir = $(pkgdatadir)/caves/The_Cobra_Boys
+The_Cobra_Boys_CAVES = The_Cobra_Boys/Mad_Dash.gds
+The_Cobra_Boys_DATA = $(The_Cobra_Boys_CAVES)
 The_Editordir = $(pkgdatadir)/caves/The_Editor
 The_Editor_CAVES = The_Editor/Blunder_Bash.gds
 The_Editor_DATA = $(The_Editor_CAVES)
@@ -1964,10 +1994,10 @@ UStar23dir = $(pkgdatadir)/caves/UStar23
 UStar23_CAVES = UStar23/Boulderdash-UX-2.bd UStar23/Boulderdash-UX-3.bd UStar23/Boulderdash-UX.bd
 UStar23_DATA = $(UStar23_CAVES)
 variousdir = $(pkgdatadir)/caves/various
-various_CAVES = various/Boulder_Dash_20_Atari.bd various/Boulder_Dash_3_Atari.gds various/Boulder_Dash_8_Atari.gds various/Boulder_Dash_9_1.gds various/Boulder_Dash_9_2.gds various/Boulder_Dash_9_3.gds various/Boulder_Dash_9_4.gds various/Boulder_Dash_9_5.gds various/Boulder_Dash_9_6.gds various/Boulder_Dash_9_7.gds various/Boulder_Dash_9_8.gds various/Boulder_Dash_9_9.gds various/Boulder_Dash_Pro.gds various/Boulder_Games_2.gds various/CS_Boulder_2.gds various/Kit_Caves!.gds various/Super_Dash_I.gds various/Ten_Boulders.gds various/Unknown_Boulderdash_12.gds
+various_CAVES = various/Boulder_Dash_3_Atari.gds various/Boulder_Dash_8_Atari.gds various/Boulder_Dash_9_1.gds various/Boulder_Dash_9_2.gds various/Boulder_Dash_9_3.gds various/Boulder_Dash_9_4.gds various/Boulder_Dash_9_5.gds various/Boulder_Dash_9_6.gds various/Boulder_Dash_9_7.gds various/Boulder_Dash_9_8.gds various/Boulder_Dash_9_9.gds various/Boulder_Dash_Pro.gds various/Boulder_Games_2.gds various/CS_Boulder_2.gds various/Kit_Caves!.gds various/Super_Dash_I.gds various/Ten_Boulders.gds various/Unknown_Boulderdash_12.gds
 various_DATA = $(various_CAVES)
 Witrodir = $(pkgdatadir)/caves/Witro
-Witro_CAVES = Witro/Witrodash_1.gds Witro/Witrodash_2.gds Witro/Witrodash_3.gds
+Witro_CAVES = Witro/Witro_Dash_3.gds Witro/Witro_Dash_6.gds Witro/Witro_Dash_7.gds
 Witro_DATA = $(Witro_CAVES)
 Yakuzadir = $(pkgdatadir)/caves/Yakuza
 Yakuza_CAVES = Yakuza/Boulder_Plus.gds
@@ -1998,7 +2028,7 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(Eberhard_Baartz_CAVES) $(Eclips_CAVES) $(El_Swingi_CAVES) \
 	$(FAJ_Soft_CAVES) $(Falcon_Soft_CAVES) $(Firefox_CAVES) \
 	$(Firefox_Firefox_CAVES) $(First_Star_Software_CAVES) \
-	$(Frust_CAVES) $(Gertrud_CAVES) \
+	$(Fokmans_CAVES) $(Frust_CAVES) $(GBS_CAVES) $(Gertrud_CAVES) \
 	$(Gertrud_Gertrud_s_Game_CAVES) $(Gertrud_Rodex_CAVES) \
 	$(Gert_van_den_Heuvel_CAVES) $(Gods_CAVES) \
 	$(Grant_Walker_CAVES) $(Hacker_CAVES) \
@@ -2009,7 +2039,9 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(Karlchen_and_Opossum_Melmac_Dash_CAVES) \
 	$(Karlchen_and_Opossum_Ossi_Dash_CAVES) $(Kayle_Geerts_CAVES) \
 	$(KK_CAVES) $(Lanzelott_and_Matula_CAVES) \
-	$(Logic_De_Luxe_CAVES) $(Lord_Diego_CAVES) $(LTL_Soft_CAVES) \
+	$(Logic_De_Luxe_CAVES) $(Lord_Diego_CAVES) \
+	$(Lord_Diego_Diegodash_CAVES) \
+	$(Lord_Diego_Neverendingdash_CAVES) $(LTL_Soft_CAVES) \
 	$(Lukas_Shambis_CAVES) $(Madgame_CAVES) $(Mapasoft_CAVES) \
 	$(Marek_Roth_CAVES) $(Marek_Roth_Crazy_Dream_CAVES) \
 	$(Marek_Roth_Deluxe_Caves_CAVES) \
@@ -2024,7 +2056,7 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(No_One_Prima_Boulderdash_CAVES) $(Odo_CAVES) \
 	$(Olaf_Roth_CAVES) $(Olaf_Roth_Cool_Dash_CAVES) \
 	$(Olaf_Roth_Giga_Boulder_CAVES) $(Orion_CAVES) $(Papis_CAVES) \
-	$(Persoft_CAVES) $(Pete_CAVES) $(Peter_Metsemakers_CAVES) \
+	$(Persoft_CAVES) $(PETE_CAVES) $(Peter_Metsemakers_CAVES) \
 	$(Peter_Traunig_CAVES) $(Phoenix_CAVES) \
 	$(Pierre_and_Olivier_CAVES) $(Posocopi_Waldkirch_CAVES) \
 	$(Prof_Knibble_CAVES) $(Prof_Knibble_Boulder_Dash_Heavy_CAVES) \
@@ -2035,12 +2067,12 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(Replica_Copy_Crew_CAVES) $(Rockford_CAVES) \
 	$(Rockford_Gerd_Boulder_CAVES) $(Rockford_Profi_Boulder_CAVES) \
 	$(Rockford_Rockford_CAVES) $(Rockford_Super_Boulder_CAVES) \
-	$(Rolf_Lange_CAVES) $(Rolf_Lange_Rolodash_CAVES) \
+	$(ROLE_CAVES) $(Rolf_Lange_CAVES) $(Rolf_Lange_Rolodash_CAVES) \
 	$(Rolf_Roth_CAVES) $(Rolf_Roth_Nordseepower_CAVES) \
 	$(Rolf_Roth_Schlicktown_CAVES) $(Rolf_Roth_Stone_Age_CAVES) \
 	$(Rolf_Roth_Waterkant_Dash_CAVES) $(Ron_van_Schaik_CAVES) \
 	$(Ron_van_Schaik_Forkidz_Dash_CAVES) \
-	$(Ron_van_Schaik_Schaik_Dash_CAVES) \
+	$(Ron_van_Schaik_Schaikdash_CAVES) \
 	$(Ron_van_Schaik_Schaik_Mix_CAVES) $(Rory_Agsten_CAVES) \
 	$(Sarah_Roth_CAVES) $(Schlonkel_CAVES) \
 	$(Scserbin_Zoltan_CAVES) $(Scserbin_Zoltan_Atlantis_CAVES) \
@@ -2053,7 +2085,7 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(Scserbin_Zoltan_Robot_Dash_CAVES) \
 	$(Scserbin_Zoltan_Tank_War_CAVES) $(Sendy_CAVES) \
 	$(Sijben_Soft_CAVES) $(Skeletor_CAVES) \
-	$(Skeletor_Mega_Boulder_CAVES) $(Spider_CAVES) \
+	$(Skeletor_Mega_Boulder_CAVES) $(Spark_CAVES) $(Spider_CAVES) \
 	$(Spider_Bouldi_Dash_CAVES) $(Spider_Steel_Dash_CAVES) \
 	$(Stormbringer_CAVES) $(Stormbringer_Crazy_Dash_CAVES) \
 	$(Stormbringer_Stormdash_CAVES) $(Sub7_CAVES) $(Subotai_CAVES) \
@@ -2061,11 +2093,12 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(The_Blockheads_Boulderdash_CAVES) \
 	$(The_Blockheads_Boulderhead_CAVES) \
 	$(The_Blockheads_Trap_Boulder_CAVES) \
-	$(The_Bremer_Town_Musicus_CAVES) $(The_Editor_CAVES) \
-	$(The_Softkiller_CAVES) $(The_Softkiller_Bingo_CAVES) \
-	$(The_Softkiller_Helena_CAVES) $(Thomas_Mauritz_CAVES) \
-	$(Tropyx_CAVES) $(UStar23_CAVES) $(various_CAVES) \
-	$(Witro_CAVES) $(Yakuza_CAVES) $(Zombie_Crackers_CAVES)
+	$(The_Bremer_Town_Musicus_CAVES) $(The_Cobra_Boys_CAVES) \
+	$(The_Editor_CAVES) $(The_Softkiller_CAVES) \
+	$(The_Softkiller_Bingo_CAVES) $(The_Softkiller_Helena_CAVES) \
+	$(Thomas_Mauritz_CAVES) $(Tropyx_CAVES) $(UStar23_CAVES) \
+	$(various_CAVES) $(Witro_CAVES) $(Yakuza_CAVES) \
+	$(Zombie_Crackers_CAVES)
 all: all-am
 
 .SUFFIXES:
@@ -3148,6 +3181,27 @@ uninstall-First_Star_SoftwareDATA:
 	@list='$(First_Star_Software_DATA)'; test -n "$(First_Star_Softwaredir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(First_Star_Softwaredir)'; $(am__uninstall_files_from_dir)
+install-FokmansDATA: $(Fokmans_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(Fokmans_DATA)'; test -n "$(Fokmansdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(Fokmansdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(Fokmansdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(Fokmansdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(Fokmansdir)" || exit $$?; \
+	done
+
+uninstall-FokmansDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(Fokmans_DATA)'; test -n "$(Fokmansdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(Fokmansdir)'; $(am__uninstall_files_from_dir)
 install-FrustDATA: $(Frust_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Frust_DATA)'; test -n "$(Frustdir)" || list=; \
@@ -3169,6 +3223,27 @@ uninstall-FrustDATA:
 	@list='$(Frust_DATA)'; test -n "$(Frustdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Frustdir)'; $(am__uninstall_files_from_dir)
+install-GBSDATA: $(GBS_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(GBS_DATA)'; test -n "$(GBSdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(GBSdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(GBSdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(GBSdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(GBSdir)" || exit $$?; \
+	done
+
+uninstall-GBSDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(GBS_DATA)'; test -n "$(GBSdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(GBSdir)'; $(am__uninstall_files_from_dir)
 install-Gert_van_den_HeuvelDATA: $(Gert_van_den_Heuvel_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Gert_van_den_Heuvel_DATA)'; test -n "$(Gert_van_den_Heuveldir)" || list=; \
@@ -3631,6 +3706,48 @@ uninstall-Lord_DiegoDATA:
 	@list='$(Lord_Diego_DATA)'; test -n "$(Lord_Diegodir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Lord_Diegodir)'; $(am__uninstall_files_from_dir)
+install-Lord_Diego_DiegodashDATA: $(Lord_Diego_Diegodash_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(Lord_Diego_Diegodash_DATA)'; test -n "$(Lord_Diego_Diegodashdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(Lord_Diego_Diegodashdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(Lord_Diego_Diegodashdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(Lord_Diego_Diegodashdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(Lord_Diego_Diegodashdir)" || exit $$?; \
+	done
+
+uninstall-Lord_Diego_DiegodashDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(Lord_Diego_Diegodash_DATA)'; test -n "$(Lord_Diego_Diegodashdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(Lord_Diego_Diegodashdir)'; $(am__uninstall_files_from_dir)
+install-Lord_Diego_NeverendingdashDATA: $(Lord_Diego_Neverendingdash_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(Lord_Diego_Neverendingdash_DATA)'; test -n "$(Lord_Diego_Neverendingdashdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(Lord_Diego_Neverendingdashdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(Lord_Diego_Neverendingdashdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(Lord_Diego_Neverendingdashdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(Lord_Diego_Neverendingdashdir)" || exit $$?; \
+	done
+
+uninstall-Lord_Diego_NeverendingdashDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(Lord_Diego_Neverendingdash_DATA)'; test -n "$(Lord_Diego_Neverendingdashdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(Lord_Diego_Neverendingdashdir)'; $(am__uninstall_files_from_dir)
 install-Lukas_ShambisDATA: $(Lukas_Shambis_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Lukas_Shambis_DATA)'; test -n "$(Lukas_Shambisdir)" || list=; \
@@ -4282,6 +4399,27 @@ uninstall-OrionDATA:
 	@list='$(Orion_DATA)'; test -n "$(Oriondir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Oriondir)'; $(am__uninstall_files_from_dir)
+install-PETEDATA: $(PETE_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(PETE_DATA)'; test -n "$(PETEdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(PETEdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(PETEdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(PETEdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(PETEdir)" || exit $$?; \
+	done
+
+uninstall-PETEDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(PETE_DATA)'; test -n "$(PETEdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(PETEdir)'; $(am__uninstall_files_from_dir)
 install-PapisDATA: $(Papis_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Papis_DATA)'; test -n "$(Papisdir)" || list=; \
@@ -4324,27 +4462,6 @@ uninstall-PersoftDATA:
 	@list='$(Persoft_DATA)'; test -n "$(Persoftdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Persoftdir)'; $(am__uninstall_files_from_dir)
-install-PeteDATA: $(Pete_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(Pete_DATA)'; test -n "$(Petedir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(Petedir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(Petedir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(Petedir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(Petedir)" || exit $$?; \
-	done
-
-uninstall-PeteDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(Pete_DATA)'; test -n "$(Petedir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(Petedir)'; $(am__uninstall_files_from_dir)
 install-Peter_MetsemakersDATA: $(Peter_Metsemakers_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Peter_Metsemakers_DATA)'; test -n "$(Peter_Metsemakersdir)" || list=; \
@@ -4555,6 +4672,27 @@ uninstall-Prof_Knibble_Knibble_EatDATA:
 	@list='$(Prof_Knibble_Knibble_Eat_DATA)'; test -n "$(Prof_Knibble_Knibble_Eatdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Prof_Knibble_Knibble_Eatdir)'; $(am__uninstall_files_from_dir)
+install-ROLEDATA: $(ROLE_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(ROLE_DATA)'; test -n "$(ROLEdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(ROLEdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(ROLEdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(ROLEdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(ROLEdir)" || exit $$?; \
+	done
+
+uninstall-ROLEDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(ROLE_DATA)'; test -n "$(ROLEdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(ROLEdir)'; $(am__uninstall_files_from_dir)
 install-Radek_Buchta_and_NudelDATA: $(Radek_Buchta_and_Nudel_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Radek_Buchta_and_Nudel_DATA)'; test -n "$(Radek_Buchta_and_Nudeldir)" || list=; \
@@ -4912,27 +5050,6 @@ uninstall-Ron_van_Schaik_Forkidz_DashDATA:
 	@list='$(Ron_van_Schaik_Forkidz_Dash_DATA)'; test -n "$(Ron_van_Schaik_Forkidz_Dashdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Ron_van_Schaik_Forkidz_Dashdir)'; $(am__uninstall_files_from_dir)
-install-Ron_van_Schaik_Schaik_DashDATA: $(Ron_van_Schaik_Schaik_Dash_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(Ron_van_Schaik_Schaik_Dash_DATA)'; test -n "$(Ron_van_Schaik_Schaik_Dashdir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(Ron_van_Schaik_Schaik_Dashdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(Ron_van_Schaik_Schaik_Dashdir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(Ron_van_Schaik_Schaik_Dashdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(Ron_van_Schaik_Schaik_Dashdir)" || exit $$?; \
-	done
-
-uninstall-Ron_van_Schaik_Schaik_DashDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(Ron_van_Schaik_Schaik_Dash_DATA)'; test -n "$(Ron_van_Schaik_Schaik_Dashdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(Ron_van_Schaik_Schaik_Dashdir)'; $(am__uninstall_files_from_dir)
 install-Ron_van_Schaik_Schaik_MixDATA: $(Ron_van_Schaik_Schaik_Mix_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Ron_van_Schaik_Schaik_Mix_DATA)'; test -n "$(Ron_van_Schaik_Schaik_Mixdir)" || list=; \
@@ -4954,6 +5071,27 @@ uninstall-Ron_van_Schaik_Schaik_MixDATA:
 	@list='$(Ron_van_Schaik_Schaik_Mix_DATA)'; test -n "$(Ron_van_Schaik_Schaik_Mixdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Ron_van_Schaik_Schaik_Mixdir)'; $(am__uninstall_files_from_dir)
+install-Ron_van_Schaik_SchaikdashDATA: $(Ron_van_Schaik_Schaikdash_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(Ron_van_Schaik_Schaikdash_DATA)'; test -n "$(Ron_van_Schaik_Schaikdashdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)" || exit $$?; \
+	done
+
+uninstall-Ron_van_Schaik_SchaikdashDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(Ron_van_Schaik_Schaikdash_DATA)'; test -n "$(Ron_van_Schaik_Schaikdashdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)'; $(am__uninstall_files_from_dir)
 install-Rory_AgstenDATA: $(Rory_Agsten_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Rory_Agsten_DATA)'; test -n "$(Rory_Agstendir)" || list=; \
@@ -5311,6 +5449,27 @@ uninstall-Skeletor_Mega_BoulderDATA:
 	@list='$(Skeletor_Mega_Boulder_DATA)'; test -n "$(Skeletor_Mega_Boulderdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Skeletor_Mega_Boulderdir)'; $(am__uninstall_files_from_dir)
+install-SparkDATA: $(Spark_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(Spark_DATA)'; test -n "$(Sparkdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(Sparkdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(Sparkdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(Sparkdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(Sparkdir)" || exit $$?; \
+	done
+
+uninstall-SparkDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(Spark_DATA)'; test -n "$(Sparkdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(Sparkdir)'; $(am__uninstall_files_from_dir)
 install-SpiderDATA: $(Spider_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Spider_DATA)'; test -n "$(Spiderdir)" || list=; \
@@ -5605,6 +5764,27 @@ uninstall-The_Bremer_Town_MusicusDATA:
 	@list='$(The_Bremer_Town_Musicus_DATA)'; test -n "$(The_Bremer_Town_Musicusdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(The_Bremer_Town_Musicusdir)'; $(am__uninstall_files_from_dir)
+install-The_Cobra_BoysDATA: $(The_Cobra_Boys_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(The_Cobra_Boys_DATA)'; test -n "$(The_Cobra_Boysdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(The_Cobra_Boysdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(The_Cobra_Boysdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(The_Cobra_Boysdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(The_Cobra_Boysdir)" || exit $$?; \
+	done
+
+uninstall-The_Cobra_BoysDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(The_Cobra_Boys_DATA)'; test -n "$(The_Cobra_Boysdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(The_Cobra_Boysdir)'; $(am__uninstall_files_from_dir)
 install-The_EditorDATA: $(The_Editor_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(The_Editor_DATA)'; test -n "$(The_Editordir)" || list=; \
@@ -5879,7 +6059,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(AGB_Softdir)" "$(DESTDIR)$(Achim_Haerteldir)" "$(DESTDIR)$(Achim_Hofmanndir)" "$(DESTDIR)$(Add_and_TKRdir)" "$(DESTDIR)$(Alan_Bonddir)" "$(DESTDIR)$(Alchemysticsdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Dangerdashdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Digdir)" "$(DESTDIR)$(Alex_Zopdir)" "$(DESTDIR)$(American_Actiondir)" "$(DESTDIR)$(Arno_Weberdir)" "$(DESTDIR)$(Arno_Weber_Arno_Dashdir)" "$(DESTDIR)$(Artisdir)" "$(DESTDIR)$(Atarakushidir)" "$(DESTDIR)$(Bert_Boggerdir)" "$(DESTDIR)$(Black_and_Hawkdir)" "$(DESTDIR)$(Blupidir)" "$(DESTDIR)$(Bobosoftdir)" "$(DESTDIR)$(Boulder_Dash_Communitydir)" "$(DESTDIR)$(Boulder_Rush_cave_packdir)" "$(DESTDIR)$(Boulderwillidir)" "$(DESTDIR)$(Boulderwilli_Marathon_Dashdir)" "$(DESTDIR)$(Burton_Banditdir)" "$(DESTDIR)$(CCFdir)" "$(DESTDIR)$(CWSdir)" "$(DESTDIR)$(Chaosdir)" "$(DESTDIR)$(Cheech_and_Chongsdir)" "$(DESTDIR)$(Conraddir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KGdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Quolder_Dashdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Roulder_Dashdir)" "$(DESTDIR)$(Cupdir)" "$(DESTDIR)$(Dan_Warrendir)" "$(DESTDIR)$(Daniel_Tavernierdir)" "$(DESTDIR)$(Dididir)" "$(DESTDIR)$(Dinodir)" "$(DESTDIR)$(Don_Pedrodir)" "$(DESTDIR)$(Dotterteamdir)" "$(DESTDIR)$(Dr_Gurudir)" "$(DESTDIR)$(Dr_Watsondir)" "$(DESTDIR)$(Dustindir)" "$(DESTDIR)$(Dustin_Dustin_s_Boulder_Dashdir)" "$(DESTDIR)$(Eberhard_Baartzdir)" "$(DESTDIR)$(Eclipsdir)" "$(DESTDIR)$(El_Swingidir)" "$(DESTDIR)$(FAJ_Softdir)" "$(DESTDIR)$(Falcon_Softdir)" "$(DESTDIR)$(Firefoxdir)" "$(DESTDIR)$(Firefox_Firefoxdir)" "$(DESTDIR)$(First_Star_Softwaredir)" "$(DESTDIR)$(Frustdir)" "$(DESTDIR)$(Gert_van_den_Heuveldir)" "$(DESTDIR)$(Gertruddir)" "$(DESTDIR)$(Gertrud_Gertrud_s_Gamedir)" "$(DESTDIR)$(Gertrud_Rodexdir)" "$(DESTDIR)$(Godsdir)" "$(DESTDIR)$(Grant_Walkerdir)" "$(DESTDIR)$(HSGdir)" "$(DESTDIR)$(Hackerdir)" "$(DESTDIR)$(Heinz_Trumpelmanndir)" "$(DESTDIR)$(Incubusdir)" "$(DESTDIR)$(Iron_Softdir)" "$(DESTDIR)$(Jason_Sabourindir)" "$(DESTDIR)$(KKdir)" "$(DESTDIR)$(Karlchen_and_Opossumdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Frettchendashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Melmac_Dashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Ossi_Dashdir)" "$(DESTDIR)$(Kayle_Geertsdir)" "$(DESTDIR)$(LTL_Softdir)" "$(DESTDIR)$(Lanzelott_and_Matuladir)" "$(DESTDIR)$(Logic_De_Luxedir)" "$(DESTDIR)$(Lord_Diegodir)" "$(DESTDIR)$(Lukas_Shambisdir)" "$(DESTDIR)$(MB_Softdir)" "$(DESTDIR)$(MJMandir)" "$(DESTDIR)$(MJRdir)" "$(DESTDIR)$(Madgamedir)" "$(DESTDIR)$(Mapasoftdir)" "$(DESTDIR)$(Marek_Rothdir)" "$(DESTDIR)$(Marek_Roth_Crazy_Dreamdir)" "$(DESTDIR)$(Marek_Roth_De_Luxe_Remixdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Cavesdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Dashdir)" "$(DESTDIR)$(Mario_Albrechtdir)" "$(DESTDIR)$(Matthias_Kothdir)" "$(DESTDIR)$(Matthias_Steinerdir)" "$(DESTDIR)$(Maxdir)" "$(DESTDIR)$(Metalmorphosisdir)" "$(DESTDIR)$(Michael_and_Ingodir)" "$(DESTDIR)$(Mr_Jokerdir)" "$(DESTDIR)$(Mr_Nobodydir)" "$(DESTDIR)$(Mr_Nonflexdir)" "$(DESTDIR)$(Mr_Rockforddir)" "$(DESTDIR)$(No_Onedir)" "$(DESTDIR)$(No_One_Delightdir)" "$(DESTDIR)$(No_One_Final_Boulderdir)" "$(DESTDIR)$(No_One_No_One_s_Boulderdir)" "$(DESTDIR)$(No_One_Prima_Boulderdashdir)" "$(DESTDIR)$(Ododir)" "$(DESTDIR)$(Olaf_Rothdir)" "$(DESTDIR)$(Olaf_Roth_Cool_Dashdir)" "$(DESTDIR)$(Olaf_Roth_Giga_Boulderdir)" "$(DESTDIR)$(Oriondir)" "$(DESTDIR)$(Papisdir)" "$(DESTDIR)$(Persoftdir)" "$(DESTDIR)$(Petedir)" "$(DESTDIR)$(Peter_Metsemakersdir)" "$(DESTDIR)$(Peter_Traunigdir)" "$(DESTDIR)$(Phoenixdir)" "$(DESTDIR)$(Pierre_and_Olivierdir)" "$(DESTDIR)$(Posocopi_Waldkirchdir)" "$(DESTDIR)$(Prof_Knibbledir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Heavydir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Weekdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Dashdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Eatdir)" "$(DESTDIR)$(Radek_Buchta_and_Nudeldir)" "$(DESTDIR)$(Renatedir)" "$(DESTDIR)$(Replica_Copy_Crewdir)" "$(DESTDIR)$(Rockforddir)" "$(DESTDIR)$(Rockford_Gerd_Boulderdir)" "$(DESTDIR)$(Rockford_Profi_Boulderdir)" "$(DESTDIR)$(Rockford_Rockforddir)" "$(DESTDIR)$(Rockford_Super_Boulderdir)" "$(DESTDIR)$(Rolf_Langedir)" "$(DESTDIR)$(Rolf_Lange_Rolodashdir)" "$(DESTDIR)$(Rolf_Rothdir)" "$(DESTDIR)$(Rolf_Roth_Nordseepowerdir)" "$(DESTDIR)$(Rolf_Roth_Schlicktowndir)" "$(DESTDIR)$(Rolf_Roth_Stone_Agedir)" "$(DESTDIR)$(Rolf_Roth_Waterkant_Dashdir)" "$(DESTDIR)$(Ron_van_Schaikdir)" "$(DESTDIR)$(Ron_van_Schaik_Forkidz_Dashdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaik_Dashdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaik_Mixdir)" "$(DESTDIR)$(Rory_Agstendir)" "$(DESTDIR)$(Sarah_Rothdir)" "$(DESTDIR)$(Schlonkeldir)" "$(DESTDIR)$(Scserbin_Zoltandir)" "$(DESTDIR)$(Scserbin_Zoltan_Atlantisdir)" "$(DESTDIR)$(Scserbin_Zoltan_Auto_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Batmandir)" "$(DESTDIR)$(Scserbin_Zoltan_Dig_Dug_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Golden_Boulder_Who_Dares_Winsdir)" "$(DESTDIR)$(Scserbin_Zoltan_Ninja_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Quasimododir)" "$(DESTDIR)$(Scserbin_Zoltan_Robot_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Tank_Wardir)" "$(DESTDIR)$(Sendydir)" "$(DESTDIR)$(Sijben_Softdir)" "$(DESTDIR)$(Skeletordir)" "$(DESTDIR)$(Skeletor_Mega_Boulderdir)" "$(DESTDIR)$(Spiderdir)" "$(DESTDIR)$(Spider_Bouldi_Dashdir)" "$(DESTDIR)$(Spider_Steel_Dashdir)" "$(DESTDIR)$(Stormbringerdir)" "$(DESTDIR)$(Stormbringer_Crazy_Dashdir)" "$(DESTDIR)$(Stormbringer_Stormdashdir)" "$(DESTDIR)$(Sub7dir)" "$(DESTDIR)$(Subotaidir)" "$(DESTDIR)$(Tatter_Demaliondir)" "$(DESTDIR)$(The_Blockheadsdir)" "$(DESTDIR)$(The_Blockheads_Boulderdashdir)" "$(DESTDIR)$(The_Blockheads_Boulderheaddir)" "$(DESTDIR)$(The_Blockheads_Trap_Boulderdir)" "$(DESTDIR)$(The_Bremer_Town_Musicusdir)" "$(DESTDIR)$(The_Editordir)" "$(DESTDIR)$(The_Softkillerdir)" "$(DESTDIR)$(The_Softkiller_Bingodir)" "$(DESTDIR)$(The_Softkiller_Helenadir)" "$(DESTDIR)$(Thomas_Mauritzdir)" "$(DESTDIR)$(Tropyxdir)" "$(DESTDIR)$(UStar23dir)" "$(DESTDIR)$(Witrodir)" "$(DESTDIR)$(Yakuzadir)" "$(DESTDIR)$(Zombie_Crackersdir)" "$(DESTDIR)$(variousdir)"; do \
+	for dir in "$(DESTDIR)$(AGB_Softdir)" "$(DESTDIR)$(Achim_Haerteldir)" "$(DESTDIR)$(Achim_Hofmanndir)" "$(DESTDIR)$(Add_and_TKRdir)" "$(DESTDIR)$(Alan_Bonddir)" "$(DESTDIR)$(Alchemysticsdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Dangerdashdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Digdir)" "$(DESTDIR)$(Alex_Zopdir)" "$(DESTDIR)$(American_Actiondir)" "$(DESTDIR)$(Arno_Weberdir)" "$(DESTDIR)$(Arno_Weber_Arno_Dashdir)" "$(DESTDIR)$(Artisdir)" "$(DESTDIR)$(Atarakushidir)" "$(DESTDIR)$(Bert_Boggerdir)" "$(DESTDIR)$(Black_and_Hawkdir)" "$(DESTDIR)$(Blupidir)" "$(DESTDIR)$(Bobosoftdir)" "$(DESTDIR)$(Boulder_Dash_Communitydir)" "$(DESTDIR)$(Boulder_Rush_cave_packdir)" "$(DESTDIR)$(Boulderwillidir)" "$(DESTDIR)$(Boulderwilli_Marathon_Dashdir)" "$(DESTDIR)$(Burton_Banditdir)" "$(DESTDIR)$(CCFdir)" "$(DESTDIR)$(CWSdir)" "$(DESTDIR)$(Chaosdir)" "$(DESTDIR)$(Cheech_and_Chongsdir)" "$(DESTDIR)$(Conraddir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KGdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Quolder_Dashdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Roulder_Dashdir)" "$(DESTDIR)$(Cupdir)" "$(DESTDIR)$(Dan_Warrendir)" "$(DESTDIR)$(Daniel_Tavernierdir)" "$(DESTDIR)$(Dididir)" "$(DESTDIR)$(Dinodir)" "$(DESTDIR)$(Don_Pedrodir)" "$(DESTDIR)$(Dotterteamdir)" "$(DESTDIR)$(Dr_Gurudir)" "$(DESTDIR)$(Dr_Watsondir)" "$(DESTDIR)$(Dustindir)" "$(DESTDIR)$(Dustin_Dustin_s_Boulder_Dashdir)" "$(DESTDIR)$(Eberhard_Baartzdir)" "$(DESTDIR)$(Eclipsdir)" "$(DESTDIR)$(El_Swingidir)" "$(DESTDIR)$(FAJ_Softdir)" "$(DESTDIR)$(Falcon_Softdir)" "$(DESTDIR)$(Firefoxdir)" "$(DESTDIR)$(Firefox_Firefoxdir)" "$(DESTDIR)$(First_Star_Softwaredir)" "$(DESTDIR)$(Fokmansdir)" "$(DESTDIR)$(Frustdir)" "$(DESTDIR)$(GBSdir)" "$(DESTDIR)$(Gert_van_den_Heuveldir)" "$(DESTDIR)$(Gertruddir)" "$(DESTDIR)$(Gertrud_Gertrud_s_Gamedir)" "$(DESTDIR)$(Gertrud_Rodexdir)" "$(DESTDIR)$(Godsdir)" "$(DESTDIR)$(Grant_Walkerdir)" "$(DESTDIR)$(HSGdir)" "$(DESTDIR)$(Hackerdir)" "$(DESTDIR)$(Heinz_Trumpelmanndir)" "$(DESTDIR)$(Incubusdir)" "$(DESTDIR)$(Iron_Softdir)" "$(DESTDIR)$(Jason_Sabourindir)" "$(DESTDIR)$(KKdir)" "$(DESTDIR)$(Karlchen_and_Opossumdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Frettchendashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Melmac_Dashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Ossi_Dashdir)" "$(DESTDIR)$(Kayle_Geertsdir)" "$(DESTDIR)$(LTL_Softdir)" "$(DESTDIR)$(Lanzelott_and_Matuladir)" "$(DESTDIR)$(Logic_De_Luxedir)" "$(DESTDIR)$(Lord_Diegodir)" "$(DESTDIR)$(Lord_Diego_Diegodashdir)" "$(DESTDIR)$(Lord_Diego_Neverendingdashdir)" "$(DESTDIR)$(Lukas_Shambisdir)" "$(DESTDIR)$(MB_Softdir)" "$(DESTDIR)$(MJMandir)" "$(DESTDIR)$(MJRdir)" "$(DESTDIR)$(Madgamedir)" "$(DESTDIR)$(Mapasoftdir)" "$(DESTDIR)$(Marek_Rothdir)" "$(DESTDIR)$(Marek_Roth_Crazy_Dreamdir)" "$(DESTDIR)$(Marek_Roth_De_Luxe_Remixdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Cavesdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Dashdir)" "$(DESTDIR)$(Mario_Albrechtdir)" "$(DESTDIR)$(Matthias_Kothdir)" "$(DESTDIR)$(Matthias_Steinerdir)" "$(DESTDIR)$(Maxdir)" "$(DESTDIR)$(Metalmorphosisdir)" "$(DESTDIR)$(Michael_and_Ingodir)" "$(DESTDIR)$(Mr_Jokerdir)" "$(DESTDIR)$(Mr_Nobodydir)" "$(DESTDIR)$(Mr_Nonflexdir)" "$(DESTDIR)$(Mr_Rockforddir)" "$(DESTDIR)$(No_Onedir)" "$(DESTDIR)$(No_One_Delightdir)" "$(DESTDIR)$(No_One_Final_Boulderdir)" "$(DESTDIR)$(No_One_No_One_s_Boulderdir)" "$(DESTDIR)$(No_One_Prima_Boulderdashdir)" "$(DESTDIR)$(Ododir)" "$(DESTDIR)$(Olaf_Rothdir)" "$(DESTDIR)$(Olaf_Roth_Cool_Dashdir)" "$(DESTDIR)$(Olaf_Roth_Giga_Boulderdir)" "$(DESTDIR)$(Oriondir)" "$(DESTDIR)$(PETEdir)" "$(DESTDIR)$(Papisdir)" "$(DESTDIR)$(Persoftdir)" "$(DESTDIR)$(Peter_Metsemakersdir)" "$(DESTDIR)$(Peter_Traunigdir)" "$(DESTDIR)$(Phoenixdir)" "$(DESTDIR)$(Pierre_and_Olivierdir)" "$(DESTDIR)$(Posocopi_Waldkirchdir)" "$(DESTDIR)$(Prof_Knibbledir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Heavydir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Weekdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Dashdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Eatdir)" "$(DESTDIR)$(ROLEdir)" "$(DESTDIR)$(Radek_Buchta_and_Nudeldir)" "$(DESTDIR)$(Renatedir)" "$(DESTDIR)$(Replica_Copy_Crewdir)" "$(DESTDIR)$(Rockforddir)" "$(DESTDIR)$(Rockford_Gerd_Boulderdir)" "$(DESTDIR)$(Rockford_Profi_Boulderdir)" "$(DESTDIR)$(Rockford_Rockforddir)" "$(DESTDIR)$(Rockford_Super_Boulderdir)" "$(DESTDIR)$(Rolf_Langedir)" "$(DESTDIR)$(Rolf_Lange_Rolodashdir)" "$(DESTDIR)$(Rolf_Rothdir)" "$(DESTDIR)$(Rolf_Roth_Nordseepowerdir)" "$(DESTDIR)$(Rolf_Roth_Schlicktowndir)" "$(DESTDIR)$(Rolf_Roth_Stone_Agedir)" "$(DESTDIR)$(Rolf_Roth_Waterkant_Dashdir)" "$(DESTDIR)$(Ron_van_Schaikdir)" "$(DESTDIR)$(Ron_van_Schaik_Forkidz_Dashdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaik_Mixdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)" "$(DESTDIR)$(Rory_Agstendir)" "$(DESTDIR)$(Sarah_Rothdir)" "$(DESTDIR)$(Schlonkeldir)" "$(DESTDIR)$(Scserbin_Zoltandir)" "$(DESTDIR)$(Scserbin_Zoltan_Atlantisdir)" "$(DESTDIR)$(Scserbin_Zoltan_Auto_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Batmandir)" "$(DESTDIR)$(Scserbin_Zoltan_Dig_Dug_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Golden_Boulder_Who_Dares_Winsdir)" "$(DESTDIR)$(Scserbin_Zoltan_Ninja_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Quasimododir)" "$(DESTDIR)$(Scserbin_Zoltan_Robot_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Tank_Wardir)" "$(DESTDIR)$(Sendydir)" "$(DESTDIR)$(Sijben_Softdir)" "$(DESTDIR)$(Skeletordir)" "$(DESTDIR)$(Skeletor_Mega_Boulderdir)" "$(DESTDIR)$(Sparkdir)" "$(DESTDIR)$(Spiderdir)" "$(DESTDIR)$(Spider_Bouldi_Dashdir)" "$(DESTDIR)$(Spider_Steel_Dashdir)" "$(DESTDIR)$(Stormbringerdir)" "$(DESTDIR)$(Stormbringer_Crazy_Dashdir)" "$(DESTDIR)$(Stormbringer_Stormdashdir)" "$(DESTDIR)$(Sub7dir)" "$(DESTDIR)$(Subotaidir)" "$(DESTDIR)$(Tatter_Demaliondir)" "$(DESTDIR)$(The_Blockheadsdir)" "$(DESTDIR)$(The_Blockheads_Boulderdashdir)" "$(DESTDIR)$(The_Blockheads_Boulderheaddir)" "$(DESTDIR)$(The_Blockheads_Trap_Boulderdir)" "$(DESTDIR)$(The_Bremer_Town_Musicusdir)" "$(DESTDIR)$(The_Cobra_Boysdir)" "$(DESTDIR)$(The_Editordir)" "$(DESTDIR)$(The_Softkillerdir)" "$(DESTDIR)$(The_Softkiller_Bingodir)" "$(DESTDIR)$(The_Softkiller_Helenadir)" "$(DESTDIR)$(Thomas_Mauritzdir)" "$(DESTDIR)$(Tropyxdir)" "$(DESTDIR)$(UStar23dir)" "$(DESTDIR)$(Witrodir)" "$(DESTDIR)$(Yakuzadir)" "$(DESTDIR)$(Zombie_Crackersdir)" "$(DESTDIR)$(variousdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -5958,22 +6138,25 @@ install-data-am: install-AGB_SoftDATA install-Achim_HaertelDATA \
 	install-El_SwingiDATA install-FAJ_SoftDATA \
 	install-Falcon_SoftDATA install-FirefoxDATA \
 	install-Firefox_FirefoxDATA install-First_Star_SoftwareDATA \
-	install-FrustDATA install-Gert_van_den_HeuvelDATA \
-	install-GertrudDATA install-Gertrud_Gertrud_s_GameDATA \
-	install-Gertrud_RodexDATA install-GodsDATA \
-	install-Grant_WalkerDATA install-HSGDATA install-HackerDATA \
-	install-Heinz_TrumpelmannDATA install-IncubusDATA \
-	install-Iron_SoftDATA install-Jason_SabourinDATA \
-	install-KKDATA install-Karlchen_and_OpossumDATA \
+	install-FokmansDATA install-FrustDATA install-GBSDATA \
+	install-Gert_van_den_HeuvelDATA install-GertrudDATA \
+	install-Gertrud_Gertrud_s_GameDATA install-Gertrud_RodexDATA \
+	install-GodsDATA install-Grant_WalkerDATA install-HSGDATA \
+	install-HackerDATA install-Heinz_TrumpelmannDATA \
+	install-IncubusDATA install-Iron_SoftDATA \
+	install-Jason_SabourinDATA install-KKDATA \
+	install-Karlchen_and_OpossumDATA \
 	install-Karlchen_and_Opossum_FrettchendashDATA \
 	install-Karlchen_and_Opossum_Melmac_DashDATA \
 	install-Karlchen_and_Opossum_Ossi_DashDATA \
 	install-Kayle_GeertsDATA install-LTL_SoftDATA \
 	install-Lanzelott_and_MatulaDATA install-Logic_De_LuxeDATA \
-	install-Lord_DiegoDATA install-Lukas_ShambisDATA \
-	install-MB_SoftDATA install-MJManDATA install-MJRDATA \
-	install-MadgameDATA install-MapasoftDATA \
-	install-Marek_RothDATA install-Marek_Roth_Crazy_DreamDATA \
+	install-Lord_DiegoDATA install-Lord_Diego_DiegodashDATA \
+	install-Lord_Diego_NeverendingdashDATA \
+	install-Lukas_ShambisDATA install-MB_SoftDATA \
+	install-MJManDATA install-MJRDATA install-MadgameDATA \
+	install-MapasoftDATA install-Marek_RothDATA \
+	install-Marek_Roth_Crazy_DreamDATA \
 	install-Marek_Roth_De_Luxe_RemixDATA \
 	install-Marek_Roth_Deluxe_CavesDATA \
 	install-Marek_Roth_Deluxe_DashDATA install-Mario_AlbrechtDATA \
@@ -5987,14 +6170,14 @@ install-data-am: install-AGB_SoftDATA install-Achim_HaertelDATA \
 	install-No_One_Prima_BoulderdashDATA install-OdoDATA \
 	install-Olaf_RothDATA install-Olaf_Roth_Cool_DashDATA \
 	install-Olaf_Roth_Giga_BoulderDATA install-OrionDATA \
-	install-PapisDATA install-PersoftDATA install-PeteDATA \
+	install-PETEDATA install-PapisDATA install-PersoftDATA \
 	install-Peter_MetsemakersDATA install-Peter_TraunigDATA \
 	install-PhoenixDATA install-Pierre_and_OlivierDATA \
 	install-Posocopi_WaldkirchDATA install-Prof_KnibbleDATA \
 	install-Prof_Knibble_Boulder_Dash_HeavyDATA \
 	install-Prof_Knibble_Boulder_Dash_WeekDATA \
 	install-Prof_Knibble_Knibble_DashDATA \
-	install-Prof_Knibble_Knibble_EatDATA \
+	install-Prof_Knibble_Knibble_EatDATA install-ROLEDATA \
 	install-Radek_Buchta_and_NudelDATA install-RenateDATA \
 	install-Replica_Copy_CrewDATA install-RockfordDATA \
 	install-Rockford_Gerd_BoulderDATA \
@@ -6008,8 +6191,8 @@ install-data-am: install-AGB_SoftDATA install-Achim_HaertelDATA \
 	install-Rolf_Roth_Waterkant_DashDATA \
 	install-Ron_van_SchaikDATA \
 	install-Ron_van_Schaik_Forkidz_DashDATA \
-	install-Ron_van_Schaik_Schaik_DashDATA \
-	install-Ron_van_Schaik_Schaik_MixDATA install-Rory_AgstenDATA \
+	install-Ron_van_Schaik_Schaik_MixDATA \
+	install-Ron_van_Schaik_SchaikdashDATA install-Rory_AgstenDATA \
 	install-Sarah_RothDATA install-SchlonkelDATA \
 	install-Scserbin_ZoltanDATA \
 	install-Scserbin_Zoltan_AtlantisDATA \
@@ -6022,17 +6205,19 @@ install-data-am: install-AGB_SoftDATA install-Achim_HaertelDATA \
 	install-Scserbin_Zoltan_Robot_DashDATA \
 	install-Scserbin_Zoltan_Tank_WarDATA install-SendyDATA \
 	install-Sijben_SoftDATA install-SkeletorDATA \
-	install-Skeletor_Mega_BoulderDATA install-SpiderDATA \
-	install-Spider_Bouldi_DashDATA install-Spider_Steel_DashDATA \
-	install-StormbringerDATA install-Stormbringer_Crazy_DashDATA \
+	install-Skeletor_Mega_BoulderDATA install-SparkDATA \
+	install-SpiderDATA install-Spider_Bouldi_DashDATA \
+	install-Spider_Steel_DashDATA install-StormbringerDATA \
+	install-Stormbringer_Crazy_DashDATA \
 	install-Stormbringer_StormdashDATA install-Sub7DATA \
 	install-SubotaiDATA install-Tatter_DemalionDATA \
 	install-The_BlockheadsDATA \
 	install-The_Blockheads_BoulderdashDATA \
 	install-The_Blockheads_BoulderheadDATA \
 	install-The_Blockheads_Trap_BoulderDATA \
-	install-The_Bremer_Town_MusicusDATA install-The_EditorDATA \
-	install-The_SoftkillerDATA install-The_Softkiller_BingoDATA \
+	install-The_Bremer_Town_MusicusDATA install-The_Cobra_BoysDATA \
+	install-The_EditorDATA install-The_SoftkillerDATA \
+	install-The_Softkiller_BingoDATA \
 	install-The_Softkiller_HelenaDATA install-Thomas_MauritzDATA \
 	install-TropyxDATA install-UStar23DATA install-WitroDATA \
 	install-YakuzaDATA install-Zombie_CrackersDATA \
@@ -6110,7 +6295,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-El_SwingiDATA uninstall-FAJ_SoftDATA \
 	uninstall-Falcon_SoftDATA uninstall-FirefoxDATA \
 	uninstall-Firefox_FirefoxDATA \
-	uninstall-First_Star_SoftwareDATA uninstall-FrustDATA \
+	uninstall-First_Star_SoftwareDATA uninstall-FokmansDATA \
+	uninstall-FrustDATA uninstall-GBSDATA \
 	uninstall-Gert_van_den_HeuvelDATA uninstall-GertrudDATA \
 	uninstall-Gertrud_Gertrud_s_GameDATA \
 	uninstall-Gertrud_RodexDATA uninstall-GodsDATA \
@@ -6124,10 +6310,12 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-Karlchen_and_Opossum_Ossi_DashDATA \
 	uninstall-Kayle_GeertsDATA uninstall-LTL_SoftDATA \
 	uninstall-Lanzelott_and_MatulaDATA uninstall-Logic_De_LuxeDATA \
-	uninstall-Lord_DiegoDATA uninstall-Lukas_ShambisDATA \
-	uninstall-MB_SoftDATA uninstall-MJManDATA uninstall-MJRDATA \
-	uninstall-MadgameDATA uninstall-MapasoftDATA \
-	uninstall-Marek_RothDATA uninstall-Marek_Roth_Crazy_DreamDATA \
+	uninstall-Lord_DiegoDATA uninstall-Lord_Diego_DiegodashDATA \
+	uninstall-Lord_Diego_NeverendingdashDATA \
+	uninstall-Lukas_ShambisDATA uninstall-MB_SoftDATA \
+	uninstall-MJManDATA uninstall-MJRDATA uninstall-MadgameDATA \
+	uninstall-MapasoftDATA uninstall-Marek_RothDATA \
+	uninstall-Marek_Roth_Crazy_DreamDATA \
 	uninstall-Marek_Roth_De_Luxe_RemixDATA \
 	uninstall-Marek_Roth_Deluxe_CavesDATA \
 	uninstall-Marek_Roth_Deluxe_DashDATA \
@@ -6142,14 +6330,14 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-No_One_Prima_BoulderdashDATA uninstall-OdoDATA \
 	uninstall-Olaf_RothDATA uninstall-Olaf_Roth_Cool_DashDATA \
 	uninstall-Olaf_Roth_Giga_BoulderDATA uninstall-OrionDATA \
-	uninstall-PapisDATA uninstall-PersoftDATA uninstall-PeteDATA \
+	uninstall-PETEDATA uninstall-PapisDATA uninstall-PersoftDATA \
 	uninstall-Peter_MetsemakersDATA uninstall-Peter_TraunigDATA \
 	uninstall-PhoenixDATA uninstall-Pierre_and_OlivierDATA \
 	uninstall-Posocopi_WaldkirchDATA uninstall-Prof_KnibbleDATA \
 	uninstall-Prof_Knibble_Boulder_Dash_HeavyDATA \
 	uninstall-Prof_Knibble_Boulder_Dash_WeekDATA \
 	uninstall-Prof_Knibble_Knibble_DashDATA \
-	uninstall-Prof_Knibble_Knibble_EatDATA \
+	uninstall-Prof_Knibble_Knibble_EatDATA uninstall-ROLEDATA \
 	uninstall-Radek_Buchta_and_NudelDATA uninstall-RenateDATA \
 	uninstall-Replica_Copy_CrewDATA uninstall-RockfordDATA \
 	uninstall-Rockford_Gerd_BoulderDATA \
@@ -6163,8 +6351,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-Rolf_Roth_Waterkant_DashDATA \
 	uninstall-Ron_van_SchaikDATA \
 	uninstall-Ron_van_Schaik_Forkidz_DashDATA \
-	uninstall-Ron_van_Schaik_Schaik_DashDATA \
 	uninstall-Ron_van_Schaik_Schaik_MixDATA \
+	uninstall-Ron_van_Schaik_SchaikdashDATA \
 	uninstall-Rory_AgstenDATA uninstall-Sarah_RothDATA \
 	uninstall-SchlonkelDATA uninstall-Scserbin_ZoltanDATA \
 	uninstall-Scserbin_Zoltan_AtlantisDATA \
@@ -6177,8 +6365,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-Scserbin_Zoltan_Robot_DashDATA \
 	uninstall-Scserbin_Zoltan_Tank_WarDATA uninstall-SendyDATA \
 	uninstall-Sijben_SoftDATA uninstall-SkeletorDATA \
-	uninstall-Skeletor_Mega_BoulderDATA uninstall-SpiderDATA \
-	uninstall-Spider_Bouldi_DashDATA \
+	uninstall-Skeletor_Mega_BoulderDATA uninstall-SparkDATA \
+	uninstall-SpiderDATA uninstall-Spider_Bouldi_DashDATA \
 	uninstall-Spider_Steel_DashDATA uninstall-StormbringerDATA \
 	uninstall-Stormbringer_Crazy_DashDATA \
 	uninstall-Stormbringer_StormdashDATA uninstall-Sub7DATA \
@@ -6187,7 +6375,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-The_Blockheads_BoulderdashDATA \
 	uninstall-The_Blockheads_BoulderheadDATA \
 	uninstall-The_Blockheads_Trap_BoulderDATA \
-	uninstall-The_Bremer_Town_MusicusDATA uninstall-The_EditorDATA \
+	uninstall-The_Bremer_Town_MusicusDATA \
+	uninstall-The_Cobra_BoysDATA uninstall-The_EditorDATA \
 	uninstall-The_SoftkillerDATA \
 	uninstall-The_Softkiller_BingoDATA \
 	uninstall-The_Softkiller_HelenaDATA \
@@ -6226,22 +6415,25 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	install-El_SwingiDATA install-FAJ_SoftDATA \
 	install-Falcon_SoftDATA install-FirefoxDATA \
 	install-Firefox_FirefoxDATA install-First_Star_SoftwareDATA \
-	install-FrustDATA install-Gert_van_den_HeuvelDATA \
-	install-GertrudDATA install-Gertrud_Gertrud_s_GameDATA \
-	install-Gertrud_RodexDATA install-GodsDATA \
-	install-Grant_WalkerDATA install-HSGDATA install-HackerDATA \
-	install-Heinz_TrumpelmannDATA install-IncubusDATA \
-	install-Iron_SoftDATA install-Jason_SabourinDATA \
-	install-KKDATA install-Karlchen_and_OpossumDATA \
+	install-FokmansDATA install-FrustDATA install-GBSDATA \
+	install-Gert_van_den_HeuvelDATA install-GertrudDATA \
+	install-Gertrud_Gertrud_s_GameDATA install-Gertrud_RodexDATA \
+	install-GodsDATA install-Grant_WalkerDATA install-HSGDATA \
+	install-HackerDATA install-Heinz_TrumpelmannDATA \
+	install-IncubusDATA install-Iron_SoftDATA \
+	install-Jason_SabourinDATA install-KKDATA \
+	install-Karlchen_and_OpossumDATA \
 	install-Karlchen_and_Opossum_FrettchendashDATA \
 	install-Karlchen_and_Opossum_Melmac_DashDATA \
 	install-Karlchen_and_Opossum_Ossi_DashDATA \
 	install-Kayle_GeertsDATA install-LTL_SoftDATA \
 	install-Lanzelott_and_MatulaDATA install-Logic_De_LuxeDATA \
-	install-Lord_DiegoDATA install-Lukas_ShambisDATA \
-	install-MB_SoftDATA install-MJManDATA install-MJRDATA \
-	install-MadgameDATA install-MapasoftDATA \
-	install-Marek_RothDATA install-Marek_Roth_Crazy_DreamDATA \
+	install-Lord_DiegoDATA install-Lord_Diego_DiegodashDATA \
+	install-Lord_Diego_NeverendingdashDATA \
+	install-Lukas_ShambisDATA install-MB_SoftDATA \
+	install-MJManDATA install-MJRDATA install-MadgameDATA \
+	install-MapasoftDATA install-Marek_RothDATA \
+	install-Marek_Roth_Crazy_DreamDATA \
 	install-Marek_Roth_De_Luxe_RemixDATA \
 	install-Marek_Roth_Deluxe_CavesDATA \
 	install-Marek_Roth_Deluxe_DashDATA install-Mario_AlbrechtDATA \
@@ -6255,14 +6447,14 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	install-No_One_Prima_BoulderdashDATA install-OdoDATA \
 	install-Olaf_RothDATA install-Olaf_Roth_Cool_DashDATA \
 	install-Olaf_Roth_Giga_BoulderDATA install-OrionDATA \
-	install-PapisDATA install-PersoftDATA install-PeteDATA \
+	install-PETEDATA install-PapisDATA install-PersoftDATA \
 	install-Peter_MetsemakersDATA install-Peter_TraunigDATA \
 	install-PhoenixDATA install-Pierre_and_OlivierDATA \
 	install-Posocopi_WaldkirchDATA install-Prof_KnibbleDATA \
 	install-Prof_Knibble_Boulder_Dash_HeavyDATA \
 	install-Prof_Knibble_Boulder_Dash_WeekDATA \
 	install-Prof_Knibble_Knibble_DashDATA \
-	install-Prof_Knibble_Knibble_EatDATA \
+	install-Prof_Knibble_Knibble_EatDATA install-ROLEDATA \
 	install-Radek_Buchta_and_NudelDATA install-RenateDATA \
 	install-Replica_Copy_CrewDATA install-RockfordDATA \
 	install-Rockford_Gerd_BoulderDATA \
@@ -6276,8 +6468,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	install-Rolf_Roth_Waterkant_DashDATA \
 	install-Ron_van_SchaikDATA \
 	install-Ron_van_Schaik_Forkidz_DashDATA \
-	install-Ron_van_Schaik_Schaik_DashDATA \
-	install-Ron_van_Schaik_Schaik_MixDATA install-Rory_AgstenDATA \
+	install-Ron_van_Schaik_Schaik_MixDATA \
+	install-Ron_van_Schaik_SchaikdashDATA install-Rory_AgstenDATA \
 	install-Sarah_RothDATA install-SchlonkelDATA \
 	install-Scserbin_ZoltanDATA \
 	install-Scserbin_Zoltan_AtlantisDATA \
@@ -6290,17 +6482,19 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	install-Scserbin_Zoltan_Robot_DashDATA \
 	install-Scserbin_Zoltan_Tank_WarDATA install-SendyDATA \
 	install-Sijben_SoftDATA install-SkeletorDATA \
-	install-Skeletor_Mega_BoulderDATA install-SpiderDATA \
-	install-Spider_Bouldi_DashDATA install-Spider_Steel_DashDATA \
-	install-StormbringerDATA install-Stormbringer_Crazy_DashDATA \
+	install-Skeletor_Mega_BoulderDATA install-SparkDATA \
+	install-SpiderDATA install-Spider_Bouldi_DashDATA \
+	install-Spider_Steel_DashDATA install-StormbringerDATA \
+	install-Stormbringer_Crazy_DashDATA \
 	install-Stormbringer_StormdashDATA install-Sub7DATA \
 	install-SubotaiDATA install-Tatter_DemalionDATA \
 	install-The_BlockheadsDATA \
 	install-The_Blockheads_BoulderdashDATA \
 	install-The_Blockheads_BoulderheadDATA \
 	install-The_Blockheads_Trap_BoulderDATA \
-	install-The_Bremer_Town_MusicusDATA install-The_EditorDATA \
-	install-The_SoftkillerDATA install-The_Softkiller_BingoDATA \
+	install-The_Bremer_Town_MusicusDATA install-The_Cobra_BoysDATA \
+	install-The_EditorDATA install-The_SoftkillerDATA \
+	install-The_Softkiller_BingoDATA \
 	install-The_Softkiller_HelenaDATA install-Thomas_MauritzDATA \
 	install-TropyxDATA install-UStar23DATA install-WitroDATA \
 	install-YakuzaDATA install-Zombie_CrackersDATA install-am \
@@ -6341,7 +6535,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-El_SwingiDATA uninstall-FAJ_SoftDATA \
 	uninstall-Falcon_SoftDATA uninstall-FirefoxDATA \
 	uninstall-Firefox_FirefoxDATA \
-	uninstall-First_Star_SoftwareDATA uninstall-FrustDATA \
+	uninstall-First_Star_SoftwareDATA uninstall-FokmansDATA \
+	uninstall-FrustDATA uninstall-GBSDATA \
 	uninstall-Gert_van_den_HeuvelDATA uninstall-GertrudDATA \
 	uninstall-Gertrud_Gertrud_s_GameDATA \
 	uninstall-Gertrud_RodexDATA uninstall-GodsDATA \
@@ -6355,10 +6550,12 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-Karlchen_and_Opossum_Ossi_DashDATA \
 	uninstall-Kayle_GeertsDATA uninstall-LTL_SoftDATA \
 	uninstall-Lanzelott_and_MatulaDATA uninstall-Logic_De_LuxeDATA \
-	uninstall-Lord_DiegoDATA uninstall-Lukas_ShambisDATA \
-	uninstall-MB_SoftDATA uninstall-MJManDATA uninstall-MJRDATA \
-	uninstall-MadgameDATA uninstall-MapasoftDATA \
-	uninstall-Marek_RothDATA uninstall-Marek_Roth_Crazy_DreamDATA \
+	uninstall-Lord_DiegoDATA uninstall-Lord_Diego_DiegodashDATA \
+	uninstall-Lord_Diego_NeverendingdashDATA \
+	uninstall-Lukas_ShambisDATA uninstall-MB_SoftDATA \
+	uninstall-MJManDATA uninstall-MJRDATA uninstall-MadgameDATA \
+	uninstall-MapasoftDATA uninstall-Marek_RothDATA \
+	uninstall-Marek_Roth_Crazy_DreamDATA \
 	uninstall-Marek_Roth_De_Luxe_RemixDATA \
 	uninstall-Marek_Roth_Deluxe_CavesDATA \
 	uninstall-Marek_Roth_Deluxe_DashDATA \
@@ -6373,14 +6570,14 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-No_One_Prima_BoulderdashDATA uninstall-OdoDATA \
 	uninstall-Olaf_RothDATA uninstall-Olaf_Roth_Cool_DashDATA \
 	uninstall-Olaf_Roth_Giga_BoulderDATA uninstall-OrionDATA \
-	uninstall-PapisDATA uninstall-PersoftDATA uninstall-PeteDATA \
+	uninstall-PETEDATA uninstall-PapisDATA uninstall-PersoftDATA \
 	uninstall-Peter_MetsemakersDATA uninstall-Peter_TraunigDATA \
 	uninstall-PhoenixDATA uninstall-Pierre_and_OlivierDATA \
 	uninstall-Posocopi_WaldkirchDATA uninstall-Prof_KnibbleDATA \
 	uninstall-Prof_Knibble_Boulder_Dash_HeavyDATA \
 	uninstall-Prof_Knibble_Boulder_Dash_WeekDATA \
 	uninstall-Prof_Knibble_Knibble_DashDATA \
-	uninstall-Prof_Knibble_Knibble_EatDATA \
+	uninstall-Prof_Knibble_Knibble_EatDATA uninstall-ROLEDATA \
 	uninstall-Radek_Buchta_and_NudelDATA uninstall-RenateDATA \
 	uninstall-Replica_Copy_CrewDATA uninstall-RockfordDATA \
 	uninstall-Rockford_Gerd_BoulderDATA \
@@ -6394,8 +6591,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-Rolf_Roth_Waterkant_DashDATA \
 	uninstall-Ron_van_SchaikDATA \
 	uninstall-Ron_van_Schaik_Forkidz_DashDATA \
-	uninstall-Ron_van_Schaik_Schaik_DashDATA \
 	uninstall-Ron_van_Schaik_Schaik_MixDATA \
+	uninstall-Ron_van_Schaik_SchaikdashDATA \
 	uninstall-Rory_AgstenDATA uninstall-Sarah_RothDATA \
 	uninstall-SchlonkelDATA uninstall-Scserbin_ZoltanDATA \
 	uninstall-Scserbin_Zoltan_AtlantisDATA \
@@ -6408,8 +6605,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-Scserbin_Zoltan_Robot_DashDATA \
 	uninstall-Scserbin_Zoltan_Tank_WarDATA uninstall-SendyDATA \
 	uninstall-Sijben_SoftDATA uninstall-SkeletorDATA \
-	uninstall-Skeletor_Mega_BoulderDATA uninstall-SpiderDATA \
-	uninstall-Spider_Bouldi_DashDATA \
+	uninstall-Skeletor_Mega_BoulderDATA uninstall-SparkDATA \
+	uninstall-SpiderDATA uninstall-Spider_Bouldi_DashDATA \
 	uninstall-Spider_Steel_DashDATA uninstall-StormbringerDATA \
 	uninstall-Stormbringer_Crazy_DashDATA \
 	uninstall-Stormbringer_StormdashDATA uninstall-Sub7DATA \
@@ -6418,7 +6615,8 @@ uninstall-am: uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
 	uninstall-The_Blockheads_BoulderdashDATA \
 	uninstall-The_Blockheads_BoulderheadDATA \
 	uninstall-The_Blockheads_Trap_BoulderDATA \
-	uninstall-The_Bremer_Town_MusicusDATA uninstall-The_EditorDATA \
+	uninstall-The_Bremer_Town_MusicusDATA \
+	uninstall-The_Cobra_BoysDATA uninstall-The_EditorDATA \
 	uninstall-The_SoftkillerDATA \
 	uninstall-The_Softkiller_BingoDATA \
 	uninstall-The_Softkiller_HelenaDATA \
