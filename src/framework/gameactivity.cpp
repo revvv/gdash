@@ -34,6 +34,7 @@
 #include "sound/sound.hpp"
 #include "input/gameinputhandler.hpp"
 #include "misc/helptext.hpp"
+#include "misc/logger.hpp"
 #include "settings.hpp"
 
 
@@ -155,15 +156,15 @@ void GameActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             break;
         case TakeSnapshotKey:
             if (game->save_snapshot())
-                app->show_message(_("Snapshot taken."));
+                gd_message(_("Snapshot taken.")); //app->show_message(_("Snapshot taken."));
             else
-                app->show_message(_("No cave loaded, no snapshot taken."));
+                gd_message(_("No cave loaded, no snapshot taken.")); //app->show_message(_("No cave loaded, no snapshot taken."));
             break;
         case RevertToSnapshotKey:
             if (game->load_snapshot())
-                ; /* ok, and user has of course noticed */
+                gd_message(_("PLAYING SNAPSHOT")); /* ok, and user has of course noticed */
             else
-                app->show_message(_("No snapshot saved."));
+                gd_message(_("No snapshot saved.")); //app->show_message(_("No snapshot saved."));
             break;
         case CaveVariablesKey:
             gd_sound_off();

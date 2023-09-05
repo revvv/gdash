@@ -177,6 +177,8 @@ void GameControl::load_cave() {
     gfx_buffer.remove();
     covered.remove();
 
+    snapshot_cave = NULL;
+
     /* load the cave */
     cave_score = 0;
     switch (type) {
@@ -254,7 +256,7 @@ bool GameControl::load_snapshot() {
         return false;
 
     /* overwrite this object with a snapshot game */
-    *this = GameControl(TYPE_SNAPSHOT);
+    //*this = GameControl(TYPE_SNAPSHOT); // triggers uncover mosaic and as side effect entering outbox will end the game instead of loading next cave!
     played_cave = std::make_unique<CaveRendered>(*snapshot_cave);
 
     /* success */
