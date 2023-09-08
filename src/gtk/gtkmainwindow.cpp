@@ -490,8 +490,20 @@ gboolean GdMainWindow::timing_event_idle_func(gpointer data) {
         /* before calling the timer event, process pending gtk events. */
         /* if the computer is slow, and we are lagging behind, this helps keyboard
          * events to get to the app inside. */
-        while (gtk_events_pending())
+        #ifdef G_OS_WIN32
+        int i = 0;
+        #endif
+        while (gtk_events_pending()) {
             gtk_main_iteration();
+            #ifdef G_OS_WIN32
+            i++;
+            if (i > 10000) {
+                // WORKAROUND for https://gitlab.gnome.org/GNOME/gtk/-/issues/5688
+                gd_warning("WORKAROUND: frozen window detected");
+                break;
+            }
+            #endif
+        }
         win->app->timer_event(win->interval_msec);
 
         /* now maybe redrawing. */
