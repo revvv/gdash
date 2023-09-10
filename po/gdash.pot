@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gdash export-1.9.3-fork\n"
+"Project-Id-Version: gdash export-1.9.5\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-03 17:03+0200\n"
+"POT-Creation-Date: 2023-09-10 15:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgid "Click here to set the key for action: %s"
 msgstr ""
 
 #. TRANSLATORS: Default (builtin) theme, shader, etc.
-#: src/gtk/gtkuisettings.cpp:262 src/settings.cpp:376
+#: src/gtk/gtkuisettings.cpp:262 src/settings.cpp:379
 msgid "[Default]"
 msgstr ""
 
@@ -1673,65 +1673,61 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: src/main.cpp:93
-msgid "same as --help but translated"
-msgstr ""
-
-#: src/main.cpp:94
+#: src/main.cpp:92
 msgid "Start editor"
 msgstr ""
 
-#: src/main.cpp:95
+#: src/main.cpp:93
 msgid "Save caveset in a HTML gallery"
 msgstr ""
 
-#: src/main.cpp:96
+#: src/main.cpp:94
 msgid "Save caveset as BDCFF plain text"
 msgstr ""
 
-#: src/main.cpp:97
+#: src/main.cpp:95
 msgid "Link stylesheet from file to a HTML gallery, eg. \"../style.css\""
 msgstr ""
 
-#: src/main.cpp:98
+#: src/main.cpp:96
 msgid "Link shortcut icon to a HTML gallery, eg. \"../favicon.ico\""
 msgstr ""
 
-#: src/main.cpp:99
+#: src/main.cpp:97
 msgid "Save image of first cave to PNG"
 msgstr ""
 
-#: src/main.cpp:100
+#: src/main.cpp:98
 msgid "Set PNG image size. Default is 128x96, set to 0x0 for unscaled"
 msgstr ""
 
-#: src/main.cpp:102
+#: src/main.cpp:100
 msgid "Save caveset in a BDCFF file"
 msgstr ""
 
-#: src/main.cpp:103
+#: src/main.cpp:101
 msgid ""
 "Save imported binary data to a GDS file. An input file name is required."
 msgstr ""
 
-#: src/main.cpp:104
+#: src/main.cpp:102
 msgid "Save caveset in CrLi files"
 msgstr ""
 
-#: src/main.cpp:105
+#: src/main.cpp:103
 msgid "Save caveset in flattened format"
 msgstr ""
 
-#: src/main.cpp:107
+#: src/main.cpp:105
 msgid ""
 "Save documentation in HTML, in the given language identified by an integer."
 msgstr ""
 
-#: src/main.cpp:109
+#: src/main.cpp:107
 msgid "Batch mode: quit after specified tasks"
 msgstr ""
 
-#: src/main.cpp:220
+#: src/main.cpp:219
 #, c-format
 msgid "Invalid image size: %s"
 msgstr ""
@@ -3012,7 +3008,7 @@ msgid ""
 "the number of seconds to wait."
 msgstr ""
 
-#: src/cave/cavestored.cpp:276 src/settings.cpp:289 src/settings.cpp:290
+#: src/cave/cavestored.cpp:276 src/settings.cpp:292 src/settings.cpp:293
 msgid "Sound"
 msgstr ""
 
@@ -3203,25 +3199,25 @@ msgid ""
 "not recommended to change this setting for newly designed caves, though."
 msgstr ""
 
-#: src/cave/cavestored.cpp:309
+#: src/cave/cavestored.cpp:308
 msgid "Other"
 msgstr ""
 
-#: src/cave/cavestored.cpp:310
+#: src/cave/cavestored.cpp:309
 msgid "Short explosions"
 msgstr ""
 
-#: src/cave/cavestored.cpp:310
+#: src/cave/cavestored.cpp:309
 msgid ""
 "In 1stB and newer engines, explosions were longer, they took five cave "
 "frames to complete, as opposed to four frames in the original."
 msgstr ""
 
-#: src/cave/cavestored.cpp:311
+#: src/cave/cavestored.cpp:310
 msgid "Gravity change affects everything"
 msgstr ""
 
-#: src/cave/cavestored.cpp:311
+#: src/cave/cavestored.cpp:310
 msgid ""
 "If this is enabled, changing the gravity will also affect bladders (moving "
 "and pushing), bladder spenders, falling walls and waiting stones. Otherwise, "
@@ -3230,219 +3226,219 @@ msgid ""
 "imported caves."
 msgstr ""
 
-#: src/cave/cavestored.cpp:312
+#: src/cave/cavestored.cpp:311
 msgid "Explosion stage 3 to"
 msgstr ""
 
-#: src/cave/cavestored.cpp:312
+#: src/cave/cavestored.cpp:311
 msgid ""
 "This element appears as the next stage of explosion 3. Not recommended to "
 "change. Check explosion effects on the effects page for a better alternative."
 msgstr ""
 
-#: src/cave/cavestored.cpp:315
+#: src/cave/cavestored.cpp:314
 msgid "Unknown tags"
 msgstr ""
 
-#: src/cave/cavestored.cpp:316
+#: src/cave/cavestored.cpp:315
 msgid "Tags which were read from the BDCFF, but are not understood by GDash."
 msgstr ""
 
-#: src/cave/cavestored.cpp:322
+#: src/cave/cavestored.cpp:321
 msgid "Colors"
 msgstr ""
 
-#: src/cave/cavestored.cpp:323
+#: src/cave/cavestored.cpp:322
 msgid "Border color"
 msgstr ""
 
-#: src/cave/cavestored.cpp:323
+#: src/cave/cavestored.cpp:322
 msgid ""
 "Border color for C64 graphics. Only for compatibility, not used by GDash."
 msgstr ""
 
-#: src/cave/cavestored.cpp:324
+#: src/cave/cavestored.cpp:323
 msgid "Background color"
 msgstr ""
 
-#: src/cave/cavestored.cpp:324
+#: src/cave/cavestored.cpp:323
 msgid "Background color for C64 graphics"
 msgstr ""
 
-#: src/cave/cavestored.cpp:325
+#: src/cave/cavestored.cpp:324
 msgid "Color 1 (dirt)"
 msgstr ""
 
-#: src/cave/cavestored.cpp:325
+#: src/cave/cavestored.cpp:324
 msgid "Foreground color 1 for C64 graphics"
 msgstr ""
 
-#: src/cave/cavestored.cpp:326
+#: src/cave/cavestored.cpp:325
 msgid "Color 2 (steel wall)"
 msgstr ""
 
-#: src/cave/cavestored.cpp:326
+#: src/cave/cavestored.cpp:325
 msgid "Foreground color 2 for C64 graphics"
 msgstr ""
 
-#: src/cave/cavestored.cpp:327
+#: src/cave/cavestored.cpp:326
 msgid "Color 3 (brick wall)"
 msgstr ""
 
-#: src/cave/cavestored.cpp:327
+#: src/cave/cavestored.cpp:326
 msgid "Foreground color 3 for C64 graphics"
 msgstr ""
 
-#: src/cave/cavestored.cpp:328
+#: src/cave/cavestored.cpp:327
 msgid "Amoeba color"
 msgstr ""
 
-#: src/cave/cavestored.cpp:328
+#: src/cave/cavestored.cpp:327
 msgid "Amoeba color for C64 graphics"
 msgstr ""
 
-#: src/cave/cavestored.cpp:329
+#: src/cave/cavestored.cpp:328
 msgid "Slime color"
 msgstr ""
 
-#: src/cave/cavestored.cpp:329
+#: src/cave/cavestored.cpp:328
 msgid "Slime color for C64 graphics"
 msgstr ""
 
-#: src/cave/cavestored.cpp:334
+#: src/cave/cavestored.cpp:333
 msgid "Random fill"
 msgstr ""
 
-#: src/cave/cavestored.cpp:337 src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/cavestored.cpp:336 src/cave/object/caveobjectrandomfill.cpp:205
 msgid "Random seed"
 msgstr ""
 
-#: src/cave/cavestored.cpp:338 src/cave/object/caveobjectrandomfill.cpp:205
+#: src/cave/cavestored.cpp:337 src/cave/object/caveobjectrandomfill.cpp:205
 msgid ""
 "Random seed value controls the predictable random number generator, which "
 "fills the cave initially. If set to -1, cave is totally random every time it "
 "is played."
 msgstr ""
 
-#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:206
+#: src/cave/cavestored.cpp:339 src/cave/object/caveobjectrandomfill.cpp:206
 msgid "Initial fill"
 msgstr ""
 
-#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:207
+#: src/cave/cavestored.cpp:340 src/cave/object/caveobjectrandomfill.cpp:207
 msgid "Probability 1"
 msgstr ""
 
-#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:208
+#: src/cave/cavestored.cpp:341 src/cave/object/caveobjectrandomfill.cpp:208
 msgid "Random fill 1"
 msgstr ""
 
-#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:209
+#: src/cave/cavestored.cpp:342 src/cave/object/caveobjectrandomfill.cpp:209
 msgid "Probability 2"
 msgstr ""
 
-#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:210
+#: src/cave/cavestored.cpp:343 src/cave/object/caveobjectrandomfill.cpp:210
 msgid "Random fill 2"
 msgstr ""
 
-#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:211
+#: src/cave/cavestored.cpp:344 src/cave/object/caveobjectrandomfill.cpp:211
 msgid "Probability 3"
 msgstr ""
 
-#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:212
+#: src/cave/cavestored.cpp:345 src/cave/object/caveobjectrandomfill.cpp:212
 msgid "Random fill 3"
 msgstr ""
 
-#: src/cave/cavestored.cpp:347 src/cave/object/caveobjectrandomfill.cpp:213
+#: src/cave/cavestored.cpp:346 src/cave/object/caveobjectrandomfill.cpp:213
 msgid "Probability 4"
 msgstr ""
 
-#: src/cave/cavestored.cpp:348 src/cave/object/caveobjectrandomfill.cpp:214
+#: src/cave/cavestored.cpp:347 src/cave/object/caveobjectrandomfill.cpp:214
 msgid "Random fill 4"
 msgstr ""
 
-#: src/cave/cavestored.cpp:349
+#: src/cave/cavestored.cpp:348
 msgid "Initial border"
 msgstr ""
 
-#: src/cave/cavestored.cpp:349
+#: src/cave/cavestored.cpp:348
 msgid ""
 "The border which is drawn around the cave, after filling it. You can set it "
 "to no element to skip the drawing."
 msgstr ""
 
 #. TRANSLATORS: short for "number of times played". 5 chars max!
-#: src/cave/cavestored.cpp:356
+#: src/cave/cavestored.cpp:355
 msgctxt "Statistics"
 msgid "Play"
 msgstr ""
 
 #. TRANSLATORS: short for "number of times played successfully". 5 chars max!
-#: src/cave/cavestored.cpp:358
+#: src/cave/cavestored.cpp:357
 msgctxt "Statistics"
 msgid "Succ"
 msgstr ""
 
 #. TRANSLATORS: short for "best time". 5 chars max!
-#: src/cave/cavestored.cpp:360
+#: src/cave/cavestored.cpp:359
 msgctxt "Statistics"
 msgid "Time"
 msgstr ""
 
 #. TRANSLATORS: short for "max diamonds collected". 5 chars max!
-#: src/cave/cavestored.cpp:362
+#: src/cave/cavestored.cpp:361
 msgctxt "Statistics"
 msgid "Diam"
 msgstr ""
 
 #. TRANSLATORS: short for "max score collected". 5 chars max!
-#: src/cave/cavestored.cpp:364
+#: src/cave/cavestored.cpp:363
 msgctxt "Statistics"
 msgid "Score"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:387
+#: src/cave/gamerender.cpp:388
 msgid "PLAYING REPLAY"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:402
+#: src/cave/gamerender.cpp:403
 msgid "CONTINUING REPLAY"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:409
+#: src/cave/gamerender.cpp:410 src/framework/gameactivity.cpp:162
 msgid "PLAYING SNAPSHOT"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:416
+#: src/cave/gamerender.cpp:417
 msgid "TESTING CAVE"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:426
+#: src/cave/gamerender.cpp:427
 msgid "ONE LIFE EXTRA"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:488
+#: src/cave/gamerender.cpp:489
 msgid "OUT OF TIME"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long
-#: src/cave/gamerender.cpp:567
+#: src/cave/gamerender.cpp:568
 msgid "SPACEBAR TO RESUME"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 20 characters long.
 #. the c64 original had these spaces - you are allowed to do so.
-#: src/cave/gamerender.cpp:584
+#: src/cave/gamerender.cpp:585
 msgid "G A M E   O V E R"
 msgstr ""
 
 #. TRANSLATORS: the translated string must be at most 40 characters long
-#: src/cave/gamerender.cpp:695
+#: src/cave/gamerender.cpp:696
 msgid "UP, DOWN: MOVE    FIRE: CONTINUE"
 msgstr ""
 
@@ -5078,24 +5074,24 @@ msgstr ""
 msgid "lowercase-element-names-yes"
 msgstr ""
 
-#: src/fileops/c64import.cpp:2065 src/fileops/c64import.cpp:2113
-#: src/fileops/c64import.cpp:2183
+#: src/fileops/c64import.cpp:2064 src/fileops/c64import.cpp:2112
+#: src/fileops/c64import.cpp:2182
 #, c-format
 msgid "Intermission %d"
 msgstr ""
 
-#: src/fileops/c64import.cpp:2067 src/fileops/c64import.cpp:2115
-#: src/fileops/c64import.cpp:2188
+#: src/fileops/c64import.cpp:2066 src/fileops/c64import.cpp:2114
+#: src/fileops/c64import.cpp:2187
 #, c-format
 msgid "Cave %c"
 msgstr ""
 
-#: src/fileops/c64import.cpp:2181
+#: src/fileops/c64import.cpp:2180
 #, c-format
 msgid "Intermission %02d"
 msgstr ""
 
-#: src/fileops/c64import.cpp:2186
+#: src/fileops/c64import.cpp:2185
 #, c-format
 msgid "Cave %02d"
 msgstr ""
@@ -5125,67 +5121,67 @@ msgid "Unable to read file."
 msgstr ""
 
 #. TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-#: src/framework/titlescreenactivity.cpp:136 src/settings.cpp:229
+#: src/framework/titlescreenactivity.cpp:133 src/settings.cpp:231
 msgid "Game"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:152
+#: src/framework/titlescreenactivity.cpp:149
 msgid "Crsr: select   Space: play   H: help"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:158
+#: src/framework/titlescreenactivity.cpp:155
 msgid "F: hall of fame  E: editor  R: replays"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:162
+#: src/framework/titlescreenactivity.cpp:159
 msgid "F: hall of fame    R: replays"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:167
+#: src/framework/titlescreenactivity.cpp:164
 msgid "Joy: select   Fire: play"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:171
+#: src/framework/titlescreenactivity.cpp:168
 msgid "Crsr: select   Space: play   X: errors"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:176
+#: src/framework/titlescreenactivity.cpp:173
 #, c-format
 msgid "%cNo caves."
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:180
+#: src/framework/titlescreenactivity.cpp:177
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:182
+#: src/framework/titlescreenactivity.cpp:179
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:343
+#: src/framework/titlescreenactivity.cpp:340
 msgid "Enter your name"
 msgstr ""
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:354
+#: src/framework/titlescreenactivity.cpp:351
 msgid "Quit game?"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:354 src/framework/gameactivity.cpp:90
-#: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
+#: src/framework/titlescreenactivity.cpp:351 src/framework/gameactivity.cpp:91
+#: src/framework/gameactivity.cpp:92 src/framework/gameactivity.cpp:93
 #: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:327
 msgid "yes"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:354 src/framework/gameactivity.cpp:90
-#: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
+#: src/framework/titlescreenactivity.cpp:351 src/framework/gameactivity.cpp:91
+#: src/framework/gameactivity.cpp:92 src/framework/gameactivity.cpp:93
 #: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:327
 msgid "no"
@@ -5208,44 +5204,44 @@ msgstr ""
 msgid "N"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:45
+#: src/framework/gameactivity.cpp:46
 msgid "sleeping"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:47
+#: src/framework/gameactivity.cpp:48
 msgid "awake"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:49
+#: src/framework/gameactivity.cpp:50
 msgid "too big"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:51
+#: src/framework/gameactivity.cpp:52
 msgid "enclosed"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:53 src/framework/gameactivity.cpp:67
+#: src/framework/gameactivity.cpp:54 src/framework/gameactivity.cpp:68
 msgid "unknown"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:61
+#: src/framework/gameactivity.cpp:62
 msgid "dormant"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:63
+#: src/framework/gameactivity.cpp:64
 msgid "active"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:65
+#: src/framework/gameactivity.cpp:66
 msgid "expired"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:79
+#: src/framework/gameactivity.cpp:80
 #, c-format
 msgid "%cCave internals:\n"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:80
+#: src/framework/gameactivity.cpp:81
 #, c-format
 msgid ""
 "%cSpeed %c%dms\n"
@@ -5261,36 +5257,36 @@ msgid ""
 "%cDiamonds collected %c%d"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:87
+#: src/framework/gameactivity.cpp:88
 msgid "vertical"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:87
+#: src/framework/gameactivity.cpp:88
 msgid "horizontal"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:88
+#: src/framework/gameactivity.cpp:89
 msgid "backwards"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:88
+#: src/framework/gameactivity.cpp:89
 msgid "forwards"
 msgstr ""
 
-#: src/framework/gameactivity.cpp:158
+#: src/framework/gameactivity.cpp:156
 msgid "Snapshot taken."
 msgstr ""
 
-#: src/framework/gameactivity.cpp:160
+#: src/framework/gameactivity.cpp:158
 msgid "No cave loaded, no snapshot taken."
 msgstr ""
 
-#: src/framework/gameactivity.cpp:166
+#: src/framework/gameactivity.cpp:164
 msgid "No snapshot saved."
 msgstr ""
 
 #. TRANSLATORS: should be 40 chars max. Title of the caveset info window/activity. Title capitalization (I) in English.
-#: src/framework/gameactivity.cpp:170 src/framework/commands.cpp:197
+#: src/framework/gameactivity.cpp:168 src/framework/commands.cpp:197
 msgid "Cave Information"
 msgstr ""
 
@@ -5314,21 +5310,21 @@ msgstr ""
 msgid "Crsr: move     Space: exit"
 msgstr ""
 
-#: src/framework/replaysaveractivity.cpp:175
+#: src/framework/replaysaveractivity.cpp:171
 #, c-format
 msgid "Saved %d video frames and %dMiB of audio data to %s_*.png and %s.wav."
 msgstr ""
 
-#: src/framework/replaysaveractivity.cpp:176
+#: src/framework/replaysaveractivity.cpp:172
 msgid "Replay Saved"
 msgstr ""
 
 #. TRANSLATORS: Title line capitalization in English
-#: src/framework/replaysaveractivity.cpp:272
+#: src/framework/replaysaveractivity.cpp:268
 msgid "Saving Replay"
 msgstr ""
 
-#: src/framework/replaysaveractivity.cpp:273
+#: src/framework/replaysaveractivity.cpp:269
 msgid "Please wait"
 msgstr ""
 
@@ -5502,39 +5498,39 @@ msgstr ""
 msgid "System default"
 msgstr ""
 
-#: src/settings.cpp:230
+#: src/settings.cpp:232
 msgid "Language"
 msgstr ""
 
-#: src/settings.cpp:230
+#: src/settings.cpp:232
 msgid ""
 "The language of the application. Changing this setting requires a restart!"
 msgstr ""
 
-#: src/settings.cpp:231
+#: src/settings.cpp:233
 msgid "All caves selectable"
 msgstr ""
 
-#: src/settings.cpp:231
+#: src/settings.cpp:233
 msgid "All caves and intermissions can be selected at game start."
 msgstr ""
 
-#: src/settings.cpp:232
+#: src/settings.cpp:234
 msgid "Import as all selectable"
 msgstr ""
 
-#: src/settings.cpp:232
+#: src/settings.cpp:234
 msgid ""
 "Original, C64 games are imported not with A, E, I, M caves selectable, but "
 "all caves (ABCD, EFGH... excluding intermissions). This does not affect "
 "BDCFF caves."
 msgstr ""
 
-#: src/settings.cpp:233
+#: src/settings.cpp:235
 msgid "Use BDCFF highscore"
 msgstr ""
 
-#: src/settings.cpp:233
+#: src/settings.cpp:235
 msgid ""
 "Use BDCFF highscores. GDash saves highscores in its own configuration "
 "directory and also in the *.bd files. However, it prefers loading them from "
@@ -5542,150 +5538,158 @@ msgid ""
 "enable this setting to let GDash load them from the *.bd files."
 msgstr ""
 
-#: src/settings.cpp:234
+#: src/settings.cpp:236
 msgid "Show story"
 msgstr ""
 
-#: src/settings.cpp:234
+#: src/settings.cpp:236
 msgid ""
 "If the cave has a story, it will be shown when the cave is first started."
 msgstr ""
 
-#: src/settings.cpp:235
+#: src/settings.cpp:237
 msgid "Game name at uncover"
 msgstr ""
 
-#: src/settings.cpp:235
+#: src/settings.cpp:237
 msgid "Show the name of the game when uncovering a cave."
 msgstr ""
 
-#: src/settings.cpp:236
+#: src/settings.cpp:238
 msgid "No invisible outbox"
 msgstr ""
 
-#: src/settings.cpp:236
+#: src/settings.cpp:238
 msgid "Show invisible outboxes as visible (blinking) ones."
 msgstr ""
 
-#: src/settings.cpp:238
+#: src/settings.cpp:240
 msgid "Theme and colors"
 msgstr ""
 
-#: src/settings.cpp:239
+#: src/settings.cpp:241
 msgid "Theme"
 msgstr ""
 
-#: src/settings.cpp:239
+#: src/settings.cpp:241
 msgid "Graphics theme used inside the game."
 msgstr ""
 
-#: src/settings.cpp:240
+#: src/settings.cpp:242
 msgid "Status bar colors"
 msgstr ""
 
-#: src/settings.cpp:240
+#: src/settings.cpp:242
 msgid ""
 "Preferred status bar color scheme. Only affects the colors, not the status "
 "bar layout."
 msgstr ""
 
-#: src/settings.cpp:241
+#: src/settings.cpp:243
 msgid "  C64 palette"
 msgstr ""
 
-#: src/settings.cpp:241
+#: src/settings.cpp:243
 msgid "The color palette for games imported from C64 files."
 msgstr ""
 
-#: src/settings.cpp:242
+#: src/settings.cpp:244
 msgid "  C64DTV palette"
 msgstr ""
 
-#: src/settings.cpp:242
+#: src/settings.cpp:244
 msgid "The color palette for imported C64 DTV games."
 msgstr ""
 
-#: src/settings.cpp:243
+#: src/settings.cpp:245
 msgid "  Atari palette"
 msgstr ""
 
-#: src/settings.cpp:243
+#: src/settings.cpp:245
 msgid "The color palette for imported Atari games."
 msgstr ""
 
-#: src/settings.cpp:244
+#: src/settings.cpp:246
 msgid "  Preferred palette"
 msgstr ""
 
-#: src/settings.cpp:244
+#: src/settings.cpp:246
 msgid "New caves and random colored caves use this palette."
 msgstr ""
 
-#: src/settings.cpp:245
+#: src/settings.cpp:247
 msgid "Alternate vertical animation"
 msgstr ""
 
-#: src/settings.cpp:245
+#: src/settings.cpp:247
 msgid "Alternate vertical animation for the player."
 msgstr ""
 
-#: src/settings.cpp:247
+#: src/settings.cpp:249
 msgid "Game graphics"
 msgstr ""
 
 #. TRANSLATORS: here "engine" = "graphics engine"
-#: src/settings.cpp:249
+#: src/settings.cpp:251
 msgid "Engine"
 msgstr ""
 
-#: src/settings.cpp:249
+#: src/settings.cpp:251
 msgid "Graphics engine which used for drawing."
 msgstr ""
 
-#: src/settings.cpp:250 src/settings.cpp:279
+#: src/settings.cpp:252 src/settings.cpp:282
 msgid "Scaling factor"
 msgstr ""
 
-#: src/settings.cpp:250 src/settings.cpp:279
+#: src/settings.cpp:252 src/settings.cpp:282
 msgid "Scaling size."
 msgstr ""
 
-#: src/settings.cpp:251 src/settings.cpp:280
+#: src/settings.cpp:253
+msgid "  Autoscale"
+msgstr ""
+
+#: src/settings.cpp:253
+msgid "Automatically calculate the scale factor to fill the entire screen."
+msgstr ""
+
+#: src/settings.cpp:254 src/settings.cpp:283
 msgid "  Scaling type"
 msgstr ""
 
-#: src/settings.cpp:251
+#: src/settings.cpp:254
 msgid ""
 "Software scaling method used. This setting is only effective for the GTK+ "
 "and the SDL engines. If you use the OpenGL engine, you can configure its "
 "scaling method by selecting a shader."
 msgstr ""
 
-#: src/settings.cpp:252 src/settings.cpp:281
+#: src/settings.cpp:255 src/settings.cpp:284
 msgid "  Software PAL emu"
 msgstr ""
 
-#: src/settings.cpp:252
+#: src/settings.cpp:255
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV. Only effective for the GTK+ and the SDL engines."
 msgstr ""
 
-#: src/settings.cpp:253
+#: src/settings.cpp:256
 msgid "  PAL scanline shade"
 msgstr ""
 
-#: src/settings.cpp:253
+#: src/settings.cpp:256
 msgid ""
 "Darker rows for PAL emulation. Only effective for the GTK+ and the SDL "
 "engines."
 msgstr ""
 
-#: src/settings.cpp:254
+#: src/settings.cpp:257
 msgid "Fine scrolling"
 msgstr ""
 
-#: src/settings.cpp:254
+#: src/settings.cpp:257
 msgid ""
 "If fine scrolling is turned off, scrolling and cave animation is limited to "
 "a lower frame rate, and consumes much less CPU. On some hardware, it might "
@@ -5693,311 +5697,313 @@ msgid ""
 "fine scrolling."
 msgstr ""
 
-#: src/settings.cpp:255
+#: src/settings.cpp:258
 msgid "Particle effects"
 msgstr ""
 
-#: src/settings.cpp:255
+#: src/settings.cpp:258
 msgid "Particle effects during play. This requires a lot of CPU power."
 msgstr ""
 
-#: src/settings.cpp:256
-msgid "Full cave view"
+#: src/settings.cpp:259
+msgid "View width"
 msgstr ""
 
-#: src/settings.cpp:256
-msgid "Show the whole cave on the screen without scrolling."
+#: src/settings.cpp:259
+msgid "Width of visible cave. Default is 20."
 msgstr ""
 
-#: src/settings.cpp:257
+#: src/settings.cpp:260
+msgid "View height"
+msgstr ""
+
+#: src/settings.cpp:260
+msgid "Height of visible cave. Default is 13."
+msgstr ""
+
+#: src/settings.cpp:261
 msgid "Overlay screen status info"
 msgstr ""
 
-#: src/settings.cpp:257
+#: src/settings.cpp:261
 msgid ""
 "Displays the time between drawing two frames in milliseconds, frames per "
 "second and scroll rate. This can be helpful to check the performance of the "
 "game on the system in use."
 msgstr ""
 
-#: src/settings.cpp:260
+#: src/settings.cpp:264
 msgid "OpenGL settings"
 msgstr ""
 
-#: src/settings.cpp:261
+#: src/settings.cpp:265
 msgid "Shader"
 msgstr ""
 
-#: src/settings.cpp:261
+#: src/settings.cpp:265
 msgid ""
 "The shader which adds a graphical effect to the screen. Only effective if "
 "the OpenGL engine is used. If your video card is older, it might not support "
 "shaders. The GDash TV shader can be configured with the settings below."
 msgstr ""
 
-#: src/settings.cpp:262
+#: src/settings.cpp:266
 msgid "Radial distortion"
 msgstr ""
 
-#: src/settings.cpp:262
+#: src/settings.cpp:266
 msgid ""
 "With radial distortion, the screen won't be flat, but it will look like as "
 "if it's projected on a sphere."
 msgstr ""
 
-#: src/settings.cpp:263
+#: src/settings.cpp:267
 msgid "Random scanline displacement"
 msgstr ""
 
-#: src/settings.cpp:263
+#: src/settings.cpp:267
 msgid ""
 "Increasing this setting causes the the image to be unstable horizontally."
 msgstr ""
 
-#: src/settings.cpp:264
+#: src/settings.cpp:268
 msgid "Luma X blur"
 msgstr ""
 
-#: src/settings.cpp:264
+#: src/settings.cpp:268
 msgid "Horizontal blur of luminosity."
 msgstr ""
 
-#: src/settings.cpp:265
+#: src/settings.cpp:269
 msgid "Chroma X blur"
 msgstr ""
 
-#: src/settings.cpp:265
+#: src/settings.cpp:269
 msgid "Slight horizontal blur of colors."
 msgstr ""
 
-#: src/settings.cpp:266
+#: src/settings.cpp:270
 msgid "Chroma Y blur"
 msgstr ""
 
-#: src/settings.cpp:266
+#: src/settings.cpp:270
 msgid "Vertical blur of colors, to imitate a PAL TV signal."
 msgstr ""
 
-#: src/settings.cpp:267
+#: src/settings.cpp:271
 msgid "Chroma to luma"
 msgstr ""
 
-#: src/settings.cpp:267
+#: src/settings.cpp:271
 msgid "Sudden changes in colors can cause patterns to appear on the image."
 msgstr ""
 
-#: src/settings.cpp:268
+#: src/settings.cpp:272
 msgid "Luma to chroma"
 msgstr ""
 
-#: src/settings.cpp:268
+#: src/settings.cpp:272
 msgid ""
 "Sudden changes in luminosity can cause false colors to appear on the image."
 msgstr ""
 
-#: src/settings.cpp:269
+#: src/settings.cpp:273
 msgid "Random Y"
 msgstr ""
 
-#: src/settings.cpp:269
+#: src/settings.cpp:273
 msgid "Noise level of luminosity."
 msgstr ""
 
-#: src/settings.cpp:270
+#: src/settings.cpp:274
 msgid "Random UV"
 msgstr ""
 
-#: src/settings.cpp:270
+#: src/settings.cpp:274
 msgid "Noise level of colors."
 msgstr ""
 
-#: src/settings.cpp:271
+#: src/settings.cpp:275
 msgid "Scanline shade"
 msgstr ""
 
-#: src/settings.cpp:271
+#: src/settings.cpp:275
 msgid "Darkened horizontal rows to emulate a TV screen."
 msgstr ""
 
-#: src/settings.cpp:272
+#: src/settings.cpp:276
 msgid "Phosphor shade"
 msgstr ""
 
-#: src/settings.cpp:272
+#: src/settings.cpp:276
 msgid "Red, green and blue subpixels of a TV screen can be emulated."
 msgstr ""
 
-#: src/settings.cpp:273
+#: src/settings.cpp:277
 msgid "Force OpenGL Renderer"
 msgstr ""
 
-#: src/settings.cpp:273
+#: src/settings.cpp:277
 msgid ""
 "If this option is activated, the \"opengl\" renderer is used, otherwise the "
 "default renderer. This option may have influence on the frame rate of the "
 "game."
 msgstr ""
 
-#: src/settings.cpp:274
-msgid "Center full screen"
-msgstr ""
-
-#: src/settings.cpp:274
-msgid ""
-"If this option is activated, the display fills the entire screen. The "
-"scaling factor may influence the aspect ratio."
-msgstr ""
-
-#: src/settings.cpp:278
+#: src/settings.cpp:281
 msgid "Editor settings"
 msgstr ""
 
-#: src/settings.cpp:280
+#: src/settings.cpp:283
 msgid "Scaling method."
 msgstr ""
 
-#: src/settings.cpp:281
+#: src/settings.cpp:284
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV."
 msgstr ""
 
-#: src/settings.cpp:282 src/editor/editor.cpp:3386
+#: src/settings.cpp:285 src/editor/editor.cpp:3386
 msgid "Animated view"
 msgstr ""
 
-#: src/settings.cpp:282
+#: src/settings.cpp:285
 msgid "Show simplified view of cave in the editor."
 msgstr ""
 
-#: src/settings.cpp:283
+#: src/settings.cpp:286
 msgid "Colored objects"
 msgstr ""
 
-#: src/settings.cpp:283
+#: src/settings.cpp:286
 msgid ""
 "Cave objects are colored, to make them different from random cave elements."
 msgstr ""
 
-#: src/settings.cpp:284
+#: src/settings.cpp:287
 msgid "Object list"
 msgstr ""
 
-#: src/settings.cpp:284
+#: src/settings.cpp:287
 msgid "Show objects list sidebar in the editor."
 msgstr ""
 
-#: src/settings.cpp:285
+#: src/settings.cpp:288
 msgid "Fast uncover in test"
 msgstr ""
 
-#: src/settings.cpp:285
+#: src/settings.cpp:288
 msgid ""
 "Fast uncovering and covering of cave in editor cave test, to reduce waiting "
 "time."
 msgstr ""
 
-#: src/settings.cpp:290
+#: src/settings.cpp:293
 msgid "Play sounds and music in the program."
 msgstr ""
 
-#: src/settings.cpp:291
+#: src/settings.cpp:294
 msgid "Classic sounds only"
 msgstr ""
 
-#: src/settings.cpp:291
+#: src/settings.cpp:294
 msgid "Play only classic sounds taken from the original game."
 msgstr ""
 
-#: src/settings.cpp:292
+#: src/settings.cpp:295
 msgid "Stereo sounds"
 msgstr ""
 
-#: src/settings.cpp:292
+#: src/settings.cpp:295
 msgid ""
 "If you enable stereo sounds, you will hear the direction of sounds in the "
 "caves."
 msgstr ""
 
-#: src/settings.cpp:293
+#: src/settings.cpp:296
 msgid "16-bit mixing"
 msgstr ""
 
-#: src/settings.cpp:293
+#: src/settings.cpp:296
 msgid ""
 "Use 16-bit mixing of sounds. Try changing this setting if sound is clicky."
 msgstr ""
 
-#: src/settings.cpp:294
+#: src/settings.cpp:297
 msgid "44kHz mixing"
 msgstr ""
 
-#: src/settings.cpp:294
+#: src/settings.cpp:297
 msgid ""
 "Use 44kHz mixing of sounds. Try changing this setting if sound is clicky."
 msgstr ""
 
-#: src/settings.cpp:311 src/settings.cpp:339
+#: src/settings.cpp:314 src/settings.cpp:342
 msgid "Keyboard"
 msgstr ""
 
-#: src/settings.cpp:316 src/settings.cpp:344
+#: src/settings.cpp:319 src/settings.cpp:347
 msgid "Key left"
 msgstr ""
 
-#: src/settings.cpp:317 src/settings.cpp:345
+#: src/settings.cpp:320 src/settings.cpp:348
 msgid "Key right"
 msgstr ""
 
-#: src/settings.cpp:318 src/settings.cpp:346
+#: src/settings.cpp:321 src/settings.cpp:349
 msgid "Key up"
 msgstr ""
 
-#: src/settings.cpp:319 src/settings.cpp:347
+#: src/settings.cpp:322 src/settings.cpp:350
 msgid "Key down"
 msgstr ""
 
-#: src/settings.cpp:320 src/settings.cpp:348
+#: src/settings.cpp:323 src/settings.cpp:351
 msgid "Key snap"
 msgstr ""
 
-#: src/settings.cpp:321 src/settings.cpp:349
+#: src/settings.cpp:324 src/settings.cpp:352
 msgid "Key snap (alt.)"
 msgstr ""
 
-#: src/settings.cpp:322 src/settings.cpp:350
+#: src/settings.cpp:325 src/settings.cpp:353
 msgid "Key suicide"
 msgstr ""
 
-#: src/settings.cpp:323 src/settings.cpp:351
+#: src/settings.cpp:326 src/settings.cpp:354
 msgid "Key fast forward"
 msgstr ""
 
-#: src/settings.cpp:324 src/settings.cpp:352
+#: src/settings.cpp:327 src/settings.cpp:355
 msgid "Key status bar"
 msgstr ""
 
-#: src/settings.cpp:325 src/settings.cpp:353
+#: src/settings.cpp:328 src/settings.cpp:356
 msgid "Key restart level"
 msgstr ""
 
-#: src/settings.cpp:750
+#: src/settings.cpp:754
+msgid "same as --help but translated"
+msgstr ""
+
+#: src/settings.cpp:755
 msgid "Show license and quit"
 msgstr ""
 
-#: src/settings.cpp:751
+#: src/settings.cpp:756
 msgid "Show some debug messages"
 msgstr ""
 
-#: src/settings.cpp:752
+#: src/settings.cpp:757
 msgid "Load default settings"
 msgstr ""
 
-#: src/settings.cpp:753
+#: src/settings.cpp:758
 msgid "Cave names"
 msgstr ""
 
-#: src/settings.cpp:756
+#: src/settings.cpp:761
 msgid "[FILE NAME]"
 msgstr ""
 
@@ -6323,11 +6329,11 @@ msgid "Save as _PNG"
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/editor/editor.cpp:2110
+#: src/editor/editor.cpp:2108
 msgid "Element Statistics"
 msgstr ""
 
-#: src/editor/editor.cpp:2118
+#: src/editor/editor.cpp:2116
 msgid "<b>Size of visible area</b>"
 msgstr ""
 

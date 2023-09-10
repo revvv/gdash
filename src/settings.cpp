@@ -250,7 +250,7 @@ Setting *gd_get_game_settings_array() {
         // TRANSLATORS: here "engine" = "graphics engine"
         { TypeStringv, N_("Engine"), &gd_graphics_engine, true, gd_graphics_engine_names, N_("Graphics engine which used for drawing.") },
         { TypeDouble, N_("Scaling factor"), &gd_cell_scale_factor_game, true, NULL, N_("Scaling size."), 1, 8 },
-        { TypeBoolean, N_("  Autoscale"), &gd_auto_scale, true, NULL, N_("Calculate scaling factor automatically to fill the whole screen.") },
+        { TypeBoolean, N_("  Autoscale"), &gd_auto_scale, true, NULL, N_("Automatically calculate the scale factor to fill the entire screen.") },
         { TypeStringv, N_("  Scaling type"), &gd_cell_scale_type_game, true, gd_scaling_names, N_("Software scaling method used. This setting is only effective for the GTK+ and the SDL engines. If you use the OpenGL engine, you can configure its scaling method by selecting a shader.") },
         { TypeBoolean, N_("  Software PAL emu"), &gd_pal_emulation_game, true, NULL, N_("Use PAL emulated graphics, i.e. lines are striped, and colors are distorted like on a TV. Only effective for the GTK+ and the SDL engines.") },
         { TypePercent, N_("  PAL scanline shade"), &gd_pal_emu_scanline_shade, true, NULL, N_("Darker rows for PAL emulation. Only effective for the GTK+ and the SDL engines.") },
