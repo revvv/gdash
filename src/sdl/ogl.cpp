@@ -22,6 +22,7 @@
  */
 
 #include <SDL_image.h>
+#include <cmath>
 #include <stdexcept>
 
 #include "cave/gamerender.hpp"
