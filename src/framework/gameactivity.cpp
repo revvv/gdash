@@ -117,10 +117,7 @@ GameActivity::~GameActivity() {
 void GameActivity::shown_event() {
     app->game_active(true);
     int cell_size = cellrenderer.get_cell_size();
-    if (gd_full_cave_view)
-        app->screen->set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_X, cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_Y, gd_fullscreen);
-    else
-        app->screen->set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_X, cell_size * GAME_RENDERER_SCREEN_SIZE_Y, gd_fullscreen);
+    app->screen->set_size(cell_size * gd_view_width, cell_size * (gd_view_height + 1), gd_fullscreen);
     gamerenderer.screen_initialized();
     gd_music_stop();
     /* get the "restart" state here, so it goes back to false.

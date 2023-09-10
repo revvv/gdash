@@ -41,12 +41,12 @@
 #include "misc/logger.hpp"
 
 
-static double calculate_full_cave_scaling_factor_for_monitor() {
+static double calculate_scaling_factor_for_monitor() {
     GdkRectangle monitor = {0};
     gdk_monitor_get_workarea(gdk_display_get_primary_monitor(gdk_display_get_default()), &monitor);
     gd_debug("GTK screen size: %u x %u", monitor.width, monitor.height);
-    int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
-    int h = GAME_RENDERER_SCREEN_SIZE_MAX_Y * 16;
+    int w = gd_view_width * 16;
+    int h = (gd_view_height + 1) * 16;
     gd_debug("Cave size: %u x %u", w, h);
     double ratioW = (double) monitor.width / (double) w;
     double ratioH = (double) monitor.height / (double) h;
@@ -59,7 +59,8 @@ static double calculate_full_cave_scaling_factor_for_monitor() {
     int newWidth = (int) (w * r);
     int newHeight = (int) (h * r);
     gd_debug("GTK upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
-    gd_full_cave_scaling_factor = r;
+    gd_auto_scale_factor = r; // unused by GTK, just set for consistency
+    gd_cell_scale_factor_game = r;
     return r;
 }
 
@@ -69,8 +70,8 @@ GTKApp::GTKApp(GTKScreen &screenref, GtkWidget *toplevel, GtkActionGroup *action
     App(screenref),
     toplevel(toplevel),
     actions_game(actions_game) {
-    if (gd_full_cave_view)
-       screen->set_properties(calculate_full_cave_scaling_factor_for_monitor(), GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
+    if (gd_auto_scale)
+        screen->set_properties(calculate_scaling_factor_for_monitor(), GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
     else
         screen->set_properties(gd_cell_scale_factor_game, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
     gameinput = new GTKGameInputHandler;    /* deleted by the base class dtor */

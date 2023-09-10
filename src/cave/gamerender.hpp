@@ -42,12 +42,6 @@ class GameInputHandler;
 class Pixbuf;
 class Pixmap;
 
-#define GAME_RENDERER_SCREEN_SIZE_X (20)
-#define GAME_RENDERER_SCREEN_SIZE_Y (12.5)
-
-#define GAME_RENDERER_SCREEN_SIZE_MAX_X (40)
-#define GAME_RENDERER_SCREEN_SIZE_MAX_Y (23)
-
 enum GdStatusBarType {
     GD_STATUS_BAR_ORIGINAL,
     GD_STATUS_BAR_1STB,

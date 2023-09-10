@@ -82,10 +82,7 @@ void TitleScreenActivity::clear_animation() {
 void TitleScreenActivity::shown_event() {
     double scale = app->screen->get_pixmap_scale();
     int cell_size = CELL_RENDERER_CELL_SIZE * scale;
-    if (gd_full_cave_view)
-        app->screen->set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_X, cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_Y, gd_fullscreen);
-    else
-        app->screen->set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_X, cell_size * GAME_RENDERER_SCREEN_SIZE_Y, gd_fullscreen);
+    app->screen->set_size(cell_size * gd_view_width, cell_size * (gd_view_height + 1), gd_fullscreen);
 
     /* render title screen animation in memory pixmap */
     render_animation();

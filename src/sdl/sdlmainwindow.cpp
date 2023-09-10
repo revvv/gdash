@@ -56,11 +56,11 @@ static double calculate_full_cave_scaling_factor_for_monitor() {
     int res = SDL_GetCurrentDisplayMode(0, &dm);
     if (res < 0) {
         gd_message("SDL: cannot detect screen size: %s", SDL_GetError());
-        return gd_full_cave_scaling_factor;
+        return gd_auto_scale_factor;
     }
     gd_debug("SDL screen size: %u x %u", dm.w, dm.h);
-    int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
-    int h = GAME_RENDERER_SCREEN_SIZE_MAX_Y * 16;
+    int w = gd_view_width * 16;
+    int h = (gd_view_height + 1) * 16;
     gd_debug("Cave size: %u x %u", w, h);
     double ratioW = (double) dm.w / (double) w;
     double ratioH = (double) dm.h / (double) h;
@@ -73,14 +73,16 @@ static double calculate_full_cave_scaling_factor_for_monitor() {
     int newWidth = (int) (w * r);
     int newHeight = (int) (h * r);
     gd_debug("SDL upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
-    gd_full_cave_scaling_factor = r;
+    if (gd_auto_scale)
+        gd_cell_scale_factor_game = r;
+    gd_auto_scale_factor = r;
     return r;
 }
 
 SDLApp::SDLApp(Screen &screenref)
     : App(screenref) {
-    if (gd_full_cave_view)
-        screen->set_properties(gd_full_cave_scaling_factor, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
+    if (gd_auto_scale)
+        screen->set_properties(gd_auto_scale_factor, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
     else
         screen->set_properties(gd_cell_scale_factor_game, GdScalingType(gd_cell_scale_type_game), gd_pal_emulation_game);
     font_manager = new FontManager(*screen, "");

@@ -46,9 +46,9 @@ static_assert(G_N_ELEMENTS(gd_scaling_names) == GD_SCALING_MAX + 1); /* +1 is th
 std::unique_ptr<Pixbuf> PixbufFactory::create_scaled(const Pixbuf &src, double scaling_factor, GdScalingType scaling_type, bool pal_emulation) const {
 
     // title screen: calculate scaling factor
-    if (gd_full_cave_view && src.get_width() >= 100 && src.get_height() >= 100) {
-        int w = GAME_RENDERER_SCREEN_SIZE_MAX_X * 16;
-        int h = (GAME_RENDERER_SCREEN_SIZE_MAX_Y - 3) * 16; // three lines for game and cave title
+    if ((gd_view_width > 20 || gd_view_height > 13) && src.get_width() >= 100 && src.get_height() >= 100) {
+        int w = gd_view_width * 16;
+        int h = (gd_view_height + 1 - 3) * 16; // three lines for game and cave title
         // estimate monitor size
         int monitor_width = w * scaling_factor;
         int monitor_height = h * scaling_factor;

@@ -309,7 +309,8 @@ void GameRenderer::drawcave() const {
     else
         yplus = 0;
 
-    if (gd_full_cave_view && game.played_cave->intermission)
+    bool cave_smaller_than_view = (game.played_cave->x2 < gd_view_width) && (game.played_cave->y2 < gd_view_height);
+    if (cave_smaller_than_view)
         yplus = 0; // align top
 
     /* if using particle effects, draw the background, as particles might have moved "out" of it.

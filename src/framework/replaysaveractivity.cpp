@@ -34,7 +34,6 @@
 #include "framework/commands.hpp"
 #include "sdl/IMG_savepng.hpp"
 #include "sound/sound.hpp"
-#include "cave/gamerender.hpp"
 #include "cave/gamecontrol.hpp"
 #include "cave/titleanimation.hpp"
 #include "cave/caveset.hpp"
@@ -100,10 +99,7 @@ ReplaySaverActivity::ReplaySaverActivity(App *app, CaveStored *cave, CaveReplay 
     cellrenderer(pm, gd_theme),
     gamerenderer(pm, cellrenderer, fm, *game) {
     int cell_size = cellrenderer.get_cell_size();
-    if (gd_full_cave_view)
-        pm.set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_X, cell_size * GAME_RENDERER_SCREEN_SIZE_MAX_Y, false);
-    else
-        pm.set_size(cell_size * GAME_RENDERER_SCREEN_SIZE_X, cell_size * GAME_RENDERER_SCREEN_SIZE_Y, false);
+    pm.set_size(cell_size * gd_view_width, cell_size * (gd_view_height + 1), false);
     gamerenderer.screen_initialized();
     gamerenderer.set_show_replay_sign(false);
     std::string wav_filename = filename_prefix + ".wav";

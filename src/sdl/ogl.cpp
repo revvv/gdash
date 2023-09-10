@@ -301,17 +301,24 @@ static double calculate_scaling_factor_for_monitor(int* w_padding, int* h_paddin
         gd_message("OpenGL: cannot detect screen size: %s", SDL_GetError());
         return gd_cell_scale_factor_game;
     }
-    int w = GAME_RENDERER_SCREEN_SIZE_X * 16;
-    int h = GAME_RENDERER_SCREEN_SIZE_Y * 16;
+    int w = gd_view_width * 16;
+    int h = (gd_view_height + 1) * 16;
     double ratioW = (double) dm.w / (double) w;
     double ratioH = (double) dm.h / (double) h;
     double ratio = std::min(ratioW, ratioH);
-    int newWidth = (int) (w * ratio);
-    int newHeight = (int) (h * ratio);
+    // ratio = x * DOUBLE_STEP + y
+    double x = std::round(ratio / DOUBLE_STEP);
+    double r = x * DOUBLE_STEP;
+    if (r > ratio)
+        r -= DOUBLE_STEP;
+    int newWidth = (int) (w * r);
+    int newHeight = (int) (h * r);
     *w_padding = dm.w - newWidth;
     *h_padding = dm.h - newHeight;
-    gd_debug("OpenGL upscaled: %u x %u -> %u x %u ratio=%f w_padding=%u h_padding=%u", w, h, newWidth, newHeight, ratio, *w_padding, *h_padding);
-    return ratio;
+    if (gd_auto_scale)
+        gd_cell_scale_factor_game = r;
+    gd_auto_scale_factor = r; // unused by OpenGL, just set for consistency
+    return r;
 }
 
 
@@ -343,10 +350,16 @@ void SDLOGLScreen::configure_size() {
     // WORKAROUND to center OpenGL in full screen mode
     int w_padding = 0;
     int h_padding = 0;
-    if (gd_fullscreen && !gd_full_cave_view)
-        oglscaling = calculate_scaling_factor_for_monitor(&w_padding, &h_padding);
-    else
+    double scale = calculate_scaling_factor_for_monitor(&w_padding, &h_padding);
+    if (gd_fullscreen)
+        oglscaling = scale;
+    else {
         oglscaling = gd_cell_scale_factor_game;
+        w_padding = 0;
+        h_padding = 0;
+    }
+    if (gd_auto_scale)
+        oglscaling = scale;
 
     if (gd_fullscreen)
         window.reset(SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w * oglscaling, h * oglscaling, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN));
