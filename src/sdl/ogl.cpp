@@ -312,14 +312,15 @@ static double calculate_scaling_factor_for_monitor(int* w_padding, int* h_paddin
     double r = x * DOUBLE_STEP;
     if (r > ratio)
         r -= DOUBLE_STEP;
-    int newWidth = (int) (w * r);
-    int newHeight = (int) (h * r);
+    int newWidth = (int) (w * ratio);  // not using r, because fullscreen will not be centered with it!?
+    int newHeight = (int) (h * ratio); // ...
     *w_padding = dm.w - newWidth;
     *h_padding = dm.h - newHeight;
     if (gd_auto_scale)
         gd_cell_scale_factor_game = r;
     gd_auto_scale_factor = r; // unused by OpenGL, just set for consistency
-    return r;
+    gd_debug("OpenGL upscaled: %u x %u -> %u x %u ratio=%f -> %f w_padding=%u h_padding=%u", w, h, newWidth, newHeight, ratio, r, *w_padding, *h_padding);
+    return ratio;                      // not using r, because fullscreen will not be centered with it!?
 }
 
 
