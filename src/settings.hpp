@@ -142,7 +142,6 @@ extern int shader_pal_luma_x_blur;
 extern int shader_pal_chroma_x_blur;
 extern int shader_pal_chroma_y_blur;
 extern bool gd_opengl_renderer;
-extern bool gd_opengl_center;
 #endif    /* if gd_sound */
 
 

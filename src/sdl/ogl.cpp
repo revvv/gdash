@@ -24,6 +24,7 @@
 #include <SDL_image.h>
 #include <stdexcept>
 
+#include "cave/gamerender.hpp"
 #include "sdl/ogl.hpp"
 #include "sdl/sdlpixbuf.hpp"
 #include "settings.hpp"
@@ -289,6 +290,31 @@ static void create_opengl_renderer(SDL_Window* window) {
 }
 
 
+/// Calculate scaling factor to fill the whole screen.
+/// @param w_padding filled with additional width so that aspect ratio is preserved
+/// @param h_padding filled with additional height so that aspect ratio is preserved
+/// @return scaling factor
+static double calculate_scaling_factor_for_monitor(int* w_padding, int* h_padding) {
+    SDL_DisplayMode dm;
+    int res = SDL_GetCurrentDisplayMode(0, &dm);
+    if (res < 0) {
+        gd_message("OpenGL: cannot detect screen size: %s", SDL_GetError());
+        return gd_cell_scale_factor_game;
+    }
+    int w = GAME_RENDERER_SCREEN_SIZE_X * 16;
+    int h = GAME_RENDERER_SCREEN_SIZE_Y * 16;
+    double ratioW = (double) dm.w / (double) w;
+    double ratioH = (double) dm.h / (double) h;
+    double ratio = std::min(ratioW, ratioH);
+    int newWidth = (int) (w * ratio);
+    int newHeight = (int) (h * ratio);
+    *w_padding = dm.w - newWidth;
+    *h_padding = dm.h - newHeight;
+    gd_debug("OpenGL upscaled: %u x %u -> %u x %u ratio=%f w_padding=%u h_padding=%u", w, h, newWidth, newHeight, ratio, *w_padding, *h_padding);
+    return ratio;
+}
+
+
 void SDLOGLScreen::configure_size() {
     texture.reset();
     shaders.clear();
@@ -313,6 +339,14 @@ void SDLOGLScreen::configure_size() {
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     /* if doing fine scrolling, try to swap every frame. otherwise, every second frame. */
     SDL_GL_SetSwapInterval(-1);
+
+    // WORKAROUND to center OpenGL in full screen mode
+    int w_padding = 0;
+    int h_padding = 0;
+    if (gd_fullscreen && !gd_full_cave_view)
+        oglscaling = calculate_scaling_factor_for_monitor(&w_padding, &h_padding);
+    else
+        oglscaling = gd_cell_scale_factor_game;
 
     if (gd_fullscreen)
         window.reset(SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w * oglscaling, h * oglscaling, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN));
@@ -362,8 +396,7 @@ void SDLOGLScreen::configure_size() {
     /* opengl view initialization */
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    if (!gd_opengl_center)
-        glViewport(0, 0, w * oglscaling, h * oglscaling);
+    glViewport(w_padding / 2, h_padding / 2, w * oglscaling, h * oglscaling);
     glOrtho(0.0, w * oglscaling, h * oglscaling, 0.0, 0.0, 1.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
