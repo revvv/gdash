@@ -309,7 +309,9 @@ void GameRenderer::drawcave() const {
     else
         yplus = 0;
 
-    bool cave_smaller_than_view = (game.played_cave->x2 < gd_view_width) && (game.played_cave->y2 < gd_view_height);
+    int visible_w = game.played_cave->x2 - game.played_cave->x1;
+    int visible_h = game.played_cave->y2 - game.played_cave->y1;
+    bool cave_smaller_than_view = (visible_w < gd_view_width) || (visible_h < gd_view_height);
     if (cave_smaller_than_view)
         yplus = 0; // align top
 
