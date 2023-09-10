@@ -51,7 +51,7 @@ public:
 };
 
 // NOTE: needs to be called after SDL_Init()
-static double calculate_full_cave_scaling_factor_for_monitor() {
+static double calculate_scaling_factor_for_monitor() {
     SDL_DisplayMode dm;
     int res = SDL_GetCurrentDisplayMode(0, &dm);
     if (res < 0) {
@@ -175,7 +175,7 @@ static void run_the_app(SDLApp &the_app, NextAction &na, bool opengl) {
     if (!SDL_WasInit(SDL_INIT_TIMER))
         SDL_Init(SDL_INIT_TIMER);
 
-    calculate_full_cave_scaling_factor_for_monitor();
+    calculate_scaling_factor_for_monitor();
 
     /* if screen reports we can use it for timing, measure the number of
      * milliseconds each refresh takes */
