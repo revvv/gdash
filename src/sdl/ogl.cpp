@@ -411,8 +411,10 @@ void SDLOGLScreen::configure_size() {
     /* opengl view initialization */
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glViewport(w_padding / 2, h_padding / 2, w * oglscaling, h * oglscaling);
-    glOrtho(0.0, w * oglscaling, h * oglscaling, 0.0, 0.0, 1.0);
+    //glViewport(0, 0, w * oglscaling, h * oglscaling);            // OEM
+    //glOrtho(0.0, w * oglscaling, h * oglscaling, 0.0, 0.0, 1.0); // OEM
+    //glViewport(w_padding / 2, h_padding / 2, w * oglscaling, h * oglscaling);
+    glOrtho(-w_padding / 2.0, (w * oglscaling) + (w_padding / 2.0), (h * oglscaling) + (h_padding / 2.0), -h_padding / 2.0, 0.0, 1.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     /* set up textures & stuff; some of these may be used when
