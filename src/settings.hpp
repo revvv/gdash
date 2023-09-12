@@ -44,8 +44,6 @@ extern bool gd_use_bdcff_highscore;
 extern int gd_pal_emu_scanline_shade;
 extern bool gd_fine_scroll;
 extern bool gd_particle_effects;
-extern int gd_view_width;
-extern int gd_view_height;
 extern bool gd_show_fps;
 extern bool gd_show_story;
 extern bool gd_show_name_of_game;
@@ -75,6 +73,8 @@ extern bool gd_show_preview;
 /* graphics */
 extern int gd_graphics_engine;
 extern bool gd_fullscreen;
+extern int gd_view_width;
+extern int gd_view_height;
 extern double gd_cell_scale_factor_game;
 extern bool gd_auto_scale;
 extern double gd_auto_scale_factor;

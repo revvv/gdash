@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-11 16:11+0200\n"
+"POT-Creation-Date: 2023-09-12 11:54+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -6687,29 +6687,53 @@ msgstr "Engine"
 msgid "Graphics engine which used for drawing."
 msgstr "Grafik-Engine, die zur Grafikausgabe verwendet wird."
 
-#: src/settings.cpp:252 src/settings.cpp:282
+#: src/settings.cpp:252
+msgid "View width"
+msgstr "Ansichtsbreite"
+
+#: src/settings.cpp:252
+msgid ""
+"Width of visible cave. Default is 20. For the full view of the cave without "
+"scrolling, the default is 40."
+msgstr ""
+"Breite der sichtbaren Höhle. Der Standardwert ist 20. Für die Gesamtansicht "
+"der Höhle ohne Scrolling ist der Standardwert 40."
+
+#: src/settings.cpp:253
+msgid "View height"
+msgstr "Ansichtshöhe"
+
+#: src/settings.cpp:253
+msgid ""
+"Height of visible cave. Default is 13. For the full view of the cave without "
+"scrolling, the default is 22."
+msgstr ""
+"Höhe der sichtbaren Höhle. Der Standardwert ist 13. Für die Gesamtansicht "
+"der Höhle ohne Scrolling ist der Standardwert 22."
+
+#: src/settings.cpp:254 src/settings.cpp:282
 msgid "Scaling factor"
 msgstr "Skalierungsfaktor"
 
-#: src/settings.cpp:252 src/settings.cpp:282
+#: src/settings.cpp:254 src/settings.cpp:282
 msgid "Scaling size."
 msgstr "Skalierungsgröße."
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "  Autoscale"
 msgstr "  Automatische Skalierung"
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "Automatically calculate the scale factor to fill the entire screen."
 msgstr ""
 "Berechne den Skalierungsfaktor automatisch, um den gesamten Bildschirm "
 "auszufüllen."
 
-#: src/settings.cpp:254 src/settings.cpp:283
+#: src/settings.cpp:256 src/settings.cpp:283
 msgid "  Scaling type"
 msgstr "  Skalierungstyp"
 
-#: src/settings.cpp:254
+#: src/settings.cpp:256
 msgid ""
 "Software scaling method used. This setting is only effective for the GTK+ "
 "and the SDL engines. If you use the OpenGL engine, you can configure its "
@@ -6720,11 +6744,11 @@ msgstr ""
 "Engine, kann man die Skalierungsmethode durch das Auswählen eines Shader-"
 "Effekts einstellen."
 
-#: src/settings.cpp:255 src/settings.cpp:284
+#: src/settings.cpp:257 src/settings.cpp:284
 msgid "  Software PAL emu"
 msgstr "  PAL-Emu. per Software"
 
-#: src/settings.cpp:255
+#: src/settings.cpp:257
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV. Only effective for the GTK+ and the SDL engines."
@@ -6733,11 +6757,11 @@ msgstr ""
 "Farbe, leichte Farbstörungen wie auf einem Fernseher.). Funktioniert nur mit "
 "der GTK+ und SDL-Engine."
 
-#: src/settings.cpp:256
+#: src/settings.cpp:258
 msgid "  PAL scanline shade"
 msgstr "  PAL Scanline-Schatten"
 
-#: src/settings.cpp:256
+#: src/settings.cpp:258
 msgid ""
 "Darker rows for PAL emulation. Only effective for the GTK+ and the SDL "
 "engines."
@@ -6745,11 +6769,11 @@ msgstr ""
 "Dunkle Zeilen für die PAL-Emulation. Funktioniert nur mit der GTK+ und SDL-"
 "Engine."
 
-#: src/settings.cpp:257
+#: src/settings.cpp:259
 msgid "Fine scrolling"
 msgstr "Feines Scrolling"
 
-#: src/settings.cpp:257
+#: src/settings.cpp:259
 msgid ""
 "If fine scrolling is turned off, scrolling and cave animation is limited to "
 "a lower frame rate, and consumes much less CPU. On some hardware, it might "
@@ -6761,30 +6785,14 @@ msgstr ""
 "Rechenleistung. Mit mancher Hardware sieht das Ergebnis besser als mit "
 "feinem Scrolling aus. Nicht jede Grafik-Engine unterstützt feines Scrolling."
 
-#: src/settings.cpp:258
+#: src/settings.cpp:260
 msgid "Particle effects"
 msgstr "Partikel-Effekte"
 
-#: src/settings.cpp:258
+#: src/settings.cpp:260
 msgid "Particle effects during play. This requires a lot of CPU power."
 msgstr ""
 "Partikel-Effekte während des Spielens. Benötigen sehr viel Rechenleistung."
-
-#: src/settings.cpp:259
-msgid "View width"
-msgstr "Ansichtsbreite"
-
-#: src/settings.cpp:259
-msgid "Width of visible cave. Default is 20."
-msgstr "Breite der sichtbaren Höhle. Der Standardwert ist 20."
-
-#: src/settings.cpp:260
-msgid "View height"
-msgstr "Ansichtshöhe"
-
-#: src/settings.cpp:260
-msgid "Height of visible cave. Default is 13."
-msgstr "Höhe der sichtbaren Höhle. Der Standardwert ist 13."
 
 #: src/settings.cpp:261
 msgid "Overlay screen status info"

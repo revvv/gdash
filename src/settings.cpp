@@ -104,8 +104,6 @@ bool gd_use_bdcff_highscore = false;
 int gd_pal_emu_scanline_shade = 80;
 bool gd_fine_scroll = true;
 bool gd_particle_effects = true;
-int gd_view_width = 20.0;
-int gd_view_height = 13;
 bool gd_show_fps = false;
 bool gd_show_story = true;
 bool gd_show_name_of_game = true;
@@ -132,6 +130,8 @@ bool gd_show_preview = true;
 /* graphics */
 int gd_graphics_engine = 0; /* whichever is the first one supported */
 bool gd_fullscreen = false;
+int gd_view_width = 20.0;
+int gd_view_height = 13;
 double gd_cell_scale_factor_game = 2.0;
 bool gd_auto_scale = false;
 double gd_auto_scale_factor = 2.0; /* only required for SDL (to refresh settings w/o restart) */
@@ -249,6 +249,8 @@ Setting *gd_get_game_settings_array() {
         { TypePage, N_("Game graphics") },
         // TRANSLATORS: here "engine" = "graphics engine"
         { TypeStringv, N_("Engine"), &gd_graphics_engine, true, gd_graphics_engine_names, N_("Graphics engine which used for drawing.") },
+        { TypeInteger, N_("View width"), &gd_view_width, true, NULL, N_("Width of visible cave. Default is 20. For the full view of the cave without scrolling, the default is 40."), 12, 128 },
+        { TypeInteger, N_("View height"), &gd_view_height, true, NULL, N_("Height of visible cave. Default is 13. For the full view of the cave without scrolling, the default is 22."), 12, 128 },
         { TypeDouble, N_("Scaling factor"), &gd_cell_scale_factor_game, true, NULL, N_("Scaling size."), 1, 8 },
         { TypeBoolean, N_("  Autoscale"), &gd_auto_scale, true, NULL, N_("Automatically calculate the scale factor to fill the entire screen.") },
         { TypeStringv, N_("  Scaling type"), &gd_cell_scale_type_game, true, gd_scaling_names, N_("Software scaling method used. This setting is only effective for the GTK+ and the SDL engines. If you use the OpenGL engine, you can configure its scaling method by selecting a shader.") },
@@ -256,8 +258,6 @@ Setting *gd_get_game_settings_array() {
         { TypePercent, N_("  PAL scanline shade"), &gd_pal_emu_scanline_shade, true, NULL, N_("Darker rows for PAL emulation. Only effective for the GTK+ and the SDL engines.") },
         { TypeBoolean, N_("Fine scrolling"), &gd_fine_scroll, true, NULL, N_("If fine scrolling is turned off, scrolling and cave animation is limited to a lower frame rate, and consumes much less CPU. On some hardware, it might actually look better than fine scrolling. Not all graphics engines support fine scrolling.") },
         { TypeBoolean, N_("Particle effects"), &gd_particle_effects, true, NULL, N_("Particle effects during play. This requires a lot of CPU power.") },
-        { TypeInteger, N_("View width"), &gd_view_width, true, NULL, N_("Width of visible cave. Default is 20."), 12, 128 },
-        { TypeInteger, N_("View height"), &gd_view_height, true, NULL, N_("Height of visible cave. Default is 13."), 12, 128 },
         { TypeBoolean, N_("Overlay screen status info"), &gd_show_fps, false, NULL, N_("Displays the time between drawing two frames in milliseconds, frames per second and scroll rate. This can be helpful to check the performance of the game on the system in use.") },
 
 #ifdef HAVE_SDL
@@ -466,8 +466,6 @@ void gd_settings_init() {
     settings_bools["use_bdcff_highscore"] = &gd_use_bdcff_highscore;
     settings_bools["fine_scroll"] = &gd_fine_scroll;
     settings_bools["particle_effects"] = &gd_particle_effects;
-    settings_integers["view_width"] = &gd_view_width;
-    settings_integers["view_height"] = &gd_view_height;
     settings_bools["show_fps"] = &gd_show_fps;
     settings_bools["show_story"] = &gd_show_story;
     settings_bools["show_name_of_game"] = &gd_show_name_of_game;
@@ -493,6 +491,8 @@ void gd_settings_init() {
     settings_integers["language"] = &gd_language;
     settings_bools["fullscreen"] = &gd_fullscreen;
     settings_integers["graphics_engine"] = &gd_graphics_engine;
+    settings_integers["view_width"] = &gd_view_width;
+    settings_integers["view_height"] = &gd_view_height;
     settings_doubles["cell_scale_factor_game"] = &gd_cell_scale_factor_game;
     settings_bools["auto_scale"] = &gd_auto_scale;
     settings_doubles["auto_scale_factor"] = &gd_auto_scale_factor;

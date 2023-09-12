@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-11 16:11+0200\n"
+"POT-Creation-Date: 2023-09-12 11:54+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -6409,28 +6409,52 @@ msgstr "Grafikus motor"
 msgid "Graphics engine which used for drawing."
 msgstr "A játék kirajzolásához használt grafikus motor."
 
-#: src/settings.cpp:252 src/settings.cpp:282
+#: src/settings.cpp:252
+msgid "View width"
+msgstr "Nézet szélessége"
+
+#: src/settings.cpp:252
+msgid ""
+"Width of visible cave. Default is 20. For the full view of the cave without "
+"scrolling, the default is 40."
+msgstr ""
+"A látható barlang szélessége. Az alapértelmezett érték 20. A barlang teljes "
+"nézetéhez görgetés nélkül az alapértelmezett 40."
+
+#: src/settings.cpp:253
+msgid "View height"
+msgstr "Nézet magassága"
+
+#: src/settings.cpp:253
+msgid ""
+"Height of visible cave. Default is 13. For the full view of the cave without "
+"scrolling, the default is 22."
+msgstr ""
+"A látható barlang magassága. Az alapértelmezés a 13. A barlang teljes "
+"nézetéhez görgetés nélkül az alapértelmezett a 22."
+
+#: src/settings.cpp:254 src/settings.cpp:282
 msgid "Scaling factor"
 msgstr "Nagyítás"
 
-#: src/settings.cpp:252 src/settings.cpp:282
+#: src/settings.cpp:254 src/settings.cpp:282
 msgid "Scaling size."
 msgstr "A képernyőre rajzolt kép nagyítása."
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "  Autoscale"
 msgstr "  Automatikus méretezés"
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "Automatically calculate the scale factor to fill the entire screen."
 msgstr ""
 "Automatikusan kiszámítja a méretarányt, hogy kitöltse a teljes képernyőt."
 
-#: src/settings.cpp:254 src/settings.cpp:283
+#: src/settings.cpp:256 src/settings.cpp:283
 msgid "  Scaling type"
 msgstr "  Nagyítás típusa"
 
-#: src/settings.cpp:254
+#: src/settings.cpp:256
 msgid ""
 "Software scaling method used. This setting is only effective for the GTK+ "
 "and the SDL engines. If you use the OpenGL engine, you can configure its "
@@ -6441,11 +6465,11 @@ msgstr ""
 "használod, a képátméretezés módját egy shader program kiválasztásával tudod "
 "megadni."
 
-#: src/settings.cpp:255 src/settings.cpp:284
+#: src/settings.cpp:257 src/settings.cpp:284
 msgid "  Software PAL emu"
 msgstr "  Szoftveres PAL hatás"
 
-#: src/settings.cpp:255
+#: src/settings.cpp:257
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV. Only effective for the GTK+ and the SDL engines."
@@ -6453,11 +6477,11 @@ msgstr ""
 "PAL emulált grafika, vagyis csíkos rajzok és torzított színek, mint egy TV-"
 "n. Csak a GTK+ és az SDL motoroknál használt beállítás."
 
-#: src/settings.cpp:256
+#: src/settings.cpp:258
 msgid "  PAL scanline shade"
 msgstr "  PAL pászta árnyalás"
 
-#: src/settings.cpp:256
+#: src/settings.cpp:258
 msgid ""
 "Darker rows for PAL emulation. Only effective for the GTK+ and the SDL "
 "engines."
@@ -6465,11 +6489,11 @@ msgstr ""
 "Sötétebb sorok a PAL emulációhoz. Csak akkor van hatása, ha a GTK+ vagy az "
 "SDL motor aktív."
 
-#: src/settings.cpp:257
+#: src/settings.cpp:259
 msgid "Fine scrolling"
 msgstr "Finom görgetés"
 
-#: src/settings.cpp:257
+#: src/settings.cpp:259
 msgid ""
 "If fine scrolling is turned off, scrolling and cave animation is limited to "
 "a lower frame rate, and consumes much less CPU. On some hardware, it might "
@@ -6482,29 +6506,13 @@ msgstr ""
 "ki, mintha be lenne kapcsolva. Nem mindegyik grafikus motor támogatja a "
 "finom görgetést."
 
-#: src/settings.cpp:258
+#: src/settings.cpp:260
 msgid "Particle effects"
 msgstr "Részecske hatások"
 
-#: src/settings.cpp:258
+#: src/settings.cpp:260
 msgid "Particle effects during play. This requires a lot of CPU power."
 msgstr "Részecske hatások a játék közben. Ehhez erős gép kell."
-
-#: src/settings.cpp:259
-msgid "View width"
-msgstr "Nézet szélessége"
-
-#: src/settings.cpp:259
-msgid "Width of visible cave. Default is 20."
-msgstr "A látható barlang szélessége. Az alapértelmezett a 20."
-
-#: src/settings.cpp:260
-msgid "View height"
-msgstr "Nézet magassága"
-
-#: src/settings.cpp:260
-msgid "Height of visible cave. Default is 13."
-msgstr "A látható barlang magassága. Az alapértelmezett a 13."
 
 #: src/settings.cpp:261
 msgid "Overlay screen status info"

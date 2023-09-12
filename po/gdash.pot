@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gdash export-1.9.5\n"
+"Project-Id-Version: gdash export-1.9.6\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-11 16:11+0200\n"
+"POT-Creation-Date: 2023-09-12 11:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5638,58 +5638,78 @@ msgstr ""
 msgid "Graphics engine which used for drawing."
 msgstr ""
 
-#: src/settings.cpp:252 src/settings.cpp:282
+#: src/settings.cpp:252
+msgid "View width"
+msgstr ""
+
+#: src/settings.cpp:252
+msgid ""
+"Width of visible cave. Default is 20. For the full view of the cave without "
+"scrolling, the default is 40."
+msgstr ""
+
+#: src/settings.cpp:253
+msgid "View height"
+msgstr ""
+
+#: src/settings.cpp:253
+msgid ""
+"Height of visible cave. Default is 13. For the full view of the cave without "
+"scrolling, the default is 22."
+msgstr ""
+
+#: src/settings.cpp:254 src/settings.cpp:282
 msgid "Scaling factor"
 msgstr ""
 
-#: src/settings.cpp:252 src/settings.cpp:282
+#: src/settings.cpp:254 src/settings.cpp:282
 msgid "Scaling size."
 msgstr ""
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "  Autoscale"
 msgstr ""
 
-#: src/settings.cpp:253
+#: src/settings.cpp:255
 msgid "Automatically calculate the scale factor to fill the entire screen."
 msgstr ""
 
-#: src/settings.cpp:254 src/settings.cpp:283
+#: src/settings.cpp:256 src/settings.cpp:283
 msgid "  Scaling type"
 msgstr ""
 
-#: src/settings.cpp:254
+#: src/settings.cpp:256
 msgid ""
 "Software scaling method used. This setting is only effective for the GTK+ "
 "and the SDL engines. If you use the OpenGL engine, you can configure its "
 "scaling method by selecting a shader."
 msgstr ""
 
-#: src/settings.cpp:255 src/settings.cpp:284
+#: src/settings.cpp:257 src/settings.cpp:284
 msgid "  Software PAL emu"
 msgstr ""
 
-#: src/settings.cpp:255
+#: src/settings.cpp:257
 msgid ""
 "Use PAL emulated graphics, i.e. lines are striped, and colors are distorted "
 "like on a TV. Only effective for the GTK+ and the SDL engines."
 msgstr ""
 
-#: src/settings.cpp:256
+#: src/settings.cpp:258
 msgid "  PAL scanline shade"
 msgstr ""
 
-#: src/settings.cpp:256
+#: src/settings.cpp:258
 msgid ""
 "Darker rows for PAL emulation. Only effective for the GTK+ and the SDL "
 "engines."
 msgstr ""
 
-#: src/settings.cpp:257
+#: src/settings.cpp:259
 msgid "Fine scrolling"
 msgstr ""
 
-#: src/settings.cpp:257
+#: src/settings.cpp:259
 msgid ""
 "If fine scrolling is turned off, scrolling and cave animation is limited to "
 "a lower frame rate, and consumes much less CPU. On some hardware, it might "
@@ -5697,28 +5717,12 @@ msgid ""
 "fine scrolling."
 msgstr ""
 
-#: src/settings.cpp:258
+#: src/settings.cpp:260
 msgid "Particle effects"
 msgstr ""
 
-#: src/settings.cpp:258
+#: src/settings.cpp:260
 msgid "Particle effects during play. This requires a lot of CPU power."
-msgstr ""
-
-#: src/settings.cpp:259
-msgid "View width"
-msgstr ""
-
-#: src/settings.cpp:259
-msgid "Width of visible cave. Default is 20."
-msgstr ""
-
-#: src/settings.cpp:260
-msgid "View height"
-msgstr ""
-
-#: src/settings.cpp:260
-msgid "Height of visible cave. Default is 13."
 msgstr ""
 
 #: src/settings.cpp:261
