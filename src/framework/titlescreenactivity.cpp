@@ -130,7 +130,7 @@ void TitleScreenActivity::redraw_event(bool full) const {
 
     if (y_gameline != -1) {
         // TRANSLATORS: Game here is like caveset, the loaded game from which the user will select the cave to play
-        app->font_manager->blittext_n(0, y_gameline, "%c%s: %c%s %c%s", GD_COLOR_INDEX_WHITE, _("Game"), GD_COLOR_INDEX_YELLOW, app->caveset->name, GD_COLOR_INDEX_RED, app->caveset->edited ? "*" : "");
+        app->font_manager->blittext_n(-1, y_gameline, "%c%s: %c%s %c%s", GD_COLOR_INDEX_WHITE, _("Game"), GD_COLOR_INDEX_YELLOW, app->caveset->name, GD_COLOR_INDEX_RED, app->caveset->edited ? "*" : "");
     }
 
     int dx = (app->screen->get_width() - animation[animcycle]->get_width()) / 2; /* centered horizontally */
@@ -170,13 +170,13 @@ void TitleScreenActivity::redraw_event(bool full) const {
     }
     /* selected cave */
     if (app->caveset->caves.size() == 0) {
-        app->font_manager->blittext_n(0, y_caveline, _("%cNo caves."), GD_COLOR_INDEX_WHITE);
+        app->font_manager->blittext_n(-1, y_caveline, _("%cNo caves."), GD_COLOR_INDEX_WHITE);
     } else {
         // TRANSLATORS: Cave is the name of the cave to play
         if (caveset_has_levels) {
-            app->font_manager->blittext_n(0, y_caveline, _("%cCave: %c%s%c/%c%d"), GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, app->caveset->caves[cavenum].name, GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, levelnum + 1);
+            app->font_manager->blittext_n(-1, y_caveline, _("%cCave: %c%s%c/%c%d"), GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, app->caveset->caves[cavenum].name, GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, levelnum + 1);
         } else {
-            app->font_manager->blittext_n(0, y_caveline, _("%cCave: %c%s%c"), GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, app->caveset->caves[cavenum].name);
+            app->font_manager->blittext_n(-1, y_caveline, _("%cCave: %c%s%c"), GD_COLOR_INDEX_WHITE, GD_COLOR_INDEX_YELLOW, app->caveset->caves[cavenum].name);
         }
     }
 
