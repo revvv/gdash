@@ -47,7 +47,6 @@ static double calculate_scaling_factor_for_monitor() {
     gd_debug("GTK screen size: %u x %u", monitor.width, monitor.height);
     int w = gd_view_width * 16;
     int h = (gd_view_height + 1) * 16;
-    gd_debug("Cave size: %u x %u", w, h);
     double ratioW = (double) monitor.width / (double) w;
     double ratioH = (double) monitor.height / (double) h;
     double ratio = std::min(ratioW, ratioH);
@@ -58,7 +57,7 @@ static double calculate_scaling_factor_for_monitor() {
         r -= DOUBLE_STEP;
     int newWidth = (int) (w * r);
     int newHeight = (int) (h * r);
-    gd_debug("GTK upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
+    gd_debug("GTK upscaled: %u x %u -> %u x %u ratio=%f -> %f", w, h, newWidth, newHeight, ratio, r);
     gd_auto_scale_factor = r; // unused by GTK, just set for consistency
     gd_cell_scale_factor_game = r;
     return r;

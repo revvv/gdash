@@ -56,12 +56,11 @@ static double calculate_scaling_factor_for_monitor() {
     int res = SDL_GetCurrentDisplayMode(0, &dm);
     if (res < 0) {
         gd_message("SDL: cannot detect screen size: %s", SDL_GetError());
-        return gd_auto_scale_factor;
+        return gd_cell_scale_factor_game;
     }
     gd_debug("SDL screen size: %u x %u", dm.w, dm.h);
     int w = gd_view_width * 16;
     int h = (gd_view_height + 1) * 16;
-    gd_debug("Cave size: %u x %u", w, h);
     double ratioW = (double) dm.w / (double) w;
     double ratioH = (double) dm.h / (double) h;
     double ratio = std::min(ratioW, ratioH);
@@ -72,7 +71,7 @@ static double calculate_scaling_factor_for_monitor() {
         r -= DOUBLE_STEP;
     int newWidth = (int) (w * r);
     int newHeight = (int) (h * r);
-    gd_debug("SDL upscaled full cave size: %u x %u ratio=%f -> %f", newWidth, newHeight, ratio, r);
+    gd_debug("SDL upscaled: %u x %u -> %u x %u ratio=%f -> %f", w, h, newWidth, newHeight, ratio, r);
     if (gd_auto_scale)
         gd_cell_scale_factor_game = r;
     gd_auto_scale_factor = r;

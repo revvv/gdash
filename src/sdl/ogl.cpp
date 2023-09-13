@@ -302,6 +302,7 @@ static double calculate_scaling_factor_for_monitor(int* w_padding, int* h_paddin
         gd_message("OpenGL: cannot detect screen size: %s", SDL_GetError());
         return gd_cell_scale_factor_game;
     }
+    gd_debug("OpenGL screen size: %u x %u", dm.w, dm.h);
     int w = gd_view_width * 16;
     int h = (gd_view_height + 1) * 16;
     double ratioW = (double) dm.w / (double) w;
@@ -312,7 +313,7 @@ static double calculate_scaling_factor_for_monitor(int* w_padding, int* h_paddin
     double r = x * DOUBLE_STEP;
     if (r > ratio)
         r -= DOUBLE_STEP;
-    int newWidth = (int) (w * ratio);  // not using r, because fullscreen will not be centered with it!?
+    int newWidth = (int) (w * ratio);  // not using r to use screen completely
     int newHeight = (int) (h * ratio); // ...
     *w_padding = dm.w - newWidth;
     *h_padding = dm.h - newHeight;
@@ -320,7 +321,7 @@ static double calculate_scaling_factor_for_monitor(int* w_padding, int* h_paddin
         gd_cell_scale_factor_game = r;
     gd_auto_scale_factor = r; // unused by OpenGL, just set for consistency
     gd_debug("OpenGL upscaled: %u x %u -> %u x %u ratio=%f -> %f w_padding=%u h_padding=%u", w, h, newWidth, newHeight, ratio, r, *w_padding, *h_padding);
-    return ratio;                      // not using r, because fullscreen will not be centered with it!?
+    return ratio;                      // not using r to use screen completely
 }
 
 
