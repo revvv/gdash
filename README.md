@@ -33,8 +33,8 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
     `$ gdash > gdash.log  2>&1`
 
 - Q: On Mac/Linux executing `gdash` seems not to work?<br>
-  A: Always use the shell script instead:
-    `$ start-gdash-mac.command`
+  A: Always use the shell script instead:<br>
+    `$ start-gdash-mac.command`<br>
     `$ start-gdash-linux.sh`
 
 ### Bulk export
