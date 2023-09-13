@@ -27,6 +27,16 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 * CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
 * Default game is BD1
 
+### FAQ
+- Q: Why is there no console output for `gdash --help` on Windows?<br>
+- A: You can redirect the output to a file:<br> 
+    `$ gdash > gdash.log  2>&1`
+
+- Q: On Mac/Linux executing `gdash` seems not to work?
+- A: Always use the shell script instead:
+    `$ start-gdash-mac.command`
+    `$ start-gdash-linux.sh`
+
 ### Bulk export
 
 Previously you had to do that with the GUI for each cave, which is not very comfortable for very many caves.
