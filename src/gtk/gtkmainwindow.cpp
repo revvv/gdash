@@ -468,8 +468,6 @@ static Activity::KeyCode activity_keycode_from_gdk_keyval(guint keyval) {
             return App::F8;
         case GDK_KEY_F9:
             return App::F9;
-        case GDK_KEY_F11:
-            return App::F11;
         case GDK_KEY_BackSpace:
             return App::BackSpace;
         case GDK_KEY_Return:
