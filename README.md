@@ -30,12 +30,14 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 ### FAQ
 - Q: Why is there no console output for `gdash --help` on Windows?<br>
   A: You can redirect the output to a file:<br>
-    `$ gdash > gdash.log  2>&1`
+    `$ gdash > gdash.log 2>&1`
 
 - Q: On Mac/Linux executing `gdash` seems not to work?<br>
   A: Always use the shell script instead:<br>
     `$ start-gdash-mac.command`<br>
     `$ start-gdash-linux.sh`
+- Q: What changes to the project are not obvious?<br>
+  A: `make install` is not maintained. I may work, but GDash expects all caves in the installation folder and not in `/share/locale`.
 
 ### Bulk export
 
