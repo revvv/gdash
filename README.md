@@ -37,7 +37,7 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
     `$ start-gdash-mac.command`<br>
     `$ start-gdash-linux.sh`
 - Q: What changes to the project are not obvious?<br>
-  A: `make install` is not maintained. I may work, but GDash expects all caves in the installation folder and not in `/share/locale`.
+  A: `make install` is not maintained. It may work, but GDash expects all caves in the installation folder and not in `/share/locale`.
 
 ### Bulk export
 
