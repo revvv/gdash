@@ -209,15 +209,49 @@ gboolean GdMainWindow::main_window_set_fullscreen_idle_func(gpointer data) {
 }
 
 
+static GdkRGBA default_background_color;
+
+
+static void backup_background_color(GtkWidget *window) {
+    GtkStyleContext* context = gtk_widget_get_style_context(GTK_WIDGET(window));
+    gtk_style_context_get_background_color(context, GTK_STATE_FLAG_NORMAL, &default_background_color);
+    const char* color_str = gdk_rgba_to_string(&default_background_color);
+    gd_debug("GTK default background color: %s", color_str);
+}
+
+
+static void restore_background_color(GtkWidget *window) {
+    if (default_background_color.red == 0
+            && default_background_color.green == 0
+            && default_background_color.blue == 0
+            && default_background_color.alpha == 0) {
+        // there is no color backup
+        gd_warning("GTK default background color: restore failed");
+        return;
+    }
+    gtk_widget_override_background_color(GTK_WIDGET(window), GTK_STATE_FLAG_NORMAL, &default_background_color);
+}
+
+
+static void set_black_background_color(GtkWidget *window) {
+    GdkRGBA color;
+    gdk_rgba_parse(&color, "#000000"); // black
+    gtk_widget_override_background_color(GTK_WIDGET(window), GTK_STATE_FLAG_NORMAL, &color);
+}
+
+
 /* set or unset fullscreen if necessary */
 /* hack: gtk-win32 does not correctly handle fullscreen & removing widgets.
    so we put fullscreening call into a low priority idle function, which will be called
    after all window resizing & the like did take place. */
 void GdMainWindow::main_window_set_fullscreen() {
     if (fullscreen) {
+        backup_background_color(window);
+        set_black_background_color(window);
         gtk_widget_hide(menubar);
         g_idle_add_full(G_PRIORITY_LOW, (GSourceFunc) main_window_set_fullscreen_idle_func, window, NULL);
     } else {
+        restore_background_color(window);
         gtk_window_unfullscreen(GTK_WINDOW(window));
         gtk_widget_show(menubar);
     }
@@ -434,6 +468,8 @@ static Activity::KeyCode activity_keycode_from_gdk_keyval(guint keyval) {
             return App::F8;
         case GDK_KEY_F9:
             return App::F9;
+        case GDK_KEY_F11:
+            return App::F11;
         case GDK_KEY_BackSpace:
             return App::BackSpace;
         case GDK_KEY_Return:
