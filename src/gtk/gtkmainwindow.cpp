@@ -65,7 +65,6 @@ public:
 
     GtkWidget *menubar;
     CaveSet *caveset;
-    bool fullscreen;
     NextAction &na;
 
     static gboolean main_window_set_fullscreen_idle_func(gpointer data);
@@ -203,12 +202,6 @@ private:
 };
 
 
-gboolean GdMainWindow::main_window_set_fullscreen_idle_func(gpointer data) {
-    gtk_window_fullscreen(GTK_WINDOW(data));
-    return FALSE;  /* do not call again */
-}
-
-
 static GdkRGBA default_background_color;
 
 
@@ -240,20 +233,22 @@ static void set_black_background_color(GtkWidget *window) {
 }
 
 
+static GdMainWindow* testgame; // required for F11 in testgame
+
+
 /* set or unset fullscreen if necessary */
-/* hack: gtk-win32 does not correctly handle fullscreen & removing widgets.
-   so we put fullscreening call into a low priority idle function, which will be called
-   after all window resizing & the like did take place. */
 void GdMainWindow::main_window_set_fullscreen() {
-    if (fullscreen) {
+    if (gd_fullscreen) {
         backup_background_color(window);
         set_black_background_color(window);
-        gtk_widget_hide(menubar);
-        g_idle_add_full(G_PRIORITY_LOW, (GSourceFunc) main_window_set_fullscreen_idle_func, window, NULL);
+        if (testgame == NULL)
+            gtk_widget_hide(menubar);
+        gtk_window_fullscreen(GTK_WINDOW(window));
     } else {
         restore_background_color(window);
         gtk_window_unfullscreen(GTK_WINDOW(window));
-        gtk_widget_show(menubar);
+        if (testgame == NULL)
+            gtk_widget_show(menubar);
     }
 }
 
@@ -406,7 +401,7 @@ void GdMainWindow::recent_chooser_activated_cb(GtkRecentChooser *chooser, gpoint
 
 void GdMainWindow::toggle_fullscreen_cb(GtkWidget *widget, gpointer data) {
     GdMainWindow *main_window = static_cast<GdMainWindow *>(data);
-    main_window->fullscreen = !main_window->fullscreen;
+    gd_fullscreen = !gd_fullscreen;
     main_window->main_window_set_fullscreen();
 }
 
@@ -468,6 +463,8 @@ static Activity::KeyCode activity_keycode_from_gdk_keyval(guint keyval) {
             return App::F8;
         case GDK_KEY_F9:
             return App::F9;
+        case GDK_KEY_F11:
+            return App::F11;
         case GDK_KEY_BackSpace:
             return App::BackSpace;
         case GDK_KEY_Return:
@@ -491,6 +488,9 @@ static gboolean main_window_keypress_event(GtkWidget *widget, GdkEventKey *event
     if (press) {
         Activity::KeyCode keycode = activity_keycode_from_gdk_keyval(event->keyval);
         the_app->keypress_event(keycode, event->keyval);
+        if (keycode == App::F11 && testgame != NULL) {
+            GdMainWindow::toggle_fullscreen_cb(widget, testgame);
+        }
     } else {
         the_app->gameinput->keyrelease(event->keyval);
     }
@@ -576,7 +576,6 @@ gpointer GdMainWindow::timing_thread(gpointer data) {
 
 GdMainWindow::GdMainWindow(bool add_menu, NextAction &na)
     : na(na) {
-    this->fullscreen = false;
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(window), 320, 200);
     g_signal_connect(G_OBJECT(window), "delete_event", G_CALLBACK(GdMainWindow::delete_event), this);
@@ -682,6 +681,7 @@ GdMainWindow::~GdMainWindow() {
 
 void gd_main_window_gtk_run(CaveSet *caveset, NextAction &na) {
     GdMainWindow main_window(true, na);
+    testgame = NULL;
 
     /* configure the app */
     main_window.app->caveset = caveset;
@@ -690,6 +690,7 @@ void gd_main_window_gtk_run(CaveSet *caveset, NextAction &na) {
     main_window.app->set_quit_event_command(std::make_unique<AskIfChangesDiscardedCommand>(main_window.app, std::make_unique<PopAllActivitiesCommand>(main_window.app)));
     main_window.app->set_request_restart_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, Restart));
     main_window.app->set_start_editor_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, StartEditor));
+    main_window.main_window_set_fullscreen();
 
     /* and run */
     gtk_main();
@@ -699,11 +700,13 @@ void gd_main_window_gtk_run(CaveSet *caveset, NextAction &na) {
 void gd_main_window_gtk_run_a_game(std::unique_ptr<GameControl> game) {
     NextAction na = StartTitle;      // because the funcs below need one to work with
     GdMainWindow main_window(false, na);
+    testgame = &main_window;
 
     /* configure */
     main_window.app->set_quit_event_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, Quit));
     main_window.app->set_no_activity_command(std::make_unique<SetNextActionAndGtkQuitCommand>(main_window.app, na, Quit));
     main_window.app->push_activity(std::make_unique<GameActivity>(main_window.app, std::move(game)));
+    main_window.main_window_set_fullscreen();
 
     /* and run */
     gtk_main();
