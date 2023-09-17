@@ -141,7 +141,7 @@ int main(int argc, char *argv[]) {
     /* translated --help */
     if (gd_param_help_localized) {
         // needs to be after gd_settings_set_locale()
-        g_print(g_option_context_get_help(context, TRUE, NULL));
+        g_print(g_option_context_get_help(context, TRUE, NULL), NULL);
         return 0;
     }
     g_option_context_free(context);
