@@ -142,30 +142,30 @@ void TitleScreenActivity::redraw_event(bool full) const {
     app->screen->blit(*animation[animcycle], dx, dy);
 
     if (show_status) {
-        if (Logger::get_active_logger().empty()) {
-            switch (which_status) {
-                case 0:
-                    // TRANSLATORS: 40 chars max. Select the game to play.
-                    app->status_line(_("Crsr: select   Space: play   H: help"));
-                    break;
-                case 1:
+        switch (which_status) {
+            case 0:
+                // TRANSLATORS: 40 chars max. Select the game to play.
+                app->status_line(_("Crsr: select   Space: play   H: help"));
+                break;
+            case 1:
 #ifdef HAVE_GTK
-                    /* the gtk version has an editor */
-                    // TRANSLATORS: 40 chars max.
-                    app->status_line(_("F: hall of fame  E: editor  R: replays"));
+                /* the gtk version has an editor */
+                // TRANSLATORS: 40 chars max.
+                app->status_line(_("F: hall of fame  E: editor  R: replays"));
 #else
-                    /* the non-gtk version has no editor */
-                    // TRANSLATORS: 40 chars max.
-                    app->status_line(_("F: hall of fame    R: replays"));
+                /* the non-gtk version has no editor */
+                // TRANSLATORS: 40 chars max.
+                app->status_line(_("F: hall of fame    R: replays"));
 #endif
-                    break;
-                case 2:
-                    // TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-                    app->status_line(_("Joy: select   Fire: play"));
-                    break;
-            }
-        } else {
-            app->status_line(_("Crsr: select   Space: play   X: errors"));
+                break;
+            case 2:
+                // TRANSLATORS: 40 chars max. Select the game to play.
+                app->status_line(_("Crsr: select   Space: play   X: errors"));
+                break;
+            case 3:
+                // TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
+                app->status_line(_("Joy: select   Fire: play"));
+                break;
         }
     }
     /* selected cave */
@@ -232,7 +232,7 @@ void TitleScreenActivity::timer_event(int ms_elapsed) {
         if (frames > 100) {
             frames = 0;
             which_status += 1;
-            if (which_status > 2 || (!Joystick::have_joystick() && which_status == 2))
+            if (which_status > 3 || (!Joystick::have_joystick() && which_status == 3))
                 which_status = 0;
         }
 
