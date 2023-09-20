@@ -208,8 +208,6 @@ static GdkRGBA default_background_color;
 static void backup_background_color(GtkWidget *window) {
     GtkStyleContext* context = gtk_widget_get_style_context(GTK_WIDGET(window));
     gtk_style_context_get_background_color(context, GTK_STATE_FLAG_NORMAL, &default_background_color);
-    const char* color_str = gdk_rgba_to_string(&default_background_color);
-    gd_debug("GTK default background color: %s", color_str);
 }
 
 
@@ -219,7 +217,6 @@ static void restore_background_color(GtkWidget *window) {
             && default_background_color.blue == 0
             && default_background_color.alpha == 0) {
         // there is no color backup
-        gd_warning("GTK default background color: restore failed");
         return;
     }
     gtk_widget_override_background_color(GTK_WIDGET(window), GTK_STATE_FLAG_NORMAL, &default_background_color);
