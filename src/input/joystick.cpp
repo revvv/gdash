@@ -42,18 +42,18 @@ void Joystick::init() {
     if (!SDL_WasInit(SDL_INIT_JOYSTICK))
         SDL_Init(SDL_INIT_JOYSTICK);
     num_joysticks = SDL_NumJoysticks();
-    gd_message("Number of joysticks: %d", num_joysticks);
+    gd_debug("Number of joysticks: %d", num_joysticks);
     if (num_joysticks > 0) {
         int res = SDL_GameControllerAddMappingsFromFile("gamecontrollerdb.txt");
-        gd_message("gamecontrollerdb.txt: new mappings found: %d", res); // doesn't tell how many were updated
-        gd_message("Game Controller events: %d", SDL_GameControllerEventState(SDL_QUERY));
+        gd_debug("gamecontrollerdb.txt: new mappings found: %d", res); // doesn't tell how many were updated
+        gd_debug("Game Controller events: %d", SDL_GameControllerEventState(SDL_QUERY));
         gamepads = (SDL_GameController **) malloc(sizeof(SDL_GameController *) * num_joysticks);
         for (int i = 0; i < num_joysticks; i++) {
             gamepads[i] = SDL_GameControllerOpen(i);
             char guid_str[33];
             SDL_JoystickGetGUIDString(SDL_JoystickGetDeviceGUID(i), guid_str, 33);
-            gd_message("joystick %d: GUID=%s name=%s", i, guid_str, SDL_JoystickNameForIndex(i));
-            gd_message("joystick %d: map =%s", i, SDL_GameControllerMappingForGUID(SDL_JoystickGetDeviceGUID(i)));
+            gd_debug("joystick %d: GUID=%s name=%s", i, guid_str, SDL_JoystickNameForIndex(i));
+            gd_debug("joystick %d: map =%s", i, SDL_GameControllerMappingForGUID(SDL_JoystickGetDeviceGUID(i)));
 
         }
     }
