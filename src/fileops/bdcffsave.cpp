@@ -31,6 +31,7 @@
 #include "fileops/bdcffhelper.hpp"
 #include "cave/elementproperties.hpp"
 #include "misc/autogfreeptr.hpp"
+#include "settings.hpp"
 
 
 /// @file fileops/bdcffsave.cpp
@@ -39,8 +40,9 @@
 
 /// write highscore to a bdcff file
 static void write_highscore_func(std::list<std::string> &out, HighScoreTable const &scores) {
-    for (unsigned int i = 0; i < scores.size(); i++)
-        out.push_back(BdcffFormat() << scores[i].score << scores[i].name);
+    if (gd_use_bdcff_highscore)
+        for (unsigned int i = 0; i < scores.size(); i++)
+            out.push_back(BdcffFormat() << scores[i].score << scores[i].name);
 }
 
 
