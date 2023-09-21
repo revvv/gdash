@@ -101,7 +101,7 @@ void GTKScreen::set_title(char const *title) {
     if (destroyed) {
        destroyed = false;
        if (title != NULL)
-           gd_message("set_title: ignoring '%s'", title);
+           gd_debug("set_title: ignoring '%s'", title);
        return;
     }
     if (title == NULL) {
