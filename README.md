@@ -39,7 +39,7 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 - Q: What changes to the project are not obvious?<br>
   A: `make install` is not maintained. It may work, but GDash expects all caves in the installation folder and not in `/share/locale`.
 - Q: On Mac some keys seem not to work?<br>
-  A: Mac default shortcuts collide with some keys.
+  A: Mac default shortcuts collide with some keys.<br>
 | Key       | GDash      | Mac                                       | Recommendation                                                                  |
 |-----------|------------|-------------------------------------------|---------------------------------------------------------------------------------|
 | CTRL      | Snap       | Changes Desktop: _CTRL+Left/Right-Cursor_ | Configure another _snap key_ in GDash (press K to configure)                    |
