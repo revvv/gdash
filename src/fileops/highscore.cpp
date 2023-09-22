@@ -111,6 +111,7 @@ bool load_highscore(CaveSet & caveset) {
                 caveset.highscore.add(scorename.param, score);
             else
                 caveset.caves[caveindex].highscore.add(scorename.param, score);
+            //gd_message("XXX load %d &s", scorename.param, score);
         }
         else {
             if (!struct_set_property(caveset.caves[caveindex], ap.attrib, ap.param, 0, CaveStored::cave_statistics_data)) {

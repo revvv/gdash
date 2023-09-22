@@ -63,7 +63,7 @@ public:
     unsigned size() const {
         return table.size();
     }
-    bool is_highscore(int score) const;
+    bool is_highscore(std::string const & name, int score) const;
     int add(std::string const & name, int score);
 };
 

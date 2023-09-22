@@ -27,9 +27,18 @@
 #include "cave/helper/cavehighscore.hpp"
 
 /// Check if the achieved score will be put on the list.
+/// @param name The name of the player.
 /// @param score The score to be checked.
 /// @return true, if the score is a highscore, and can be put on the list.
-bool HighScoreTable::is_highscore(int score) const {
+bool HighScoreTable::is_highscore(const std::string &name, int score) const {
+
+    /* do not add duplicates to the list */
+    for (unsigned int i = 0; i < table.size(); i++) {
+        if (name == table[i].name && score == table[i].score) {
+            return false;
+        }
+    }
+
     /* if score is above zero AND bigger than the last one */
     if (score > 0 && (table.size() < GD_HIGHSCORE_NUM || score > table.back().score))
         return true;
@@ -43,7 +52,7 @@ bool HighScoreTable::is_highscore(int score) const {
 /// @param score The score achieved.
 /// @return The index in the table, or -1 if did not fit.
 int HighScoreTable::add(const std::string &name, int score) {
-    if (!is_highscore(score))
+    if (!is_highscore(name, score))
         return -1;
 
     /* add to the end */
