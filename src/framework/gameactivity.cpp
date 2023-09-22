@@ -202,7 +202,7 @@ void GameActivity::timer_event(int ms_elapsed) {
         /* there might be a command to be run after the game. if there is no highscore,
          * the game object will execute it, when popping. if there is a highscoresactivity
          * object, the command to be run is passed to it. */
-        if (show_highscore && game->caveset->highscore.is_highscore(game->player_score)) {
+        if (show_highscore && game->caveset->highscore.is_highscore(game->player_name, game->player_score)) {
             /* enter to highscore table */
             int rank = game->caveset->highscore.add(game->player_name, game->player_score);
             app->enqueue_command(std::make_unique<ShowHighScoreCommand>(app, nullptr, rank));
