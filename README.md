@@ -38,6 +38,16 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
     `$ start-gdash-linux.sh`
 - Q: What changes to the project are not obvious?<br>
   A: `make install` is not maintained. It may work, but GDash expects all caves in the installation folder and not in `/share/locale`.
+- Q: On Mac some keys seem not to work?<br>
+  A: Mac default shortcuts collide with some keys.
+| Key       | GDash      | Mac                                       | Recommendation                                                                  |
+|-----------|------------|-------------------------------------------|---------------------------------------------------------------------------------|
+| CTRL      | Snap       | Changes Desktop: _CTRL+Left/Right-Cursor_ | Configure another _snap key_ in GDash (press K to configure)                    |
+| F11       | Fullscreen | Show Desktop                              | Disable F11 in _System Preferences -> Keyboard -> Shortcuts -> Mission Control_ |
+- Q: Why are caves sometimes in `.bd` or `.gds` or both formats?<br>
+  A: `.gds` is a binary import from the C64/Atari. `.bd` is the new BDCFF format with many new features.
+     However not all elements the 8-Bit community used are yet identified. So it could make sense to keep both until these elements are supported.
+     Unknown elements are simply imported as _steel wall_.
 
 ### Bulk export
 
