@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gdash export-1.9.6\n"
+"Project-Id-Version: gdash export-1.9.8\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-12 11:54+0200\n"
+"POT-Creation-Date: 2023-09-22 15:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,117 +67,117 @@ msgstr ""
 msgid "_Add theme"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:111
+#: src/gtk/gtkmainwindow.cpp:110
 msgid "Play"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:112
+#: src/gtk/gtkmainwindow.cpp:111
 msgid "File"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:113 src/misc/helptext.cpp:208
+#: src/gtk/gtkmainwindow.cpp:112 src/misc/helptext.cpp:208
 msgid "Help"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:115
+#: src/gtk/gtkmainwindow.cpp:114
 msgid "_Error console"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:118
+#: src/gtk/gtkmainwindow.cpp:117
 msgid "Game help"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:119
+#: src/gtk/gtkmainwindow.cpp:118
 msgid "Caveset _information"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:119
+#: src/gtk/gtkmainwindow.cpp:118
 msgid "Show information about the game and its caves"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:121
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Keyboard settings"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:121
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Set keyboard settings"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:123
+#: src/gtk/gtkmainwindow.cpp:122
 msgid "_Sound volume"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:125
+#: src/gtk/gtkmainwindow.cpp:124
 msgid "Cave _editor"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:127
+#: src/gtk/gtkmainwindow.cpp:126
 msgid "Open _recent"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3281
+#: src/gtk/gtkmainwindow.cpp:127 src/editor/editor.cpp:3281
 msgid "O_pen shipped"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:131
+#: src/gtk/gtkmainwindow.cpp:130
 msgid "Hi_ghscores"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:131
 msgid "Game play statistics"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:131
 msgid ""
 "Shows statistics of playing caves: times played, times played successfully "
 "etc."
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "Show _replays"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "List replays which are recorded for caves in this caveset"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:134
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "Fullscreen mode"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:138
+#: src/gtk/gtkmainwindow.cpp:137
 msgid "_Take snapshot"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:139
+#: src/gtk/gtkmainwindow.cpp:138
 msgid "_Revert to snapshot"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:140
+#: src/gtk/gtkmainwindow.cpp:139
 msgid "Random _colors"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:140
 msgid "Re_start level"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:141 src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:140 src/gtk/gtkmainwindow.cpp:141
 msgid "Restart current level"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:141
 msgid "_Pause game"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "_End game"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "End current game"
 msgstr ""
 
-#: src/gtk/gtkmainwindow.cpp:363
+#: src/gtk/gtkmainwindow.cpp:389
 msgid "GDash cannot load file from a network link."
 msgstr ""
 
@@ -1727,7 +1727,7 @@ msgstr ""
 msgid "Batch mode: quit after specified tasks"
 msgstr ""
 
-#: src/main.cpp:219
+#: src/main.cpp:222
 #, c-format
 msgid "Invalid image size: %s"
 msgstr ""
@@ -5126,27 +5126,28 @@ msgid "Game"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:149
+#: src/framework/titlescreenactivity.cpp:148
 msgid "Crsr: select   Space: play   H: help"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:155
+#: src/framework/titlescreenactivity.cpp:154
 msgid "F: hall of fame  E: editor  R: replays"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:159
+#: src/framework/titlescreenactivity.cpp:158
 msgid "F: hall of fame    R: replays"
 msgstr ""
 
-#. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:164
-msgid "Joy: select   Fire: play"
+#. TRANSLATORS: 40 chars max. Select the game to play.
+#: src/framework/titlescreenactivity.cpp:163
+msgid "Crsr: select   Space: play   X: errors"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:168
-msgid "Crsr: select   Space: play   X: errors"
+#. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
+#: src/framework/titlescreenactivity.cpp:167
+msgid "Joy: select   Fire: play"
 msgstr ""
 
 #: src/framework/titlescreenactivity.cpp:173

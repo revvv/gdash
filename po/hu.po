@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-12 11:54+0200\n"
+"POT-Creation-Date: 2023-09-22 15:39+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -65,67 +65,67 @@ msgstr "A GDash beállításai"
 msgid "_Add theme"
 msgstr "_Téma hozzáadása"
 
-#: src/gtk/gtkmainwindow.cpp:111
+#: src/gtk/gtkmainwindow.cpp:110
 msgid "Play"
 msgstr "Játék"
 
-#: src/gtk/gtkmainwindow.cpp:112
+#: src/gtk/gtkmainwindow.cpp:111
 msgid "File"
 msgstr "Fájl"
 
-#: src/gtk/gtkmainwindow.cpp:113 src/misc/helptext.cpp:208
+#: src/gtk/gtkmainwindow.cpp:112 src/misc/helptext.cpp:208
 msgid "Help"
 msgstr "Súgó"
 
-#: src/gtk/gtkmainwindow.cpp:115
+#: src/gtk/gtkmainwindow.cpp:114
 msgid "_Error console"
 msgstr "_Hibakonzol"
 
-#: src/gtk/gtkmainwindow.cpp:118
+#: src/gtk/gtkmainwindow.cpp:117
 msgid "Game help"
 msgstr "A játék súgója"
 
-#: src/gtk/gtkmainwindow.cpp:119
+#: src/gtk/gtkmainwindow.cpp:118
 msgid "Caveset _information"
 msgstr "Játék _információ"
 
-#: src/gtk/gtkmainwindow.cpp:119
+#: src/gtk/gtkmainwindow.cpp:118
 msgid "Show information about the game and its caves"
 msgstr "Információ a játékról és a pályákról"
 
-#: src/gtk/gtkmainwindow.cpp:121
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Keyboard settings"
 msgstr "Billentyűzet beállításai"
 
-#: src/gtk/gtkmainwindow.cpp:121
+#: src/gtk/gtkmainwindow.cpp:120
 msgid "Set keyboard settings"
 msgstr "Az irányításhoz használt billentyűk megadása"
 
-#: src/gtk/gtkmainwindow.cpp:123
+#: src/gtk/gtkmainwindow.cpp:122
 msgid "_Sound volume"
 msgstr "_Hangerő"
 
-#: src/gtk/gtkmainwindow.cpp:125
+#: src/gtk/gtkmainwindow.cpp:124
 msgid "Cave _editor"
 msgstr "Pálya_szerkesztő"
 
-#: src/gtk/gtkmainwindow.cpp:127
+#: src/gtk/gtkmainwindow.cpp:126
 msgid "Open _recent"
 msgstr "_Legutóbbi megnyitása"
 
-#: src/gtk/gtkmainwindow.cpp:128 src/editor/editor.cpp:3281
+#: src/gtk/gtkmainwindow.cpp:127 src/editor/editor.cpp:3281
 msgid "O_pen shipped"
 msgstr "_Telepített játék megnyitása"
 
-#: src/gtk/gtkmainwindow.cpp:131
+#: src/gtk/gtkmainwindow.cpp:130
 msgid "Hi_ghscores"
 msgstr "P_ontok"
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:131
 msgid "Game play statistics"
 msgstr "Játszott pályák statisztikája"
 
-#: src/gtk/gtkmainwindow.cpp:132
+#: src/gtk/gtkmainwindow.cpp:131
 msgid ""
 "Shows statistics of playing caves: times played, times played successfully "
 "etc."
@@ -133,51 +133,51 @@ msgstr ""
 "A végigjátszott pályák statisztikáját mutatja: próbálkozások száma, sikeres "
 "próbálkozások stb."
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "Show _replays"
 msgstr "Visszajá_tszások"
 
-#: src/gtk/gtkmainwindow.cpp:133
+#: src/gtk/gtkmainwindow.cpp:132
 msgid "List replays which are recorded for caves in this caveset"
 msgstr "A játékhoz tartozó visszajátszások listázása"
 
-#: src/gtk/gtkmainwindow.cpp:134
+#: src/gtk/gtkmainwindow.cpp:133
 msgid "Fullscreen mode"
 msgstr "Teljes képernyős mód"
 
-#: src/gtk/gtkmainwindow.cpp:138
+#: src/gtk/gtkmainwindow.cpp:137
 msgid "_Take snapshot"
 msgstr "_Pillanatfelvétel"
 
-#: src/gtk/gtkmainwindow.cpp:139
+#: src/gtk/gtkmainwindow.cpp:138
 msgid "_Revert to snapshot"
 msgstr "_Pillanatfelvétel visszatöltése"
 
-#: src/gtk/gtkmainwindow.cpp:140
+#: src/gtk/gtkmainwindow.cpp:139
 msgid "Random _colors"
 msgstr "Véletlen _színek"
 
-#: src/gtk/gtkmainwindow.cpp:141
+#: src/gtk/gtkmainwindow.cpp:140
 msgid "Re_start level"
 msgstr "Pálya új_rakezdése"
 
-#: src/gtk/gtkmainwindow.cpp:141 src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:140 src/gtk/gtkmainwindow.cpp:141
 msgid "Restart current level"
 msgstr "Pálya újrakezdése"
 
-#: src/gtk/gtkmainwindow.cpp:142
+#: src/gtk/gtkmainwindow.cpp:141
 msgid "_Pause game"
 msgstr "Játék _szünet"
 
-#: src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "_End game"
 msgstr "Játék vég_e"
 
-#: src/gtk/gtkmainwindow.cpp:143
+#: src/gtk/gtkmainwindow.cpp:142
 msgid "End current game"
 msgstr "Aktuális játék befejezése"
 
-#: src/gtk/gtkmainwindow.cpp:363
+#: src/gtk/gtkmainwindow.cpp:389
 msgid "GDash cannot load file from a network link."
 msgstr "A GDash nem tudja a hálózatról letölteni a fájlokat."
 
@@ -2241,7 +2241,7 @@ msgstr ""
 msgid "Batch mode: quit after specified tasks"
 msgstr "Kötegelt üzemmód: a megadott műveletek után kilépés"
 
-#: src/main.cpp:219
+#: src/main.cpp:222
 #, c-format
 msgid "Invalid image size: %s"
 msgstr "%s: hibás képméret"
@@ -5873,28 +5873,29 @@ msgid "Game"
 msgstr "Játék"
 
 #. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:149
+#: src/framework/titlescreenactivity.cpp:148
 msgid "Crsr: select   Space: play   H: help"
 msgstr "Kurzor: választ  Szóköz: játék  H: súgó"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:155
+#: src/framework/titlescreenactivity.cpp:154
 msgid "F: hall of fame  E: editor  R: replays"
 msgstr "F: dicsőségl.  E: szerk.  R: visszaj."
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:159
+#: src/framework/titlescreenactivity.cpp:158
 msgid "F: hall of fame    R: replays"
 msgstr "F: dicsőséglista    R: visszajátszás"
 
-#. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:164
-msgid "Joy: select   Fire: play"
-msgstr "Joy: kiválszt   Tűz: játék"
-
-#: src/framework/titlescreenactivity.cpp:168
+#. TRANSLATORS: 40 chars max. Select the game to play.
+#: src/framework/titlescreenactivity.cpp:163
 msgid "Crsr: select   Space: play   X: errors"
 msgstr "Kurzor: választ  Szóköz: játék  X: hibák"
+
+#. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
+#: src/framework/titlescreenactivity.cpp:167
+msgid "Joy: select   Fire: play"
+msgstr "Joy: kiválszt   Tűz: játék"
 
 #: src/framework/titlescreenactivity.cpp:173
 #, c-format
