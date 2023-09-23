@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
     /* init gtk and set gtk default icon */
     gboolean force_quit_no_gtk = FALSE;
     #ifdef __linux__
-    if (gd_graphics_engine == 0) // Linux workaround #65
+    if (gd_graphics_engine == GRAPHICS_ENGINE_GTK) // Linux workaround #65
     #endif
     if (!gtk_init_check(&argc, &argv))
         force_quit_no_gtk = TRUE;
@@ -359,7 +359,7 @@ restart_from_here:
     if (na == Restart) {
         na = StartTitle;
         #ifdef __linux__
-        if (gd_graphics_engine == 0) // Linux workaround #65
+        if (gd_graphics_engine == GRAPHICS_ENGINE_GTK) // Linux workaround #65
             gtk_init_check(&argc, &argv);
         #endif
         goto restart_from_here;
