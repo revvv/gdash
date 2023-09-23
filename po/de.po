@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-22 15:39+0200\n"
+"POT-Creation-Date: 2023-09-23 14:49+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -6146,63 +6146,59 @@ msgstr "Die Datei kann nicht gelesen werden."
 msgid "Game"
 msgstr "Spiel"
 
-#. TRANSLATORS: 40 chars max. Select the game to play.
-#: src/framework/titlescreenactivity.cpp:148
-msgid "Crsr: select   Space: play   H: help"
-msgstr "Kursor:auswählen  Leert:spielen  H:Hilfe"
+#. TRANSLATORS: 31 chars max. Select the cave to play.
+#: src/framework/titlescreenactivity.cpp:152
+#, c-format
+msgid "Cursor: Select    %s: Play"
+msgstr "Kursor: Auswählen   %s: Spielen"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:154
-msgid "F: hall of fame  E: editor  R: replays"
-msgstr "F:Ruhmeshalle E:Editor R:Wiederholungen"
+#: src/framework/titlescreenactivity.cpp:159
+msgid "F: Hall of fame  E: Editor  H: Help"
+msgstr "F: Ruhmeshalle E: Editor H: Hilfe"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:158
-msgid "F: hall of fame    R: replays"
-msgstr "F:Ruhmeshalle    R:Wiederholungen"
-
-#. TRANSLATORS: 40 chars max. Select the game to play.
 #: src/framework/titlescreenactivity.cpp:163
-msgid "Crsr: select   Space: play   X: errors"
-msgstr "Kursor:auswählen Leert:Spielen X:Fehler"
+msgid "F: Hall of fame    H: Help"
+msgstr "F: Ruhmeshalle    H: Hilfe"
 
-#. TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-#: src/framework/titlescreenactivity.cpp:167
-msgid "Joy: select   Fire: play"
-msgstr "Joystick:auswählen      Feuer:spielen"
+#. TRANSLATORS: 40 chars max. Select the cave to play.
+#: src/framework/titlescreenactivity.cpp:168
+msgid "Joystick: Select   Fire: Play"
+msgstr "Joystick: Auswählen      Feuer: Spielen"
 
-#: src/framework/titlescreenactivity.cpp:173
+#: src/framework/titlescreenactivity.cpp:174
 #, c-format
 msgid "%cNo caves."
 msgstr "%cKeine Höhlen."
 
-#: src/framework/titlescreenactivity.cpp:177
+#: src/framework/titlescreenactivity.cpp:178
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr "%cHöhle: %c%s%c/%c%d"
 
-#: src/framework/titlescreenactivity.cpp:179
+#: src/framework/titlescreenactivity.cpp:180
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr "%cHöhle: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:340
+#: src/framework/titlescreenactivity.cpp:341
 msgid "Enter your name"
 msgstr "Spielername eingeben"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:351
+#: src/framework/titlescreenactivity.cpp:352
 msgid "Quit game?"
 msgstr "Spiel beenden?"
 
-#: src/framework/titlescreenactivity.cpp:351 src/framework/gameactivity.cpp:91
+#: src/framework/titlescreenactivity.cpp:352 src/framework/gameactivity.cpp:91
 #: src/framework/gameactivity.cpp:92 src/framework/gameactivity.cpp:93
 #: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:327
 msgid "yes"
 msgstr "ja"
 
-#: src/framework/titlescreenactivity.cpp:351 src/framework/gameactivity.cpp:91
+#: src/framework/titlescreenactivity.cpp:352 src/framework/gameactivity.cpp:91
 #: src/framework/gameactivity.cpp:92 src/framework/gameactivity.cpp:93
 #: src/framework/replaymenuactivity.cpp:194
 #: src/framework/settingsactivity.cpp:327
@@ -8184,6 +8180,12 @@ msgstr "Elemente"
 #: src/gfx/pixbuffactory.cpp:40
 msgid "Nearest neighbor"
 msgstr "Nächstgelegener Nachbar"
+
+#~ msgid "Crsr: select   Space: play   H: help"
+#~ msgstr "Kursor:auswählen  Leert:spielen  H:Hilfe"
+
+#~ msgid "Crsr: select   Space: play   X: errors"
+#~ msgstr "Kursor:auswählen Leert:Spielen X:Fehler"
 
 #~ msgid "Full cave view"
 #~ msgstr "Komplette Höhlenansicht"

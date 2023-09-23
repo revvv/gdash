@@ -144,27 +144,28 @@ void TitleScreenActivity::redraw_event(bool full) const {
     if (show_status) {
         switch (which_status) {
             case 0:
-                // TRANSLATORS: 40 chars max. Select the game to play.
-                app->status_line(_("Crsr: select   Space: play   H: help"));
+            {
+                int fire = (gd_graphics_engine == 0 /* GRAPHICS_ENGINE_GTK */) ? gd_gtk_key_fire_1 : gd_sdl_key_fire_1;
+                std::string s = app->gameinput->get_key_name_from_keycode(fire);
+                std::replace(s.begin(), s.end(), ' ', '_');
+                // TRANSLATORS: 31 chars max. Select the cave to play.
+                app->status_line(Printf(_("Cursor: Select    %s: Play"), s).c_str());
                 break;
+            }
             case 1:
 #ifdef HAVE_GTK
                 /* the gtk version has an editor */
                 // TRANSLATORS: 40 chars max.
-                app->status_line(_("F: hall of fame  E: editor  R: replays"));
+                app->status_line(_("F: Hall of fame  E: Editor  H: Help"));
 #else
                 /* the non-gtk version has no editor */
                 // TRANSLATORS: 40 chars max.
-                app->status_line(_("F: hall of fame    R: replays"));
+                app->status_line(_("F: Hall of fame    H: Help"));
 #endif
                 break;
             case 2:
-                // TRANSLATORS: 40 chars max. Select the game to play.
-                app->status_line(_("Crsr: select   Space: play   X: errors"));
-                break;
-            case 3:
-                // TRANSLATORS: 40 chars max. Joy here is the joystick (that one can also select the cave)
-                app->status_line(_("Joy: select   Fire: play"));
+                // TRANSLATORS: 40 chars max. Select the cave to play.
+                app->status_line(_("Joystick: Select   Fire: Play"));
                 break;
         }
     }
@@ -229,10 +230,10 @@ void TitleScreenActivity::timer_event(int ms_elapsed) {
         time_ms -= 40;
         animcycle = (animcycle + 1) % animation.size();
         frames++;
-        if (frames > 100) {
+        if (frames > 200) {
             frames = 0;
             which_status += 1;
-            if (which_status > 3 || (!Joystick::have_joystick() && which_status == 3))
+            if (which_status > 2 || (!Joystick::have_joystick() && which_status == 2))
                 which_status = 0;
         }
 
