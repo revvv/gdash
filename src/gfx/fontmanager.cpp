@@ -300,6 +300,18 @@ int FontManager::blittext_internal(int x, int y, char const *text, bool widefont
             case 0x203A:
                 c = '>';
                 break; /* single right-pointing angle quotation mark */
+            case 0x2190:
+                c = GD_LEFT_CHAR;
+                break; /* leftwards arrow */
+            case 0x2191:
+                c = GD_UP_CHAR;
+                break; /* upwards arrow */
+            case 0x2192:
+                c = GD_RIGHT_CHAR;
+                break; /* rightwards arrow */
+            case 0x2193:
+                c = GD_DOWN_CHAR;
+                break; /* downwards arrow */
         }
 
         if (c == '\n') { /* if it is an enter */

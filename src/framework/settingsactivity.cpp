@@ -308,7 +308,7 @@ void SettingsActivity::redraw_event(bool full) const {
     // TRANSLATORS: 40 chars max (and it has title line capitalization in English)
     app->title_line(_("GDash Options"));
     // TRANSLATORS: 40 chars max. 'Change' means to change the setting in the options window
-    app->status_line(_("Space: change   H: help   Esc: exit"));
+    app->status_line(_("Space: Change   H: Help   Esc: Exit"));
     app->set_color(GD_GDASH_GRAY1);
     // TRANSLATORS: 40 chars max
     if (have_theme)

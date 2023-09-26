@@ -66,7 +66,7 @@ void AskYesNoActivity::redraw_event(bool full) const {
     app->screen->set_clip_rect(cx, cy, cw, ch);
     app->set_color(GD_GDASH_WHITE);
     app->font_manager->blittext_n(-1, y1 + app->font_manager->get_line_height(), question.c_str());
-    app->font_manager->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), "%s: %s, %s: %s", _(noletter), no_answer, _(yesletter), yes_answer);
+    app->font_manager->blittext_n(-1, y1 + 3 * app->font_manager->get_line_height(), "%s: %s  %s: %s", _(noletter), no_answer, _(yesletter), yes_answer);
     app->screen->remove_clip_rect();
 
     app->screen->drawing_finished();

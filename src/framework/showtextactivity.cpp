@@ -54,7 +54,7 @@ void ShowTextActivity::redraw_event(bool full) const {
 
     app->title_line(title_line.c_str());
     // TRANSLATORS: 40 chars max
-    app->status_line(_("Crsr: move     Space: exit"));
+    app->status_line(_("↑↓: Scroll     Space: Exit"));
 
     // text & scrollbar
     app->set_color(GD_GDASH_LIGHTBLUE);

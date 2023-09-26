@@ -155,6 +155,7 @@ $(DOMAIN).pot-update: $(POTFILES) $(srcdir)/POTFILES.in remove-potcdate.sed
 	      --files-from=$(srcdir)/POTFILES.in \
 	      --copyright-holder='$(COPYRIGHT_HOLDER)' \
 	      --msgid-bugs-address="$$msgid_bugs_address" \
+	      --from-code=UTF-8 \
 	    ;; \
 	  *) \
 	    $(XGETTEXT) --default-domain=$(DOMAIN) --directory=$(top_srcdir) \
@@ -164,6 +165,7 @@ $(DOMAIN).pot-update: $(POTFILES) $(srcdir)/POTFILES.in remove-potcdate.sed
 	      --package-name="$${package_gnu}@PACKAGE@" \
 	      --package-version='@VERSION@' \
 	      --msgid-bugs-address="$$msgid_bugs_address" \
+	      --from-code=UTF-8 \
 	    ;; \
 	esac
 	test ! -f $(DOMAIN).po || { \

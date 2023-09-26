@@ -322,10 +322,10 @@ void SelectFileActivity::redraw_event(bool full) const {
     app->font_manager->blittext_n(-1, 1 * yd, filename_to_utf8(directory).c_str());
     if (for_save) {
         // TRANSLATORS: 40 chars max
-        app->status_line(_("Crsr:select  N:new  J:jump  Esc:cancel"));   /* for saving, we allow the user to select a new filename. */
+        app->status_line(_("↑↓: Select  N: New  J: Jump  Esc: Cancel"));   /* for saving, we allow the user to select a new filename. */
     } else {
         // TRANSLATORS: 40 chars max
-        app->status_line(_("Crsr: select   J: jump   Esc: cancel"));
+        app->status_line(_("↑↓: Select   J: Jump   Esc: Cancel"));
     }
     unsigned i, page = sel / names_per_page, cur;
     for (i = 0, cur = page * names_per_page; i < names_per_page; i++, cur++) {

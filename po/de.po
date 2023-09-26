@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-23 14:49+0200\n"
+"POT-Creation-Date: 2023-09-26 14:49+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -6069,13 +6069,13 @@ msgstr "Oben+links"
 msgid "Milliseconds"
 msgstr "Millisekunden"
 
-#: src/cave/cavetypes.cpp:133 src/framework/commands.cpp:207
-#: src/editor/exporthtml.cpp:171
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:352
+#: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "Yes"
 msgstr "Ja"
 
-#: src/cave/cavetypes.cpp:133 src/framework/commands.cpp:207
-#: src/editor/exporthtml.cpp:171
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:352
+#: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "No"
 msgstr "Nein"
 
@@ -6149,8 +6149,8 @@ msgstr "Spiel"
 #. TRANSLATORS: 31 chars max. Select the cave to play.
 #: src/framework/titlescreenactivity.cpp:152
 #, c-format
-msgid "Cursor: Select    %s: Play"
-msgstr "Kursor: Auswählen   %s: Spielen"
+msgid "←→↑↓: Select    %s: Play"
+msgstr "←→↑↓: Auswählen   %s: Spielen"
 
 #. TRANSLATORS: 40 chars max.
 #: src/framework/titlescreenactivity.cpp:159
@@ -6190,20 +6190,6 @@ msgstr "Spielername eingeben"
 #: src/framework/titlescreenactivity.cpp:352
 msgid "Quit game?"
 msgstr "Spiel beenden?"
-
-#: src/framework/titlescreenactivity.cpp:352 src/framework/gameactivity.cpp:91
-#: src/framework/gameactivity.cpp:92 src/framework/gameactivity.cpp:93
-#: src/framework/replaymenuactivity.cpp:194
-#: src/framework/settingsactivity.cpp:327
-msgid "yes"
-msgstr "ja"
-
-#: src/framework/titlescreenactivity.cpp:352 src/framework/gameactivity.cpp:91
-#: src/framework/gameactivity.cpp:92 src/framework/gameactivity.cpp:93
-#: src/framework/replaymenuactivity.cpp:194
-#: src/framework/settingsactivity.cpp:327
-msgid "no"
-msgstr "nein"
 
 #. TRANSLATORS: This string should be translated to the first letter of "yes" in your
 #. language, uppercase. For example, the English "yes" -> the strings is "Y".
@@ -6302,6 +6288,18 @@ msgstr "rückwärts"
 msgid "forwards"
 msgstr "vorwärts"
 
+#: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
+#: src/framework/gameactivity.cpp:93 src/framework/replaymenuactivity.cpp:194
+#: src/framework/settingsactivity.cpp:327
+msgid "yes"
+msgstr "ja"
+
+#: src/framework/gameactivity.cpp:91 src/framework/gameactivity.cpp:92
+#: src/framework/gameactivity.cpp:93 src/framework/replaymenuactivity.cpp:194
+#: src/framework/settingsactivity.cpp:327
+msgid "no"
+msgstr "nein"
+
 #: src/framework/gameactivity.cpp:156
 msgid "Snapshot taken."
 msgstr "Schnappschuss aufgenommen."
@@ -6336,8 +6334,8 @@ msgstr "Lautstärke Musik"
 
 #. TRANSLATORS: 40 chars max
 #: src/framework/showtextactivity.cpp:57
-msgid "Crsr: move     Space: exit"
-msgstr "Kursor: bewegen    Leert.: beenden"
+msgid "↑↓: Scroll     Space: Exit"
+msgstr "↑↓: Scrollen    Leert.: Beenden"
 
 #: src/framework/replaysaveractivity.cpp:171
 #, c-format
@@ -6423,8 +6421,8 @@ msgstr "Keine Wiederholungen für diesen Höhlensatz."
 
 #. TRANSLATORS: 40 chars max
 #: src/framework/replaymenuactivity.cpp:94
-msgid "Space: play   H: help   Esc: exit"
-msgstr "Leert:spielen   H:Hilfe   Esc:beenden"
+msgid "Space: Play   H: Help   Esc: Exit"
+msgstr "Leert.:  Spielen  H: Hilfe  Esc: Beenden"
 
 #. TRANSLATORS: Cave level (1-5)
 #: src/framework/replaymenuactivity.cpp:191
@@ -6487,8 +6485,8 @@ msgstr "GDash Optionen"
 
 #. TRANSLATORS: 40 chars max. 'Change' means to change the setting in the options window
 #: src/framework/settingsactivity.cpp:311
-msgid "Space: change   H: help   Esc: exit"
-msgstr "Leert.:ändern   H:Hilfe   Esc:beenden"
+msgid "Space: Change   H: Help   Esc: Exit"
+msgstr "Leert.: Ändern   H: Hilfe   Esc: Beenden"
 
 #: src/framework/settingsactivity.cpp:315
 msgid "Press T to install a new theme."
@@ -6516,13 +6514,13 @@ msgstr "Neuen Dateinamen eingeben"
 
 #. TRANSLATORS: 40 chars max
 #: src/framework/selectfileactivity.cpp:325
-msgid "Crsr:select  N:new  J:jump  Esc:cancel"
-msgstr "Kursor:ausw. N:neu J:wechseln ESC:beend."
+msgid "↑↓: Select  N: New  J: Jump  Esc: Cancel"
+msgstr "↑↓: Ausw. N: Neu J: Wechseln ESC: Beend."
 
 #. TRANSLATORS: 40 chars max
 #: src/framework/selectfileactivity.cpp:328
-msgid "Crsr: select   J: jump   Esc: cancel"
-msgstr "Kursor:auswählen J:wechseln ESC:beenden"
+msgid "↑↓: Select   J: Jump   Esc: Cancel"
+msgstr "↑↓: Auswählen J: Wechseln ESC: Beenden"
 
 #: src/settings.cpp:55
 msgid "System default"

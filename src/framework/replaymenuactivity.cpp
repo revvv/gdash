@@ -91,7 +91,7 @@ void ReplayMenuActivity::redraw_event(bool full) const {
     // TRANSLATORS: 40 chars max
     app->title_line(_("Replays"));
     // TRANSLATORS: 40 chars max
-    app->status_line(_("Space: play   H: help   Esc: exit"));
+    app->status_line(_("Space: Play   H: Help   Esc: Exit"));
 
     for (unsigned n = 0; n < lines_per_page && page * lines_per_page + n < items.size(); n++) {
         unsigned pos = page * lines_per_page + n;

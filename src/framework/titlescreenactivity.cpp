@@ -149,7 +149,7 @@ void TitleScreenActivity::redraw_event(bool full) const {
                 std::string s = app->gameinput->get_key_name_from_keycode(fire);
                 std::replace(s.begin(), s.end(), ' ', '_');
                 // TRANSLATORS: 31 chars max. Select the cave to play.
-                app->status_line(Printf(_("Cursor: Select    %s: Play"), s).c_str());
+                app->status_line(Printf(_("←→↑↓: Select    %s: Play"), s).c_str());
                 break;
             }
             case 1:
@@ -349,7 +349,7 @@ void TitleScreenActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
                 app->quit_event();
             else
                 // TRANSLATORS: Game means the application here.
-                app->ask_yesorno_and_do_command(_("Quit game?"), _("yes"), _("no"), std::make_unique<PopAllActivitiesCommand>(app));
+                app->ask_yesorno_and_do_command(_("Quit game?"), _("Yes"), _("No"), std::make_unique<PopAllActivitiesCommand>(app));
             break;
     }
 }
