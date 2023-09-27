@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-26 14:49+0200\n"
+"POT-Creation-Date: 2023-09-27 09:28+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -5795,12 +5795,12 @@ msgstr "Fel+balra"
 msgid "Milliseconds"
 msgstr "Milliszekundum"
 
-#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:352
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:356
 #: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "Yes"
 msgstr "Igen"
 
-#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:352
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:356
 #: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "No"
 msgstr "Nem"
@@ -5872,48 +5872,54 @@ msgstr "A fájl nem olvasható."
 msgid "Game"
 msgstr "Játék"
 
-#. TRANSLATORS: 31 chars max. Select the cave to play.
-#: src/framework/titlescreenactivity.cpp:152
+#. TRANSLATORS: 31 chars max. Select the cave/level to play.
+#: src/framework/titlescreenactivity.cpp:153
 #, c-format
 msgid "←→↑↓: Select    %s: Play"
 msgstr "←→↑↓: Választ   %s: Játék"
 
+#. TRANSLATORS: 31 chars max. Select the cave to play.
+#: src/framework/titlescreenactivity.cpp:156
+#, c-format
+msgid "←→: Select    %s: Play"
+msgstr "←→: Választ   %s: Játék"
+
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:159
+#: src/framework/titlescreenactivity.cpp:163
 msgid "F: Hall of fame  E: Editor  H: Help"
 msgstr "F: Dicsőséglista  E: Szerk.  H: Súgó"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:163
+#: src/framework/titlescreenactivity.cpp:167
 msgid "F: Hall of fame    H: Help"
 msgstr "F: Dicsőséglista    H: Súgó"
 
 #. TRANSLATORS: 40 chars max. Select the cave to play.
-#: src/framework/titlescreenactivity.cpp:168
+#: src/framework/titlescreenactivity.cpp:172
 msgid "Joystick: Select   Fire: Play"
 msgstr "Joystick: Kiválszt   Tűz: Játék"
 
-#: src/framework/titlescreenactivity.cpp:174
+#: src/framework/titlescreenactivity.cpp:178
 #, c-format
 msgid "%cNo caves."
 msgstr "%cNincsenek pályák."
 
-#: src/framework/titlescreenactivity.cpp:178
+#: src/framework/titlescreenactivity.cpp:182
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr "%cPálya: %c%s%c/%c%d"
 
-#: src/framework/titlescreenactivity.cpp:180
+#: src/framework/titlescreenactivity.cpp:184
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr "%cPálya: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:341
+#: src/framework/titlescreenactivity.cpp:345
 msgid "Enter your name"
 msgstr "Írd be a neved"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:352
+#: src/framework/titlescreenactivity.cpp:356
 msgid "Quit game?"
 msgstr "Kilépés a játékból?"
 

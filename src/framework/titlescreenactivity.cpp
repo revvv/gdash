@@ -148,8 +148,12 @@ void TitleScreenActivity::redraw_event(bool full) const {
                 int fire = (gd_graphics_engine == 0 /* GRAPHICS_ENGINE_GTK */) ? gd_gtk_key_fire_1 : gd_sdl_key_fire_1;
                 std::string s = app->gameinput->get_key_name_from_keycode(fire);
                 std::replace(s.begin(), s.end(), ' ', '_');
-                // TRANSLATORS: 31 chars max. Select the cave to play.
-                app->status_line(Printf(_("←→↑↓: Select    %s: Play"), s).c_str());
+                if (caveset_has_levels)
+                    // TRANSLATORS: 31 chars max. Select the cave/level to play.
+                    app->status_line(Printf(_("←→↑↓: Select    %s: Play"), s).c_str());
+                else
+                    // TRANSLATORS: 31 chars max. Select the cave to play.
+                    app->status_line(Printf(_("←→: Select    %s: Play"), s).c_str());
                 break;
             }
             case 1:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdash export-1.9.9\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-26 14:49+0200\n"
+"POT-Creation-Date: 2023-09-27 09:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5048,12 +5048,12 @@ msgstr ""
 msgid "Milliseconds"
 msgstr ""
 
-#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:352
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:356
 #: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "Yes"
 msgstr ""
 
-#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:352
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:356
 #: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "No"
 msgstr ""
@@ -5125,48 +5125,54 @@ msgstr ""
 msgid "Game"
 msgstr ""
 
-#. TRANSLATORS: 31 chars max. Select the cave to play.
-#: src/framework/titlescreenactivity.cpp:152
+#. TRANSLATORS: 31 chars max. Select the cave/level to play.
+#: src/framework/titlescreenactivity.cpp:153
 #, c-format
 msgid "←→↑↓: Select    %s: Play"
 msgstr ""
 
-#. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:159
-msgid "F: Hall of fame  E: Editor  H: Help"
+#. TRANSLATORS: 31 chars max. Select the cave to play.
+#: src/framework/titlescreenactivity.cpp:156
+#, c-format
+msgid "←→: Select    %s: Play"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max.
 #: src/framework/titlescreenactivity.cpp:163
+msgid "F: Hall of fame  E: Editor  H: Help"
+msgstr ""
+
+#. TRANSLATORS: 40 chars max.
+#: src/framework/titlescreenactivity.cpp:167
 msgid "F: Hall of fame    H: Help"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max. Select the cave to play.
-#: src/framework/titlescreenactivity.cpp:168
+#: src/framework/titlescreenactivity.cpp:172
 msgid "Joystick: Select   Fire: Play"
-msgstr ""
-
-#: src/framework/titlescreenactivity.cpp:174
-#, c-format
-msgid "%cNo caves."
 msgstr ""
 
 #: src/framework/titlescreenactivity.cpp:178
 #, c-format
+msgid "%cNo caves."
+msgstr ""
+
+#: src/framework/titlescreenactivity.cpp:182
+#, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:180
+#: src/framework/titlescreenactivity.cpp:184
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr ""
 
-#: src/framework/titlescreenactivity.cpp:341
+#: src/framework/titlescreenactivity.cpp:345
 msgid "Enter your name"
 msgstr ""
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:352
+#: src/framework/titlescreenactivity.cpp:356
 msgid "Quit game?"
 msgstr ""
 
