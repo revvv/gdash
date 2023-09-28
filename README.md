@@ -21,6 +21,7 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 * New [BD3 theme](https://github.com/revvv/gdash-export-CrLi/blob/master/include/c64_gfx_bd3.png) (gfx by [cwscws](https://github.com/cwscws))
 * New shaders [#10](https://github.com/revvv/gdash-export-CrLi/issues/10)
 * GTK fixes (*esp. for Mac: Drag-and-drop [#15](https://github.com/revvv/gdash-export-CrLi/issues/15) [#17](https://github.com/revvv/gdash-export-CrLi/issues/17) [cave list](https://github.com/revvv/gdash-export-CrLi/commit/1c528dc19f3d7377c5c9f201e04a4d2790be35cb), stuck key [#6](https://github.com/revvv/gdash-export-CrLi/issues/6), frozen Window [#57](https://github.com/revvv/gdash-export-CrLi/issues/57)*)
+* Full screen enhancements [#29](https://github.com/revvv/gdash-export-CrLi/issues/29) [#61](https://github.com/revvv/gdash-export-CrLi/issues/61)
 * Test game uses GTK/SDL/OpenGL as configured [#8](https://github.com/revvv/gdash-export-CrLi/issues/8)
 * 64 bit ZIP distribution for **Windows, Linux and Mac**
 * CrLi now also exports teleporters
@@ -48,7 +49,13 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 - Q: Why are caves sometimes in `.bd` or `.gds` or both formats?<br>
   A: `.gds` is a binary import from the C64/Atari. `.bd` is the new BDCFF format with many new features.
      However not all elements the 8-Bit community used are yet identified. So it could make sense to keep both until these elements are supported.
-     Unknown elements are simply imported as _steel wall_.
+     Unknown elements are simply imported as _steel wall_. If you want to play the caves, always prefer the .bd version.
+- Q: I have the feeling that a butterfly moves in the wrong direction?<br>
+  A: There was a fix added in GDash-export 1.2. Beginning with this version you should be able to import/export caves
+     from Crazy Light Construction Kit preserving the correct direction.
+     Unfortunately some 8-Bit caves were manually created by binary editing with wrong bufferfly directions.
+     You can try to import them with version GDash-export 1.1. Usually these caves start with binary header _GDashCRL_.
+     See [#40](https://github.com/revvv/gdash-export-CrLi/issues/40)
 
 ### Bulk export
 
