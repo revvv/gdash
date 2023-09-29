@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-27 09:28+0200\n"
+"POT-Creation-Date: 2023-09-29 10:52+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -74,7 +74,7 @@ msgstr "Spielen"
 msgid "File"
 msgstr "Datei"
 
-#: src/gtk/gtkmainwindow.cpp:112 src/misc/helptext.cpp:208
+#: src/gtk/gtkmainwindow.cpp:112 src/misc/helptext.cpp:210
 msgid "Help"
 msgstr "Hilfe"
 
@@ -231,7 +231,7 @@ msgid "GDash Help"
 msgstr "GDash Hilfe"
 
 #: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164
-#: src/misc/helptext.cpp:110 src/framework/app.cpp:306
+#: src/misc/helptext.cpp:112 src/framework/app.cpp:306
 msgid "About GDash"
 msgstr "Über GDash"
 
@@ -296,100 +296,111 @@ msgstr ""
 "Speicherschnappschüssen von C64- oder Atari-Emulatoren zu laden."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:207 src/misc/helptext.cpp:315
+#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:209 src/misc/helptext.cpp:317
 msgid "Control Keys"
 msgstr "Steuerungstasten"
 
 #: src/misc/helptext.cpp:85
-msgid "Cursor"
-msgstr "Kursor"
+msgid "←→↑↓"
+msgstr "←→↑↓"
 
 #: src/misc/helptext.cpp:85
 msgid "Select cave & level"
-msgstr "Wähle die zu spielende Höhle und Level"
+msgstr ""
+"Wähle die zu spielende Höhle\n"
+"\tund Level"
 
-#. TRANSLATORS: here the spacebar means the keyboards biggest key. We call it spacebar to
+#. TRANSLATORS: here SPC means the keyboards biggest key. We call it SPC to
 #. tell it apart from the cave element "space".
-#: src/misc/helptext.cpp:88
-msgid "Spacebar"
-msgstr "Leertaste"
+#. 6 chars max per key, 29 chars max per description
+#. use newline \n and tab \t for multi-line description
+#: src/misc/helptext.cpp:90
+msgid "SPC"
+msgstr "Leert."
 
-#: src/misc/helptext.cpp:88
+#: src/misc/helptext.cpp:90
 msgid "Play the game"
 msgstr "Das Spiel spielen"
 
-#: src/misc/helptext.cpp:89
+#: src/misc/helptext.cpp:91
 msgid "Load caveset"
 msgstr "Lade Höhlensatz"
 
-#: src/misc/helptext.cpp:90
-msgid "Load caves from installed cavesets"
-msgstr "Lade Höhlen von installierten Höhlensets"
+#: src/misc/helptext.cpp:92
+msgid ""
+"Load caves from installed\n"
+"\tcavesets"
+msgstr ""
+"Lade Höhlen von installierten\n"
+"\tHöhlensets"
 
-#: src/misc/helptext.cpp:91
+#: src/misc/helptext.cpp:93
 msgid "Save caveset"
 msgstr "Speichere Höhlensatz"
 
-#: src/misc/helptext.cpp:92
+#: src/misc/helptext.cpp:94
 msgid "Save caveset as new file"
-msgstr "Speichere Höhlensatz als neue Datei"
+msgstr ""
+"Speichere Höhlensatz als neue\n"
+"\tDatei"
 
-#: src/misc/helptext.cpp:93
+#: src/misc/helptext.cpp:95
 msgid "Caveset info"
 msgstr "Höhlensatz-Information"
 
-#: src/misc/helptext.cpp:94
+#: src/misc/helptext.cpp:96
 msgid "Hall of fame"
 msgstr "Ruhmeshalle"
 
-#: src/misc/helptext.cpp:95
+#: src/misc/helptext.cpp:97
 msgid "Caveset playing statistics"
 msgstr "Höhlensatz-Spiel-Statistik"
 
 #. TRANSLATORS: 40 chars max
-#: src/misc/helptext.cpp:96 src/misc/helptext.cpp:309
+#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:311
 #: src/framework/replaymenuactivity.cpp:92
 msgid "Replays"
 msgstr "Wiederholungen"
 
-#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:414 src/misc/helptext.cpp:417
+#: src/misc/helptext.cpp:100 src/misc/helptext.cpp:416
+#: src/misc/helptext.cpp:419
 msgid "Cave editor"
 msgstr "Höhlen-Editor"
 
-#: src/misc/helptext.cpp:101 src/misc/helptext.cpp:214
+#: src/misc/helptext.cpp:103 src/misc/helptext.cpp:216
 msgid "Sound volume"
 msgstr "Lautstärke"
 
-#: src/misc/helptext.cpp:104 src/misc/helptext.cpp:216
+#: src/misc/helptext.cpp:106 src/misc/helptext.cpp:218
 msgid "Menu (with GTK+ engine)"
 msgstr "Menü (mit GTK+ Engine)"
 
-#: src/misc/helptext.cpp:106 src/misc/helptext.cpp:218
+#: src/misc/helptext.cpp:108 src/misc/helptext.cpp:220
 msgid "Fullscreen on/off"
 msgstr "Vollbildmodus ein/aus"
 
-#: src/misc/helptext.cpp:107
+#: src/misc/helptext.cpp:109
 msgid "Options"
 msgstr "Optionen"
 
-#: src/misc/helptext.cpp:108
+#: src/misc/helptext.cpp:110
 msgid "Keyboard options"
 msgstr "Tastatur-Optionen"
 
-#: src/misc/helptext.cpp:109
+#: src/misc/helptext.cpp:111
 msgid "Error console"
 msgstr "Fehler-Konsole"
 
-#: src/misc/helptext.cpp:111
+#: src/misc/helptext.cpp:113
 msgid "Quit game"
 msgstr "Spiel beenden"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:116
+#: src/misc/helptext.cpp:118
 msgid "Graphics Engines and Sound"
 msgstr "Grafik-Engine und Geräusche"
 
-#: src/misc/helptext.cpp:117
+#: src/misc/helptext.cpp:119
 msgid ""
 "The game comes with three graphics engines, which can be selected in the "
 "options window: GTK+, SDL and OpenGL. Each graphics engine has its own pros "
@@ -409,7 +420,7 @@ msgstr ""
 #. to any nice word, which suggests the meaning. or simple leave it there like "shader" in
 #. quotation marks, as the explanation is there in the next sentence, and users will know what
 #. these can be used for.
-#: src/misc/helptext.cpp:129
+#: src/misc/helptext.cpp:131
 msgid ""
 "The OpenGL engine can use hardware acceleration and it can synchronize the "
 "scrolling to the refresh rate of your monitor. However, if your computer or "
@@ -427,7 +438,7 @@ msgstr ""
 "ablaufende Programme sind, die unterschiedliche visuelle Effekte, wie z. B. "
 "TV-Bildschirm-Verzerrungen oder auch PAL-Emulation, dem Bild hinzufügen."
 
-#: src/misc/helptext.cpp:136
+#: src/misc/helptext.cpp:138
 msgid ""
 "The SDL driver usually works well on any kind of computer. The GTK+ driver "
 "is supposed to be a fallback option. It has no fullscreen support, and it "
@@ -442,7 +453,7 @@ msgstr ""
 "Engines können keine Shader-Effekte verwenden, es wird jedoch eine einfache "
 "PAL-Emulation in GDash zur Verfügung gestellt."
 
-#: src/misc/helptext.cpp:143
+#: src/misc/helptext.cpp:145
 msgid ""
 "If the game runs slow, you can try turning off fine scrolling or particle "
 "effects to save CPU. Turning fine scrolling off can effectively reduce the "
@@ -456,7 +467,7 @@ msgstr ""
 "Einsparpotential haben können. Die Reduktion des Skalierungsfaktors kann "
 "ebenfalls unter Umständen die Spielgeschwindigkeit erhöhen."
 
-#: src/misc/helptext.cpp:149
+#: src/misc/helptext.cpp:151
 msgid ""
 "Any time during playing the game you can press F11 to switch to fullscreen, "
 "and F9 to set the sound volume."
@@ -464,11 +475,11 @@ msgstr ""
 "Während des Spiels kann jederzeit mit F11 bzw. Alt + Return in den "
 "Vollbildmodus gewechselt und mit F9 die Lautstärke eingestellt werden."
 
-#: src/misc/helptext.cpp:153
+#: src/misc/helptext.cpp:155
 msgid "Themes"
 msgstr "Themen"
 
-#: src/misc/helptext.cpp:154
+#: src/misc/helptext.cpp:156
 msgid ""
 "The game also supports themes. You can use the installed PNG file as a "
 "template. Cells can have any arbitrary size, not necessarily 16x16 pixels. "
@@ -518,11 +529,11 @@ msgstr ""
 "die Pfeile verwendet."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:170
+#: src/misc/helptext.cpp:172
 msgid "Some Words of Warning"
 msgstr "Einige warnende Worte"
 
-#: src/misc/helptext.cpp:172
+#: src/misc/helptext.cpp:174
 msgid ""
 "- Importing may not be complete and correct for all games and engines. There "
 "may be some unplayable caves, as older games had no precise timing."
@@ -531,7 +542,7 @@ msgstr ""
 "vollständig und korrekt. Möglicherweise kommt es dadurch zu unspielbaren "
 "Höhlen, da ältere Spiele kein präzises Timing hatten."
 
-#: src/misc/helptext.cpp:174
+#: src/misc/helptext.cpp:176
 msgid ""
 "- As the game is sometimes changed, highscores may be lost due to the "
 "changing checksums generated."
@@ -539,7 +550,7 @@ msgstr ""
 "- Da das Spiel manchmal erweitert wird, können Highscores auf Grund der "
 "geänderten Prüfsummen verloren gehen."
 
-#: src/misc/helptext.cpp:176
+#: src/misc/helptext.cpp:178
 msgid ""
 "- Default values for cave properties are sometimes changed, as the file "
 "format evolves. Some properties might change if a caveset is loaded, which "
@@ -554,11 +565,11 @@ msgstr ""
 "Markierungen zu entfernen."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:189
+#: src/misc/helptext.cpp:191
 msgid "Playing the Game"
 msgstr "Das Spiel spielen"
 
-#: src/misc/helptext.cpp:190
+#: src/misc/helptext.cpp:192
 msgid ""
 "The main idea of this game is very simple. You have to guide your player "
 "through the mazes of dirt and stones, to collect diamonds within a given "
@@ -578,11 +589,11 @@ msgstr ""
 "komplizierter und schwieriger werden."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:198
+#: src/misc/helptext.cpp:200
 msgid "Keys to Control the Player"
 msgstr "Tasten um die Spielfigur zu steuern"
 
-#: src/misc/helptext.cpp:198
+#: src/misc/helptext.cpp:200
 msgid ""
 "During the game, you can control your player with the cursor keys. The Ctrl "
 "key has a special meaning: you can snap items, ie. pick up things without "
@@ -604,31 +615,31 @@ msgstr ""
 "Taste. Die dafür verwendeten Bedientasten können im Options-Menü neu "
 "definiert werden."
 
-#: src/misc/helptext.cpp:209
+#: src/misc/helptext.cpp:211
 msgid "End game"
 msgstr "Spiel beenden"
 
-#: src/misc/helptext.cpp:210
+#: src/misc/helptext.cpp:212
 msgid "Random colors"
 msgstr "Zufällige Farben"
 
-#: src/misc/helptext.cpp:211
+#: src/misc/helptext.cpp:213
 msgid "Take snapshot"
 msgstr "Schnappschuss erstellen"
 
-#: src/misc/helptext.cpp:212
+#: src/misc/helptext.cpp:214
 msgid "Revert to snapshot"
 msgstr "Zurück zum Schnappschuss"
 
-#: src/misc/helptext.cpp:213
+#: src/misc/helptext.cpp:215
 msgid "Cave variables (for testing)"
 msgstr "Höhlen-Variablen (zum Testen)"
 
-#: src/misc/helptext.cpp:220
+#: src/misc/helptext.cpp:222
 msgid "Snapshots"
 msgstr "Schnappschüsse"
 
-#: src/misc/helptext.cpp:220
+#: src/misc/helptext.cpp:222
 msgid ""
 "You can experiment with levels by saving and reloading snapshots. However, "
 "if you are playing a reloaded cave, you will not get score or extra lives."
@@ -638,11 +649,11 @@ msgstr ""
 "gespielte Höhle bekommt man allerdings keine Punkte oder Extraleben."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:223
+#: src/misc/helptext.cpp:225
 msgid "Inside the Cave"
 msgstr "In der Höhle"
 
-#: src/misc/helptext.cpp:224
+#: src/misc/helptext.cpp:226
 msgid ""
 "Your player can move through space and dirt. He can pick up diamonds and "
 "push stones, but he should avoid flies."
@@ -651,25 +662,25 @@ msgstr ""
 "Sie kann Diamanten einsammeln und Felsbrocken verschieben. Aber sie sollte "
 "Glühwürmchen und Schmetterlinge meiden."
 
-#: src/misc/helptext.cpp:225
+#: src/misc/helptext.cpp:227
 msgid "Stones and diamonds fall down in space, creatures can freely move here."
 msgstr ""
 "Felsbrocken und Diamanten fallen in Leerfeldern nach unten, Gegner können "
 "sich darin frei bewegen."
 
-#: src/misc/helptext.cpp:226
+#: src/misc/helptext.cpp:228
 msgid "The main object of the game is to collect required number of diamonds."
 msgstr ""
 "Das Hauptziel des Spiels ist es, die geforderte Anzahl an Diamanten "
 "einzusammeln."
 
-#: src/misc/helptext.cpp:227
+#: src/misc/helptext.cpp:229
 msgid "You can move through dirt leaving empty space behind. Amoeba eats it."
 msgstr ""
 "Sie können sich durch Erde graben und hinterlassen dadurch Leerfelder. Die "
 "Amöbe verschlingt auch Erde."
 
-#: src/misc/helptext.cpp:228
+#: src/misc/helptext.cpp:230
 msgid ""
 "This is also dirt, but has a different color. In any other sense, it is "
 "identical to the above one."
@@ -677,7 +688,7 @@ msgstr ""
 "Das ist auch Erde, hat aber eine andere Farbe. Ansonst besitzt sie die "
 "gleichen Eigenschaften wie auch die normale Erde."
 
-#: src/misc/helptext.cpp:229
+#: src/misc/helptext.cpp:231
 msgid ""
 "A rolling ball and a falling piece of dirt. You cannot push them, but you "
 "can dig them away. Sometimes they help you to solve puzzles."
@@ -686,7 +697,7 @@ msgstr ""
 "verschieben, aber man kann sie weggraben. Manchmal können sie dabei helfen, "
 "Rätsel zu lösen."
 
-#: src/misc/helptext.cpp:230
+#: src/misc/helptext.cpp:232
 msgid ""
 "Stones can be pushed by the player, and he can drop them on flies to make an "
 "explosion."
@@ -695,7 +706,7 @@ msgstr ""
 "sie auf Glühwürmchen und Schmetterlinge fallen lassen, um sie explodieren zu "
 "lassen."
 
-#: src/misc/helptext.cpp:231
+#: src/misc/helptext.cpp:233
 msgid ""
 "These nuts contain diamonds. If you crack them with a stone, they will be "
 "opened."
@@ -703,14 +714,14 @@ msgstr ""
 "Diese Nüsse enthalten Diamanten. Man kann sie aufknacken, in dem man einen "
 "Felsbrocken auf sie fallen läßt."
 
-#: src/misc/helptext.cpp:232
+#: src/misc/helptext.cpp:234
 msgid ""
 "Exactly like a diamond, but instead of falling down, it flies upwards, as "
 "high as it can."
 msgstr ""
 "Verhält sich wie ein Diamant, nur fällt er nach oben anstatt nach unten."
 
-#: src/misc/helptext.cpp:233
+#: src/misc/helptext.cpp:235
 msgid ""
 "The flying variant of a stone. Note that this one can also crush enemies as "
 "well as the player!"
@@ -719,7 +730,7 @@ msgstr ""
 "fliegende Felsbrocken sowohl Gegner als auch die Spielfigur zerschmettern "
 "kann!"
 
-#: src/misc/helptext.cpp:234
+#: src/misc/helptext.cpp:236
 msgid ""
 "Like ordinary stones, but these are so heavy, that you cannot push them."
 msgstr ""
@@ -727,7 +738,7 @@ msgstr ""
 "verschieben kann - manchmal ermöglicht ein Bonbon sie trotzdem zu "
 "verschieben. "
 
-#: src/misc/helptext.cpp:235
+#: src/misc/helptext.cpp:237
 msgid ""
 "The wall can't be moved but an explosion destroys it. You can't pass through "
 "the wall - instead try to blow it up."
@@ -736,13 +747,13 @@ msgstr ""
 "zerstören. Man kann nicht durch eine Ziegelmauer graben - stattdessen sollte "
 "man versuchen sie zu sprengen."
 
-#: src/misc/helptext.cpp:236
+#: src/misc/helptext.cpp:238
 msgid "This is rock stable wall. It's impossible to move or blow it up."
 msgstr ""
 "Das ist im wahrsten Sinn des Wortes eine Titanmauer. Es ist unmöglich sie zu "
 "bewegen oder sie zu sprengen."
 
-#: src/misc/helptext.cpp:237
+#: src/misc/helptext.cpp:239
 msgid ""
 "Acts like an ordinary steel wall, but it is sloped: stones and diamonds will "
 "roll down on it in some direction. Brick walls and dirt also have sloped "
@@ -753,7 +764,7 @@ msgstr ""
 "hinunterrollen. Es gibt auch Variationen von Ziegelmauern und Erde mit "
 "Gefälle."
 
-#: src/misc/helptext.cpp:239
+#: src/misc/helptext.cpp:241
 msgid ""
 "After collecting the required number of diamonds, look for a flashing out "
 "box to exit the cave. Closed out box looks like steel wall, but beware of "
@@ -766,7 +777,7 @@ msgstr ""
 "in der Nähe des Ausgangs - diese können unbeabsichtigterweise diesen auch "
 "zerstören, was natürlich den erfolgreichen Abschluss der Höhle verhindert."
 
-#: src/misc/helptext.cpp:243
+#: src/misc/helptext.cpp:245
 msgid ""
 "This is also an exit, but it remains non-flashing and thus is difficult to "
 "find."
@@ -774,7 +785,7 @@ msgstr ""
 "Das ist auch ein Ausgang, der jedoch niemals zu blinken beginnt, weshalb er "
 "auch schwierig zu finden ist."
 
-#: src/misc/helptext.cpp:244
+#: src/misc/helptext.cpp:246
 msgid ""
 "Fireflies move through the space. They can fly in the entire cave. They blow "
 "up when hit by falling stone or diamond. Amoeba is also deadly for them. "
@@ -788,12 +799,12 @@ msgstr ""
 "Glühwürmchen sind linksdrehend - sie bevorzugen es, sich nach links, also "
 "gegen den Uhrzeigersinn, zu bewegen."
 
-#: src/misc/helptext.cpp:245
+#: src/misc/helptext.cpp:247
 msgid "Just like a normal firefly, but it is right spinning."
 msgstr ""
 "Genauso wie ein normales Glühwürmchen, es dreht sich jedoch nach rechts."
 
-#: src/misc/helptext.cpp:246
+#: src/misc/helptext.cpp:248
 msgid ""
 "These creatures also guard the diamonds you would like to collect. But they "
 "move very differently. They like to run straight ahead, and only change "
@@ -806,7 +817,7 @@ msgstr ""
 "anstoßen. Wie normale Gegner darf man sie nicht berühren. Sie können jedoch "
 "einfach mit Felsbrocken zerschmettert werden."
 
-#: src/misc/helptext.cpp:247
+#: src/misc/helptext.cpp:249
 msgid ""
 "Butterflies are similar to guards. In contrast to fireflies they explode "
 "into diamonds, producing 3x3 square of diamonds. Butterflies are right "
@@ -816,12 +827,12 @@ msgstr ""
 "Unterschied, dass sie zu 3 x 3 großen Feldern aus Diamanten explodieren. "
 "Schmetterlinge sind rechtsdrehend - bewegen sich also im Uhrzeigersinn."
 
-#: src/misc/helptext.cpp:248
+#: src/misc/helptext.cpp:250
 msgid "Just like a normal butterfly, but it is left spinning."
 msgstr ""
 "Genauso wie ein normaler Schmetterling, er dreht sich jedoch nach links."
 
-#: src/misc/helptext.cpp:249
+#: src/misc/helptext.cpp:251
 msgid ""
 "This flying moth behaves just like a butterfly, except that it explodes into "
 "stones instead of diamonds."
@@ -829,7 +840,7 @@ msgstr ""
 "Diese fliegende Motte verhält sich wie ein Schmetterling, allerdings "
 "explodiert sie zu Felsbrocken anstatt zu Diamanten."
 
-#: src/misc/helptext.cpp:250
+#: src/misc/helptext.cpp:252
 msgid ""
 "This creature wanders around the cave like a firefly, but you can touch it. "
 "If it is enclosed, it turns into a skeleton."
@@ -838,7 +849,7 @@ msgstr ""
 "jedoch gefahrenlos berühren. Wird die Kuh eingeschlossen, verwandelt sie "
 "sich in ein Skelett."
 
-#: src/misc/helptext.cpp:251
+#: src/misc/helptext.cpp:253
 msgid ""
 "This is ghost which wanders aimlessly. If it touches you, it will explode in "
 "an x-shape to many different elements."
@@ -846,7 +857,7 @@ msgstr ""
 "Das ist ein Geist, der ziellos umherwandert. Berührt er die Spielfigur, "
 "explodiert er x-förmig zu vielen verschiedenen zufälligen Elementen."
 
-#: src/misc/helptext.cpp:252
+#: src/misc/helptext.cpp:254
 msgid ""
 "Biters will eat all the dirt they can reach. They move in a predictable way. "
 "They also can eat diamonds, so better don't let them be taken away. They "
@@ -860,7 +871,7 @@ msgstr ""
 "bahnen, indem sie den vor ihnen befindlichen Felsbrocken einfach hinter sich "
 "werfen. Auf diese Weise kann man den Weg versperrende Felsbrocken los werden."
 
-#: src/misc/helptext.cpp:253
+#: src/misc/helptext.cpp:255
 msgid ""
 "A chasing stone looks like an ordinary stone, it can even pass slime. It is "
 "lightweight, you can push it at once, as long as it is sleeping. Once it "
@@ -874,7 +885,7 @@ msgstr ""
 "verfolgen. Wurde ein Bonbon eingesammelt, können auch wache, verfolgende "
 "Mutanten-Felsbrocken verschoben werden."
 
-#: src/misc/helptext.cpp:254
+#: src/misc/helptext.cpp:256
 msgid ""
 "Amoeba grows randomly through space and dirt. When it is closed, stops "
 "growing and transforms into diamonds. When it is grown too big, it suddenly "
@@ -887,7 +898,7 @@ msgstr ""
 "Felsbrocken. Zu Beginn wächst die Amöbe recht langsam, beginnt aber nach "
 "einer gewissen Zeit sich sehr schnell zu verbreiten."
 
-#: src/misc/helptext.cpp:255
+#: src/misc/helptext.cpp:257
 msgid ""
 "Another amoeba, which behaves exactly like the above one. But it lives its "
 "own life. Sometimes, when they collide, they produce an explosion."
@@ -896,7 +907,7 @@ msgstr ""
 "besitzt. Sie verhält sich jedoch vollkommen eigenständig. Manchmal "
 "explodieren die angrenzenden Teile der beiden Amöben, wenn sie sich berühren."
 
-#: src/misc/helptext.cpp:256
+#: src/misc/helptext.cpp:258
 msgid ""
 "Slime is permeable. It means that stones and diamonds laying on the slime "
 "can randomly pass on."
@@ -904,7 +915,7 @@ msgstr ""
 "Schleim ist durchlässig. Das bedeutet, dass Felsbrocken und Diamanten, die "
 "auf dem Schleim liegen, unterschiedlich schnell durchfallen können."
 
-#: src/misc/helptext.cpp:257
+#: src/misc/helptext.cpp:259
 msgid ""
 "Acid eats dirt. Sometimes it spreads in all four directions, leaving a small "
 "explosion behind. If there is no dirt to swallow, it just disappears."
@@ -913,11 +924,11 @@ msgstr ""
 "hinterlässt jeweils eine kleine Explosion. Falls keine Erde mehr vorhanden "
 "ist, verschwindet sie einfach."
 
-#: src/misc/helptext.cpp:258
+#: src/misc/helptext.cpp:260
 msgid "Water, which floods all empty space slowly."
 msgstr "Wasser, das den gesamten Leerraum langsam füllt."
 
-#: src/misc/helptext.cpp:259
+#: src/misc/helptext.cpp:261
 msgid ""
 "This very special wall converts stones into diamonds and vice versa. Note "
 "that a magic wall can only be activated for some limited time. It can also "
@@ -933,7 +944,7 @@ msgstr ""
 "sich in das jeweilige Gegenstück verwandeln - nur machen diese beiden "
 "speziellen Elemente das natürlich von der Unterseite der Zaubermauer."
 
-#: src/misc/helptext.cpp:260
+#: src/misc/helptext.cpp:262
 msgid ""
 "Expanding wall expands in horizontal or vertical (or both) direction, if "
 "there is an empty space to fill up. You should be very careful not to be "
@@ -944,11 +955,11 @@ msgstr ""
 "stehen. Es ist Vorsicht geboten, da die Wachsmauern die Spielfigur auch "
 "ungewollt einschließen können."
 
-#: src/misc/helptext.cpp:261
+#: src/misc/helptext.cpp:263
 msgid "Expanding wall, but made of steel. You cannot even blow it up!"
 msgstr "Wachsmauer, die aus Titan besteht. Man kann sie nicht einmal sprengen!"
 
-#: src/misc/helptext.cpp:262
+#: src/misc/helptext.cpp:264
 msgid ""
 "Whenever there is a falling wall above the player merely separated by empty "
 "space, it starts falling. It does so at any distance. If it hits the player, "
@@ -960,7 +971,7 @@ msgstr ""
 "Verhalten auslösen. Falls sie die Spielfigur trifft, explodiert sie. Falls "
 "sie ein anderes Objekt trifft, bleibt sie einfach liegen."
 
-#: src/misc/helptext.cpp:263
+#: src/misc/helptext.cpp:265
 msgid ""
 "You can pick up this bomb like a diamond. To use it, press control and a "
 "direction... and then quickly run away! You can hold only one bomb at a time."
@@ -970,7 +981,7 @@ msgstr ""
 "allerdings schnell aus dem Weg gehen! Es kann nur eine Bombe auf einmal "
 "getragen werden."
 
-#: src/misc/helptext.cpp:264
+#: src/misc/helptext.cpp:266
 msgid ""
 "If you find a rocket launcher, you can pick it up, and fire rockets. To use "
 "it, press fire and a direction key. Be careful not to make an explosion "
@@ -981,7 +992,7 @@ msgstr ""
 "gewünschte Richtung. Zu nahe Explosionen zur Spielfigur können gefährlich "
 "sein!"
 
-#: src/misc/helptext.cpp:265
+#: src/misc/helptext.cpp:267
 msgid ""
 "Eat this sweet and you will become strong. You will be able to push stones "
 "at once. You will also be able to push chasing stones."
@@ -991,22 +1002,22 @@ msgstr ""
 "Ebenso können verfolgende Mutanten-Felsbrocken und optional auch Mega-"
 "Felsbrocken verzögerungsfrei verschoben werden."
 
-#: src/misc/helptext.cpp:266
+#: src/misc/helptext.cpp:268
 msgid "This is an indestructible door with a diamond."
 msgstr "Das ist eine unzerstörbare Tür, die einen Diamanten enthält."
 
-#: src/misc/helptext.cpp:267
+#: src/misc/helptext.cpp:269
 msgid ""
 "If you get this key, all doors will convert into diamonds you can collect."
 msgstr ""
 "Sammelt man diesen Diamant-Schlüssel ein, verwandeln sich alle Diamant-Türen "
 "in Diamanten, die dann eingesammelt werden können."
 
-#: src/misc/helptext.cpp:268
+#: src/misc/helptext.cpp:270
 msgid "Keys"
 msgstr "Schlüssel"
 
-#: src/misc/helptext.cpp:268
+#: src/misc/helptext.cpp:270
 msgid ""
 "There are three types of keys, which open three different colored doors. You "
 "can collect more from these; and for every door, always one key is used."
@@ -1015,17 +1026,17 @@ msgstr ""
 "Man kann jeweils beliebig viele von ihnen einsammeln. Für jede Tür wird "
 "jeweils ein Schlüssel verwendet werden."
 
-#: src/misc/helptext.cpp:269
+#: src/misc/helptext.cpp:271
 msgid "Doors"
 msgstr "Türen"
 
-#: src/misc/helptext.cpp:269
+#: src/misc/helptext.cpp:271
 msgid "This is a door which can only be opened by the key of the same color."
 msgstr ""
 "Das ist eine Tür, die nur mit einem Schlüssel der gleichen Farbe geöffnet "
 "werden kann."
 
-#: src/misc/helptext.cpp:270
+#: src/misc/helptext.cpp:272
 msgid ""
 "Sometimes you have to block a passage, for example to protect a voodoo. This "
 "is when a box like this comes handy. You can push it in every direction "
@@ -1036,7 +1047,7 @@ msgstr ""
 "gelegen kommt. Sie kann mit gedrückter Feuertaste in jede Richtung "
 "verschoben werden."
 
-#: src/misc/helptext.cpp:271
+#: src/misc/helptext.cpp:273
 msgid ""
 "Sometimes diamonds or keys are buried in brick walls. You can use a "
 "pneumatic hammer to break these walls, or simple brick walls which contain "
@@ -1051,7 +1062,7 @@ msgstr ""
 "Presslufthammer, indem Sie links oder rechts in Kombination mit der "
 "Feuertaste drücken."
 
-#: src/misc/helptext.cpp:272
+#: src/misc/helptext.cpp:274
 msgid ""
 "This machine replicates the element which is on the top of it. At regular "
 "intervals, a new element drops out underneath; if there is space to do this. "
@@ -1062,7 +1073,7 @@ msgstr ""
 "darunter Leerfelder sind. Die Geschwindigkeit, in der die neuen Elemente "
 "erscheinen, kann in jeder Höhle unterschiedlich sein."
 
-#: src/misc/helptext.cpp:273
+#: src/misc/helptext.cpp:275
 msgid ""
 "The indestructible and immobile conveyor belt carries free-moving elements. "
 "Its direction can be changed or its power can be turned completely off with "
@@ -1077,7 +1088,7 @@ msgstr ""
 "Fliegende Felsbrocken und Diamanten unterhalb des Förderbandes werden "
 "ebenfalls befördert."
 
-#: src/misc/helptext.cpp:274
+#: src/misc/helptext.cpp:276
 msgid ""
 "Heavy elemenets sink into the lava and disappear without any trace left. "
 "Creatures can also step into the lava."
@@ -1085,11 +1096,11 @@ msgstr ""
 "Schwere Elemente versinken ohne jede bleibende Spur in der Lava. Gegner "
 "können ebenfalls in der Lava versinken."
 
-#: src/misc/helptext.cpp:275
+#: src/misc/helptext.cpp:277
 msgid "Collect this to get extra time."
 msgstr "Sammlen Sie die Uhr ein, um Extrazeit zu erhalten."
 
-#: src/misc/helptext.cpp:276
+#: src/misc/helptext.cpp:278
 msgid ""
 "Bladders can be pushed around easily. They slowly climb up; if they touch a "
 "voodoo, they convert into clocks. They can also pass slime."
@@ -1098,13 +1109,13 @@ msgstr ""
 "Falls sie eine Voodoo-Puppe berühren, verwandeln sie sich in eine Uhr. Sie "
 "können auch durch Schleim sickern."
 
-#: src/misc/helptext.cpp:277
+#: src/misc/helptext.cpp:279
 msgid "If there is space above it, the bladder spender turns to a bladder."
 msgstr ""
 "Ist oberhalb des Blasenspenders leerer Raum, wird er eine Blase erzeugen und "
 "sich danach in eine Titanmauer verwandeln."
 
-#: src/misc/helptext.cpp:278
+#: src/misc/helptext.cpp:280
 msgid ""
 "This is your player's look-alike. You must protect him against flies. If a "
 "voodoo dies by one of them, your player dies immediately too. This doll can "
@@ -1122,7 +1133,7 @@ msgstr ""
 "Grabstein verwandelt. Sie kann sich aber möglicherweise auch durch eine zu "
 "nahe Explosion in einen Grabstein verwandeln."
 
-#: src/misc/helptext.cpp:279
+#: src/misc/helptext.cpp:281
 msgid ""
 "The teleporter will move you from one place to another, if you step into it. "
 "The destination teleporter depends on which direction you step the current "
@@ -1132,7 +1143,7 @@ msgstr ""
 "einem Ort zum anderen. Der Ziel-Teleporter hängt von der Richtung ab, von "
 "der man den Anfang-Teleporter betritt."
 
-#: src/misc/helptext.cpp:280
+#: src/misc/helptext.cpp:282
 msgid ""
 "Stir the pot, and then you will be able to use the gravity switch. While you "
 "are stirring the pot, there is no gravity at all. Press fire after using the "
@@ -1142,7 +1153,7 @@ msgstr ""
 "werden. Während der Topf gerührt wird, gibt es keine Gravitation. Drücke die "
 "Feuertaste, nachdem der Topf gerührt wurde."
 
-#: src/misc/helptext.cpp:281
+#: src/misc/helptext.cpp:283
 msgid ""
 "Sometimes you have to collect skeletons before you can use the pot. In some "
 "other caves, they must be collected like diamonds to open the exit."
@@ -1151,7 +1162,7 @@ msgstr ""
 "anderen Höhlen wiederum müssen sie wie Diamanten eingesammelt werden, um den "
 "Ausgang zu öffnen."
 
-#: src/misc/helptext.cpp:282
+#: src/misc/helptext.cpp:284
 msgid ""
 "When this switch is active, you can use it to change the gravity. The "
 "direction from which you use it will determine the direction the gravity "
@@ -1161,13 +1172,13 @@ msgstr ""
 "die Gravitation wirkt, zu ändern. Die Richtung, aus welcher man ihn benützt, "
 "wird die Richtung der Gravitation bestimmen."
 
-#: src/misc/helptext.cpp:283
+#: src/misc/helptext.cpp:285
 msgid "With this switch you can controll the direction of the expanding wall."
 msgstr ""
 "Mit diesem Schalter kann man die Richtung, in die die Wachsmauer wachsen "
 "soll, steuern."
 
-#: src/misc/helptext.cpp:284
+#: src/misc/helptext.cpp:286
 msgid ""
 "With this you can change the direction of creatures, like fireflies and "
 "butterflies. Sometimes it works automatically."
@@ -1175,31 +1186,31 @@ msgstr ""
 "Mit diesem Schalter kann man die Bewegungsrichtung der Glühwürmchen und "
 "Schmetterlinge steuern. Manchmal funktioniert er auch automatisch."
 
-#: src/misc/helptext.cpp:285
+#: src/misc/helptext.cpp:287
 msgid "This switch controls the speed of biters."
 msgstr "Dieser Schalter steuert die Geschwindigkeit der Beisser."
 
-#: src/misc/helptext.cpp:286
+#: src/misc/helptext.cpp:288
 msgid "This turns the replicator on or off."
 msgstr "Dieser Schalter schaltet den Replikator ein und aus."
 
-#: src/misc/helptext.cpp:287
+#: src/misc/helptext.cpp:289
 msgid "This switch can be used to reverse the direction of conveyor belts."
 msgstr ""
 "Dieser Schalter kann dazu verwendet werden, um die Laufrichtung des "
 "Förderbandes umzukehren."
 
-#: src/misc/helptext.cpp:288
+#: src/misc/helptext.cpp:290
 msgid ""
 "The conveyor belts also have a switch which can completely stop their action."
 msgstr ""
 "Das Förderband besitzt auch einen Schalter, um es komplett abzuschalten."
 
-#: src/misc/helptext.cpp:289
+#: src/misc/helptext.cpp:291
 msgid "Strange elements"
 msgstr "Eigenartige Elemente"
 
-#: src/misc/helptext.cpp:289
+#: src/misc/helptext.cpp:291
 msgid ""
 "Some caves contain strange elements, for example, diamonds which cannot be "
 "collected, a player that cannot move... Don't be surprised!"
@@ -1208,11 +1219,11 @@ msgstr ""
 "nicht eingesammelt lassen oder auch Spielfiguren, die nicht bewegen werden "
 "können. Lassen Sie sich (nicht) überraschen!"
 
-#: src/misc/helptext.cpp:291
+#: src/misc/helptext.cpp:293
 msgid "Playing hints"
 msgstr "Spieletipps"
 
-#: src/misc/helptext.cpp:291
+#: src/misc/helptext.cpp:293
 msgid ""
 "Obviously, holding fire and pushing a direction causes you to 'touch' an "
 "adjacent square without moving into it, collecting diamonds or removing "
@@ -1228,7 +1239,7 @@ msgstr ""
 "Verlauf des Spiels wird es sogar manchmal zwingend notwendig sein, diese "
 "Eigenschaft zu nützen."
 
-#: src/misc/helptext.cpp:292
+#: src/misc/helptext.cpp:294
 msgid ""
 "Stones do not roll off of the side of magic walls. In some caves it is shown "
 "where these walls are by placing a stone to show you that it's magic."
@@ -1238,7 +1249,7 @@ msgstr ""
 "so platziert werden, dass erkannt werden kann, dass es sich um Zaubermauern "
 "handelt."
 
-#: src/misc/helptext.cpp:293
+#: src/misc/helptext.cpp:295
 msgid ""
 "Expanding walls are always horizontally expanding on both sides. In some "
 "caves it is shown which parts of the wall are expanding by forcing you to "
@@ -1251,7 +1262,7 @@ msgstr ""
 "durch die Wachsmauer hinter dem Spieler, kann das ein Hinweiß auf die "
 "weitere Vorgangsweise für die Lösung des nächsten Rätsels sein."
 
-#: src/misc/helptext.cpp:294
+#: src/misc/helptext.cpp:296
 msgid ""
 "The screen starts scrolling at the edge of the screen. This means it's a bad "
 "idea to run in places where enemies are likely to be, since you won't have "
@@ -1272,7 +1283,7 @@ msgstr ""
 "durchgrabene Erde. Überstürzen Sie nichts, außer Sie sind sicher, dass Sie "
 "es auch schaffen können oder müssen."
 
-#: src/misc/helptext.cpp:295
+#: src/misc/helptext.cpp:297
 msgid ""
 "Enemies like to have dirt to move around on. Clearing lots of dirt can "
 "create safe patches for you. This technique can be used on levels where you "
@@ -1288,7 +1299,7 @@ msgstr ""
 "Raum schweben und sich sogar langsam durch ihn bewegen (wenn sich z. B. zwei "
 "Gegner in einer bestimmten Art gegenseitig umkreisen)."
 
-#: src/misc/helptext.cpp:296
+#: src/misc/helptext.cpp:298
 msgid ""
 "Magic walls often have a fairly strict time limit, some more than others. "
 "Collect up as many stones as you can just above the magic wall, leaving one "
@@ -1304,7 +1315,7 @@ msgstr ""
 "Stellen Sie nur sicher, dass Sie vorher unterhalb der Zaubermauer "
 "ausreichend Leerfelder geschaffen haben!"
 
-#: src/misc/helptext.cpp:297
+#: src/misc/helptext.cpp:299
 msgid ""
 "Voodoo dolls need to be protected from enemies at all costs, but dropping a "
 "stone on one is usually harmless!"
@@ -1312,7 +1323,7 @@ msgstr ""
 "Voodoo-Puppen müssen vor Gegner um jeden Preis beschützt werden. Einen "
 "Felsbrocken darauffallen zu lassen ist normalerweise ungefährlich."
 
-#: src/misc/helptext.cpp:298
+#: src/misc/helptext.cpp:300
 msgid ""
 "You can't collect diamonds which are falling, but you can collect them when "
 "they momentarily bounce off of something or down the side of a pile."
@@ -1321,7 +1332,7 @@ msgstr ""
 "einfangen, wenn sie vorübergehend von etwas abprallen oder von einem Haufen "
 "herunterkullern."
 
-#: src/misc/helptext.cpp:299
+#: src/misc/helptext.cpp:301
 msgid ""
 "Some levels have hidden exits. These always look like titanium wall, but "
 "don't flash. You can always tell where they are by visual clues and "
@@ -1331,7 +1342,7 @@ msgstr ""
 "aus, blinken aber nicht. Man kann jedoch durch sichtbare Hinweise oder "
 "Schlussfolgerungen erahnen, wo sich diese befinden."
 
-#: src/misc/helptext.cpp:300
+#: src/misc/helptext.cpp:302
 msgid ""
 "Don't blindly take all diamonds. Some of them are red herrings, some may be "
 "unobtainable or part of a trap, and believe it or not, sometimes a diamond "
@@ -1344,7 +1355,7 @@ msgstr ""
 "der sie sich befinden, auf Grund eines gemeinen Rätsels nützlicher als wenn "
 "sie eingesammelt werden würden."
 
-#: src/misc/helptext.cpp:309
+#: src/misc/helptext.cpp:311
 msgid ""
 "Every time you play a game, GDash records all your movements. These "
 "recordings can be viewed later, and can be saved with the caveset. To check "
@@ -1355,7 +1366,7 @@ msgstr ""
 "späteren Zeitpunkt angesehen werden. Um die Aufnahmen anzusehen, klicken Sie "
 "auf 'Zeige Wiederholungen' im 'Spiel'-Menü."
 
-#: src/misc/helptext.cpp:312
+#: src/misc/helptext.cpp:314
 msgid ""
 "If you were very lucky in a cave, or something interesting happened, you do "
 "not have to be worry, as all played caves are recorded. In the Replays "
@@ -1373,7 +1384,7 @@ msgstr ""
 "nicht, gespeichert. Somit können die Aufnahmen sogar weitergegeben werden, "
 "um nicht gelöste Höhlen mit anderen Spielern zu diskutieren."
 
-#: src/misc/helptext.cpp:313
+#: src/misc/helptext.cpp:315
 msgid ""
 "During the replay of the cave, you can gain control of the replay if you use "
 "the usual cursor keys (left, up, etc.) to move. From that point, you can "
@@ -1388,45 +1399,45 @@ msgstr ""
 "gewesen wenn...' selbst beantworten. Oder versuchen Sie, die Höhle besser "
 "als der Originalspieler lösen!"
 
-#: src/misc/helptext.cpp:316
+#: src/misc/helptext.cpp:318
 msgid "Cursor keys"
 msgstr "Kursortasten"
 
-#: src/misc/helptext.cpp:316
+#: src/misc/helptext.cpp:318
 msgid "Move"
 msgstr "Bewegen"
 
-#: src/misc/helptext.cpp:317
+#: src/misc/helptext.cpp:319
 msgid "Space, Enter"
 msgstr "Leertaste, Eingabetaste"
 
-#: src/misc/helptext.cpp:317
+#: src/misc/helptext.cpp:319
 msgid "Play replay"
 msgstr "Wiederholung spielen"
 
-#: src/misc/helptext.cpp:318
+#: src/misc/helptext.cpp:320
 msgid "Show replay info"
 msgstr "Zeige Information zur Wiederholung"
 
 #. TRANSLATORS: this is for a checkbox which selects if the replays is to be saved with the cave or not.
-#: src/misc/helptext.cpp:320
+#: src/misc/helptext.cpp:322
 msgid "Toggle if saved with caves"
 msgstr "Zum Speichern mit den Höhlen anwählen"
 
-#: src/misc/helptext.cpp:323
+#: src/misc/helptext.cpp:325
 msgid "Save movie"
 msgstr "Speichere Film"
 
-#: src/misc/helptext.cpp:325
+#: src/misc/helptext.cpp:327
 msgid "Main menu"
 msgstr "Hauptmenü"
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:328
+#: src/misc/helptext.cpp:330
 msgid "Converting a Replay to an AVI File"
 msgstr "Wiederholung in eine AVI-Datei konvertieren"
 
-#: src/misc/helptext.cpp:329
+#: src/misc/helptext.cpp:331
 msgid ""
 "In the game, you can save images of replays to create an AVI file. The R key "
 "on the titlescreen will show the available replays. You can select the "
@@ -1452,7 +1463,7 @@ msgstr ""
 "die Dateien von dem Konvertierprogramm Avidemux, welches die Umwandlung der "
 "Bilddateien in AVI-Dateien durchführt, nicht korrekt erkannt werden."
 
-#: src/misc/helptext.cpp:338
+#: src/misc/helptext.cpp:340
 msgid ""
 "You can watch the replay during the saving process, it is shown in real "
 "time. (Currently the saving cannot be speeded up.) Don't be surprised: there "
@@ -1468,11 +1479,11 @@ msgstr ""
 "Videodateien benötigen ungefähr 6 MB pro Minute. Nach Beendigung des "
 "Speichervorganges wird das Wiederholungen-Menü wieder angezeigt."
 
-#: src/misc/helptext.cpp:343
+#: src/misc/helptext.cpp:345
 msgid "Converting the files to AVI with Avidemux"
 msgstr "Konvertiere die Dateien in AVI mit Avidemux"
 
-#: src/misc/helptext.cpp:344
+#: src/misc/helptext.cpp:346
 msgid ""
 "Avidemux is a simple video conversion application which is freeware. The "
 "steps to convert the image files to an AVI movie are pretty straightforward."
@@ -1481,11 +1492,11 @@ msgstr ""
 "einzelnen Schritte, um eine Bilddatei in einen AVI-Film zu konvertieren, "
 "sind unkompliziert."
 
-#: src/misc/helptext.cpp:347
+#: src/misc/helptext.cpp:349
 msgid "- Start up Avidemux."
 msgstr "- Starte Avidemux."
 
-#: src/misc/helptext.cpp:349
+#: src/misc/helptext.cpp:351
 msgid ""
 "- Choose File|Open, and select the first image file (eg. out_00000000.png) "
 "of your project. Selecting the successive images is not required, as "
@@ -1498,7 +1509,7 @@ msgstr ""
 "dem Auswählen der ersten Bilddatei, sehen Sie sofort das erste Bild Ihrer "
 "Animation."
 
-#: src/misc/helptext.cpp:353
+#: src/misc/helptext.cpp:355
 msgid ""
 "- Click Audio|Main Track from the menu. For Audio source, select External "
 "WAV. Click browse, and import the wave file GDash has written (out.wav.)"
@@ -1507,7 +1518,7 @@ msgstr ""
 "auswählen. Danach klicken Sie auf 'browsen' und importieren die WAV-Datei, "
 "die GDash erzeugt hat (out.wav)."
 
-#: src/misc/helptext.cpp:356
+#: src/misc/helptext.cpp:358
 msgid ""
 "- Select Video|Frame Rate from the menu. It should be set to 25 fps. That is "
 "the default value in Avidemux and is also required for the GDash replays, "
@@ -1518,7 +1529,7 @@ msgstr ""
 "für GDash Wiederholungen benötigt. Um Probleme zu vermeiden, kontrollieren "
 "Sie bitte diesen Wert."
 
-#: src/misc/helptext.cpp:359
+#: src/misc/helptext.cpp:361
 msgid ""
 "- At this point you should be able to preview the video with the play button "
 "located at the lower left part of the Avidemux window. You can also use the "
@@ -1529,7 +1540,7 @@ msgstr ""
 "befindet, anzusehen. Man kann auch den Rollbalken verwenden, um zu jeder "
 "gewünschten Stelle des Videos zu springen."
 
-#: src/misc/helptext.cpp:362
+#: src/misc/helptext.cpp:364
 msgid ""
 "- To save the AVI file, you have to select compression settings. Select "
 "Video|Encoder from the menu. The recommended compressor is MPEG-4 AVC (x264) "
@@ -1540,7 +1551,7 @@ msgstr ""
 "empfohlene Komprimierung ist MPEG-4 AVC (x264) oder MPEG-4 ASP (Xvid4 oder "
 "lavc). YouTube empfiehlt x264."
 
-#: src/misc/helptext.cpp:365
+#: src/misc/helptext.cpp:367
 msgid ""
 "- The sound codec must also be selected in a similar way. Click Audio|"
 "Encoder from the menu, and select MP3 (LAME) or maybe Vorbis."
@@ -1548,7 +1559,7 @@ msgstr ""
 "- Der Audio-Codec muss in einer ähnlichen Weise ausgewählt werden. Klicken "
 "Sie Audio|Encoder im Menü und wählen Sie MP3 (LAME) oder auch Vorbis aus."
 
-#: src/misc/helptext.cpp:367
+#: src/misc/helptext.cpp:369
 msgid ""
 "- You are now ready to save the video. Click File|Save|Save Video, select a "
 "file name and Avidemux will convert your replay in a few minutes."
@@ -1557,7 +1568,7 @@ msgstr ""
 "Speichern|Speichere Video', wählen Sie einen Dateinamen aus und Avidemux "
 "wird Ihre Wiederholung in wenigen Minuten zu einem Video konvertieren."
 
-#: src/misc/helptext.cpp:370
+#: src/misc/helptext.cpp:372
 msgid ""
 "The default quality settings are usually suitable for GDash replays. The "
 "resulting AVI file is smaller than 1 megabyte/minute. However if you need "
@@ -1575,11 +1586,11 @@ msgstr ""
 "Bilddateien gelöscht werden, da sie nicht mehr benötigt werden."
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:376
+#: src/misc/helptext.cpp:378
 msgid "Converting the Files to an AVI with MPlayer"
 msgstr "Konvertiere die Dateien in AVI mit MPlayer"
 
-#: src/misc/helptext.cpp:377
+#: src/misc/helptext.cpp:379
 msgid ""
 "On Unix, you can also use the command line to create the video. The easiest "
 "way to do that is using the mencoder utility, which is part of the MPlayer "
@@ -1589,15 +1600,15 @@ msgstr ""
 "erzeugen. Die einfachste Methode ist, das mencoder Werkzeug zu verwenden, "
 "welches Teil des MPlayer-Pakets ist. Die Kommandozeile lautet:"
 
-#: src/misc/helptext.cpp:383
+#: src/misc/helptext.cpp:385
 msgid "The meaning of the parameters are:"
 msgstr "Die Bedeutung der Paramter ist:"
 
-#: src/misc/helptext.cpp:385
+#: src/misc/helptext.cpp:387
 msgid "- -mf://out_*.png - The name of the image files."
 msgstr "- -mf://out_*.png - Der Name der Bilddateien."
 
-#: src/misc/helptext.cpp:387
+#: src/misc/helptext.cpp:389
 msgid ""
 "- -fps 25 - This tells mencoder, that 25 image files make up a second of "
 "video."
@@ -1605,7 +1616,7 @@ msgstr ""
 "- -fps 25 - Teilt mencoder mit, dass eine Sekunde Video aus 25 Bilddateien "
 "besteht."
 
-#: src/misc/helptext.cpp:389
+#: src/misc/helptext.cpp:391
 msgid ""
 "- -ovc x264 -x264encopts bitrate=512 - Use x264 compression for the video "
 "(most advanced and also recommended by YouTube). Target bitrate of video, "
@@ -1617,7 +1628,7 @@ msgstr ""
 "des Videos 512 kbits/Sekunde. Normalerweise ist der Wert 512 hoch genug, man "
 "kann diesen Wert allerdings erhöhen, wenn die Bildqualität nicht ausreicht."
 
-#: src/misc/helptext.cpp:394
+#: src/misc/helptext.cpp:396
 msgid ""
 "- -audiofile out.wav - Tells mencoder that the audio input data is to be "
 "read from that file."
@@ -1625,7 +1636,7 @@ msgstr ""
 "- -audiofile out.wav - Teilt mencoder mit, dass die Audio-Eingabedaten aus "
 "dieser Datei eingelesen werden sollen."
 
-#: src/misc/helptext.cpp:396
+#: src/misc/helptext.cpp:398
 msgid ""
 "- -oac mp3lame -lameopts preset=128 - Audio compression is mp3, quality is "
 "128kbit/s."
@@ -1633,11 +1644,11 @@ msgstr ""
 "- -oac mp3lame -lameopts preset=128 - Die Audio-Kompression ist mp3, die "
 "Qualität ist 128kbit/Sekunde."
 
-#: src/misc/helptext.cpp:398
+#: src/misc/helptext.cpp:400
 msgid "- -o out.avi - Output filename."
 msgstr "- -o out.avi - Ausgabename der Datei."
 
-#: src/misc/helptext.cpp:400
+#: src/misc/helptext.cpp:402
 msgid ""
 "As simple as that. Optionally, if your mencoder does not support x264 "
 "encoding, you can use libavcodec mpeg4. The command line to be used is:"
@@ -1646,7 +1657,7 @@ msgstr ""
 "sollte, kann libavcodec mpeg4 verwendet werden. Die dafür notwendige "
 "Kommandozeile lautet: "
 
-#: src/misc/helptext.cpp:405
+#: src/misc/helptext.cpp:407
 msgid ""
 "Using the -ffourcc DIVX option is recommended in this case to increase "
 "compatibility with media players"
@@ -1654,7 +1665,7 @@ msgstr ""
 "Um die Kompatibilität mit Medienspielern zu erhöhen, wird in diesem Fall die "
 "Option --ffourcc DIV empfohlen."
 
-#: src/misc/helptext.cpp:415
+#: src/misc/helptext.cpp:417
 msgid ""
 "This editor lets you create your own levels and cave sets. It can operate in "
 "two modes, a game editor mode, and a cave edit mode."
@@ -1663,11 +1674,11 @@ msgstr ""
 "Levels. Er kann in zwei Modi betrieben werden - dem Spiel-Editor-Modus und "
 "dem Höhlen-Editor-Modus."
 
-#: src/misc/helptext.cpp:416
+#: src/misc/helptext.cpp:418
 msgid "Game editor"
 msgstr "Spiel-Editor"
 
-#: src/misc/helptext.cpp:416
+#: src/misc/helptext.cpp:418
 msgid ""
 "In this one, you are presented with an overview of your game. You can click "
 "on any cave to select it. Then you can select File|Edit Cave to view or "
@@ -1685,11 +1696,11 @@ msgstr ""
 "der Maus durch ziehen und loslassen neu angeordnet werden. Um eine neue "
 "Höhle zu erzeugen, wählen Sie den Menü-Befehl 'Datei/Neue Höhle' aus."
 
-#: src/misc/helptext.cpp:417
+#: src/misc/helptext.cpp:419
 msgid "In this mode, you can edit a cave."
 msgstr "In diesem Modus kann eine Höhle editiert werden."
 
-#: src/misc/helptext.cpp:418
+#: src/misc/helptext.cpp:420
 msgid ""
 "A cave is built up of different objects. First, it is filled with random "
 "elements, of which there can be five. The probabilities of each can be set. "
@@ -1703,7 +1714,7 @@ msgstr ""
 "verschiedene Dateiformate, die von anderen Spielen verwendet werden, "
 "importieren zu können."
 
-#: src/misc/helptext.cpp:419
+#: src/misc/helptext.cpp:421
 msgid ""
 "After this step, series of cave objects are rendered over the random data, "
 "which can be of various types: points, lines, rectangles and so. These are "
@@ -1713,21 +1724,21 @@ msgstr ""
 "Daten erstellt, welche verschiedene Arten sein können: Einzelpunkte, Linien, "
 "Rechtecke und so weiter. Das sind folgende:"
 
-#: src/misc/helptext.cpp:420 src/cave/object/caveobjectpoint.cpp:63
+#: src/misc/helptext.cpp:422 src/cave/object/caveobjectpoint.cpp:63
 msgid "Point"
 msgstr "Punkt"
 
-#: src/misc/helptext.cpp:420
+#: src/misc/helptext.cpp:422
 msgid "This is a single element. Click anywhere on the cave map to create one."
 msgstr ""
 "Das ist ein einzelnes Element. Klicken Sie irgendwo in die Höhlen-Karte, um "
 "ein Element zu erzeugen."
 
-#: src/misc/helptext.cpp:421
+#: src/misc/helptext.cpp:423
 msgid "Freehand"
 msgstr "Freihand"
 
-#: src/misc/helptext.cpp:421
+#: src/misc/helptext.cpp:423
 msgid ""
 "This is a freehand editing tool, which places many points as you click and "
 "drag the mouse. Use it wisely; lines and other drawing elements are more "
@@ -1739,11 +1750,11 @@ msgstr ""
 "oft einfacher zu benützen und die damit erzeugte Höhle ist somit auch "
 "leichter zu editieren."
 
-#: src/misc/helptext.cpp:422 src/cave/object/caveobjectline.cpp:98
+#: src/misc/helptext.cpp:424 src/cave/object/caveobjectline.cpp:98
 msgid "Line"
 msgstr "Linie"
 
-#: src/misc/helptext.cpp:422
+#: src/misc/helptext.cpp:424
 msgid ""
 "Click on the map to select the start point, then drag the mouse and finally "
 "release the button, to set the end point."
@@ -1753,11 +1764,11 @@ msgstr ""
 "gewünschte Stelle und lassen dann die Maustaste wieder los, um den Endpunkt "
 "zu setzen."
 
-#: src/misc/helptext.cpp:423
+#: src/misc/helptext.cpp:425
 msgid "Outline"
 msgstr "Umriss"
 
-#: src/misc/helptext.cpp:423
+#: src/misc/helptext.cpp:425
 msgid ""
 "Click on the map and then drag the mouse, to define the two corners of the "
 "rectangle."
@@ -1767,21 +1778,21 @@ msgstr ""
 "danach die Maustaste wieder los, um die beiden Ecken des Rechtecks zu "
 "definieren."
 
-#: src/misc/helptext.cpp:424 src/cave/object/caveobjectrectangle.cpp:81
+#: src/misc/helptext.cpp:426 src/cave/object/caveobjectrectangle.cpp:81
 msgid "Rectangle"
 msgstr "Rechteck"
 
-#: src/misc/helptext.cpp:424
+#: src/misc/helptext.cpp:426
 msgid "Similar to the above, but this is filled with a second element."
 msgstr ""
 "Ähnlich der oben genannten Funktion, es wird jedoch mit einem zweiten "
 "Element gefüllt."
 
-#: src/misc/helptext.cpp:425 src/cave/object/caveobjectraster.cpp:84
+#: src/misc/helptext.cpp:427 src/cave/object/caveobjectraster.cpp:84
 msgid "Raster"
 msgstr "Raster"
 
-#: src/misc/helptext.cpp:425
+#: src/misc/helptext.cpp:427
 msgid ""
 "This one is like a filled rectangle, but the horizontal and vertical "
 "distance of the elements can be changed. Use the object properties dialog to "
@@ -1792,11 +1803,11 @@ msgstr ""
 "geändert werden. Benutzen Sie den Objekt-Eigenschaften-Dialog, um die "
 "Entfernung zu wählen, nachdem Sie den Raster platziert haben."
 
-#: src/misc/helptext.cpp:426
+#: src/misc/helptext.cpp:428
 msgid "Join"
 msgstr "Verbinde"
 
-#: src/misc/helptext.cpp:426
+#: src/misc/helptext.cpp:428
 msgid ""
 "This one is tricky. A join object scans the map, from top to bottom, "
 "searching for a specific element. If it finds one, it draws the second "
@@ -1826,11 +1837,11 @@ msgstr ""
 "mit jedem bereits vorhandenen Diamanten verbindet). Dieser Effekt wurde bei "
 "vielen älteren Höhlen benutzt, um identische Höhlenteile zu erzeugen."
 
-#: src/misc/helptext.cpp:427
+#: src/misc/helptext.cpp:429
 msgid "Fill to border"
 msgstr "Fülle bis zum Rand"
 
-#: src/misc/helptext.cpp:427
+#: src/misc/helptext.cpp:429
 msgid ""
 "This tool places a flood fill object. The object will fill an area of any "
 "shape in the cave with a specific element. The border of the area is set by "
@@ -1846,11 +1857,11 @@ msgstr ""
 "die Begrenzung dieser zu füllenden Fläche aus Objekten besteht und nicht aus "
 "Zufallsdaten, ansonst wird die gesamte Höhle mit Zufallsdaten gefüllt werden."
 
-#: src/misc/helptext.cpp:429
+#: src/misc/helptext.cpp:431
 msgid "Fill by replacement"
 msgstr "Ersatzfüllung"
 
-#: src/misc/helptext.cpp:429
+#: src/misc/helptext.cpp:431
 msgid ""
 "This tool places another kind of fill object. This one will replace an "
 "element with another one; the area in which this replacement takes place "
@@ -1865,11 +1876,11 @@ msgstr ""
 "nur das neue Element einstellen. Das zu findende Element wird automatisch "
 "eingestellt, sobald man auf die Karte klickt, um das Objekt einzusetzen."
 
-#: src/misc/helptext.cpp:433 src/cave/object/caveobjectmaze.cpp:367
+#: src/misc/helptext.cpp:435 src/cave/object/caveobjectmaze.cpp:367
 msgid "Maze"
 msgstr "Irrgarten"
 
-#: src/misc/helptext.cpp:433
+#: src/misc/helptext.cpp:435
 msgid ""
 "You can use random generated mazes in cave designs. The walls and paths of "
 "the maze can be made from any freely chosen element. Also you can select 'No "
@@ -1887,28 +1898,28 @@ msgstr ""
 "Streuungswert auf -1 gesetzt wird, ist der Irrgarten bei jedem Spiel "
 "unterschiedlich."
 
-#: src/misc/helptext.cpp:434
+#: src/misc/helptext.cpp:436
 msgid "Unicursal maze"
 msgstr "Unikursaler Irrgarten"
 
-#: src/misc/helptext.cpp:434
+#: src/misc/helptext.cpp:436
 msgid "The unicursal maze is a long and curvy path."
 msgstr "Der unikursale Irrgarten ist ein einziger langer und kurviger Pfad."
 
-#: src/misc/helptext.cpp:435
+#: src/misc/helptext.cpp:437
 msgid "Braid maze"
 msgstr "Sackgassenloser Irrgarten"
 
-#: src/misc/helptext.cpp:435
+#: src/misc/helptext.cpp:437
 msgid "The maze like that in PacMan: there are no dead ends."
 msgstr ""
 "Ein Irrgarten wie im klassischem Spiel 'PacMan' - es gibt keine Sackgassen."
 
-#: src/misc/helptext.cpp:436 src/cave/object/caveobjectrandomfill.cpp:198
+#: src/misc/helptext.cpp:438 src/cave/object/caveobjectrandomfill.cpp:198
 msgid "Random Fill"
 msgstr "Zufällige Füllung"
 
-#: src/misc/helptext.cpp:436
+#: src/misc/helptext.cpp:438
 msgid ""
 "This tool can be used to fill a part of a cave with random elements. It is "
 "similar to the random cave setup. At most five elements can be specified. "
@@ -1933,11 +1944,11 @@ msgstr ""
 "separat eingestellt werden. Sie können sie aber auch auf -1 einstellen, "
 "damit die Höhle bei jedem Spiel anders aussieht."
 
-#: src/misc/helptext.cpp:437
+#: src/misc/helptext.cpp:439
 msgid "Copy and paste"
 msgstr "Kopieren und Einfügen"
 
-#: src/misc/helptext.cpp:437
+#: src/misc/helptext.cpp:439
 msgid ""
 "This tool is simple: copies a rectangular part of the cave, and pastes it "
 "into a new location. The source and destination area may overlap. To select "
@@ -1957,17 +1968,17 @@ msgstr ""
 "horizontal oder vertikal gespiegelt werden. Öffnen Sie das 'Objekt-"
 "Eigenschaften'-Fenster, um den Inhalt zu spiegeln."
 
-#: src/misc/helptext.cpp:439
+#: src/misc/helptext.cpp:441
 msgid "Managing cave objects"
 msgstr "Höhlen-Objekte verwalten"
 
-#: src/misc/helptext.cpp:439
+#: src/misc/helptext.cpp:441
 msgid "Use this tool to modify already existing cave objects."
 msgstr ""
 "Verwenden Sie dieses Werkzeug, um bereits vorhandene Höhlen-Objekte zu "
 "verändern."
 
-#: src/misc/helptext.cpp:440
+#: src/misc/helptext.cpp:442
 msgid ""
 "By looking at the cave, you can see that every object is drawn with a "
 "yellowish color to distinguish them from random data. Click on any object to "
@@ -1977,7 +1988,7 @@ msgstr ""
 "gelblichen Farbe dargestellt, um es von Zufallsdaten zu unterscheiden. "
 "Klicken Sie auf ein beliebiges Objekt um es auszuwählen."
 
-#: src/misc/helptext.cpp:442
+#: src/misc/helptext.cpp:444
 msgid ""
 "A selected object can be repositioned with the mouse by clicking and "
 "dragging. You can resize lines and rectangles by moving them by their end "
@@ -1994,7 +2005,7 @@ msgstr ""
 "Objekteauf diese Weise eingestellt werden. Der Ursprung einer Füllung ist "
 "mit einem X markiert, falls sie zum Editieren ausgewählt wird."
 
-#: src/misc/helptext.cpp:446
+#: src/misc/helptext.cpp:448
 msgid ""
 "By double-clicking on an object, or selecting object properties from the "
 "menu, a dialog pops up, which shows its parameters that you can modify."
@@ -2003,7 +2014,7 @@ msgstr ""
 "Eigenschaften aus dem Menü, erscheint ein Dialog-Fenster, welches die "
 "Parameter anzeigt, die modifiziert werden können."
 
-#: src/misc/helptext.cpp:447
+#: src/misc/helptext.cpp:449
 msgid ""
 "The order these objects are drawn also affects the cave. To reorder them, "
 "you can click on the To top and To bottom menu items. The object list on the "
@@ -2017,7 +2028,7 @@ msgstr ""
 "Objekte gezeichnet werden, zu ändern. Man kann sie auch löschen oder die "
 "standardmäßigen Funktionen Ausschneiden, Kopieren und Einfügen benützen."
 
-#: src/misc/helptext.cpp:449
+#: src/misc/helptext.cpp:451
 msgid ""
 "If you want to restart editing, all cave objects can be deleted at once. A "
 "cave map can also be deleted by selecting Remove map from the menu."
@@ -2026,7 +2037,7 @@ msgstr ""
 "der Höhle auf einmal gelöscht werden. Eine Höhlen-Karte kann auch durch "
 "Auswählen des Menüpunkts 'Karte entfernen' gelöscht werden."
 
-#: src/misc/helptext.cpp:452
+#: src/misc/helptext.cpp:454
 msgid ""
 "To select a draw element, you can middle-click any time on the cave map to "
 "pick one you already use. Use Ctrl together with middle-click to pick a fill "
@@ -2037,11 +2048,11 @@ msgstr ""
 "Mit CTRL + mittlere Maustaste kann auf diese Weise ein Füll-Element "
 "ausgewählt werden."
 
-#: src/misc/helptext.cpp:454 src/editor/editor.cpp:3319
+#: src/misc/helptext.cpp:456 src/editor/editor.cpp:3319
 msgid "Cave properties"
 msgstr "Höhlen-Einstellungen"
 
-#: src/misc/helptext.cpp:454
+#: src/misc/helptext.cpp:456
 msgid ""
 "To view cave properties, select Edit|Cave|Cave properties from the menu. A "
 "dialog will pop up with many different options. Those are not explained "
@@ -2055,11 +2066,11 @@ msgstr ""
 "Einstellungen haben aber ausführliche Erklärungen, die auf dem Bildschirm "
 "erscheinen, sobald man mit dem Mauszeiger über sie fährt."
 
-#: src/misc/helptext.cpp:456
+#: src/misc/helptext.cpp:458
 msgid "More on random cave data"
 msgstr "Mehr über die zufälligen Höhlen-Daten"
 
-#: src/misc/helptext.cpp:457
+#: src/misc/helptext.cpp:459
 msgid ""
 "The elements which fill the cave initially are not really random. They are "
 "generated using a predictable random number generator, which can come up "
@@ -2085,7 +2096,7 @@ msgstr ""
 "definiert wird. Der anzuzeigende Level kann mit dem Schieberegler, der sich "
 "in der rechten oberen Ecke des Editors befindet, eingestellt werden."
 
-#: src/misc/helptext.cpp:467
+#: src/misc/helptext.cpp:469
 msgid ""
 "A cave can be made totally random, by entering -1 in the random seed entry. "
 "Remember that you cannot test every cave that is generated this way, and "
@@ -2100,7 +2111,7 @@ msgstr ""
 "Eingabefeld 'Benötigte Diamanten' ein negativer Wert eingegeben, werden "
 "diese bei Beginn des Spiels gezählt und die angegebene Zahl davon abgezogen."
 
-#: src/misc/helptext.cpp:473
+#: src/misc/helptext.cpp:475
 msgid ""
 "The Edit menu contains a random elements setup tool, which can be used to "
 "setup the random number generator for the cave. It is able to edit all five "
@@ -2111,11 +2122,11 @@ msgstr ""
 "Generator für die Höhle einzustellen. Es ist dazu fähig, alle fünf Levels zu "
 "editieren und Änderungen in der Höhle sofort anzuzeigen."
 
-#: src/misc/helptext.cpp:477
+#: src/misc/helptext.cpp:479
 msgid "Visible region of a cave"
 msgstr "Sichtbarer Bereich der Höhle"
 
-#: src/misc/helptext.cpp:478
+#: src/misc/helptext.cpp:480
 msgid ""
 "Every cave can have a rectangular area, which may be smaller than the cave "
 "itself, and will be visible during the game. Cave elements outside this "
@@ -2130,11 +2141,11 @@ msgstr ""
 "Anpassung'-Werkzeug verwenden, um die Größe automatisch durch das "
 "Kontrollieren von Titanmauern und Ein- und Ausgang-Elementen einzustellen."
 
-#: src/misc/helptext.cpp:484
+#: src/misc/helptext.cpp:486
 msgid "Cave maps"
 msgstr "Höhlen-Karten"
 
-#: src/misc/helptext.cpp:485
+#: src/misc/helptext.cpp:487
 msgid ""
 "If the cave is map-based, you can use the shift tools to move the map. This "
 "might be useful if you want to enlarge it and otherwise there would be no "
@@ -2149,7 +2160,7 @@ msgstr ""
 "irgendeine Richtung verschoben haben. Für Objekt-basierende Höhlen können "
 "Sie alle Objekte zugleich auswählen, um sie alle auf einmal zu bewegen."
 
-#: src/misc/helptext.cpp:489
+#: src/misc/helptext.cpp:491
 msgid ""
 "Cave objects can be merged into a single map. If you designed a new cave, "
 "this has no particular use; but for editing an imported, map-based cave, it "
@@ -2165,11 +2176,11 @@ msgstr ""
 "Höhle in einer anderen Applikation laden möchten, die keine BDCFF-Höhlen-"
 "Objekte unterstützt)."
 
-#: src/misc/helptext.cpp:491
+#: src/misc/helptext.cpp:493
 msgid "Cave stories"
 msgstr "Höhlen-Geschichten"
 
-#: src/misc/helptext.cpp:492
+#: src/misc/helptext.cpp:494
 msgid ""
 "Every cave can have a story associated to it, which will be shown when the "
 "cave is played. This story can connect the caves to each other."
@@ -2178,11 +2189,11 @@ msgstr ""
 "wird, sobald die Höhle gespielt wird. Die Geschichte kann die Höhlen "
 "miteinander verbinden."
 
-#: src/misc/helptext.cpp:496 src/cave/caveset.cpp:62
+#: src/misc/helptext.cpp:498 src/cave/caveset.cpp:62
 msgid "Title screen"
 msgstr "Titelbild"
 
-#: src/misc/helptext.cpp:497
+#: src/misc/helptext.cpp:499
 msgid ""
 "A caveset can have its own title screen. To add one, click Cave set title "
 "image in the File menu. If your image is transparent (has a transparent "
@@ -2197,21 +2208,21 @@ msgstr ""
 "Hintergrundbild hinzufügen, dass dann als eine sich wiederholende, "
 "scrollende Kachel hinter dem eigentlichen Titelbild verwendet wird."
 
-#: src/misc/helptext.cpp:501 src/editor/editor.cpp:3318
+#: src/misc/helptext.cpp:503 src/editor/editor.cpp:3318
 msgid "Test cave"
 msgstr "Teste Höhle"
 
-#: src/misc/helptext.cpp:501
+#: src/misc/helptext.cpp:503
 msgid "If you are finished with drawing, use this button to test the cave."
 msgstr ""
 "Mit dem 'Test'-Knopf in der Werkzeugleiste können Sie jederzeit die Höhle "
 "testen."
 
-#: src/misc/helptext.cpp:502
+#: src/misc/helptext.cpp:504
 msgid "Loading and saving"
 msgstr "Laden und Speichern"
 
-#: src/misc/helptext.cpp:502
+#: src/misc/helptext.cpp:504
 msgid ""
 "To save your work, use the File|Save button from the main window. You can "
 "save games in a BDCFF file, which is a text format used widely on the "
@@ -2221,11 +2232,11 @@ msgstr ""
 "Speichern'-Menüoption des Hauptfensters. Spiele können in eine BDCFF-Datei, "
 "ein im Internet verbreitetes BD-Textformat, gespeichert werden."
 
-#: src/misc/helptext.cpp:504
+#: src/misc/helptext.cpp:506
 msgid "HTML Galleries"
 msgstr "HTML-Galerien"
 
-#: src/misc/helptext.cpp:504
+#: src/misc/helptext.cpp:506
 msgid ""
 "This program is able to save cave sets in a HTML gallery, which you can put "
 "on a web server, so other ones can preview them online. To do this, select "
@@ -2239,11 +2250,11 @@ msgstr ""
 "die HTML-Datei ein. Die .PNG-Dateien werden mit einem ähnlichen Namen in "
 "dasselbe Verzeichnis abgespeichert."
 
-#: src/misc/helptext.cpp:508
+#: src/misc/helptext.cpp:510
 msgid "Converting to a cavepack"
 msgstr "In einen Höhlen-Pack konvertieren"
 
-#: src/misc/helptext.cpp:508
+#: src/misc/helptext.cpp:510
 msgid ""
 "You can convert your individual caves or the complete caveset to a cavepack, "
 "which is a file format readable by the Crazy Light Construction Kit, written "

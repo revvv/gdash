@@ -82,12 +82,14 @@ helpdata const titlehelp[] = {
 
     // TRANSLATORS: Title text capitalization in English
     { NULL, N_("Control Keys"), NULL, O_NONE, NULL },
-    { NULL, NULL, N_("Cursor"), O_NONE, N_("Select cave & level") },
-    // TRANSLATORS: here the spacebar means the keyboards biggest key. We call it spacebar to
+    { NULL, NULL, N_("←→↑↓"), O_NONE, N_("Select cave & level") },
+    // TRANSLATORS: here SPC means the keyboards biggest key. We call it SPC to
     // tell it apart from the cave element "space".
-    { NULL, NULL, N_("Spacebar"), O_NONE, N_("Play the game") },
+    // 6 chars max per key, 29 chars max per description
+    // use newline \n and tab \t for multi-line description
+    { NULL, NULL, N_("SPC"), O_NONE, N_("Play the game") },
     { NULL, NULL, "L, Tab", O_NONE, N_("Load caveset") },
-    { NULL, NULL, "C", O_NONE, N_("Load caves from installed cavesets") },
+    { NULL, NULL, "C", O_NONE, N_("Load caves from installed\n\tcavesets") },
     { NULL, NULL, "S", O_NONE, N_("Save caveset") },
     { NULL, NULL, "N", O_NONE, N_("Save caveset as new file") },
     { NULL, NULL, "I", O_NONE, N_("Caveset info") },
