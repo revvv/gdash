@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gdash export-1.9.10\n"
+"Project-Id-Version: gdash export-1.9.11\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-29 10:52+0200\n"
+"POT-Creation-Date: 2023-09-29 13:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,8 +224,8 @@ msgstr ""
 msgid "GDash Help"
 msgstr ""
 
-#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164
-#: src/misc/helptext.cpp:112 src/framework/app.cpp:306
+#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164 src/misc/helptext.cpp:94
+#: src/framework/app.cpp:306
 msgid "About GDash"
 msgstr ""
 
@@ -258,38 +258,15 @@ msgid "Table of contents"
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:67
-msgid "The Title Screen"
-msgstr ""
-
-#: src/misc/helptext.cpp:68
-msgid ""
-"When you start the application, you will be presented the title screen. Here "
-"you can start a game, or load levels."
-msgstr ""
-
-#: src/misc/helptext.cpp:73
-msgid "GDash has joystick and sound support, and a built-in level editor."
-msgstr ""
-
-#: src/misc/helptext.cpp:77
-msgid ""
-"The game comes with many built-in and pre-installed cave sets, and you can "
-"also make up your own levels. Just use the options in the title screen. You "
-"can load caves stored in the BDCFF format, but GDash is able to load levels "
-"from C64 and Atari emulator memory snapshots as well."
-msgstr ""
-
-#. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:209 src/misc/helptext.cpp:317
+#: src/misc/helptext.cpp:66 src/misc/helptext.cpp:209 src/misc/helptext.cpp:317
 msgid "Control Keys"
 msgstr ""
 
-#: src/misc/helptext.cpp:85
+#: src/misc/helptext.cpp:67
 msgid "←→↑↓"
 msgstr ""
 
-#: src/misc/helptext.cpp:85
+#: src/misc/helptext.cpp:67
 msgid "Select cave & level"
 msgstr ""
 
@@ -297,81 +274,103 @@ msgstr ""
 #. tell it apart from the cave element "space".
 #. 6 chars max per key, 29 chars max per description
 #. use newline \n and tab \t for multi-line description
-#: src/misc/helptext.cpp:90
+#: src/misc/helptext.cpp:72
 msgid "SPC"
 msgstr ""
 
-#: src/misc/helptext.cpp:90
+#: src/misc/helptext.cpp:72
 msgid "Play the game"
 msgstr ""
 
-#: src/misc/helptext.cpp:91
+#: src/misc/helptext.cpp:73
 msgid "Load caveset"
 msgstr ""
 
-#: src/misc/helptext.cpp:92
+#: src/misc/helptext.cpp:74
 msgid ""
 "Load caves from installed\n"
 "\tcavesets"
 msgstr ""
 
-#: src/misc/helptext.cpp:93
+#: src/misc/helptext.cpp:75
 msgid "Save caveset"
 msgstr ""
 
-#: src/misc/helptext.cpp:94
+#: src/misc/helptext.cpp:76
 msgid "Save caveset as new file"
 msgstr ""
 
-#: src/misc/helptext.cpp:95
+#: src/misc/helptext.cpp:77
 msgid "Caveset info"
 msgstr ""
 
-#: src/misc/helptext.cpp:96
+#: src/misc/helptext.cpp:78
 msgid "Hall of fame"
 msgstr ""
 
-#: src/misc/helptext.cpp:97
+#: src/misc/helptext.cpp:79
 msgid "Caveset playing statistics"
 msgstr ""
 
 #. TRANSLATORS: 40 chars max
-#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:311
+#: src/misc/helptext.cpp:80 src/misc/helptext.cpp:311
 #: src/framework/replaymenuactivity.cpp:92
 msgid "Replays"
 msgstr ""
 
-#: src/misc/helptext.cpp:100 src/misc/helptext.cpp:416
-#: src/misc/helptext.cpp:419
+#: src/misc/helptext.cpp:82 src/misc/helptext.cpp:416 src/misc/helptext.cpp:419
 msgid "Cave editor"
 msgstr ""
 
-#: src/misc/helptext.cpp:103 src/misc/helptext.cpp:216
+#: src/misc/helptext.cpp:85 src/misc/helptext.cpp:216
 msgid "Sound volume"
 msgstr ""
 
-#: src/misc/helptext.cpp:106 src/misc/helptext.cpp:218
+#: src/misc/helptext.cpp:88 src/misc/helptext.cpp:218
 msgid "Menu (with GTK+ engine)"
 msgstr ""
 
-#: src/misc/helptext.cpp:108 src/misc/helptext.cpp:220
+#: src/misc/helptext.cpp:90 src/misc/helptext.cpp:220
 msgid "Fullscreen on/off"
 msgstr ""
 
-#: src/misc/helptext.cpp:109
+#: src/misc/helptext.cpp:91
 msgid "Options"
 msgstr ""
 
-#: src/misc/helptext.cpp:110
+#: src/misc/helptext.cpp:92
 msgid "Keyboard options"
 msgstr ""
 
-#: src/misc/helptext.cpp:111
+#: src/misc/helptext.cpp:93
 msgid "Error console"
 msgstr ""
 
-#: src/misc/helptext.cpp:113
+#: src/misc/helptext.cpp:95
 msgid "Quit game"
+msgstr ""
+
+#. TRANSLATORS: Title text capitalization in English
+#: src/misc/helptext.cpp:99
+msgid "The Title Screen"
+msgstr ""
+
+#: src/misc/helptext.cpp:100
+msgid ""
+"When you start the application, you will be presented the title screen. Here "
+"you can start a game, or load levels."
+msgstr ""
+
+#: src/misc/helptext.cpp:105
+msgid "GDash has joystick and sound support, and a built-in level editor."
+msgstr ""
+
+#: src/misc/helptext.cpp:109
+msgid ""
+"The game comes with many built-in and pre-installed cave sets, and you can "
+"also make up your own levels. Just use the options in the title screen. You "
+"can load caves stored in the BDCFF format, but GDash is able to load levels "
+"from C64 and Atari emulator memory snapshots as well."
 msgstr ""
 
 #. TRANSLATORS: Title text capitalization in English
@@ -406,10 +405,9 @@ msgstr ""
 #: src/misc/helptext.cpp:138
 msgid ""
 "The SDL driver usually works well on any kind of computer. The GTK+ driver "
-"is supposed to be a fallback option. It has no fullscreen support, and it "
-"may be slow depending on the operating system. However, it has a nice menu "
-"bar. These engines cannot use shaders, but a simple PAL emulation effect is "
-"included in GDash."
+"is supposed to be a fallback option. It may be slow depending on the "
+"operating system. However, it has a nice menu bar. These engines cannot use "
+"shaders, but a simple PAL emulation effect is included in GDash."
 msgstr ""
 
 #: src/misc/helptext.cpp:145

@@ -62,24 +62,6 @@
  * HELP FOR TITLE SCREEN
  */
 helpdata const titlehelp[] = {
-    {
-        // TRANSLATORS: Title text capitalization in English
-        NULL, N_("The Title Screen"), NULL, O_NONE,
-        N_("When you start the application, you will be presented the title screen. "
-        "Here you can start a game, or load levels.")
-    },
-    {
-        NULL, NULL, NULL, O_NONE,
-        N_("GDash has joystick and sound support, and a built-in level editor.")
-    },
-    {
-        NULL, NULL, NULL, O_NONE,
-        N_("The game comes with many built-in and pre-installed cave sets, and you can also make "
-        "up your own levels. Just use the options in the title screen. "
-        "You can load caves stored in the BDCFF format, but GDash is able to load "
-        "levels from C64 and Atari emulator memory snapshots as well.")
-    },
-
     // TRANSLATORS: Title text capitalization in English
     { NULL, N_("Control Keys"), NULL, O_NONE, NULL },
     { NULL, NULL, N_("←→↑↓"), O_NONE, N_("Select cave & level") },
@@ -112,6 +94,24 @@ helpdata const titlehelp[] = {
     { NULL, NULL, "A", O_NONE, N_("About GDash") },
     { NULL, NULL, "Esc, Q", O_NONE, N_("Quit game") },
 
+    {
+        // TRANSLATORS: Title text capitalization in English
+        NULL, N_("The Title Screen"), NULL, O_NONE,
+        N_("When you start the application, you will be presented the title screen. "
+        "Here you can start a game, or load levels.")
+    },
+    {
+        NULL, NULL, NULL, O_NONE,
+        N_("GDash has joystick and sound support, and a built-in level editor.")
+    },
+    {
+        NULL, NULL, NULL, O_NONE,
+        N_("The game comes with many built-in and pre-installed cave sets, and you can also make "
+        "up your own levels. Just use the options in the title screen. "
+        "You can load caves stored in the BDCFF format, but GDash is able to load "
+        "levels from C64 and Atari emulator memory snapshots as well.")
+    },
+
 #ifdef HAVE_SDL
     {
         // TRANSLATORS: Title text capitalization in English
@@ -136,8 +136,8 @@ helpdata const titlehelp[] = {
     },
     {   NULL, NULL, NULL, O_NONE,
         N_("The SDL driver usually works well on any kind of computer. The GTK+ driver is supposed to be "
-        "a fallback option. It has no fullscreen support, and it may be slow depending on the operating "
-        "system. However, it has a nice menu bar. These engines cannot use shaders, but a simple PAL "
+        "a fallback option. It may be slow depending on the operating system."
+        " However, it has a nice menu bar. These engines cannot use shaders, but a simple PAL "
         "emulation effect is included in GDash.")
     },
     {

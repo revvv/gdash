@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-29 10:52+0200\n"
+"POT-Creation-Date: 2023-09-29 13:22+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -230,8 +230,8 @@ msgstr "Fehler während des Ladens des Höhlensatzes."
 msgid "GDash Help"
 msgstr "GDash Hilfe"
 
-#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164
-#: src/misc/helptext.cpp:112 src/framework/app.cpp:306
+#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164 src/misc/helptext.cpp:94
+#: src/framework/app.cpp:306
 msgid "About GDash"
 msgstr "Über GDash"
 
@@ -264,11 +264,110 @@ msgid "Table of contents"
 msgstr "Inhaltsverzeichnis"
 
 #. TRANSLATORS: Title text capitalization in English
+#: src/misc/helptext.cpp:66 src/misc/helptext.cpp:209 src/misc/helptext.cpp:317
+msgid "Control Keys"
+msgstr "Steuerungstasten"
+
 #: src/misc/helptext.cpp:67
+msgid "←→↑↓"
+msgstr "←→↑↓"
+
+#: src/misc/helptext.cpp:67
+msgid "Select cave & level"
+msgstr ""
+"Wähle die zu spielende Höhle\n"
+"\tund Level"
+
+#. TRANSLATORS: here SPC means the keyboards biggest key. We call it SPC to
+#. tell it apart from the cave element "space".
+#. 6 chars max per key, 29 chars max per description
+#. use newline \n and tab \t for multi-line description
+#: src/misc/helptext.cpp:72
+msgid "SPC"
+msgstr "Leert."
+
+#: src/misc/helptext.cpp:72
+msgid "Play the game"
+msgstr "Das Spiel spielen"
+
+#: src/misc/helptext.cpp:73
+msgid "Load caveset"
+msgstr "Lade Höhlensatz"
+
+#: src/misc/helptext.cpp:74
+msgid ""
+"Load caves from installed\n"
+"\tcavesets"
+msgstr ""
+"Lade Höhlen von installierten\n"
+"\tHöhlensets"
+
+#: src/misc/helptext.cpp:75
+msgid "Save caveset"
+msgstr "Speichere Höhlensatz"
+
+#: src/misc/helptext.cpp:76
+msgid "Save caveset as new file"
+msgstr ""
+"Speichere Höhlensatz als neue\n"
+"\tDatei"
+
+#: src/misc/helptext.cpp:77
+msgid "Caveset info"
+msgstr "Höhlensatz-Information"
+
+#: src/misc/helptext.cpp:78
+msgid "Hall of fame"
+msgstr "Ruhmeshalle"
+
+#: src/misc/helptext.cpp:79
+msgid "Caveset playing statistics"
+msgstr "Höhlensatz-Spiel-Statistik"
+
+#. TRANSLATORS: 40 chars max
+#: src/misc/helptext.cpp:80 src/misc/helptext.cpp:311
+#: src/framework/replaymenuactivity.cpp:92
+msgid "Replays"
+msgstr "Wiederholungen"
+
+#: src/misc/helptext.cpp:82 src/misc/helptext.cpp:416 src/misc/helptext.cpp:419
+msgid "Cave editor"
+msgstr "Höhlen-Editor"
+
+#: src/misc/helptext.cpp:85 src/misc/helptext.cpp:216
+msgid "Sound volume"
+msgstr "Lautstärke"
+
+#: src/misc/helptext.cpp:88 src/misc/helptext.cpp:218
+msgid "Menu (with GTK+ engine)"
+msgstr "Menü (mit GTK+ Engine)"
+
+#: src/misc/helptext.cpp:90 src/misc/helptext.cpp:220
+msgid "Fullscreen on/off"
+msgstr "Vollbildmodus ein/aus"
+
+#: src/misc/helptext.cpp:91
+msgid "Options"
+msgstr "Optionen"
+
+#: src/misc/helptext.cpp:92
+msgid "Keyboard options"
+msgstr "Tastatur-Optionen"
+
+#: src/misc/helptext.cpp:93
+msgid "Error console"
+msgstr "Fehler-Konsole"
+
+#: src/misc/helptext.cpp:95
+msgid "Quit game"
+msgstr "Spiel beenden"
+
+#. TRANSLATORS: Title text capitalization in English
+#: src/misc/helptext.cpp:99
 msgid "The Title Screen"
 msgstr "Das Titelbild"
 
-#: src/misc/helptext.cpp:68
+#: src/misc/helptext.cpp:100
 msgid ""
 "When you start the application, you will be presented the title screen. Here "
 "you can start a game, or load levels."
@@ -276,13 +375,13 @@ msgstr ""
 "Startet man das Programm, wird das Titelbild angezeigt. Von dort aus kann "
 "man ein Spiel starten oder auch laden."
 
-#: src/misc/helptext.cpp:73
+#: src/misc/helptext.cpp:105
 msgid "GDash has joystick and sound support, and a built-in level editor."
 msgstr ""
 "GDash hat Joystick- und Tonunterstützung, sowie einen eingebauten Level-"
 "Editor."
 
-#: src/misc/helptext.cpp:77
+#: src/misc/helptext.cpp:109
 msgid ""
 "The game comes with many built-in and pre-installed cave sets, and you can "
 "also make up your own levels. Just use the options in the title screen. You "
@@ -294,106 +393,6 @@ msgstr ""
 "Sie einfach die dafür vorgesehenen Optionen im Titelbild. Höhlen können im "
 "BDCFF-Format geladen werden, GDash ist aber auch in der Lage, Spiele aus "
 "Speicherschnappschüssen von C64- oder Atari-Emulatoren zu laden."
-
-#. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:209 src/misc/helptext.cpp:317
-msgid "Control Keys"
-msgstr "Steuerungstasten"
-
-#: src/misc/helptext.cpp:85
-msgid "←→↑↓"
-msgstr "←→↑↓"
-
-#: src/misc/helptext.cpp:85
-msgid "Select cave & level"
-msgstr ""
-"Wähle die zu spielende Höhle\n"
-"\tund Level"
-
-#. TRANSLATORS: here SPC means the keyboards biggest key. We call it SPC to
-#. tell it apart from the cave element "space".
-#. 6 chars max per key, 29 chars max per description
-#. use newline \n and tab \t for multi-line description
-#: src/misc/helptext.cpp:90
-msgid "SPC"
-msgstr "Leert."
-
-#: src/misc/helptext.cpp:90
-msgid "Play the game"
-msgstr "Das Spiel spielen"
-
-#: src/misc/helptext.cpp:91
-msgid "Load caveset"
-msgstr "Lade Höhlensatz"
-
-#: src/misc/helptext.cpp:92
-msgid ""
-"Load caves from installed\n"
-"\tcavesets"
-msgstr ""
-"Lade Höhlen von installierten\n"
-"\tHöhlensets"
-
-#: src/misc/helptext.cpp:93
-msgid "Save caveset"
-msgstr "Speichere Höhlensatz"
-
-#: src/misc/helptext.cpp:94
-msgid "Save caveset as new file"
-msgstr ""
-"Speichere Höhlensatz als neue\n"
-"\tDatei"
-
-#: src/misc/helptext.cpp:95
-msgid "Caveset info"
-msgstr "Höhlensatz-Information"
-
-#: src/misc/helptext.cpp:96
-msgid "Hall of fame"
-msgstr "Ruhmeshalle"
-
-#: src/misc/helptext.cpp:97
-msgid "Caveset playing statistics"
-msgstr "Höhlensatz-Spiel-Statistik"
-
-#. TRANSLATORS: 40 chars max
-#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:311
-#: src/framework/replaymenuactivity.cpp:92
-msgid "Replays"
-msgstr "Wiederholungen"
-
-#: src/misc/helptext.cpp:100 src/misc/helptext.cpp:416
-#: src/misc/helptext.cpp:419
-msgid "Cave editor"
-msgstr "Höhlen-Editor"
-
-#: src/misc/helptext.cpp:103 src/misc/helptext.cpp:216
-msgid "Sound volume"
-msgstr "Lautstärke"
-
-#: src/misc/helptext.cpp:106 src/misc/helptext.cpp:218
-msgid "Menu (with GTK+ engine)"
-msgstr "Menü (mit GTK+ Engine)"
-
-#: src/misc/helptext.cpp:108 src/misc/helptext.cpp:220
-msgid "Fullscreen on/off"
-msgstr "Vollbildmodus ein/aus"
-
-#: src/misc/helptext.cpp:109
-msgid "Options"
-msgstr "Optionen"
-
-#: src/misc/helptext.cpp:110
-msgid "Keyboard options"
-msgstr "Tastatur-Optionen"
-
-#: src/misc/helptext.cpp:111
-msgid "Error console"
-msgstr "Fehler-Konsole"
-
-#: src/misc/helptext.cpp:113
-msgid "Quit game"
-msgstr "Spiel beenden"
 
 #. TRANSLATORS: Title text capitalization in English
 #: src/misc/helptext.cpp:118
@@ -441,17 +440,16 @@ msgstr ""
 #: src/misc/helptext.cpp:138
 msgid ""
 "The SDL driver usually works well on any kind of computer. The GTK+ driver "
-"is supposed to be a fallback option. It has no fullscreen support, and it "
-"may be slow depending on the operating system. However, it has a nice menu "
-"bar. These engines cannot use shaders, but a simple PAL emulation effect is "
-"included in GDash."
+"is supposed to be a fallback option. It may be slow depending on the "
+"operating system. However, it has a nice menu bar. These engines cannot use "
+"shaders, but a simple PAL emulation effect is included in GDash."
 msgstr ""
 "Die SDL-Engine funktioniert normalerweise auf jedem Computer gut. Die GTK+-"
-"Engine ist eine Art Reservesystem, da der Vollbildmodus nicht unterstützt "
-"wird und sie auch je nach verwendetem Betriebssystem langsam sein kann. "
-"Allerdings besitzt sie eine graphische Benutzerführung mit Menüleiste. Diese "
-"Engines können keine Shader-Effekte verwenden, es wird jedoch eine einfache "
-"PAL-Emulation in GDash zur Verfügung gestellt."
+"Engine ist eine Art Reservesystem. Sie kann je nach verwendetem "
+"Betriebssystem langsam sein. Allerdings besitzt sie eine graphische "
+"Benutzerführung mit Menüleiste. Diese Engines können keine Shader-Effekte "
+"verwenden, es wird jedoch eine einfache PAL-Emulation in GDash zur Verfügung "
+"gestellt."
 
 #: src/misc/helptext.cpp:145
 msgid ""

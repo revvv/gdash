@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130403\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-09-29 10:52+0200\n"
+"POT-Creation-Date: 2023-09-29 13:22+0200\n"
 "PO-Revision-Date: 2009-11-26 14:06+0100\n"
 "Last-Translator: Czirkos Zoltan\n"
 "Language-Team: Hungarian <>\n"
@@ -228,8 +228,8 @@ msgstr "Nem lehetett betölteni a pályákat."
 msgid "GDash Help"
 msgstr "GDash Súgó"
 
-#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164
-#: src/misc/helptext.cpp:112 src/framework/app.cpp:306
+#: src/misc/helphtml.cpp:119 src/misc/helphtml.cpp:164 src/misc/helptext.cpp:94
+#: src/framework/app.cpp:306
 msgid "About GDash"
 msgstr "A GDash-ről"
 
@@ -262,11 +262,106 @@ msgid "Table of contents"
 msgstr "Tartalom"
 
 #. TRANSLATORS: Title text capitalization in English
+#: src/misc/helptext.cpp:66 src/misc/helptext.cpp:209 src/misc/helptext.cpp:317
+msgid "Control Keys"
+msgstr "Irányító gombok"
+
 #: src/misc/helptext.cpp:67
+msgid "←→↑↓"
+msgstr "←→↑↓"
+
+#: src/misc/helptext.cpp:67
+msgid "Select cave & level"
+msgstr "Pálya és szint kiválasztása"
+
+#. TRANSLATORS: here SPC means the keyboards biggest key. We call it SPC to
+#. tell it apart from the cave element "space".
+#. 6 chars max per key, 29 chars max per description
+#. use newline \n and tab \t for multi-line description
+#: src/misc/helptext.cpp:72
+msgid "SPC"
+msgstr "Szóköz"
+
+#: src/misc/helptext.cpp:72
+msgid "Play the game"
+msgstr "A játék indítása"
+
+#: src/misc/helptext.cpp:73
+msgid "Load caveset"
+msgstr "Játék betöltése"
+
+#: src/misc/helptext.cpp:74
+msgid ""
+"Load caves from installed\n"
+"\tcavesets"
+msgstr ""
+"Pályák betöltése a telepített\n"
+"\tfájlokból"
+
+#: src/misc/helptext.cpp:75
+msgid "Save caveset"
+msgstr "Játék pályáinak mentése"
+
+#: src/misc/helptext.cpp:76
+msgid "Save caveset as new file"
+msgstr "Játék pályáinak mentése új néven"
+
+#: src/misc/helptext.cpp:77
+msgid "Caveset info"
+msgstr "Játék információ"
+
+#: src/misc/helptext.cpp:78
+msgid "Hall of fame"
+msgstr "Dicsőséglista"
+
+#: src/misc/helptext.cpp:79
+msgid "Caveset playing statistics"
+msgstr "Játék statisztika"
+
+#. TRANSLATORS: 40 chars max
+#: src/misc/helptext.cpp:80 src/misc/helptext.cpp:311
+#: src/framework/replaymenuactivity.cpp:92
+msgid "Replays"
+msgstr "Visszajátszások"
+
+#: src/misc/helptext.cpp:82 src/misc/helptext.cpp:416 src/misc/helptext.cpp:419
+msgid "Cave editor"
+msgstr "Pályaszerkesztő"
+
+#: src/misc/helptext.cpp:85 src/misc/helptext.cpp:216
+msgid "Sound volume"
+msgstr "Elemek hangja"
+
+#: src/misc/helptext.cpp:88 src/misc/helptext.cpp:218
+msgid "Menu (with GTK+ engine)"
+msgstr "Menü (GTK+ motor esetén)"
+
+#: src/misc/helptext.cpp:90 src/misc/helptext.cpp:220
+msgid "Fullscreen on/off"
+msgstr "Teljes képernyő be/ki"
+
+#: src/misc/helptext.cpp:91
+msgid "Options"
+msgstr "Beállítások"
+
+#: src/misc/helptext.cpp:92
+msgid "Keyboard options"
+msgstr "Billentyűzet beállítások"
+
+#: src/misc/helptext.cpp:93
+msgid "Error console"
+msgstr "Hibakonzol"
+
+#: src/misc/helptext.cpp:95
+msgid "Quit game"
+msgstr "Kilépés a játékból"
+
+#. TRANSLATORS: Title text capitalization in English
+#: src/misc/helptext.cpp:99
 msgid "The Title Screen"
 msgstr "A címképernyő"
 
-#: src/misc/helptext.cpp:68
+#: src/misc/helptext.cpp:100
 msgid ""
 "When you start the application, you will be presented the title screen. Here "
 "you can start a game, or load levels."
@@ -274,13 +369,13 @@ msgstr ""
 "A program indításakor megjelenik a címképernyő. Innen lehet elindítani a "
 "játékot és pályákat betölteni."
 
-#: src/misc/helptext.cpp:73
+#: src/misc/helptext.cpp:105
 msgid "GDash has joystick and sound support, and a built-in level editor."
 msgstr ""
 "A GDash támogatja a botkormányokat, a hangokat, és van egy beépített "
 "pályaszerkesztője is."
 
-#: src/misc/helptext.cpp:77
+#: src/misc/helptext.cpp:109
 msgid ""
 "The game comes with many built-in and pre-installed cave sets, and you can "
 "also make up your own levels. Just use the options in the title screen. You "
@@ -291,102 +386,6 @@ msgstr ""
 "tervezhetsz pályákat. Használd a Fájl menű opcióit! A játék képes betölteni "
 "a BDCFF formátumban elmentett pályákat, de C64 és Atari emulátorok által "
 "elmentett memóriaképekből is lehet importálni."
-
-#. TRANSLATORS: Title text capitalization in English
-#: src/misc/helptext.cpp:84 src/misc/helptext.cpp:209 src/misc/helptext.cpp:317
-msgid "Control Keys"
-msgstr "Irányító gombok"
-
-#: src/misc/helptext.cpp:85
-msgid "←→↑↓"
-msgstr "←→↑↓"
-
-#: src/misc/helptext.cpp:85
-msgid "Select cave & level"
-msgstr "Pálya és szint kiválasztása"
-
-#. TRANSLATORS: here SPC means the keyboards biggest key. We call it SPC to
-#. tell it apart from the cave element "space".
-#. 6 chars max per key, 29 chars max per description
-#. use newline \n and tab \t for multi-line description
-#: src/misc/helptext.cpp:90
-msgid "SPC"
-msgstr "Szóköz"
-
-#: src/misc/helptext.cpp:90
-msgid "Play the game"
-msgstr "A játék indítása"
-
-#: src/misc/helptext.cpp:91
-msgid "Load caveset"
-msgstr "Játék betöltése"
-
-#: src/misc/helptext.cpp:92
-msgid ""
-"Load caves from installed\n"
-"\tcavesets"
-msgstr ""
-"Pályák betöltése a telepített\n"
-"\tfájlokból"
-
-#: src/misc/helptext.cpp:93
-msgid "Save caveset"
-msgstr "Játék pályáinak mentése"
-
-#: src/misc/helptext.cpp:94
-msgid "Save caveset as new file"
-msgstr "Játék pályáinak mentése új néven"
-
-#: src/misc/helptext.cpp:95
-msgid "Caveset info"
-msgstr "Játék információ"
-
-#: src/misc/helptext.cpp:96
-msgid "Hall of fame"
-msgstr "Dicsőséglista"
-
-#: src/misc/helptext.cpp:97
-msgid "Caveset playing statistics"
-msgstr "Játék statisztika"
-
-#. TRANSLATORS: 40 chars max
-#: src/misc/helptext.cpp:98 src/misc/helptext.cpp:311
-#: src/framework/replaymenuactivity.cpp:92
-msgid "Replays"
-msgstr "Visszajátszások"
-
-#: src/misc/helptext.cpp:100 src/misc/helptext.cpp:416
-#: src/misc/helptext.cpp:419
-msgid "Cave editor"
-msgstr "Pályaszerkesztő"
-
-#: src/misc/helptext.cpp:103 src/misc/helptext.cpp:216
-msgid "Sound volume"
-msgstr "Elemek hangja"
-
-#: src/misc/helptext.cpp:106 src/misc/helptext.cpp:218
-msgid "Menu (with GTK+ engine)"
-msgstr "Menü (GTK+ motor esetén)"
-
-#: src/misc/helptext.cpp:108 src/misc/helptext.cpp:220
-msgid "Fullscreen on/off"
-msgstr "Teljes képernyő be/ki"
-
-#: src/misc/helptext.cpp:109
-msgid "Options"
-msgstr "Beállítások"
-
-#: src/misc/helptext.cpp:110
-msgid "Keyboard options"
-msgstr "Billentyűzet beállítások"
-
-#: src/misc/helptext.cpp:111
-msgid "Error console"
-msgstr "Hibakonzol"
-
-#: src/misc/helptext.cpp:113
-msgid "Quit game"
-msgstr "Kilépés a játékból"
 
 #. TRANSLATORS: Title text capitalization in English
 #: src/misc/helptext.cpp:118
@@ -432,16 +431,15 @@ msgstr ""
 #: src/misc/helptext.cpp:138
 msgid ""
 "The SDL driver usually works well on any kind of computer. The GTK+ driver "
-"is supposed to be a fallback option. It has no fullscreen support, and it "
-"may be slow depending on the operating system. However, it has a nice menu "
-"bar. These engines cannot use shaders, but a simple PAL emulation effect is "
-"included in GDash."
+"is supposed to be a fallback option. It may be slow depending on the "
+"operating system. However, it has a nice menu bar. These engines cannot use "
+"shaders, but a simple PAL emulation effect is included in GDash."
 msgstr ""
 "Az SDL motor általában jól működik mindenféle számítógépen. A GTK+ motor "
-"utolsó opcióként használható: ez nem támogatja a teljes képernyős módot, és "
-"az operációs rendszertől függően elég lassú is lehet. Cserébe az ablakának "
-"van menüje is. Ezekkel a motorokkal a fent említett shader programok nem "
-"használhatóak, viszont egy egyszerű PAL emulációra ilyenkor is képes a GDash."
+"utolsó opcióként használható: az operációs rendszertől függően elég lassú is "
+"lehet. Cserébe az ablakának van menüje is. Ezekkel a motorokkal a fent "
+"említett shader programok nem használhatóak, viszont egy egyszerű PAL "
+"emulációra ilyenkor is képes a GDash."
 
 #: src/misc/helptext.cpp:145
 msgid ""
