@@ -39,8 +39,11 @@ static int num_joysticks = 0;
 
 void Joystick::init() {
 #ifdef HAVE_SDL
-    if (!SDL_WasInit(SDL_INIT_JOYSTICK))
-        SDL_Init(SDL_INIT_JOYSTICK);
+    if (!SDL_WasInit(SDL_INIT_JOYSTICK)) {
+        int res = SDL_Init(SDL_INIT_JOYSTICK);
+        if (res < 0)
+            gd_warning("SDL init joystick failed: %s", SDL_GetError());
+    }
     num_joysticks = SDL_NumJoysticks();
     gd_debug("Number of joysticks: %d", num_joysticks);
     if (num_joysticks > 0) {
@@ -122,11 +125,9 @@ bool Joystick::right() {
 
 bool Joystick::fire1() {
 #ifdef HAVE_SDL
-    #if defined(__linux__) or defined(__CYGWIN__)
-        // WORKAROUND: although SDL_GameControllerEventState() is true, we have to poll for joystick events
-        if (num_joysticks > 0)
-            SDL_JoystickUpdate();
-    #endif
+    // NOTE: Although SDL_GameControllerEventState() is true, we have to poll for joystick events. Not needed for all gamepads.
+    if (num_joysticks > 0)
+        SDL_JoystickUpdate();
     bool res = false;
     for (int i = 0; i < num_joysticks; i++)
         res |= gamepads[i] != NULL && (SDL_GameControllerGetButton(gamepads[i], SDL_CONTROLLER_BUTTON_A));
