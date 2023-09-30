@@ -127,7 +127,7 @@ title.cpp: $(TITLE)
 	./files2c "" $^ > $@
 
 gamebackground.cpp: $(GAMEBACKGROUND)
-	makefiles2c$(EXEEXT)
+	make files2c$(EXEEXT)
 	./files2c "" $^ > $@
 
 gdash_icon_32.cpp: $(GDASH_ICON_32)
