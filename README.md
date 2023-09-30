@@ -1,6 +1,13 @@
 # GDash #
 
-Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) to add new features:
+[GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) is a feature-rich Boulder Dash clone.
+The main goal of the project is to implement a clone which is as close as possible to the original.
+GDash has a cave editor, supports sound, joystick and keyboard controls.
+It can use GTK+, SDL2 and OpenGL for drawing.
+The OpenGL engine can use shaders, which provide fullscreen graphical effects like TV screen emulation.
+It supports replays, snapshots and has highscore tables.
+
+This fork adds some new features:
 
 * New command line options for bulk export (*the reason for the fork's name...*)
 * Show complete cave without scrolling [#21](https://github.com/revvv/gdash-export-CrLi/issues/21) [#59](https://github.com/revvv/gdash-export-CrLi/issues/59)
@@ -20,9 +27,9 @@ Forked [GDash](https://bitbucket.org/czirkoszoltan/gdash/src/master/README.md) t
 * Updated caves, fixed caves, added caves by [renyxadarox](https://github.com/renyxadarox), [Dustin974](https://github.com/Dustin974), [cwscws](https://github.com/cwscws)
 * New [BD3 theme](https://github.com/revvv/gdash-export-CrLi/blob/master/include/c64_gfx_bd3.png) (gfx by [cwscws](https://github.com/cwscws))
 * New shaders [#10](https://github.com/revvv/gdash-export-CrLi/issues/10)
-* GTK fixes (*esp. for Mac: Drag-and-drop [#15](https://github.com/revvv/gdash-export-CrLi/issues/15) [#17](https://github.com/revvv/gdash-export-CrLi/issues/17) [cave list](https://github.com/revvv/gdash-export-CrLi/commit/1c528dc19f3d7377c5c9f201e04a4d2790be35cb), stuck key [#6](https://github.com/revvv/gdash-export-CrLi/issues/6), frozen Window [#57](https://github.com/revvv/gdash-export-CrLi/issues/57)*)
+* GTK+ fixes (*esp. for Mac: Drag-and-drop [#15](https://github.com/revvv/gdash-export-CrLi/issues/15) [#17](https://github.com/revvv/gdash-export-CrLi/issues/17) [cave list](https://github.com/revvv/gdash-export-CrLi/commit/1c528dc19f3d7377c5c9f201e04a4d2790be35cb), stuck key [#6](https://github.com/revvv/gdash-export-CrLi/issues/6), frozen Window [#57](https://github.com/revvv/gdash-export-CrLi/issues/57)*)
 * Full screen enhancements [#29](https://github.com/revvv/gdash-export-CrLi/issues/29) [#61](https://github.com/revvv/gdash-export-CrLi/issues/61)
-* Test game uses GTK/SDL/OpenGL as configured [#8](https://github.com/revvv/gdash-export-CrLi/issues/8)
+* Test game uses GTK+/SDL/OpenGL as configured [#8](https://github.com/revvv/gdash-export-CrLi/issues/8)
 * 64 bit ZIP distribution for **Windows, Linux and Mac**
 * CrLi now also exports teleporters
 * CrLi export bug [fixed](https://github.com/revvv/gdash-export-CrLi/commit/f2c9913cfdc84fc8a0e519cf547e35d6d3d70fca): Butterflies had wrong directions
