@@ -66,7 +66,7 @@ This fork adds some new features:
 - Q: Does GDash for cygwin support gamepads?<br>
   A: In theory yes, but currently after a cygwin update, it does not work any more.
      I don't know if or when cygwin will fix it. If you know more, please let me know!<br>
-     Note that the GDash for cygwin is just a proof of concept: It's not really playable.
+     Note that GDash for cygwin is just a proof of concept: It's not really playable.
 
 ### Bulk export
 
