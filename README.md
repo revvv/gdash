@@ -64,8 +64,8 @@ This fork adds some new features:
      You can try to import them with version GDash-export 1.1. Usually these caves start with binary header _GDashCRL_.
      See [#40](https://github.com/revvv/gdash-export-CrLi/issues/40)
 - Q: Does GDash for cygwin support gamepads?
-  A: In theory yes, but currently after a cygwin update, it does not work any more.
-     I don't know if or when cygwin will fix it. If you know more, please let me know!
+  A: In theory yes, but currently after a cygwin update, it does not work any more.<br>
+     I don't know if or when cygwin will fix it. If you know more, please let me know!<br>
      Note that the GDash for cygwin is just a proof of concept: It's not really playable.
 
 ### Bulk export
