@@ -2015,7 +2015,7 @@ save_cave_png(GdkPixbuf *pixbuf) {
 static void cave_overview(gboolean simple_view) {
     /* simple dialog with this image only */
     // TRANSLATORS: Title text capitalization in English
-    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Cave Overview"), GTK_WINDOW(gd_editor_window), GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(_("Cave Overview"), GTK_WINDOW(gd_editor_window), GTK_DIALOG_DESTROY_WITH_PARENT, NULL, NULL);
     GtkWidget *button = gtk_button_new_with_mnemonic(_("Save as _PNG"));
     gtk_button_set_image(GTK_BUTTON(button), gtk_image_new_from_stock(GTK_STOCK_CONVERT, GTK_ICON_SIZE_BUTTON));
     gtk_dialog_add_action_widget(GTK_DIALOG(dialog), button, 1);

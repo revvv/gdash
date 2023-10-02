@@ -280,7 +280,7 @@ bool SettingsWindow::do_settings_dialog(Setting *settings, PixbufFactory &pf) {
 
     // TRANSLATORS: Title text capitalization in English
     GtkWidget *dialog = gtk_dialog_new_with_buttons(_("GDash Preferences"), guess_active_toplevel(),
-                        GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+                        GTK_DIALOG_DESTROY_WITH_PARENT, NULL, NULL);
 
     /* notebook with tabs */
     GtkWidget *notebook = gtk_notebook_new();
