@@ -101,6 +101,8 @@ void GTKPixbuf::scale_full(Pixbuf &dest, double scaling_factor, GdScalingType sc
             interp_type = GDK_INTERP_HYPER; // unreachable
             g_assert_not_reached();
             break;
+        default:
+            g_assert_not_reached();
     }
 
     gdk_pixbuf_scale(pixbuf, destpb, 0, 0, dest.get_width(), dest.get_height(), 0, 0, scaling_factor, scaling_factor, interp_type);
