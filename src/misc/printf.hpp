@@ -87,7 +87,7 @@ class Printf {
         Conversion &conversion = conversions.at(next_conversion);
         std::ostringstream os = create_ostream(conversion);
         os << data;
-        insert_converted(std::move(os.str()), conversion);
+        insert_converted(os.str(), conversion);
         ++next_conversion;
     }
     
