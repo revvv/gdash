@@ -53,6 +53,8 @@ void Joystick::init() {
         gamepads = (SDL_GameController **) malloc(sizeof(SDL_GameController *) * num_joysticks);
         for (int i = 0; i < num_joysticks; i++) {
             gamepads[i] = SDL_GameControllerOpen(i);
+            if (gamepads[i] == NULL)
+                gd_debug("joystick %d: fail=%s", i, SDL_GetError());
             char guid_str[33];
             SDL_JoystickGetGUIDString(SDL_JoystickGetDeviceGUID(i), guid_str, 33);
             gd_debug("joystick %d: GUID=%s name=%s", i, guid_str, SDL_JoystickNameForIndex(i));
