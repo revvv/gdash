@@ -42,6 +42,7 @@
 #include "gfx/pixbuffactory.hpp"
 #include "gfx/fontmanager.hpp"
 #include "sound/sound.hpp"
+#include "mainwindow.hpp"
 
 
 TitleScreenActivity::TitleScreenActivity(App *app)
@@ -145,7 +146,11 @@ void TitleScreenActivity::redraw_event(bool full) const {
         switch (which_status) {
             case 0:
             {
-                int fire = (gd_graphics_engine == 0 /* GRAPHICS_ENGINE_GTK */) ? gd_gtk_key_fire_1 : gd_sdl_key_fire_1;
+#ifdef HAVE_GTK
+                int fire = (gd_graphics_engine == GRAPHICS_ENGINE_GTK) ? gd_gtk_key_fire_1 : gd_sdl_key_fire_1;
+#else
+                int fire = gd_sdl_key_fire_1;
+#endif
                 std::string s = app->gameinput->get_key_name_from_keycode(fire);
                 std::replace(s.begin(), s.end(), ' ', '_');
                 if (caveset_has_levels)
