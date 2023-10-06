@@ -29,6 +29,7 @@
 
 #include "input/joystick.hpp"
 #include "misc/logger.hpp"
+#include "mainwindow.hpp"
 
 enum { JoystickThreshold = 32768 / 2 };
 
@@ -127,9 +128,11 @@ bool Joystick::right() {
 
 bool Joystick::fire1() {
 #ifdef HAVE_SDL
-    // NOTE: Although SDL_GameControllerEventState() is true, we have to poll for joystick events. Not needed for all gamepads.
-    if (num_joysticks > 0)
-        SDL_JoystickUpdate();
+    #ifdef HAVE_GTK
+    if (gd_graphics_engine == GRAPHICS_ENGINE_GTK)
+        if (num_joysticks > 0)
+            SDL_JoystickUpdate();
+    #endif
     bool res = false;
     for (int i = 0; i < num_joysticks; i++)
         res |= gamepads[i] != NULL && (SDL_GameControllerGetButton(gamepads[i], SDL_CONTROLLER_BUTTON_A));
