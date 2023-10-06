@@ -69,7 +69,8 @@ helpdata const titlehelp[] = {
     // tell it apart from the cave element "space".
     // 6 chars max per key, 29 chars max per description
     // use newline \n and tab \t for multi-line description
-    { NULL, NULL, N_("SPC"), O_NONE, N_("Play the game") },
+    { NULL, NULL, N_("SPC"), O_NONE, N_("Start the game") },
+    { NULL, NULL, N_("Enter"), O_NONE, N_("Enter your name for the\n\thighscores, then start the\n\tgame") },
     { NULL, NULL, "L, Tab", O_NONE, N_("Load caveset") },
     { NULL, NULL, "C", O_NONE, N_("Load caves from installed\n\tcavesets") },
     { NULL, NULL, "S", O_NONE, N_("Save caveset") },
@@ -186,6 +187,20 @@ helpdata const titlehelp[] = {
  * HELP FOR GAME
  */
 helpdata const gamehelp[] = {
+    // TRANSLATORS: Title text capitalization in English
+    { NULL, N_("Control Keys"), NULL, O_NONE, NULL },
+    { NULL, NULL, "H", O_NONE, N_("Help") },
+    { NULL, NULL, "F1", O_NONE, N_("End game") },
+    { NULL, NULL, "F2", O_NONE, N_("Random colors") },
+    { NULL, NULL, "F3", O_NONE, N_("Take snapshot") },
+    { NULL, NULL, "F4", O_NONE, N_("Revert to snapshot") },
+    { NULL, NULL, "F8", O_NONE, N_("Cave variables (for testing)") },
+    { NULL, NULL, "F9", O_NONE, N_("Sound volume") },
+#ifdef HAVE_GTK
+    { NULL, NULL, "F10", O_NONE, N_("Menu (with GTK+ engine)") },
+#endif
+    { NULL, NULL, "F11", O_NONE, N_("Fullscreen on/off") },
+
     {
         // TRANSLATORS: Title text capitalization in English
         NULL, N_("Playing the Game"), NULL, O_NONE,
@@ -204,20 +219,6 @@ helpdata const gamehelp[] = {
         "explode. To view the alternative status bar which show keys and skeletons collected, hold "
         "down the left shift button. These gameplay keys can be redefined in the options menu.")
     },
-
-    // TRANSLATORS: Title text capitalization in English
-    { NULL, N_("Control Keys"), NULL, O_NONE, NULL },
-    { NULL, NULL, "H", O_NONE, N_("Help") },
-    { NULL, NULL, "F1", O_NONE, N_("End game") },
-    { NULL, NULL, "F2", O_NONE, N_("Random colors") },
-    { NULL, NULL, "F3", O_NONE, N_("Take snapshot") },
-    { NULL, NULL, "F4", O_NONE, N_("Revert to snapshot") },
-    { NULL, NULL, "F8", O_NONE, N_("Cave variables (for testing)") },
-    { NULL, NULL, "F9", O_NONE, N_("Sound volume") },
-#ifdef HAVE_GTK
-    { NULL, NULL, "F10", O_NONE, N_("Menu (with GTK+ engine)") },
-#endif
-    { NULL, NULL, "F11", O_NONE, N_("Fullscreen on/off") },
 
     {NULL, N_("Snapshots"), NULL, O_NONE, N_("You can experiment with levels by saving and reloading snapshots. However, if you are playing a reloaded cave, you will not get score or extra lives.")},
 

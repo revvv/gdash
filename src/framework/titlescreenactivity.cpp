@@ -344,11 +344,17 @@ void TitleScreenActivity::keypress_event(KeyCode keycode, int gfxlib_keycode) {
             app->enqueue_command(std::make_unique<PushActivityCommand>(app, std::make_unique<ReplayMenuActivity>(app)));
             break;
         case App::Enter:
-        case ' ':
             app->caveset->last_selected_cave = cavenum;
             app->caveset->last_selected_level = levelnum;
             app->input_text_and_do_command(_("Enter your name"), gd_username.c_str(), std::make_unique<NewGameCommand>(app, cavenum, levelnum));
             break;
+        case ' ':
+        {
+            auto command = std::make_unique<NewGameCommand>(app, cavenum, levelnum);
+            command->set_param1(gd_username);
+            app->enqueue_command(std::move(command));
+            break;
+        }
         case App::Escape:
         case 'q':
         case 'Q':
