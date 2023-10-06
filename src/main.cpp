@@ -149,7 +149,7 @@ int main(int argc, char *argv[]) {
 #ifdef HAVE_GTK
     /* init gtk and set gtk default icon */
     gboolean force_quit_no_gtk = FALSE;
-    #if defined(__linux__) && defined(HAVE_GTK)
+    #ifdef __linux__
     if (gd_graphics_engine == GRAPHICS_ENGINE_GTK) // Linux workaround #65
     #endif
     if (!gtk_init_check(&argc, &argv))
@@ -342,7 +342,7 @@ restart_from_here:
 #ifdef HAVE_GTK
             case StartEditor:
                 na = StartTitle;
-                #if defined(__linux__) && defined(HAVE_GTK)
+                #ifdef __linux__
                 gtk_init_check(&argc, &argv); // Linux workaround #65
                 #endif
                 gd_cave_editor_run(&caveset);
