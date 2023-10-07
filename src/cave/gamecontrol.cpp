@@ -511,6 +511,24 @@ void GameControl::check_bonus_score() {
     set_status_bar_state(status_bar_game);
 }
 
+/// Add bonus scores all at once, so that you don't have to wait until time is decremented to 0.
+/// This advances the state.
+void GameControl::check_bonus_score_fast() {
+    while (played_cave->time > 0) {
+        played_cave->time -= played_cave->timing_factor;    /* subtract number of "milliseconds" - nothing to do with gameplay->millisecs! */
+        increment_score(played_cave->timevalue);            /* higher levels get more bonus points per second remained */
+    }
+    // maybe we we substracted too much (remaining time was fraction of a second)
+    played_cave->time = 0;
+    state_counter = GAME_INT_WAIT_BEFORE_COVER;
+
+    /* play bonus sound - which is the same as the seconds sound, when only <10 seconds left */
+    played_cave->set_seconds_sound();
+    gd_sound_play_sounds(played_cave->sound1, played_cave->sound2, played_cave->sound3);
+    /* number of lives changed -> status bar changed */
+    set_status_bar_state(status_bar_game);
+}
+
 /// Forget all stuff for the current cave.
 /// Maybe push the recording into the replays etc.
 void GameControl::unload_cave() {
@@ -647,7 +665,10 @@ GameControl::State GameControl::main_int(GameInputHandler *inputhandler, bool al
             return_state = STATE_NOTHING;
     } else if (state_counter == GAME_INT_CHECK_BONUS_TIME) {
         /* before covering, we check for time bonus score */
-        check_bonus_score();
+        if (inputhandler != NULL && (inputhandler->fire1() || inputhandler->fire2()))
+            check_bonus_score_fast();
+        else
+            check_bonus_score();
         return_state = STATE_NOTHING;
     } else if (state_counter == GAME_INT_WAIT_BEFORE_COVER) {
         /* after adding bonus points, we wait some time before starting to cover. this is the FIRST frame... so we check for game over and maybe jump there */

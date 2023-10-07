@@ -187,6 +187,7 @@ private:
     State iterate_cave(GameInputHandler *inputhandler);
     State wait_before_cover();
     void check_bonus_score();
+    void check_bonus_score_fast();
     void cover_animation();
     State finished_covering();
 };
