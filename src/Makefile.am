@@ -55,6 +55,7 @@ baseheaders = \
 	fileops/c64import.hpp \
 	fileops/brcimport.hpp \
 	fileops/binaryimport.hpp \
+	fileops/exportcrli.hpp \
 	fileops/loadfile.hpp \
 	fileops/highscore.hpp \
 	cave/gamecontrol.hpp \
@@ -126,6 +127,7 @@ basesources = \
 	fileops/c64import.cpp \
 	fileops/brcimport.cpp \
 	fileops/binaryimport.cpp \
+	fileops/exportcrli.cpp \
 	fileops/loadfile.cpp \
 	fileops/highscore.cpp \
 	cave/gamecontrol.cpp \
@@ -179,7 +181,6 @@ gtksources = \
 	editor/editorcellrenderer.cpp \
 	editor/exporthtml.cpp \
 	editor/exporttext.cpp \
-	editor/exportcrli.cpp \
 	editor/editor.cpp \
 	gtk/gtkapp.cpp \
 	gtk/gtkmainwindow.cpp
@@ -197,7 +198,6 @@ gtkheaders = \
 	editor/editorcellrenderer.hpp \
 	editor/exporthtml.hpp \
 	editor/exporttext.hpp \
-	editor/exportcrli.hpp \
 	editor/editor.hpp \
 	gtk/gtkapp.hpp \
 	gtk/gtkmainwindow.hpp \
