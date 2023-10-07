@@ -49,6 +49,7 @@
 #include "fileops/loadfile.hpp"
 #include "fileops/highscore.hpp"
 #include "fileops/binaryimport.hpp"
+#include "fileops/exportcrli.hpp"
 #include "input/joystick.hpp"
 
 #ifdef HAVE_GTK
@@ -56,7 +57,6 @@
 #include "editor/editorcellrenderer.hpp"
 #include "editor/exporthtml.hpp"
 #include "editor/exporttext.hpp"
-#include "editor/exportcrli.hpp"
 #include "gtk/gtkpixbuffactory.hpp"
 #include "gtk/gtkscreen.hpp"
 #include "gtk/gtkui.hpp"

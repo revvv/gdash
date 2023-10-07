@@ -316,6 +316,7 @@ Setting *gtk_get_keyboard_settings_array() {
     static Setting settings_static[] = {
         //{ TypePage, N_("Keyboard") }, // without engine
         { TypePage, keyboard_engine.c_str() },
+#ifdef HAVE_GTK
         { TypeKey,     N_("Key left"), &gd_gtk_key_left, false },
         { TypeKey,     N_("Key right"), &gd_gtk_key_right, false },
         { TypeKey,     N_("Key up"), &gd_gtk_key_up, false },
@@ -326,6 +327,7 @@ Setting *gtk_get_keyboard_settings_array() {
         { TypeKey,     N_("Key fast forward"), &gd_gtk_key_fast_forward, false },
         { TypeKey,     N_("Key status bar"), &gd_gtk_key_status_bar, false },
         { TypeKey,     N_("Key restart level"), &gd_gtk_key_restart_level, false },
+#endif
         /* end */
         { TypeBoolean, NULL },
     };
@@ -344,6 +346,7 @@ Setting *sdl_get_keyboard_settings_array() {
     static Setting settings_static[] = {
         //{ TypePage, N_("Keyboard") }, // without engine
         { TypePage, keyboard_engine.c_str() },
+#ifdef HAVE_SDL
         { TypeKey,     N_("Key left"), &gd_sdl_key_left, false },
         { TypeKey,     N_("Key right"), &gd_sdl_key_right, false },
         { TypeKey,     N_("Key up"), &gd_sdl_key_up, false },
@@ -354,6 +357,7 @@ Setting *sdl_get_keyboard_settings_array() {
         { TypeKey,     N_("Key fast forward"), &gd_sdl_key_fast_forward, false },
         { TypeKey,     N_("Key status bar"), &gd_sdl_key_status_bar, false },
         { TypeKey,     N_("Key restart level"), &gd_sdl_key_restart_level, false },
+#endif
         /* end */
         { TypeBoolean, NULL },
     };
@@ -366,10 +370,16 @@ Setting *sdl_get_keyboard_settings_array() {
 
 Setting *gd_get_keyboard_settings_array(GameInputHandler *gih) {
     // WARNING: gih might contain the wrong handler, therefore we don't use it here
+#ifdef HAVE_GTK
     if (gd_graphics_engine == GRAPHICS_ENGINE_GTK)
         return gtk_get_keyboard_settings_array();
-    else
+#endif
+#ifdef HAVE_SDL
+    if (gd_graphics_engine == GRAPHICS_ENGINE_SDL || gd_graphics_engine == GRAPHICS_ENGINE_OPENGL)
         return sdl_get_keyboard_settings_array();
+#endif
+    else
+        return NULL;
 }
 
 

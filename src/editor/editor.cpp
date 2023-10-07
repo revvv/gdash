@@ -39,7 +39,7 @@
 #include "gtk/gtkscreen.hpp"
 #include "editor/editorwidgets.hpp"
 #include "editor/editorautowidgets.hpp"
-#include "editor/exportcrli.hpp"
+#include "fileops/exportcrli.hpp"
 #include "editor/exporthtml.hpp"
 #include "misc/logger.hpp"
 #include "fileops/c64import.hpp"

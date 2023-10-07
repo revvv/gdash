@@ -146,8 +146,10 @@ void TitleScreenActivity::redraw_event(bool full) const {
         switch (which_status) {
             case 0:
             {
-#ifdef HAVE_GTK
+#if defined(HAVE_GTK) && defined(HAVE_SDL)
                 int fire = (gd_graphics_engine == GRAPHICS_ENGINE_GTK) ? gd_gtk_key_fire_1 : gd_sdl_key_fire_1;
+#elif defined(HAVE_GTK)
+                int fire = gd_gtk_key_fire_1;
 #else
                 int fire = gd_sdl_key_fire_1;
 #endif
