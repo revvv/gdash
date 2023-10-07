@@ -630,9 +630,9 @@ GameControl::State GameControl::main_int(GameInputHandler *inputhandler, bool al
     } else if (state_counter < GAME_INT_UNCOVER_ALL) {
         /* uncover animation */
         uncover_animation();
-        /* if fast uncover animation in test requested, do 3 more times */
+        /* if fast uncover animation in test requested, uncover completely */
         if (type == TYPE_TEST && gd_fast_uncover_in_test)
-            for (unsigned i = 0; i < 3 && state_counter < GAME_INT_UNCOVER_ALL; ++i)
+            for (unsigned i = 0; state_counter < GAME_INT_UNCOVER_ALL; ++i)
                 uncover_animation();
         return_state = STATE_NOTHING;
     } else if (state_counter == GAME_INT_UNCOVER_ALL) {
