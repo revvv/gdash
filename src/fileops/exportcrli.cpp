@@ -26,7 +26,7 @@
 #include <glib.h>
 #include <set>
 
-#include "editor/exportcrli.hpp"
+#include "fileops/exportcrli.hpp"
 
 #include "cave/cavetypes.hpp"
 #include "cave/cavestored.hpp"
