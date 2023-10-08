@@ -64,12 +64,8 @@ This fork adds some new features:
      You can try to import them with version GDash-export 1.1. Usually these caves start with binary header _GDashCRL_.
      See [#40](https://github.com/revvv/gdash-export-CrLi/issues/40)
 - Q: Does GDash for cygwin support gamepads?<br>
-  A: In theory yes, but currently after a cygwin update, it does not work any more.<br>
-     I don't know if or when cygwin will fix it. If you know more, please let me know!<br>
-     In general cygwin gamepad support has these restrictions:
-     1. No gamepad support in GTK+ mode.
-     2. Either HID or XInput gamepads or are supported, but not both.
-        Which one depends on the SDL developer's choice of the library version.
+  A: Yes, but make sure you have the latest version: SDL2-2.28.4-1a (2023-10-06)<br>
+     Please check if dinput and xinput gamepads work in GTK+ and SDL mode. Right now all combinations work fine!
 
 ### Bulk export
 
