@@ -25,7 +25,7 @@ Alchemystics_CAVES =
 Alchemystics_DATA = $(Alchemystics_CAVES)
 
 Alchemystics_Alchemyst_Dangerdashdir = $(pkgdatadir)/caves/Alchemystics_Alchemyst_Dangerdash
-Alchemystics_Alchemyst_Dangerdash_CAVES = Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_2.bd
+Alchemystics_Alchemyst_Dangerdash_CAVES = Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_2.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_3.bd
 Alchemystics_Alchemyst_Dangerdash_DATA = $(Alchemystics_Alchemyst_Dangerdash_CAVES)
 
 Alchemystics_Alchemyst_Digdir = $(pkgdatadir)/caves/Alchemystics_Alchemyst_Dig
@@ -121,7 +121,7 @@ Cup_CAVES = Cup/Cup_Dash_4.gds
 Cup_DATA = $(Cup_CAVES)
 
 CWSdir = $(pkgdatadir)/caves/CWS
-CWS_CAVES = CWS/CWS_Boulder.bd CWS/CWS_Boulder_2.bd CWS/CWS_Boulder_Dash_3.bd
+CWS_CAVES = CWS/CWS_Boulder.bd CWS/CWS_Boulder.gds CWS/CWS_Boulder_2.bd CWS/CWS_Boulder_Dash_3.bd
 CWS_DATA = $(CWS_CAVES)
 
 Daniel_Tavernierdir = $(pkgdatadir)/caves/Daniel_Tavernier
@@ -161,7 +161,7 @@ Dustin_CAVES = Dustin/BD1_Challenges.bd Dustin/BD2_Challenges.bd Dustin/BD3_Chal
 Dustin_DATA = $(Dustin_CAVES)
 
 Dustin_Dustin_s_Boulder_Dashdir = $(pkgdatadir)/caves/Dustin_Dustin_s_Boulder_Dash
-Dustin_Dustin_s_Boulder_Dash_CAVES = Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_01.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_02.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_03.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_04.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_05.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_06.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_07.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_08.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_09.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_10.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_11.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_12.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_13.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_14.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_15_-_Expert_Remix.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_16_-_No1_Remix.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_17.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_18.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_19_-_Darkst00rm_Remix.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_20.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_21.bd
+Dustin_Dustin_s_Boulder_Dash_CAVES = Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_01.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_02.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_03.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_04.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_05.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_06.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_07.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_08.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_09.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_10.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_11.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_12.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_13.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_14.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_15_-_Expert_Remix.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_16_-_No1_Remix.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_17.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_18.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_19_-_Darkst00rm_Remix.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_20.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_21.bd Dustin/Dustin_s_Boulder_Dash/Dustin's_Boulder_Dash_22.bd
 Dustin_Dustin_s_Boulder_Dash_DATA = $(Dustin_Dustin_s_Boulder_Dash_CAVES)
 
 Eberhard_Baartzdir = $(pkgdatadir)/caves/Eberhard_Baartz
