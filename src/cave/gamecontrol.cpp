@@ -665,7 +665,7 @@ GameControl::State GameControl::main_int(GameInputHandler *inputhandler, bool al
             return_state = STATE_NOTHING;
     } else if (state_counter == GAME_INT_CHECK_BONUS_TIME) {
         /* before covering, we check for time bonus score */
-        if (inputhandler != NULL && (inputhandler->fire1() || inputhandler->fire2()))
+        if (inputhandler != NULL && (inputhandler->fast_forward || inputhandler->restart_k))
             check_bonus_score_fast();
         else
             check_bonus_score();
