@@ -288,6 +288,10 @@ int main(int argc, char *argv[]) {
         gd_settings_set_locale();
         gd_settings_init_translation();
 
+        #ifdef __linux__
+        gtk_init_check(&argc, &argv); // Linux workaround #65
+        #endif
+
         /* the html saver needs a realized widget to render gtk icons, so create a toplevel window,
          * realize it, but do not show it */
         GtkWidget *widget = gtk_window_new(GTK_WINDOW_TOPLEVEL);
