@@ -3,7 +3,8 @@ dnl Process this file with autoconf to produce a configure script.
 AC_INIT(GDash, export-1.9.15, [https://github.com/revvv/gdash-export-CrLi])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AM_INIT_AUTOMAKE
-AM_CONFIG_HEADER(config.h)
+#AM_CONFIG_HEADER(config.h) # obsolete
+AC_CONFIG_HEADERS(config.h)
 AM_SILENT_RULES([yes])
 
 AC_CONFIG_MACRO_DIR([m4])
@@ -13,8 +14,8 @@ AC_PROG_CXX
 AM_PROG_CC_C_O
 PKG_PROG_PKG_CONFIG
 
-AC_ISC_POSIX
-AC_HEADER_STDC
+#AC_ISC_POSIX # obsolete
+#AC_HEADER_STDC # obsolete
 
 AC_CHECK_FUNCS([setlocale])
 
