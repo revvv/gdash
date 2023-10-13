@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 SUBDIRS=$(find . -type d | sed 's!^./!!' | grep -v "\.$")
 
 echo "# Automatically generated Makefile.am! Check $0" >Makefile.am
