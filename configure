@@ -3574,7 +3574,6 @@ END
   fi
 fi
 
-#AM_CONFIG_HEADER(config.h) # obsolete
 ac_config_headers="$ac_config_headers config.h"
 
 # Check whether --enable-silent-rules was given.
@@ -5505,9 +5504,6 @@ printf "%s\n" "no" >&6; }
 		PKG_CONFIG=""
 	fi
 fi
-
-#AC_ISC_POSIX # obsolete
-#AC_HEADER_STDC # obsolete
 
 
 ac_fn_c_check_func "$LINENO" "setlocale" "ac_cv_func_setlocale"
