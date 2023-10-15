@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GDash 20130407\n"
 "Report-Msgid-Bugs-To: https://github.com/revvv/gdash-export-CrLi\n"
-"POT-Creation-Date: 2023-10-06 16:08+0200\n"
+"POT-Creation-Date: 2023-10-15 14:53+0200\n"
 "PO-Revision-Date: 2013-03-15 19:08+0100\n"
 "Last-Translator: Shabanak\n"
 "Language-Team: German\n"
@@ -53,7 +53,7 @@ msgid "Click here to set the key for action: %s"
 msgstr "Klicken Sie hier, um die Taste einzustellen für die Aktion: %s"
 
 #. TRANSLATORS: Default (builtin) theme, shader, etc.
-#: src/gtk/gtkuisettings.cpp:262 src/settings.cpp:379
+#: src/gtk/gtkuisettings.cpp:262 src/settings.cpp:389
 msgid "[Default]"
 msgstr "[Voreinstellung]"
 
@@ -4453,8 +4453,8 @@ msgstr "S P I E L E N D E"
 
 #. TRANSLATORS: the translated string must be at most 40 characters long
 #: src/cave/gamerender.cpp:698
-msgid "UP, DOWN: MOVE    FIRE: CONTINUE"
-msgstr "OBEN,UNTEN: BEWEGEN    FEUER: FORTSETZEN"
+msgid "↑↓: Scroll    Fire: Continue"
+msgstr "↑↓: Scroll    Feuer: Fortsetzen"
 
 #: src/cave/object/caveobjectcopypaste.cpp:124
 #: src/cave/object/caveobjectjoin.cpp:85
@@ -6092,12 +6092,12 @@ msgstr "Oben+links"
 msgid "Milliseconds"
 msgstr "Millisekunden"
 
-#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:367
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:369
 #: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "Yes"
 msgstr "Ja"
 
-#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:367
+#: src/cave/cavetypes.cpp:133 src/framework/titlescreenactivity.cpp:369
 #: src/framework/commands.cpp:207 src/editor/exporthtml.cpp:171
 msgid "No"
 msgstr "Nein"
@@ -6170,53 +6170,53 @@ msgid "Game"
 msgstr "Spiel"
 
 #. TRANSLATORS: 31 chars max. Select the cave/level to play.
-#: src/framework/titlescreenactivity.cpp:158
+#: src/framework/titlescreenactivity.cpp:160
 #, c-format
 msgid "←→↑↓: Select    %s: Play"
 msgstr "←→↑↓: Auswählen   %s: Spielen"
 
 #. TRANSLATORS: 31 chars max. Select the cave to play.
-#: src/framework/titlescreenactivity.cpp:161
+#: src/framework/titlescreenactivity.cpp:163
 #, c-format
 msgid "←→: Select    %s: Play"
 msgstr "←→: Auswählen   %s: Spielen"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:168
+#: src/framework/titlescreenactivity.cpp:170
 msgid "F: Hall of fame  E: Editor  H: Help"
 msgstr "F: Ruhmeshalle E: Editor H: Hilfe"
 
 #. TRANSLATORS: 40 chars max.
-#: src/framework/titlescreenactivity.cpp:172
+#: src/framework/titlescreenactivity.cpp:174
 msgid "F: Hall of fame    H: Help"
 msgstr "F: Ruhmeshalle    H: Hilfe"
 
 #. TRANSLATORS: 40 chars max. Select the cave to play.
-#: src/framework/titlescreenactivity.cpp:177
+#: src/framework/titlescreenactivity.cpp:179
 msgid "Joystick: Select   Fire: Play"
 msgstr "Joystick: Auswählen      Feuer: Spielen"
 
-#: src/framework/titlescreenactivity.cpp:183
+#: src/framework/titlescreenactivity.cpp:185
 #, c-format
 msgid "%cNo caves."
 msgstr "%cKeine Höhlen."
 
-#: src/framework/titlescreenactivity.cpp:187
+#: src/framework/titlescreenactivity.cpp:189
 #, c-format
 msgid "%cCave: %c%s%c/%c%d"
 msgstr "%cHöhle: %c%s%c/%c%d"
 
-#: src/framework/titlescreenactivity.cpp:189
+#: src/framework/titlescreenactivity.cpp:191
 #, c-format
 msgid "%cCave: %c%s%c"
 msgstr "%cHöhle: %c%s%c"
 
-#: src/framework/titlescreenactivity.cpp:349
+#: src/framework/titlescreenactivity.cpp:351
 msgid "Enter your name"
 msgstr "Spielername eingeben"
 
 #. TRANSLATORS: Game means the application here.
-#: src/framework/titlescreenactivity.cpp:367
+#: src/framework/titlescreenactivity.cpp:369
 msgid "Quit game?"
 msgstr "Spiel beenden?"
 
@@ -7069,71 +7069,71 @@ msgstr ""
 "Verwendet die 44kHz-Mischung der Geräusche. Versuchen Sie die Einstellungen "
 "zu ändern, falls die Geräusche Tonstörungen verursachen."
 
-#: src/settings.cpp:314 src/settings.cpp:342
+#: src/settings.cpp:314 src/settings.cpp:344
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: src/settings.cpp:319 src/settings.cpp:347
+#: src/settings.cpp:320 src/settings.cpp:350
 msgid "Key left"
 msgstr "Taste links"
 
-#: src/settings.cpp:320 src/settings.cpp:348
+#: src/settings.cpp:321 src/settings.cpp:351
 msgid "Key right"
 msgstr "Taste rechts"
 
-#: src/settings.cpp:321 src/settings.cpp:349
+#: src/settings.cpp:322 src/settings.cpp:352
 msgid "Key up"
 msgstr "Taste rauf"
 
-#: src/settings.cpp:322 src/settings.cpp:350
+#: src/settings.cpp:323 src/settings.cpp:353
 msgid "Key down"
 msgstr "Taste runter"
 
-#: src/settings.cpp:323 src/settings.cpp:351
+#: src/settings.cpp:324 src/settings.cpp:354
 msgid "Key snap"
 msgstr "Taste schnappen"
 
-#: src/settings.cpp:324 src/settings.cpp:352
+#: src/settings.cpp:325 src/settings.cpp:355
 msgid "Key snap (alt.)"
 msgstr "Taste schnappen (alt.)"
 
-#: src/settings.cpp:325 src/settings.cpp:353
+#: src/settings.cpp:326 src/settings.cpp:356
 msgid "Key suicide"
 msgstr "Taste Selbstmord"
 
-#: src/settings.cpp:326 src/settings.cpp:354
+#: src/settings.cpp:327 src/settings.cpp:357
 msgid "Key fast forward"
 msgstr "Taste schnell vorwärts"
 
-#: src/settings.cpp:327 src/settings.cpp:355
+#: src/settings.cpp:328 src/settings.cpp:358
 msgid "Key status bar"
 msgstr "Taste Statuszeile"
 
-#: src/settings.cpp:328 src/settings.cpp:356
+#: src/settings.cpp:329 src/settings.cpp:359
 msgid "Key restart level"
 msgstr "Taste Level wiederholen"
 
-#: src/settings.cpp:754
+#: src/settings.cpp:764
 msgid "same as --help but translated"
 msgstr "indetisch mit --help jedoch übersetzt"
 
-#: src/settings.cpp:755
+#: src/settings.cpp:765
 msgid "Show license and quit"
 msgstr "Zeige Lizenz und beende"
 
-#: src/settings.cpp:756
+#: src/settings.cpp:766
 msgid "Show some debug messages"
 msgstr "Anzeige des Fehlerprotokolls"
 
-#: src/settings.cpp:757
+#: src/settings.cpp:767
 msgid "Load default settings"
 msgstr "Voreinstellungen laden"
 
-#: src/settings.cpp:758
+#: src/settings.cpp:768
 msgid "Cave names"
 msgstr "Höhlen-Namen"
 
-#: src/settings.cpp:761
+#: src/settings.cpp:771
 msgid "[FILE NAME]"
 msgstr "[DATEINAME]"
 

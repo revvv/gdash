@@ -695,7 +695,7 @@ void GameRenderer::drawstory() const {
     // title line, status line
     font_manager.blittext_n(-1, 0, GD_GDASH_GRAY2, game.played_cave->name.c_str());
     // TRANSLATORS: the translated string must be at most 40 characters long
-    font_manager.blittext_n(-1, screen.get_height() - font_manager.get_font_height(), GD_GDASH_GRAY2, _("UP, DOWN: MOVE    FIRE: CONTINUE"));
+    font_manager.blittext_n(-1, screen.get_height() - font_manager.get_font_height(), GD_GDASH_GRAY2, _("↑↓: Scroll    Fire: Continue"));
 
     // text
     for (unsigned l = 0; l < story.linesavailable && story.scroll_y + l < story.wrapped_text.size(); ++l)
