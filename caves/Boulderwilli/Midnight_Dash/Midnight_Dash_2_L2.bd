@@ -1,0 +1,1061 @@
+[BDCFF]
+Version=0.5
+
+[game]
+Name=Midnight Dash 2 L2
+TitleScreen=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
+TitleScreenScroll=iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAFBJREFUGNN1zbENgEAMA0BbSsVkLED3433HAkxGa4p8pGCBy1NiU5IAgCR6FoMA1KFSDyENfDekh4OnTQybmNlwHfeC7XVQHg6/E36wn9n4ADM9IDQgZRhVAAAAAElFTkSuQmCC
+TitleScreenDirection=Down
+Levels=5
+
+[cave]
+Name=Cave 01
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black LightRed Purple Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=75 75 75 75 75
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W....r..rccccrrrWa. . .rrrrccccr..r....W
+W...rQr..rcccrrrW. . . wrrrcccr..r.r...W
+W..r.r.r..rccrrrW .rcr.Wrrrccr..r.r.r..W
+W..rrQrr...rcrrrW. .r.cWrrrcr....r.r...W
+W..r.r.r....rrwwW WWWWWwwwrr....r.r.r..W
+W...rrr...r.rrwWWQ ...aXWwrr.r...r.r...W
+W.......r...rrrwWw....wWwrrr...r.......W
+W...............wWwwwwWw...............W
+Wwww.w.wwwwww....wddddw....wwwwww.w.wwwW
+W......r..........xwww...r.........r...W
+W.........r..... c    c .....r.........W
+Wwwww.wwwwwww..  .r..r.  ..wwwwwww.wwwwW
+W...........W c ........ c W....r......W
+W...........W ......r..... W........r..W
+W......r....W   ........   W...........W
+W...........W.. c .QQ. c  .W..r........W
+W....r..........W  ..  W...............W
+W.......r....r..W.    .W.r.........r...W
+W..........r....W..  ..W..r............W
+WP..............W......W........r.....aW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 02
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Cyan Gray2 Red Red Red
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WX..............rcQr.wcr...............W
+W...r..........rcQcw.cr................W
+W......r......rcQdddcr.................W
+W............rcQr.wcr..................W
+W.r.........rcQcw.cr...................W
+W..........rcQdddcr....................W
+W.........rcQr.wcr.....................W
+W....r...rcQcw.cr......................W
+W.......rcQdddcr....r..................W
+W......rcQr.wcr....r...................W
+W.r...rcQcw.cr....r....................W
+W....rcQdddcr....r.....................W
+W.r.rwQr.wcr....r......................W
+W..rcQcw.cr....r.......................W
+W.rcQdddcr....r........................W
+WrcQr.wcr.....r........................W
+WcQcw.cr......r........................W
+WQdddcr.......r........................W
+Wr.wcr........r........................W
+Ww.cr.........r.......................PW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 03
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange LightBlue White White White
+DiamondsRequired=99 99 99 99 99
+CaveTime=210 210 210 210 210
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WdrdQddwddddddwwcQadwad.dddwdrdwcddddaQW
+WdadQdddddddQdrQdwdr.drQrdd.wdd.ddrrddwW
+WwddaQwrddwadcddwdrwddddcQ.dwdddQddadQQW
+Wdcwrcdd..dw.ddddrc.ddwrwdddaddacddaddQW
+W.rrd.dWWWd.dddcadddrQ...a.drddd.drQdadW
+Wcra.dWWQXWr.dddddd.Qdcaw.ddaccddda.drrW
+WcdaddWdddWddddacc.dwwdrrddaw.ddadddddQW
+W.ddddWWdWWd.a.dcdaQcQQdrdadddddddcrdddW
+WwrdQ.WWrWWdd.ddd.rc.awddwdddcdQdwdQdddW
+Wcwdd.wdrdddQwd.dd.wdQ..wdw.w.Q.r.d.wdrW
+WdrrdQd.acrdddaQddrwcdddddd.daw.da..QQrW
+WadddddddQQQc.rQdcdddd.ddrd.awddcdaaQd.W
+WdQQddddr.drwdrdwraQrddwdrrd.dddd.ccaQ.W
+Wwdrddc.wdrQadddQcw.Q.cwadaddcddwadwdddW
+WwwcdwdddardddQddrQdQwdaQr.d.ddddwdrd..W
+WQ...ddwddc.Qrdddwdddddd.awddQddaddddrwW
+W.d.rdad.dra.d..cwd.ddddadcd.dddddra.d.W
+WQcdr...dcdwddwrQrddrdcwddddddQddddd.dPW
+WdQdaddaQrdddddwdd.dd.QrdaQwdddddddddddW
+Wrr.r.rw.arrQ  .      rwwrrwa.r r     wW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 04
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Purple Gray2 Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=175 175 175 175 175
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=140 140 140 140 140
+MagicWallTime=20 20 20 20 20
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr.....r.r.....r.r.....r.r.....r.r....XW
+Wrr...rr.rr...rr.rr...rr.rr...rr.rr...rW
+Wrrr.rrr.rrr.rrr.rrr.rrr.rrr.rrr.rrr.rrW
+Wrrrrrrr.rrrrrrr.rrrrrrr.rrrrrrr.rrrrrrW
+W......................................W
+WwMwMwMwMwM.MwMwMwMwMwMwMwMwrwwMwMwMwMwW
+Wcccccccccr.                .wQQQQQQQQQW
+Wcrcccccrcw.w ww ww  w wa ww.wQ.......QW
+Wccccrccccw.w wa awaww ww aw.wQ...c...QW
+Wrrrcrrrccw.                .rQQQQQQQQQW
+Wwwwwwwwwww.w aw wa ww ww w .wwwwwwwwwwW
+Wcrcccccccr.w ww ww aw wa ww.wQQQQQQQQQW
+Wcccccccrcw.                .rQ.......QW
+Wcccrcccccw.w ww ww w   w aw.wQ...c...QW
+Wrrrcccrrrw.w wa awPwwaww ww.wQQQQQQQQQW
+Wwwwwwwwwww.wwwwwwwwwwwwwwww.wwwwwwwwwwW
+W......................................W
+W.r.....r...r....r.....................W
+W.........r..............r.............W
+W......................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 05
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Black Brown LightRed Gray3 White White White
+DiamondsRequired=5 5 5 5 5
+CaveTime=47 47 47 47 47
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=5 5
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W   . W.r Wr r    XWWWWWWWWWWWWWWWWWWWWW
+W WWW    .  W W .  WWWWWWWWWWWWWWWWWWWWW
+Wc rr WWW   r  .WW WWWWWWWWWWWWWWWWWWWWW
+WWW   .  .     W r WWWWWWWWWWWWWWWWWWWWW
+W   WWW WW W W r W.WWWWWWWWWWWWWWWWWWWWW
+W .    . .   .     WWWWWWWWWWWWWWWWWWWWW
+W    W W WW    WWW WWWWWWWWWWWWWWWWWWWWW
+WW W . r .  W   .  WWWWWWWWWWWWWWWWWWWWW
+W  W WWW WW W W  W WWWWWWWWWWWWWWWWWWWWW
+WP W        W  .   WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 06
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray1 Brown Yellow Yellow Yellow
+DiamondsRequired=99 99 99 99 99
+CaveTime=245 245 245 245 245
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=215 215 215 215 215
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W...rrr..raWQw wa.....c.w.wXW...rrrrr.aW
+Wrrrr.rrr..W w w......c r.w.W.rrrQrrrr.W
+W.rrr..rrr.W w w......c.w.r.W.r..rrr...W
+W....rQrrr.W w w......c.w.w.W.r.rrrrrrrW
+W.rr.rrrrQrW wcw......c.w.w.W.rrrr.rrrrW
+Wrrrr.r.r..W wcw......c.w.w.W.rrr..rQrrW
+Wrrrrr..rr.W wcwwwwwwwwww.w.W..rrrr.r..W
+W..rrrr..rrW w............w.W..r..rr.r.W
+Wwwwwww.wwwW.wwwwwwwwwwwwww.Wwwww.wwwwwW
+W          ..................          W
+W          ..................          W
+W          ..................          W
+W          ..................          W
+W          ........WW........          W
+W        wwww....WWccWW....wwww        W
+W        w ....WWcc..ccWW.... w        W
+W        w ..WWcc.c..c.ccWW.. w        W
+W        w WWcc. . .. . .ccWW w        W
+W        w W.. . . .. . . ..W w        W
+WP       w ... . . .. . . ... w        W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 07
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray2 LightBlue Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=225 225 225 225 225
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.............arrrrrra................XW
+W..rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr..W
+W.rcr.........r......r......rr.....rcr.W
+Wrccr........r.rMMMMr.r......r.....rccrW
+Wcccr.......r..wQrrQw..r...........rcccW
+Wcccr......r...wQrrQw...r..........rcccW
+Wcccr......r..r.rrrr.r..r..........rcccW
+Wrccr..r...rwMwddddddwMwr.......r..rccrW
+W.rcr.r....rddddcQQcddddr........r.rcr.W
+W..rrr....wd...dwMMwd...dw........rrr..W
+W...r.....wd...dw..wd...dw.........r...W
+W...Q......rc.cr....rc.cr..........Q...W
+W...........wMw......wMw...............W
+Wr....................................rW
+W......................................W
+W..........r...r....r...r..............W
+W.r..................................r.W
+W...........rrr......rrr...............W
+W......................................W
+W...r............P.................r...W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 08
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Cyan Yellow Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=230 230 230 230 230
+MagicWallTime=180 180 180 180 180
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.r....r..rr.rr.r.......rr.rr..rr....r.W
+Wr.r.rr..rrrr..rrr..r.r.rrrrrrrrr..r..rW
+W......rrrrrr.rrrr.....rrrr.rrrrr.r.r..W
+W.r.r..............r.r.............r.r.W
+W.....rMMMMMMMMMMr.....MMMMMMMMMM..r...W
+W.......r.r..rr.r.r..r.          .....rW
+W....w.r....r....rwrrwccccccccccccw....W
+W....w..MrMMrMrMr.waawc          cw....W
+W.....w....r...r.w.aa.wc        cw...r.W
+W......wr.M.MM..wr....rwccccccccw......W
+W..r....w......wr......rMMMMMMMM..r....W
+W........MMMMMM..r....r.PW    W........W
+Wr........c  c....r..r....MMMM.......r.W
+W.....r...c  c.....rr.....    .........W
+W.........c  c..r.....r...    ....r....W
+W..r.....c    c..........Q    Q........W
+W......cc      cc......          ......W
+W......cccccccccc......          ......W
+W...................r................r.W
+X...r..................................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 09
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Brown Orange Yellow Yellow Yellow
+DiamondsRequired=99 99 99 99 99
+CaveTime=245 245 245 245 245
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=2 5
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=255 255 255 255 255
+MagicWallTime=100 100 100 100 100
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wa...wrrrrw...awc..cwa...r....r...awrcXW
+W....wQrQrw....w.ccww....w....w....w.ccW
+W...rwQQQQw....wc..cw....w....w....w.rrW
+Wwww...MMMwrwwwww..wwrwwww.Qw.rwwwrr...W
+WQ . .    ......r...w..............w...W
+WcQ .w    w dddwrr..w....w....w....w...W
+WQ   w    w.dddwrr..w...QwQ...w....w...W
+Wwwwww.MMMw.wwwwrwwww.wwwwwww.w.wwrr...W
+Wddddw    wccccw........rwrcrQw....w...W
+Wddddw    wccccw ...w...rwccccw....w...W
+Wddddr    .ccccw   Qw...dwQrcrwQ..r ...W
+Wwwwwrwwwwwwwwwwwwwww.ww.wwwwrwwww.w...W
+W.........wdddd.c   wr.r......r....w...W
+W....w.dd.rddddw .. wrr.rw....w....w...W
+W.Q..wdddd.....w    .....c....w...aw...W
+WrwwrrwwwwMMMMMwwwwwwwwwwwwwwwwwwwww...W
+W......................................W
+WMwwwwwwwwwMwMMwwwwwwwwwwwwww.....r....W
+W   w   w   w  Qr...w...w...r.........rW
+W w   w   wQ QwP..w...w...w..........rrW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 10
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Brown Black Orange Orange Yellow Yellow Yellow
+DiamondsRequired=25 25 25 25 25
+CaveTime=45 45 45 45 45
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=3 5
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=5 5 5 5 5
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wc       ..c      XWWWWWWWWWWWWWWWWWWWWW
+W....r..........r..WWWWWWWWWWWWWWWWWWWWW
+Wwww www w  w w wwwWWWWWWWWWWWWWWWWWWWWW
+Ww   wdw w  w w w wWWWWWWWWWWWWWWWWWWWWW
+Ww   wdw w  w w w wWWWWWWWWWWWWWWWWWWWWW
+Wwww www w  ww  wawWWWWWWWWWWWWWWWWWWWWW
+Ww   wdw w  wdw w wWWWWWWWWWWWWWWWWWWWWW
+Ww   wdw w  wdw w wWWWWWWWWWWWWWWWWWWWWW
+Ww r wrw wwrwrw wwwWWWWWWWWWWWWWWWWWWWWW
+WP.................WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 11
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Red LightRed White White White
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=235 235 235 235 235
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+X       aw        .       QQQ QQQ Q   QW
+W wwwwwwww............................QW
+W wr...r.. c c cP                    .QW
+W w....r.. wwwwwrwwwwwwwwwwwrwwwwwww .QW
+W w.....r. wawar.............wrwrwrw .QW
+W w....... w w w.wQQQQQQQQQw.wwcQcww .QW
+W w.rr.r.. w w w.wwwwcccwwww.r.ccrcw .QW
+W wr...... w w w..ccc...ccc..wwwwwww . W
+W w...r.r. w w w.wQQQQQQQQQw.w.w...w . W
+W w....... w w w.wwwwcccwwww.r...waw . W
+W w....... w w w..ccc...ccc..wwwwwww .QW
+W w.....r. w w w.wQQQQQQQQQw.w...waw .QW
+W wr...... w w w.wwwwcccwwww.r.w...w .QW
+W w....r.. w w w..ccc...ccc..wwwwwww .QW
+W w....... w w w.wQQQQQQQQQw.w.w...w .QW
+W w..r.... w   w.w.w.w.w.w.w.r...waw . W
+W w.....r. wwwww.w.w.w.w.w.w.wwwwwww . W
+W w.......                           . W
+W wwwwwwww.............................W
+W       aw . . . .r.r. . .r. . .r. . . W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 12
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray2 LightBlue White White White
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=8 8 8 8 8
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.........................rrrrrrrrrrrrrW
+Wwwwwwww.xwr..............rrrr..r..rrrrW
+Wx........wdr...r...r...r.rrr...r...PrrW
+W..x.x.x.xwdrr............rr....r....rrW
+W.x.x.x.x.wdrdr...........r....rrr....rW
+W.........wdrdrr..........r...r...r...rW
+W.x.x.x.x.wdrdrdr...r...r.r..r.....r..rW
+W..x.....xwdrdrdrr........rrr.......rrrW
+W.x.x.xwwwwdrdXdrdr.......rrr.......rrrW
+W....x..awwdrdrdrdrr......rrrr.....rrrrW
+W.x.x.x.x.wdrdrdrdrrr...r.rrrrrrrrrrrrrW
+W..x......wdrdrdrdr....................W
+W.x.x.x.x.wdrdrdrr........cccccccccccccW
+W....x...xwdrdrdr.........c  .......  cW
+W.x.x.x.xwwdrdrr....r...r.c           cW
+W........xwdrdr...........c.c..c.c.. .cW
+W.x.x.x.x.wdrr............c.c.c.c.c. .cW
+W....x....wdr...r...r...r.c           cW
+W.xwwwwwwwwr..............c  .......  cW
+W.........................cccccccccccccW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 13
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Brown Cyan Gray2 White White White
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=100 100 100 100 100
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wc..        Q.r.....rr....r......r...r.W
+Wc.. .........................W........W
+Wc.. .....                c ..W..r.r.r.W
+Wc.. .....cWWWWWWWWWWWWWWWW ..W.....r..W
+W .. ..... r.r......r.....W .rW..r.....W
+W .. ..... Wrcr....rQr..r.W  ..........W
+W .. ..... W.r..r...r..rQrW ..W....r...W
+W .. ..... W...rQr......r.W ..W.......aW
+W .. ..... W..r.r....r....W r ...r.....W
+Wc.. ..... W.rQr.r..rQr...W ..W..r.....W
+Wc.. ..... W..r.rQr..r.r..W .rW......r.W
+Wc.. ..... W.....r....rQr.W . ....rr...W
+Wc.. ..... WX..........r.PW ..W........W
+W .. .....cWWWWWWWWWWWWWWWWc..W..r...r.W
+W .. .....                  r .....r...W
+Wc.. .........................W........W
+Wc.. ........................rW......r.W
+Wc.. .........................W........W
+Wc.. .........................W....r...W
+Wc..                       Q.....r.....W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 14
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Orange Brown Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=40 40 40 40 40
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wr....r..........r.r.r.................W
+W...r...r.......r.r.r.r................W
+Wr...rr........r.r...r.r...............W
+W..rr..rr.....r.r.....r.r..............W
+W.r..r.r.....r.r.......r.r.............W
+W..r......r............................W
+W.r.r.r.....MMMMMMMMMMMMMMMww.wwwwwwwwwW
+W..r..r.r.r.w w w wcw w w wcwcwwwwwr...W
+Wr..rr......w w w w w w w wcw    www.rwW
+W..r..r.r..rw w w w w w w wcwwww www.wwW
+W....r...r..wcw w w w w wcwcw    www.rwW
+W...........wQwcw w w wcwQwcw wwwwww.wwW
+W..r........w w.wcwQwcw.w wcw      w.rQW
+W.......r...w w w.wcw.w w wcwwwwwwww.wwW
+W...rr......w w wcw wcw w wcwQ     r.rQW
+W.r.........w wcw w w wcw wcwwwwwwww.wwW
+W.r...r.....wcw w w w w wcwcwQ     r.wwW
+Wr..r...r...wwwwwwwwwwwwwwwwwwwwwwww.xwW
+X..r...................................W
+W rr  r     .Q      Q.P                W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 15
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Gray1 Black Blue Gray2 White White White
+DiamondsRequired=15 15 15 15 15
+CaveTime=70 70 70 70 70
+CaveScheduling=plck
+PALTiming=true
+FrameTime=140 140 140 140 140
+CaveDelay=7 7 7 7 7
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W  r       w   w   WWWWWWWWWWWWWWWWWWWWW
+W wwwwwwwr w w w w WWWWWWWWWWWWWWWWWWWWW
+W wdddwddw w w   wPXWWWWWWWWWWWWWWWWWWWW
+W wddwddw    wwwwwwWWWWWWWWWWWWWWWWWWWWW
+W wdwdcw           WWWWWWWWWWWWWWWWWWWWW
+W wdcdw  wwwwwwwww WWWWWWWWWWWWWWWWWWWWW
+W wcdw  w   w   ww WWWWWWWWWWWWWWWWWWWWW
+W wdw  w  w   w Qw WWWWWWWWWWWWWWWWWWWWW
+W ww  w  wwwwwwwww WWWWWWWWWWWWWWWWWWWWW
+W                  WWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 16
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Cyan Purple Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=200 200 200 200 200
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Xccrrrrrcrrrrraaaa  r  aaaarrrrrcrrrrrcW
+W......................................W
+W              . ccc ccc .             W
+W  ..... ..... .....c..... ..... ..... W
+W  . Q . . c . . Q . . c . . Q . . c . W
+W  . . . . . . . . . . . . . . . . . . W
+W  . c . . Q . . c . . Q . . c . . Q . W
+W c..... .....c...........c..... ..... W
+W                                      W
+W.ww.w.w.w.w.w.w.w.w.w.w.w.w.w.w.w.w.w.W
+W                                      W
+W  ..... ..... ..... ..... ..... ..... W
+W  . c . . Q . . c . . Q . . c . . Q . W
+W  .c.c. .c.c. .c.c. . . . .c.c. .c.c. W
+W  . Q . . c . . Q . . c . . Q . . c . W
+W  ..... ..... ..... ..... ..... ..... W
+W                                      W
+W...wwwwwwww.............wwwwwwwww.....W
+W   wP     w    aaaaaa   w       w     W
+W                                      W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 17
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Blue LightBlue Cyan Cyan Cyan
+DiamondsRequired=85 85 85 85 85
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=190 190 190 190 190
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W     .         w.......w...........cccW
+W ............r w.wwwww w.wwwww....c  cW
+W             . w.w...w ..w...w...c   cW
+W......r..... . w.w w w w.w.w.w..c    cW
+Wrrr.r..      . w.w w w.w w w w..c    cW
+W..ar... ...... w w w w w w w w .c    cW
+W.ra..a. .   r. w w w.. w . w w ..c   cW
+Wr..r.r. ...... w . w . . w . w ...c  cW
+Wa...P.  .......w w w.w.w w.w . ...rcccW
+Wwwwaww.....w.w.. w w w . w w w .......W
+Wa.w..w.....w..ww.w w w w w.w.w .......W
+W..w..w.....r..   w . w.w.w.w.w.....QQQW
+W..w..r......rwrw w w w.w w w w....QQQQW
+W..r..w....r....w . w.w w . . w...QQQQQW
+W..w..w.......... w w w . w w w..QQQQQQW
+W..w..w......r..w w w . w w w ...QQQQQQW
+W..w..r...r.....w . w w w . w.w..QQQQQQW
+W.....w.......... w w w.. w.w.w..r QQQQW
+W..w..w.........w w.w wwwww w w.... QQQW
+W..w..w..........   .  ...  .   ....QQQX
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 18
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Gray1 LightRed Cyan Cyan Cyan
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=2 2 2 2 2
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrW
+WrQ.Q.Q.QrQrQrQrQrQrQrQrQrQrQrQrQ.Q.Q.rW
+Wr.c.c.crcrcrcrcrcrcrcrcrcrcrcrc.c.c.QrW
+WrQ.c.crrrrrrrrrrrrrrrrrrrrrrrrrr.c.c.rW
+Wr.c.crrr......................rrr.c.QrW
+WrQ.crrr..............r.........rrr.c.rW
+Wr.crrr......................r...rrr.QrW
+WrQ.rr..........r.................rr..rW
+Wr.cr...r..........................rddrW
+Wrddr.......r.....PX....r..........rddrW
+Wrddr..........................r...rddrW
+Wrddrr............................rrddrW
+Wrddrrr..........................rrrddrW
+Wrdddrrr...r...r......r.........rrrdddrW
+Wrddddrrr...................r..rrrddddrW
+Wrdddddrrr....................rrrdddddrW
+WrddddddrrrrrrrrrrrrrrrrrrrrrrrrddddddrW
+WrddddddddddddddddddddddddddddddddddddrW
+WrddddddddddddddddddddddddddddddddddddrW
+WrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Cave 19
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=false
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 39 21
+Colors=Black Black Green Gray2 Yellow Yellow Yellow
+DiamondsRequired=99 99 99 99 99
+CaveTime=255 255 255 255 255
+CaveScheduling=plck
+PALTiming=true
+FrameTime=80 80 80 80 80
+CaveDelay=3 3 3 3 3
+TimeValue=1 1 1 1 1
+DiamondValue=1 2
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=255 255 255 255 255
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaW
+WaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaW
+W                                      W
+Wwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwW
+W   wwwwwwwwwwwwwwww wrw   w   w   w   W
+WQ Qw                wrw w w w w w wcccW
+W   w wwwwwwwwwwwwww wrw w w w w w w   X
+WQ Qw             ww www w w w w w wcccW
+W   wwwwwwwwwwwww ww     w w w w w w   W
+WQ Qw   w   w   w wwrwwwww w w   w wcccW
+W   w w w w w w w w...wrww   wwwww w   W
+WQ Qw w w w w w w w...wrwwwwwww c cwcccW
+W   w w w w w w w w...wwc c www wwww   W
+WQ Qw w w w w w   w...ww wwc ww  c wcccW
+W   w w w w w wwwww...ww  wwc wwwwcw   W
+WQ Qw w w w w wwww.....ww  wwc c c wcccW
+W   w w w w w www.......ww  wwwwwwww   W
+WQ Q  w   w   ww..w...w..ww c c c c cccW
+W   wwwwwwwwwww..w.....w.wwwwwwwwwww   W
+W...................P..................W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[cave]
+Name=Intermission 20
+Selectable=false
+IntermissionProperties.instantlife=true
+Intermission=true
+IntermissionProperties.rewardlife=false
+Size=40 22 0 0 19 11
+Colors=Brown Black Orange Brown Cyan Cyan Cyan
+DiamondsRequired=20 20 20 20 20
+CaveTime=20 20 20 20 20
+CaveScheduling=plck
+PALTiming=true
+FrameTime=120 120 120 120 120
+CaveDelay=6 6 6 6 6
+TimeValue=1 1 1 1 1
+DiamondValue=2 3
+RandSeed=0 0 0 0 0
+ActiveGuyIsFirst=false
+AmoebaProperties.immediately=false
+AmoebaTime=15 15 15 15 15
+MagicWallTime=0 0 0 0 0
+MagicWallProperties.convertamoeba=false
+SlimePermeabilityC64=0 0 0 0 0
+BorderProperties.lineshift=true
+BorderProperties.objectwraparound=true
+BorderProperties.scan=false
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Wrraarrcc  ccrraarrWWWWWWWWWWWWWWWWWWWWW
+WrarrQc..cc..c  rarWWWWWWWWWWWWWWWWWWWWW
+War.QcwQ.dd.Qwc .raWWWWWWWWWWWWWWWWWWWWW
+Wr.rccrrWrXrwrccr.rWWWWWWWWWWWWWWWWWWWWW
+WrMcdcM.r.Pr McccMrWWWWWWWWWWWWWWWWWWWWW
+Wr.McM  W..W  McM.rWWWWWWWWWWWWWWWWWWWWW
+War dcr   c  rcc raWWWWWWWWWWWWWWWWWWWWW
+Wa.rMcM  MM  McMr.aWWWWWWWWWWWWWWWWWWWWW
+Wra.. c.M..M.c ..arWWWWWWWWWWWWWWWWWWWWW
+WrraaarccWWccraaarrWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+[/game]
+[/BDCFF]
