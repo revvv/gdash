@@ -697,11 +697,12 @@ int C64Import::cave_copy_from_bd1(CaveStored &cave, const guint8 *data, int rema
         how we set the values.
     */
     if (data[0x1c] < 0x40) {
-        Logger l;   /* ignore error here, as it is usually not an error */
+        // commented next line, because this will delete SetLoggerContextForFunction(): game/cave name
+        //Logger l;   /* ignore error here, as it is usually not an error */
         GdElementEnum acideat = import_func(data, 0x1c);
         if (acideat != O_UNKNOWN)
             cave.acid_eats_this = acideat;
-        l.clear();
+        //l.clear();
     }
     cave.acid_spread_ratio = data[0x16] * 1000000.0 / 255.0; /* acid speed */
     cave.acid_turns_to = (data[0x17] & (1 << 2)) ? O_EXPLODE_3 : O_ACID;
