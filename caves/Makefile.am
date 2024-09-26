@@ -25,7 +25,7 @@ Alchemystics_CAVES =
 Alchemystics_DATA = $(Alchemystics_CAVES)
 
 Alchemystics_Alchemyst_Dangerdashdir = $(pkgdatadir)/caves/Alchemystics_Alchemyst_Dangerdash
-Alchemystics_Alchemyst_Dangerdash_CAVES = Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_2.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_3.bd
+Alchemystics_Alchemyst_Dangerdash_CAVES = Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_1.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_2.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_3.bd Alchemystics/Alchemyst_Dangerdash/Alchemyst_Dangerdash_4.bd
 Alchemystics_Alchemyst_Dangerdash_DATA = $(Alchemystics_Alchemyst_Dangerdash_CAVES)
 
 Alchemystics_Alchemyst_Digdir = $(pkgdatadir)/caves/Alchemystics_Alchemyst_Dig
