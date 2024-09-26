@@ -414,7 +414,7 @@ noinst_HEADERS = \
 	dtvpal.cpp \
 	for_html.cpp
 
-pkgdata_DATA = boulder_rush.png c64_gfx.png c64_gfx_bd2.png
+pkgdata_DATA = boulder_rush.png boulder_rush_cws.png c64_gfx.png c64_gfx_bd2.png
 EXTRA_DIST = $(ICONS) $(TITLE) $(GAMEBACKGROUND) $(FOR_HTML) \
 	icons.list \
 	c64_font.png \
