@@ -17,7 +17,6 @@ This fork adds some new features:
 * Improved snapshot feature for Twitch [#23](https://github.com/revvv/gdash-export-CrLi/issues/23)
 * Show all elements in element statistics [#31](https://github.com/revvv/gdash-export-CrLi/issues/31)
 * New command line argument `--help-localized`
-* Fixed: Screen wrapped boulder does not kill player instantly [#42](https://github.com/revvv/gdash-export-CrLi/issues/42)
 * Fixed replay feature (fire was not recorded) [#18](https://github.com/revvv/gdash-export-CrLi/issues/18)
 * New feature *"Milling time 0 is infinite"* [#12](https://github.com/revvv/gdash-export-CrLi/issues/12)
 * New player animations (gfx by [cwscws](https://github.com/cwscws)) [#4](https://github.com/revvv/gdash-export-CrLi/issues/4)

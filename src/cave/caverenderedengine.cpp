@@ -690,44 +690,6 @@ inline void CaveRendered::store(int x, int y, GdDirectionEnum dir, GdElementEnum
 
 /// Store the element to (x,y)+dir, and store a space to (x,y).
 inline void CaveRendered::move(int x, int y, GdDirectionEnum dir, GdElementEnum element) {
-
-    // fix: screen wrapped boulder should not kill player instantly
-    //gd_message("XXX x=%d y=%d e=%d current=%d dir=%d gravity=%d xd=%d yd=%d", x, y, element, get(x, y), dir, gravity, x + gd_dx[dir], y + gd_dy[dir]);
-    if (y + gd_dy[dir] == map.height() && dir == MV_DOWN) {
-        // height is out of bounds, but because of screen wrap it's the first line again
-        switch (get(x, y)) {
-        case O_STONE:
-        case O_MEGA_STONE:
-        case O_DIAMOND:
-        case O_NUT:
-        case O_FLYING_STONE:
-        case O_FLYING_DIAMOND:
-        case O_FALLING_WALL:
-        case O_NITRO_PACK:
-            store(x, y, element); // falling element
-            return; // do not move element
-        default:
-            break;
-        }
-    }
-    else if (x + gd_dx[dir] == map.width() && dir == MV_RIGHT) {
-        // width is out of bounds, but because of screen wrap it's the first column again
-        switch (get(x, y)) {
-        case O_STONE:
-        case O_MEGA_STONE:
-        case O_DIAMOND:
-        case O_NUT:
-        case O_FLYING_STONE:
-        case O_FLYING_DIAMOND:
-        case O_FALLING_WALL:
-        case O_NITRO_PACK:
-            store(x, y, element); // falling element
-            return; // do not move element
-        default:
-            break;
-        }
-    }
-
     store(x, y, dir, element);
     store(x, y, O_SPACE);
 }
