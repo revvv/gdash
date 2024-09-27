@@ -165,8 +165,9 @@ am__installdirs = "$(DESTDIR)$(ADD_and_TKRdir)" \
 	"$(DESTDIR)$(Boulderwilli_Marathon_Dashdir)" \
 	"$(DESTDIR)$(Boulderwilli_Midnight_Dashdir)" \
 	"$(DESTDIR)$(Burton_Banditdir)" "$(DESTDIR)$(CCFdir)" \
-	"$(DESTDIR)$(CWSdir)" "$(DESTDIR)$(Chaosdir)" \
-	"$(DESTDIR)$(Cheech_and_Chongsdir)" "$(DESTDIR)$(Conraddir)" \
+	"$(DESTDIR)$(CWSdir)" "$(DESTDIR)$(CaptainPollutionTVdir)" \
+	"$(DESTDIR)$(Chaosdir)" "$(DESTDIR)$(Cheech_and_Chongsdir)" \
+	"$(DESTDIR)$(Conraddir)" \
 	"$(DESTDIR)$(Coolshaker_Union_Gang_KGdir)" \
 	"$(DESTDIR)$(Coolshaker_Union_Gang_KG_Quolder_Dashdir)" \
 	"$(DESTDIR)$(Coolshaker_Union_Gang_KG_Roulder_Dashdir)" \
@@ -283,9 +284,8 @@ am__installdirs = "$(DESTDIR)$(ADD_and_TKRdir)" \
 	"$(DESTDIR)$(The_Softkiller_Bingodir)" \
 	"$(DESTDIR)$(The_Softkiller_Helenadir)" \
 	"$(DESTDIR)$(Thomas_Mauritzdir)" "$(DESTDIR)$(Tropyxdir)" \
-	"$(DESTDIR)$(CaptainPollutionTVdir)" "$(DESTDIR)$(Witrodir)" \
-	"$(DESTDIR)$(Yakuzadir)" "$(DESTDIR)$(Zombie_Crackersdir)" \
-	"$(DESTDIR)$(variousdir)"
+	"$(DESTDIR)$(Witrodir)" "$(DESTDIR)$(Yakuzadir)" \
+	"$(DESTDIR)$(Zombie_Crackersdir)" "$(DESTDIR)$(variousdir)"
 DATA = $(ADD_and_TKR_DATA) $(AGB_Soft_DATA) $(Achim_Haertel_DATA) \
 	$(Achim_Hofmann_DATA) $(Alan_Bond_DATA) $(Alchemystics_DATA) \
 	$(Alchemystics_Alchemyst_Dangerdash_DATA) \
@@ -296,8 +296,8 @@ DATA = $(ADD_and_TKR_DATA) $(AGB_Soft_DATA) $(Achim_Haertel_DATA) \
 	$(Boulder_Rush_cave_pack_DATA) $(Boulderwilli_DATA) \
 	$(Boulderwilli_Marathon_Dash_DATA) \
 	$(Boulderwilli_Midnight_Dash_DATA) $(Burton_Bandit_DATA) \
-	$(CCF_DATA) $(CWS_DATA) $(Chaos_DATA) \
-	$(Cheech_and_Chongs_DATA) $(Conrad_DATA) \
+	$(CCF_DATA) $(CWS_DATA) $(CaptainPollutionTV_DATA) \
+	$(Chaos_DATA) $(Cheech_and_Chongs_DATA) $(Conrad_DATA) \
 	$(Coolshaker_Union_Gang_KG_DATA) \
 	$(Coolshaker_Union_Gang_KG_Quolder_Dash_DATA) \
 	$(Coolshaker_Union_Gang_KG_Roulder_Dash_DATA) $(Cup_DATA) \
@@ -374,9 +374,8 @@ DATA = $(ADD_and_TKR_DATA) $(AGB_Soft_DATA) $(Achim_Haertel_DATA) \
 	$(The_Bremer_Town_Musicus_DATA) $(The_Cobra_Boys_DATA) \
 	$(The_Editor_DATA) $(The_Softkiller_DATA) \
 	$(The_Softkiller_Bingo_DATA) $(The_Softkiller_Helena_DATA) \
-	$(Thomas_Mauritz_DATA) $(Tropyx_DATA) $(CaptainPollutionTV_DATA) \
-	$(Witro_DATA) $(Yakuza_DATA) $(Zombie_Crackers_DATA) \
-	$(various_DATA)
+	$(Thomas_Mauritz_DATA) $(Tropyx_DATA) $(Witro_DATA) \
+	$(Yakuza_DATA) $(Zombie_Crackers_DATA) $(various_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/mkinstalldirs
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -639,6 +638,9 @@ Burton_Bandit_CAVES = Burton_Bandit/Bandit_Boulderdash_01.gds \
 	Burton_Bandit/Bandit_Boulderdash_53-It_s_A_Rap.gds \
 	Burton_Bandit/Bandit_Boulderdash_54-Legs_Onwards.gds
 Burton_Bandit_DATA = $(Burton_Bandit_CAVES)
+CaptainPollutionTVdir = $(pkgdatadir)/caves/CaptainPollutionTV
+CaptainPollutionTV_CAVES = CaptainPollutionTV/Boulderdash-UX-2.bd CaptainPollutionTV/Boulderdash-UX-3.bd CaptainPollutionTV/Boulderdash-UX.bd
+CaptainPollutionTV_DATA = $(CaptainPollutionTV_CAVES)
 CCFdir = $(pkgdatadir)/caves/CCF
 CCF_CAVES = CCF/Pac_Boulder.gds
 CCF_DATA = $(CCF_CAVES)
@@ -1000,13 +1002,15 @@ No_One_Final_Boulder_CAVES = No_One/Final_Boulder/Final_Boulder_01.gds No_One/Fi
 No_One_Final_Boulder_DATA = $(No_One_Final_Boulder_CAVES)
 No_One_No_One_s_Boulderdir = $(pkgdatadir)/caves/No_One_No_One_s_Boulder
 No_One_No_One_s_Boulder_CAVES =  \
-	No_One/No_One_s_Boulder/No_One_Boulder_02.gds \
-	No_One/No_One_s_Boulder/No_One_Boulder_04.gds \
-	No_One/No_One_s_Boulder/No_One_Boulder_06.gds \
-	No_One/No_One_s_Boulder/No_One_Boulder_07.gds \
-	No_One/No_One_s_Boulder/No_One_Boulder_1.gds \
-	No_One/No_One_s_Boulder/No_One_Boulder_II.gds \
-	No_One/No_One_s_Boulder/No_One_Boulder_III.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_01.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_02.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_03.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_04.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_05.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_06.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_07.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_08.gds \
+	No_One/No_One_s_Boulder/No_One_s_Boulder_09.gds \
 	No_One/No_One_s_Boulder/No_One_s_Boulder_10.gds \
 	No_One/No_One_s_Boulder/No_One_s_Boulder_11.gds \
 	No_One/No_One_s_Boulder/No_One_s_Boulder_12.gds \
@@ -1043,11 +1047,8 @@ No_One_No_One_s_Boulder_CAVES =  \
 	No_One/No_One_s_Boulder/No_One_s_Boulder_44.gds \
 	No_One/No_One_s_Boulder/No_One_s_Boulder_45.gds \
 	No_One/No_One_s_Boulder/No_One_s_Boulder_46.gds \
-	No_One/No_One_s_Boulder/No_One_s_Boulder_5.gds \
 	No_One/No_One_s_Boulder/No_One_s_Boulder_6.gds \
-	No_One/No_One_s_Boulder/No_One_s_Boulder_7.gds \
-	No_One/No_One_s_Boulder/No_One_s_Boulder_8.gds \
-	No_One/No_One_s_Boulder/No_One_s_Boulder_9.gds
+	No_One/No_One_s_Boulder/No_One_s_Boulder_7.gds
 No_One_No_One_s_Boulder_DATA = $(No_One_No_One_s_Boulder_CAVES)
 No_One_Prima_Boulderdashdir = $(pkgdatadir)/caves/No_One_Prima_Boulderdash
 No_One_Prima_Boulderdash_CAVES =  \
@@ -1993,9 +1994,6 @@ Thomas_Mauritz_DATA = $(Thomas_Mauritz_CAVES)
 Tropyxdir = $(pkgdatadir)/caves/Tropyx
 Tropyx_CAVES = Tropyx/Boulder_Dash_12.gds Tropyx/Boulder_Dash_2000.gds Tropyx/Fantasy_Boulder_Dash_I.gds Tropyx/Power_Dash.gds Tropyx/Zulder_Dash.gds
 Tropyx_DATA = $(Tropyx_CAVES)
-CaptainPollutionTVdir = $(pkgdatadir)/caves/CaptainPollutionTV
-CaptainPollutionTV_CAVES = CaptainPollutionTV/Boulderdash-UX-2.bd CaptainPollutionTV/Boulderdash-UX-3.bd CaptainPollutionTV/Boulderdash-UX.bd
-CaptainPollutionTV_DATA = $(CaptainPollutionTV_CAVES)
 variousdir = $(pkgdatadir)/caves/various
 various_CAVES = various/Boulder_Dash_3_Atari.gds various/Boulder_Dash_8_Atari.gds various/Boulder_Dash_9_1.gds various/Boulder_Dash_9_2.gds various/Boulder_Dash_9_3.gds various/Boulder_Dash_9_4.gds various/Boulder_Dash_9_5.gds various/Boulder_Dash_9_6.gds various/Boulder_Dash_9_7.gds various/Boulder_Dash_9_8.gds various/Boulder_Dash_9_9.gds various/Boulder_Dash_Pro.gds various/Boulder_Games_2.gds various/CS_Boulder_2.gds various/Kit_Caves!.gds various/Super_Dash_I.gds various/Ten_Boulders.gds various/Unknown_Boulderdash_12.gds
 various_DATA = $(various_CAVES)
@@ -2020,8 +2018,9 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(Boulderwilli_Midnight_Dash_CAVES) \
 	$(Boulder_Dash_Community_CAVES) \
 	$(Boulder_Rush_cave_pack_CAVES) $(Burton_Bandit_CAVES) \
-	$(CCF_CAVES) $(Chaos_CAVES) $(Cheech_and_Chongs_CAVES) \
-	$(Conrad_CAVES) $(Coolshaker_Union_Gang_KG_CAVES) \
+	$(CaptainPollutionTV_CAVES) $(CCF_CAVES) $(Chaos_CAVES) \
+	$(Cheech_and_Chongs_CAVES) $(Conrad_CAVES) \
+	$(Coolshaker_Union_Gang_KG_CAVES) \
 	$(Coolshaker_Union_Gang_KG_Quolder_Dash_CAVES) \
 	$(Coolshaker_Union_Gang_KG_Roulder_Dash_CAVES) $(Cup_CAVES) \
 	$(CWS_CAVES) $(Daniel_Tavernier_CAVES) $(Dan_Warren_CAVES) \
@@ -2099,9 +2098,8 @@ EXTRA_DIST = create_makefile.sh $(Achim_Haertel_CAVES) \
 	$(The_Bremer_Town_Musicus_CAVES) $(The_Cobra_Boys_CAVES) \
 	$(The_Editor_CAVES) $(The_Softkiller_CAVES) \
 	$(The_Softkiller_Bingo_CAVES) $(The_Softkiller_Helena_CAVES) \
-	$(Thomas_Mauritz_CAVES) $(Tropyx_CAVES) $(CaptainPollutionTV_CAVES) \
-	$(various_CAVES) $(Witro_CAVES) $(Yakuza_CAVES) \
-	$(Zombie_Crackers_CAVES)
+	$(Thomas_Mauritz_CAVES) $(Tropyx_CAVES) $(various_CAVES) \
+	$(Witro_CAVES) $(Yakuza_CAVES) $(Zombie_Crackers_CAVES)
 all: all-am
 
 .SUFFIXES:
@@ -2659,6 +2657,27 @@ uninstall-CWSDATA:
 	@list='$(CWS_DATA)'; test -n "$(CWSdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(CWSdir)'; $(am__uninstall_files_from_dir)
+install-CaptainPollutionTVDATA: $(CaptainPollutionTV_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(CaptainPollutionTV_DATA)'; test -n "$(CaptainPollutionTVdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(CaptainPollutionTVdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(CaptainPollutionTVdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(CaptainPollutionTVdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(CaptainPollutionTVdir)" || exit $$?; \
+	done
+
+uninstall-CaptainPollutionTVDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(CaptainPollutionTV_DATA)'; test -n "$(CaptainPollutionTVdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(CaptainPollutionTVdir)'; $(am__uninstall_files_from_dir)
 install-ChaosDATA: $(Chaos_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Chaos_DATA)'; test -n "$(Chaosdir)" || list=; \
@@ -5914,27 +5933,6 @@ uninstall-TropyxDATA:
 	@list='$(Tropyx_DATA)'; test -n "$(Tropyxdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(Tropyxdir)'; $(am__uninstall_files_from_dir)
-install-CaptainPollutionTVDATA: $(CaptainPollutionTV_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(CaptainPollutionTV_DATA)'; test -n "$(CaptainPollutionTVdir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(CaptainPollutionTVdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(CaptainPollutionTVdir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(CaptainPollutionTVdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(CaptainPollutionTVdir)" || exit $$?; \
-	done
-
-uninstall-CaptainPollutionTVDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(CaptainPollutionTV_DATA)'; test -n "$(CaptainPollutionTVdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(CaptainPollutionTVdir)'; $(am__uninstall_files_from_dir)
 install-WitroDATA: $(Witro_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(Witro_DATA)'; test -n "$(Witrodir)" || list=; \
@@ -6062,7 +6060,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(ADD_and_TKRdir)" "$(DESTDIR)$(AGB_Softdir)" "$(DESTDIR)$(Achim_Haerteldir)" "$(DESTDIR)$(Achim_Hofmanndir)" "$(DESTDIR)$(Alan_Bonddir)" "$(DESTDIR)$(Alchemysticsdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Dangerdashdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Digdir)" "$(DESTDIR)$(Alex_Zopdir)" "$(DESTDIR)$(Arno_Weberdir)" "$(DESTDIR)$(Arno_Weber_Arno_Dashdir)" "$(DESTDIR)$(Artisdir)" "$(DESTDIR)$(Atarakushidir)" "$(DESTDIR)$(Bert_Boggerdir)" "$(DESTDIR)$(Black_and_Hawkdir)" "$(DESTDIR)$(Blupidir)" "$(DESTDIR)$(Bobosoftdir)" "$(DESTDIR)$(Boulder_Dash_Communitydir)" "$(DESTDIR)$(Boulder_Rush_cave_packdir)" "$(DESTDIR)$(Boulderwillidir)" "$(DESTDIR)$(Boulderwilli_Marathon_Dashdir)" "$(DESTDIR)$(Boulderwilli_Midnight_Dashdir)" "$(DESTDIR)$(Burton_Banditdir)" "$(DESTDIR)$(CCFdir)" "$(DESTDIR)$(CWSdir)" "$(DESTDIR)$(Chaosdir)" "$(DESTDIR)$(Cheech_and_Chongsdir)" "$(DESTDIR)$(Conraddir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KGdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Quolder_Dashdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Roulder_Dashdir)" "$(DESTDIR)$(Cupdir)" "$(DESTDIR)$(Dan_Warrendir)" "$(DESTDIR)$(Daniel_Tavernierdir)" "$(DESTDIR)$(Dididir)" "$(DESTDIR)$(Dinodir)" "$(DESTDIR)$(Don_Pedrodir)" "$(DESTDIR)$(Dotterteamdir)" "$(DESTDIR)$(Dr_Gurudir)" "$(DESTDIR)$(Dr_Watsondir)" "$(DESTDIR)$(Dustindir)" "$(DESTDIR)$(Dustin_Dustin_s_Boulder_Dashdir)" "$(DESTDIR)$(Eberhard_Baartzdir)" "$(DESTDIR)$(Eclipsdir)" "$(DESTDIR)$(El_Swingidir)" "$(DESTDIR)$(FAJ_Softdir)" "$(DESTDIR)$(Falcon_Softdir)" "$(DESTDIR)$(Firefoxdir)" "$(DESTDIR)$(Firefox_Firefoxdir)" "$(DESTDIR)$(First_Star_Softwaredir)" "$(DESTDIR)$(Fokmansdir)" "$(DESTDIR)$(Frustdir)" "$(DESTDIR)$(GBSdir)" "$(DESTDIR)$(Gert_van_den_Heuveldir)" "$(DESTDIR)$(Gertruddir)" "$(DESTDIR)$(Gertrud_Gertrud_s_Gamedir)" "$(DESTDIR)$(Gertrud_Rodexdir)" "$(DESTDIR)$(Godsdir)" "$(DESTDIR)$(Grant_Walkerdir)" "$(DESTDIR)$(HSGdir)" "$(DESTDIR)$(Hackerdir)" "$(DESTDIR)$(Heinz_Trumpelmanndir)" "$(DESTDIR)$(Incubusdir)" "$(DESTDIR)$(Iron_Softdir)" "$(DESTDIR)$(Jason_Sabourindir)" "$(DESTDIR)$(KKdir)" "$(DESTDIR)$(Karlchen_and_Opossumdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Frettchendashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Melmac_Dashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Ossi_Dashdir)" "$(DESTDIR)$(Kayle_Geertsdir)" "$(DESTDIR)$(LTL_Softdir)" "$(DESTDIR)$(Lanzelott_and_Matuladir)" "$(DESTDIR)$(Logic_De_Luxedir)" "$(DESTDIR)$(Lord_Diegodir)" "$(DESTDIR)$(Lord_Diego_Diegodashdir)" "$(DESTDIR)$(Lord_Diego_Neverendingdashdir)" "$(DESTDIR)$(Lukas_Shambisdir)" "$(DESTDIR)$(MB_Softdir)" "$(DESTDIR)$(MJMandir)" "$(DESTDIR)$(MJRdir)" "$(DESTDIR)$(Madgamedir)" "$(DESTDIR)$(Mapasoftdir)" "$(DESTDIR)$(Marek_Rothdir)" "$(DESTDIR)$(Marek_Roth_Crazy_Dreamdir)" "$(DESTDIR)$(Marek_Roth_De_Luxe_Remixdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Cavesdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Dashdir)" "$(DESTDIR)$(Mario_Albrechtdir)" "$(DESTDIR)$(Matthias_Kothdir)" "$(DESTDIR)$(Matthias_Steinerdir)" "$(DESTDIR)$(Maxdir)" "$(DESTDIR)$(Metalmorphosisdir)" "$(DESTDIR)$(Michael_and_Ingodir)" "$(DESTDIR)$(Mr_Jokerdir)" "$(DESTDIR)$(Mr_Nobodydir)" "$(DESTDIR)$(Mr_Nonflexdir)" "$(DESTDIR)$(Mr_Rockforddir)" "$(DESTDIR)$(No_Onedir)" "$(DESTDIR)$(No_One_Delightdir)" "$(DESTDIR)$(No_One_Final_Boulderdir)" "$(DESTDIR)$(No_One_No_One_s_Boulderdir)" "$(DESTDIR)$(No_One_Prima_Boulderdashdir)" "$(DESTDIR)$(Ododir)" "$(DESTDIR)$(Olaf_Rothdir)" "$(DESTDIR)$(Olaf_Roth_Cool_Dashdir)" "$(DESTDIR)$(Olaf_Roth_Giga_Boulderdir)" "$(DESTDIR)$(Oriondir)" "$(DESTDIR)$(PETEdir)" "$(DESTDIR)$(Papisdir)" "$(DESTDIR)$(Persoftdir)" "$(DESTDIR)$(Peter_Metsemakersdir)" "$(DESTDIR)$(Peter_Traunigdir)" "$(DESTDIR)$(Phoenixdir)" "$(DESTDIR)$(Pierre_and_Olivierdir)" "$(DESTDIR)$(Posocopi_Waldkirchdir)" "$(DESTDIR)$(Prof_Knibbledir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Heavydir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Weekdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Dashdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Eatdir)" "$(DESTDIR)$(ROLEdir)" "$(DESTDIR)$(Radek_Buchta_and_Nudeldir)" "$(DESTDIR)$(Renatedir)" "$(DESTDIR)$(Replica_Copy_Crewdir)" "$(DESTDIR)$(Rockforddir)" "$(DESTDIR)$(Rockford_Gerd_Boulderdir)" "$(DESTDIR)$(Rockford_Profi_Boulderdir)" "$(DESTDIR)$(Rockford_Rockforddir)" "$(DESTDIR)$(Rockford_Super_Boulderdir)" "$(DESTDIR)$(Rolf_Langedir)" "$(DESTDIR)$(Rolf_Lange_Rolodashdir)" "$(DESTDIR)$(Rolf_Rothdir)" "$(DESTDIR)$(Rolf_Roth_Nordseepowerdir)" "$(DESTDIR)$(Rolf_Roth_Schlicktowndir)" "$(DESTDIR)$(Rolf_Roth_Stone_Agedir)" "$(DESTDIR)$(Rolf_Roth_Waterkant_Dashdir)" "$(DESTDIR)$(Ron_van_Schaikdir)" "$(DESTDIR)$(Ron_van_Schaik_Forkidz_Dashdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaik_Mixdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)" "$(DESTDIR)$(Rory_Agstendir)" "$(DESTDIR)$(Sarah_Rothdir)" "$(DESTDIR)$(Schlonkeldir)" "$(DESTDIR)$(Scserbin_Zoltandir)" "$(DESTDIR)$(Scserbin_Zoltan_Atlantisdir)" "$(DESTDIR)$(Scserbin_Zoltan_Auto_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Batmandir)" "$(DESTDIR)$(Scserbin_Zoltan_Dig_Dug_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Golden_Boulder_Who_Dares_Winsdir)" "$(DESTDIR)$(Scserbin_Zoltan_Ninja_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Quasimododir)" "$(DESTDIR)$(Scserbin_Zoltan_Robot_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Tank_Wardir)" "$(DESTDIR)$(Sendydir)" "$(DESTDIR)$(Sijben_Softdir)" "$(DESTDIR)$(Skeletordir)" "$(DESTDIR)$(Skeletor_Mega_Boulderdir)" "$(DESTDIR)$(Sparkdir)" "$(DESTDIR)$(Spiderdir)" "$(DESTDIR)$(Spider_Bouldi_Dashdir)" "$(DESTDIR)$(Spider_Steel_Dashdir)" "$(DESTDIR)$(Stormbringerdir)" "$(DESTDIR)$(Stormbringer_Crazy_Dashdir)" "$(DESTDIR)$(Stormbringer_Stormdashdir)" "$(DESTDIR)$(Sub7dir)" "$(DESTDIR)$(Subotaidir)" "$(DESTDIR)$(Tatter_Demaliondir)" "$(DESTDIR)$(The_Blockheadsdir)" "$(DESTDIR)$(The_Blockheads_Boulderdashdir)" "$(DESTDIR)$(The_Blockheads_Boulderheaddir)" "$(DESTDIR)$(The_Blockheads_Trap_Boulderdir)" "$(DESTDIR)$(The_Bremer_Town_Musicusdir)" "$(DESTDIR)$(The_Cobra_Boysdir)" "$(DESTDIR)$(The_Editordir)" "$(DESTDIR)$(The_Softkillerdir)" "$(DESTDIR)$(The_Softkiller_Bingodir)" "$(DESTDIR)$(The_Softkiller_Helenadir)" "$(DESTDIR)$(Thomas_Mauritzdir)" "$(DESTDIR)$(Tropyxdir)" "$(DESTDIR)$(CaptainPollutionTVdir)" "$(DESTDIR)$(Witrodir)" "$(DESTDIR)$(Yakuzadir)" "$(DESTDIR)$(Zombie_Crackersdir)" "$(DESTDIR)$(variousdir)"; do \
+	for dir in "$(DESTDIR)$(ADD_and_TKRdir)" "$(DESTDIR)$(AGB_Softdir)" "$(DESTDIR)$(Achim_Haerteldir)" "$(DESTDIR)$(Achim_Hofmanndir)" "$(DESTDIR)$(Alan_Bonddir)" "$(DESTDIR)$(Alchemysticsdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Dangerdashdir)" "$(DESTDIR)$(Alchemystics_Alchemyst_Digdir)" "$(DESTDIR)$(Alex_Zopdir)" "$(DESTDIR)$(Arno_Weberdir)" "$(DESTDIR)$(Arno_Weber_Arno_Dashdir)" "$(DESTDIR)$(Artisdir)" "$(DESTDIR)$(Atarakushidir)" "$(DESTDIR)$(Bert_Boggerdir)" "$(DESTDIR)$(Black_and_Hawkdir)" "$(DESTDIR)$(Blupidir)" "$(DESTDIR)$(Bobosoftdir)" "$(DESTDIR)$(Boulder_Dash_Communitydir)" "$(DESTDIR)$(Boulder_Rush_cave_packdir)" "$(DESTDIR)$(Boulderwillidir)" "$(DESTDIR)$(Boulderwilli_Marathon_Dashdir)" "$(DESTDIR)$(Boulderwilli_Midnight_Dashdir)" "$(DESTDIR)$(Burton_Banditdir)" "$(DESTDIR)$(CCFdir)" "$(DESTDIR)$(CWSdir)" "$(DESTDIR)$(CaptainPollutionTVdir)" "$(DESTDIR)$(Chaosdir)" "$(DESTDIR)$(Cheech_and_Chongsdir)" "$(DESTDIR)$(Conraddir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KGdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Quolder_Dashdir)" "$(DESTDIR)$(Coolshaker_Union_Gang_KG_Roulder_Dashdir)" "$(DESTDIR)$(Cupdir)" "$(DESTDIR)$(Dan_Warrendir)" "$(DESTDIR)$(Daniel_Tavernierdir)" "$(DESTDIR)$(Dididir)" "$(DESTDIR)$(Dinodir)" "$(DESTDIR)$(Don_Pedrodir)" "$(DESTDIR)$(Dotterteamdir)" "$(DESTDIR)$(Dr_Gurudir)" "$(DESTDIR)$(Dr_Watsondir)" "$(DESTDIR)$(Dustindir)" "$(DESTDIR)$(Dustin_Dustin_s_Boulder_Dashdir)" "$(DESTDIR)$(Eberhard_Baartzdir)" "$(DESTDIR)$(Eclipsdir)" "$(DESTDIR)$(El_Swingidir)" "$(DESTDIR)$(FAJ_Softdir)" "$(DESTDIR)$(Falcon_Softdir)" "$(DESTDIR)$(Firefoxdir)" "$(DESTDIR)$(Firefox_Firefoxdir)" "$(DESTDIR)$(First_Star_Softwaredir)" "$(DESTDIR)$(Fokmansdir)" "$(DESTDIR)$(Frustdir)" "$(DESTDIR)$(GBSdir)" "$(DESTDIR)$(Gert_van_den_Heuveldir)" "$(DESTDIR)$(Gertruddir)" "$(DESTDIR)$(Gertrud_Gertrud_s_Gamedir)" "$(DESTDIR)$(Gertrud_Rodexdir)" "$(DESTDIR)$(Godsdir)" "$(DESTDIR)$(Grant_Walkerdir)" "$(DESTDIR)$(HSGdir)" "$(DESTDIR)$(Hackerdir)" "$(DESTDIR)$(Heinz_Trumpelmanndir)" "$(DESTDIR)$(Incubusdir)" "$(DESTDIR)$(Iron_Softdir)" "$(DESTDIR)$(Jason_Sabourindir)" "$(DESTDIR)$(KKdir)" "$(DESTDIR)$(Karlchen_and_Opossumdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Frettchendashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Melmac_Dashdir)" "$(DESTDIR)$(Karlchen_and_Opossum_Ossi_Dashdir)" "$(DESTDIR)$(Kayle_Geertsdir)" "$(DESTDIR)$(LTL_Softdir)" "$(DESTDIR)$(Lanzelott_and_Matuladir)" "$(DESTDIR)$(Logic_De_Luxedir)" "$(DESTDIR)$(Lord_Diegodir)" "$(DESTDIR)$(Lord_Diego_Diegodashdir)" "$(DESTDIR)$(Lord_Diego_Neverendingdashdir)" "$(DESTDIR)$(Lukas_Shambisdir)" "$(DESTDIR)$(MB_Softdir)" "$(DESTDIR)$(MJMandir)" "$(DESTDIR)$(MJRdir)" "$(DESTDIR)$(Madgamedir)" "$(DESTDIR)$(Mapasoftdir)" "$(DESTDIR)$(Marek_Rothdir)" "$(DESTDIR)$(Marek_Roth_Crazy_Dreamdir)" "$(DESTDIR)$(Marek_Roth_De_Luxe_Remixdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Cavesdir)" "$(DESTDIR)$(Marek_Roth_Deluxe_Dashdir)" "$(DESTDIR)$(Mario_Albrechtdir)" "$(DESTDIR)$(Matthias_Kothdir)" "$(DESTDIR)$(Matthias_Steinerdir)" "$(DESTDIR)$(Maxdir)" "$(DESTDIR)$(Metalmorphosisdir)" "$(DESTDIR)$(Michael_and_Ingodir)" "$(DESTDIR)$(Mr_Jokerdir)" "$(DESTDIR)$(Mr_Nobodydir)" "$(DESTDIR)$(Mr_Nonflexdir)" "$(DESTDIR)$(Mr_Rockforddir)" "$(DESTDIR)$(No_Onedir)" "$(DESTDIR)$(No_One_Delightdir)" "$(DESTDIR)$(No_One_Final_Boulderdir)" "$(DESTDIR)$(No_One_No_One_s_Boulderdir)" "$(DESTDIR)$(No_One_Prima_Boulderdashdir)" "$(DESTDIR)$(Ododir)" "$(DESTDIR)$(Olaf_Rothdir)" "$(DESTDIR)$(Olaf_Roth_Cool_Dashdir)" "$(DESTDIR)$(Olaf_Roth_Giga_Boulderdir)" "$(DESTDIR)$(Oriondir)" "$(DESTDIR)$(PETEdir)" "$(DESTDIR)$(Papisdir)" "$(DESTDIR)$(Persoftdir)" "$(DESTDIR)$(Peter_Metsemakersdir)" "$(DESTDIR)$(Peter_Traunigdir)" "$(DESTDIR)$(Phoenixdir)" "$(DESTDIR)$(Pierre_and_Olivierdir)" "$(DESTDIR)$(Posocopi_Waldkirchdir)" "$(DESTDIR)$(Prof_Knibbledir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Heavydir)" "$(DESTDIR)$(Prof_Knibble_Boulder_Dash_Weekdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Dashdir)" "$(DESTDIR)$(Prof_Knibble_Knibble_Eatdir)" "$(DESTDIR)$(ROLEdir)" "$(DESTDIR)$(Radek_Buchta_and_Nudeldir)" "$(DESTDIR)$(Renatedir)" "$(DESTDIR)$(Replica_Copy_Crewdir)" "$(DESTDIR)$(Rockforddir)" "$(DESTDIR)$(Rockford_Gerd_Boulderdir)" "$(DESTDIR)$(Rockford_Profi_Boulderdir)" "$(DESTDIR)$(Rockford_Rockforddir)" "$(DESTDIR)$(Rockford_Super_Boulderdir)" "$(DESTDIR)$(Rolf_Langedir)" "$(DESTDIR)$(Rolf_Lange_Rolodashdir)" "$(DESTDIR)$(Rolf_Rothdir)" "$(DESTDIR)$(Rolf_Roth_Nordseepowerdir)" "$(DESTDIR)$(Rolf_Roth_Schlicktowndir)" "$(DESTDIR)$(Rolf_Roth_Stone_Agedir)" "$(DESTDIR)$(Rolf_Roth_Waterkant_Dashdir)" "$(DESTDIR)$(Ron_van_Schaikdir)" "$(DESTDIR)$(Ron_van_Schaik_Forkidz_Dashdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaik_Mixdir)" "$(DESTDIR)$(Ron_van_Schaik_Schaikdashdir)" "$(DESTDIR)$(Rory_Agstendir)" "$(DESTDIR)$(Sarah_Rothdir)" "$(DESTDIR)$(Schlonkeldir)" "$(DESTDIR)$(Scserbin_Zoltandir)" "$(DESTDIR)$(Scserbin_Zoltan_Atlantisdir)" "$(DESTDIR)$(Scserbin_Zoltan_Auto_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Batmandir)" "$(DESTDIR)$(Scserbin_Zoltan_Dig_Dug_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Golden_Boulder_Who_Dares_Winsdir)" "$(DESTDIR)$(Scserbin_Zoltan_Ninja_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Quasimododir)" "$(DESTDIR)$(Scserbin_Zoltan_Robot_Dashdir)" "$(DESTDIR)$(Scserbin_Zoltan_Tank_Wardir)" "$(DESTDIR)$(Sendydir)" "$(DESTDIR)$(Sijben_Softdir)" "$(DESTDIR)$(Skeletordir)" "$(DESTDIR)$(Skeletor_Mega_Boulderdir)" "$(DESTDIR)$(Sparkdir)" "$(DESTDIR)$(Spiderdir)" "$(DESTDIR)$(Spider_Bouldi_Dashdir)" "$(DESTDIR)$(Spider_Steel_Dashdir)" "$(DESTDIR)$(Stormbringerdir)" "$(DESTDIR)$(Stormbringer_Crazy_Dashdir)" "$(DESTDIR)$(Stormbringer_Stormdashdir)" "$(DESTDIR)$(Sub7dir)" "$(DESTDIR)$(Subotaidir)" "$(DESTDIR)$(Tatter_Demaliondir)" "$(DESTDIR)$(The_Blockheadsdir)" "$(DESTDIR)$(The_Blockheads_Boulderdashdir)" "$(DESTDIR)$(The_Blockheads_Boulderheaddir)" "$(DESTDIR)$(The_Blockheads_Trap_Boulderdir)" "$(DESTDIR)$(The_Bremer_Town_Musicusdir)" "$(DESTDIR)$(The_Cobra_Boysdir)" "$(DESTDIR)$(The_Editordir)" "$(DESTDIR)$(The_Softkillerdir)" "$(DESTDIR)$(The_Softkiller_Bingodir)" "$(DESTDIR)$(The_Softkiller_Helenadir)" "$(DESTDIR)$(Thomas_Mauritzdir)" "$(DESTDIR)$(Tropyxdir)" "$(DESTDIR)$(Witrodir)" "$(DESTDIR)$(Yakuzadir)" "$(DESTDIR)$(Zombie_Crackersdir)" "$(DESTDIR)$(variousdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -6129,8 +6127,9 @@ install-data-am: install-ADD_and_TKRDATA install-AGB_SoftDATA \
 	install-Boulderwilli_Marathon_DashDATA \
 	install-Boulderwilli_Midnight_DashDATA \
 	install-Burton_BanditDATA install-CCFDATA install-CWSDATA \
-	install-ChaosDATA install-Cheech_and_ChongsDATA \
-	install-ConradDATA install-Coolshaker_Union_Gang_KGDATA \
+	install-CaptainPollutionTVDATA install-ChaosDATA \
+	install-Cheech_and_ChongsDATA install-ConradDATA \
+	install-Coolshaker_Union_Gang_KGDATA \
 	install-Coolshaker_Union_Gang_KG_Quolder_DashDATA \
 	install-Coolshaker_Union_Gang_KG_Roulder_DashDATA \
 	install-CupDATA install-Dan_WarrenDATA \
@@ -6223,9 +6222,8 @@ install-data-am: install-ADD_and_TKRDATA install-AGB_SoftDATA \
 	install-The_EditorDATA install-The_SoftkillerDATA \
 	install-The_Softkiller_BingoDATA \
 	install-The_Softkiller_HelenaDATA install-Thomas_MauritzDATA \
-	install-TropyxDATA install-CaptainPollutionTVDATA install-WitroDATA \
-	install-YakuzaDATA install-Zombie_CrackersDATA \
-	install-variousDATA
+	install-TropyxDATA install-WitroDATA install-YakuzaDATA \
+	install-Zombie_CrackersDATA install-variousDATA
 
 install-dvi: install-dvi-am
 
@@ -6284,9 +6282,9 @@ uninstall-am: uninstall-ADD_and_TKRDATA uninstall-AGB_SoftDATA \
 	uninstall-Boulderwilli_Marathon_DashDATA \
 	uninstall-Boulderwilli_Midnight_DashDATA \
 	uninstall-Burton_BanditDATA uninstall-CCFDATA \
-	uninstall-CWSDATA uninstall-ChaosDATA \
-	uninstall-Cheech_and_ChongsDATA uninstall-ConradDATA \
-	uninstall-Coolshaker_Union_Gang_KGDATA \
+	uninstall-CWSDATA uninstall-CaptainPollutionTVDATA \
+	uninstall-ChaosDATA uninstall-Cheech_and_ChongsDATA \
+	uninstall-ConradDATA uninstall-Coolshaker_Union_Gang_KGDATA \
 	uninstall-Coolshaker_Union_Gang_KG_Quolder_DashDATA \
 	uninstall-Coolshaker_Union_Gang_KG_Roulder_DashDATA \
 	uninstall-CupDATA uninstall-Dan_WarrenDATA \
@@ -6385,7 +6383,7 @@ uninstall-am: uninstall-ADD_and_TKRDATA uninstall-AGB_SoftDATA \
 	uninstall-The_Softkiller_BingoDATA \
 	uninstall-The_Softkiller_HelenaDATA \
 	uninstall-Thomas_MauritzDATA uninstall-TropyxDATA \
-	uninstall-CaptainPollutionTVDATA uninstall-WitroDATA uninstall-YakuzaDATA \
+	uninstall-WitroDATA uninstall-YakuzaDATA \
 	uninstall-Zombie_CrackersDATA uninstall-variousDATA
 
 .MAKE: install-am install-strip
@@ -6407,8 +6405,9 @@ uninstall-am: uninstall-ADD_and_TKRDATA uninstall-AGB_SoftDATA \
 	install-Boulderwilli_Marathon_DashDATA \
 	install-Boulderwilli_Midnight_DashDATA \
 	install-Burton_BanditDATA install-CCFDATA install-CWSDATA \
-	install-ChaosDATA install-Cheech_and_ChongsDATA \
-	install-ConradDATA install-Coolshaker_Union_Gang_KGDATA \
+	install-CaptainPollutionTVDATA install-ChaosDATA \
+	install-Cheech_and_ChongsDATA install-ConradDATA \
+	install-Coolshaker_Union_Gang_KGDATA \
 	install-Coolshaker_Union_Gang_KG_Quolder_DashDATA \
 	install-Coolshaker_Union_Gang_KG_Roulder_DashDATA \
 	install-CupDATA install-Dan_WarrenDATA \
@@ -6501,18 +6500,18 @@ uninstall-am: uninstall-ADD_and_TKRDATA uninstall-AGB_SoftDATA \
 	install-The_EditorDATA install-The_SoftkillerDATA \
 	install-The_Softkiller_BingoDATA \
 	install-The_Softkiller_HelenaDATA install-Thomas_MauritzDATA \
-	install-TropyxDATA install-CaptainPollutionTVDATA install-WitroDATA \
-	install-YakuzaDATA install-Zombie_CrackersDATA install-am \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	install-variousDATA installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic pdf pdf-am ps ps-am tags-am uninstall \
-	uninstall-ADD_and_TKRDATA uninstall-AGB_SoftDATA \
-	uninstall-Achim_HaertelDATA uninstall-Achim_HofmannDATA \
-	uninstall-Alan_BondDATA uninstall-AlchemysticsDATA \
+	install-TropyxDATA install-WitroDATA install-YakuzaDATA \
+	install-Zombie_CrackersDATA install-am install-data \
+	install-data-am install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip install-variousDATA \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am tags-am uninstall uninstall-ADD_and_TKRDATA \
+	uninstall-AGB_SoftDATA uninstall-Achim_HaertelDATA \
+	uninstall-Achim_HofmannDATA uninstall-Alan_BondDATA \
+	uninstall-AlchemysticsDATA \
 	uninstall-Alchemystics_Alchemyst_DangerdashDATA \
 	uninstall-Alchemystics_Alchemyst_DigDATA \
 	uninstall-Alex_ZopDATA uninstall-Arno_WeberDATA \
@@ -6525,9 +6524,9 @@ uninstall-am: uninstall-ADD_and_TKRDATA uninstall-AGB_SoftDATA \
 	uninstall-Boulderwilli_Marathon_DashDATA \
 	uninstall-Boulderwilli_Midnight_DashDATA \
 	uninstall-Burton_BanditDATA uninstall-CCFDATA \
-	uninstall-CWSDATA uninstall-ChaosDATA \
-	uninstall-Cheech_and_ChongsDATA uninstall-ConradDATA \
-	uninstall-Coolshaker_Union_Gang_KGDATA \
+	uninstall-CWSDATA uninstall-CaptainPollutionTVDATA \
+	uninstall-ChaosDATA uninstall-Cheech_and_ChongsDATA \
+	uninstall-ConradDATA uninstall-Coolshaker_Union_Gang_KGDATA \
 	uninstall-Coolshaker_Union_Gang_KG_Quolder_DashDATA \
 	uninstall-Coolshaker_Union_Gang_KG_Roulder_DashDATA \
 	uninstall-CupDATA uninstall-Dan_WarrenDATA \
@@ -6626,7 +6625,7 @@ uninstall-am: uninstall-ADD_and_TKRDATA uninstall-AGB_SoftDATA \
 	uninstall-The_Softkiller_BingoDATA \
 	uninstall-The_Softkiller_HelenaDATA \
 	uninstall-Thomas_MauritzDATA uninstall-TropyxDATA \
-	uninstall-CaptainPollutionTVDATA uninstall-WitroDATA uninstall-YakuzaDATA \
+	uninstall-WitroDATA uninstall-YakuzaDATA \
 	uninstall-Zombie_CrackersDATA uninstall-am \
 	uninstall-variousDATA
 
