@@ -34,8 +34,16 @@
 
 std::string CaveRaster::get_bdcff() const {
     Coordinate number;
-    number.x = ((p2.x - p1.x) / dist.x + 1);
-    number.y = ((p2.y - p1.y) / dist.y + 1);
+    if (dist.x == 0) {
+        number.x = 1;  // see below: (n.x - 1) is 0 // d.x is 0 too
+    } else {
+        number.x = ((p2.x - p1.x) / dist.x) + 1;
+    }
+    if (dist.y == 0) {
+        number.y = 1;  // see below: (n.y - 1) is 0 // d.y is 0 too
+    } else {
+        number.y = ((p2.y - p1.y) / dist.y) + 1;
+    }
 
     return BdcffFormat("Raster") << p1 << number << dist << element;
 }
